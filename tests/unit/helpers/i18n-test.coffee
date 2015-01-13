@@ -1,4 +1,4 @@
-`import I18nHelper from 'studio/helpers/i18n'`
+`import I18nHelper from 'gateway/helpers/i18n'`
 
 module 'I18nHelper'
 
