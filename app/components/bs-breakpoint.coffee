@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
-`import BsClearfixComponent from 'gateway/components/bs-clearfix'`
+`import BsBaseComponent from 'gateway/components/bs-base'`
 
-BsBreakpointComponent = BsClearfixComponent.extend
-  classNames: 'clearfix'
+BsBreakpointComponent = BsBaseComponent.extend
+  clearfix: true
   'visible-xs-block': Ember.computed 'xs', -> @get 'xs'
   'visible-sm-block': Ember.computed 'sm', -> @get 'sm'
   'visible-md-block': Ember.computed 'md', -> @get 'md'

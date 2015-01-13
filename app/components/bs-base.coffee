@@ -2,12 +2,14 @@
 
 BsBaseComponent = Ember.Component.extend
   classNameBindings: [
+    'clearfix'
     'visibileBlockClasses'
     'visibileInlineClasses'
     'visibileInlineBlockClasses'
     'hiddenClasses'
   ]
   sizes: ['xs', 'sm', 'md', 'lg']
+  clearfix: false
   visibileBlockClasses: Ember.computed 'visible-{xs,sm,md,lg}-block', ->
     (for size in @get 'sizes'
       visibleClass = "visible-#{size}-block"
