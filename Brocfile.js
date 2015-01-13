@@ -1,6 +1,8 @@
 /* global require, module */
 
-var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var EmberApp = require('ember-cli/lib/broccoli/ember-app'),
+  pickFiles = require('broccoli-static-compiler'),
+  mergeTrees = require('broccoli-merge-trees');
 
 var app = new EmberApp();
 
@@ -17,4 +19,26 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-module.exports = app.toTree();
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js')
+app.import('bower_components/i18next/i18next.js');
+app.import('bower_components/moment/moment.js');
+app.import('bower_components/moment/locale/es.js');
+app.import('bower_components/moment/locale/hi.js');
+
+i18n = pickFiles('app', {
+ srcDir: '/',
+ files: ['locales/*/*.json'],
+ destDir: '/'
+});
+
+retinaIcons = pickFiles('bower_components/bower-retina-icons', {
+ srcDir: '/',
+ files: ['assets/fonts/*'],
+ destDir: '/'
+});
+
+module.exports = mergeTrees([
+  app.toTree(),
+  i18n,
+  retinaIcons
+]);

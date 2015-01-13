@@ -1,0 +1,12 @@
+// app.scss
+//
+// This file imports the preferred app.sass entry-point.
+//
+// TODO
+// This file depends on a forked version of `ember-cli-compass-compiler`.  When
+// the fork is merged into the main project, `package.json` should be updated to
+// refer to the main project.  Hopefully, `app.sass` entry-points will also be
+// supported at that time.  See:
+// https://github.com/quaertym/ember-cli-compass-compiler/pull/38
+
+@import "app.sass"
