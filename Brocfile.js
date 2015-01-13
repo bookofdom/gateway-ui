@@ -21,6 +21,9 @@ var app = new EmberApp();
 
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js')
 app.import('bower_components/i18next/i18next.js');
+app.import('bower_components/moment/moment.js');
+app.import('bower_components/moment/locale/es.js');
+app.import('bower_components/moment/locale/hi.js');
 
 i18n = pickFiles('app', {
  srcDir: '/',

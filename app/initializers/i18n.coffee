@@ -10,8 +10,8 @@ I18nInitializer =
       fallbackLng: 'en'
     ,
       ->
-        #locale = i18n.lng()
-        #moment.locale locale
+        locale = i18n.lng()
+        moment.locale locale
         Ember.Handlebars.registerBoundHelper 't', I18nHelper
 
 `export default I18nInitializer`
