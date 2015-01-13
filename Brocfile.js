@@ -31,7 +31,14 @@ i18n = pickFiles('app', {
  destDir: '/'
 });
 
+retinaIcons = pickFiles('bower_components/bower-retina-icons', {
+ srcDir: '/',
+ files: ['assets/fonts/*'],
+ destDir: '/'
+});
+
 module.exports = mergeTrees([
   app.toTree(),
-  i18n
+  i18n,
+  retinaIcons
 ]);
