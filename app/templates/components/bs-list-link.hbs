@@ -1,0 +1,10 @@
+{{#if arg1}}
+  {{#link-to path arg1 tabindex=-1}}
+    {{partial 'components/bs-typography'}}
+  {{/link-to}}
+{{/if}}
+{{#unless arg1}}
+  {{#link-to path tabindex=-1}}
+    {{partial 'components/bs-typography'}}
+  {{/link-to}}
+{{/unless}}
