@@ -4,8 +4,6 @@
 BsDropdownComponent = BsTypographyComponent.extend
   classNames: ['dropdown']
   style: 'default'
-  left: null
-  right: null
   buttonStyleClass: Ember.computed 'style', -> "btn-#{@get 'style'}"
   alignmentClass: Ember.computed '{left,right}', ->
     'dropdown-menu-left' if @get 'left'

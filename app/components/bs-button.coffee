@@ -4,14 +4,12 @@
 BsButtonComponent = BsTypographyComponent.extend
   tagName: 'a'
   classNames: ['btn']
-  classNameBindings: ['styleClass', 'sizeClass', 'active', 'disabled', 'block:btn-block']
+  classNameBindings: ['styleClass', 'sizeClass', 'block:btn-block']
   action: null
   style: 'primary'
   xs: false
   sm: false
   lg: false
-  active: false
-  disabled: false
   block: false
   styleClass: Ember.computed 'style', -> "btn-#{@get 'style'}"
   sizeClass: Ember.computed '{xs,sm,lg}', ->

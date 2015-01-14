@@ -3,5 +3,6 @@
 
 BsH4Component = BsTypographyComponent.extend
   tagName: 'h4'
+  capitalize: true
 
 `export default BsH4Component`
