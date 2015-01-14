@@ -15,3 +15,12 @@ test 'it renders', ->
   # appends the component to the page
   @append()
   equal component._state, 'inDOM'
+
+test 'it has expected classes', ->
+  expect 4
+  component = @subject()
+  ok !@$().attr('class').split(' ').contains('container')
+  ok @$().attr('class').split(' ').contains('container-fluid')
+  Ember.run -> component.set 'fluid', false
+  ok @$().attr('class').split(' ').contains('container')
+  ok !@$().attr('class').split(' ').contains('container-fluid')
