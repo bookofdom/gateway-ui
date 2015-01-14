@@ -1,0 +1,12 @@
+<table {{bind-attr class=':table striped:table-striped bordered:table-bordered hover:table-hover condensed:table-condensed'}}>
+  <thead>
+    <tr>
+      {{#each headings-text}}
+        <th>{{this}}</th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{yield}}
+  </tbody>
+</table>
