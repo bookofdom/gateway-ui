@@ -3,7 +3,7 @@
 moduleForComponent 'bs-submit', 'BsSubmitComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
-  needs: ['template:components/bs-typography', 'template:components/bs-button']
+  needs: ['template:components/bs-text', 'template:components/bs-button']
 }
 
 test 'it renders', ->

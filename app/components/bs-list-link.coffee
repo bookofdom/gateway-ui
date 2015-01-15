@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import BsTypographyComponent from 'gateway/components/bs-typography'`
+`import BsTextComponent from 'gateway/components/bs-text'`
 
-BsListLinkComponent = BsTypographyComponent.extend
+BsListLinkComponent = BsTextComponent.extend
   tagName: 'li'
   attributeBindings: ['role']
   path: null

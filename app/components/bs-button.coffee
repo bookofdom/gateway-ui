@@ -1,11 +1,12 @@
 `import Ember from 'ember'`
-`import BsTypographyComponent from 'gateway/components/bs-typography'`
+`import BsTextComponent from 'gateway/components/bs-text'`
 
-BsButtonComponent = BsTypographyComponent.extend
+BsButtonComponent = BsTextComponent.extend
   tagName: 'a'
   classNames: ['btn']
   classNameBindings: ['styleClass', 'sizeClass', 'block:btn-block']
   action: null
+  capitalize: true
   style: 'primary'
   xs: false
   sm: false

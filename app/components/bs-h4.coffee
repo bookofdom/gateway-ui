@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import BsTypographyComponent from 'gateway/components/bs-typography'`
+`import BsTextComponent from 'gateway/components/bs-text'`
 
-BsH4Component = BsTypographyComponent.extend
+BsH4Component = BsTextComponent.extend
   tagName: 'h4'
   capitalize: true
 

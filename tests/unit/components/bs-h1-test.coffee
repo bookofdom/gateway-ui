@@ -3,7 +3,7 @@
 moduleForComponent 'bs-h1', 'BsH1Component', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
-  needs: ['template:components/bs-typography']
+  needs: ['template:components/bs-text']
 }
 
 test 'it renders', ->

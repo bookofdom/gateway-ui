@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import BsTypographyComponent from 'gateway/components/bs-typography'`
+`import BsTextComponent from 'gateway/components/bs-text'`
 
-BsDropdownComponent = BsTypographyComponent.extend
+BsDropdownComponent = BsTextComponent.extend
   classNames: ['dropdown']
   style: 'default'
   buttonStyleClass: Ember.computed 'style', -> "btn-#{@get 'style'}"

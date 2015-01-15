@@ -1,9 +1,8 @@
 `import { test, moduleForComponent } from 'ember-qunit'`
 
-moduleForComponent 'bs-h4', 'BsH4Component', {
+moduleForComponent 'bs-icon', 'BsIconComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
-  needs: ['template:components/bs-text']
 }
 
 test 'it renders', ->
@@ -16,8 +15,3 @@ test 'it renders', ->
   # appends the component to the page
   @append()
   equal component._state, 'inDOM'
-
-test 'it renders an h4 tag', ->
-  expect 1
-  component = @subject()
-  equal @$().prop('tagName').toLowerCase(), 'h4'
