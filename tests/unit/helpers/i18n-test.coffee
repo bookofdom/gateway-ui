@@ -1,4 +1,4 @@
-`import I18nHelper from 'studio/helpers/i18n'`
+`import I18nHelper from 'gateway/helpers/i18n'`
 
 module 'I18nHelper'
 
@@ -6,3 +6,7 @@ module 'I18nHelper'
 test 'it works', ->
   result = I18nHelper 'test'
   equal result, ''
+
+# TODO
+# how to unit test i18n?
+# translations are loaded via AJAX, thus not generally available to unit tests

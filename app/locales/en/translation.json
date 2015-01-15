@@ -1,4 +1,19 @@
 {
+  "dev": {
+    "components": "component library",
+    "bootstrap": "bootstrap",
+    "grid": "grid",
+    "grid_plural": "grids",
+    "container": "container",
+    "row": "row",
+    "column": "column",
+    "option": "option",
+    "option_plural": "options",
+    "heading": "heading",
+    "secondary": "secondary text",
+    "button": "button",
+    "button_plural": "buttons"
+  },
   "brands": {
     "anypresence": "AnyPresence"
   }
