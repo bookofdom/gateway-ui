@@ -1,5 +1,14 @@
-<div class="panel-heading">
-  {{partial 'components/bs-text'}}
+<div class="panel-heading text-capitalize">
+  {{#if hasIconBefore}}
+    {{bs-icon icon=icon}}
+  {{/if}}
+  {{text}}
+  {{#if secondary-text}}
+    <small>{{secondary-text}}</small>
+  {{/if}}
+  {{#if hasIconAfter}}
+    {{bs-icon icon=icon}}
+  {{/if}}
 </div>
 <div class="panel-body">
   {{yield}}
