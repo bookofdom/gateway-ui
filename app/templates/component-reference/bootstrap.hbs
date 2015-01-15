@@ -306,6 +306,25 @@
   {{#bs-row}}
     {{#bs-col sm=12}}
       <hr>
+      {{bs-h3 t='Panels'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      <code>\{{#bs-panel t='dev.heading' style='success'}}&hellip;\{{/bs-panel}}</code><br>
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>style</code></th><td>Optional string.  For example:  <code>default</code>, <code>primary</code>, etc.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{#bs-panel t='dev.heading' style='success'}}&hellip;{{/bs-panel}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
       {{bs-h2 t='Table'}}
     {{/bs-col}}
   {{/bs-row}}
