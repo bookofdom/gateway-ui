@@ -1,6 +1,6 @@
 `import { test, moduleForComponent } from 'ember-qunit'`
 
-moduleForComponent 'bs-icon', 'BsIconComponent', {
+moduleForComponent 'ap-icon', 'ApIconComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
 }
