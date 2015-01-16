@@ -166,6 +166,7 @@
         <tr><th><code>secondary</code></th><td>Optional string.  May be either a literal or an i18n translation key.</td></tr>
         <tr><th><code>icon</code></th><td>Optional string.</td></tr>
         <tr><th><code>iconAfter</code></th><td>Optional boolean.  By default, icons are placed before the text unless this option is <code>true</code>.</td></tr>
+        <tr><th><code>show-text</code></th><td>Optional boolean.  Defaults to <code>true</code>.  When <code>false</code>, text is still rendered, but hidden from all devices except screen-readers.  In cases where only icons are desired, provide semantic text anyway and hide it with this option, instead of omitting it entirely.</td></tr>
       {{/bs-table}}
     {{/bs-col}}
   {{/bs-row}}
@@ -208,6 +209,7 @@
       <code>\{{bs-button t='dev.button_plural' lg=true icon='the-essentials-001'}}</code><br>
       <code>\{{bs-button t='dev.button_plural' sm=true}}</code><br>
       <code>\{{bs-button t='dev.button_plural' xs=true}}</code><br>
+      <code>\{{bs-button t='dev.button_plural' show-text=false icon='the-essentials-001'}}</code><br>
       <code>\{{bs-button t='dev.button_plural' style='default'}}</code><br>
       <code>\{{bs-button t='dev.button_plural'}}</code><br>
       <code>\{{bs-button t='dev.button_plural' style='success'}}</code><br>
@@ -228,6 +230,8 @@
       {{bs-button t='dev.button_plural' lg=true icon='the-essentials-001'}}
       {{bs-button t='dev.button_plural' sm=true}}
       {{bs-button t='dev.button_plural' xs=true}}
+      <br><br>
+      {{bs-button t='dev.button_plural' show-text=false icon='the-essentials-001'}}
       <br><br>
       {{bs-button t='dev.button_plural' style='default'}}
       {{bs-button t='dev.button_plural'}}
