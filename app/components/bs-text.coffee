@@ -7,6 +7,7 @@ BsTextComponent = BsBaseComponent.extend
   secondary: null
   icon: null
   iconAfter: false
+  'show-text': true
   text: Ember.computed 't', ->
     text = @get 't'
     t text if text
@@ -17,5 +18,8 @@ BsTextComponent = BsBaseComponent.extend
     @get('icon') and !@get('iconAfter')
   hasIconAfter: Ember.computed 'icon', 'iconAfter', ->
     @get('icon') and @get('iconAfter')
+  textSrOnly: Ember.computed 'show-text', -> !@get 'show-text'
+  textSrOnlyClass: Ember.computed 'textSrOnly', ->
+    "sr-only" if @get 'textSrOnly'
 
 `export default BsTextComponent`
