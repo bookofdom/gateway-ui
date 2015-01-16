@@ -68,7 +68,7 @@ BsBaseComponent = Ember.Component.extend
     else if @get 'capitalize'
       'text-capitalize'
   textContextClass: Ember.computed 'text-{muted,primary,success,info,warning,danger}', ->
-    states = @get 'stateNames'
+    states = @get('stateNames').slice()
     states.push 'muted'
     (for state in states
       stateClass = "text-#{state}"
