@@ -1,0 +1,223 @@
+{{#bs-container}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <div class="page-header">
+        {{bs-h1 t='AnyPresence' secondary='Ember Component Reference'}}
+      </div>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='List Navs'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='List Nav'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+    
+      {{bs-h4 t='Simple Icon Nav'}}
+      {{#ap-list-nav-simple-icon}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009' action='duplicate'}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009' action='delete'}}
+      {{/ap-list-nav-simple-icon}}
+      
+      {{bs-h4 t='Big Icon Nav'}}
+      {{#ap-list-nav-xl-circle-icon}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}
+      {{/ap-list-nav-xl-circle-icon}}
+      
+      {{bs-h4 t='Vertical Icon Nav'}}
+      {{#ap-list-nav-vertical-icon}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}
+      {{/ap-list-nav-vertical-icon}}
+      
+      {{bs-h4 t='Vertical Circle Icon Nav'}}
+      {{#ap-list-nav-vertical-circle-icon lg=true circle=true show-text=false}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}
+      {{/ap-list-nav-vertical-circle-icon}}
+      
+      {{bs-h4 t='Vertical Text Nav'}}
+      {{#ap-list-nav-vertical}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary'}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary'}}
+        {{ap-list-link t='dev.heading' secondary='dev.secondary'}}
+      {{/ap-list-nav-vertical}}
+      
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h2 t='List Link Options'}}
+      <p>All AnyPresence list links have the following options.</p>
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>circle</code></th><td>Optional boolean.  Defaults to <code>false</code>.</td></tr>
+        <tr><th><code>reversed</code></th><td>Optional boolean.  Defaults to <code>false</code>.</td></tr>
+        <tr><th><code>secondary-hover</code></th><td>Optional boolean.  Defaults to <code>false</code>.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='List Link Icon Sizes'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      <ul class="list-inline">
+        {{ap-list-link xl=true t='dev.heading' show-text=false secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link lg=true t='dev.heading' show-text=false secondary='dev.secondary' icon='gadgets-device-tech020'}}
+        {{ap-list-link t='dev.heading' show-text=false secondary='dev.secondary' icon='gadgets-device-tech031'}}
+        {{ap-list-link sm=true t='dev.heading' show-text=false secondary='dev.secondary' icon='gadgets-device-tech042'}}
+        {{ap-list-link xs=true t='dev.heading' show-text=false secondary='dev.secondary' icon='gadgets-device-tech045'}}
+      </ul>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='Horizontal List Link Icons'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      <ul class="list-inline">
+        {{ap-list-link t='dev.heading' show-text=false secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link t='dev.heading' show-text=false secondary='dev.secondary' icon='gadgets-device-tech020'}}
+        {{ap-list-link t='dev.heading' show-text=false secondary='dev.secondary' icon='gadgets-device-tech031'}}
+      </ul>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='Vertical List Link Icons'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      <ul class="list-unstyled">
+        {{ap-list-link t='dev.heading' show-text=false secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link t='dev.heading' show-text=false secondary='dev.secondary' icon='gadgets-device-tech020'}}
+        {{ap-list-link t='dev.heading' show-text=false secondary='dev.secondary' icon='gadgets-device-tech031'}}
+      </ul>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='Circle-Background List Link Icons'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      <ul class="list-inline">
+        {{ap-list-link t='dev.heading' show-text=false circle=true secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link t='dev.heading' show-text=false circle=true secondary='dev.secondary' icon='gadgets-device-tech020'}}
+        {{ap-list-link t='dev.heading' show-text=false circle=true secondary='dev.secondary' icon='gadgets-device-tech031'}}
+      </ul>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='Circle-Background List Link Icons with Text'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      <ul class="list-inline">
+        {{ap-list-link t='dev.heading' circle=true secondary='dev.secondary' icon='gadgets-device-tech009'}}
+      </ul>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='Circle-Background List Link Icons with Secondary Text on Hover'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      <ul class="list-inline">
+        {{ap-list-link t='dev.heading' circle=true secondary='dev.secondary' secondary-hover=true icon='gadgets-device-tech009'}}
+      </ul>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='Circle-Background List Link Icons with Active State'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      <ul class="list-unstyled">
+        {{ap-list-link t='dev.heading' circle=true secondary='dev.secondary' icon='gadgets-device-tech009'}}
+        {{ap-list-link t='dev.heading' circle=true active=true secondary='dev.secondary' icon='gadgets-device-tech009'}}
+      </ul>
+    {{/bs-col}}
+  {{/bs-row}}
+
+{{/bs-container}}
+
+<br>
+<br>
+<br>

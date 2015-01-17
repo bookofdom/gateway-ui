@@ -7,5 +7,6 @@ Router = Ember.Router.extend
 Router.map ->
   @route 'component-reference', ->
     @route 'bootstrap'
+  @route 'component-reference/anypresence'
 
 `export default Router`
