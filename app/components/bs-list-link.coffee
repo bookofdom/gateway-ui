@@ -3,9 +3,9 @@
 
 BsListLinkComponent = BsTextComponent.extend
   tagName: 'li'
-  attributeBindings: ['role']
+  action: null
   path: null
   arg1: null
-  role: 'presentation'
+  click: -> @sendAction() if !@get 'disabled'
 
 `export default BsListLinkComponent`
