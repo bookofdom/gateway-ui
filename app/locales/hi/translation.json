@@ -1,0 +1,11 @@
+{
+  "dev": {
+    "text": "text",
+    "heading": "heading",
+    "heading_plural": "headings",
+    "secondary": "secondary text"
+  },
+  "brands": {
+    "anypresence": "AnyPresence"
+  }
+}

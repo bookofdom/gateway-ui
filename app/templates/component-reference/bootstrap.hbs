@@ -1,0 +1,360 @@
+{{#bs-container}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <div class="page-header">
+        {{bs-h1 t='Bootstrap' secondary='Ember Component Reference'}}
+      </div>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      {{bs-h2 t='Default Options'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <p>All components have the following options.</p>
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{bs-h3 t='Misc'}}
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>active</code></th><td>Optional boolean.  Adds an <code>active</code> class.</td></tr>
+        <tr><th><code>disabled</code></th><td>Optional boolean.  Adds a <code>disabled</code> class.</td></tr>
+        <tr><th><code>clearfix</code></th><td>Optional boolean.  Adds a <code>clearfix</code> class.</td></tr>
+        <tr><th><code>left</code></th><td>Optional boolean.  Adds a <code>pull-left</code> class.</td></tr>
+        <tr><th><code>right</code></th><td>Optional boolean.  Adds a <code>pull-right</code> class.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{bs-h3 t='Visibility'}}
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>visible-*-block</code></th><td>Optional boolean.  <code>*</code> is one of <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code></td></tr>
+        <tr><th><code>visible-*-inline</code></th><td>Optional boolean.  <code>*</code> is one of <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code></td></tr>
+        <tr><th><code>visible-*-inline-block</code></th><td>Optional boolean.  <code>*</code> is one of <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code></td></tr>
+        <tr><th><code>hidden-*</code></th><td>Optional boolean.  <code>*</code> is one of <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code></td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{bs-breakpoint}}
+    {{#bs-col sm=6}}
+      {{bs-h3 t='Text Alignment' secondary='Only one allowed'}}
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>text-left</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>text-right</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>text-center</code></th><td>Optional boolean.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{bs-h3 t='Text Transform' secondary='Only one allowed'}}
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>uppercase</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>lowercase</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>capitalize</code></th><td>Optional boolean.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{bs-breakpoint}}
+    {{#bs-col sm=6}}
+      {{bs-h3 t='Text Context Color' secondary='Only one allowed'}}
+      
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>text-muted</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>text-primary</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>text-success</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>text-info</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>text-warning</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>text-danger</code></th><td>Optional boolean.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{bs-h3 t='Background Context Color' secondary='Only one allowed'}}
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>bg-muted</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>bg-primary</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>bg-success</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>bg-info</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>bg-warning</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>bg-danger</code></th><td>Optional boolean.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h2 t='Grids'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      <code>\{{#bs-container}}&hellip;\{{/bs-container}}</code>
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+<pre>{{literal-tag 'div class="container-fluid"'}}&hellip;{{literal-tag '/div'}}</pre>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      <code>\{{#bs-container}}&hellip;\{{/bs-container}}</code>
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+<pre>{{literal-tag 'div class="container-fluid"'}}&hellip;{{literal-tag '/div'}}</pre>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      <code>\{{#bs-row}}&hellip;\{{/bs-row}}</code>
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+<pre>{{literal-tag 'div class="row"'}}&hellip;{{literal-tag '/div'}}</pre>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      <code>\{{#bs-col xs=2 xs-offset=2 xs-pull=3}}&hellip;\{{/bs-col}}</code>
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>xs</code></th><td>Optional integer</td></tr>
+        <tr><th><code>sm</code></th><td>Optional integer</td></tr>
+        <tr><th><code>md</code></th><td>Optional integer</td></tr>
+        <tr><th><code>lg</code></th><td>Optional integer</td></tr>
+        <tr><th><code>*-offset</code></th><td>Optional integer.  <code>*</code> is one of <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code></td></tr>
+        <tr><th><code>*-push</code></th><td>Optional integer.  <code>*</code> is one of <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code></td></tr>
+        <tr><th><code>*-pull</code></th><td>Optional integer.  <code>*</code> is one of <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code></td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+<pre>{{literal-tag 'div class="col-xs-2 col-xs-offset-2 col-xs-pull-2"'}}&hellip;{{literal-tag '/div'}}</pre>
+    {{/bs-col}}
+  {{/bs-row}}
+
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      <code>\{{bs-breakpoint}}</code><br>
+      <code>\{{bs-breakpoint xs=true}}</code><br>
+      <code>\{{bs-breakpoint sm=true}}</code><br>
+      <code>\{{bs-breakpoint md=true}}</code><br>
+      <code>\{{bs-breakpoint lg=true}}</code><br>
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+<pre>{{literal-tag 'div class="clearfix"'}}{{literal-tag '/div'}}</pre>
+<pre>{{literal-tag 'div class="clearfix visible-xs-block"'}}{{literal-tag '/div'}}</pre>
+<pre>{{literal-tag 'div class="clearfix visible-sm-block"'}}{{literal-tag '/div'}}</pre>
+<pre>{{literal-tag 'div class="clearfix visible-md-block"'}}{{literal-tag '/div'}}</pre>
+<pre>{{literal-tag 'div class="clearfix visible-lg-block"'}}{{literal-tag '/div'}}</pre>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h2 t='Text-Rendering Components'}}
+      <p>Many components are capable of rendering literal strings or i18n translations, with no additional effort.</p>
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      {{bs-h3 t='Default Text-Rendering Options'}}
+      <p>All text-rendering components have these options.</p>
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>t</code></th><td>Optional string.  May be either a literal or an i18n translation key.</td></tr>
+        <tr><th><code>secondary</code></th><td>Optional string.  May be either a literal or an i18n translation key.</td></tr>
+        <tr><th><code>icon</code></th><td>Optional string.</td></tr>
+        <tr><th><code>iconAfter</code></th><td>Optional boolean.  By default, icons are placed before the text unless this option is <code>true</code>.</td></tr>
+        <tr><th><code>show-text</code></th><td>Optional boolean.  Defaults to <code>true</code>.  When <code>false</code>, text is still rendered, but hidden from all devices except screen-readers.  In cases where only icons are desired, provide semantic text anyway and hide it with this option, instead of omitting it entirely.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='Headings'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      <code>\{{bs-h1 t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}</code><br>
+      <code>\{{bs-h2 t='dev.heading' secondary='dev.secondary'}}</code><br>
+      <code>\{{bs-h3 t='dev.heading' secondary='dev.secondary'}}</code><br>
+      <code>\{{bs-h4 t='dev.heading' secondary='dev.secondary'}}</code><br>
+      <code>\{{bs-h5 t='dev.heading' secondary='dev.secondary'}}</code><br>
+      <code>\{{bs-h6 t='dev.heading' secondary='dev.secondary'}}</code>
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{bs-h1 t='dev.heading' secondary='dev.secondary' icon='gadgets-device-tech009'}}
+      {{bs-h2 t='dev.heading' secondary='dev.secondary'}}
+      {{bs-h3 t='dev.heading' secondary='dev.secondary'}}
+      {{bs-h4 t='dev.heading' secondary='dev.secondary'}}
+      {{bs-h5 t='dev.heading' secondary='dev.secondary'}}
+      {{bs-h6 t='dev.heading' secondary='dev.secondary'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='Buttons'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      <code>\{{bs-button t='dev.button_plural' lg=true icon='the-essentials-001'}}</code><br>
+      <code>\{{bs-button t='dev.button_plural' sm=true}}</code><br>
+      <code>\{{bs-button t='dev.button_plural' xs=true}}</code><br>
+      <code>\{{bs-button t='dev.button_plural' show-text=false icon='the-essentials-001'}}</code><br>
+      <code>\{{bs-button t='dev.button_plural' style='default'}}</code><br>
+      <code>\{{bs-button t='dev.button_plural'}}</code><br>
+      <code>\{{bs-button t='dev.button_plural' style='success'}}</code><br>
+      <code>\{{bs-button t='dev.button_plural' style='info'}}</code><br>
+      <code>\{{bs-button t='dev.button_plural' style='warning'}}</code><br>
+      <code>\{{bs-button t='dev.button_plural' style='danger'}}</code><br>
+      <code>\{{bs-button t='dev.button_plural' block=true}}</code><br>
+      <br>
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>xs</code></th><td>Optional boolean. Button size xs.</td></tr>
+        <tr><th><code>sm</code></th><td>Optional boolean. Button size sm.</td></tr>
+        <tr><th><code>lg</code></th><td>Optional boolean. Button size lg.</td></tr>
+        <tr><th><code>block</code></th><td>Optional boolean. Sets button to block element.</td></tr>
+        <tr><th><code>style</code></th><td>Optional string.  For example, <code>default</code>, <code>success</code>, etc.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{bs-button t='dev.button_plural' lg=true icon='the-essentials-001'}}
+      {{bs-button t='dev.button_plural' sm=true}}
+      {{bs-button t='dev.button_plural' xs=true}}
+      <br><br>
+      {{bs-button t='dev.button_plural' show-text=false icon='the-essentials-001'}}
+      <br><br>
+      {{bs-button t='dev.button_plural' style='default'}}
+      {{bs-button t='dev.button_plural'}}
+      {{bs-button t='dev.button_plural' style='success'}}
+      {{bs-button t='dev.button_plural' style='info'}}
+      {{bs-button t='dev.button_plural' style='warning'}}
+      {{bs-button t='dev.button_plural' style='danger'}}
+      <br><br>
+      {{bs-button t='dev.button_plural' block=true}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='Submit Buttons'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      <code>\{{bs-submit t='submit button'}}</code>
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{bs-submit t='submit button'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='Dropdown'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+<pre>\{{#bs-dropdown t='info@foobar.com' style='default'}}
+  \{{bs-list-link t='dev.secondary'}}
+  \{{bs-list-link t='Bootstrap'}}
+\{{/bs-dropdown}}</pre>
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>style</code></th><td>Optional string.  For example, <code>default</code>, <code>success</code>, etc.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{#bs-dropdown t='info@foobar.com' style='default'}}
+        {{bs-list-link t='dev.secondary'}}
+        {{bs-list-link t='Bootstrap'}}
+      {{/bs-dropdown}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='List Item Links'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      <code>\{{bs-list-link path='component-reference' t='Component Library'}}</code><br>
+      <code>\{{bs-list-link t='Bootstrap'}}</code><br>
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>path</code></th><td>Optional string.  Ember route path.</td></tr>
+        <tr><th><code>arg1</code></th><td>Optional object passed to link-to as an argument.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{bs-list-link path='component-reference' t='dev.secondary'}}
+      {{bs-list-link t='Bootstrap'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h3 t='Panels'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      <code>\{{#bs-panel t='dev.heading' style='success'}}&hellip;\{{/bs-panel}}</code><br>
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>style</code></th><td>Optional string.  For example:  <code>default</code>, <code>primary</code>, etc.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{#bs-panel t='dev.heading' style='success'}}&hellip;{{/bs-panel}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h2 t='Table'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+<pre>\{{#bs-table headings='dev.heading, heading 2, heading 3'}}
+  &hellip;
+\{{/bs-table}}</pre>
+      {{#bs-table headings='Option,Description' bordered=true}}
+        <tr><th><code>headings</code></th><td>String, comma-separated.  May contain either literals or i18n translation keys.</td></tr>
+        <tr><th><code>striped</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>bordered</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>hover</code></th><td>Optional boolean.</td></tr>
+        <tr><th><code>condensed</code></th><td>Optional boolean.</td></tr>
+      {{/bs-table}}
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{#bs-table headings='dev.heading, heading 2, heading 3'}}
+        &hellip;
+      {{/bs-table}}
+    {{/bs-col}}
+  {{/bs-row}}
+
+{{/bs-container}}
+
+<br>
+<br>
+<br>

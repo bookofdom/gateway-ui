@@ -1,0 +1,15 @@
+<div class="panel-heading text-capitalize">
+  {{#if hasIconBefore}}
+    {{ap-icon icon=icon}}
+  {{/if}}
+  {{text}}
+  {{#if secondary-text}}
+    <small>{{secondary-text}}</small>
+  {{/if}}
+  {{#if hasIconAfter}}
+    {{ap-icon icon=icon}}
+  {{/if}}
+</div>
+<div class="panel-body">
+  {{yield}}
+</div>

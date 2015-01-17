@@ -9,9 +9,12 @@
 /bower_components
 
 # misc
+.env
+.DS_Store
 /.sass-cache
 /connect.lock
 /coverage/*
 /libpeerconnection.log
 npm-debug.log
 testem.log
+.tddium*
