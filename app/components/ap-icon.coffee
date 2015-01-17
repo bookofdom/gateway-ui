@@ -1,12 +1,13 @@
 `import Ember from 'ember'`
 `import BsBaseComponent from 'gateway/components/bs-base'`
 
-BsIconComponent = BsBaseComponent.extend
-  tagName: 'i'
-  classNameBindings: ['iconClass']
+ApIconComponent = BsBaseComponent.extend
+  tagName: 'span'
+  classNames: ['ap-icon']
   icon: null
+  style: 'primary'
   iconClass: Ember.computed 'icon', ->
     icon = @get 'icon'
     "retina-#{icon}" if icon
 
-`export default BsIconComponent`
+`export default ApIconComponent`

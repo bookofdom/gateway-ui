@@ -37,10 +37,10 @@ test 'it has expected size classes', ->
       sm: 9
       md: 6
       lg: 3
-  ok @$().attr('class').split(' ').contains('col-xs-12')
-  ok @$().attr('class').split(' ').contains('col-sm-9')
-  ok @$().attr('class').split(' ').contains('col-md-6')
-  ok @$().attr('class').split(' ').contains('col-lg-3')
+  ok @$().is('.col-xs-12')
+  ok @$().is('.col-sm-9')
+  ok @$().is('.col-md-6')
+  ok @$().is('.col-lg-3')
 
 test 'it has expected offset classes', ->
   expect 4
@@ -51,10 +51,10 @@ test 'it has expected offset classes', ->
       'sm-offset': 9
       'md-offset': 6
       'lg-offset': 3
-  ok @$().attr('class').split(' ').contains('col-xs-offset-12')
-  ok @$().attr('class').split(' ').contains('col-sm-offset-9')
-  ok @$().attr('class').split(' ').contains('col-md-offset-6')
-  ok @$().attr('class').split(' ').contains('col-lg-offset-3')
+  ok @$().is('.col-xs-offset-12')
+  ok @$().is('.col-sm-offset-9')
+  ok @$().is('.col-md-offset-6')
+  ok @$().is('.col-lg-offset-3')
 
 test 'it has expected push classes', ->
   expect 4
@@ -65,10 +65,10 @@ test 'it has expected push classes', ->
       'sm-push': 9
       'md-push': 6
       'lg-push': 3
-  ok @$().attr('class').split(' ').contains('col-xs-push-12')
-  ok @$().attr('class').split(' ').contains('col-sm-push-9')
-  ok @$().attr('class').split(' ').contains('col-md-push-6')
-  ok @$().attr('class').split(' ').contains('col-lg-push-3')
+  ok @$().is('.col-xs-push-12')
+  ok @$().is('.col-sm-push-9')
+  ok @$().is('.col-md-push-6')
+  ok @$().is('.col-lg-push-3')
 
 test 'it has expected pull classes', ->
   expect 4
@@ -79,7 +79,7 @@ test 'it has expected pull classes', ->
       'sm-pull': 9
       'md-pull': 6
       'lg-pull': 3
-  ok @$().attr('class').split(' ').contains('col-xs-pull-12')
-  ok @$().attr('class').split(' ').contains('col-sm-pull-9')
-  ok @$().attr('class').split(' ').contains('col-md-pull-6')
-  ok @$().attr('class').split(' ').contains('col-lg-pull-3')
+  ok @$().is('.col-xs-pull-12')
+  ok @$().is('.col-sm-pull-9')
+  ok @$().is('.col-md-pull-6')
+  ok @$().is('.col-lg-pull-3')

@@ -20,7 +20,7 @@ test 'it renders the expected markup', ->
   expect 5
   component = @subject()
   equal @$().prop('tagName').toLowerCase(), 'div'
-  ok @$().attr('class').split(' ').contains('table-responsive')
+  ok @$().is('.table-responsive')
   equal @$().find('table.table').length, 1
   equal @$().find('thead').length, 1
   equal @$().find('tbody').length, 1

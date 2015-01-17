@@ -19,4 +19,4 @@ test 'it renders', ->
 test 'it has expected classes', ->
   expect 1
   component = @subject()
-  ok @$().attr('class').split(' ').contains('row')
+  ok @$().is('.row')

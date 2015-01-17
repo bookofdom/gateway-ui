@@ -54,7 +54,7 @@ test 'it triggers an action on click', ->
     component.set 'targetObject', targetObject
   @$().click()
 
-test 'it does not triggers an action on click if none is specified', ->
+test 'it does not trigger an action on click if none is specified', ->
   expect 0
   component = @subject()
   targetObject =

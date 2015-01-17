@@ -1,6 +1,6 @@
 `import { test, moduleForComponent } from 'ember-qunit'`
 
-moduleForComponent 'bs-container', 'BsContainerComponent', {
+moduleForComponent 'ap-icon', 'ApIconComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
 }
@@ -16,11 +16,8 @@ test 'it renders', ->
   @append()
   equal component._state, 'inDOM'
 
-test 'it has expected classes', ->
-  expect 4
+test 'it renders expected markup', ->
+  expect 2
   component = @subject()
-  ok !@$().is('.container')
-  ok @$().is('.container-fluid')
-  Ember.run -> component.set 'fluid', false
-  ok @$().is('.container')
-  ok !@$().is('.container-fluid')
+  ok @$().is '.ap-icon'
+  equal @$().find('i').length, 1
