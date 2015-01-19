@@ -3,7 +3,7 @@
 
 ApListNavComponent = BsBaseComponent.extend
   tagName: 'ul'
-  classNames: ['ap-list', 'list-unstyled']
+  classNames: ['ap-list-nav', 'list-unstyled']
   classNameBindings: [
     'sizeClass'
     'inlineClass'

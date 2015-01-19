@@ -1,11 +1,35 @@
 {
   "dev": {
-    "text": "text",
+    "components": "component library",
+    "bootstrap": "bootstrap",
+    "grid": "grid",
+    "grid_plural": "grids",
+    "container": "container",
+    "row": "row",
+    "column": "column",
+    "option": "option",
+    "option_plural": "options",
     "heading": "heading",
-    "heading_plural": "headings",
-    "secondary": "secondary text"
+    "secondary": "secondary text",
+    "button": "button",
+    "button_plural": "buttons"
+  },
+  "actions": {
+    "toggle-navivagation": "toggle navigation"
   },
   "brands": {
-    "anypresence": "AnyPresence"
+    "anypresence": "AnyPresence",
+    "gateway": "Gateway"
+  },
+  "resources": {
+    "api": "API",
+    "api_plural": "APIs",
+    "api-endpoint": "API endpoint",
+    "api-endpoint_plural": "API endpoings"
+  },
+  "nav": {
+    "define-api": "define $t(resources.api)",
+    "define-api_plural": "define $t(resources.api_plural)",
+    "define-api-description": "define $t(resources.api-endpoint_plural) and workflow business logic"
   }
 }
