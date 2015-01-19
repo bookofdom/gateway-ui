@@ -15,6 +15,10 @@
     "button_plural": "buttons"
   },
   "brands": {
-    "anypresence": "AnyPresence"
+    "anypresence": "AnyPresence",
+    "gateway": "Gateway"
+  },
+  "actions": {
+    "toggle-navivagation": "toggle navigation"
   }
 }
