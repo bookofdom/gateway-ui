@@ -23,6 +23,7 @@
     "broccoli-ember-hbs-template-compiler": "^1.6.1",
     "broccoli-merge-trees": "0.2.1",
     "broccoli-static-compiler": "0.2.1",
+    "connect-restreamer": "^1.0.1",
     "ember-cli": "0.1.6",
     "ember-cli-coffeescript": "0.7.0",
     "ember-cli-compass-compiler": "git+https://github.com/christophercurrie/ember-cli-compass-compiler#33f7812f693b2340b151cf4e7db9ac795990b681",
@@ -35,6 +36,7 @@
     "ember-data": "1.0.0-beta.12",
     "ember-export-application-global": "^1.0.0",
     "express": "^4.8.5",
-    "glob": "^4.0.5"
+    "glob": "^4.0.5",
+    "morgan": "^1.5.1"
   }
 }
