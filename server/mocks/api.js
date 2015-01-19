@@ -4,8 +4,18 @@ module.exports = function(app) {
   var apis = [
     {
       id: 1,
-      name: 'MockAPI',
-      description: 'A mock API for testing purposes.'
+      name: 'Mock API',
+      description: 'Mock API for development purposes'
+    },
+    {
+      id: 2,
+      name: 'Demonstration API',
+      description: 'Demonstration of the API resource'
+    },
+    {
+      id: 3,
+      name: 'Testing API',
+      description: 'Another API for development purposes'
     }
   ];
 
