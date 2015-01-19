@@ -5,8 +5,12 @@ Router = Ember.Router.extend
   location: config.locationType
 
 Router.map ->
+  # development helpers
   @route 'component-reference', ->
     @route 'bootstrap'
     @route 'anypresence'
+  
+  # resources
+  @resource 'api', (->)
 
 `export default Router`
