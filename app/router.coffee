@@ -11,6 +11,6 @@ Router.map ->
     @route 'anypresence'
   
   # resources
-  @resource 'api', (->)
+  @resource 'apis', (->)
 
 `export default Router`

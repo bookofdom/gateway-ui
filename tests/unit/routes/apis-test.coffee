@@ -1,6 +1,6 @@
 `import { test, moduleFor } from 'ember-qunit'`
 
-moduleFor 'route:api', 'ApiRoute', {
+moduleFor 'route:apis', 'ApisRoute', {
   # Specify the other units that are required for this test.
   # needs: ['controller:foo']
 }
