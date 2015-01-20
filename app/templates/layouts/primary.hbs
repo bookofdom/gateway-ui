@@ -5,6 +5,9 @@
 
 <div class="ap-app-primary">
   <div class="ap-app-primary-sidebar">
+    {{#ap-list-nav-vertical-icon}}
+      {{partial 'application/nav-items-primary'}}
+    {{/ap-list-nav-vertical-icon}}
     {{outlet 'sidebar'}}
   </div><!-- /.ap-app-primary-sidebar -->
   <div class="ap-app-primary-content">
