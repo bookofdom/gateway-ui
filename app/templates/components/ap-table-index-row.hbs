@@ -1,3 +1,16 @@
 {{#each fieldsList}}
-  {{ap-table-index-cell model=controller.model field=this path=controller.path}}
+  {{ap-table-index-cell
+      model=controller.model
+      field=this
+      path=controller.path}}
 {{/each}}
+
+<td>
+  {{#ap-list-nav-simple-icon}}
+    {{ap-list-link
+        t='actions.delete'
+        icon='the-essentials-011'
+        action='delete'
+        action-arg=model}}
+  {{/ap-list-nav-simple-icon}}
+</td>

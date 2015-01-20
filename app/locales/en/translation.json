@@ -15,7 +15,8 @@
     "button_plural": "buttons"
   },
   "actions": {
-    "toggle-navivagation": "toggle navigation"
+    "toggle-navivagation": "toggle navigation",
+    "delete": "delete"
   },
   "nav": {
     "define-api": "define $t(resources.api)",
