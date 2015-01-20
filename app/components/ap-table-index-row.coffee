@@ -6,6 +6,7 @@ ApTableIndexRowComponent = BsBaseComponent.extend
   classNames: ['ap-table-index-row']
   model: null
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName,fieldName'
+  path: null # 'resource.index', 'resource.edit', etc
   fieldsList: Ember.computed 'fields.[]', ->
     field.trim().split(':') for field in @get('fields').split(',')
   fieldNames: Ember.computed 'fieldsList.[]', ->
