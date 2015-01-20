@@ -1,5 +1,13 @@
 <div class="ap-app-toolbar">
+  {{bread-crumbs tagName='ol' classNames='breadcrumb'}}
   {{outlet 'toolbar'}}
-</div>
+</div><!-- /.ap-app-toolbar -->
 
-{{outlet}}
+<div class="ap-app-primary">
+  <div class="ap-app-primary-sidebar">
+    {{outlet 'sidebar'}}
+  </div><!-- /.ap-app-primary-sidebar -->
+  <div class="ap-app-primary-content">
+    {{outlet}}
+  </div><!-- /.ap-app-primary-content -->
+</div><!-- /.ap-app-primary -->
