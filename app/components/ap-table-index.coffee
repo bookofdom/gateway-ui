@@ -12,6 +12,8 @@ ApTableIndexComponent = BsBaseComponent.extend
     (field[0] or '') for field in @get 'fieldsList'
   fieldLabels: Ember.computed 'fieldsList.[]', ->
     (field[1] or "fields.#{field[0]}") for field in @get 'fieldsList'
-  headings: Ember.computed 'fieldLabels.[]', -> @get('fieldLabels').join(',')
+  headings: Ember.computed 'fieldLabels.[]', ->
+    headings = @get('fieldLabels').join(',')
+    "#{headings}," # add extra empty heading cell for controls column
 
 `export default ApTableIndexComponent`
