@@ -6,7 +6,7 @@ ApTableIndexComponent = BsBaseComponent.extend
   models: null # array of model instances
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName,fieldName'
   path: null # 'resource.index', 'resource.edit', etc
-  fieldsList: Ember.computed 'fields.[]', ->
+  fieldsList: Ember.computed 'fields', ->
     field.trim().split(':') for field in @get('fields').split(',')
   fieldNames: Ember.computed 'fieldsList.[]', ->
     (field[0] or '') for field in @get 'fieldsList'

@@ -1,7 +1,3 @@
-{{#each values}}
-  <td>
-    {{#link-to controller.path controller.model}}
-      {{this}}
-    {{/link-to}}
-  </td>
+{{#each fieldsList}}
+  {{ap-table-index-cell model=controller.model field=this path=controller.path}}
 {{/each}}
