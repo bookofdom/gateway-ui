@@ -21,3 +21,5 @@ test 'it renders expected markup', ->
   component = @subject()
   ok @$().is '.ap-icon'
   equal @$().find('i').length, 1
+
+# TODO
