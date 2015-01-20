@@ -1,3 +1,5 @@
 {{#ap-page t='resources.api_plural'}}
-  api index
+  {{ap-table-index
+      models=model
+      fields='name,description'}}
 {{/ap-page}}
