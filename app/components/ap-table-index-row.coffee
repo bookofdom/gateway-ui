@@ -7,6 +7,9 @@ ApTableIndexRowComponent = BsBaseComponent.extend
   model: null
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName:i18nLabel:cellTemplateName' or 'fieldName,fieldName'
   path: null # 'resource.index', 'resource.edit', etc
+  deleteAction: 'delete'
   fieldsList: Ember.computed 'fields', -> @get('fields').split(',')
+  actions:
+    delete: -> @sendAction 'deleteAction', @get('model')
 
 `export default ApTableIndexRowComponent`
