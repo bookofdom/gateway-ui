@@ -1,0 +1,16 @@
+<div class="ap-app-toolbar">
+  {{bread-crumbs tagName='ol' classNames='breadcrumb'}}
+  {{outlet 'toolbar'}}
+</div><!-- /.ap-app-toolbar -->
+
+<div class="ap-app-primary">
+  <div class="ap-app-primary-sidebar">
+    {{#ap-list-nav-vertical-icon}}
+      {{partial 'application/nav-items-primary'}}
+    {{/ap-list-nav-vertical-icon}}
+    {{outlet 'sidebar'}}
+  </div><!-- /.ap-app-primary-sidebar -->
+  <div class="ap-app-primary-content">
+    {{outlet}}
+  </div><!-- /.ap-app-primary-content -->
+</div><!-- /.ap-app-primary -->

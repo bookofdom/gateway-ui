@@ -1,6 +1,6 @@
 `import { test, moduleForComponent } from 'ember-qunit'`
 
-moduleForComponent 'ap-list-nav-simple-icon', 'ApListNavSimpleIconComponent', {
+moduleForComponent 'ap-table-index-cell', 'ApTableIndexCellComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
 }

@@ -15,7 +15,14 @@
     "button_plural": "buttons"
   },
   "actions": {
-    "toggle-navivagation": "toggle navigation"
+    "toggle-navivagation": "toggle navigation",
+    "edit": "edit",
+    "delete": "delete"
+  },
+  "nav": {
+    "define-api": "define $t(resources.api)",
+    "define-api_plural": "define $t(resources.api_plural)",
+    "define-api-description": "define $t(resources.api-endpoint_plural) and workflow business logic"
   },
   "brands": {
     "anypresence": "AnyPresence",
@@ -25,11 +32,10 @@
     "api": "API",
     "api_plural": "APIs",
     "api-endpoint": "API endpoint",
-    "api-endpoint_plural": "API endpoings"
+    "api-endpoint_plural": "API endpoints"
   },
-  "nav": {
-    "define-api": "define $t(resources.api)",
-    "define-api_plural": "define $t(resources.api_plural)",
-    "define-api-description": "define $t(resources.api-endpoint_plural) and workflow business logic"
+  "fields": {
+    "name": "name",
+    "description": "description"
   }
 }
