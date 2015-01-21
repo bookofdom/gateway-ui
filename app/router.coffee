@@ -12,6 +12,7 @@ Router.map ->
   
   # resources
   @resource 'apis', ->
-    @resource 'api', path: ':api_id', (->)
+    @resource 'api', path: ':api_id', ->
+      @route 'edit'
 
 `export default Router`

@@ -7,6 +7,13 @@
 
 <td>
   {{#ap-list-nav-simple-icon}}
+    {{#if edit-path}}
+      {{ap-list-link
+          t='actions.edit'
+          icon='the-essentials-027'
+          path=edit-path
+          arg1=model}}
+    {{/if}}
     {{ap-list-link
         t='actions.delete'
         icon='the-essentials-011'

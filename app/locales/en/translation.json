@@ -16,6 +16,7 @@
   },
   "actions": {
     "toggle-navivagation": "toggle navigation",
+    "edit": "edit",
     "delete": "delete"
   },
   "nav": {

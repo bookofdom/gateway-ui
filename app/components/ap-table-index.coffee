@@ -6,8 +6,9 @@ ApTableIndexComponent = BsBaseComponent.extend
   models: null # array of model instances
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName:i18nLabel:cellTemplateName' or 'fieldName,fieldName'
   path: null # 'resource.index', 'resource.edit', etc
-  deleteAction: 'delete'
+  'delete-action': 'delete'
   autoDelete: true
+  'edit-path': null
   fieldsList: Ember.computed 'fields', ->
     field.trim().split(':') for field in @get('fields').split(',')
   fieldNames: Ember.computed 'fieldsList.[]', ->
@@ -25,6 +26,6 @@ ApTableIndexComponent = BsBaseComponent.extend
       if @get 'autoDelete'
         @delete record
       else
-        @sendAction 'deleteAction', record
+        @sendAction 'delete-action', record
 
 `export default ApTableIndexComponent`
