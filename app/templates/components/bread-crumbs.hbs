@@ -1,5 +1,5 @@
 {{#each crumb in breadCrumbs}}
-  <li {{bind-attr class="crumb.isCurrent:active:"}}>
+  <li {{bind-attr class="crumb.isCurrent:active: :text-capitalize"}}>
     {{#if crumb.linkable}}
       {{#link-to crumb.path}}
         {{crumb.name}}
