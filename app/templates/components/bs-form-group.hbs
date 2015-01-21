@@ -2,26 +2,25 @@
   {{#if label}}
     <label {{bind-attr class=":control-label control-label-classes"}}>{{text}}</label>
   {{/if}}
-  <div {{bind-attr class=control-wrapper-classes}}>
-    {{yield}}
-    {{#if secondary-text}}
-      <span class="help-block">{{secondary-text}}</span>
-    {{/if}}
-  </div>
 {{/unless}}
 
-{{#if is-boolean}}
-  <div {{bind-attr class=control-wrapper-classes}}>
+<div {{bind-attr class=control-wrapper-classes}}>
+  {{#if is-boolean}}
     <div {{bind-attr class=boolean-type-class}}>
       <label>
-        {{yield}}
-        {{#if label}}
-          {{text}}
-        {{/if}}
+  {{/if}}
+  
+  {{yield}}
+  
+  {{#if is-boolean}}
       </label>
-      {{#if secondary-text}}
-        <span class="help-block">{{secondary-text}}</span>
-      {{/if}}
+  {{/if}}
+  
+  {{#if secondary-text}}
+    <span class="help-block">{{secondary-text}}</span>
+  {{/if}}
+  
+  {{#if is-boolean}}
     </div>
-  </div>
-{{/if}}
+  {{/if}}
+</div>

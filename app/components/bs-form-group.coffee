@@ -16,6 +16,7 @@ BsFormGroupComponent = BsTextComponent.extend
   t: Ember.computed 'label', -> @get 'label'
   secondary: Ember.computed 'help', -> @get 'help'
   errorClass: Ember.computed 'error', -> 'has-error' if @get 'error'
+  offset: Ember.computed 'is-boolean', -> @get 'is-boolean'
   'control-label-classes': Ember.computed 'horizontal', 'show-label', ->
     labelClasses = ['text-capitalize']
     labelClasses.push('col-sm-2') if @get 'horizontal'
@@ -24,7 +25,7 @@ BsFormGroupComponent = BsTextComponent.extend
   'control-wrapper-classes': Ember.computed 'horizontal', ->
     controlWrapperClasses = []
     controlWrapperClasses.push('col-sm-10') if @get 'horizontal'
-    controlWrapperClasses.push('col-sm-offset-2') if @get 'is-boolean'
+    controlWrapperClasses.push('col-sm-offset-2') if @get 'offset'
     controlWrapperClasses.join ' '
   'boolean-type-class': Ember.computed 'checkbox', 'radio', ->
     booleanTypeClass = null
