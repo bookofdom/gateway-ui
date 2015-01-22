@@ -1,0 +1,9 @@
+{{#bs-form-group horizontal=horizontal offset=offset}}
+  {{#if show-save}}
+    {{bs-submit t=save-text}}
+  {{/if}}
+  {{#if show-cancel}}
+    {{bs-button t=cancel-text style='default' action='cancel'}}
+  {{/if}}
+  {{yield}}
+{{/bs-form-group}}

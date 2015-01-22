@@ -25,7 +25,7 @@ BsFormGroupComponent = BsTextComponent.extend
   'control-wrapper-classes': Ember.computed 'horizontal', ->
     controlWrapperClasses = []
     controlWrapperClasses.push('col-sm-10') if @get 'horizontal'
-    controlWrapperClasses.push('col-sm-offset-2') if @get 'offset'
+    controlWrapperClasses.push('col-sm-offset-2') if @get 'isOffset'
     controlWrapperClasses.join ' '
   'boolean-type-class': Ember.computed 'checkbox', 'radio', ->
     booleanTypeClass = null
@@ -34,5 +34,7 @@ BsFormGroupComponent = BsTextComponent.extend
     booleanTypeClass
   'is-boolean': Ember.computed 'checkbox', 'radio', ->
     @get('checkbox') or @get('radio')
+  isOffset: Ember.computed 'horizontal', 'offset', ->
+    @get('horizontal') and @get('offset')
 
 `export default BsFormGroupComponent`
