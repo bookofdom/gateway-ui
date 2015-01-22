@@ -1,0 +1,11 @@
+{{#bs-form-group horizontal=horizontal offset=offset}}
+  {{bs-submit
+      t=save-text
+      classNameBindings='show-save::invisible'}}
+  {{bs-button
+      t=cancel-text
+      style='default'
+      action='cancel'
+      classNameBindings='show-cancel::invisible'}}
+  {{yield}}
+{{/bs-form-group}}

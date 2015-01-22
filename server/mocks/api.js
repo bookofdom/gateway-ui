@@ -38,11 +38,9 @@ module.exports = function(app) {
   });
 
   apiRouter.put('/:id', function(req, res) {
-    res.send({
-      'api': {
-        id: req.params.id
-      }
-    });
+    var body = req.body;
+    body.api.id = req.params.id;
+    res.send(body);
   });
 
   apiRouter.delete('/:id', function(req, res) {

@@ -1,0 +1,14 @@
+{{#each fieldsList}}
+  {{#ap-model-form-group
+      model=controller.model
+      field=this
+      horizontal=controller.horizontal}}
+    {{ap-model-field
+        model=controller.model
+        field=this}}
+  {{/ap-model-form-group}}
+{{/each}}
+
+{{yield}}
+
+{{ap-form-actions show-save=dirty show-cancel=dirty}}

@@ -17,7 +17,9 @@
   "actions": {
     "toggle-navivagation": "toggle navigation",
     "edit": "edit",
-    "delete": "delete"
+    "delete": "delete",
+    "save": "save",
+    "cancel": "cancel"
   },
   "nav": {
     "define-api": "define $t(resources.api)",
