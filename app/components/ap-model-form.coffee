@@ -3,11 +3,18 @@
 
 ApModelFormComponent = BsFormComponent.extend
   classNames: ['ap-model-form']
+  action: 'submit'
   model: null
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName:i18nLabel:help:type' or 'fieldName,fieldName'
   horizontal: true
+  'auto-save': true
   fieldsList: Ember.computed 'fields', -> @get('fields').split ','
-  hasChanges: Ember.computed 'model.isDirty', -> @get 'model.isDirty'
+  dirty: Ember.computed 'model.isDirty', -> @get 'model.isDirty'
+  submit: ->
+    autoSave = @get 'auto-save'
+    @sendAction() if @get('dirty') and !autoSave
+    @get('model').save().then((=>), (=>)) if autoSave
+    false
   actions:
     cancel: -> @get('model').rollback()
 
