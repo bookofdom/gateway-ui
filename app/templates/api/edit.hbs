@@ -1,3 +1,5 @@
-{{#ap-page t=name}}
-  edit API
+{{#ap-page t='actions.edit'}}
+  {{ap-model-form
+      model=model
+      fields='name,description:::textarea'}}
 {{/ap-page}}
