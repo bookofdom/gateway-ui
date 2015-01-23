@@ -7,8 +7,6 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     'simple-auth': {
-      authenticator: 'authenticator:gateway',
-      authorizer: 'authorizer:gateway',
       routeAfterAuthentication: 'apis',
       routeIfAlreadyAuthenticated: 'apis'
     },
