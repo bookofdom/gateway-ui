@@ -1,15 +1,18 @@
 <div class="panel-heading text-capitalize">
-  {{#if hasIconBefore}}
-    {{ap-icon icon=icon}}
+  {{#if collapse}}
+    <a {{bind-attr href=collapse-href}} data-toggle="collapse">
+      {{partial 'components/bs-text'}}
+    </a>
   {{/if}}
-  {{text}}
-  {{#if secondary-text}}
-    <small>{{secondary-text}}</small>
-  {{/if}}
-  {{#if hasIconAfter}}
-    {{ap-icon icon=icon}}
-  {{/if}}
+  {{#unless collapse}}
+    {{partial 'components/bs-text'}}
+  {{/unless}}
 </div>
-<div class="panel-body">
-  {{yield}}
-</div>
+{{#if collapse}}
+  <div {{bind-attr id=panel-collapse-id class=':panel-collapse :collapse open:in'}}>
+    {{partial 'components/bs-panel/panel-body'}}
+  </div>
+{{/if}}
+{{#unless collapse}}
+  {{partial 'components/bs-panel/panel-body'}}
+{{/unless}}
