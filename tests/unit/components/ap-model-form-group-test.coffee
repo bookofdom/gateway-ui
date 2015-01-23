@@ -3,6 +3,7 @@
 moduleForComponent 'ap-model-form-group', 'ApModelFormGroupComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
+  needs: ['template:components/bs-form-group']
 }
 
 test 'it renders', ->

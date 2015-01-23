@@ -3,6 +3,7 @@
 moduleForComponent 'ap-table-index-cell', 'ApTableIndexCellComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
+  needs: ['template:components/ap-table-index-cell/-string']
 }
 
 test 'it renders', ->

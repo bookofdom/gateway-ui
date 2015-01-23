@@ -10,9 +10,9 @@
 </div>
 {{#if collapse}}
   <div {{bind-attr id=panel-collapse-id class=':panel-collapse :collapse open:in'}}>
-    {{partial 'components/bs-panel/panel-body'}}
+    {{partial 'components/bs-panel/-panel-body'}}
   </div>
 {{/if}}
 {{#unless collapse}}
-  {{partial 'components/bs-panel/panel-body'}}
+  {{partial 'components/bs-panel/-panel-body'}}
 {{/unless}}

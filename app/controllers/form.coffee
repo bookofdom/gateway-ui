@@ -13,7 +13,7 @@ FormController = Ember.ObjectController.extend
       @createNewModel()
   createNewModel: ->
     modelType = @get 'modelType'
-    newModel = @store.createRecord modelType
+    newModel = @store?.createRecord modelType
     @set 'model', newModel
 
 `export default FormController`

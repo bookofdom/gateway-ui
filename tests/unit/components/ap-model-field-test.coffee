@@ -3,6 +3,7 @@
 moduleForComponent 'ap-model-field', 'ApModelFieldComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
+  needs: ['template:components/ap-model-field/-string']
 }
 
 test 'it renders', ->
