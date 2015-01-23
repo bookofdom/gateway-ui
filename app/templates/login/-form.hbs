@@ -1,0 +1,22 @@
+<form {{action 'authenticate' on='submit'}}>
+  {{#bs-form-group label='fields.email'}}
+    {{input
+        name='identification'
+        value=identification
+        autofocus=true
+        class='form-control input-lg'}}
+  {{/bs-form-group}}
+  {{#bs-form-group label='fields.password'}}
+    {{input
+        name='password'
+        value=password
+        type='password'
+        autofocus=true
+        class='form-control input-lg'}}
+  {{/bs-form-group}}
+  <div class="form-actions">
+    {{#bs-form-group}}
+      {{bs-submit t='actions.login' lg=true}}
+    {{/bs-form-group}}
+  </div>
+</form>
