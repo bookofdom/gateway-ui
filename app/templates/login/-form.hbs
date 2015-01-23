@@ -1,12 +1,12 @@
 <form {{action 'authenticate' on='submit'}}>
-  {{#bs-form-group label='fields.email'}}
+  {{#bs-form-group label='fields.email' error=email-error help=email-error}}
     {{input
         name='identification'
         value=identification
         autofocus=true
         class='form-control input-lg'}}
   {{/bs-form-group}}
-  {{#bs-form-group label='fields.password'}}
+  {{#bs-form-group label='fields.password' error=password-error help=password-error}}
     {{input
         name='password'
         value=password
