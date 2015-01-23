@@ -19,7 +19,9 @@
     "edit": "edit",
     "delete": "delete",
     "save": "save",
-    "cancel": "cancel"
+    "cancel": "cancel",
+    "new": "new",
+    "new-x": "new $t(__x__)"
   },
   "nav": {
     "define-api": "define $t(resources.api)",
