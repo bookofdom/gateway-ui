@@ -26,7 +26,10 @@ module.exports = function(app) {
   });
 
   apiRouter.post('/', function(req, res) {
-    res.status(201).end();
+    var body = req.body;
+    var id = Math.round(Math.random() * 100);
+    body.api.id = id;
+    res.status(201).send(body).end();
   });
 
   apiRouter.get('/:id', function(req, res) {
