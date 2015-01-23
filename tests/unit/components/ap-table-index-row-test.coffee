@@ -3,6 +3,11 @@
 moduleForComponent 'ap-table-index-row', 'ApTableIndexRowComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
+  needs: [
+    'component:ap-table-index-cell'
+    'component:ap-list-nav-simple-icon'
+    'component:ap-list-link'
+  ]
 }
 
 test 'it renders', ->

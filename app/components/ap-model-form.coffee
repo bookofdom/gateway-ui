@@ -8,7 +8,7 @@ ApModelFormComponent = BsFormComponent.extend
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName:i18nLabel:help:type' or 'fieldName,fieldName'
   horizontal: true
   'auto-save': true
-  fieldsList: Ember.computed 'fields', -> @get('fields').split ','
+  fieldsList: Ember.computed 'fields', -> @get('fields')?.split ','
   dirty: Ember.computed 'model.isDirty', -> @get 'model.isDirty'
   submit: ->
     autoSave = @get 'auto-save'

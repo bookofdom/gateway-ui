@@ -3,6 +3,7 @@
 moduleForComponent 'ap-form-actions', 'ApFormActionsComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
+  needs: ['component:bs-form-group', 'component:bs-submit', 'component:bs-button']
 }
 
 test 'it renders', ->

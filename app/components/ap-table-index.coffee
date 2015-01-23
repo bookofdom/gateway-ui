@@ -10,7 +10,8 @@ ApTableIndexComponent = BsBaseComponent.extend
   'auto-delete': true
   'edit-path': null
   fieldsList: Ember.computed 'fields', ->
-    field.trim().split(':') for field in @get('fields').split(',')
+    fields = @get('fields')?.split(',') or []
+    field.trim()?.split(':') for field in fields
   fieldNames: Ember.computed 'fieldsList.[]', ->
     (field[0] or '') for field in @get 'fieldsList'
   fieldLabels: Ember.computed 'fieldsList.[]', ->

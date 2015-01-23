@@ -9,7 +9,7 @@ ApTableIndexRowComponent = BsBaseComponent.extend
   path: null # 'resource.index', 'resource.edit', etc
   'delete-action': 'delete'
   'edit-path': null
-  fieldsList: Ember.computed 'fields', -> @get('fields').split(',')
+  fieldsList: Ember.computed 'fields', -> @get('fields')?.split(',') or []
   actions:
     delete: -> @sendAction 'delete-action', @get('model')
 

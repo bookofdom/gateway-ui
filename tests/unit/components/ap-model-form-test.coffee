@@ -3,6 +3,7 @@
 moduleForComponent 'ap-model-form', 'ApModelFormComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
+  needs: ['component:ap-form-actions']
 }
 
 test 'it renders', ->

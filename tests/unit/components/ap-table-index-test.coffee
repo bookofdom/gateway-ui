@@ -3,6 +3,7 @@
 moduleForComponent 'ap-table-index', 'ApTableIndexComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
+  needs: ['component:bs-table']
 }
 
 test 'it renders', ->

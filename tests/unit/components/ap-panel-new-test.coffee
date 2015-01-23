@@ -3,6 +3,11 @@
 moduleForComponent 'ap-panel-new', 'ApPanelNewComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
+  needs: [
+    'template:components/bs-panel'
+    'template:components/bs-text'
+    'template:components/bs-panel/-panel-body'
+  ]
 }
 
 test 'it renders', ->
