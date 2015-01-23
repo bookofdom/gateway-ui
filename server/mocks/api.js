@@ -26,7 +26,10 @@ module.exports = function(app) {
   });
 
   apiRouter.post('/', function(req, res) {
-    res.status(201).end();
+    var body = req.body;
+    var id = Math.round(Math.random() * 100);
+    body.api.id = id;
+    res.status(201).send(body).end();
   });
 
   apiRouter.get('/:id', function(req, res) {
@@ -40,7 +43,11 @@ module.exports = function(app) {
   apiRouter.put('/:id', function(req, res) {
     var body = req.body;
     body.api.id = req.params.id;
-    res.send(body);
+    if (body.api.name.toLowerCase() == 'error') {
+      res.status(422).send({errors: {name: 'This field is in error.'}})
+    } else {
+      res.send(body);
+    }
   });
 
   apiRouter.delete('/:id', function(req, res) {
