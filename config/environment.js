@@ -24,7 +24,7 @@ module.exports = function(environment) {
     
     api: {
       host: 'http://localhost:4200',
-      basePath: 'api',
+      basePath: 'admin',
       authentication: {
         path: 'sessions'
       }
@@ -37,6 +37,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    
+    // uncomment for stand-alone gateway API
+    //ENV.api.host = 'http://localhost:5000'
   }
 
   if (environment === 'test') {
