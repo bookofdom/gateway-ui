@@ -23,7 +23,11 @@ module.exports = function(environment) {
     },
     
     api: {
-      baseUrl: '/api'
+      host: 'http://localhost:4200',
+      basePath: 'api',
+      authentication: {
+        path: 'sessions'
+      }
     }
   };
 
@@ -50,6 +54,10 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+  
+  ENV.api.url = [ENV.api.host, ENV.api.basePath].join('/');
+  ENV.api.authentication.url = [ENV.api.host, ENV.api.basePath, ENV.api.authentication.path].join('/');
+  ENV['simple-auth'].crossOriginWhitelist = [ENV.api.authentication.url];
 
   return ENV;
 };

@@ -2,7 +2,7 @@
 `import config from  '../config/environment'`
 
 ApplicationAdapter = DS.RESTAdapter.extend
-  host: config.api.baseUrl
+  host: config.api.url
   pathForType: (type) -> Ember.String.underscore type
   ajaxError: (xhr, responseText) ->
     error = @_super.apply @, arguments
