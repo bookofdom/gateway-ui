@@ -1,6 +1,6 @@
 module.exports = function(app) {
   var express = require('express');
-  var apiRouter = express.Router();
+  var apisRouter = express.Router();
   var apis = [
     {
       id: 1,
@@ -19,20 +19,20 @@ module.exports = function(app) {
     }
   ];
 
-  apiRouter.get('/', function(req, res) {
+  apisRouter.get('/', function(req, res) {
     res.send({
       'api': apis
     });
   });
 
-  apiRouter.post('/', function(req, res) {
+  apisRouter.post('/', function(req, res) {
     var body = req.body;
     var id = Math.round(Math.random() * 100);
     body.api.id = id;
     res.status(201).send(body).end();
   });
-
-  apiRouter.get('/:id', function(req, res) {
+  
+  apisRouter.get('/:id', function(req, res) {
     res.send({
       'api': {
         id: req.params.id
@@ -40,7 +40,7 @@ module.exports = function(app) {
     });
   });
 
-  apiRouter.put('/:id', function(req, res) {
+  apisRouter.put('/:id', function(req, res) {
     var body = req.body;
     body.api.id = req.params.id;
     if (body.api.name.toLowerCase() == 'error') {
@@ -50,9 +50,9 @@ module.exports = function(app) {
     }
   });
 
-  apiRouter.delete('/:id', function(req, res) {
+  apisRouter.delete('/:id', function(req, res) {
     res.status(204).end();
   });
 
-  app.use('/api/api', apiRouter);
+  app.use('/admin/apis', apisRouter);
 };

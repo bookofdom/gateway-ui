@@ -3,7 +3,7 @@
 
 ApplicationAdapter = DS.RESTAdapter.extend
   host: config.api.url
-  pathForType: (type) -> Ember.String.underscore type
+  #pathForType: (type) -> Ember.String.underscore type
   ajaxError: (xhr, responseText) ->
     error = @_super.apply @, arguments
     if xhr?.status == 422
