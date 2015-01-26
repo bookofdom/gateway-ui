@@ -16,7 +16,7 @@ GatewayAuthenticator = BaseAuthenticator.extend
         password: credentials.password
       success = (response) ->
         #Ember.run -> resolve response.user
-        resolve response.user or data
+        resolve response.user or email: data.email
       failure = (xhr, status, error) ->
         #Ember.run -> reject xhr.responseJSON || xhr.responseText
         reject xhr.responseJSON || xhr.responseText
