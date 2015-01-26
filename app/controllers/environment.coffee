@@ -2,6 +2,6 @@
 `import t from 'gateway/helpers/i18n'`
 
 EnvironmentController = Ember.Controller.extend
-  breadCrumb: t 'resources.environment'
+  breadCrumb: Ember.computed 'name', -> @get 'name'
 
 `export default EnvironmentController`
