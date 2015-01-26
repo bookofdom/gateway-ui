@@ -10,6 +10,9 @@ Router.map ->
     @route 'bootstrap'
     @route 'anypresence'
   
+  # auth
+  @route 'login'
+  
   # resources
   @resource 'apis', ->
     @resource 'api', path: ':api_id', ->

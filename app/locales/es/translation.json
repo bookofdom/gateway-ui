@@ -16,6 +16,7 @@
   },
   "actions": {
     "toggle-navivagation": "toggle navigation",
+    "login": "login",
     "edit": "edit",
     "delete": "delete",
     "save": "save",
@@ -39,6 +40,8 @@
     "api-endpoint_plural": "API endpoints"
   },
   "fields": {
+    "email": "email",
+    "password": "password",
     "name": "name",
     "description": "description"
   }
