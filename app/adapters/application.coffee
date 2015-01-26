@@ -4,6 +4,11 @@
 ApplicationAdapter = DS.RESTAdapter.extend
   host: config.api.url
   #pathForType: (type) -> Ember.String.underscore type
+  ajax: (url, method, hash) ->
+    hash.crossDomain = true
+    hash.xhrFields ?= {}
+    hash.xhrFields.withCredentials = true
+    @_super url, method, hash
   ajaxError: (xhr, responseText) ->
     error = @_super.apply @, arguments
     if xhr?.status == 422
