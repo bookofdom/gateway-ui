@@ -37,7 +37,9 @@
     "api": "API",
     "api_plural": "APIs",
     "api-endpoint": "API endpoint",
-    "api-endpoint_plural": "API endpoints"
+    "api-endpoint_plural": "API endpoints",
+    "environment": "environment",
+    "environment_plural": "environments"
   },
   "fields": {
     "email": "email",
