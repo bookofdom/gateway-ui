@@ -3,6 +3,6 @@
 
 EnvironmentRoute = Ember.Route.extend AuthenticatedRouteMixin,
   model: (params) ->
-    #@modelFor('environments').findBy 'id', params.environment_id
+    @modelFor('environments').findBy 'id', params.environment_id
 
 `export default EnvironmentRoute`

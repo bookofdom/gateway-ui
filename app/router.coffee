@@ -19,5 +19,6 @@ Router.map ->
       @route 'edit'
       @resource 'environments', ->
         @resource 'environment', path: ':environment_id', ->
+          @route 'edit'
 
 `export default Router`
