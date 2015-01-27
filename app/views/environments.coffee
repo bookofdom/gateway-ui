@@ -1,6 +1,5 @@
-`import Ember from 'ember'`
+`import SecondaryView from './secondary'`
 
-EnvironmentsView = Ember.View.extend
-  layoutName: 'layouts/secondary'
+EnvironmentsView = SecondaryView.extend()
 
 `export default EnvironmentsView`
