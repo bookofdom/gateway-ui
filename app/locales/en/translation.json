@@ -51,7 +51,8 @@
     "email": "email",
     "password": "password",
     "name": "name",
-    "description": "description"
+    "description": "description",
+    "cors_allow": "allow CORS origins"
   },
   "errors": {
     "no-user-with-that-email": "no user with that email",
