@@ -1,0 +1,13 @@
+{{#ap-page t='resources.endpoint-group_plural'}}
+  
+  {{ap-table-index
+      models=model
+      fields='name,description'
+      path='endpoint-group.index'
+      edit-path='endpoint-group.edit'}}
+  
+  {{#ap-panel-new t='resources.endpoint-group'}}
+    {{render 'endpoint-group/form'}}
+  {{/ap-panel-new}}
+  
+{{/ap-page}}

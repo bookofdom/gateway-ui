@@ -20,5 +20,8 @@ Router.map ->
       @resource 'environments', ->
         @resource 'environment', path: ':environment_id', ->
           @route 'edit'
+      @resource 'endpoint-groups', path: 'groups', ->
+        @resource 'endpoint-group', path: ':endpoint_group_id', ->
+          @route 'edit'
 
 `export default Router`
