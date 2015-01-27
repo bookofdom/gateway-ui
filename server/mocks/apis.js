@@ -5,17 +5,20 @@ module.exports = function(app) {
     {
       id: 1,
       name: 'Mock API',
-      description: 'Mock API for development purposes'
+      description: 'Mock API for development purposes',
+      cors_allow: '*'
     },
     {
       id: 2,
       name: 'Demonstration API',
-      description: 'Demonstration of the API resource'
+      description: 'Demonstration of the API resource',
+      cors_allow: '*'
     },
     {
       id: 3,
       name: 'Testing API',
-      description: 'Another API for development purposes'
+      description: 'Another API for development purposes',
+      cors_allow: '*'
     }
   ];
 
