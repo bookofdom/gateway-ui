@@ -1,4 +1,3 @@
-`import Ember from 'ember'`
 `import FormController from 'gateway/controllers/form'`
 
 ApiFormController = FormController.extend
