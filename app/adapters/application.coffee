@@ -3,8 +3,7 @@
 
 ApplicationAdapter = DS.RESTAdapter.extend
   host: config.api.url
-  #pathForType: (type) -> Ember.String.underscore type
-  ajax: (url, method, hash) ->
+  ajax: (url, method, hash={}) ->
     hash.crossDomain = true
     hash.xhrFields ?= {}
     hash.xhrFields.withCredentials = true

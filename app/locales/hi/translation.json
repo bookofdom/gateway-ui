@@ -27,7 +27,10 @@
   "nav": {
     "define-api": "define $t(resources.api)",
     "define-api_plural": "define $t(resources.api_plural)",
-    "define-api-description": "define $t(resources.api-endpoint_plural) and workflow business logic"
+    "descriptions": {
+      "define-api": "define $t(resources.api-endpoint_plural) and workflow business logic",
+      "environments": "Specify $t(resources.environment_plural), variables, and other attributes"
+    }
   },
   "brands": {
     "anypresence": "AnyPresence",
@@ -37,12 +40,18 @@
     "api": "API",
     "api_plural": "APIs",
     "api-endpoint": "API endpoint",
-    "api-endpoint_plural": "API endpoints"
+    "api-endpoint_plural": "API endpoints",
+    "environment": "environment",
+    "environment_plural": "environments"
   },
   "fields": {
     "email": "email",
     "password": "password",
     "name": "name",
     "description": "description"
+  },
+  "errors": {
+    "no-user-with-that-email": "no user with that email",
+    "invalid-password": "invalid password"
   }
 }

@@ -1,7 +1,6 @@
 `import Ember from 'ember'`
-`import t from 'gateway/helpers/i18n'`
+`import EditController from 'gateway/controllers/edit'`
 
-ApiEditController = Ember.ObjectController.extend
-  breadCrumb: t 'actions.edit'
+ApiEditController = EditController.extend()
 
 `export default ApiEditController`

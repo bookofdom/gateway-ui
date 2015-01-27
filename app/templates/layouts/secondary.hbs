@@ -1,0 +1,11 @@
+<div class="ap-app-secondary">
+  <div class="ap-app-secondary-sidebar">
+    {{#ap-list-nav-vertical}}
+      {{partial 'application/nav-items-secondary'}}
+    {{/ap-list-nav-vertical}}
+    {{outlet 'sidebar'}}
+  </div><!-- /.ap-app-secondary-sidebar -->
+  <div class="ap-app-secondary-content">
+    {{outlet}}
+  </div><!-- /.ap-app-secondary-content -->
+</div><!-- /.ap-app-secondary -->
