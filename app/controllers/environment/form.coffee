@@ -5,8 +5,8 @@ EnvironmentFormController = FormController.extend
   needs: ['environments']
   modelType: 'environment'
   createNewModel: ->
-    environments = @get 'controllers.environments.model'
     newModel = @_super.apply @, arguments
+    environments = @get 'controllers.environments.model'
     environments.pushObject newModel
 
 `export default EnvironmentFormController`
