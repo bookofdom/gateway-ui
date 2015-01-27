@@ -25,11 +25,12 @@
     "new-x": "new $t(__x__)"
   },
   "nav": {
-    "define-api": "define $t(resources.api)",
-    "define-api_plural": "define $t(resources.api_plural)",
+    "define-api": "define API",
+    "define-api_plural": "define APIs",
     "descriptions": {
-      "define-api": "define $t(resources.api-endpoint_plural) and workflow business logic",
-      "environments": "Specify $t(resources.environment_plural), variables, and other attributes"
+      "define-api": "define API endpoints and workflow business logic",
+      "environments": "specify environments, variables, and other attributes",
+      "endpoint-groups": "named groups collect proxy endpoints together for convenience"
     }
   },
   "brands": {
@@ -42,7 +43,9 @@
     "api-endpoint": "API endpoint",
     "api-endpoint_plural": "API endpoints",
     "environment": "environment",
-    "environment_plural": "environments"
+    "environment_plural": "environments",
+    "endpoint-group": "group",
+    "endpoint-group_plural": "groups"
   },
   "fields": {
     "email": "email",
