@@ -27,7 +27,7 @@ module.exports = function(app) {
   
   environmentsRouter.post('/', function(req, res) {
     var body = req.body;
-    var id = Math.round(Math.random() * 100);
+    var id = Math.round(Math.random() * 100) + 100;
     body.environment.id = id;
     res.status(201).send(body).end();
   });

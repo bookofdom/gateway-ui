@@ -27,7 +27,7 @@ module.exports = function(app) {
 
   endpointGroupRouter.post('/', function(req, res) {
     var body = req.body;
-    var id = Math.round(Math.random() * 100);
+    var id = Math.round(Math.random() * 100) + 100;
     body.endpoint_group.id = id;
     res.status(201).send(body).end();
   });
