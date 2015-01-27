@@ -12,9 +12,9 @@ module.exports = function(app) {
     if ((body.email == credentials.email) && (body.password == credentials.password)) {
       res.status(200).end();
     } else if (body.email != credentials.email) {
-      res.status(400).send('No user with that email.').end();
+      res.status(400).send({error: 'No user with that email.'}).end();
     } else {
-      res.status(400).send('Invalid password.').end();
+      res.status(400).send({error: 'Invalid password.'}).end();
     }
   });
 
