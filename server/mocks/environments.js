@@ -19,20 +19,20 @@ module.exports = function(app) {
     }
   ];
 
-  environmentsRouter.get('/environments', function(req, res) {
+  environmentsRouter.get('/', function(req, res) {
     res.send({
       'environments': environments
     });
   });
   
-  environmentsRouter.post('/environments', function(req, res) {
+  environmentsRouter.post('/', function(req, res) {
     var body = req.body;
     var id = Math.round(Math.random() * 100);
     body.environment.id = id;
     res.status(201).send(body).end();
   });
   
-  environmentsRouter.get('/environments/:id', function(req, res) {
+  environmentsRouter.get('/:id', function(req, res) {
     res.send({
       'environment': {
         id: req.params.id
@@ -40,7 +40,7 @@ module.exports = function(app) {
     });
   });
 
-  environmentsRouter.put('/environments/:id', function(req, res) {
+  environmentsRouter.put('/:id', function(req, res) {
     var body = req.body;
     body.environment.id = req.params.id;
     if (body.environment.name.toLowerCase() == 'error') {
@@ -50,9 +50,9 @@ module.exports = function(app) {
     }
   });
 
-  environmentsRouter.delete('/environments/:id', function(req, res) {
+  environmentsRouter.delete('/:id', function(req, res) {
     res.status(204).end();
   });
 
-  app.use('/admin/apis/:api_id', environmentsRouter);
+  app.use('/admin/apis/:api_id/environments', environmentsRouter);
 };
