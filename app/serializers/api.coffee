@@ -1,6 +1,6 @@
-`import DS from 'ember-data'`
+`import ApplicationSerializer from './application'`
 
-ApiSerializer = DS.RESTSerializer.extend
+ApiSerializer = ApplicationSerializer.extend
   normalize: (type, hash, property) ->
     hash.links =
       environments: "/apis/#{hash.id}/environments"
