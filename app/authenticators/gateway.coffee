@@ -19,16 +19,17 @@ GatewayAuthenticator = BaseAuthenticator.extend
         resolve response.user or email: data.email
       failure = (xhr, status, error) ->
         #Ember.run -> reject xhr.responseJSON || xhr.responseText
-        reject xhr.responseJSON || xhr.responseText
+        json = JSON.parse xhr.responseText if xhr.responseText
+        reject (xhr.responseJSON || json)?.error
       @makeRequest(data).then success, failure
   makeRequest: (data) ->
     Ember.$.ajax
       url: @get 'url'
       type: 'POST'
       contentType: 'application/json'
-      #dataType: 'json'
       data: JSON.stringify data
-      #beforeSend: (xhr, settings) ->
-      #  xhr.setRequestHeader 'Accept', 'application/json'
+      crossDomain: true
+      xhrFields:
+        withCredentials: true
 
 `export default GatewayAuthenticator`
