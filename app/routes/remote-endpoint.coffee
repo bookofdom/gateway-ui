@@ -3,6 +3,6 @@
 
 RemoteEndpointRoute = Ember.Route.extend AuthenticatedRouteMixin,
   model: (params) ->
-    @modelFor('remote-endpoint').findBy 'id', params.remote_endpoint_id
+    @modelFor('remote-endpoints').findBy 'id', params.remote_endpoint_id
 
 `export default RemoteEndpointRoute`
