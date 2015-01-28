@@ -25,6 +25,7 @@
     "new-x": "new $t(__x__)"
   },
   "nav": {
+    "home": "home",
     "define-api": "define API",
     "define-api_plural": "define APIs",
     "descriptions": {

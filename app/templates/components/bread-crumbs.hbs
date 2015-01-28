@@ -1,3 +1,8 @@
+<li class="text-capitalize">
+  {{#link-to 'index'}}
+    {{t 'nav.home'}}
+  {{/link-to}}
+</li>
 {{#each crumb in breadCrumbs}}
   <li {{bind-attr class="crumb.isCurrent:active: :text-capitalize"}}>
     {{#if crumb.linkable}}
