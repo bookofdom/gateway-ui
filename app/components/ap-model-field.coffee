@@ -6,6 +6,8 @@ ApModelFieldComponent = BsBaseComponent.extend
   classNames: ['ap-feld']
   model: null
   field: null # 'fieldName:i18nLabel' or 'fieldName:i18nLabel:help:type'
+  options: null
+  prompt: null
   fieldName: Ember.computed 'field', -> @get('field')?.split(':')?[0]
   label: Ember.computed 'field', ->
     @get('field')?.split(':')[1]?.trim() or "fields.#{@get 'fieldName'}"

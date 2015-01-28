@@ -1,5 +1,6 @@
 `import Ember from 'ember'`
 `import BsFormComponent from 'gateway/components/bs-form'`
+`import t from 'gateway/helpers/i18n'`
 
 ApModelFormComponent = BsFormComponent.extend
   classNames: ['ap-model-form']
@@ -8,7 +9,13 @@ ApModelFormComponent = BsFormComponent.extend
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName:i18nLabel:help:type' or 'fieldName,fieldName'
   horizontal: true
   'auto-save': true
-  fieldsList: Ember.computed 'fields', -> @get('fields')?.split ','
+  'option-groups': null
+  fieldsList: Ember.computed 'fields', ->
+    for field in @get('fields')?.split ','
+      fieldName = field.split(':')[0]
+      options: @get('option-groups')?[fieldName]
+      prompt: t('prompts.generic').capitalize()
+      field: field
   dirty: Ember.computed 'model.isDirty', -> @get 'model.isDirty'
   submit: ->
     autoSave = @get 'auto-save'
