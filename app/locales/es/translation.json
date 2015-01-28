@@ -60,7 +60,8 @@
     "name": "name",
     "description": "description",
     "cors_allow": "allow CORS origins",
-    "type": "type"
+    "type": "type",
+    "active": "active"
   },
   "prompts": {
     "generic": "choose one"
