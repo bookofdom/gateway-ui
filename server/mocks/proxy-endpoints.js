@@ -22,7 +22,7 @@ module.exports = function(app) {
 
   proxyEndpointsRouter.get('/', function(req, res) {
     res.send({
-      'proxy-endpoints': /admin/apis/:api_id/endpoint_groups
+      'proxy-endpoints': proxyEndpoints
     });
   });
 
