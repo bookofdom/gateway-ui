@@ -25,6 +25,6 @@ Router.map ->
           @route 'edit'
       @resource 'remote-endpoints', ->
         @resource 'remote-endpoint', path: ':remote_endpoint_id', ->
-          @route 'remote-endpoint/edit'
+          @route 'edit'
 
 `export default Router`
