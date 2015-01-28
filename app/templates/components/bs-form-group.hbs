@@ -1,5 +1,5 @@
 {{#if label}}
-  <label {{bind-attr class=":control-label control-label-classes"}}>{{text}}</label>
+  <label {{bind-attr for=label-for class=":control-label control-label-classes"}}>{{text}}</label>
 {{/if}}
 
 <div {{bind-attr class=control-wrapper-classes}}>
@@ -13,7 +13,7 @@
   
   {{#if is-boolean}}
     <div {{bind-attr class=boolean-type-class}}>
-      <label class="text-capitalize">
+      <label>
         {{yield}}
       </label>
       {{#if secondary-text}}
