@@ -1,0 +1,13 @@
+{{#ap-page t='resources.proxy-endpoint_plural'}}
+  
+  {{ap-table-index
+      models=model
+      fields='name,description'
+      path='proxy-endpoint.index'
+      edit-path='proxy-endpoint.edit'}}
+  
+  {{#ap-panel-new t='resources.proxy-endpoint'}}
+    {{render 'proxy-endpoint/form'}}
+  {{/ap-panel-new}}
+  
+{{/ap-page}}

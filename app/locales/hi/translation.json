@@ -30,6 +30,7 @@
     "define-api_plural": "define APIs",
     "descriptions": {
       "define-api": "define API endpoints and workflow business logic",
+      "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
       "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints"
@@ -44,6 +45,8 @@
     "api_plural": "APIs",
     "api-endpoint": "API endpoint",
     "api-endpoint_plural": "API endpoints",
+    "proxy-endpoint": "proxy endpoint",
+    "proxy-endpoint_plural": "proxy endpoints",
     "environment": "environment",
     "environment_plural": "environments",
     "endpoint-group": "group",
