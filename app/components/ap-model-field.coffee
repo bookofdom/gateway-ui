@@ -18,8 +18,11 @@ ApModelFieldComponent = BsBaseComponent.extend
     attributes.findBy 'name', @get('fieldName')
   type: Ember.computed 'field', ->
     attribute = @get 'attribute'
-    @get('field')?.split(':')[3]?.trim() or attribute?.type or 'string'
-  checkbox: Ember.computed 'type', -> @get('type') == 'checkbox'
+    type = @get('field')?.split(':')[3]?.trim() or attribute?.type or 'string'
+    type = 'boolean' if type == 'checkbox'
+    type
+  checkbox: Ember.computed 'type', ->
+    (@get('type') == 'checkbox') or (@get('type') == 'boolean')
   radio: Ember.computed 'type', -> @get('type') == 'radio'
   fieldTemplateName: Ember.computed 'type', ->
     "components/ap-model-field/-#{@get 'type'}"

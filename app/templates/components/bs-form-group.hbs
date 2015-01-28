@@ -5,22 +5,24 @@
 {{/unless}}
 
 <div {{bind-attr class=control-wrapper-classes}}>
+  
+  {{#unless is-boolean}}
+    {{yield}}
+    {{#if secondary-text}}
+      <span class="help-block">{{secondary-text}}</span>
+    {{/if}}
+  {{/unless}}
+  
   {{#if is-boolean}}
     <div {{bind-attr class=boolean-type-class}}>
-      <label>
-  {{/if}}
-  
-  {{yield}}
-  
-  {{#if is-boolean}}
+      <label class="text-capitalize">
+        {{yield}}
+        {{text}}
       </label>
-  {{/if}}
-  
-  {{#if secondary-text}}
-    <span class="help-block">{{secondary-text}}</span>
-  {{/if}}
-  
-  {{#if is-boolean}}
+      {{#if secondary-text}}
+        <span class="help-block">{{secondary-text}}</span>
+      {{/if}}
     </div>
   {{/if}}
+  
 </div>
