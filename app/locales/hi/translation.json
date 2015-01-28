@@ -25,12 +25,14 @@
     "new-x": "new $t(__x__)"
   },
   "nav": {
+    "home": "home",
     "define-api": "define API",
     "define-api_plural": "define APIs",
     "descriptions": {
       "define-api": "define API endpoints and workflow business logic",
       "environments": "specify environments, variables, and other attributes",
-      "endpoint-groups": "named groups collect proxy endpoints together for convenience"
+      "endpoint-groups": "named groups collect proxy endpoints together for convenience",
+      "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints"
     }
   },
   "brands": {
@@ -45,14 +47,20 @@
     "environment": "environment",
     "environment_plural": "environments",
     "endpoint-group": "group",
-    "endpoint-group_plural": "groups"
+    "endpoint-group_plural": "groups",
+    "remote-endpoint": "remote endpoint",
+    "remote-endpoint_plural": "remote endpoints"
   },
   "fields": {
     "email": "email",
     "password": "password",
     "name": "name",
     "description": "description",
-    "cors_allow": "allow CORS origins"
+    "cors_allow": "allow CORS origins",
+    "type": "type"
+  },
+  "prompts": {
+    "generic": "choose one"
   },
   "errors": {
     "no-user-with-that-email": "no user with that email",

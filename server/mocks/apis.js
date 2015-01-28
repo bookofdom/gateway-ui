@@ -24,7 +24,7 @@ module.exports = function(app) {
 
   apisRouter.get('/', function(req, res) {
     res.send({
-      'api': apis
+      'apis': apis
     });
   });
 

@@ -1,11 +1,13 @@
 {{#each fieldsList}}
   {{#ap-model-form-group
       model=controller.model
-      field=this
+      field=field
       horizontal=controller.horizontal}}
     {{ap-model-field
         model=controller.model
-        field=this}}
+        field=field
+        options=options
+        prompt=prompt}}
   {{/ap-model-form-group}}
 {{/each}}
 

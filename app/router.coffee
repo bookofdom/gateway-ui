@@ -23,5 +23,8 @@ Router.map ->
       @resource 'endpoint-groups', path: 'groups', ->
         @resource 'endpoint-group', path: ':endpoint_group_id', ->
           @route 'edit'
+      @resource 'remote-endpoints', ->
+        @resource 'remote-endpoint', path: ':remote_endpoint_id', ->
+          @route 'edit'
 
 `export default Router`

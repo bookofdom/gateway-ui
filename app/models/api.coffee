@@ -6,5 +6,6 @@ Api = DS.Model.extend
   cors_allow: DS.attr 'string', defaultValue: '*'
   environments: DS.hasMany 'environment', async: true
   endpoint_groups: DS.hasMany 'endpoint-group', async: true
+  remote_endpoints: DS.hasMany 'remote-endpoint', async: true
 
 `export default Api`

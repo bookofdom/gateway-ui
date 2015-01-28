@@ -1,6 +1,6 @@
 module.exports = function(app) {
   var express = require('express');
-  var endpointGroupRouter = express.Router();
+  var endpointGroupsRouter = express.Router();
   var groups = [
     {
       id: 1,
@@ -19,20 +19,20 @@ module.exports = function(app) {
     }
   ];
   
-  endpointGroupRouter.get('/', function(req, res) {
+  endpointGroupsRouter.get('/', function(req, res) {
     res.send({
       'endpoint_groups': groups
     });
   });
 
-  endpointGroupRouter.post('/', function(req, res) {
+  endpointGroupsRouter.post('/', function(req, res) {
     var body = req.body;
     var id = Math.round(Math.random() * 100) + 100;
     body.endpoint_group.id = id;
     res.status(201).send(body).end();
   });
 
-  endpointGroupRouter.get('/:id', function(req, res) {
+  endpointGroupsRouter.get('/:id', function(req, res) {
     res.send({
       'endpoint_group': {
         id: req.params.id
@@ -40,7 +40,7 @@ module.exports = function(app) {
     });
   });
 
-  endpointGroupRouter.put('/:id', function(req, res) {
+  endpointGroupsRouter.put('/:id', function(req, res) {
     var body = req.body;
     body.endpoint_group.id = req.params.id;
     if (body.endpoint_group.name.toLowerCase() == 'error') {
@@ -50,9 +50,9 @@ module.exports = function(app) {
     }
   });
 
-  endpointGroupRouter.delete('/:id', function(req, res) {
+  endpointGroupsRouter.delete('/:id', function(req, res) {
     res.status(204).end();
   });
 
-  app.use('/admin/apis/:api_id/endpoint_groups', endpointGroupRouter);
+  app.use('/admin/apis/:api_id/endpoint_groups', endpointGroupsRouter);
 };
