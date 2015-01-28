@@ -2,10 +2,10 @@
   <li {{bind-attr class="crumb.isCurrent:active: :text-capitalize"}}>
     {{#if crumb.linkable}}
       {{#link-to crumb.path}}
-        {{crumb.name}}
+        {{t crumb.name}}
       {{/link-to}}
     {{else}}
-      {{crumb.name}}
+      {{t crumb.name}}
     {{/if}}
   </li>
 {{/each}}
