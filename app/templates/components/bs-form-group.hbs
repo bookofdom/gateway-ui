@@ -1,8 +1,6 @@
-{{#unless is-boolean}}
-  {{#if label}}
-    <label {{bind-attr class=":control-label control-label-classes"}}>{{text}}</label>
-  {{/if}}
-{{/unless}}
+{{#if label}}
+  <label {{bind-attr class=":control-label control-label-classes"}}>{{text}}</label>
+{{/if}}
 
 <div {{bind-attr class=control-wrapper-classes}}>
   
@@ -17,7 +15,6 @@
     <div {{bind-attr class=boolean-type-class}}>
       <label class="text-capitalize">
         {{yield}}
-        {{text}}
       </label>
       {{#if secondary-text}}
         <span class="help-block">{{secondary-text}}</span>

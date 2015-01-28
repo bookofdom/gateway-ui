@@ -13,10 +13,10 @@ BsFormGroupComponent = BsTextComponent.extend
   error: false
   'show-label': true
   'label-for': null
+  offset: null
   t: Ember.computed 'label', -> @get 'label'
   secondary: Ember.computed 'help', -> @get 'help'
   errorClass: Ember.computed 'error', -> 'has-error' if @get 'error'
-  offset: Ember.computed 'is-boolean', -> @get 'is-boolean'
   'control-label-classes': Ember.computed 'horizontal', 'show-label', ->
     labelClasses = ['text-capitalize']
     labelClasses.push('col-sm-2') if @get 'horizontal'
