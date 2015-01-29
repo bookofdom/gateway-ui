@@ -7,7 +7,8 @@ module.exports = function(app) {
           "name": "Test Endpoint",
           "description": "This is a test endpoint",
           "active": true,
-          "environment_id": 2,
+          "api_id": 1,
+          "environment_id": 1,
           "endpoint_group_id": null
       },
       {
@@ -15,6 +16,7 @@ module.exports = function(app) {
           "name": "Test Endpoint",
           "description": "This is a test endpoint",
           "active": true,
+          "api_id": 1,
           "environment_id": 2,
           "endpoint_group_id": null
       }
@@ -34,10 +36,11 @@ module.exports = function(app) {
   });
 
   proxyEndpointsRouter.get('/:id', function(req, res) {
+    var endpoint = proxyEndpoints.filter(function (value) {
+      return value.id == req.params.id;
+    });
     res.send({
-      'proxy_endpoint': {
-        id: req.params.id
-      }
+      'proxy_endpoint': endpoint[0]
     });
   });
 
