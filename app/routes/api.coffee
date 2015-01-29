@@ -3,5 +3,6 @@
 
 ApiRoute = Ember.Route.extend AuthenticatedRouteMixin,
   model: (params) -> @modelFor('apis').findBy 'id', params.api_id
+  afterModel: -> @transitionTo 'proxy-endpoints'
 
 `export default ApiRoute`
