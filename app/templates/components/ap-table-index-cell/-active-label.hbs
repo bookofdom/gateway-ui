@@ -1,0 +1,6 @@
+{{#if value}}
+  {{bs-label t='states.active' style='success' uppercase=true}}
+{{/if}}
+{{#unless value}}
+  {{bs-label t='states.inactive' style='danger' uppercase=true}}
+{{/unless}}
