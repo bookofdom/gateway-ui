@@ -36,10 +36,11 @@ module.exports = function(app) {
   });
   
   apisRouter.get('/:id', function(req, res) {
+    var api = apis.filter(function (value) {
+      return value.id == req.params.id;
+    });
     res.send({
-      'api': {
-        id: req.params.id
-      }
+      'api': api[0]
     });
   });
 

@@ -17,6 +17,9 @@ Router.map ->
   @resource 'apis', ->
     @resource 'api', path: ':api_id', ->
       @route 'edit'
+      @resource 'proxy-endpoints', ->
+        @resource 'proxy-endpoint', path: ':proxy_endpoint_id', ->
+          @route 'edit'
       @resource 'environments', ->
         @resource 'environment', path: ':environment_id', ->
           @route 'edit'

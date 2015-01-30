@@ -11,7 +11,7 @@ ApplicationAdapter = DS.RESTAdapter.extend
     hash.crossDomain = true
     hash.xhrFields ?= {}
     hash.xhrFields.withCredentials = true
-    @_super url, method, hash
+    @_super.apply @, arguments
   ajaxError: (xhr, responseText) ->
     error = @_super.apply @, arguments
     if xhr?.status == 422

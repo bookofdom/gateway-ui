@@ -33,10 +33,11 @@ module.exports = function(app) {
   });
 
   endpointGroupsRouter.get('/:id', function(req, res) {
+    var group = groups.filter(function (value) {
+      return value.id == req.params.id;
+    });
     res.send({
-      'endpoint_group': {
-        id: req.params.id
-      }
+      'endpoint_group': group[0]
     });
   });
 

@@ -18,7 +18,7 @@ module.exports = function(app) {
       description: 'Environment for production purposes'
     }
   ];
-
+  
   environmentsRouter.get('/', function(req, res) {
     res.send({
       'environments': environments
@@ -33,10 +33,11 @@ module.exports = function(app) {
   });
   
   environmentsRouter.get('/:id', function(req, res) {
+    var environment = environments.filter(function (value) {
+      return value.id == req.params.id;
+    });
     res.send({
-      'environment': {
-        id: req.params.id
-      }
+      'environment': environment[0]
     });
   });
 

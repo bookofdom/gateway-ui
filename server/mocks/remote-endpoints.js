@@ -60,10 +60,11 @@ module.exports = function(app) {
   });
 
   remoteEndpointsRouter.get('/:id', function(req, res) {
+    var endpoint = remoteEndpoints.filter(function (value) {
+      return value.id == req.params.id;
+    });
     res.send({
-      'remote_endpoint': {
-        id: req.params.id
-      }
+      'remote_endpoint': endpoint[0]
     });
   });
 
