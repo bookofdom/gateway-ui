@@ -17,12 +17,13 @@
   "actions": {
     "toggle-navivagation": "toggle navigation",
     "login": "login",
-    "edit": "edit",
     "delete": "delete",
     "save": "save",
     "cancel": "cancel",
     "new": "new",
-    "new-x": "new $t(__x__)"
+    "new-x": "new $t(__x__)",
+    "edit": "edit",
+    "edit-x": "edit $t(__x__)"
   },
   "nav": {
     "home": "home",
