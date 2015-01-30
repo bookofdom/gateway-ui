@@ -60,6 +60,7 @@
     "name": "name",
     "description": "description",
     "cors_allow": "allow CORS origins",
+    "cors_enabled": "CORS enabled",
     "type": "type",
     "active": "active"
   },

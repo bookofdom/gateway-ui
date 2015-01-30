@@ -7,6 +7,7 @@ module.exports = function(app) {
           "name": "Test Endpoint",
           "description": "This is a test endpoint",
           "active": true,
+          "cors_enabled": true,
           "api_id": 1,
           "environment_id": 1,
           "endpoint_group_id": null
@@ -16,6 +17,7 @@ module.exports = function(app) {
           "name": "Test Endpoint",
           "description": "This is a test endpoint",
           "active": true,
+          "cors_enabled": true,
           "api_id": 1,
           "environment_id": 2,
           "endpoint_group_id": 1
