@@ -24,6 +24,7 @@ ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     for route in hash.routes
       route.id = routeIdCounter++
     hash
+  # Serializes routes by calling each instance's toJSON method.
   serializeHasMany: (record, json, relationship) ->
     if relationship.key == 'routes'
       json.routes = record.get('routes').map (route) -> route.toJSON()
