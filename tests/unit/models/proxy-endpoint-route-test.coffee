@@ -1,6 +1,6 @@
 `import { test, moduleForModel } from 'ember-qunit'`
 
-moduleForModel 'route', 'Route', {
+moduleForModel 'proxy-endpoint-route', 'ProxyEndpointRoute', {
   # Specify the other units that are required for this test.
   needs: []
 }

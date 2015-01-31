@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
 `import ApplicationSerializer from './application'`
 
-RouteSerializer = ApplicationSerializer.extend
+ProxyEndpointRouteSerializer = ApplicationSerializer.extend
   normalize: (type, hash, property) ->
     @normalizeMethods hash
     @_super.apply @, arguments
@@ -15,4 +15,4 @@ RouteSerializer = ApplicationSerializer.extend
     delete hash['method']
     hash
 
-`export default RouteSerializer`
+`export default ProxyEndpointRouteSerializer`

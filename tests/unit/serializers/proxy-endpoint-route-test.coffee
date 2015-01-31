@@ -1,6 +1,6 @@
 `import { test, moduleFor } from 'ember-qunit'`
 
-moduleFor 'serializer:route', 'RouteSerializer', {
+moduleFor 'serializer:proxy-endpoint-route', 'ProxyEndpointRouteSerializer', {
   # Specify the other units that are required for this test.
   # needs: ['serializer:foo']
 }
