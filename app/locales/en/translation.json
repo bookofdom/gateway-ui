@@ -53,7 +53,9 @@
     "endpoint-group": "group",
     "endpoint-group_plural": "groups",
     "remote-endpoint": "remote endpoint",
-    "remote-endpoint_plural": "remote endpoints"
+    "remote-endpoint_plural": "remote endpoints",
+    "route": "route",
+    "route_plural": "routes"
   },
   "fields": {
     "email": "email",
@@ -63,7 +65,8 @@
     "cors_allow": "allow CORS origins",
     "cors_enabled": "CORS enabled",
     "type": "type",
-    "active": "active"
+    "active": "active",
+    "path": "path"
   },
   "prompts": {
     "generic": "choose one"
@@ -71,6 +74,12 @@
   "states": {
     "active": "active",
     "inactive": "inactive"
+  },
+  "http-methods": {
+    "get": "GET",
+    "post": "POST",
+    "put": "PUT",
+    "delete": "DELETE"
   },
   "errors": {
     "no-user-with-that-email": "no user with that email",
@@ -80,3 +89,4 @@
     "x-workflow": "__x__ workflow"
   }
 }
+
