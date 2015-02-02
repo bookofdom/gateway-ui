@@ -2,6 +2,7 @@
   {{#ap-model-form-group
       model=controller.model
       field=field
+      inline=controller.inline
       horizontal=controller.horizontal}}
     {{ap-model-field
         model=controller.model
@@ -13,4 +14,4 @@
 
 {{yield}}
 
-{{ap-form-actions show-save=dirty show-cancel=dirty}}
+{{ap-form-actions inline=inline horizontal=horizontal show-save=dirty show-cancel=dirty}}
