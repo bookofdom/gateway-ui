@@ -7,6 +7,7 @@ ApTableModelComponent = BsBaseComponent.extend
   'delete-action': 'delete'
   'auto-delete': true
   'edit-path': null
+  'partial-path': null
   delete: (record) ->
     # TODO:  confirm delete
     record.destroyRecord()
