@@ -17,6 +17,8 @@ ApModelFormComponent = BsFormComponent.extend
       prompt: t('prompts.generic').capitalize()
       field: field
   dirty: Ember.computed 'model.isDirty', -> @get 'model.isDirty'
+  'show-save': Ember.computed 'dirty', -> @get 'dirty'
+  'show-cancel': Ember.computed 'dirty', -> @get 'dirty'
   submit: ->
     autoSave = @get 'auto-save'
     @sendAction() if @get('dirty') and !autoSave
