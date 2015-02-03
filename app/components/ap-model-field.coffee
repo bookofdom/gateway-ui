@@ -24,6 +24,11 @@ ApModelFieldComponent = BsBaseComponent.extend
   checkbox: Ember.computed 'type', ->
     (@get('type') == 'checkbox') or (@get('type') == 'boolean')
   radio: Ember.computed 'type', -> @get('type') == 'radio'
+  idName: Ember.computed 'model', 'fieldName', ->
+    typeKey = @get 'model.constructor.typeKey'
+    id = @get 'model.id'
+    fieldName = @get 'fieldName'
+    if id then "#{typeKey}-#{id}-#{fieldName}" else "#{typeKey}-#{fieldName}"
   fieldTemplateName: Ember.computed 'type', ->
     "components/ap-model-field/-#{@get 'type'}"
   setupValueAttribute: Ember.on 'init', ->
