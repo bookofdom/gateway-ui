@@ -1,17 +1,20 @@
 {{#ap-model-form
-    model=model
-    option-groups=option-groups
-    fields=fields}}
+  model=model
+  option-groups=option-groups
+  fields=fields}}
   
   {{#unless isNew}}
     {{#bs-form-group
-        horizontal=true
-        label='resources.proxy-endpoint-route_plural'}}
+      horizontal=true
+      label='resources.proxy-endpoint-route_plural'}}
       {{ap-table-model
-          models=model.routes
-          delete-action='delete-proxy-endpoint-route'
-          auto-delete=false
-          partial-path='proxy-endpoint-route/-inline-form'}}
+        models=model.routes
+        delete-action='delete-proxy-endpoint-route'
+        auto-delete=false
+        partial-path='proxy-endpoint-route/-inline-form'}}
+      {{ap-button-new
+        t='resources.proxy-endpoint-route'
+        action='new-proxy-endpoint-route'}}
     {{/bs-form-group}}
   {{/unless}}
   
