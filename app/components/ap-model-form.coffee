@@ -29,6 +29,7 @@ ApModelFormComponent = BsFormComponent.extend
   actions:
     cancel: ->
       if @get 'auto-cancel'
+        @get('model').rollback()
         @get('model').reload().then =>
           @get('model').rollback()
       else
