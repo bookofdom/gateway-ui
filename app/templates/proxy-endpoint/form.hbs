@@ -1,4 +1,16 @@
-{{ap-model-form
+{{#ap-model-form
     model=model
     option-groups=option-groups
     fields=fields}}
+  
+  {{#unless isNew}}
+    {{#bs-form-group
+        horizontal=true
+        label='resources.proxy-endpoint-route_plural'}}
+      {{ap-table-model
+          models=model.routes
+          partial-path='proxy-endpoint-route/-inline-form'}}
+    {{/bs-form-group}}
+  {{/unless}}
+  
+{{/ap-model-form}}
