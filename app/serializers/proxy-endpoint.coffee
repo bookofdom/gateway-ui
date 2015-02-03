@@ -21,7 +21,7 @@ ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     hash
   # Adds ephemeral IDs to embedded route records, since IDs are required.
   normalizeRoutes: (hash) ->
-    for route in hash.routes
+    for route in (hash.routes or [])
       route.id = routeIdCounter++
     hash
   # Serializes routes by calling each instance's toJSON method.
