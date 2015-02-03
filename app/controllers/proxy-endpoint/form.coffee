@@ -14,6 +14,11 @@ ProxyEndpointFormController = FormController.extend
     newModel = @_super.apply @, arguments
     proxyEndpoints = @get 'controllers.proxy-endpoints.model'
     proxyEndpoints.pushObject newModel
+  createNewRouteModel: Ember.on 'init', ->
+    count = @get('model.routes.length')
+    if !count
+      newRouteModel = @store?.createRecord 'proxy-endpoint-route'
+      @get('model.routes').pushObject newRouteModel
   actions:
     'delete-proxy-endpoint-route': (record) -> record.deleteRecord()
 
