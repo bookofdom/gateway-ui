@@ -20,7 +20,8 @@ ApModelFormComponent = BsFormComponent.extend
       field: field
   dirty: Ember.computed 'model.isDirty', -> @get 'model.isDirty'
   'show-save': Ember.computed 'dirty', -> @get 'dirty'
-  'show-cancel': Ember.computed 'dirty', -> @get 'dirty'
+  'show-cancel': Ember.computed 'dirty', 'model.isNew', ->
+    @get('dirty') and !@get('model.isNew')
   submit: ->
     autoSave = @get 'auto-save'
     @sendAction() if @get('dirty') and !autoSave
