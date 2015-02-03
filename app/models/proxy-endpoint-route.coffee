@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
 
 ProxyEndpointRoute = DS.Model.extend
-  path: DS.attr 'string'
+  path: DS.attr 'string', defaultValue: '/'
   get_method: DS.attr 'boolean', defaultValue: false
   post_method: DS.attr 'boolean', defaultValue: false
   put_method: DS.attr 'boolean', defaultValue: false
