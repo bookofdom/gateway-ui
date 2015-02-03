@@ -22,6 +22,14 @@ ApModelFormComponent = BsFormComponent.extend
   'show-save': Ember.computed 'dirty', -> @get 'dirty'
   'show-cancel': Ember.computed 'dirty', 'model.isNew', ->
     @get('dirty') and !@get('model.isNew')
+  onInit: Ember.on 'init', ->
+    model = @get 'model'
+    isNew = model.get 'isNew'
+    @assignModelClientId() if model and isNew
+  assignModelClientId: ->
+    model = @get 'model'
+    clientId = Math.round(Math.random() * 1000000000)
+    model.set 'clientId', clientId
   submit: ->
     autoSave = @get 'auto-save'
     @sendAction() if @get('dirty') and !autoSave

@@ -26,7 +26,7 @@ ApModelFieldComponent = BsBaseComponent.extend
   radio: Ember.computed 'type', -> @get('type') == 'radio'
   idName: Ember.computed 'model', 'fieldName', ->
     typeKey = @get 'model.constructor.typeKey'
-    id = @get 'model.id'
+    id = @get('model.id') or @get('model.clientId')
     fieldName = @get 'fieldName'
     if id then "#{typeKey}-#{id}-#{fieldName}" else "#{typeKey}-#{fieldName}"
   fieldTemplateName: Ember.computed 'type', ->

@@ -11,7 +11,7 @@ ApModelFormGroupComponent = BsFormGroupComponent.extend
     @get('field')?.split(':')[1]?.trim() or "fields.#{@get 'fieldName'}"
   'label-for': Ember.computed 'model', 'fieldName', ->
     typeKey = @get 'model.constructor.typeKey'
-    id = @get 'model.id'
+    id = @get('model.id') or @get('model.clientId')
     fieldName = @get 'fieldName'
     if id then "#{typeKey}-#{id}-#{fieldName}" else "#{typeKey}-#{fieldName}"
   help: Ember.computed 'field', 'hasErrors', ->
