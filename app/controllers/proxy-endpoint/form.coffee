@@ -14,5 +14,7 @@ ProxyEndpointFormController = FormController.extend
     newModel = @_super.apply @, arguments
     proxyEndpoints = @get 'controllers.proxy-endpoints.model'
     proxyEndpoints.pushObject newModel
+  actions:
+    'delete-proxy-endpoint-route': (record) -> record.deleteRecord()
 
 `export default ProxyEndpointFormController`

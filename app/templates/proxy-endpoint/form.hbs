@@ -9,6 +9,8 @@
         label='resources.proxy-endpoint-route_plural'}}
       {{ap-table-model
           models=model.routes
+          delete-action='delete-proxy-endpoint-route'
+          auto-delete=false
           partial-path='proxy-endpoint-route/-inline-form'}}
     {{/bs-form-group}}
   {{/unless}}
