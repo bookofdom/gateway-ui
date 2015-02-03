@@ -24,8 +24,8 @@ ApModelFormComponent = BsFormComponent.extend
     @get('dirty') and !@get('model.isNew')
   onInit: Ember.on 'init', ->
     model = @get 'model'
-    isNew = model.get 'isNew'
-    @assignModelClientId() if model and isNew
+    isNew = model?.get 'isNew'
+    @assignModelClientId() if model? and isNew
   assignModelClientId: ->
     model = @get 'model'
     clientId = Math.round(Math.random() * 1000000000)

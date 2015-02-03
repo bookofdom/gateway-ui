@@ -19,6 +19,7 @@ ProxyEndpointFormController = FormController.extend
     newRouteModel = @store?.createRecord 'proxy-endpoint-route'
     model.get('routes').pushObject newRouteModel
   onInit: Ember.on 'init', ->
+    @_super.apply @, arguments
     model = @get 'model'
     count = model?.get 'routes.length'
     isNew = model?.get 'isNew'
