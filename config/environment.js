@@ -1,7 +1,6 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
-  var PORT = process.env.PORT || '4200';
   var ENV = {
     modulePrefix: 'gateway',
     environment: environment,
@@ -24,7 +23,7 @@ module.exports = function(environment) {
     },
     
     api: {
-      host: 'http://localhost:' + PORT,
+      host: process.env.API_HOST || 'http://localhost:4200',
       basePath: 'admin',
       authentication: {
         path: 'sessions'
