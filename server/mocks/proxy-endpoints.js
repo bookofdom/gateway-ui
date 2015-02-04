@@ -1,4 +1,5 @@
 module.exports = function(app) {
+  var _ = require('underscore');
   var express = require('express');
   var proxyEndpointsRouter = express.Router();
   var proxyEndpoints = [
@@ -10,17 +11,7 @@ module.exports = function(app) {
           "cors_enabled": true,
           "api_id": 1,
           "environment_id": 1,
-          "endpoint_group_id": null,
-          "routes": [
-            {
-          		"path": "/somewhere/over-the/rainbow.json",
-          		"methods": ["GET"]
-            },
-            {
-          		"path": "/endpoint",
-          		"methods": ["GET", "POST", "PUT", "DELETE"]
-            }
-          ]
+          "endpoint_group_id": null
       },
       {
           "id": 2,
@@ -30,23 +21,23 @@ module.exports = function(app) {
           "cors_enabled": true,
           "api_id": 1,
           "environment_id": 2,
-          "endpoint_group_id": 1,
-          "routes": [
-            {
-          		"path": "/endpoint",
-          		"methods": ["GET", "POST", "PUT", "DELETE"]
-            },
-            {
-          		"path": "/something.json",
-          		"methods": ["GET", "POST", "PUT", "DELETE"]
-            }
-          ]
+          "endpoint_group_id": 1
       }
+  ];
+  var routes = [
+    {
+  		"path": "/somewhere/over-the/rainbow.json",
+  		"methods": ["GET"]
+    },
+    {
+  		"path": "/endpoint",
+  		"methods": ["GET", "POST", "PUT", "DELETE"]
+    }
   ];
 
   proxyEndpointsRouter.get('/', function(req, res) {
     res.send({
-      'proxy-endpoints': proxyEndpoints
+      'proxy-endpoints': _.clone(proxyEndpoints)
     });
   });
 
@@ -54,21 +45,25 @@ module.exports = function(app) {
     var body = req.body;
     var id = Math.round(Math.random() * 100) + 100;
     body.proxy_endpoint.id = id;
+    body.proxy_endpoint.routes = routes;
     res.status(201).send(body).end();
   });
 
   proxyEndpointsRouter.get('/:id', function(req, res) {
     var endpoint = proxyEndpoints.filter(function (value) {
       return value.id == req.params.id;
-    });
+    })[0];
+    endpoint = _.clone(endpoint);
+    endpoint.routes = routes;
     res.send({
-      'proxy_endpoint': endpoint[0]
+      'proxy_endpoint': endpoint
     });
   });
 
   proxyEndpointsRouter.put('/:id', function(req, res) {
     var body = req.body;
     body.proxy_endpoint.id = req.params.id;
+    body.proxy_endpoint.routes = routes;
     if (body.proxy_endpoint.name.toLowerCase() == 'error') {
       res.status(422).send({errors: {name: 'This field is in error.'}})
     } else {
