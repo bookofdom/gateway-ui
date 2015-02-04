@@ -45,7 +45,6 @@ module.exports = function(app) {
     var body = req.body;
     var id = Math.round(Math.random() * 100) + 100;
     body.proxy_endpoint.id = id;
-    body.proxy_endpoint.routes = routes;
     res.status(201).send(body).end();
   });
 
@@ -63,7 +62,6 @@ module.exports = function(app) {
   proxyEndpointsRouter.put('/:id', function(req, res) {
     var body = req.body;
     body.proxy_endpoint.id = req.params.id;
-    body.proxy_endpoint.routes = routes;
     if (body.proxy_endpoint.name.toLowerCase() == 'error') {
       res.status(422).send({errors: {name: 'This field is in error.'}})
     } else {
