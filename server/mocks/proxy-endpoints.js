@@ -10,7 +10,17 @@ module.exports = function(app) {
           "cors_enabled": true,
           "api_id": 1,
           "environment_id": 1,
-          "endpoint_group_id": null
+          "endpoint_group_id": null,
+          "routes": [
+            {
+          		"path": "/somewhere/over-the/rainbow.json",
+          		"methods": ["GET"]
+            },
+            {
+          		"path": "/endpoint",
+          		"methods": ["GET", "POST", "PUT", "DELETE"]
+            }
+          ]
       },
       {
           "id": 2,
@@ -20,7 +30,17 @@ module.exports = function(app) {
           "cors_enabled": true,
           "api_id": 1,
           "environment_id": 2,
-          "endpoint_group_id": 1
+          "endpoint_group_id": 1,
+          "routes": [
+            {
+          		"path": "/endpoint",
+          		"methods": ["GET", "POST", "PUT", "DELETE"]
+            },
+            {
+          		"path": "/something.json",
+          		"methods": ["GET", "POST", "PUT", "DELETE"]
+            }
+          ]
       }
   ];
 

@@ -5,11 +5,6 @@ Router = Ember.Router.extend
   location: config.locationType
 
 Router.map ->
-  # development helpers
-  @route 'component-reference', ->
-    @route 'bootstrap'
-    @route 'anypresence'
-  
   # auth
   @route 'login'
   
@@ -20,6 +15,9 @@ Router.map ->
       @resource 'proxy-endpoints', ->
         @resource 'proxy-endpoint', path: ':proxy_endpoint_id', ->
           @route 'edit'
+          @resource 'proxy-endpoint-routes', path: 'routes', ->
+            @resource 'proxy-endpoint-route', path: ':proxy_endpoint_route_id', ->
+              @route 'edit'
       @resource 'environments', ->
         @resource 'environment', path: ':environment_id', ->
           @route 'edit'
@@ -29,5 +27,10 @@ Router.map ->
       @resource 'remote-endpoints', ->
         @resource 'remote-endpoint', path: ':remote_endpoint_id', ->
           @route 'edit'
+  
+  # development helpers
+  @route 'component-reference', ->
+    @route 'bootstrap'
+    @route 'anypresence'
 
 `export default Router`

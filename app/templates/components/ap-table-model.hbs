@@ -1,0 +1,10 @@
+{{#bs-table}}
+  {{#each model in models}}
+    {{#ap-table-model-row
+        model=model
+        edit-path=controller.edit-path}}
+      {{partial controller.partial-path}}
+    {{/ap-table-model-row}}
+  {{/each}}
+  {{yield}}
+{{/bs-table}}

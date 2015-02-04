@@ -9,6 +9,7 @@ ProxyEndpoint = DS.Model.extend
   api: DS.belongsTo 'api', async: true
   environment: DS.belongsTo 'environment', async: true
   endpoint_group: DS.belongsTo 'endpoint-group', async: true
+  routes: DS.hasMany 'proxy-endpoint-route'
   # Must manually manage isDirty for relationships:
   # http://paulferrett.com/2014/ember-model-isdirty-when-belongsto-changes/
   environmentDirty: Ember.computed 'environment.@each', ->
@@ -19,8 +20,10 @@ ProxyEndpoint = DS.Model.extend
     original = @get('_data.endpoint_group.id') or null
     current = @get('endpoint_group.id') or null
     original != current
-  relationshipsDirty: Ember.computed 'environmentDirty', 'endpointGroupDirty', ->
-    @get('environmentDirty') or @get('endpointGroupDirty')
+  routesDirty: Ember.computed 'routes.@each.isDirty', ->
+    @get('routes').filterBy('isDirty', true).get('length')
+  relationshipsDirty: Ember.computed 'environmentDirty', 'endpointGroupDirty', 'routesDirty', ->
+    @get('environmentDirty') or @get('endpointGroupDirty') or @get('routesDirty')
   relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->

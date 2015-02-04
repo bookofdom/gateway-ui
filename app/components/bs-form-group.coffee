@@ -7,6 +7,7 @@ BsFormGroupComponent = BsTextComponent.extend
   classNameBindings: ['errorClass']
   label: null
   help: null
+  inline: false
   horizontal: false
   checkbox: false
   radio: false
@@ -19,6 +20,7 @@ BsFormGroupComponent = BsTextComponent.extend
   errorClass: Ember.computed 'error', -> 'has-error' if @get 'error'
   'control-label-classes': Ember.computed 'horizontal', 'show-label', ->
     labelClasses = ['text-capitalize']
+    labelClasses.push('control-label') if !@get 'inline'
     labelClasses.push('col-sm-2') if @get 'horizontal'
     labelClasses.push('sr-only') if !@get 'show-label'
     labelClasses.join ' '
