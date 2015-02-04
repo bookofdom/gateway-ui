@@ -23,7 +23,7 @@ module.exports = function(environment) {
     },
     
     api: {
-      host: 'http://localhost:4200',
+      host: process.env.API_HOST || 'http://localhost:4200',
       basePath: 'admin',
       authentication: {
         path: 'sessions'
