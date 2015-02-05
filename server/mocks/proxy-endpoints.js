@@ -36,87 +36,103 @@ module.exports = function(app) {
   ];
   var components = [
     {
-			"type": "single",
-			"conditional": "",
-			"conditional_positive": true,
-			"before": [
-				{	
-					"type": "js",
-					"data": "before single"
-				}
-			],
-      "call": {
-				"endpoint_name_override": "singleCall",
-				"remote_endpoint_id": 1
-      },
-			"after": [
-				{	
-					"type": "js",
-					"data": "after single"
-				}
-			]
-		},
-		{
-			"type": "multi",
-			"conditional": "",
-			"conditional_positive": true,
-			"before": [
-				{	
-					"type": "js",
-					"data": "before multi comp"
-				}
-			],
-      "calls": [
-        {
-  				"conditional": "",
-  				"conditional_positive": true,
-  				"before": [
-  					{	
-  						"type": "js",
-  						"data": "before multi call a"
-  					}
-  				],
-  				"endpoint_name_override": "multiA",
-  				"remote_endpoint_id": 1,
-  				"after": [
-  					{	
-  						"type": "js",
-  						"data": "after multi call a"
-  					}
-  				]
-        },
-        {
-  				"conditional": "",
-  				"conditional_positive": true,
-  				"before": [
-  					{	
-  						"type": "js",
-  						"data": "before multi call b"
-  					}
-  				],
-  				"endpoint_name_override": "multiB",
-  				"remote_endpoint_id": 1,
-  				"after": [
-  					{	
-  						"type": "js",
-  						"data": "after multi call b"
-  					}
-  				]
+        "id": 1,
+        "conditional": "",
+        "conditional_positive": true,
+        "type": "single",
+        "before": [
+            {
+                "id": 1,
+                "type": "js",
+                "data": "before single"
+            }
+        ],
+        "after": [
+            {
+                "id": 2,
+                "type": "js",
+                "data": "after single"
+            }
+        ],
+        "call": {
+            "id": 1,
+            "remote_endpoint_id": 1,
+            "endpoint_name_override": "singleCall",
+            "conditional": "",
+            "conditional_positive": false
         }
-      ],
-			"after": [
-				{	
-					"type": "js",
-					"data": "after multi comp"
-				}
-			]
-		},
-		{
-			"type": "js",
-			"conditional": "",
-			"conditional_positive": true,
-      "data": "code string"
-		}
+    },
+    {
+        "id": 2,
+        "conditional": "",
+        "conditional_positive": true,
+        "type": "multi",
+        "before": [
+            {
+                "id": 3,
+                "type": "js",
+                "data": "before multi comp"
+            }
+        ],
+        "after": [
+            {
+                "id": 4,
+                "type": "js",
+                "data": "after multi comp"
+            }
+        ],
+        "calls": [
+            {
+                "id": 2,
+                "remote_endpoint_id": 1,
+                "endpoint_name_override": "multiA",
+                "conditional": "",
+                "conditional_positive": true,
+                "before": [
+                    {
+                        "id": 5,
+                        "type": "js",
+                        "data": "before multi call a"
+                    }
+                ],
+                "after": [
+                    {
+                        "id": 6,
+                        "type": "js",
+                        "data": "after multi call a"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "remote_endpoint_id": 1,
+                "endpoint_name_override": "multiB",
+                "conditional": "",
+                "conditional_positive": true,
+                "before": [
+                    {
+                        "id": 7,
+                        "type": "js",
+                        "data": "before multi call b"
+                    }
+                ],
+                "after": [
+                    {
+                        "id": 8,
+                        "type": "js",
+                        "data": "after multi call b"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "conditional": "",
+        "conditional_positive": true,
+        "type": "js",
+        "data": "code string"
+    }
   ];
 
   proxyEndpointsRouter.get('/', function(req, res) {
