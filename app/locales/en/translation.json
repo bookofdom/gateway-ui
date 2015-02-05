@@ -55,7 +55,9 @@
     "remote-endpoint": "remote endpoint",
     "remote-endpoint_plural": "remote endpoints",
     "proxy-endpoint-route": "route",
-    "proxy-endpoint-route_plural": "routes"
+    "proxy-endpoint-route_plural": "routes",
+    "proxy-endpoint-component": "component",
+    "proxy-endpoint-component_plural": "components"
   },
   "fields": {
     "email": "email",
