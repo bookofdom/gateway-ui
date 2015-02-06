@@ -3,10 +3,10 @@
 ProxyEndpointView = Ember.View.extend
   layoutName: 'layouts/tertiary'
   didInsertElement: ->
+    # TODO use a controller action rather than a direct call
     controller = @get 'controller'
-    view = @
     @$('.ap-list-nav-vertical-circle-icon').sortable
-      exclude: '.ap-unsortable'
+      items: 'li:not(.ap-unsortable)'
       update: (e, ui) ->
         id = $(ui.item).attr 'data-index'
         position = null
