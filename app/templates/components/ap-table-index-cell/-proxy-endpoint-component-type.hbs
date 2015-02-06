@@ -1,0 +1,11 @@
+{{#link-to path model}}
+  {{#if model.single}}
+    {{t 'proxy-endpoint-component-types.single-proxy'}}
+  {{/if}}
+  {{#if model.multi}}
+    {{t 'proxy-endpoint-component-types.multi-proxy'}}
+  {{/if}}
+  {{#if model.js}}
+    {{t 'proxy-endpoint-component-types.javascript-logic'}}
+  {{/if}}
+{{/link-to}}
