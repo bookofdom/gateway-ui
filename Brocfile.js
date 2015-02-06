@@ -24,7 +24,7 @@ app.import('bower_components/i18next/i18next.js');
 app.import('bower_components/moment/moment.js');
 app.import('bower_components/moment/locale/es.js');
 app.import('bower_components/moment/locale/hi.js');
-app.import('bower_components/jquery-sortable/source/js/jquery-sortable-min.js');
+app.import('bower_components/jquery-ui/jquery-ui.js');
 
 i18n = pickFiles('app', {
  srcDir: '/',
