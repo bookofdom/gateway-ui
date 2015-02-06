@@ -59,6 +59,11 @@
     "proxy-endpoint-component": "component",
     "proxy-endpoint-component_plural": "components"
   },
+  "proxy-endpoint-component-types": {
+    "single-proxy": "single proxy",
+    "multi-proxy": "multi-proxy",
+    "javascript-logic": "JavaScript logic"
+  },
   "fields": {
     "email": "email",
     "password": "password",
