@@ -3,8 +3,7 @@
 ProxyEndpointView = Ember.View.extend
   layoutName: 'layouts/tertiary'
   didInsertElement: ->
-    # TODO use a controller action rather than a direct call
-    controller = @get 'controller'
+    view = @
     @$('.ap-list-nav-vertical-circle-icon').sortable
       items: 'li:not(.ap-unsortable)'
       update: (e, ui) ->
@@ -14,6 +13,9 @@ ProxyEndpointView = Ember.View.extend
           position = i if $(item).is(ui.item)
         $(@).sortable 'cancel'
         ui.item.remove()
-        Ember.run -> controller.moveComponentByIdTo id, position
+        Ember.run -> view.send 'componentMoved', id, position
+  actions:
+    componentMoved: (id, position) ->
+      @get('controller').send 'componentMoved', id, position
 
 `export default ProxyEndpointView`
