@@ -22,6 +22,15 @@ module.exports = function(environment) {
       // when it is created
     },
     
+    contentSecurityPolicy: {
+      'default-src': "'self'",
+      'script-src': "'self'",
+      'font-src': "'self'",
+      'connect-src': "'self'",
+      'img-src': "'self' *",
+      'style-src': "'self' 'unsafe-inline'"
+    },
+    
     api: {
       host: process.env.API_HOST || 'http://localhost:4200',
       basePath: 'admin',
