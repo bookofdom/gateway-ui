@@ -74,7 +74,8 @@
     "type": "type",
     "active": "active",
     "path": "path",
-    "methods": "methods"
+    "methods": "methods",
+    "conditional": "conditional"
   },
   "prompts": {
     "generic": "choose one"
