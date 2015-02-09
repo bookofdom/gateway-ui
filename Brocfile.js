@@ -19,11 +19,17 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+// bootstrap
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js')
+// i18next
 app.import('bower_components/i18next/i18next.js');
+// moment
 app.import('bower_components/moment/moment.js');
 app.import('bower_components/moment/locale/es.js');
 app.import('bower_components/moment/locale/hi.js');
+// ace
+app.import('bower_components/ace-builds/src-noconflict/ace.js');
+app.import('bower_components/ace-builds/src-noconflict/mode-javascript.js');
 
 i18n = pickFiles('app', {
  srcDir: '/',
@@ -37,8 +43,15 @@ retinaIcons = pickFiles('bower_components/bower-retina-icons', {
  destDir: '/'
 });
 
+ace = pickFiles('bower_components/ace-builds/src-noconflict', {
+ srcDir: '/',
+ files: ['worker-javascript.js'],
+ destDir: '/'
+});
+
 module.exports = mergeTrees([
   app.toTree(),
   i18n,
-  retinaIcons
+  retinaIcons,
+  ace
 ]);
