@@ -75,7 +75,7 @@
     "active": "active",
     "path": "path",
     "methods": "methods",
-    "conditional": "conditional"
+    "conditional": "conditional logic"
   },
   "prompts": {
     "generic": "choose one"
