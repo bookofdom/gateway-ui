@@ -25,6 +25,14 @@ ProxyEndpointComponent = DS.Model.extend
         when 'single' then 'proxy-endpoint-component-types.single-proxy'
         when 'multi' then 'proxy-endpoint-component-types.multi-proxy'
         when 'js' then 'proxy-endpoint-component-types.javascript-logic').capitalize()
+  callDirty: Ember.computed 'call.isDirty', ->
+    @get('call')?.get 'isDirty'
+  relationshipsDirty: Ember.computed 'callDirty', ->
+    @get('callDirty')
+  relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
+    @send 'becomeDirty' if @get 'relationshipsDirty'
+  onInit: Ember.on 'init', ->
+    Ember.run.once => @get 'relationshipsDirty'
   reload: ->
     # no op reload, since components are embedded records
     new Ember.RSVP.Promise (resolve, reject) => resolve @
