@@ -1,4 +1,5 @@
 {{ap-list-link
+    class='ap-unsortable'
     path='proxy-endpoint.edit'
     icon='the-essentials-129'
     t=name}}
@@ -6,23 +7,26 @@
 {{#each components}}
   {{#if single}}
     {{ap-list-link
-        path='proxy-endpoint-component.edit'
-        arg1=this
-        icon='the-essentials-072'
-        t=name}}
+      path='proxy-endpoint-component.edit'
+      arg1=this
+      icon='the-essentials-072'
+      t=name
+      index=id}}
   {{/if}}
   {{#if multi}}
     {{ap-list-link
-        path='proxy-endpoint-component.edit'
-        arg1=this
-        icon='file-type-content-077'
-        t=name}}
+      path='proxy-endpoint-component.edit'
+      arg1=this
+      icon='file-type-content-077'
+      t=name
+      index=id}}
   {{/if}}
   {{#if js}}
     {{ap-list-link
-        path='proxy-endpoint-component.edit'
-        arg1=this
-        icon='file-type-content-055'
-        t=name}}
+      path='proxy-endpoint-component.edit'
+      arg1=this
+      icon='file-type-content-055'
+      t=name
+      index=id}}
   {{/if}}
 {{/each}}

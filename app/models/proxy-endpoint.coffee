@@ -29,5 +29,13 @@ ProxyEndpoint = DS.Model.extend
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
     Ember.run.once => @get 'relationshipsDirty'
+  # given a list of component IDs,
+  # re-order the underlaying components array and save
+  moveComponentByIdTo: (id, position) ->
+    components = @get 'components'
+    component = components.findBy 'id', id
+    components.removeObject component
+    components.insertAt position, component
+    @save()
 
 `export default ProxyEndpoint`
