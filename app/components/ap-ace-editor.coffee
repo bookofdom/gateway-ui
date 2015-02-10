@@ -17,11 +17,9 @@ ApAceEditorComponent = Ember.Component.extend
   onEditorChange: Ember.on 'editorChange', (value) -> @set 'value', value
   onValueChange: Ember.observer 'value', ->
     editor = @get 'editor'
-    value = @get 'value'
+    value = @get('value') or ''
     editorValue = editor.getSession().getValue()
-    if !value
-      editor.getSession().setValue ''
-    else if editorValue != value
+    if editorValue != value
       editor.getSession().setValue value
 
 `export default ApAceEditorComponent`
