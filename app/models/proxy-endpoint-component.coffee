@@ -27,8 +27,12 @@ ProxyEndpointComponent = DS.Model.extend
         when 'js' then 'proxy-endpoint-component-types.javascript-logic').capitalize()
   callDirty: Ember.computed 'call.isDirty', ->
     @get('call')?.get 'isDirty'
-  relationshipsDirty: Ember.computed 'callDirty', ->
-    @get('callDirty')
+  beforeDirty: Ember.computed 'before.@each.isDirty', ->
+    @get('before').filterBy('isDirty', true).get('length')
+  afterDirty: Ember.computed 'after.@each.isDirty', ->
+    @get('after').filterBy('isDirty', true).get('length')
+  relationshipsDirty: Ember.computed 'callDirty', 'beforeDirty', 'afterDirty', ->
+    @get('callDirty') or @get('beforeDirty') or @get('afterDirty')
   relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
