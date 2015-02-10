@@ -6,14 +6,17 @@ ProxyEndpointComponentFormController = FormController.extend
     "proxy-endpoint-component/form-#{type}"
   actions:
     submit: ->
-      model = @get 'model'
       proxyEndpoint = @get 'model.proxy_endpoint'
       proxyEndpoint.save().then (=>
-        model.rollback() # "rollback" to now-saved embedded component
+        # "rollback" to now-saved embedded records
+        @send 'rollback'
       ), (=>)
       false
     cancel: ->
+      @send 'rollback'
+    rollback: ->
       @get('model.call')?.rollback()
+      @get('model.calls')?.forEach (record) -> record.rollback()
       @get('model.before')?.forEach (record) -> record.rollback()
       @get('model.after')?.forEach (record) -> record.rollback()
       @get('model').rollback()
