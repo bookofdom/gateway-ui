@@ -37,7 +37,7 @@ module.exports = function(app) {
   var components = [
     {
         "id": 1,
-        "conditional": "",
+        "conditional": "var foo = function () {\n\n};",
         "conditional_positive": true,
         "type": "single",
         "before": [
@@ -58,7 +58,7 @@ module.exports = function(app) {
             "id": 1,
             "remote_endpoint_id": 1,
             "endpoint_name_override": "singleCall",
-            "conditional": "",
+            "conditional": "var foo = function () {\n\n};",
             "conditional_positive": false
         }
     },
