@@ -3,9 +3,11 @@
 
 ApListLinkComponent = BsListLinkComponent.extend
   classNameBindings: ['circleClass', 'reversedClass', 'secondaryHoverClass']
+  attributeBindings: ['index:data-index']
   circle: false
   reversed: false
   'secondary-hover': false
+  index: null
   circleClass: Ember.computed 'circle', ->
     'ap-list-link-circle' if @get 'circle'
   reversedClass: Ember.computed 'reversed', ->

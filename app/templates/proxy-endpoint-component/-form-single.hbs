@@ -1,0 +1,13 @@
+{{#each before}}
+  {{render 'proxy-endpoint-component-transformation/inline-before-form' this}}
+{{/each}}
+{{#ap-model-form
+    model=model
+    fields='conditional:::javascript'
+    auto-save=false
+    auto-cancel=false}}
+  {{render 'proxy-endpoint-component-call/inline-form' call}}
+  {{#each after}}
+    {{render 'proxy-endpoint-component-transformation/inline-after-form' this}}
+  {{/each}}
+{{/ap-model-form}}

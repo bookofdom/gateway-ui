@@ -34,6 +34,106 @@ module.exports = function(app) {
   		"methods": ["GET", "POST", "PUT", "DELETE"]
     }
   ];
+  var components = [
+    {
+        "id": 1,
+        "conditional": "var foo = function () {\n\n};",
+        "conditional_positive": true,
+        "type": "single",
+        "before": [
+            {
+                "id": 1,
+                "type": "js",
+                "data": "before single"
+            }
+        ],
+        "after": [
+            {
+                "id": 2,
+                "type": "js",
+                "data": "after single"
+            }
+        ],
+        "call": {
+            "id": 1,
+            "remote_endpoint_id": 1,
+            "endpoint_name_override": "singleCall",
+            "conditional": "var foo = function () {\n\n};",
+            "conditional_positive": false
+        }
+    },
+    {
+        "id": 2,
+        "conditional": "",
+        "conditional_positive": true,
+        "type": "multi",
+        "before": [
+            {
+                "id": 3,
+                "type": "js",
+                "data": "before multi comp"
+            }
+        ],
+        "after": [
+            {
+                "id": 4,
+                "type": "js",
+                "data": "after multi comp"
+            }
+        ],
+        "calls": [
+            {
+                "id": 2,
+                "remote_endpoint_id": 1,
+                "endpoint_name_override": "multiA",
+                "conditional": "",
+                "conditional_positive": true,
+                "before": [
+                    {
+                        "id": 5,
+                        "type": "js",
+                        "data": "before multi call a"
+                    }
+                ],
+                "after": [
+                    {
+                        "id": 6,
+                        "type": "js",
+                        "data": "after multi call a"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "remote_endpoint_id": 1,
+                "endpoint_name_override": "multiB",
+                "conditional": "",
+                "conditional_positive": true,
+                "before": [
+                    {
+                        "id": 7,
+                        "type": "js",
+                        "data": "before multi call b"
+                    }
+                ],
+                "after": [
+                    {
+                        "id": 8,
+                        "type": "js",
+                        "data": "after multi call b"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "conditional": "",
+        "conditional_positive": true,
+        "type": "js",
+        "data": "code string"
+    }
+  ];
 
   proxyEndpointsRouter.get('/', function(req, res) {
     res.send({
@@ -54,6 +154,7 @@ module.exports = function(app) {
     })[0];
     endpoint = _.clone(endpoint);
     endpoint.routes = routes;
+    endpoint.components = components;
     res.send({
       'proxy_endpoint': endpoint
     });
