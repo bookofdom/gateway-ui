@@ -1,4 +1,7 @@
-{{ap-model-form
+{{#ap-model-form
     model=model
     fields='conditional:::javascript'
-    auto-save=false}}
+    auto-save=false
+    auto-cancel=false}}
+  {{render 'proxy-endpoint-component-call/inline-form' call}}
+{{/ap-model-form}}

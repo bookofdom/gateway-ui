@@ -12,5 +12,8 @@ ProxyEndpointComponentFormController = FormController.extend
         model.rollback() # "rollback" to now-saved embedded component
       ), (=>)
       false
+    cancel: ->
+      @get('model.call')?.rollback()
+      @get('model').rollback()
 
 `export default ProxyEndpointComponentFormController`
