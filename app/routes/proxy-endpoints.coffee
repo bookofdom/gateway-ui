@@ -7,6 +7,7 @@ ProxyEndpointsRoute = Ember.Route.extend AuthenticatedRouteMixin,
     Ember.RSVP.hash
       environments: @modelFor('api').get 'environments'
       endpoint_groups: @modelFor('api').get 'endpoint_groups'
+      remote_endpoints: @modelFor('api').get 'remote_endpoints'
     .then (results) =>
       @set 'extraModels', results
   setupController: (controller) ->
