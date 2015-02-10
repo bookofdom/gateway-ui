@@ -6,10 +6,10 @@ ProxyEndpointComponent = DS.Model.extend
   conditional: DS.attr 'string'
   conditional_positive: DS.attr 'boolean', defaultValue: true
   proxy_endpoint: DS.belongsTo 'proxy-endpoint'
-  #before: DS.hasMany 'proxy-endpoint-component-before'
-  #after: DS.hasMany 'proxy-endpoint-component-after'
   call: DS.belongsTo 'proxy-endpoint-component-call'
   #calls: DS.hasMany 'proxy-endpoint-component-call'
+  before: DS.hasMany 'proxy-endpoint-component-transformation'
+  after: DS.hasMany 'proxy-endpoint-component-transformation'
   # computed
   single: Ember.computed 'type', (key, value, previousValue) ->
     @set 'type', 'single' if value? and (value != previousValue)

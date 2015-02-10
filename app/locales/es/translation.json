@@ -57,7 +57,11 @@
     "proxy-endpoint-route": "route",
     "proxy-endpoint-route_plural": "routes",
     "proxy-endpoint-component": "component",
-    "proxy-endpoint-component_plural": "components"
+    "proxy-endpoint-component_plural": "components",
+    "proxy-endpoint-component-call": "call",
+    "proxy-endpoint-component-call_plural": "calls",
+    "proxy-endpoint-component-transformation": "transformation",
+    "proxy-endpoint-component-transformation_plural": "transformations"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single proxy",
@@ -77,7 +81,9 @@
     "methods": "methods",
     "conditional": "conditional logic",
     "call_conditional": "call conditional logic",
-    "endpoint_name_override": "endpoint name override"
+    "endpoint_name_override": "endpoint name override",
+    "before": "before request logic",
+    "after": "after request logic"
   },
   "prompts": {
     "generic": "choose one"

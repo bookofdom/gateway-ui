@@ -4,5 +4,9 @@ ProxyEndpointComponentSerializer = DS.RESTSerializer.extend DS.EmbeddedRecordsMi
   attrs:
     call:
       embedded: 'always'
+    before:
+      embedded: 'always'
+    after:
+      embedded: 'always'
 
 `export default ProxyEndpointComponentSerializer`
