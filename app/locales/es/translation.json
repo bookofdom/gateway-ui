@@ -82,6 +82,9 @@
     "conditional": "conditional logic",
     "call_conditional": "call conditional logic",
     "endpoint_name_override": "endpoint name override",
+    "before-type": "before type",
+    "after-type": "after type",
+    "logic": "logic",
     "before": "before request logic",
     "after": "after request logic"
   },
@@ -97,6 +100,9 @@
     "post": "POST",
     "put": "PUT",
     "delete": "DELETE"
+  },
+  "languages": {
+    "javascript": "JavaScript"
   },
   "errors": {
     "no-user-with-that-email": "no user with that email",
