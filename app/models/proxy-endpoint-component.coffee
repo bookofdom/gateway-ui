@@ -25,5 +25,8 @@ ProxyEndpointComponent = DS.Model.extend
         when 'single' then 'proxy-endpoint-component-types.single-proxy'
         when 'multi' then 'proxy-endpoint-component-types.multi-proxy'
         when 'js' then 'proxy-endpoint-component-types.javascript-logic').capitalize()
+  reload: ->
+    # no op reload, since components are embedded records
+    new Ember.RSVP.Promise (resolve, reject) => resolve @
 
 `export default ProxyEndpointComponent`
