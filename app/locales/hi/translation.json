@@ -76,7 +76,7 @@
     "path": "path",
     "methods": "methods",
     "conditional": "conditional logic",
-    "conditional_call": "conditional call logic",
+    "call_conditional": "call conditional logic",
     "endpoint_name_override": "endpoint name override"
   },
   "prompts": {
