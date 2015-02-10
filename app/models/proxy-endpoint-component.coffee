@@ -8,7 +8,7 @@ ProxyEndpointComponent = DS.Model.extend
   proxy_endpoint: DS.belongsTo 'proxy-endpoint'
   #before: DS.hasMany 'proxy-endpoint-component-before'
   #after: DS.hasMany 'proxy-endpoint-component-after'
-  #call: DS.hasOne 'proxy-endpoint-component-call'
+  call: DS.belongsTo 'proxy-endpoint-component-call'
   #calls: DS.hasMany 'proxy-endpoint-component-call'
   # computed
   single: Ember.computed 'type', (key, value, previousValue) ->
