@@ -4,6 +4,7 @@ module.exports = function(app) {
   var remoteEndpoints = [
       {
           "id": 1,
+          "api_id": 1,
           "name": "hello",
           "description": "world",
           "type": "http",
@@ -18,6 +19,7 @@ module.exports = function(app) {
       },
       {
           "id": 2,
+          "api_id": 1,
           "name": "hello",
           "description": "world",
           "type": "http",
@@ -32,6 +34,7 @@ module.exports = function(app) {
       },
       {
           "id": 3,
+          "api_id": 1,
           "name": "hello",
           "description": "world",
           "type": "http",
