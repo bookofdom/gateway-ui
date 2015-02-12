@@ -45,9 +45,6 @@ ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   serializeHasMany: (record, json, relationship) ->
     if relationship.key == 'routes'
       json.routes = record.get('routes').map (route) -> route.toJSON()
-    else if relationship.key == 'components'
-      json.components = record.get('components').map (component) ->
-        component.toJSON()
     else
       @_super.apply @, arguments
 
