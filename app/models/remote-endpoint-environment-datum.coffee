@@ -15,9 +15,5 @@ RemoteEndpointEnvironmentDatum = DS.Model.extend
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
     Ember.run.once => @get 'relationshipsDirty'
-  toJSON: ->
-    environment_id: @get 'environment.id'
-    data:
-      url: @get 'url'
 
 `export default RemoteEndpointEnvironmentDatum`
