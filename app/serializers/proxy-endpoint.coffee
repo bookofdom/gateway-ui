@@ -41,14 +41,5 @@ ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
               call.links =
                 remote_endpoint: "/apis/#{hash.api_id}/remote_endpoints/#{call.remote_endpoint_id}"
     hash
-  # Serializes routes by calling each instance's toJSON method.
-  serializeHasMany: (record, json, relationship) ->
-    if relationship.key == 'routes'
-      json.routes = record.get('routes').map (route) -> route.toJSON()
-    else if relationship.key == 'components'
-      json.components = record.get('components').map (component) ->
-        component.toJSON()
-    else
-      @_super.apply @, arguments
 
 `export default ProxyEndpointSerializer`

@@ -14,5 +14,10 @@ ProxyEndpointRouteSerializer = ApplicationSerializer.extend
     hash.delete_method = hash.methods.contains 'delete'
     delete hash['method']
     hash
+  serialize: (model) ->
+    serialized = @_super.apply @, arguments
+    serialized.methods = model.get 'methodsArray'
+    delete serialized['methodsArray']
+    serialized
 
 `export default ProxyEndpointRouteSerializer`

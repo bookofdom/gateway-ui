@@ -41,10 +41,5 @@ ProxyEndpointComponent = DS.Model.extend
   reload: ->
     # no op reload, since components are embedded records
     new Ember.RSVP.Promise (resolve, reject) => resolve @
-  toJSON: ->
-    json = @_super.apply @, arguments
-    json.data = json.body
-    delete json['body']
-    json
 
 `export default ProxyEndpointComponent`

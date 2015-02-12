@@ -11,8 +11,5 @@ ProxyEndpointRoute = DS.Model.extend
     methods = for method in ['get', 'post', 'put', 'delete']
       method.toUpperCase() if @get "#{method}_method"
     methods.compact()
-  toJSON: ->
-    path: @get 'path'
-    methods: @get 'methodsArray'
 
 `export default ProxyEndpointRoute`
