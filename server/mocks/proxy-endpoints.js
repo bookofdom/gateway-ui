@@ -128,7 +128,7 @@ module.exports = function(app) {
     },
     {
         "id": 3,
-        "conditional": "",
+        "conditional": "var foo = function () {\n\n};",
         "conditional_positive": true,
         "type": "js",
         "data": "code string"

@@ -5,6 +5,7 @@ ProxyEndpointComponent = DS.Model.extend
   type: DS.attr 'string', defaultValue: 'single'
   conditional: DS.attr 'string'
   conditional_positive: DS.attr 'boolean', defaultValue: true
+  body: DS.attr 'string'
   proxy_endpoint: DS.belongsTo 'proxy-endpoint'
   call: DS.belongsTo 'proxy-endpoint-component-call'
   #calls: DS.hasMany 'proxy-endpoint-component-call'
@@ -40,5 +41,10 @@ ProxyEndpointComponent = DS.Model.extend
   reload: ->
     # no op reload, since components are embedded records
     new Ember.RSVP.Promise (resolve, reject) => resolve @
+  toJSON: ->
+    json = @_super.apply @, arguments
+    json.data = json.body
+    delete json['body']
+    json
 
 `export default ProxyEndpointComponent`
