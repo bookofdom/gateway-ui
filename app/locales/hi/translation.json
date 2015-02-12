@@ -83,6 +83,7 @@
     "url": "URL",
     "methods": "methods",
     "conditional": "conditional logic",
+    "conditional_positive": "conditional positive",
     "call_conditional": "call conditional logic",
     "endpoint_name_override": "endpoint name override",
     "before-type": "before type",

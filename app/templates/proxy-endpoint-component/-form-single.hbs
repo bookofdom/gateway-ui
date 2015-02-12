@@ -3,9 +3,10 @@
 {{/each}}
 {{#ap-model-form
     model=model
-    fields='conditional:::javascript'
+    fields='conditional:::javascript,conditional_positive'
     auto-save=false
     auto-cancel=false}}
+  <br>
   {{render 'proxy-endpoint-component-call/inline-form' call}}
   {{#each after}}
     {{render 'proxy-endpoint-component-transformation/inline-after-form' this}}
