@@ -18,6 +18,22 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse ap-nav-header">
       
+      {{#if session.isAuthenticated}}
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+              <span class="text-lowercase">{{session.email}}</span>
+              <span class="retina-arrows-007"></span>
+            </a><!-- .btn -->
+            <ul class="dropdown-menu text-capitalize">
+              {{ap-list-link
+                action='invalidateSession'
+                t='actions.logout'}}
+            </ul><!-- .dropdown-menu -->
+          </li><!-- .dropdown -->
+        </ul><!-- /.nav -->
+      {{/if}}
+      
     </div><!-- /.navbar-collapse -->
     
   </nav><!-- /.navbar -->
