@@ -5,28 +5,36 @@
     t=name}}
 
 {{#each components}}
-  {{#if single}}
-    {{ap-list-link
-      path='proxy-endpoint-component.edit'
-      arg1=this
-      icon='the-essentials-072'
-      t=name
-      index=id}}
-  {{/if}}
-  {{#if multi}}
-    {{ap-list-link
-      path='proxy-endpoint-component.edit'
-      arg1=this
-      icon='file-type-content-077'
-      t=name
-      index=id}}
-  {{/if}}
-  {{#if js}}
-    {{ap-list-link
-      path='proxy-endpoint-component.edit'
-      arg1=this
-      icon='file-type-content-055'
-      t=name
-      index=id}}
-  {{/if}}
+  {{#unless isNew}}
+    {{#if single}}
+      {{ap-list-link
+        path='proxy-endpoint-component.edit'
+        arg1=this
+        icon='the-essentials-072'
+        t=name
+        index=id}}
+    {{/if}}
+    {{#if multi}}
+      {{ap-list-link
+        path='proxy-endpoint-component.edit'
+        arg1=this
+        icon='file-type-content-077'
+        t=name
+        index=id}}
+    {{/if}}
+    {{#if js}}
+      {{ap-list-link
+        path='proxy-endpoint-component.edit'
+        arg1=this
+        icon='file-type-content-055'
+        t=name
+        index=id}}
+    {{/if}}
+  {{/unless}}
 {{/each}}
+
+{{ap-list-link
+    class='ap-unsortable'
+    path='proxy-endpoint-components.new'
+    icon='the-essentials-010'
+    t='actions.new'}}
