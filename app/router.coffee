@@ -30,6 +30,9 @@ Router.map ->
       @resource 'remote-endpoints', ->
         @resource 'remote-endpoint', path: ':remote_endpoint_id', ->
           @route 'edit'
+          @resource 'remote-endpoint-environment-data', path: 'environment-data', ->
+            @resource 'remote-endpoint-environment-datum', path: ':remote_endpoint_environment_datum_id', ->
+              @route 'edit'
   
   # development helpers
   @route 'component-reference', ->
