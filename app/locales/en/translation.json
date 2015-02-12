@@ -17,6 +17,7 @@
   "actions": {
     "toggle-navivagation": "toggle navigation",
     "login": "login",
+    "logout": "logout",
     "delete": "delete",
     "save": "save",
     "cancel": "cancel",
