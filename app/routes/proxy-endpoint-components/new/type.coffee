@@ -1,8 +1,5 @@
 `import Ember from 'ember'`
 
-# TODO:  before navigating away from this route, remove new unsaved components
-# so that these are not accidentally saved through a proxy endpoint save op
-
 ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend
   model: (params) ->
     # first, remove any lingering new unsaved components
@@ -17,7 +14,8 @@ ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend
     components.pushObject model
     model
   removeNewComponents: ->
-    'stuff'
+    @modelFor('proxy-endpoint').get('components').filterBy('isNew', true).forEach (component) ->
+      component.deleteRecord()
   populateRelationships: (model) ->
     @addNewCall model
     @addNewBefore model
@@ -33,5 +31,9 @@ ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend
     if !model.get 'js'
       record = @store.createRecord 'proxy-endpoint-component-transformation'
       model.get('after').pushObject record
+  actions:
+    willTransition: ->
+      @removeNewComponents()
+      true
 
 `export default ProxyEndpointComponentsNewTypeRoute`
