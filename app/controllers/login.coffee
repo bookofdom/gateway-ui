@@ -4,6 +4,9 @@
 
 LoginController = Ember.Controller.extend LoginControllerMixin,
   authenticator: 'authenticator:gateway'
+  labels:
+    email: t('fields.email').capitalize()
+    password: t('fields.password').capitalize()
   authenticationError: null
   authenticationErrorText: Ember.computed 'authenticationError', ->
     error = @get 'authenticationError'
