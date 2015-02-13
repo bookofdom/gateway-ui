@@ -1,8 +1,13 @@
 .ap-list-nav
+  margin-bottom: 0
   &.ap-list-nav-circle
     &.list-inline
       li
         padding: 0
+
+.ap-list-nav-hide-text
+  .text, .text-secondary
+    @extend .sr-only
 
 .ap-list-nav-circle
   .ap-icon
@@ -12,8 +17,13 @@
     margin-right: auto
 
 .ap-list-nav-secondary-hover
-  .text, .text-small, .ap-icon
+  .text, .text-secondary, .ap-icon
     display: block
+
+.ap-list-nav-lg
+  // font size
+  .ap-icon
+    font-size: 30px
 
 .ap-list-nav-xl
   // font size
@@ -33,6 +43,11 @@
     &.list-inline
       li
         width: $size
+
+.ap-list-nav-vertical-icon
+  a
+    display: block
+    padding: 15px 0
 
 .ap-list-nav-xl-circle-icon
   li
