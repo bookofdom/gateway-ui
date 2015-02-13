@@ -1,5 +1,7 @@
 .ap-list-nav
   margin-bottom: 0
+  a
+    display: block
   &.ap-list-nav-circle
     &.list-inline
       li
@@ -10,8 +12,6 @@
     @extend .sr-only
 
 .ap-list-nav-circle
-  .ap-icon
-    border-radius: 50%
   &.text-center .ap-icon
     margin-left: auto
     margin-right: auto
@@ -44,9 +44,21 @@
       li
         width: $size
 
+.ap-list-nav-vertical
+  li
+    border-bottom: 1px solid
+  a
+    padding: 13px
+  .text, .text-secondary
+    display: block
+    font-size: 13px
+  .text
+    margin-bottom: 0.5em
+  .text-secondary
+    font-size: 11px
+
 .ap-list-nav-vertical-icon
   a
-    display: block
     padding: 15px 0
 
 .ap-list-nav-xl-circle-icon
