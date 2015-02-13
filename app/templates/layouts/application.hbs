@@ -1,2 +1,5 @@
-{{partial 'application/header'}}
+{{#if session.isAuthenticated}}
+  {{partial 'application/header'}}
+{{/if}}
+
 {{outlet}}
