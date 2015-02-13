@@ -1,0 +1,41 @@
+.ap-list-nav
+  &.ap-list-nav-circle
+    &.list-inline
+      li
+        padding: 0
+
+.ap-list-nav-circle
+  .ap-icon
+    border-radius: 50%
+  &.text-center .ap-icon
+    margin-left: auto
+    margin-right: auto
+
+.ap-list-nav-secondary-hover
+  .text, .text-small, .ap-icon
+    display: block
+
+.ap-list-nav-xl
+  // font size
+  .ap-icon
+    font-size: 66px
+  .text
+    font-size: 24px
+  .text-secondary
+    font-size: 16px
+  // circle size
+  &.ap-list-nav-circle
+    $size: 175px
+    .ap-icon
+      width: $size
+      height: $size
+      padding-top: 50px
+    &.list-inline
+      li
+        width: $size
+
+.ap-list-nav-xl-circle-icon
+  li
+    margin: 22px
+  .text, .ap-icon
+    margin-bottom: 20px
