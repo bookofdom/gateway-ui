@@ -2,6 +2,6 @@
 `import BsTextComponent from 'gateway/components/bs-text'`
 
 ApPageComponent = BsTextComponent.extend
-  classNames: ['container-fluid']
+  classNames: ['ap-page']
 
 `export default ApPageComponent`
