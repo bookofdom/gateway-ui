@@ -15,3 +15,11 @@
 {{yield}}
 
 {{ap-form-actions inline=inline horizontal=horizontal show-save=show-save show-cancel=show-cancel}}
+
+{{#ap-model-form-group
+  model=controller.model
+  field='base'
+  label=''
+  inline=controller.inline
+  horizontal=controller.horizontal}}
+{{/ap-model-form-group}}
