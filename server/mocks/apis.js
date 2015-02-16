@@ -48,7 +48,9 @@ module.exports = function(app) {
     var body = req.body;
     body.api.id = req.params.id;
     if (body.api.name.toLowerCase() == 'error') {
-      res.status(422).send({errors: {name: 'This field is in error.'}})
+      res.status(422).send({errors: {name: 'This field is in error.'}});
+    } else if (body.api.name.toLowerCase() == '500') {
+      res.status(500).send();
     } else {
       res.send(body);
     }
