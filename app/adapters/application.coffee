@@ -14,7 +14,7 @@ ApplicationAdapter = DS.RESTAdapter.extend
     @_super url, method, hash
   ajaxError: (xhr, responseText) ->
     error = @_super.apply @, arguments
-    if xhr?.status == 422
+    if (xhr?.status == 422) or (xhr?.status == 400)
       response = Ember.$.parseJSON responseText
       new DS.InvalidError response
     else
