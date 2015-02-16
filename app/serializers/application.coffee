@@ -3,7 +3,9 @@
 ApplicationSerializer = DS.RESTSerializer.extend
   serializeIntoHash: (data, type, record, options) ->
     root = Ember.String.decamelize type.typeKey
-    data[root] = @serialize record, options
+    serialized = @serialize record, options
+    delete serialized['api_id'] # this field is always transient
+    data[root] = serialized
   keyForRelationship: (rawKey, kind) ->
     key = Ember.String.decamelize rawKey
     singularKey = Ember.String.singularize key
