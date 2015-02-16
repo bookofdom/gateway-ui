@@ -8,6 +8,8 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     environment_data:
       embedded: 'always'
   normalize: (type, hash, property) ->
+    # `data` is reserved in Ember, so transform into `url` attribute
+    hash.url = hash.data.url
     @normalizeEnvironmentData hash
     @normalizeEnvironmentDataLinks hash
     @_super.apply @, arguments
@@ -25,5 +27,10 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
           datum.links =
             environment: "/apis/#{hash.api_id}/environments/#{datum.environment_id}"
     hash
+  serialize: (model) ->
+    serialized = @_super.apply @, arguments
+    serialized.data =
+      url: model.get 'url'
+    serialized
 
 `export default RemoteEndpointSerializer`
