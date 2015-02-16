@@ -8,6 +8,9 @@ module.exports = function(app) {
           "name": "hello",
           "description": "world",
           "type": "http",
+          "data": {
+              "url": "http://demo.ap.com"
+          },
           "environment_data": [
               {
                   "environment_id": 1,
@@ -23,6 +26,9 @@ module.exports = function(app) {
           "name": "hello",
           "description": "world",
           "type": "http",
+          "data": {
+              "url": "http://demo.ap.com"
+          },
           "environment_data": [
               {
                   "environment_id": 1,
@@ -38,6 +44,9 @@ module.exports = function(app) {
           "name": "hello",
           "description": "world",
           "type": "http",
+          "data": {
+              "url": "http://demo.ap.com"
+          },
           "environment_data": [
               {
                   "environment_id": 1,
