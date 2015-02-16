@@ -1,7 +1,8 @@
 `import DS from 'ember-data'`
+`import Model from './model'`
 `import t from 'gateway/helpers/i18n'`
 
-ProxyEndpointComponent = DS.Model.extend
+ProxyEndpointComponent = Model.extend
   type: DS.attr 'string', defaultValue: 'single'
   conditional: DS.attr 'string'
   conditional_positive: DS.attr 'boolean', defaultValue: true

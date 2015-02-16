@@ -1,6 +1,7 @@
 `import DS from 'ember-data'`
+`import Model from './model'`
 
-Api = DS.Model.extend
+Api = Model.extend
   name: DS.attr 'string'
   description: DS.attr 'string'
   cors_allow: DS.attr 'string', defaultValue: '*'
