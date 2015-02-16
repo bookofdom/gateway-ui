@@ -1,7 +1,8 @@
 `import Ember from 'ember'`
 `import DS from 'ember-data'`
+`import Model from './model'`
 
-ProxyEndpoint = DS.Model.extend
+ProxyEndpoint = Model.extend
   name: DS.attr 'string'
   description: DS.attr 'string'
   active: DS.attr 'boolean'

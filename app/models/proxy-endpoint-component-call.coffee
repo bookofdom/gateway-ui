@@ -1,6 +1,7 @@
 `import DS from 'ember-data'`
+`import Model from './model'`
 
-ProxyEndpointComponentCall = DS.Model.extend
+ProxyEndpointComponentCall = Model.extend
   endpoint_name_override: DS.attr 'string'
   conditional: DS.attr 'string'
   conditional_positive: DS.attr 'boolean', defaultValue: true
