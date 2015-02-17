@@ -1,0 +1,96 @@
+.ap-list-nav
+  margin-bottom: 0
+  a
+    display: block
+  // font size
+  .ap-icon
+    font-size: 25px
+
+.ap-list-nav-hide-text
+  .text, .text-secondary
+    @extend .sr-only
+
+.ap-list-nav-circle
+  &.list-inline
+    li
+      padding: 0
+  .ap-icon
+    display: inline-block
+    text-align: center
+  &.text-center .ap-icon
+    margin-left: auto
+    margin-right: auto
+
+.ap-list-nav-secondary-hover
+  .text, .text-secondary, .ap-icon
+    display: block
+
+.ap-list-nav-lg
+  // font size
+  .ap-icon
+    font-size: 30px
+  &.ap-list-nav-circle
+    $size: 70px
+    .ap-icon
+      width: $size
+      height: $size
+      padding-top: 15px
+
+.ap-list-nav-xl
+  // font size
+  .ap-icon
+    font-size: 66px
+  .text
+    font-size: 24px
+  .text-secondary
+    font-size: 16px
+  // circle size
+  &.ap-list-nav-circle
+    $size: 175px
+    .ap-icon
+      width: $size
+      height: $size
+      padding-top: 40px
+    &.list-inline
+      li
+        width: $size
+
+.ap-list-nav-circle-icon
+  li
+    margin: 10px
+  .ap-icon
+    display: block
+    margin-bottom: 10px
+
+.ap-list-nav-vertical-circle-icon
+  li
+    margin-bottom: 35px
+  .ap-icon
+    $border-width: 5px
+    border: $border-width solid
+    i
+      position: relative
+      top: -$border-width
+
+.ap-list-nav-vertical
+  li
+    border-bottom: 1px solid
+  a
+    padding: 13px
+  .text, .text-secondary
+    display: block
+    font-size: 13px
+  .text
+    margin-bottom: 0.5em
+  .text-secondary
+    font-size: 11px
+
+.ap-list-nav-vertical-icon
+  a
+    padding: 15px 0
+
+.ap-list-nav-xl-circle-icon
+  li
+    margin: 22px
+  .text, .ap-icon
+    margin-bottom: 20px
