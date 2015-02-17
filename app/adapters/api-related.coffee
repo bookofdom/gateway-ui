@@ -10,10 +10,11 @@ ApiRelatedAdapter = ApplicationAdapter.extend
     basePath = config.api.basePath
     url = url.split "/#{basePath}/"
     apiId = record?.get 'api.id'
-    if apiId
+    if apiId and basePath
       url.insertAt 1, basePath
       url.insertAt 2, @pathForType('api')
       url.insertAt 3, apiId
-    url.join('/')
+    url = url.filter((value) -> !!value).join '/'
+    url
 
 `export default ApiRelatedAdapter`
