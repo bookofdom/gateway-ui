@@ -1,6 +1,7 @@
 `import DS from 'ember-data'`
+`import Model from './model'`
 
-RemoteEndpoint = DS.Model.extend
+RemoteEndpoint = Model.extend
   name: DS.attr 'string'
   type: DS.attr 'string', defaultValue: 'http'
   description: DS.attr 'string'

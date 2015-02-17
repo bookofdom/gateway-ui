@@ -1,6 +1,7 @@
 `import DS from 'ember-data'`
+`import Model from './model'`
 
-RemoteEndpointEnvironmentDatum = DS.Model.extend
+RemoteEndpointEnvironmentDatum = Model.extend
   url: DS.attr 'string'
   environment: DS.belongsTo 'environment', async: true
   remote_endpoint: DS.belongsTo 'remote-endpoint'
