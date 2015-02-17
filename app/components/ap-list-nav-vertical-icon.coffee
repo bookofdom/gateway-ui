@@ -5,5 +5,6 @@ ApListNavVerticalIconComponent = ApListNavComponent.extend
   classNames: ['ap-list-nav-vertical-icon']
   lg: true
   'show-text': false
+  'text-center': true
 
 `export default ApListNavVerticalIconComponent`

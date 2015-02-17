@@ -1,0 +1,20 @@
+{{#ap-model-form
+    model=model
+    fields='name,url,description:::textarea'}}
+
+    {{#unless isNew}}
+      {{#bs-form-group
+        horizontal=true
+        label='resources.remote-endpoint-environment-datum_plural'}}
+        {{ap-table-model
+          models=model.environment_data
+          delete-action='delete-remote-endpoint-environment-datum'
+          auto-delete=false
+          partial-path='remote-endpoint-environment-datum/-inline-form'}}
+        {{ap-button-new
+          t='resources.remote-endpoint-environment-datum'
+          action='new-remote-endpoint-environment-datum'}}
+      {{/bs-form-group}}
+    {{/unless}}
+
+{{/ap-model-form}}

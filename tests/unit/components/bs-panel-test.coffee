@@ -3,7 +3,10 @@
 moduleForComponent 'bs-panel', 'BsPanelComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
-  needs: ['template:components/bs-text']
+  needs: [
+    'template:components/bs-text'
+    'template:components/bs-panel/-panel-body'
+  ]
 }
 
 test 'it renders', ->

@@ -6,6 +6,10 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    'simple-auth': {
+      routeAfterAuthentication: 'apis',
+      routeIfAlreadyAuthenticated: 'apis'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -16,6 +20,23 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    
+    contentSecurityPolicy: {
+      'default-src': "'self'",
+      'script-src': "'self'",
+      'font-src': "'self'",
+      'connect-src': "'self'",
+      'img-src': "'self' *",
+      'style-src': "'self' 'unsafe-inline'"
+    },
+    
+    api: {
+      host: process.env.API_HOST || 'http://localhost:4200',
+      basePath: 'admin',
+      authentication: {
+        path: 'sessions'
+      }
     }
   };
 
@@ -25,6 +46,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    
+    // uncomment for stand-alone gateway API
+    //ENV.api.host = 'http://localhost:5000'
   }
 
   if (environment === 'test') {
@@ -42,6 +66,10 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+  
+  ENV.api.url = [ENV.api.host, ENV.api.basePath].join('/');
+  ENV.api.authentication.url = [ENV.api.host, ENV.api.basePath, ENV.api.authentication.path].join('/');
+  ENV['simple-auth'].crossOriginWhitelist = [ENV.api.authentication.url];
 
   return ENV;
 };

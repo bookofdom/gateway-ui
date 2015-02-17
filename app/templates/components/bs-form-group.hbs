@@ -1,0 +1,45 @@
+<label {{bind-attr for=label-for class="control-label-classes"}}>{{text}}</label>
+
+{{#if inline}}
+  {{#unless is-boolean}}
+    {{yield}}
+    {{#if secondary-text}}
+      <span class="help-block">{{secondary-text}}</span>
+    {{/if}}
+  {{/unless}}
+  
+  {{#if is-boolean}}
+    <div {{bind-attr class=boolean-type-class}}>
+      <label>
+        {{yield}}
+      </label>
+      {{#if secondary-text}}
+        <span class="help-block">{{secondary-text}}</span>
+      {{/if}}
+    </div>
+  {{/if}}
+{{/if}}
+
+{{#unless inline}}
+<div {{bind-attr class=control-wrapper-classes}}>
+  
+  {{#unless is-boolean}}
+    {{yield}}
+    {{#if secondary-text}}
+      <span class="help-block">{{secondary-text}}</span>
+    {{/if}}
+  {{/unless}}
+  
+  {{#if is-boolean}}
+    <div {{bind-attr class=boolean-type-class}}>
+      <label>
+        {{yield}}
+      </label>
+      {{#if secondary-text}}
+        <span class="help-block">{{secondary-text}}</span>
+      {{/if}}
+    </div>
+  {{/if}}
+  
+</div>
+{{/unless}}

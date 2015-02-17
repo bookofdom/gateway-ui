@@ -352,6 +352,38 @@
       {{/bs-table}}
     {{/bs-col}}
   {{/bs-row}}
+  
+  {{#bs-row}}
+    {{#bs-col sm=12}}
+      <hr>
+      {{bs-h2 t='Forms'}}
+    {{/bs-col}}
+  {{/bs-row}}
+  {{#bs-row}}
+    {{#bs-col sm=6}}
+      
+    {{/bs-col}}
+    {{#bs-col sm=6}}
+      {{#bs-form horizontal=true}}
+        {{#bs-form-group
+            label='fields.name'
+            horizontal=true}}
+          <input type="text" class="form-control">
+        {{/bs-form-group}}
+        {{#bs-form-group
+            label='fields.name'
+            horizontal=true
+            checkbox=true}}
+          <input type="checkbox">
+        {{/bs-form-group}}
+        {{#bs-form-group
+            label='fields.description'
+            horizontal=true}}
+          <textarea class="form-control" rows="3"></textarea>
+        {{/bs-form-group}}
+      {{/bs-form}}
+    {{/bs-col}}
+  {{/bs-row}}
 
 {{/bs-container}}
 

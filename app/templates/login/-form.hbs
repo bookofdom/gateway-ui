@@ -1,0 +1,23 @@
+<form class="ap-form-login" {{action 'authenticate' on='submit'}}>
+  {{#bs-form-group error=email-error help=email-error}}
+    {{input
+        name='identification'
+        value=identification
+        autofocus=true
+        placeholder=labels.email
+        class='form-control input-lg'}}
+  {{/bs-form-group}}
+  {{#bs-form-group error=password-error help=password-error}}
+    {{input
+        name='password'
+        value=password
+        type='password'
+        placeholder=labels.password
+        class='form-control input-lg'}}
+  {{/bs-form-group}}
+  <div class="form-actions">
+    {{#bs-form-group}}
+      {{bs-submit t='actions.login' lg=true}}
+    {{/bs-form-group}}
+  </div>
+</form>

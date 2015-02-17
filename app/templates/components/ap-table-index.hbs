@@ -1,0 +1,11 @@
+{{#bs-table headings=headings}}
+  {{#each models}}
+    {{#unless isNew}}
+      {{ap-table-index-row
+          model=this
+          fields=controller.fields
+          path=controller.path
+          edit-path=controller.edit-path}}
+    {{/unless}}
+  {{/each}}
+{{/bs-table}}

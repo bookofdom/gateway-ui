@@ -1,0 +1,13 @@
+{{#ap-page t=tertiary-layout-header}}
+  <div class="ap-app-tertiary">
+    <div class="ap-app-tertiary-sidebar">
+      {{#ap-list-nav-vertical-circle-icon}}
+        {{partial 'application/nav-items-tertiary'}}
+      {{/ap-list-nav-vertical-circle-icon}}
+      {{outlet 'sidebar'}}
+    </div><!-- /.ap-app-tertiary-sidebar -->
+    <div class="ap-app-tertiary-content">
+      {{outlet}}
+    </div><!-- /.ap-app-tertiary-content -->
+  </div><!-- /.ap-app-tertiary -->
+{{/ap-page}}

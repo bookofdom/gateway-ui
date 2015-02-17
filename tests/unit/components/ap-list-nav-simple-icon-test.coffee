@@ -15,3 +15,5 @@ test 'it renders', ->
   # appends the component to the page
   @append()
   equal component._state, 'inDOM'
+
+# TODO

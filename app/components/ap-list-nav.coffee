@@ -3,7 +3,7 @@
 
 ApListNavComponent = BsBaseComponent.extend
   tagName: 'ul'
-  classNames: ['ap-list', 'list-unstyled']
+  classNames: ['ap-list-nav', 'list-unstyled']
   classNameBindings: [
     'sizeClass'
     'inlineClass'
@@ -22,10 +22,11 @@ ApListNavComponent = BsBaseComponent.extend
   sizeClass: Ember.computed '{xs,sm,lg,xl}', ->
     sizes = @get('sizes').slice()
     sizes.push 'xl'
-    (for size in sizes
+    classes = (for size in sizes
       sizeClass = "ap-list-nav-#{size}"
-      sizeClass if @get sizeClass
+      sizeClass if @get size
     ).compact().join ' '
+    classes
   inlineClass: Ember.computed 'inline', -> 'list-inline' if @get 'inline'
   circleClass: Ember.computed 'circle', -> 'ap-list-nav-circle' if @get 'circle'
   secondaryHoverClass: Ember.computed 'secondary-hover', ->

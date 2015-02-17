@@ -1,0 +1,40 @@
+<header class="ap-app-header">
+  <nav class="ap-navbar-header navbar navbar-inverse" role="navigation">
+    
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".ap-nav-header">
+        <span class="sr-only">{{t 'actions.toggle-navivagation'}}</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button><!-- /.navbar-toggle -->
+      {{#link-to 'application' class='navbar-brand'}}
+        <span class="ap-brand ap-brand-logo">{{t 'brands.anypresence'}}</span>
+        <span class="ap-brand ap-brand-text">{{t 'brands.gateway'}}</span>
+      {{/link-to}}<!-- /.navbar-brand -->
+    </div><!-- /.navbar-header -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse ap-nav-header">
+      
+      {{#if session.isAuthenticated}}
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+              <span class="text-lowercase">{{session.email}}</span>
+              <span class="retina-arrows-007"></span>
+            </a><!-- .btn -->
+            <ul class="dropdown-menu text-capitalize">
+              {{ap-list-link
+                action='invalidateSession'
+                t='actions.logout'}}
+            </ul><!-- .dropdown-menu -->
+          </li><!-- .dropdown -->
+        </ul><!-- /.nav -->
+      {{/if}}
+      
+    </div><!-- /.navbar-collapse -->
+    
+  </nav><!-- /.navbar -->
+</header><!-- /.ap-app-header -->

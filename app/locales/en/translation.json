@@ -14,7 +14,107 @@
     "button": "button",
     "button_plural": "buttons"
   },
+  "actions": {
+    "toggle-navivagation": "toggle navigation",
+    "login": "login",
+    "logout": "logout",
+    "delete": "delete",
+    "save": "save",
+    "cancel": "cancel",
+    "new": "new",
+    "new-x": "new $t(__x__)",
+    "edit": "edit",
+    "edit-x": "edit $t(__x__)"
+  },
+  "nav": {
+    "home": "home",
+    "define-api": "define API",
+    "define-api_plural": "define APIs",
+    "descriptions": {
+      "define-api": "define API endpoints and workflow business logic",
+      "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
+      "environments": "specify environments, variables, and other attributes",
+      "endpoint-groups": "named groups collect proxy endpoints together for convenience",
+      "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints"
+    }
+  },
   "brands": {
-    "anypresence": "AnyPresence"
+    "anypresence": "AnyPresence",
+    "gateway": "Gateway"
+  },
+  "resources": {
+    "api": "API",
+    "api_plural": "APIs",
+    "api-endpoint": "API endpoint",
+    "api-endpoint_plural": "API endpoints",
+    "proxy-endpoint": "proxy endpoint",
+    "proxy-endpoint_plural": "proxy endpoints",
+    "environment": "environment",
+    "environment_plural": "environments",
+    "endpoint-group": "group",
+    "endpoint-group_plural": "groups",
+    "remote-endpoint": "remote endpoint",
+    "remote-endpoint_plural": "remote endpoints",
+    "remote-endpoint-environment-datum": "environment datum",
+    "remote-endpoint-environment-datum_plural": "environment data",
+    "proxy-endpoint-route": "route",
+    "proxy-endpoint-route_plural": "routes",
+    "proxy-endpoint-component": "component",
+    "proxy-endpoint-component_plural": "components",
+    "proxy-endpoint-component-call": "call",
+    "proxy-endpoint-component-call_plural": "calls",
+    "proxy-endpoint-component-transformation": "transformation",
+    "proxy-endpoint-component-transformation_plural": "transformations"
+  },
+  "proxy-endpoint-component-types": {
+    "single-proxy": "single proxy",
+    "multi-proxy": "multi-proxy",
+    "javascript-logic": "JavaScript logic"
+  },
+  "fields": {
+    "email": "email",
+    "password": "password",
+    "name": "name",
+    "description": "description",
+    "cors_allow": "allow CORS origins",
+    "cors_enabled": "CORS enabled",
+    "type": "type",
+    "active": "active",
+    "path": "path",
+    "url": "URL",
+    "methods": "methods",
+    "conditional": "conditional logic",
+    "conditional_positive": "conditional positive",
+    "call_conditional": "call conditional logic",
+    "endpoint_name_override": "endpoint name override",
+    "before-type": "before type",
+    "after-type": "after type",
+    "logic": "logic",
+    "before": "before request logic",
+    "after": "after request logic"
+  },
+  "prompts": {
+    "generic": "choose one"
+  },
+  "states": {
+    "active": "active",
+    "inactive": "inactive"
+  },
+  "http-methods": {
+    "get": "GET",
+    "post": "POST",
+    "put": "PUT",
+    "delete": "DELETE"
+  },
+  "languages": {
+    "javascript": "JavaScript"
+  },
+  "errors": {
+    "unknown": "an unknown error occurred",
+    "no-user-with-that-email": "no user with that email",
+    "invalid-password": "invalid password"
+  },
+  "headers": {
+    "x-workflow": "__x__ workflow"
   }
 }
