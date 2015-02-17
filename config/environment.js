@@ -32,7 +32,7 @@ module.exports = function(environment) {
     },
     
     api: {
-      host: process.env.API_HOST || 'http://localhost:4200',
+      host: process.env.API_HOST || '',
       basePath: 'admin',
       authentication: {
         path: 'sessions'
@@ -64,7 +64,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    
+  }
+  
+  if (environment === 'production-embedded') {
+    
   }
   
   ENV.api.url = [ENV.api.host, ENV.api.basePath].join('/');
