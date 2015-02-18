@@ -3,9 +3,7 @@
     fields='name,url,description:::textarea'}}
 
     {{#unless isNew}}
-      {{#bs-form-group
-        horizontal=true
-        label='resources.remote-endpoint-environment-datum_plural'}}
+      {{#ap-panel-edit t='resources.remote-endpoint-environment-datum_plural'}}
         {{ap-table-model
           models=model.environment_data
           delete-action='delete-remote-endpoint-environment-datum'
@@ -14,7 +12,7 @@
         {{ap-button-new
           t='resources.remote-endpoint-environment-datum'
           action='new-remote-endpoint-environment-datum'}}
-      {{/bs-form-group}}
+      {{/ap-panel-edit}}
     {{/unless}}
 
 {{/ap-model-form}}

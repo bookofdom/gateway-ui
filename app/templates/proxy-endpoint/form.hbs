@@ -4,9 +4,7 @@
   fields=fields}}
   
   {{#unless isNew}}
-    {{#bs-form-group
-      horizontal=true
-      label='resources.proxy-endpoint-route_plural'}}
+    {{#ap-panel-edit t='resources.proxy-endpoint-route_plural'}}
       {{ap-table-model
         models=model.routes
         delete-action='delete-proxy-endpoint-route'
@@ -15,7 +13,7 @@
       {{ap-button-new
         t='resources.proxy-endpoint-route'
         action='new-proxy-endpoint-route'}}
-    {{/bs-form-group}}
+    {{/ap-panel-edit}}
   {{/unless}}
   
 {{/ap-model-form}}
