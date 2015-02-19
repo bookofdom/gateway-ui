@@ -3,11 +3,11 @@
 ApiSerializer = ApplicationSerializer.extend
   normalize: (type, hash, property) ->
     hash.links =
-      hosts: "hosts"
+      proxy_endpoints: "proxy_endpoints"
       environments: "environments"
       endpoint_groups: "endpoint_groups"
       remote_endpoints: "remote_endpoints"
-      proxy_endpoints: "proxy_endpoints"
+      hosts: "hosts"
     @_super.apply @, arguments
 
 `export default ApiSerializer`
