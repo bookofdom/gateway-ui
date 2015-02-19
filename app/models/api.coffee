@@ -9,5 +9,6 @@ Api = Model.extend
   environments: DS.hasMany 'environment', async: true
   endpoint_groups: DS.hasMany 'endpoint-group', async: true
   remote_endpoints: DS.hasMany 'remote-endpoint', async: true
+  hosts: DS.hasMany 'host', async: true
 
 `export default Api`
