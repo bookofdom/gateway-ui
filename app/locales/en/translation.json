@@ -35,7 +35,8 @@
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
-      "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints"
+      "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints",
+      "hosts": "define named hosts associated with this API"
     }
   },
   "brands": {
@@ -49,6 +50,14 @@
     "api-endpoint_plural": "API endpoints",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
+    "proxy-endpoint-route": "route",
+    "proxy-endpoint-route_plural": "routes",
+    "proxy-endpoint-component": "component",
+    "proxy-endpoint-component_plural": "components",
+    "proxy-endpoint-component-call": "call",
+    "proxy-endpoint-component-call_plural": "calls",
+    "proxy-endpoint-component-transformation": "transformation",
+    "proxy-endpoint-component-transformation_plural": "transformations",
     "environment": "environment",
     "environment_plural": "environments",
     "endpoint-group": "group",
@@ -57,14 +66,8 @@
     "remote-endpoint_plural": "remote endpoints",
     "remote-endpoint-environment-datum": "environment datum",
     "remote-endpoint-environment-datum_plural": "environment data",
-    "proxy-endpoint-route": "route",
-    "proxy-endpoint-route_plural": "routes",
-    "proxy-endpoint-component": "component",
-    "proxy-endpoint-component_plural": "components",
-    "proxy-endpoint-component-call": "call",
-    "proxy-endpoint-component-call_plural": "calls",
-    "proxy-endpoint-component-transformation": "transformation",
-    "proxy-endpoint-component-transformation_plural": "transformations"
+    "host": "host",
+    "host_plural": "hosts"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single proxy",
