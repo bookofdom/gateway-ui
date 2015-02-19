@@ -2,9 +2,10 @@
 `import BsButtonComponent from 'gateway/components/bs-button'`
 `import t from 'gateway/helpers/i18n'`
 
-ApButtonNewComponent = BsButtonComponent.extend
-  classNames: ['ap-button-new']
+ApButtonBlockNewComponent = BsButtonComponent.extend
+  classNames: ['ap-button-block-new']
   style: 'link'
+  block: true
   icon: 'the-essentials-010'
   text: Ember.computed 't', ->
     translationKey = @get 't'
@@ -12,4 +13,4 @@ ApButtonNewComponent = BsButtonComponent.extend
       rendered = t 'actions.new-x', x: translationKey
       "#{rendered}&hellip;".htmlSafe()
 
-`export default ApButtonNewComponent`
+`export default ApButtonBlockNewComponent`
