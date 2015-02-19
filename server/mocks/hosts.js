@@ -57,5 +57,5 @@ module.exports = function(app) {
     res.status(204).end();
   });
 
-  app.use('/admin/hosts', hostsRouter);
+  app.use('/admin/apis/:api_id/hosts', hostsRouter);
 };
