@@ -1,6 +1,6 @@
 `import { test, moduleForComponent } from 'ember-qunit'`
 
-moduleForComponent 'ap-button-new', 'ApButtonNewComponent', {
+moduleForComponent 'ap-button-block-new', 'ApButtonBlockNewComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
 }
