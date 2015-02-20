@@ -1,6 +1,8 @@
 `import DS from 'ember-data'`
 `import ApplicationSerializer from './application'`
 
+headerIdCounter = 1
+
 RemoteEndpointEnvironmentDatumSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     headers:
@@ -14,12 +16,11 @@ RemoteEndpointEnvironmentDatumSerializer = ApplicationSerializer.extend DS.Embed
     @normalizeHeaders hash
     @_super.apply @, arguments
   normalizeHeaders: (hash) ->
-    idCounter = parseInt(hash.id, 10) * 10000
     hash.headers = []
     hash.data.headers ?= {}
     for key, value of hash.data.headers
       hash.headers.push
-        id: idCounter++
+        id: headerIdCounter++
         name: key
         value: value
     hash
