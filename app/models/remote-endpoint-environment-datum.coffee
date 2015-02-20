@@ -21,8 +21,8 @@ RemoteEndpointEnvironmentDatum = Model.extend
   onInit: Ember.on 'init', ->
     Ember.run.once => @get 'relationshipsDirty'
   reload: ->
-    # no op reload, since environment data are embedded records
-    new Ember.RSVP.Promise (resolve, reject) => resolve @
+    # delegate reload to parent remote endpoint
+    @get('remote_endpoint').reload()
   save: ->
     # delegate save to parent remote endpoint and then
     # "rollback" to now-saved embedded record
