@@ -3,6 +3,7 @@
 
 RemoteEndpointEnvironmentDatum = Model.extend
   url: DS.attr 'string'
+  method: DS.attr 'string'
   environment: DS.belongsTo 'environment', async: true
   remote_endpoint: DS.belongsTo 'remote-endpoint'
   # manual relationship dirty
