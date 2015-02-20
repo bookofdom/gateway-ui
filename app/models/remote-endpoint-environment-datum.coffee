@@ -17,5 +17,8 @@ RemoteEndpointEnvironmentDatum = Model.extend
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
     Ember.run.once => @get 'relationshipsDirty'
+  reload: ->
+    # no op reload, since environment data are embedded records
+    new Ember.RSVP.Promise (resolve, reject) => resolve @
 
 `export default RemoteEndpointEnvironmentDatum`
