@@ -26,5 +26,14 @@ RemoteEndpointEnvironmentDatum = Model.extend
     @get('remote_endpoint').save().then (=>
       @rollback()
     ), (=>)
+  deleteRecord: ->
+    @_super.apply @, arguments
+    @store.dematerializeRecord @
+  destroyRecord: ->
+    @deleteRecord()
+    remoteEndpoint = @get 'remote_endpoint'
+    remoteEndpoint.save().then (->
+      remoteEndpoint.rollback()
+    ), (=>)
 
 `export default RemoteEndpointEnvironmentDatum`

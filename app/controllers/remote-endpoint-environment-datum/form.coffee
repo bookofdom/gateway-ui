@@ -19,10 +19,12 @@ RemoteEndpointEnvironmentDatumFormController = FormController.extend
       name: t 'http-methods.delete'
       value: 'DELETE'
     ]
-  createNewModel: ->
-    newModel = @_super.apply @, arguments
-    environment_data = @get 'controllers.remote-endpoint-environment-data.model'
-    environment_data.pushObject newModel
-
+  actions:
+    submit: ->
+      model = @get 'model'
+      if model.get 'isNew'
+        environment_data = @get 'controllers.remote-endpoint-environment-data.model'
+        environment_data.pushObject model
+      model.save().then (->), (->)
 
 `export default RemoteEndpointEnvironmentDatumFormController`
