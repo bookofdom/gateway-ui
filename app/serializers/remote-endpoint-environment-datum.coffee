@@ -1,7 +1,10 @@
 `import DS from 'ember-data'`
 `import ApplicationSerializer from './application'`
 
-headerIdCounter = 1
+# offset by since remote endpoints also have headers...
+# if their ephemeral ID counters started at the same number,
+# there would be ID colisions
+headerIdCounter = 1000000
 
 RemoteEndpointEnvironmentDatumSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:

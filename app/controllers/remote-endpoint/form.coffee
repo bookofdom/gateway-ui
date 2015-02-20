@@ -22,6 +22,10 @@ RemoteEndpointFormController = FormController.extend
     newModel = @_super.apply @, arguments
     remoteEndpoints = @get 'controllers.remote-endpoints.model'
     remoteEndpoints.pushObject newModel
+  createNewHeaderModel: ->
+    model = @get 'model'
+    newModel = @store?.createRecord 'remote-endpoint-header'
+    model.get('headers').pushObject newModel
   createNewEnvironmentDatumModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'remote-endpoint-environment-datum'
@@ -34,6 +38,8 @@ RemoteEndpointFormController = FormController.extend
     # if an existing model has no environment datum, add one by default
     @createNewEnvironmentDatumModel() if model and !isNew and !count
   actions:
+    'delete-remote-endpoint-header': (record) -> record.deleteRecord()
+    'new-remote-endpoint-header': -> @createNewHeaderModel()
     'delete-remote-endpoint-environment-datum': (record) ->
       record.deleteRecord()
     'new-remote-endpoint-environment-datum': ->
