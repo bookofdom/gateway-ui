@@ -1,8 +1,23 @@
 `import FormController from 'gateway/controllers/form'`
+`import t from 'gateway/helpers/i18n'`
 
 RemoteEndpointFormController = FormController.extend
   needs: ['remote-endpoints']
   modelType: 'remote-endpoint'
+  'option-groups':
+    method: [
+      name: t 'http-methods.get'
+      value: 'GET'
+    ,
+      name: t 'http-methods.post'
+      value: 'POST'
+    ,
+      name: t 'http-methods.put'
+      value: 'PUT'
+    , 
+      name: t 'http-methods.delete'
+      value: 'DELETE'
+    ]
   createNewModel: ->
     newModel = @_super.apply @, arguments
     remoteEndpoints = @get 'controllers.remote-endpoints.model'

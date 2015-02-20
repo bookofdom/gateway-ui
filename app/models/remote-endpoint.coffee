@@ -6,6 +6,7 @@ RemoteEndpoint = Model.extend
   type: DS.attr 'string', defaultValue: 'http'
   description: DS.attr 'string'
   url: DS.attr 'string'
+  method: DS.attr 'string'
   api: DS.belongsTo 'api', async: true
   environment_data: DS.hasMany 'remote-endpoint-environment-datum'
   # manually manage relationship dirty

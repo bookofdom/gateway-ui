@@ -9,13 +9,15 @@ module.exports = function(app) {
           "description": "world",
           "type": "http",
           "data": {
-              "url": "http://demo.ap.com"
+              "url": "http://demo.ap.com",
+              "method": "GET"
           },
           "environment_data": [
               {
                   "environment_id": 1,
                   "data": {
-                      "url": "http://demo.ap.com"
+                      "url": "http://demo.ap.com",
+                      "method": "GET"
                   }
               }
           ]
@@ -27,13 +29,15 @@ module.exports = function(app) {
           "description": "world",
           "type": "http",
           "data": {
-              "url": "http://demo.ap.com"
+              "url": "http://demo.ap.com",
+              "method": "PUT"
           },
           "environment_data": [
               {
                   "environment_id": 1,
                   "data": {
-                      "url": "http://demo.ap.com"
+                      "url": "http://demo.ap.com",
+                      "method": "PUT"
                   }
               }
           ]
@@ -45,13 +49,15 @@ module.exports = function(app) {
           "description": "world",
           "type": "http",
           "data": {
-              "url": "http://demo.ap.com"
+              "url": "http://demo.ap.com",
+              "method": "DELETE"
           },
           "environment_data": [
               {
                   "environment_id": 1,
                   "data": {
-                      "url": "http://demo.ap.com"
+                      "url": "http://demo.ap.com",
+                      "method": "DELETE"
                   }
               }
           ]
