@@ -1,8 +1,6 @@
 `import DS from 'ember-data'`
 `import ApplicationSerializer from './application'`
 
-datumIdCounter = 1
-
 RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     environment_data:
@@ -16,6 +14,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     @_super.apply @, arguments
   # Adds ephemeral IDs to embedded environment data records, since IDs are required.
   normalizeEnvironmentData: (hash) ->
+    datumIdCounter = parseInt(hash.id, 10) * 10000
     hash.environment_data ?= []
     for datum in hash.environment_data
       datum.id = datumIdCounter++
