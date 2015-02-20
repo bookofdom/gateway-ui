@@ -23,15 +23,6 @@ RemoteEndpointEnvironmentDatumFormController = FormController.extend
     newModel = @_super.apply @, arguments
     environment_data = @get 'controllers.remote-endpoint-environment-data.model'
     environment_data.pushObject newModel
-  actions:
-    submit: ->
-      remoteEndpoint = @get 'remote_endpoint'
-      remoteEndpoint.save().then (=>
-        # "rollback" to now-saved embedded record
-        @send 'rollback'
-      ), (=>)
-      false
-    rollback: ->
-      @get('model').rollback()
+
 
 `export default RemoteEndpointEnvironmentDatumFormController`

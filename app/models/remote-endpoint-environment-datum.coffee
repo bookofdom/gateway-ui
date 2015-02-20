@@ -20,5 +20,11 @@ RemoteEndpointEnvironmentDatum = Model.extend
   reload: ->
     # no op reload, since environment data are embedded records
     new Ember.RSVP.Promise (resolve, reject) => resolve @
+  save: ->
+    # delegate save to parent remote endpoint and then
+    # "rollback" to now-saved embedded record
+    @get('remote_endpoint').save().then (=>
+      @rollback()
+    ), (=>)
 
 `export default RemoteEndpointEnvironmentDatum`
