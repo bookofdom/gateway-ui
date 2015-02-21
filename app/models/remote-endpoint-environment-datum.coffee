@@ -7,6 +7,7 @@ RemoteEndpointEnvironmentDatum = Model.extend
   environment: DS.belongsTo 'environment', async: true
   remote_endpoint: DS.belongsTo 'remote-endpoint'
   headers: DS.hasMany 'remote-endpoint-header'
+  query: DS.hasMany 'remote-endpoint-query-parameter'
   # manual relationship dirty
   environmentDirty: Ember.computed 'environment.@each', ->
     original = @get('_data.environment.id') or null
@@ -14,8 +15,10 @@ RemoteEndpointEnvironmentDatum = Model.extend
     original != current
   headersDirty: Ember.computed 'headers.@each.isDirty', ->
     @get('headers').filterBy('isDirty', true).get('length')
-  relationshipsDirty: Ember.computed 'environmentDirty', 'headersDirty', ->
-    @get('environmentDirty') or @get('headersDirty')
+  queryDirty: Ember.computed 'query.@each.isDirty', ->
+    @get('query').filterBy('isDirty', true).get('length')
+  relationshipsDirty: Ember.computed 'environmentDirty', 'headersDirty', 'queryDirty', ->
+    @get('environmentDirty') or @get('headersDirty') or @get('queryDirty')
   relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
