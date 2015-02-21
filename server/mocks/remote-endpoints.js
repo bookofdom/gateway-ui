@@ -9,13 +9,31 @@ module.exports = function(app) {
           "description": "world",
           "type": "http",
           "data": {
-              "url": "http://demo.ap.com"
+              "url": "http://demo.ap.com",
+              "method": "GET",
+              "headers": {
+                  "X-Pasta": "spaghetti",
+                  "X-Addition": "meatballs"
+              },
+              "query": {
+                  "foo": "bar",
+                  "baz": "baf"
+              }
           },
           "environment_data": [
               {
                   "environment_id": 1,
                   "data": {
-                      "url": "http://demo.ap.com"
+                      "url": "http://demo.ap.com",
+                      "method": "GET",
+                      "headers": {
+                          "X-Pasta": "spaghetti",
+                          "X-Addition": "meatballs"
+                      },
+                      "query": {
+                          "foo": "bar",
+                          "baz": "baf"
+                      }
                   }
               }
           ]
@@ -27,13 +45,23 @@ module.exports = function(app) {
           "description": "world",
           "type": "http",
           "data": {
-              "url": "http://demo.ap.com"
+              "url": "http://demo.ap.com",
+              "method": "PUT"
           },
           "environment_data": [
               {
                   "environment_id": 1,
                   "data": {
-                      "url": "http://demo.ap.com"
+                      "url": "http://demo.ap.com",
+                      "method": "PUT",
+                      "headers": {
+                          "X-Pasta": "spaghetti",
+                          "X-Addition": "meatballs"
+                      },
+                      "query": {
+                          "foo": "bar",
+                          "baz": "baf"
+                      }
                   }
               }
           ]
@@ -45,13 +73,23 @@ module.exports = function(app) {
           "description": "world",
           "type": "http",
           "data": {
-              "url": "http://demo.ap.com"
+              "url": "http://demo.ap.com",
+              "method": "DELETE"
           },
           "environment_data": [
               {
                   "environment_id": 1,
                   "data": {
-                      "url": "http://demo.ap.com"
+                      "url": "http://demo.ap.com",
+                      "method": "DELETE",
+                      "headers": {
+                          "X-Pasta": "spaghetti",
+                          "X-Addition": "meatballs"
+                      },
+                      "query": {
+                          "foo": "bar",
+                          "baz": "baf"
+                      }
                   }
               }
           ]
