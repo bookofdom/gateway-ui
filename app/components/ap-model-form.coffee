@@ -6,11 +6,13 @@ ApModelFormComponent = BsFormComponent.extend
   classNames: ['ap-model-form']
   action: 'submit'
   'cancel-action': 'cancel'
+  'after-delete-action': 'afterDelete'
   model: null
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName:i18nLabel:help:type' or 'fieldName,fieldName'
   horizontal: true
   'auto-save': true
   'auto-cancel': true
+  'auto-delete': true
   'option-groups': null
   fieldsList: Ember.computed 'fields', ->
     for field in @get('fields')?.split ','
@@ -22,6 +24,9 @@ ApModelFormComponent = BsFormComponent.extend
   'show-save': Ember.computed 'dirty', -> @get 'dirty'
   'show-cancel': Ember.computed 'dirty', 'model.isNew', ->
     @get('dirty') and !@get('model.isNew')
+  'show-delete': false
+  'deletable': Ember.computed 'show-delete', 'model.isNew', ->
+    @get('show-delete') and !@get('model.isNew')
   onInit: Ember.on 'init', ->
     model = @get 'model'
     isNew = model?.get 'isNew'
@@ -43,5 +48,8 @@ ApModelFormComponent = BsFormComponent.extend
           @get('model').rollback()
       else
         @sendAction 'cancel-action', @get('model')
+    delete: ->
+      @get('model').destroyRecord()
+      @sendAction 'after-delete-action'
 
 `export default ApModelFormComponent`

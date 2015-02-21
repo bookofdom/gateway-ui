@@ -7,5 +7,11 @@
       style='default'
       action='cancel'
       classNameBindings='show-cancel::invisible'}}
+  {{bs-button
+      t=delete-text
+      style='danger'
+      action='delete'
+      right=true
+      classNameBindings='show-delete::invisible'}}
   {{yield}}
 {{/bs-form-group}}
