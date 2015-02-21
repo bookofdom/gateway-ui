@@ -2,10 +2,15 @@
 `import ApplicationSerializer from './application'`
 
 headerIdCounter = 1
+queryIdCounter = 1
 
 RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     headers:
+      #embedded: 'always'
+      serialize: false
+      deserialize: 'records'
+    query:
       #embedded: 'always'
       serialize: false
       deserialize: 'records'
@@ -16,6 +21,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     hash.url = hash.data.url
     hash.method = hash.data.method
     @normalizeHeaders hash
+    @normalizeQuery hash
     @normalizeEnvironmentData hash
     @normalizeEnvironmentDataLinks hash
     @_super.apply @, arguments
@@ -25,6 +31,15 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     for key, value of hash.data.headers
       hash.headers.push
         id: headerIdCounter++
+        name: key
+        value: value
+    hash
+  normalizeQuery: (hash) ->
+    hash.query = []
+    hash.data.query ?= {}
+    for key, value of hash.data.query
+      hash.query.push
+        id: queryIdCounter++
         name: key
         value: value
     hash
@@ -49,11 +64,17 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
       url: model.get 'url'
       method: model.get 'method'
       headers: @serializeHeaders model
+      query: @serializeQuery model
     serialized
   serializeHeaders: (model) ->
     headers = {}
     model.get('headers').forEach (header) ->
       headers[header.get 'name'] = header.get 'value'
     headers
+  serializeQuery: (model) ->
+    query = {}
+    model.get('query').forEach (param) ->
+      query[param.get 'name'] = param.get 'value'
+    query
 
 `export default RemoteEndpointSerializer`
