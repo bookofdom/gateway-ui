@@ -42,5 +42,14 @@ ProxyEndpointComponent = Model.extend
   reload: ->
     # no op reload, since components are embedded records
     new Ember.RSVP.Promise (resolve, reject) => resolve @
+  deleteRecord: ->
+    @_super.apply @, arguments
+    @store.dematerializeRecord @
+  destroyRecord: ->
+    @deleteRecord()
+    proxyEndpoint = @get 'proxy_endpoint'
+    proxyEndpoint.save().then (->
+      proxyEndpoint.rollback()
+    ), (=>)
 
 `export default ProxyEndpointComponent`
