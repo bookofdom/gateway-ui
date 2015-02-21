@@ -4,5 +4,8 @@
 ProxyEndpointComponentRoute = Ember.Route.extend AuthenticatedRouteMixin,
   model: (params) ->
     @modelFor('proxy-endpoint-components').findBy 'id', params.proxy_endpoint_component_id
+  actions:
+    afterDelete: ->
+      @transitionTo 'proxy-endpoint'
 
 `export default ProxyEndpointComponentRoute`
