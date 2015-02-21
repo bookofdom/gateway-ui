@@ -60,6 +60,8 @@
     "proxy-endpoint-component-transformation_plural": "transformations",
     "environment": "environment",
     "environment_plural": "environments",
+    "environment-variable": "environment variable",
+    "environment-variable_plural": "environment variables",
     "endpoint-group": "group",
     "endpoint-group_plural": "groups",
     "remote-endpoint": "remote endpoint",

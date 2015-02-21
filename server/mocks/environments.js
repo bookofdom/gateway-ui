@@ -5,12 +5,19 @@ module.exports = function(app) {
     {
       id: 1,
       name: 'Development',
-      description: 'Environment for development purposes'
+      description: 'Environment for development purposes',
+      data: {
+        foo: 'bar',
+        baz: 'baf'
+      }
     },
     {
       id: 2,
       name: 'Staging',
-      description: 'Environment for staging purposes'
+      description: 'Environment for staging purposes',
+      data: {
+        foo: 'bar'
+      }
     },
     {
       id: 3,

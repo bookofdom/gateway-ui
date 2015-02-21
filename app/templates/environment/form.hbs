@@ -1,3 +1,18 @@
-{{ap-model-form
-    model=model
-    fields='name,description:::textarea'}}
+{{#ap-model-form
+  model=model
+  fields='name,description:::textarea'}}
+
+  {{#unless isNew}}
+    {{#ap-panel-edit t='resources.environment-variable_plural'}}
+      {{ap-table-model
+        models=model.variables
+        delete-action='delete-environment-variable'
+        auto-delete=false
+        partial-path='environment-variable/-inline-form'}}
+      {{ap-button-block-new
+        t='resources.environment-variable'
+        action='new-environment-variable'}}
+    {{/ap-panel-edit}}
+  {{/unless}}
+
+{{/ap-model-form}}
