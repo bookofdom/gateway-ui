@@ -10,14 +10,30 @@ module.exports = function(app) {
           "type": "http",
           "data": {
               "url": "http://demo.ap.com",
-              "method": "GET"
+              "method": "GET",
+              "headers": {
+                  "X-Pasta": "spaghetti",
+                  "X-Addition": "meatballs"
+              },
+              "query": {
+                  "foo": "bar",
+                  "baz": "baf"
+              }
           },
           "environment_data": [
               {
                   "environment_id": 1,
                   "data": {
                       "url": "http://demo.ap.com",
-                      "method": "GET"
+                      "method": "GET",
+                      "headers": {
+                          "X-Pasta": "spaghetti",
+                          "X-Addition": "meatballs"
+                      },
+                      "query": {
+                          "foo": "bar",
+                          "baz": "baf"
+                      }
                   }
               }
           ]
@@ -37,7 +53,15 @@ module.exports = function(app) {
                   "environment_id": 1,
                   "data": {
                       "url": "http://demo.ap.com",
-                      "method": "PUT"
+                      "method": "PUT",
+                      "headers": {
+                          "X-Pasta": "spaghetti",
+                          "X-Addition": "meatballs"
+                      },
+                      "query": {
+                          "foo": "bar",
+                          "baz": "baf"
+                      }
                   }
               }
           ]
@@ -57,7 +81,15 @@ module.exports = function(app) {
                   "environment_id": 1,
                   "data": {
                       "url": "http://demo.ap.com",
-                      "method": "DELETE"
+                      "method": "DELETE",
+                      "headers": {
+                          "X-Pasta": "spaghetti",
+                          "X-Addition": "meatballs"
+                      },
+                      "query": {
+                          "foo": "bar",
+                          "baz": "baf"
+                      }
                   }
               }
           ]

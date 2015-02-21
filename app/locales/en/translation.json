@@ -66,6 +66,10 @@
     "remote-endpoint_plural": "remote endpoints",
     "remote-endpoint-environment-datum": "environment datum",
     "remote-endpoint-environment-datum_plural": "environment data",
+    "remote-endpoint-header": "header",
+    "remote-endpoint-header_plural": "headers",
+    "remote-endpoint-query-parameter": "query parameter",
+    "remote-endpoint-query-parameter_plural": "query parameters",
     "host": "host",
     "host_plural": "hosts"
   },
