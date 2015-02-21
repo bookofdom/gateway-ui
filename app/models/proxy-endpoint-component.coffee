@@ -42,6 +42,18 @@ ProxyEndpointComponent = Model.extend
   reload: ->
     # no op reload, since components are embedded records
     new Ember.RSVP.Promise (resolve, reject) => resolve @
+  rollback: ->
+    @get('model.call')?.rollback()
+    @get('model.calls')?.forEach (record) -> record.rollback()
+    @get('model.before')?.forEach (record) -> record.rollback()
+    @get('model.after')?.forEach (record) -> record.rollback()
+    @_super.apply @, arguments
+  save: ->
+    # delegate save to parent proxy endpoint and then
+    # "rollback" to now-saved embedded record
+    @get('proxy_endpoint').save().then (=>
+      @rollback()
+    ), (=>)
   deleteRecord: ->
     @_super.apply @, arguments
     @store.dematerializeRecord @
