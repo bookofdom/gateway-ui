@@ -52,7 +52,7 @@ module.exports = function(app) {
     body.library.id = req.params.id;
     if (body.library.name.toLowerCase() == 'error') {
       res.status(422).send({errors: {name: 'This field is in error.'}});
-    } else if (body.libgrary.name.toLowerCase() == '500') {
+    } else if (body.library.name.toLowerCase() == '500') {
       res.status(500).send();
     } else {
       res.send(body);
