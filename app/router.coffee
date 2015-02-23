@@ -38,6 +38,9 @@ Router.map ->
       @resource 'hosts', ->
         @resource 'host', path: ':host_id', ->
           @route 'edit'
+      @resource 'libraries', ->
+        @resource 'library', path: ':library_id', ->
+          @route 'edit'
   
   # development helpers
   @route 'component-reference', ->

@@ -8,6 +8,7 @@ ApiSerializer = ApplicationSerializer.extend
       endpoint_groups: "endpoint_groups"
       remote_endpoints: "remote_endpoints"
       hosts: "hosts"
+      libraries: "libraries"
     @_super.apply @, arguments
 
 `export default ApiSerializer`
