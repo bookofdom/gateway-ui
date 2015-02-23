@@ -36,7 +36,8 @@
       "environments": "specify environments, variables, and other attributes",
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
       "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints",
-      "hosts": "define named hosts associated with this API"
+      "hosts": "define named hosts associated with this API",
+      "libraries": "define shared libraries for use in JavaScript code blocks"
     }
   },
   "brands": {
@@ -73,7 +74,9 @@
     "remote-endpoint-query-parameter": "query parameter",
     "remote-endpoint-query-parameter_plural": "query parameters",
     "host": "host",
-    "host_plural": "hosts"
+    "host_plural": "hosts",
+    "library": "shared library",
+    "library_plural": "shared libraries"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single proxy",

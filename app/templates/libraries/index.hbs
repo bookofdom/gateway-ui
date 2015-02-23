@@ -1,0 +1,13 @@
+{{#ap-page t='resources.library_plural'}}
+  
+  {{ap-table-index
+      models=model
+      fields='name,description'
+      path='library.index'
+      edit-path='library.edit'}}
+  
+  {{#ap-panel-new t='resources.library'}}
+    {{render 'library/form'}}
+  {{/ap-panel-new}}
+  
+{{/ap-page}}
