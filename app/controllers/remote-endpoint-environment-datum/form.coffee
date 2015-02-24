@@ -28,15 +28,14 @@ RemoteEndpointEnvironmentDatumFormController = FormController.extend
     newModel = @store?.createRecord 'remote-endpoint-query-parameter'
     model.get('query').pushObject newModel
   actions:
-    submit: ->
-      model = @get 'model'
-      if model.get 'isNew'
-        environment_data = @get 'controllers.remote-endpoint-environment-data.model'
-        environment_data.pushObject model
-      model.save().then (->), (->)
     'delete-remote-endpoint-header': (record) -> record.deleteRecord()
     'new-remote-endpoint-header': -> @createNewHeaderModel()
     'delete-remote-endpoint-query-parameter': (record) -> record.deleteRecord()
     'new-remote-endpoint-query-parameter': -> @createNewQueryParameterModel()
+    beforeSave: ->
+      model = @get 'model'
+      if model.get 'isNew'
+        environmentData = @get 'controllers.remote-endpoint-environment-data.model'
+        environmentData.pushObject model
 
 `export default RemoteEndpointEnvironmentDatumFormController`

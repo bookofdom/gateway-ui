@@ -10,10 +10,6 @@ ProxyEndpointFormController = FormController.extend
   'option-groups': Ember.computed 'controllers.proxy-endpoints.environments', 'controllers.proxy-endpoints.endpoint_groups', ->
     environment: @get('controllers.proxy-endpoints.environments').filterBy 'isNew', false
     endpoint_group: @get('controllers.proxy-endpoints.endpoint_groups').filterBy 'isNew', false
-  createNewModel: ->
-    newModel = @_super.apply @, arguments
-    proxyEndpoints = @get 'controllers.proxy-endpoints.model'
-    proxyEndpoints.pushObject newModel
   createNewRouteModel: ->
     model = @get 'model'
     newRouteModel = @store?.createRecord 'proxy-endpoint-route'
@@ -28,5 +24,10 @@ ProxyEndpointFormController = FormController.extend
   actions:
     'delete-proxy-endpoint-route': (record) -> record.deleteRecord()
     'new-proxy-endpoint-route': -> @createNewRouteModel()
+    beforeSave: ->
+      model = @get 'model'
+      if model.get 'isNew'
+        proxyEndpoints = @get 'controllers.proxy-endpoints.model'
+        proxyEndpoints.pushObject model
 
 `export default ProxyEndpointFormController`

@@ -3,9 +3,11 @@
 LibraryFormController = FormController.extend
   needs: ['libraries']
   modelType: 'library'
-  createNewModel: ->
-    newModel = @_super.apply @, arguments
-    libraries = @get 'controllers.libraries.model'
-    libraries.pushObject newModel
+  actions:
+    beforeSave: ->
+      model = @get 'model'
+      if model.get 'isNew'
+        libraries = @get 'controllers.libraries.model'
+        libraries.pushObject model
 
 `export default LibraryFormController`
