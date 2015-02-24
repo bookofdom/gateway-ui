@@ -163,6 +163,11 @@ module.exports = function(app) {
   proxyEndpointsRouter.put('/:id', function(req, res) {
     var body = req.body;
     body.proxy_endpoint.id = req.params.id;
+    body.proxy_endpoint.components = body.proxy_endpoint.components || [];
+    body.proxy_endpoint.components.forEach(function (component) {
+      var id = Math.round(Math.random() * 100) + 100;
+      component.id = component.id || id;
+    });
     if (body.proxy_endpoint.name.toLowerCase() == 'error') {
       res.status(422).send({errors: {name: 'This field is in error.'}})
     } else {
