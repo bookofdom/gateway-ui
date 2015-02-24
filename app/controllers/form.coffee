@@ -16,5 +16,10 @@ FormController = Ember.ObjectController.extend
     newModel = @store?.createRecord modelType
     @set 'model', newModel
     newModel
+  actions:
+    beforeSave: ->
+      # no op:  override in subclass
+    afterSave: ->
+      # no op:  override in subclass
 
 `export default FormController`
