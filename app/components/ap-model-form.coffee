@@ -41,8 +41,10 @@ ApModelFormComponent = BsFormComponent.extend
     autoSave = @get 'auto-save'
     @sendAction 'before-save-action'
     @sendAction() if @get('dirty') and !autoSave
-    @get('model').save().then((=>), (=>)) if autoSave
-    @sendAction 'after-save-action'
+    if autoSave
+      @get('model').save().then((=>
+        @sendAction 'after-save-action'
+      ), (=>))
     false
   actions:
     cancel: ->
