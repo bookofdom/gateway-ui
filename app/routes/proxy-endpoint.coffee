@@ -7,6 +7,8 @@ ProxyEndpointRoute = Ember.Route.extend AuthenticatedRouteMixin,
   afterModel: ->
     # routes and components embedded records appear only when
     # loading individual proxy endpoints
-    @modelFor('proxy-endpoint').reload()
+    proxyEndpoint = @modelFor 'proxy-endpoint'
+    proxyEndpoint.rollback()
+    proxyEndpoint.reload()
 
 `export default ProxyEndpointRoute`
