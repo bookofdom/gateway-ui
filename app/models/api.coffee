@@ -4,7 +4,6 @@
 Api = Model.extend
   name: DS.attr 'string'
   description: DS.attr 'string'
-  cors_allow: DS.attr 'string', defaultValue: '*'
   proxy_endpoints: DS.hasMany 'proxy-endpoint', async: true
   environments: DS.hasMany 'environment', async: true
   endpoint_groups: DS.hasMany 'endpoint-group', async: true
