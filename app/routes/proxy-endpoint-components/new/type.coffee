@@ -36,5 +36,8 @@ ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend AuthenticatedRouteMixin
     willTransition: ->
       @removeNewComponents()
       true
+    saved: ->
+      model = @modelFor('proxy-endpoint').get 'components.lastObject'
+      @transitionTo 'proxy-endpoint-component.edit', model
 
 `export default ProxyEndpointComponentsNewTypeRoute`
