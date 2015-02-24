@@ -18,10 +18,6 @@ RemoteEndpointFormController = FormController.extend
       name: t 'http-methods.delete'
       value: 'DELETE'
     ]
-  createNewModel: ->
-    newModel = @_super.apply @, arguments
-    remoteEndpoints = @get 'controllers.remote-endpoints.model'
-    remoteEndpoints.pushObject newModel
   createNewHeaderModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'remote-endpoint-header'
@@ -50,5 +46,10 @@ RemoteEndpointFormController = FormController.extend
       record.deleteRecord()
     'new-remote-endpoint-environment-datum': ->
       @createNewEnvironmentDatumModel()
+    beforeSave: ->
+      model = @get 'model'
+      if model.get 'isNew'
+        remoteEndpoints = @get 'controllers.remote-endpoints.model'
+        remoteEndpoints.pushObject model
 
 `export default RemoteEndpointFormController`
