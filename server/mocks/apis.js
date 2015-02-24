@@ -6,19 +6,31 @@ module.exports = function(app) {
       id: 1,
       name: 'Mock API',
       description: 'Mock API for development purposes',
-      cors_allow: '*'
+      cors_allow_origin: "",
+      cors_allow_headers: "content-type, accept",
+      cors_allow_credentials: true,
+      cors_request_headers: "",
+      cors_max_age: 600
     },
     {
       id: 2,
       name: 'Demonstration API',
       description: 'Demonstration of the API resource',
-      cors_allow: '*'
+      cors_allow_origin: "",
+      cors_allow_headers: "content-type, accept",
+      cors_allow_credentials: true,
+      cors_request_headers: "",
+      cors_max_age: 600
     },
     {
       id: 3,
       name: 'Testing API',
       description: 'Another API for development purposes',
-      cors_allow: '*'
+      cors_allow_origin: "",
+      cors_allow_headers: "content-type, accept",
+      cors_allow_credentials: true,
+      cors_request_headers: "",
+      cors_max_age: 600
     }
   ];
 

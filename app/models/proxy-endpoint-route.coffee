@@ -3,7 +3,7 @@
 
 ProxyEndpointRoute = Model.extend
   path: DS.attr 'string', defaultValue: '/'
-  get_method: DS.attr 'boolean', defaultValue: false
+  get_method: DS.attr 'boolean', defaultValue: true
   post_method: DS.attr 'boolean', defaultValue: false
   put_method: DS.attr 'boolean', defaultValue: false
   delete_method: DS.attr 'boolean', defaultValue: false

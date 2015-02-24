@@ -6,6 +6,8 @@ ApModelFormComponent = BsFormComponent.extend
   classNames: ['ap-model-form']
   action: 'submit'
   'cancel-action': 'cancel'
+  'before-save-action': 'beforeSave'
+  'after-save-action': 'afterSave'
   'after-delete-action': 'afterDelete'
   model: null
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName:i18nLabel:help:type' or 'fieldName,fieldName'
@@ -37,8 +39,12 @@ ApModelFormComponent = BsFormComponent.extend
     model.set 'clientId', clientId
   submit: ->
     autoSave = @get 'auto-save'
+    @sendAction 'before-save-action'
     @sendAction() if @get('dirty') and !autoSave
-    @get('model').save().then((=>), (=>)) if autoSave
+    if autoSave
+      @get('model').save().then((=>
+        @sendAction 'after-save-action'
+      ), (=>))
     false
   actions:
     cancel: ->

@@ -3,9 +3,11 @@
 ProxyEndpointRouteFormController = FormController.extend
   needs: ['proxy-endpoint-routes']
   modelType: 'proxy-endpoint-route'
-  createNewModel: ->
-    newModel = @_super.apply @, arguments
-    environments = @get 'controllers.proxy-endpoint-routes.model'
-    environments.pushObject newModel
+  actions:
+    beforeSave: ->
+      model = @get 'model'
+      if model.get 'isNew'
+        routes = @get 'controllers.proxy-endpoint-routes.model'
+        routes.pushObject model
 
 `export default ProxyEndpointRouteFormController`
