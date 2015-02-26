@@ -3,6 +3,7 @@
 
 Host = Model.extend
   name: DS.attr 'string'
+  hostname: DS.attr 'string'
   api: DS.belongsTo 'api', async: true
 
 `export default Host`

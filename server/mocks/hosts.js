@@ -5,17 +5,20 @@ module.exports = function(app) {
     {
         "api_id": 1,
         "id": 1,
-        "name": "localhost"
+        "name": "localhost",
+        "hostname": "localhost"
     },
     {
         "api_id": 1,
         "id": 2,
-        "name": "remotehost"
+        "name": "remotehost",
+        "hostname": "en.wikipedia.org"
     },
     {
         "api_id": 1,
         "id": 3,
-        "name": "test"
+        "name": "test",
+        "hostname": "www.google.org"
     }
   ];
   
