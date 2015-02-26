@@ -6,6 +6,7 @@ module.exports = function(app) {
           "id": 1,
           "api_id": 1,
           "name": "hello",
+          "codename": "hello",
           "description": "world",
           "type": "http",
           "data": {
@@ -42,6 +43,7 @@ module.exports = function(app) {
           "id": 2,
           "api_id": 1,
           "name": "hello",
+          "codename": "hello_world",
           "description": "world",
           "type": "http",
           "data": {
@@ -70,6 +72,7 @@ module.exports = function(app) {
           "id": 3,
           "api_id": 1,
           "name": "hello",
+          "codename": "world",
           "description": "world",
           "type": "http",
           "data": {

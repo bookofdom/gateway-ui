@@ -3,6 +3,7 @@
 
 RemoteEndpoint = Model.extend
   name: DS.attr 'string'
+  codename: DS.attr 'string'
   type: DS.attr 'string', defaultValue: 'http'
   description: DS.attr 'string'
   url: DS.attr 'string'
