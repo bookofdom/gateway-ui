@@ -9,7 +9,12 @@ module.exports = function(app) {
       data: {
         foo: 'bar',
         baz: 'baf'
-      }
+      },
+      session_name: 'loopback_dev',
+      session_auth_key: '123456abcdef',
+      session_encryption_key: 'xyz789',
+      session_auth_key_rotate: '',
+      session_encryption_key_rotate: ''
     },
     {
       id: 2,
