@@ -114,7 +114,8 @@
     "session_encryption_key": "clave de encriptación",
     "session_auth_key_rotate": "clave de sesión rotativa",
     "session_encryption_key_rotate": "clave de encriptación rotativa",
-    "codename": "codename"
+    "codename": "codename",
+    "hostname": "hostname"
   },
   "prompts": {
     "generic": "elija uno"
