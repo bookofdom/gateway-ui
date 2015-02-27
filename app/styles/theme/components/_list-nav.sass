@@ -2,12 +2,26 @@
   a:hover
     text-decoration: none
 
-//.ap-list-nav-secondary-hover
-//  .text-secondary
-//    visibility: hidden
-//  a:hover .text-secondary
-//    visibility: visible
+.ap-list-nav-secondary-hover
+  .text-secondary
+    visibility: hidden
+  a:hover .text-secondary
+    visibility: visible
 
 .ap-list-nav-circle
   .ap-icon
     border-radius: 50%
+
+.ap-list-nav-vertical
+  li
+    border-color: darken($ap-slate-lighter, 10%)
+    a
+      color: $ap-slate-light
+      .text
+        color: darken($text-color, 15%)
+        font-weight: 500
+        letter-spacing: 0.01em
+        text-transform: uppercase
+      &.active
+        .text
+          color: $ap-accent
