@@ -4,7 +4,7 @@
 Library = Model.extend
   name: DS.attr 'string'
   description: DS.attr 'string'
-  body: DS.attr 'string'
+  body: DS.attr 'string', defaultValue: ''
   api: DS.belongsTo 'api', async: true
 
 `export default Library`

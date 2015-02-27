@@ -4,9 +4,9 @@
 
 ProxyEndpointComponent = Model.extend
   type: DS.attr 'string', defaultValue: 'single'
-  conditional: DS.attr 'string'
+  conditional: DS.attr 'string', defaultValue: ''
   conditional_positive: DS.attr 'boolean', defaultValue: true
-  body: DS.attr 'string'
+  body: DS.attr 'string', defaultValue: ''
   proxy_endpoint: DS.belongsTo 'proxy-endpoint'
   call: DS.belongsTo 'proxy-endpoint-component-call'
   #calls: DS.hasMany 'proxy-endpoint-component-call'
