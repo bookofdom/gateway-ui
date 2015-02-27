@@ -16,10 +16,14 @@
         font-weight: 500
         > a
           color: $link-color
+      .ap-list-nav-simple-icon
+        visibility: hidden
     &:hover
       border-left-color: $ap-accent
       > td
         background-color: desaturate(lighten($ap-accent, 37%), 7%)
+        .ap-list-nav-simple-icon
+          visibility: visible
 
 form .table
   > tbody > tr > td
