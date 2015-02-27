@@ -1,8 +1,8 @@
 <table {{bind-attr class=':table striped:table-striped bordered:table-bordered hover:table-hover condensed:table-condensed'}}>
   <thead class="text-capitalize">
     <tr>
-      {{#each headings-text}}
-        <th>{{this}}</th>
+      {{#each heading in headings-text}}
+        <th>{{heading}}</th>
       {{/each}}
     </tr>
   </thead>
