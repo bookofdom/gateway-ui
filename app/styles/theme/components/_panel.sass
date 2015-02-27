@@ -1,0 +1,18 @@
+.panel
+  border-radius: 8px
+  > .panel-heading
+    font-weight: 500
+    background: none
+
+.panel-default
+  $color: $text-color
+  border-color: $color
+  > .panel-heading
+    color: $color
+
+.panel-success
+  $color: lighten($brand-success, 10%)
+  border-color: $color
+  > .panel-heading
+    color: $color
+    font-weight: normal
