@@ -1,17 +1,7 @@
-{{#bs-container}}
-  {{#if text}}
-    {{#bs-row}}
-      {{#bs-col sm=12}}
-        <div class="page-header">
-          {{bs-h1 t=t secondary=secondary icon=icon}}
-        </div>
-      {{/bs-col}}
-    {{/bs-row}}
-  {{/if}}
+{{#if t}}
+  <div class="page-header">
+    {{bs-h1 t=t secondary=secondary icon=icon}}
+  </div>
+{{/if}}
 
-  {{#bs-row}}
-    {{#bs-col sm=12}}
-      {{yield}}
-    {{/bs-col}}
-  {{/bs-row}}
-{{/bs-container}}
+{{yield}}

@@ -2,6 +2,29 @@
   > thead > tr > th,
   > tbody > tr > td
     vertical-align: middle
+  > thead > tr > th
+    border-color: #fff
+    color: $ap-slate-light
+    font-weight: normal
+    background-color: lighten($ap-slate-lighter, 5%)
+  > tbody > tr
+    border-left-color: transparent
+    > td
+      > a
+        color: $text-color
+      &:first-child
+        font-weight: 500
+        > a
+          color: $link-color
+      .ap-list-nav-simple-icon
+        visibility: hidden
+    &:hover
+      border-left-color: $ap-accent
+      > td
+        background-color: desaturate(lighten($ap-accent, 37%), 7%)
+        .ap-list-nav-simple-icon
+          visibility: visible
+
 form .table
   > tbody > tr > td
     vertical-align: top

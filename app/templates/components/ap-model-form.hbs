@@ -1,25 +1,29 @@
-{{#each fieldsList}}
+{{#each field in fieldsList}}
   {{#ap-model-form-group
-      model=controller.model
-      field=field
-      inline=controller.inline
-      horizontal=controller.horizontal}}
+    model=model
+    field=field.field
+    inline=inline
+    horizontal=horizontal}}
     {{ap-model-field
-        model=controller.model
-        field=field
-        options=options
-        prompt=prompt}}
+      model=model
+      field=field.field
+      options=field.options
+      prompt=field.prompt}}
   {{/ap-model-form-group}}
 {{/each}}
 
 {{yield}}
 
-{{ap-form-actions inline=inline horizontal=horizontal show-save=show-save show-cancel=show-cancel show-delete=deletable}}
+{{ap-form-actions
+  inline=inline
+  horizontal=horizontal
+  show-save=show-save
+  show-cancel=show-cancel
+  show-delete=deletable}}
 
-{{#ap-model-form-group
-  model=controller.model
+{{ap-model-form-group
+  model=model
   field='base'
   label=''
-  inline=controller.inline
-  horizontal=controller.horizontal}}
-{{/ap-model-form-group}}
+  inline=inline
+  horizontal=horizontal}}
