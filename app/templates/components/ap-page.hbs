@@ -1,5 +1,7 @@
-<div class="page-header">
-  {{bs-h1 t=t secondary=secondary icon=icon}}
-</div>
+{{#if t}}
+  <div class="page-header">
+    {{bs-h1 t=t secondary=secondary icon=icon}}
+  </div>
+{{/if}}
 
 {{yield}}
