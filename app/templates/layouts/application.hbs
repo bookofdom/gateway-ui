@@ -1,6 +1,8 @@
-{{#if session.isAuthenticated}}
-  {{partial 'layouts/application/header'}}
-  {{partial 'layouts/application/toolbar'}}  
-{{/if}}
+<div class="ap-app">
+  {{#if session.isAuthenticated}}
+    {{partial 'layouts/application/header'}}
+    {{partial 'layouts/application/toolbar'}}  
+  {{/if}}
 
-{{outlet}}
+  {{outlet}}
+</div>
