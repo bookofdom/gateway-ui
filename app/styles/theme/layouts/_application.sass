@@ -1,8 +1,16 @@
+html
+  background-color: $ap-app-primary-sidebar-bg-color
+body
+  +background(linear-gradient(top, darken($ap-app-primary-sidebar-bg-color, 10%), $ap-app-primary-sidebar-bg-color))
+
 .ap-app-header
   .ap-navbar-header
     border-radius: 0
     &, a
       font-weight: 200
+    .ap-brand-logo
+      +background(url("images/anypresence.svg") no-repeat 50% 50%)
+      background-size: 240px 40px
 
 .ap-app-toolbar
   background-color: $ap-slate-light

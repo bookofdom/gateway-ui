@@ -33,6 +33,12 @@ app.import('bower_components/ace-builds/src-noconflict/mode-javascript.js');
 // jQuery UI
 app.import('bower_components/jquery-ui/jquery-ui.js');
 
+images = pickFiles('app', {
+ srcDir: '/',
+ files: ['images/*'],
+ destDir: '/assets'
+});
+
 i18n = pickFiles('app', {
  srcDir: '/',
  files: ['locales/*/*.json'],
@@ -53,6 +59,7 @@ ace = pickFiles('bower_components/ace-builds/src-noconflict', {
 
 module.exports = mergeTrees([
   app.toTree(),
+  images,
   i18n,
   retinaIcons,
   ace
