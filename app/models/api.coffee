@@ -4,10 +4,10 @@
 Api = Model.extend
   name: DS.attr 'string'
   description: DS.attr 'string'
-  cors_allow_origin: DS.attr 'string'
+  cors_allow_origin: DS.attr 'string', defaultValue: '*'
   cors_allow_headers: DS.attr 'string', defaultValue: 'content-type, accept'
   cors_allow_credentials: DS.attr 'boolean', defaultValue: true
-  cors_request_headers: DS.attr 'string'
+  cors_request_headers: DS.attr 'string', defaultValue: '*'
   cors_max_age: DS.attr 'number', defaultValue: 600
   proxy_endpoints: DS.hasMany 'proxy-endpoint', async: true
   environments: DS.hasMany 'environment', async: true
