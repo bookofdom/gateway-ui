@@ -3,7 +3,7 @@
 
 ApModelFieldComponent = BsBaseComponent.extend
   tagName: 'span'
-  classNames: ['ap-feld']
+  classNames: ['ap-field']
   model: null
   field: null # 'fieldName:i18nLabel' or 'fieldName:i18nLabel:help:type'
   options: null
