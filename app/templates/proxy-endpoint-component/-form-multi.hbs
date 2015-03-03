@@ -7,6 +7,20 @@
     {{render 'proxy-endpoint-component-transformation/inline-before-form' this}}
   {{/each}}
   
+  {{#unless isNew}}
+    {{#ap-panel-edit t='resources.proxy-endpoint-component-call_plural'}}
+      {{ap-table-model
+        models=calls
+        delete-action='delete-proxy-endpoint-component-call'
+        auto-delete=false
+        edit-path='proxy-endpoint-component-call.edit'
+        partial-path='proxy-endpoint-component-call/-inline-tabular-form'}}
+      {{ap-button-block-new
+        t='resources.proxy-endpoint-component-call'
+        action='new-proxy-endpoint-component-call'}}
+    {{/ap-panel-edit}}
+  {{/unless}}
+  
   {{#each after}}
     {{render 'proxy-endpoint-component-transformation/inline-after-form' this}}
   {{/each}}
