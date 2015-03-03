@@ -9,7 +9,7 @@ ProxyEndpointComponent = Model.extend
   body: DS.attr 'string', defaultValue: ''
   proxy_endpoint: DS.belongsTo 'proxy-endpoint'
   call: DS.belongsTo 'proxy-endpoint-component-call'
-  #calls: DS.hasMany 'proxy-endpoint-component-call'
+  calls: DS.hasMany 'proxy-endpoint-component-call'
   before: DS.hasMany 'proxy-endpoint-component-transformation'
   after: DS.hasMany 'proxy-endpoint-component-transformation'
   # computed

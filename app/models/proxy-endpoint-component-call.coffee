@@ -6,7 +6,7 @@ ProxyEndpointComponentCall = Model.extend
   conditional: DS.attr 'string', defaultValue: ''
   conditional_positive: DS.attr 'boolean', defaultValue: true
   remote_endpoint: DS.belongsTo 'remote-endpoint', async: true
-  proxy_endpoint_component: DS.belongsTo 'proxy-endpoint-component'
+  proxy_endpoint_component: DS.belongsTo 'proxy-endpoint-component', inverse: null
   remoteEndpointDirty: Ember.computed 'remote_endpoint.@each', ->
     original = @get('_data.remote_endpoint.id') or null
     current = @get('remote_endpoint.id') or null
