@@ -167,6 +167,12 @@ module.exports = function(app) {
     body.proxy_endpoint.components.forEach(function (component) {
       var id = Math.round(Math.random() * 100) + 100;
       component.id = component.id || id;
+      if (component.calls) {
+        component.calls.forEach(function (call) {
+          var id = Math.round(Math.random() * 100) + 100;
+          call.id = call.id || id;
+        });
+      }
     });
     if (body.proxy_endpoint.name.toLowerCase() == 'error') {
       res.status(422).send({errors: {name: 'This field is in error.'}})
