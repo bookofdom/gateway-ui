@@ -23,6 +23,9 @@ Router.map ->
               @route 'type', path: ':proxy_endpoint_component_type'
             @resource 'proxy-endpoint-component', path: ':proxy_endpoint_component_id', ->
               @route 'edit'
+              @resource 'proxy-endpoint-component-calls', path: 'calls', ->
+                @resource 'proxy-endpoint-component-call', path: ':proxy_endpoint_component_call_id', ->
+                  @route 'edit'
       @resource 'environments', ->
         @resource 'environment', path: ':environment_id', ->
           @route 'edit'
