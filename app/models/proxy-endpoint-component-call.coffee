@@ -17,5 +17,23 @@ ProxyEndpointComponentCall = Model.extend
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
     Ember.run.once => @get 'relationshipsDirty'
+  reload: ->
+    # delegate reload to parent proxy endpoint component
+    @get('proxy_endpoint_component').reload()
+  save: ->
+    # delegate save to parent proxy endpoint component and then
+    # "rollback" to now-saved embedded record
+    @get('proxy_endpoint_component').save().then (=>
+      @rollback()
+    ), (=>)
+  deleteRecord: ->
+    @_super.apply @, arguments
+    @store.dematerializeRecord @
+  destroyRecord: ->
+    @deleteRecord()
+    component = @get 'proxy_endpoint_component'
+    component.save().then (->
+      component.rollback()
+    ), (=>)
 
 `export default ProxyEndpointComponentCall`
