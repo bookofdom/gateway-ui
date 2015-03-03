@@ -171,6 +171,30 @@ module.exports = function(app) {
         component.calls.forEach(function (call) {
           var id = Math.round(Math.random() * 100) + 100;
           call.id = call.id || id;
+          if (call.before) {
+            call.before.forEach(function (before) {
+              var id = Math.round(Math.random() * 100) + 100;
+              before.id = before.id || id;
+            });
+          }
+          if (call.after) {
+            call.after.forEach(function (after) {
+              var id = Math.round(Math.random() * 100) + 100;
+              after.id = after.id || id;
+            });
+          }
+        });
+      }
+      if (component.before) {
+        component.before.forEach(function (before) {
+          var id = Math.round(Math.random() * 100) + 100;
+          before.id = before.id || id;
+        });
+      }
+      if (component.after) {
+        component.after.forEach(function (after) {
+          var id = Math.round(Math.random() * 100) + 100;
+          after.id = after.id || id;
         });
       }
     });
