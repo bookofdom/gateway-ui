@@ -28,6 +28,7 @@ ProxyEndpointComponentCall = Model.extend
     ), (=>)
   deleteRecord: ->
     @_super.apply @, arguments
+    @get('proxy_endpoint_component.calls').removeObject @
     @store.dematerializeRecord @
   destroyRecord: ->
     @deleteRecord()

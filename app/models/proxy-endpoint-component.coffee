@@ -42,8 +42,7 @@ ProxyEndpointComponent = Model.extend
   onInit: Ember.on 'init', ->
     Ember.run.once => @get 'relationshipsDirty'
   reload: ->
-    # no op reload, since components are embedded records
-    new Ember.RSVP.Promise (resolve, reject) => resolve @
+    @get('proxy_endpoint').reload()
   rollback: ->
     @get('call')?.rollback()
     @get('calls')?.forEach (record) -> record.rollback()
