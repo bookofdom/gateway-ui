@@ -4,7 +4,10 @@
       models=model
       fields='name,description'
       path='api.index'
-      edit-path='api.edit'}}
+      edit-path='api.edit'
+      custom-primary-action='export-api'
+      custom-primary-icon='the-essentials-018'
+      custom-primary-t='actions.export'}}
   
   {{#ap-panel-new t='resources.api'}}
     {{render 'api/form'}}
