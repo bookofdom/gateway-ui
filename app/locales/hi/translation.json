@@ -25,7 +25,9 @@
     "new-x": "new $t(__x__)",
     "edit": "edit",
     "edit-x": "edit $t(__x__)",
-    "export": "export"
+    "export": "export",
+    "toggle": "toggle",
+    "toggle-x": "toggle $t(__x__)"
   },
   "nav": {
     "home": "home",
@@ -103,7 +105,7 @@
     "methods": "methods",
     "conditional": "conditional logic",
     "conditional_positive": "conditional positive",
-    "call_conditional": "call conditional logic",
+    "call-conditional": "call conditional logic",
     "endpoint_name_override": "endpoint name override",
     "before-type": "before type",
     "after-type": "after type",
