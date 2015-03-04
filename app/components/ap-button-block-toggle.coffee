@@ -2,13 +2,13 @@
 `import ApButtonBlockComponent from 'gateway/components/ap-button-block'`
 `import t from 'gateway/helpers/i18n'`
 
-ApButtonBlockNewComponent = ApButtonBlockComponent.extend
-  classNames: ['ap-button-block-new']
-  icon: 'the-essentials-010'
+ApButtonBlockToggleComponent = ApButtonBlockComponent.extend
+  classNames: ['ap-button-block-toggle']
+  icon: 'arrows-047'
   text: Ember.computed 't', ->
     translationKey = @get 't'
     if translationKey
-      rendered = t 'actions.new-x', x: translationKey
+      rendered = t 'actions.toggle-x', x: translationKey
       "#{rendered}&hellip;".htmlSafe()
 
-`export default ApButtonBlockNewComponent`
+`export default ApButtonBlockToggleComponent`

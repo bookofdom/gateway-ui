@@ -2,6 +2,17 @@
   color: $brand-danger
   background: none
 
+.ap-button-block
+  $bg: lighten($brand-info, 40%)
+  border-color: $ap-slate-lighter
+  color: $brand-info
+  background-color: $bg
+  &:hover
+    border-color: transparent
+    color: darken($brand-info, 15%)
+    text-decoration: none
+    background-color: $bg
+
 .ap-button-block-new
   $bg: lighten($brand-success, 48%)
   border-color: $ap-slate-lighter
