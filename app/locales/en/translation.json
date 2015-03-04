@@ -25,9 +25,11 @@
     "new-x": "new $t(__x__)",
     "edit": "edit",
     "edit-x": "edit $t(__x__)",
+    "import": "import",
     "export": "export",
     "toggle": "toggle",
-    "toggle-x": "toggle $t(__x__)"
+    "toggle-x": "toggle $t(__x__)",
+    "drop-or-click-to-upload": "drop or click to upload"
   },
   "nav": {
     "home": "home",
