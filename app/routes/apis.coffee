@@ -3,5 +3,7 @@
 
 ApisRoute = Ember.Route.extend AuthenticatedRouteMixin,
   model: -> @store.find 'api'
+  actions:
+    refresh: -> @refresh()
 
 `export default ApisRoute`

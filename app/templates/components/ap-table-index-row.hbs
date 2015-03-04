@@ -7,6 +7,12 @@
 
 <td>
   {{#ap-list-nav-simple-icon right=true}}
+    {{#if custom-primary-action}}
+      {{ap-list-link
+        t=custom-primary-t
+        icon=custom-primary-icon
+        action='custom-primary'}}
+    {{/if}}
     {{#if edit-path}}
       {{ap-list-link
         t='actions.edit'

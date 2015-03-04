@@ -12,7 +12,7 @@ ProxyEndpointComponentCallFormController = FormController.extend
     if @get 'isNew'
       baseFields
     else
-      "#{baseFields},conditional:fields.call_conditional::javascript,conditional_positive"
+      "#{baseFields},conditional:fields.call-conditional::javascript,conditional_positive"
   actions:
     beforeSave: ->
       model = @get 'model'

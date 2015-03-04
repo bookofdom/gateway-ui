@@ -32,6 +32,9 @@ app.import('bower_components/ace-builds/src-noconflict/ace.js');
 app.import('bower_components/ace-builds/src-noconflict/mode-javascript.js');
 // jQuery UI
 app.import('bower_components/jquery-ui/jquery-ui.js');
+// jQuery File Upload
+app.import('bower_components/jquery-file-upload/js/jquery.iframe-transport.js')
+app.import('bower_components/jquery-file-upload/js/jquery.fileupload.js')
 
 images = pickFiles('app', {
  srcDir: '/',

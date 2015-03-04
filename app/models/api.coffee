@@ -1,5 +1,6 @@
 `import DS from 'ember-data'`
 `import Model from './model'`
+`import config from  '../config/environment'`
 
 Api = Model.extend
   name: DS.attr 'string'
@@ -15,5 +16,15 @@ Api = Model.extend
   remote_endpoints: DS.hasMany 'remote-endpoint', async: true
   hosts: DS.hasMany 'host', async: true
   libraries: DS.hasMany 'library', async: true
+  exportUrl: Ember.computed ->
+    url = []
+    url.push config.api.url
+    url.push 'apis'
+    url.push @get('id')
+    url.push 'export'
+    url = url.join '/'
+    host = "#{window.location.protocol}//#{window.location.host}"
+    url = "#{host}#{url}" if !config.api.host
+    url
 
 `export default Api`
