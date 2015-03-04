@@ -11,6 +11,7 @@ ApModelFormComponent = BsFormComponent.extend
   model: null
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName:i18nLabel:help:type' or 'fieldName,fieldName'
   horizontal: true
+  'show-placeholders': false
   'auto-save': true
   'auto-cancel': true
   'auto-delete': true
