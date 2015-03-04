@@ -1,5 +1,6 @@
 `import Ember from 'ember'`
 `import BsBaseComponent from 'gateway/components/bs-base'`
+`import t from 'gateway/helpers/i18n'`
 
 ApModelFieldComponent = BsBaseComponent.extend
   tagName: 'span'
@@ -7,10 +8,14 @@ ApModelFieldComponent = BsBaseComponent.extend
   model: null
   field: null # 'fieldName:i18nLabel' or 'fieldName:i18nLabel:help:type'
   options: null
-  prompt: null
+  'show-placeholder': false
   fieldName: Ember.computed 'field', -> @get('field')?.split(':')?[0]
   label: Ember.computed 'field', ->
     @get('field')?.split(':')[1]?.trim() or "fields.#{@get 'fieldName'}"
+  placeholder: Ember.computed 'show-placeholder', 'label', ->
+    t(@get('label')).capitalize() if @get 'show-placeholder'
+  prompt: Ember.computed 'label', ->
+    t('prompts.choose-x', x: @get 'label').capitalize()
   help: Ember.computed 'field', -> @get('field')?.split(':')[2]?.trim()
   attribute: Ember.computed 'model', 'fieldName', ->
     attributes = []

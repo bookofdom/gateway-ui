@@ -1,0 +1,14 @@
+{{#ap-model-form
+  model=model
+  option-groups=option-groups
+  fields=fields}}
+
+  {{#each before}}
+    {{render 'proxy-endpoint-component-transformation/inline-before-form' this}}
+  {{/each}}
+  
+  {{#each after}}
+    {{render 'proxy-endpoint-component-transformation/inline-after-form' this}}
+  {{/each}}
+
+{{/ap-model-form}}
