@@ -115,7 +115,8 @@
     "session_auth_key_rotate": "session auth key rotate",
     "session_encryption_key_rotate": "session encryption key rotate",
     "codename": "codename",
-    "hostname": "hostname"
+    "hostname": "hostname",
+    "value": "value"
   },
   "prompts": {
     "generic": "choose one",
