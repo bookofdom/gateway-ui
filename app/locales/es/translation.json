@@ -25,6 +25,7 @@
     "new-x": "nuevo $t(__x__)",
     "edit": "editar",
     "edit-x": "editar $t(__x__)",
+    "import": "import",
     "export": "export",
     "toggle": "toggle",
     "toggle-x": "toggle $t(__x__)",
