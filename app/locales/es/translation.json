@@ -120,7 +120,8 @@
   },
   "prompts": {
     "generic": "elija uno",
-    "choose-x": "choose $t(__x__)"
+    "choose-x": "choose $t(__x__)",
+    "confirm-delete": "are you sure you want to delete this record?"
   },
   "states": {
     "active": "activo",

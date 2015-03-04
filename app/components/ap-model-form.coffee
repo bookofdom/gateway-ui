@@ -1,5 +1,6 @@
 `import Ember from 'ember'`
 `import BsFormComponent from 'gateway/components/bs-form'`
+`import t from 'gateway/helpers/i18n'`
 
 ApModelFormComponent = BsFormComponent.extend
   classNames: ['ap-model-form']
@@ -54,7 +55,9 @@ ApModelFormComponent = BsFormComponent.extend
       else
         @sendAction 'cancel-action', @get('model')
     delete: ->
-      @get('model').destroyRecord()
-      @sendAction 'after-delete-action'
+      confirmText = t('prompts.confirm-delete').capitalize()
+      if @get('auto-delete') and confirm(confirmText)
+        @get('model').destroyRecord()
+        @sendAction 'after-delete-action'
 
 `export default ApModelFormComponent`
