@@ -1,6 +1,5 @@
 `import Ember from 'ember'`
 `import BsFormComponent from 'gateway/components/bs-form'`
-`import t from 'gateway/helpers/i18n'`
 
 ApModelFormComponent = BsFormComponent.extend
   classNames: ['ap-model-form']
@@ -20,7 +19,6 @@ ApModelFormComponent = BsFormComponent.extend
     for field in @get('fields')?.split ','
       fieldName = field.split(':')[0]
       options: @get('option-groups')?[fieldName]
-      prompt: t('prompts.generic').capitalize()
       field: field
   dirty: Ember.computed 'model.isDirty', -> @get 'model.isDirty'
   'show-save': Ember.computed 'dirty', -> @get 'dirty'

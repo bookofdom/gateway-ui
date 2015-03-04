@@ -118,7 +118,8 @@
     "hostname": "hostname"
   },
   "prompts": {
-    "generic": "elija uno"
+    "generic": "elija uno",
+    "choose-x": "choose $t(__x__)"
   },
   "states": {
     "active": "activo",

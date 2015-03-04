@@ -118,7 +118,8 @@
     "hostname": "hostname"
   },
   "prompts": {
-    "generic": "choose one"
+    "generic": "choose one",
+    "choose-x": "choose $t(__x__)"
   },
   "states": {
     "active": "active",
