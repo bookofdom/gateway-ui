@@ -1,3 +1,11 @@
-{{ap-model-form
-    model=model
-    fields=fields}}
+{{#ap-model-form
+  model=model
+  fields=fields}}
+  
+  {{#if isNew}}
+    {{#bs-form-group horizontal=true}}
+      {{render 'api/form-import' model}}
+    {{/bs-form-group}}
+  {{/if}}
+
+{{/ap-model-form}}

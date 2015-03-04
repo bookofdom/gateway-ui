@@ -27,7 +27,8 @@
     "edit-x": "editar $t(__x__)",
     "export": "export",
     "toggle": "toggle",
-    "toggle-x": "toggle $t(__x__)"
+    "toggle-x": "toggle $t(__x__)",
+    "drop-or-click-to-upload": "drop or click to upload"
   },
   "nav": {
     "home": "inicio",

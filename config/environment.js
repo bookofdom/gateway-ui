@@ -49,7 +49,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     
     // uncomment for stand-alone gateway API
-    //ENV.api.host = 'http://localhost:5000'
+    ENV.api.host = 'http://localhost:5000'
   }
 
   if (environment === 'test') {
