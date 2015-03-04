@@ -1,6 +1,11 @@
 {{#bs-table}}
   {{#each model in models}}
-    {{#ap-table-model-row model=model edit-path=edit-path}}
+    {{#ap-table-model-row
+      model=model
+      edit-path=edit-path
+      custom-primary-action=custom-primary-action
+      custom-primary-icon=custom-primary-icon
+      custom-primary-t=custom-primary-t}}
       {{partial partial-path}}
     {{/ap-table-model-row}}
   {{/each}}

@@ -24,7 +24,8 @@
     "new": "nuevo",
     "new-x": "nuevo $t(__x__)",
     "edit": "editar",
-    "edit-x": "editar $t(__x__)"
+    "edit-x": "editar $t(__x__)",
+    "export": "export"
   },
   "nav": {
     "home": "inicio",

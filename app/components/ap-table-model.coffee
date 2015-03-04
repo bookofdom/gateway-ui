@@ -8,10 +8,15 @@ ApTableModelComponent = BsBaseComponent.extend
   'auto-delete': true
   'edit-path': null
   'partial-path': null
+  'custom-primary-action': null
+  'custom-primary-icon': null
+  'custom-primary-t': null
   delete: (record) ->
     # TODO:  confirm delete
     record.destroyRecord()
   actions:
+    'custom-primary': (record) ->
+      @sendAction 'custom-primary-action', record
     delete: (record) ->
       if @get 'auto-delete'
         @delete record
