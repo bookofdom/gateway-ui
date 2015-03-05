@@ -1,19 +1,21 @@
-<li>
-  {{#link-to 'application'}}
-    {{t 'nav.home'}}
-  {{/link-to}}
-</li>
-{{#each crumb in breadCrumbs}}
-  <li class="separator">
-    {{ap-icon icon='arrows-006'}}
+{{#if breadCrumbs}}
+  <li>
+    {{#link-to 'application'}}
+      {{t 'nav.home'}}
+    {{/link-to}}
   </li>
-  <li {{bind-attr class="crumb.isCurrent:active:"}}>
-    {{#if crumb.linkable}}
-      {{#link-to crumb.path}}
+  {{#each crumb in breadCrumbs}}
+    <li class="separator">
+      {{ap-icon icon='arrows-006'}}
+    </li>
+    <li {{bind-attr class="crumb.isCurrent:active:"}}>
+      {{#if crumb.linkable}}
+        {{#link-to crumb.path}}
+          {{t crumb.name}}
+        {{/link-to}}
+      {{else}}
         {{t crumb.name}}
-      {{/link-to}}
-    {{else}}
-      {{t crumb.name}}
-    {{/if}}
-  </li>
-{{/each}}
+      {{/if}}
+    </li>
+  {{/each}}
+{{/if}}
