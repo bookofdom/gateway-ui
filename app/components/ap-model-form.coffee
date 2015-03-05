@@ -17,11 +17,6 @@ ApModelFormComponent = BsFormComponent.extend
   'auto-cancel': true
   'auto-delete': true
   'option-groups': null
-  fieldsList: Ember.computed 'fields', ->
-    for field in @get('fields')?.split ','
-      fieldName = field.split(':')[0]
-      options: @get('option-groups')?[fieldName]
-      field: field
   dirty: Ember.computed 'model.isDirty', -> @get 'model.isDirty'
   'show-save': Ember.computed 'dirty', -> @get 'dirty'
   'show-cancel': Ember.computed 'dirty', 'model.isNew', ->

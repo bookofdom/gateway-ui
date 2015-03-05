@@ -7,6 +7,7 @@ ApModelFieldComponent = BsBaseComponent.extend
   classNames: ['ap-field']
   model: null
   'show-placeholder': false
+  'option-groups': null
   fieldName: null
   fieldLabel: null
   fieldHelp: null
@@ -35,6 +36,8 @@ ApModelFieldComponent = BsBaseComponent.extend
     t(@get 'label').capitalize() if @get 'show-placeholder'
   prompt: Ember.computed 'label', ->
     t('prompts.choose-x', x: @get 'label').capitalize()
+  options: Ember.computed 'name', 'option-groups', ->
+    @get('option-groups')?[@get('name')]
   attribute: Ember.computed 'model', 'name', ->
     attributes = []
     @get('model')?.eachAttribute (name, meta) -> attributes.push meta
