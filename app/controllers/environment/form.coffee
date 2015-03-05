@@ -3,12 +3,34 @@
 EnvironmentFormController = FormController.extend
   needs: ['environments']
   modelType: 'environment'
+  newFields: [
+    name: 'name'
+    required: true
+  ,
+    name: 'description'
+    type: 'textarea'
+  ]
+  editFields: [
+    name: 'name'
+    required: true
+  ,
+    name: 'description'
+    type: 'textarea'
+  ,
+    name: 'session_name'
+  ,
+    name: 'session_auth_key'
+  ,
+    name: 'session_encryption_key'
+    type: 'textarea'
+  ,
+    name: 'session_auth_key_rotate'
+  ,
+    name: 'session_encryption_key_rotate'
+    type: 'textarea'
+  ]
   fields: Ember.computed 'isNew', ->
-    baseFields = 'name,description:::textarea'
-    if @get 'isNew'
-      baseFields
-    else
-      "#{baseFields},session_name,session_auth_key,session_encryption_key:::textarea,session_auth_key_rotate,session_encryption_key_rotate:::textarea"
+    if @get 'isNew' then @get 'newFields' else @get 'editFields'
   createNewVariableModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'environment-variable'
