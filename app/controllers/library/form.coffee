@@ -3,6 +3,18 @@
 LibraryFormController = FormController.extend
   needs: ['libraries']
   modelType: 'library'
+  fields: Ember.computed ->
+    [
+      name: 'name'
+      required: true
+    ,
+      name: 'description'
+      type: 'textarea'
+    ,
+      name: 'body'
+      label: 'fields.logic'
+      type: 'javascript'
+    ]
   actions:
     beforeSave: ->
       model = @get 'model'

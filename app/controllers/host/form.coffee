@@ -3,6 +3,14 @@
 HostFormController = FormController.extend
   needs: ['hosts']
   modelType: 'host'
+  fields: Ember.computed ->
+    [
+      name: 'name'
+      required: true
+    ,
+      name: 'hostname'
+      required: true
+    ]
   actions:
     beforeSave: ->
       model = @get 'model'
