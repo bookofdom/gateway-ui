@@ -9,7 +9,7 @@
   {{/unless}}
 </div>
 {{#if collapse}}
-  <div {{bind-attr id=panel-collapse-id class=':panel-collapse :collapse open:in'}}>
+  <div {{bind-attr id=panel-collapse-id class='closed::in :panel-collapse :collapse'}}>
     {{partial 'components/bs-panel/-panel-body'}}
   </div>
 {{/if}}

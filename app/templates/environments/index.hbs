@@ -6,7 +6,7 @@
       path='environment.index'
       edit-path='environment.edit'}}
   
-  {{#ap-panel-new t='resources.environment' open=model.isEmpty}}
+  {{#ap-panel-new t='resources.environment' closed=model.length}}
     {{render 'environment/form'}}
   {{/ap-panel-new}}
   

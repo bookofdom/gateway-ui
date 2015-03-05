@@ -6,7 +6,7 @@ BsPanelComponent = BsTextComponent.extend
   classNameBindings: ['styleClass']
   style: 'default'
   collapse: false
-  open: true
+  closed: false
   styleClass: Ember.computed 'style', ->
     "panel-#{@get 'style'}"
   'panel-collapse-id': Ember.computed 'collapse', ->
