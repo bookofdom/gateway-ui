@@ -1,6 +1,6 @@
 `import FormController from 'gateway/controllers/form'`
 
-RemoteEndpointHeaderFormController = FormController.extend
+RemoteEndpointQueryParameterFormController = FormController.extend
   fields: Ember.computed ->
     [
       name: 'name'
@@ -10,4 +10,4 @@ RemoteEndpointHeaderFormController = FormController.extend
       required: true
     ]
 
-`export default RemoteEndpointHeaderFormController`
+`export default RemoteEndpointQueryParameterFormController`
