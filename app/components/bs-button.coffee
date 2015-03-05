@@ -6,7 +6,6 @@ BsButtonComponent = BsTextComponent.extend
   classNames: ['btn']
   classNameBindings: ['styleClass', 'sizeClass', 'block:btn-block']
   action: null
-  capitalize: true
   style: 'primary'
   xs: false
   sm: false

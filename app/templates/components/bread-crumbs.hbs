@@ -1,4 +1,4 @@
-<li class="text-capitalize">
+<li>
   {{#link-to 'application'}}
     {{t 'nav.home'}}
   {{/link-to}}
@@ -7,7 +7,7 @@
   <li class="separator">
     {{ap-icon icon='arrows-006'}}
   </li>
-  <li {{bind-attr class="crumb.isCurrent:active: :text-capitalize"}}>
+  <li {{bind-attr class="crumb.isCurrent:active:"}}>
     {{#if crumb.linkable}}
       {{#link-to crumb.path}}
         {{t crumb.name}}

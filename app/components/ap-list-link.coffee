@@ -4,7 +4,6 @@
 ApListLinkComponent = BsListLinkComponent.extend
   classNameBindings: ['circleClass', 'reversedClass', 'secondaryHoverClass']
   attributeBindings: ['index:data-index']
-  capitalize: true
   circle: false
   reversed: false
   'secondary-hover': false
