@@ -19,7 +19,7 @@ BsFormGroupComponent = BsTextComponent.extend
   secondary: Ember.computed 'help', -> @get 'help'
   errorClass: Ember.computed 'error', -> 'has-error' if @get 'error'
   'control-label-classes': Ember.computed 'horizontal', 'show-label', ->
-    labelClasses = ['text-capitalize']
+    labelClasses = []
     labelClasses.push('control-label') if !@get 'inline'
     labelClasses.push('col-sm-2') if @get 'horizontal'
     labelClasses.push('sr-only') if !@get 'show-label'
