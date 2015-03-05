@@ -6,7 +6,7 @@
       path='remote-endpoint-environment-datum.index'
       edit-path='remote-endpoint-environment-datum.edit'}}
   
-  {{#ap-panel-new t='resources.remote-endpoint-environment-datum'}}
+  {{#ap-panel-new t='resources.remote-endpoint-environment-datum' open=model.isEmpty}}
     {{render 'remote-endpoint-environment-datum/form'}}
   {{/ap-panel-new}}
   

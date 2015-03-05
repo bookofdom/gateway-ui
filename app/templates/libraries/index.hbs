@@ -6,7 +6,7 @@
       path='library.index'
       edit-path='library.edit'}}
   
-  {{#ap-panel-new t='resources.library'}}
+  {{#ap-panel-new t='resources.library' open=model.isEmpty}}
     {{render 'library/form'}}
   {{/ap-panel-new}}
   

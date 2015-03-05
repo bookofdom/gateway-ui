@@ -9,7 +9,7 @@
       custom-primary-icon='the-essentials-018'
       custom-primary-t='actions.export'}}
   
-  {{#ap-panel-new t='resources.api'}}
+  {{#ap-panel-new t='resources.api' open=model.isEmpty}}
     {{render 'api/form'}}
   {{/ap-panel-new}}
   

@@ -6,7 +6,7 @@
       path='host.index'
       edit-path='host.edit'}}
   
-  {{#ap-panel-new t='resources.host'}}
+  {{#ap-panel-new t='resources.host' open=model.isEmpty}}
     {{render 'host/form'}}
   {{/ap-panel-new}}
   

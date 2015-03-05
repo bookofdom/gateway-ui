@@ -6,7 +6,7 @@
       path='remote-endpoint.index'
       edit-path='remote-endpoint.edit'}}
   
-  {{#ap-panel-new t='resources.remote-endpoint'}}
+  {{#ap-panel-new t='resources.remote-endpoint' open=model.isEmpty}}
     {{render 'remote-endpoint/form'}}
   {{/ap-panel-new}}
   
