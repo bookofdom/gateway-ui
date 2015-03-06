@@ -43,7 +43,9 @@
       "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints",
       "hosts": "define named hosts associated with this API",
       "libraries": "define shared libraries for use in JavaScript code blocks"
-    }
+    },
+    "support": "support",
+    "documentation_plural": "docs"
   },
   "brands": {
     "anypresence": "AnyPresence",
