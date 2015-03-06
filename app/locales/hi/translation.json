@@ -46,7 +46,8 @@
       "libraries": "define shared libraries for use in JavaScript code blocks"
     },
     "support": "support",
-    "documentation_plural": "docs"
+    "documentation_plural": "docs",
+    "help": "help"
   },
   "brands": {
     "anypresence": "AnyPresence",

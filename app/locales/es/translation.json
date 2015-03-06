@@ -46,7 +46,8 @@
       "libraries": "define librerías compartidas para utilizar en bloques de código JavaScript"
     },
     "support": "support",
-    "documentation_plural": "docs"
+    "documentation_plural": "docs",
+    "help": "help"
   },
   "brands": {
     "anypresence": "AnyPresence",
