@@ -3,10 +3,29 @@
 ProxyEndpointComponentCallInlineFormController = ProxyEndpointComponentCallFormController.extend
   'show-conditional-fields': false
   fields: Ember.computed 'show-conditional-fields', ->
-    fields = 'remote_endpoint:resources.remote-endpoint::select-model-name,endpoint_name_override'
-    if @get 'show-conditional-fields'
-      fields = "#{fields},conditional:fields.call-conditional::javascript,conditional_positive"
-    fields
+    fields = [
+      name: 'remote_endpoint'
+      label: 'resources.remote-endpoint'
+      type: 'select-model-name'
+      required: true
+    ,
+      name: 'endpoint_name_override'
+    ]
+    withConditionals = [
+      name: 'remote_endpoint'
+      label: 'resources.remote-endpoint'
+      type: 'select-model-name'
+      required: true
+    ,
+      name: 'endpoint_name_override'
+    ,
+      name: 'conditional'
+      label: 'fields.call-conditional'
+      type: 'javascript'
+    ,
+      name: 'conditional_positive'
+    ]
+    if @get 'show-conditional-fields' then withConditionals else fields
   actions:
     'toggle-call': ->
       @set 'show-conditional-fields', !@get('show-conditional-fields')

@@ -4,6 +4,19 @@ ProxyEndpointComponentFormController = FormController.extend
   formTemplateName: Ember.computed 'type', ->
     type = @get 'type'
     "proxy-endpoint-component/form-#{type}"
+  fields: Ember.computed 'js', 'single', 'multi', ->
+    fields = [
+      name: 'conditional'
+      type: 'javascript'
+    ,
+      name: 'conditional_positive'
+    ]
+    if @get 'js'
+      fields.push
+        name: 'body'
+        label: 'fields.logic'
+        type: 'javascript'
+    fields
   createNewCallModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'proxy-endpoint-component-call'
