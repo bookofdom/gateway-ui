@@ -29,6 +29,7 @@ app.import('bower_components/moment/locale/es.js');
 app.import('bower_components/moment/locale/hi.js');
 // ace
 app.import('bower_components/ace-builds/src-noconflict/ace.js');
+app.import('bower_components/ace-builds/src-noconflict/ext-language_tools.js');
 app.import('bower_components/ace-builds/src-noconflict/mode-javascript.js');
 // jQuery UI
 app.import('bower_components/jquery-ui/jquery-ui.js');
