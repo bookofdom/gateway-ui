@@ -12,6 +12,7 @@ BsFormGroupComponent = BsTextComponent.extend
   checkbox: false
   radio: false
   error: false
+  required: false
   'show-label': true
   'label-for': null
   offset: null

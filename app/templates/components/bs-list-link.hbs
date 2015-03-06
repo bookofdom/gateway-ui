@@ -1,10 +1,18 @@
-{{#if arg1}}
-  {{#link-to path arg1 tabindex=-1}}
-    {{partial 'components/bs-text'}}
-  {{/link-to}}
-{{/if}}
-{{#unless arg1}}
-  {{#link-to path tabindex=-1}}
-    {{partial 'components/bs-text'}}
-  {{/link-to}}
+{{#unless url}}
+  {{#if arg1}}
+    {{#link-to path arg1}}
+      {{partial 'components/bs-text'}}
+    {{/link-to}}
+  {{/if}}
+  {{#unless arg1}}
+    {{#link-to path}}
+      {{partial 'components/bs-text'}}
+    {{/link-to}}
+  {{/unless}}
 {{/unless}}
+
+{{#if url}}
+  <a {{bind-attr href=url}} target="_blank">
+    {{partial 'components/bs-text'}}
+  </a>
+{{/if}}

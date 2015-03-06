@@ -1,17 +1,62 @@
-{{#ap-list-nav-circle-icon}}
+{{!-- begin placeholders to vertically offset new panel --}}
+{{#ap-list-nav-vertical-circle-icon class='invisible'}}
   {{ap-list-link
-    t='proxy-endpoint-component-types.single-proxy'
-    icon='the-essentials-072'
-    path='proxy-endpoint-components.new.type'
-    arg1='single'}}
-  {{ap-list-link
-    t='proxy-endpoint-component-types.multi-proxy'
-    icon='file-type-content-077'
-    path='proxy-endpoint-components.new.type'
-    arg1='multi'}}
-  {{ap-list-link
-    t='proxy-endpoint-component-types.javascript-logic'
-    icon='file-type-content-055'
-    path='proxy-endpoint-components.new.type'
-    arg1='js'}}
-{{/ap-list-nav-circle-icon}}
+      class='ap-unsortable'
+      path='proxy-endpoint.edit'
+      icon='the-essentials-129'
+      t=name}}
+
+  {{#each components}}
+    {{#unless isNew}}
+      {{#if single}}
+        {{ap-list-link
+          path='proxy-endpoint-component.edit'
+          action='proxy-endpoint-component-edit'
+          arg1=this
+          icon='the-essentials-072'
+          t=name
+          index=id}}
+      {{/if}}
+      {{#if multi}}
+        {{ap-list-link
+          path='proxy-endpoint-component.edit'
+          action='proxy-endpoint-component-edit'
+          arg1=this
+          icon='file-type-content-077'
+          t=name
+          index=id}}
+      {{/if}}
+      {{#if js}}
+        {{ap-list-link
+          path='proxy-endpoint-component.edit'
+          action='proxy-endpoint-component-edit'
+          arg1=this
+          icon='file-type-content-055'
+          t=name
+          index=id}}
+      {{/if}}
+    {{/unless}}
+  {{/each}}
+{{/ap-list-nav-vertical-circle-icon}}
+{{!-- end placeholders --}}
+
+
+{{#bs-panel t='actions.select-add-component-type'}}
+  {{#ap-list-nav-circle-icon}}
+    {{ap-list-link
+      t='proxy-endpoint-component-types.single-proxy'
+      icon='the-essentials-072'
+      path='proxy-endpoint-components.new.type'
+      arg1='single'}}
+    {{ap-list-link
+      t='proxy-endpoint-component-types.multi-proxy'
+      icon='file-type-content-077'
+      path='proxy-endpoint-components.new.type'
+      arg1='multi'}}
+    {{ap-list-link
+      t='proxy-endpoint-component-types.javascript-logic'
+      icon='file-type-content-055'
+      path='proxy-endpoint-components.new.type'
+      arg1='js'}}
+  {{/ap-list-nav-circle-icon}}
+{{/bs-panel}}

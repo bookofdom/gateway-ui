@@ -4,7 +4,9 @@
 
 ApPanelNewComponent = BsPanelComponent.extend
   classNames: ['ap-panel-new']
+  collapse: true
   style: 'success'
+  icon: 'the-essentials-010'
   text: Ember.computed 't', ->
     translationKey = @get 't'
     if translationKey

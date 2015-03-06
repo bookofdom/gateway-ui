@@ -17,9 +17,17 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse ap-nav-header">
-      
-      {{#if session.isAuthenticated}}
-        <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right">
+        {{ap-list-link
+          t='nav.documentation_plural'
+          icon='the-essentials-087'
+          url='http://docs.anypresence.com'}}
+        {{ap-list-link
+          t='nav.support'
+          icon='the-essentials-097'
+          url='https://anypresence.zendesk.com/anonymous_requests/new'}}
+        <li class="separator"></li>
+        {{#if session.isAuthenticated}}
           <li class="dropdown">
             <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
               <span class="text-lowercase">{{session.email}}</span>
@@ -31,8 +39,8 @@
                 t='actions.logout'}}
             </ul><!-- .dropdown-menu -->
           </li><!-- .dropdown -->
-        </ul><!-- /.nav -->
-      {{/if}}
+        {{/if}}
+      </ul><!-- /.nav -->
       
     </div><!-- /.navbar-collapse -->
     

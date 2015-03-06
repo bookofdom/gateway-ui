@@ -1,4 +1,4 @@
-{{#ap-page t='resources.proxy-endpoint_plural'}}
+{{#ap-page t='resources.proxy-endpoint_plural' help-url='http://docs.anypresence.com'}}
   
   {{ap-table-index
       models=model
@@ -6,7 +6,7 @@
       path='proxy-endpoint.index'
       edit-path='proxy-endpoint.edit'}}
   
-  {{#ap-panel-new t='resources.proxy-endpoint'}}
+  {{#ap-panel-new t='resources.proxy-endpoint' closed=model.length}}
     {{render 'proxy-endpoint/form'}}
   {{/ap-panel-new}}
   

@@ -6,6 +6,5 @@ ApListNavCircleIconComponent = ApListNavComponent.extend
   lg: true
   circle: true
   inline: true
-  'text-center': true
 
 `export default ApListNavCircleIconComponent`

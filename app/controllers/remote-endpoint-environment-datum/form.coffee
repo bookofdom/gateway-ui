@@ -4,6 +4,18 @@
 RemoteEndpointEnvironmentDatumFormController = FormController.extend
   needs: ['remote-endpoints', 'remote-endpoint-environment-data']
   modelType: 'remote-endpoint-environment-datum'
+  fields: Ember.computed ->
+    [
+      name: 'environment'
+      label: 'resources.environment'
+      type: 'select-model-name'
+      required: true
+    ,
+      name: 'url'
+    ,
+      name: 'method'
+      type: 'select'
+    ]
   'option-groups': Ember.computed 'controllers.remote-endpoints.environments.@each', ->
     environment: @get('controllers.remote-endpoints.environments').filterBy 'isNew', false
     method: [

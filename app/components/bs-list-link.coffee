@@ -6,6 +6,7 @@ BsListLinkComponent = BsTextComponent.extend
   action: null
   path: null
   arg1: null
+  url: null
   click: ->
     @sendAction 'action', @get('arg1') if !@get 'disabled'
 

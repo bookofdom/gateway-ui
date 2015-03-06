@@ -3,10 +3,28 @@
 ApiFormController = FormController.extend
   modelType: 'api'
   fields: Ember.computed 'isNew', ->
-    baseFields = 'name'
-    if @get 'isNew'
-      baseFields
-    else
-      "#{baseFields},description:::textarea,cors_allow_origin,cors_allow_headers,cors_allow_credentials,cors_request_headers,cors_max_age:::integer"
+    newFields = [
+      name: 'name'
+      required: true
+    ]
+    editFields = [
+      name: 'name'
+      required: true
+    ,
+      name: 'description'
+      type: 'textarea'
+    ,
+      name: 'cors_allow_origin'
+    ,
+      name: 'cors_allow_headers'
+    ,
+      name: 'cors_allow_credentials'
+    ,
+      name: 'cors_request_headers'
+    ,
+      name: 'cors_max_age'
+      type: 'integer'
+    ]
+    if @get 'isNew' then newFields else editFields
 
 `export default ApiFormController`

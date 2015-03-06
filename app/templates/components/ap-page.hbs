@@ -1,7 +1,10 @@
-{{#if t}}
-  <div class="page-header">
+<div class="page-header clearfix">
+  {{#if help-url}}
+    {{ap-button-help url=help-url right=true}}
+  {{/if}}
+  {{#if t}}
     {{bs-h1 t=t secondary=secondary icon=icon}}
-  </div>
-{{/if}}
+  {{/if}}
+</div>
 
 {{yield}}

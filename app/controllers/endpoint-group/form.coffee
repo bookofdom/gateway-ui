@@ -3,6 +3,14 @@
 EndpointGroupFormController = FormController.extend
   needs: ['endpoint-groups']
   modelType: 'endpoint-group'
+  fields: Ember.computed ->
+    [
+      name: 'name'
+      required: true
+    ,
+      name: 'description'
+      type: 'textarea'
+    ]
   actions:
     beforeSave: ->
       model = @get 'model'
