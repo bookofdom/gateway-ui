@@ -3,6 +3,14 @@
 ProxyEndpointRouteFormController = FormController.extend
   needs: ['proxy-endpoint-routes']
   modelType: 'proxy-endpoint-route'
+  fields: Ember.computed ->
+    [
+      name: 'path'
+      required: true
+    ,
+      name: 'methods'
+      type: 'methods'
+    ]
   actions:
     beforeSave: ->
       model = @get 'model'

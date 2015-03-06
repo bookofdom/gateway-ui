@@ -1,6 +1,6 @@
 `import { test, moduleFor } from 'ember-qunit'`
 
-moduleFor 'controller:remote-endpoint-query-paramter/form', 'RemoteEndpointQueryParamterFormController', {
+moduleFor 'controller:proxy-endpoint-component/new', 'ProxyEndpointComponentNewController', {
   # Specify the other units that are required for this test.
   # needs: ['controller:foo']
 }

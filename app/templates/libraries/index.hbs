@@ -1,4 +1,4 @@
-{{#ap-page t='resources.library_plural'}}
+{{#ap-page t='resources.library_plural' help-url='http://docs.anypresence.com'}}
   
   {{ap-table-index
       models=model
@@ -6,7 +6,7 @@
       path='library.index'
       edit-path='library.edit'}}
   
-  {{#ap-panel-new t='resources.library'}}
+  {{#ap-panel-new t='resources.library' closed=model.length}}
     {{render 'library/form'}}
   {{/ap-panel-new}}
   

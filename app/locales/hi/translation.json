@@ -29,7 +29,8 @@
     "export": "export",
     "toggle": "toggle",
     "toggle-x": "toggle $t(__x__)",
-    "drop-or-click-to-upload": "drop or click to upload"
+    "drop-or-click-to-upload": "drop or click to upload",
+    "select-add-component-type": "select a component type to add"
   },
   "nav": {
     "home": "home",
@@ -43,7 +44,10 @@
       "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints",
       "hosts": "define named hosts associated with this API",
       "libraries": "define shared libraries for use in JavaScript code blocks"
-    }
+    },
+    "support": "support",
+    "documentation_plural": "docs",
+    "help": "help"
   },
   "brands": {
     "anypresence": "AnyPresence",

@@ -1,4 +1,4 @@
-{{#ap-page t='resources.host_plural'}}
+{{#ap-page t='resources.host_plural' help-url='http://docs.anypresence.com'}}
   
   {{ap-table-index
       models=model
@@ -6,7 +6,7 @@
       path='host.index'
       edit-path='host.edit'}}
   
-  {{#ap-panel-new t='resources.host'}}
+  {{#ap-panel-new t='resources.host' closed=model.length}}
     {{render 'host/form'}}
   {{/ap-panel-new}}
   

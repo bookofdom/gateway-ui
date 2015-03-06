@@ -1,4 +1,4 @@
-{{#ap-page t='resources.endpoint-group_plural'}}
+{{#ap-page t='resources.endpoint-group_plural' help-url='http://docs.anypresence.com'}}
   
   {{ap-table-index
       models=model
@@ -6,7 +6,7 @@
       path='endpoint-group.index'
       edit-path='endpoint-group.edit'}}
   
-  {{#ap-panel-new t='resources.endpoint-group'}}
+  {{#ap-panel-new t='resources.endpoint-group' closed=model.length}}
     {{render 'endpoint-group/form'}}
   {{/ap-panel-new}}
   

@@ -3,8 +3,42 @@
 ProxyEndpointFormController = FormController.extend
   needs: ['proxy-endpoints']
   modelType: 'proxy-endpoint'
-  newFields: 'name,description:::textarea,environment:resources.environment::select-model-name,endpoint_group:resources.endpoint-group::select-model-name'
-  editFields: 'name,active,cors_enabled,description:::textarea,environment:resources.environment::select-model-name,endpoint_group:resources.endpoint-group::select-model-name'
+  newFields: [
+    name: 'name'
+    required: true
+  ,
+    name: 'description'
+    type: 'textarea'
+  ,
+    name: 'environment'
+    label: 'resources.environment'
+    type: 'select-model-name'
+    required: true
+  ,
+    name: 'endpoint_group'
+    label: 'resources.endpoint-group'
+    type: 'select-model-name'
+  ]
+  editFields: [
+    name: 'name'
+    required: true
+  ,
+    name: 'active'
+  ,
+    name: 'cors_enabled'
+  ,
+    name: 'description'
+    type: 'textarea'
+  ,
+    name: 'environment'
+    label: 'resources.environment'
+    type: 'select-model-name'
+    required: true
+  ,
+    name: 'endpoint_group'
+    label: 'resources.endpoint-group'
+    type: 'select-model-name'
+  ]
   fields: Ember.computed 'isNew', ->
     if @get('isNew') then @get('newFields') else @get('editFields')
   'option-groups': Ember.computed 'controllers.proxy-endpoints.environments.@each', 'controllers.proxy-endpoints.endpoint_groups.@each', ->

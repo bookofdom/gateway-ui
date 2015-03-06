@@ -5,7 +5,10 @@ BsButtonComponent = BsTextComponent.extend
   tagName: 'a'
   classNames: ['btn']
   classNameBindings: ['styleClass', 'sizeClass', 'block:btn-block']
+  attributeBindings: ['url:href', 'target']
   action: null
+  url: null
+  target: Ember.computed 'url', -> '_blank' if @get 'url'
   style: 'primary'
   xs: false
   sm: false

@@ -18,8 +18,10 @@ ProxyEndpointComponentTransformationFormController = FormController.extend
     if @get 'after'
       typeLabel = 'fields.after-type'
       bodyLabel = 'fields.after'
-    # don't show the `type` field for now, since there is only one option
-    #"type:#{typeLabel}::select,body:#{bodyLabel}::javascript"
-    "body:#{bodyLabel}::javascript"
+    [
+      name: 'body'
+      label: bodyLabel
+      type: 'javascript'
+    ]
 
 `export default ProxyEndpointComponentTransformationFormController`

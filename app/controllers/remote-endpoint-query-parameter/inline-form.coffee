@@ -1,0 +1,5 @@
+`import RemoteEndpointQueryParameterFormController from 'gateway/controllers/remote-endpoint-query-parameter/form'`
+
+RemoteEndpointQueryParameterInlineFormController = RemoteEndpointQueryParameterFormController.extend()
+
+`export default RemoteEndpointQueryParameterInlineFormController`

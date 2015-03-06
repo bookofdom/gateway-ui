@@ -2,6 +2,13 @@
 
 ProxyEndpointComponentCallInlineTabularFormController = ProxyEndpointComponentCallFormController.extend
   fields: Ember.computed ->
-    'remote_endpoint:resources.remote-endpoint::select-model-name,endpoint_name_override'
+    fields = [
+      name: 'remote_endpoint'
+      label: 'resources.remote-endpoint'
+      type: 'select-model-name'
+      required: true
+    ,
+      name: 'endpoint_name_override'
+    ]
 
 `export default ProxyEndpointComponentCallInlineTabularFormController`

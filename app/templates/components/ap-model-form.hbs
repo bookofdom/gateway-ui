@@ -1,13 +1,21 @@
-{{#each field in fieldsList}}
+{{#each field in fields}}
   {{#ap-model-form-group
     model=model
-    field=field.field
+    name=field.name
+    label=field.label
+    help=field.help
+    type=field.type
+    required=field.required
     inline=inline
     horizontal=horizontal}}
     {{ap-model-field
       model=model
-      field=field.field
-      options=field.options
+      name=field.name
+      label=field.label
+      help=field.help
+      type=field.type
+      required=field.required
+      option-groups=option-groups
       show-placeholder=show-placeholders}}
   {{/ap-model-form-group}}
 {{/each}}

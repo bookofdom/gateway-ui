@@ -1,4 +1,4 @@
-{{#ap-page t='resources.environment_plural'}}
+{{#ap-page t='resources.environment_plural' help-url='http://docs.anypresence.com'}}
   
   {{ap-table-index
       models=model
@@ -6,7 +6,7 @@
       path='environment.index'
       edit-path='environment.edit'}}
   
-  {{#ap-panel-new t='resources.environment'}}
+  {{#ap-panel-new t='resources.environment' closed=model.length}}
     {{render 'environment/form'}}
   {{/ap-panel-new}}
   
