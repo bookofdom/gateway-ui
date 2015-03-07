@@ -41,6 +41,10 @@ ApModelFormComponent = BsFormComponent.extend
         @sendAction 'after-save-action'
       ), (=>))
     false
+  keyDown: (e) ->
+    if (e.metaKey or e.ctrlKey) and (e.keyCode is 83)
+      e.preventDefault()
+      @$().trigger 'submit'
   actions:
     cancel: ->
       if @get 'auto-cancel'
