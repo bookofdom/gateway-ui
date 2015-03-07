@@ -32,12 +32,12 @@
       {{/bs-row}}
       
       {{#ap-panel-edit t='resources.remote-endpoint-environment-datum_plural'}}
-        {{ap-table-model
+        {{ap-table-index
           models=model.environment_data
+          fields='environment:resources.environment:object-name'
           delete-action='delete-remote-endpoint-environment-datum'
           auto-delete=false
-          edit-path='remote-endpoint-environment-datum.edit'
-          partial-path='remote-endpoint-environment-datum/-inline-form'}}
+          edit-path='remote-endpoint-environment-datum.edit'}}
         {{ap-button-block-new
           t='resources.remote-endpoint-environment-datum'
           action='new-remote-endpoint-environment-datum'}}
