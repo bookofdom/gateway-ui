@@ -60,7 +60,8 @@ RemoteEndpointFormController = FormController.extend
     'delete-remote-endpoint-environment-datum': (record) ->
       record.deleteRecord()
     'new-remote-endpoint-environment-datum': ->
-      @createNewEnvironmentDatumModel()
+      #@createNewEnvironmentDatumModel()
+      @transitionToRoute 'remote-endpoint-environment-data.new'
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'

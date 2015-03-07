@@ -49,5 +49,9 @@ RemoteEndpointEnvironmentDatumFormController = FormController.extend
       if model.get 'isNew'
         environmentData = @get 'controllers.remote-endpoint-environment-data.model'
         environmentData.pushObject model
+    afterSave: ->
+      # resend this action (using a different name)
+      # so that the router can handle it if necessary
+      @send 'saved'
 
 `export default RemoteEndpointEnvironmentDatumFormController`
