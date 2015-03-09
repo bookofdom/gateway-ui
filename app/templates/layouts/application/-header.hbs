@@ -35,6 +35,9 @@
             </a><!-- .btn -->
             <ul class="dropdown-menu">
               {{ap-list-link
+                path='users'
+                t='nav.account'}}
+              {{ap-list-link
                 action='invalidateSession'
                 t='actions.logout'}}
             </ul><!-- .dropdown-menu -->

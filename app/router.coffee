@@ -9,6 +9,9 @@ Router.map ->
   @route 'login'
   
   # resources
+  @resource 'users', ->
+    @resource 'user', path: ':user_id', ->
+      @route 'edit'
   @resource 'apis', ->
     @resource 'api', path: ':api_id', ->
       @route 'edit'
