@@ -10,6 +10,7 @@ initialize = ->
 
 MetaConfigInitializer =
   name: 'meta-config'
+  before: 'simple-auth'
   initialize: initialize
 
 `export {initialize}`
