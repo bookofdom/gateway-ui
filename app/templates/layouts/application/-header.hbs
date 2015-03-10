@@ -31,20 +31,22 @@
           url='https://anypresence.zendesk.com/anonymous_requests/new'}}
         <li class="separator"></li>
         {{#if session.isAuthenticated}}
-          <li class="dropdown">
-            <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-              <span class="text-lowercase">{{session.email}}</span>
-              <span class="retina-arrows-007"></span>
-            </a><!-- .btn -->
-            <ul class="dropdown-menu">
-              {{ap-list-link
-                path='users'
-                t='nav.account'}}
-              {{ap-list-link
-                action='invalidateSession'
-                t='actions.logout'}}
-            </ul><!-- .dropdown-menu -->
-          </li><!-- .dropdown -->
+          {{#unless meta.dev-mode}}
+            <li class="dropdown">
+              <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                <span class="text-lowercase">{{session.email}}</span>
+                <span class="retina-arrows-007"></span>
+              </a><!-- .btn -->
+              <ul class="dropdown-menu">
+                {{ap-list-link
+                  path='users'
+                  t='nav.account'}}
+                {{ap-list-link
+                  action='invalidateSession'
+                  t='actions.logout'}}
+              </ul><!-- .dropdown-menu -->
+            </li><!-- .dropdown -->
+          {{/unless}}
         {{/if}}
       </ul><!-- /.nav -->
       
