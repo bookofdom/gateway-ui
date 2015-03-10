@@ -47,13 +47,16 @@
     },
     "support": "support",
     "documentation_plural": "docs",
-    "help": "help"
+    "help": "help",
+    "account": "account"
   },
   "brands": {
     "anypresence": "AnyPresence",
     "gateway": "Gateway"
   },
   "resources": {
+    "user": "user",
+    "user_plural": "users",
     "api": "API",
     "api_plural": "APIs",
     "api-endpoint": "API endpoint",
@@ -95,6 +98,7 @@
   "fields": {
     "email": "correo electrónica",
     "password": "contraseña",
+    "password_confirmation": "confirm password",
     "name": "nombre",
     "description": "descripción",
     "cors_allow_origin": "CORS de orígen permitidos",
@@ -152,5 +156,9 @@
   },
   "headers": {
     "x-workflow": "__x__ workflow"
+  },
+  "conditionals": {
+    "if": "if",
+    "unless": "unless"
   }
 }
