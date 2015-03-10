@@ -156,5 +156,9 @@
   },
   "headers": {
     "x-workflow": "__x__ workflow"
+  },
+  "conditionals": {
+    "if": "if",
+    "unless": "unless"
   }
 }

@@ -114,7 +114,7 @@
     "method": "method",
     "methods": "methods",
     "conditional": "conditional logic",
-    "conditional_positive": "conditional positive",
+    "conditional_positive": "conditional",
     "call-conditional": "call conditional logic",
     "endpoint_name_override": "endpoint name override",
     "before-type": "before type",
@@ -156,5 +156,9 @@
   },
   "headers": {
     "x-workflow": "__x__ workflow"
+  },
+  "conditionals": {
+    "if": "if",
+    "unless": "unless"
   }
 }

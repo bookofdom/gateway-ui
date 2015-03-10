@@ -29,6 +29,7 @@ ProxyEndpointComponentCallFormController = FormController.extend
       type: 'javascript'
     ,
       name: 'conditional_positive'
+      type: 'conditional-positive'
     ]
     if @get 'isNew' then newFields else editFields
   actions:
