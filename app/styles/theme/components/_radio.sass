@@ -1,0 +1,14 @@
+.ap-radio
+  +border-radius(50%)
+  border-color: lighten($ap-slate-light, 35%)
+  &.checked
+    &:after
+      $size: 16px
+      content: " "
+      position: absolute
+      top: 6px
+      left: 6px
+      width: $size
+      height: $size
+      +border-radius(50%)
+      background-color: $brand-info

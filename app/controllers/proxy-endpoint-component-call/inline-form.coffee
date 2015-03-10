@@ -24,6 +24,7 @@ ProxyEndpointComponentCallInlineFormController = ProxyEndpointComponentCallFormC
       type: 'javascript'
     ,
       name: 'conditional_positive'
+      type: 'conditional-positive'
     ]
     if @get 'show-conditional-fields' then withConditionals else fields
   actions:

@@ -10,6 +10,7 @@ ProxyEndpointComponentFormController = FormController.extend
       type: 'javascript'
     ,
       name: 'conditional_positive'
+      type: 'conditional-positive'
     ]
     if @get 'js'
       fields.push
