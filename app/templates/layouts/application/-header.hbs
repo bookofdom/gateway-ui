@@ -10,8 +10,11 @@
         <span class="icon-bar"></span>
       </button><!-- /.navbar-toggle -->
       {{#link-to 'application' class='navbar-brand'}}
-        <span class="ap-brand ap-brand-logo">{{t 'brands.anypresence'}}</span>
         <span class="ap-brand ap-brand-text">{{t 'brands.gateway'}}</span>
+        <span class="ap-brand ap-brand-logo">{{t 'brands.anypresence'}}</span>
+        {{#if meta.version}}
+          <span class="ap-brand ap-brand-version">{{meta.version}}</span>
+        {{/if}}
       {{/link-to}}<!-- /.navbar-brand -->
     </div><!-- /.navbar-header -->
 
