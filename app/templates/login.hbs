@@ -2,9 +2,12 @@
   {{#bs-row}}
     {{#bs-col xs=12 sm=6 sm-offset=3}}
       {{#bs-panel style='bold'}}
-        <span class="ap-brand ap-brand-text">{{t 'brands.just-apis'}}</span>
+        {{ap-brand brand='just-apis' style='full'}}
         {{partial 'login/-form'}}
       {{/bs-panel}}
+    {{/bs-col}}
+    {{#bs-col xs=10 xs-offset=1 sm=4 sm-offset=4}}
+      {{ap-brand brand='brought-to-you-by-anypresence' style='full'}}
     {{/bs-col}}
   {{/bs-row}}
 {{/bs-container}}
