@@ -53,7 +53,7 @@
   "brands": {
     "anypresence": "AnyPresence",
     "gateway": "Gateway",
-    "just-api_plural": "Just APIs"
+    "just-apis": "Just APIs"
   },
   "resources": {
     "user": "user",
