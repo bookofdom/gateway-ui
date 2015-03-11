@@ -41,17 +41,6 @@ RemoteEndpointFormController = FormController.extend
     model = @get 'model'
     newModel = @store?.createRecord 'remote-endpoint-query-parameter'
     model.get('query').pushObject newModel
-  createNewEnvironmentDatumModel: ->
-    model = @get 'model'
-    newModel = @store?.createRecord 'remote-endpoint-environment-datum'
-    model.get('environment_data').pushObject newModel
-  onInit: Ember.on 'init', ->
-    @_super.apply @, arguments
-    model = @get 'model'
-    count = model?.get 'environment_data.length'
-    isNew = model?.get 'isNew'
-    # if an existing model has no environment datum, add one by default
-    @createNewEnvironmentDatumModel() if model and !isNew and !count
   actions:
     'delete-remote-endpoint-header': (record) -> record.deleteRecord()
     'new-remote-endpoint-header': -> @createNewHeaderModel()
@@ -60,7 +49,6 @@ RemoteEndpointFormController = FormController.extend
     'delete-remote-endpoint-environment-datum': (record) ->
       record.deleteRecord()
     'new-remote-endpoint-environment-datum': ->
-      #@createNewEnvironmentDatumModel()
       @transitionToRoute 'remote-endpoint-environment-data.new'
     beforeSave: ->
       model = @get 'model'
