@@ -52,7 +52,8 @@
   },
   "brands": {
     "anypresence": "AnyPresence",
-    "gateway": "Gateway"
+    "gateway": "Gateway",
+    "just-api_plural": "Just APIs"
   },
   "resources": {
     "user": "user",
