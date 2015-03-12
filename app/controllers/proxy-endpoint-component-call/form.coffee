@@ -24,12 +24,12 @@ ProxyEndpointComponentCallFormController = FormController.extend
     ,
       name: 'endpoint_name_override'
     ,
+      name: 'conditional_positive'
+      type: 'conditional-positive'
+    ,
       name: 'conditional'
       label: 'fields.call-conditional'
       type: 'javascript'
-    ,
-      name: 'conditional_positive'
-      type: 'conditional-positive'
     ]
     if @get 'isNew' then newFields else editFields
   actions:

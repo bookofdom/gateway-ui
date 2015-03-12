@@ -6,11 +6,11 @@ ProxyEndpointComponentFormController = FormController.extend
     "proxy-endpoint-component/form-#{type}"
   fields: Ember.computed 'js', 'single', 'multi', ->
     fields = [
-      name: 'conditional'
-      type: 'javascript'
-    ,
       name: 'conditional_positive'
       type: 'conditional-positive'
+    ,
+      name: 'conditional'
+      type: 'javascript'
     ]
     if @get 'js'
       fields.push
