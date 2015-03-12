@@ -12,11 +12,14 @@ ApplicationAdapter = DS.RESTAdapter.extend
     hash.crossDomain = true
     hash.xhrFields ?= {}
     hash.xhrFields.withCredentials = true
+    hash.dataFilter = (data, type) ->
+      data = data or '{}'
+      data
     @_super url, method, hash
   ajaxError: (xhr, responseText) ->
     error = @_super.apply @, arguments
     response = null
-    if xhr?.status >= 400
+    if (xhr?.status >= 400) and !(xhr?.status == 404)
       response = Ember.$.parseJSON responseText if responseText
       if response?.error and typeof response.error == 'string'
         response =
