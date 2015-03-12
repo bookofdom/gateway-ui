@@ -1,4 +1,6 @@
 `import Ember from 'ember'`
+`import Notify from 'ember-notify'`
+`import t from 'gateway/helpers/i18n'`
 
 FormController = Ember.ObjectController.extend
   modelType: null
@@ -27,7 +29,7 @@ FormController = Ember.ObjectController.extend
     beforeSave: ->
       # no op:  override in subclass
     afterSave: ->
-      # no op:  override in subclass
+      Notify.success "#{t('successes.saved-successfully')}."
     afterDelete: ->
       # no op:  override in subclass
 
