@@ -4,6 +4,13 @@ FormController = Ember.ObjectController.extend
   modelType: null
   model: null
   newForm: false
+  newFields: null
+  editFields: null
+  defaultFields: []
+  fields: Ember.computed 'isNew', ->
+    fields = if @get 'isNew' then @get 'newFields' else @get 'editFields'
+    fields ?= @get 'defaultFields'
+    fields
   onInit: Ember.on 'init', ->
     if !@get 'model'
       @set 'newForm', true
@@ -20,6 +27,8 @@ FormController = Ember.ObjectController.extend
     beforeSave: ->
       # no op:  override in subclass
     afterSave: ->
+      # no op:  override in subclass
+    afterDelete: ->
       # no op:  override in subclass
 
 `export default FormController`
