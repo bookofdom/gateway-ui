@@ -50,6 +50,7 @@ RemoteEndpointEnvironmentDatumFormController = FormController.extend
         environmentData = @get 'controllers.remote-endpoint-environment-data.model'
         environmentData.pushObject model
     afterSave: ->
+      @notifySaveSuccess()
       # resend this action (using a different name)
       # so that the router can handle it if necessary
       @send 'saved'

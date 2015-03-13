@@ -6,11 +6,11 @@ ProxyEndpointComponentFormController = FormController.extend
     "proxy-endpoint-component/form-#{type}"
   fields: Ember.computed 'js', 'single', 'multi', ->
     fields = [
-      name: 'conditional'
-      type: 'javascript'
-    ,
       name: 'conditional_positive'
       type: 'conditional-positive'
+    ,
+      name: 'conditional'
+      type: 'javascript'
     ]
     if @get 'js'
       fields.push
@@ -30,6 +30,7 @@ ProxyEndpointComponentFormController = FormController.extend
     'new-proxy-endpoint-component-call': (record) -> @createNewCallModel()
     'delete-proxy-endpoint-component-call': (record) -> record.deleteRecord()
     afterSave: ->
+      @notifySaveSuccess()
       # resend this action (using a different name)
       # so that the router can handle it if necessary
       @send 'saved'

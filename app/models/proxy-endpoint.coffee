@@ -30,6 +30,12 @@ ProxyEndpoint = Model.extend
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
     Ember.run.once => @get 'relationshipsDirty'
+  # copy errors from proxy endpoint into embedded relationships if necessary,
+  # for proper UI messaging
+  onComponentErrors: Ember.observer 'errors.components', ->
+    @get('errors.components').forEach (error) =>
+      @get('components').forEach (component) ->
+        component.get('errors').add 'base', error.message
   # given a list of component IDs,
   # re-order the underlaying components array and save
   moveComponentByIdTo: (id, position) ->
@@ -38,5 +44,8 @@ ProxyEndpoint = Model.extend
     components.removeObject component
     components.insertAt position, component
     @save()
+  reload: ->
+    @rollback()
+    @_super.apply @, arguments
 
 `export default ProxyEndpoint`

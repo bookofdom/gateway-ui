@@ -1,4 +1,4 @@
-{{#ap-page t='resources.api_plural' help-url='http://docs.anypresence.com'}}
+{{#ap-page t='resources.api_plural' help-url='http://docs.justapis.com/apis'}}
   
   {{ap-table-index
       models=model
@@ -9,7 +9,7 @@
       custom-primary-icon='the-essentials-018'
       custom-primary-t='actions.export'}}
   
-  {{#ap-panel-new t='resources.api' closed=model.length}}
+  {{#ap-panel-new t='resources.api' closed=show-new-form}}
     {{render 'api/form'}}
   {{/ap-panel-new}}
   
