@@ -39,7 +39,7 @@ ApModelFormComponent = BsFormComponent.extend
     if autoSave
       @get('model').save().then((=>
         @sendAction 'after-save-action'
-      ), (=>))
+      ), (->))
     false
   keyDown: (e) ->
     if (e.metaKey or e.ctrlKey) and (e.keyCode is 83)

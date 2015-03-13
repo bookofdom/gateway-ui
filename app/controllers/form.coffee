@@ -1,4 +1,6 @@
 `import Ember from 'ember'`
+`import Notify from 'ember-notify'`
+`import t from 'gateway/helpers/i18n'`
 
 FormController = Ember.ObjectController.extend
   modelType: null
@@ -23,11 +25,13 @@ FormController = Ember.ObjectController.extend
     newModel = @store?.createRecord modelType
     @set 'model', newModel
     newModel
+  notifySaveSuccess: ->
+    Notify.success "#{t('successes.saved-successfully')}."
   actions:
     beforeSave: ->
       # no op:  override in subclass
     afterSave: ->
-      # no op:  override in subclass
+      @notifySaveSuccess()
     afterDelete: ->
       # no op:  override in subclass
 
