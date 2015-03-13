@@ -25,11 +25,13 @@ FormController = Ember.ObjectController.extend
     newModel = @store?.createRecord modelType
     @set 'model', newModel
     newModel
+  notifySaveSuccess: ->
+    Notify.success "#{t('successes.saved-successfully')}."
   actions:
     beforeSave: ->
       # no op:  override in subclass
     afterSave: ->
-      Notify.success "#{t('successes.saved-successfully')}."
+      @notifySaveSuccess()
     afterDelete: ->
       # no op:  override in subclass
 

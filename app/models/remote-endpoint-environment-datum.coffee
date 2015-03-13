@@ -29,9 +29,11 @@ RemoteEndpointEnvironmentDatum = Model.extend
   save: ->
     # delegate save to parent remote endpoint and then
     # "rollback" to now-saved embedded record
-    @get('remote_endpoint').save().then (=>
-      @rollback()
-    ), (=>)
+    new Ember.RSVP.Promise (resolve, reject) =>
+      @get('remote_endpoint').save().then (=>
+        @rollback()
+        resolve @
+      ), (=> reject @)
   deleteRecord: ->
     @_super.apply @, arguments
     @store.dematerializeRecord @

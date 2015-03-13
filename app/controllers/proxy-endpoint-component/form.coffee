@@ -30,6 +30,7 @@ ProxyEndpointComponentFormController = FormController.extend
     'new-proxy-endpoint-component-call': (record) -> @createNewCallModel()
     'delete-proxy-endpoint-component-call': (record) -> record.deleteRecord()
     afterSave: ->
+      @notifySaveSuccess()
       # resend this action (using a different name)
       # so that the router can handle it if necessary
       @send 'saved'
