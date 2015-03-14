@@ -3,10 +3,10 @@
     text-decoration: none
 
 .ap-list-nav-secondary-hover
-  .text-secondary
-    visibility: hidden
-  a:hover .text-secondary
-    visibility: visible
+  //.text-secondary
+  //  visibility: hidden
+  //a:hover .text-secondary
+  //  visibility: visible
 
 .ap-list-nav-circle
   .ap-icon
@@ -85,6 +85,11 @@
     color: $ap-accent
 
 .ap-list-nav-xl-circle-icon
+  li
+    vertical-align: top
+    &.disabled
+      .ap-icon
+        color: lighten($ap-slate-light, 10%)
   a
     font-weight: 300
     color: #fff
