@@ -6,6 +6,7 @@ BsTextComponent = BsBaseComponent.extend
   t: null
   secondary: null
   icon: null
+  'icon-type': 'retina'
   iconAfter: false
   'show-text': true
   text: Ember.computed 't', ->
