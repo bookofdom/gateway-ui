@@ -37,21 +37,9 @@ app.import('bower_components/jquery-ui/jquery-ui.js');
 app.import('bower_components/jquery-file-upload/js/jquery.iframe-transport.js')
 app.import('bower_components/jquery-file-upload/js/jquery.fileupload.js')
 
-images = pickFiles('app', {
- srcDir: '/',
- files: ['images/*'],
- destDir: '/assets'
-});
-
 i18n = pickFiles('app', {
  srcDir: '/',
  files: ['locales/*/*.json'],
- destDir: '/'
-});
-
-retinaIcons = pickFiles('bower_components/bower-retina-icons', {
- srcDir: '/',
- files: ['assets/fonts/*'],
  destDir: '/'
 });
 
@@ -61,10 +49,22 @@ ace = pickFiles('bower_components/ace-builds/src-noconflict', {
  destDir: '/'
 });
 
+retinaIcons = pickFiles('bower_components/bower-retina-icons', {
+ srcDir: '/',
+ files: ['assets/fonts/*'],
+ destDir: '/'
+});
+
+gatewayIcons = pickFiles('bower_components/gateway-icons', {
+ srcDir: '/',
+ files: ['dist/*'],
+ destDir: '/'
+});
+
 module.exports = mergeTrees([
   app.toTree(),
-  images,
   i18n,
+  ace,
   retinaIcons,
-  ace
+  gatewayIcons
 ]);

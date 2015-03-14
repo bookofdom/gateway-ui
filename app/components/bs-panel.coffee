@@ -9,6 +9,8 @@ BsPanelComponent = BsTextComponent.extend
   closed: false
   styleClass: Ember.computed 'style', ->
     "panel-#{@get 'style'}"
+  'show-heading': Ember.computed 't', 'secondary', 'icon', ->
+    @get('t') or @get('secondary') or @get('icon')
   'panel-collapse-id': Ember.computed 'collapse', ->
     randomNumber = Math.round(Math.random() * 1000)
     "panel-collapse-#{randomNumber}" if @get 'collapse'

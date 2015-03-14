@@ -58,7 +58,8 @@
   },
   "brands": {
     "anypresence": "AnyPresence",
-    "gateway": "Gateway"
+    "gateway": "Gateway",
+    "just-apis": "Just APIs"
   },
   "resources": {
     "user": "user",
@@ -159,6 +160,9 @@
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
     "invalid-password": "invalid password"
+  },
+  "successes": {
+    "saved-successfully": "saved successfully"
   },
   "headers": {
     "x-workflow": "__x__ workflow"

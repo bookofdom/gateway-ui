@@ -1,13 +1,15 @@
-<div class="panel-heading">
-  {{#if collapse}}
-    <a {{bind-attr href=collapse-href}} data-toggle="collapse">
+{{#if show-heading}}
+  <div class="panel-heading">
+    {{#if collapse}}
+      <a {{bind-attr href=collapse-href}} data-toggle="collapse">
+        {{partial 'components/bs-text'}}
+      </a>
+    {{/if}}
+    {{#unless collapse}}
       {{partial 'components/bs-text'}}
-    </a>
-  {{/if}}
-  {{#unless collapse}}
-    {{partial 'components/bs-text'}}
-  {{/unless}}
-</div>
+    {{/unless}}
+  </div>
+{{/if}}
 {{#if collapse}}
   <div {{bind-attr id=panel-collapse-id class='closed::in :panel-collapse :collapse'}}>
     {{partial 'components/bs-panel/-panel-body'}}

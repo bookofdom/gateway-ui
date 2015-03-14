@@ -4,21 +4,21 @@
 RemoteEndpointFormController = FormController.extend
   needs: ['remote-endpoints']
   modelType: 'remote-endpoint'
-  fields: Ember.computed ->
-    [
-      name: 'name'
-      required: true
-    ,
-      name: 'codename'
-    ,
-      name: 'url'
-    ,
-      name: 'method'
-      type: 'select'
-    ,
-      name: 'description'
-      type: 'textarea'
-    ]
+  defaultFields: [
+    name: 'name'
+    required: true
+  ,
+    name: 'codename'
+    required: true
+  ,
+    name: 'url'
+  ,
+    name: 'method'
+    type: 'select'
+  ,
+    name: 'description'
+    type: 'textarea'
+  ]
   'option-groups':
     method: [
       name: t 'http-methods.get'

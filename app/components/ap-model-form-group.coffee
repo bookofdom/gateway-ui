@@ -17,8 +17,12 @@ ApModelFormGroupComponent = BsFormGroupComponent.extend
     @get 'fieldName'
   label: Ember.computed 'fieldLabel', (key, value, previousValue) ->
     @set 'fieldLabel', value if value? and (value != previousValue)
-    @get('fieldLabel') or
-      ("fields.#{@get 'name'}" if @get 'name')
+    fieldLabel = @get 'fieldLabel'
+    if fieldLabel == false
+      ''
+    else
+      @get('fieldLabel') or
+        ("fields.#{@get 'name'}" if @get 'name')
   
   'label-for': Ember.computed 'model', 'name', ->
     typeKey = @get 'model.constructor.typeKey'
