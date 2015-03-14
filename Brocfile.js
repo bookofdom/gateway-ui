@@ -43,21 +43,28 @@ i18n = pickFiles('app', {
  destDir: '/'
 });
 
-retinaIcons = pickFiles('bower_components/bower-retina-icons', {
- srcDir: '/',
- files: ['assets/fonts/*'],
- destDir: '/'
-});
-
 ace = pickFiles('bower_components/ace-builds/src-noconflict', {
  srcDir: '/',
  files: ['worker-javascript.js'],
  destDir: '/'
 });
 
+retinaIcons = pickFiles('bower_components/bower-retina-icons', {
+ srcDir: '/',
+ files: ['assets/fonts/*'],
+ destDir: '/'
+});
+
+gatewayIcons = pickFiles('bower_components/gateway-icons', {
+ srcDir: '/',
+ files: ['dist/*'],
+ destDir: '/'
+});
+
 module.exports = mergeTrees([
   app.toTree(),
   i18n,
+  ace,
   retinaIcons,
-  ace
+  gatewayIcons
 ]);
