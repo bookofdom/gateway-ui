@@ -26,7 +26,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'self'",
       'script-src': "'self'",
-      'font-src': "'self'",
+      'font-src': "'self' *",
       'connect-src': "'self' localhost:5000",
       'img-src': "'self' *",
       'style-src': "'self' 'unsafe-inline'"
@@ -65,10 +65,6 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    
-  }
-  
-  if (environment === 'production-embedded') {
     ENV.baseURL = null;
     ENV.locationType = 'hash';
     ENV.api.basePath = 'API_BASE_PATH_PLACEHOLDER';

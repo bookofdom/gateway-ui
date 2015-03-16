@@ -98,7 +98,7 @@
     "library_plural": "shared libraries"
   },
   "proxy-endpoint-component-types": {
-    "single-proxy": "single proxy",
+    "single-proxy": "proxy",
     "multi-proxy": "multi-proxy",
     "javascript-logic": "JavaScript logic"
   },
