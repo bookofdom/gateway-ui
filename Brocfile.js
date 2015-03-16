@@ -4,7 +4,11 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app'),
   pickFiles = require('broccoli-static-compiler'),
   mergeTrees = require('broccoli-merge-trees');
 
-var app = new EmberApp();
+var app = new EmberApp({
+  gzip: {
+    extensions: ['js', 'css', 'svg', 'png']
+  }
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
