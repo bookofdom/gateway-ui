@@ -65,10 +65,6 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    
-  }
-  
-  if (environment === 'production-embedded') {
     ENV.baseURL = null;
     ENV.locationType = 'hash';
     ENV.api.basePath = 'API_BASE_PATH_PLACEHOLDER';
