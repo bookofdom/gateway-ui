@@ -6,7 +6,8 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app'),
 
 var app = new EmberApp({
   gzip: {
-    extensions: ['js', 'css', 'svg', 'png']
+    extensions: ['js', 'css', 'svg', 'png', 'eot', 'ttf', 'woff'],
+    appendSuffix: false
   }
 });
 
@@ -38,8 +39,16 @@ app.import('bower_components/ace-builds/src-noconflict/mode-javascript.js');
 // jQuery UI
 app.import('bower_components/jquery-ui/jquery-ui.js');
 // jQuery File Upload
-app.import('bower_components/jquery-file-upload/js/jquery.iframe-transport.js')
-app.import('bower_components/jquery-file-upload/js/jquery.fileupload.js')
+app.import('bower_components/jquery-file-upload/js/jquery.iframe-transport.js');
+app.import('bower_components/jquery-file-upload/js/jquery.fileupload.js');
+// Retina Icons
+app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.eot', {destDir: 'assets/fonts'});
+app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.svg', {destDir: 'assets/fonts'});
+app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.ttf', {destDir: 'assets/fonts'});
+app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.woff', {destDir: 'assets/fonts'});
+// Gateway Icons
+app.import('bower_components/gateway-icons/dist/fonts/gateway.eot', {destDir: 'assets/fonts'});
+app.import('bower_components/gateway-icons/dist/fonts/gateway.svg', {destDir: 'assets/fonts'});
 
 i18n = pickFiles('app', {
  srcDir: '/',
@@ -53,22 +62,8 @@ ace = pickFiles('bower_components/ace-builds/src-noconflict', {
  destDir: '/'
 });
 
-retinaIcons = pickFiles('bower_components/bower-retina-icons', {
- srcDir: '/',
- files: ['assets/fonts/*'],
- destDir: '/'
-});
-
-gatewayIcons = pickFiles('bower_components/gateway-icons', {
- srcDir: '/',
- files: ['dist/*'],
- destDir: '/'
-});
-
 module.exports = mergeTrees([
   app.toTree(),
   i18n,
-  ace,
-  retinaIcons,
-  gatewayIcons
+  ace
 ]);
