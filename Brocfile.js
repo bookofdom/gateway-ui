@@ -5,6 +5,9 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app'),
   mergeTrees = require('broccoli-merge-trees');
 
 var app = new EmberApp({
+  fingerprint: {
+    exclude: ['assets/worker-javascript.js']
+  },
   gzip: {
     extensions: ['js', 'css', 'svg', 'png', 'eot', 'ttf', 'woff'],
     appendSuffix: false
@@ -56,14 +59,7 @@ i18n = pickFiles('app', {
  destDir: '/'
 });
 
-ace = pickFiles('bower_components/ace-builds/src-noconflict', {
- srcDir: '/',
- files: ['worker-javascript.js'],
- destDir: '/'
-});
-
 module.exports = mergeTrees([
   app.toTree(),
-  i18n,
-  ace
+  i18n
 ]);

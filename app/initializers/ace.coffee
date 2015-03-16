@@ -20,6 +20,8 @@ log
 '''.split /\n/
 
 initialize = (container, app) ->
+  config = window.ace.require 'ace/config'
+  config.set 'workerPath', 'assets'
   langTools = window.ace.require 'ace/ext/language_tools'
   completer =
     getCompletions: (editor, session, pos, prefix, callback) ->
