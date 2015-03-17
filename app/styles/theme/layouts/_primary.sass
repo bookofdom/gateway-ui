@@ -5,9 +5,7 @@
         a
           color: rgba(#fff, 0.65)
         .active
-          color: $ap-app-primary-sidebar-bg-color
-          background-color: $ap-slate-lighter
-          background: -ms-linear-gradient(top, lighten($ap-slate-lighter, 15%) 0%, $ap-slate-lighter 200%)
-          +background(linear-gradient(top, lighten($ap-slate-lighter, 15%), $ap-slate-lighter))
+          color: $ap-app-primary-bg-color
+          +gradient-bg($ap-app-secondary-bg-color)
   .ap-app-primary-content
     background-color: #fff
