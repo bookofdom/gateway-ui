@@ -16,7 +16,7 @@
     "bootstrap-sass-official": "~3.3.1",
     "i18next": "~1.7.7",
     "moment": "~2.9.0",
-    "bower-retina-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/bower-retina-icons.git#d198eaa0c76559fb7d88508c481153f13bd19787",
+    "bower-retina-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/bower-retina-icons.git#b4504ce15f8254e1253b094277c35b2005b7a728",
     "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#5ede872491613ee3cca51add2842c31869837c44",
     "ember-simple-auth": "0.7.2",
     "ace-builds": "~1.1.8",
