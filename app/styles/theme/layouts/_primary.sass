@@ -1,7 +1,11 @@
 .ap-app-primary
   .ap-app-primary-sidebar
-    a
-      +opacity(0.65)
-      color: #fff
+    .ap-list-nav-vertical-icon
+      li
+        a
+          color: rgba(#fff, 0.65)
+        .active
+          color: $ap-app-primary-bg-color
+          +gradient-bg($ap-app-secondary-bg-color)
   .ap-app-primary-content
     background-color: #fff
