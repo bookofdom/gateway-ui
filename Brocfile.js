@@ -48,6 +48,7 @@ app.import('bower_components/jquery-file-upload/js/jquery.fileupload.js');
 app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.eot', {destDir: 'assets/fonts'});
 app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.svg', {destDir: 'assets/fonts'});
 app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.ttf', {destDir: 'assets/fonts'});
+app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.woff', {destDir: 'assets/fonts'});
 // Gateway Icons
 app.import('bower_components/gateway-icons/dist/fonts/gateway.eot', {destDir: 'assets/fonts'});
 app.import('bower_components/gateway-icons/dist/fonts/gateway.svg', {destDir: 'assets/fonts'});
