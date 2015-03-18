@@ -9,6 +9,7 @@ var app = new EmberApp({
     exclude: ['assets/worker-javascript.js']
   },
   gzip: {
+    enabled: false,
     extensions: ['js', 'css', 'svg', 'eot', 'ttf'],
     appendSuffix: false
   }
