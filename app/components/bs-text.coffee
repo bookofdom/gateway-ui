@@ -7,18 +7,18 @@ BsTextComponent = BsBaseComponent.extend
   secondary: null
   icon: null
   'icon-type': 'retina'
-  iconAfter: false
+  'icon-after': false
   'show-text': true
   text: Ember.computed 't', ->
     text = @get 't'
-    t text if text
+    t(text).htmlSafe() if text
   'secondary-text': Ember.computed 'secondary', ->
     secondary = @get 'secondary'
-    t secondary if secondary
-  hasIconBefore: Ember.computed 'icon', 'iconAfter', ->
-    @get('icon') and !@get('iconAfter')
-  hasIconAfter: Ember.computed 'icon', 'iconAfter', ->
-    @get('icon') and @get('iconAfter')
+    t(secondary).htmlSafe() if secondary
+  hasIconBefore: Ember.computed 'icon', 'icon-after', ->
+    @get('icon') and !@get('icon-after')
+  hasIconAfter: Ember.computed 'icon', 'icon-after', ->
+    @get('icon') and @get('icon-after')
   textSrOnly: Ember.computed 'show-text', -> !@get 'show-text'
   textSrOnlyClass: Ember.computed 'textSrOnly', ->
     "sr-only" if @get 'textSrOnly'
