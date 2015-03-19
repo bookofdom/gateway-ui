@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
 `import BsFormComponent from 'gateway/components/bs-form'`
 `import t from 'gateway/helpers/i18n'`
+`import config from '../config/environment'`
 
 ApModelFormComponent = BsFormComponent.extend
   classNames: ['ap-model-form']
@@ -21,7 +22,7 @@ ApModelFormComponent = BsFormComponent.extend
   'show-save': Ember.computed 'dirty', -> @get 'dirty'
   'show-cancel': Ember.computed 'dirty', 'model.isNew', ->
     @get('dirty') and !@get('model.isNew')
-  'show-delete': false
+  'show-delete': true
   'deletable': Ember.computed 'show-delete', 'model.isNew', ->
     @get('show-delete') and !@get('model.isNew')
   onInit: Ember.on 'init', ->
@@ -45,6 +46,11 @@ ApModelFormComponent = BsFormComponent.extend
     if (e.metaKey or e.ctrlKey) and (e.keyCode is 83)
       e.preventDefault()
       @$().trigger 'submit'
+  confirm: (text) ->
+    if config.confirmDelete
+      confirm text
+    else
+      true
   actions:
     cancel: ->
       if @get 'auto-cancel'
@@ -55,7 +61,7 @@ ApModelFormComponent = BsFormComponent.extend
         @sendAction 'cancel-action', @get('model')
     delete: ->
       confirmText = t('prompts.confirm-delete').capitalize()
-      if @get('auto-delete') and confirm(confirmText)
+      if @get('auto-delete') and @confirm(confirmText)
         @get('model').destroyRecord()
         @sendAction 'after-delete-action'
 

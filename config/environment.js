@@ -22,7 +22,7 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    
+    confirmDelete: true,
     contentSecurityPolicy: {
       'default-src': "'self'",
       'script-src': "'self'",
@@ -62,6 +62,8 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    
+    ENV.confirmDelete = false;
   }
 
   if (environment === 'production') {
