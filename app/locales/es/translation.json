@@ -25,12 +25,12 @@
     "new-x": "nuevo $t(__x__)",
     "edit": "editar",
     "edit-x": "editar $t(__x__)",
-    "import": "import",
-    "export": "export",
-    "toggle": "toggle",
-    "toggle-x": "toggle $t(__x__)",
-    "drop-or-click-to-upload": "drop or click to upload",
-    "select-add-component-type": "select a component type to add"
+    "import": "importar",
+    "export": "exportar",
+    "toggle": "alternar",
+    "toggle-x": "alternar $t(__x__)",
+    "drop-or-click-to-upload": "suelta o presiona para subir",
+    "select-add-component-type": "selecciona un tipo de componente para agregar"
   },
   "nav": {
     "home": "inicio",
@@ -38,12 +38,12 @@
     "define-api_plural": "defina las APIs",
     "manage-api": "manage API",
     "manage-api_plural": "manage APIs",
-    "build-app": "build app",
-    "build-app_plural": "build apps",
+    "build-app": "build de aplicación",
+    "build-app_plural": "build de aplicaciones",
     "descriptions": {
       "define-api": "define los endpoints de la API y el flujo de la lógica de negocio",
-      "manage-api": "set up keys and specify entitlement rules across your APIs",
-      "build-app": "build multi-channel apps with the AnyPresence platform",
+      "manage-api": "crea las claves y especifica las reglas de las APIs",
+      "build-app": "realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence",
       "proxy-endpoints": "define o edita proxy endpoints y la correspondiente lógica",
       "environments": "especifica entornos, variables y otros atributos",
       "endpoint-groups": "los grupos mencionados agrupan proxy endpoints segun conveniencia",
@@ -51,20 +51,20 @@
       "hosts": "define los servidores asociados con esta API",
       "libraries": "define librerías compartidas para utilizar en bloques de código JavaScript"
     },
-    "support": "support",
-    "documentation_plural": "docs",
-    "help": "help",
-    "account": "account"
+    "support": "soporte",
+    "documentation_plural": "documentación",
+    "help": "ayuda",
+    "account": "cuenta"
   },
   "brands": {
     "anypresence": "AnyPresence",
     "gateway": "Gateway",
-    "just-apis": "Just APIs",
-    "brought-to-you-by-anypresence": "brought to you by AnyPresence"
+    "just-apis": "sólo APIs",
+    "brought-to-you-by-anypresence": "traído a ti por AnyPresence"
   },
   "resources": {
-    "user": "user",
-    "user_plural": "users",
+    "user": "usuario",
+    "user_plural": "usuarios",
     "api": "API",
     "api_plural": "APIs",
     "api-endpoint": "API endpoint",
@@ -106,7 +106,7 @@
   "fields": {
     "email": "correo electrónica",
     "password": "contraseña",
-    "password_confirmation": "confirm password",
+    "password_confirmation": "confirmar contraseña",
     "name": "nombre",
     "description": "descripción",
     "cors_allow_origin": "CORS de orígen permitidos",
@@ -122,7 +122,7 @@
     "method": "método",
     "methods": "métodos",
     "conditional": "lógica condicional",
-    "conditional_positive": "conditional positive",
+    "conditional_positive": "condicional positivo",
     "call-conditional": "llamada de lógica condicional",
     "endpoint_name_override": "sobreescritura de nombre de endpoint",
     "before-type": "tipo previo",
@@ -135,14 +135,15 @@
     "session_encryption_key": "clave de encriptación",
     "session_auth_key_rotate": "clave de sesión rotativa",
     "session_encryption_key_rotate": "clave de encriptación rotativa",
-    "codename": "codename",
-    "hostname": "hostname",
-    "value": "value"
+    "codename": "nombre clave",
+    "hostname": "nombre de host",
+    "value": "valor"
   },
   "prompts": {
     "generic": "elija uno",
-    "choose-x": "choose $t(__x__)",
-    "confirm-delete": "are you sure you want to delete this record?"
+    "choose-x": "elija $t(__x__)",
+    "confirm-delete": "¿esta seguro que desea eliminar éste registro?",
+    "change-language": "cambio de idioma"
   },
   "states": {
     "active": "activo",
@@ -155,7 +156,10 @@
     "delete": "DELETE"
   },
   "languages": {
-    "javascript": "JavaScript"
+    "javascript": "JavaScript",
+    "english": "English",
+    "spanish": "Español",
+    "hindi": "मानक हिन्दी"
   },
   "errors": {
     "unknown": "ha ocurrido un error inesperado",
@@ -163,10 +167,10 @@
     "invalid-password": "contraseña inválida"
   },
   "successes": {
-    "saved-successfully": "saved successfully"
+    "saved-successfully": "grabado satisfactoriamente"
   },
   "headers": {
-    "x-workflow": "__x__ workflow"
+    "x-workflow": "__x__ flujo de trabajo"
   },
   "conditionals": {
     "if": "if",

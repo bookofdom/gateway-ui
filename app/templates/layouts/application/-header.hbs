@@ -31,22 +31,36 @@
           url='http://support.anypresence.com'}}
         <li class="separator"></li>
         {{#if session.isAuthenticated}}
-          {{#unless meta.dev-mode}}
-            <li class="dropdown">
-              <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                <span class="text-lowercase">{{session.email}}</span>
-                <span class="retina-arrows-007"></span>
-              </a><!-- .btn -->
-              <ul class="dropdown-menu">
+          <li class="dropdown">
+            <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+              <span class="text-lowercase">{{session.email}}</span>
+              <span class="retina-arrows-007"></span>
+            </a><!-- .btn -->
+            <ul class="dropdown-menu">
+              {{#unless meta.dev-mode}}
                 {{ap-list-link
                   path='users'
                   t='nav.account'}}
                 {{ap-list-link
                   action='invalidateSession'
                   t='actions.logout'}}
-              </ul><!-- .dropdown-menu -->
-            </li><!-- .dropdown -->
-          {{/unless}}
+                <li role="presentation" class="divider"></li>
+              {{/unless}}
+              <li role="presentation" class="dropdown-header">{{t 'prompts.change-language'}}</li>
+              {{ap-list-link
+                action='localChange'
+                arg1='en'
+                t='languages.english'}}
+              {{ap-list-link
+                action='localChange'
+                arg1='es'
+                t='languages.spanish'}}
+              {{ap-list-link
+                action='localChange'
+                arg1='hi'
+                t='languages.hindi'}}
+            </ul><!-- .dropdown-menu -->
+          </li><!-- .dropdown -->
         {{/if}}
       </ul><!-- /.nav -->
       
