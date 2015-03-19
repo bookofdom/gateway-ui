@@ -18,6 +18,7 @@ headers
 env
 log
 session
+url
 '''.split /\n/
 
 initialize = (container, app) ->
