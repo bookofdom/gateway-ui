@@ -142,7 +142,8 @@
   "prompts": {
     "generic": "elija uno",
     "choose-x": "elija $t(__x__)",
-    "confirm-delete": "¿esta seguro que desea eliminar éste registro?"
+    "confirm-delete": "¿esta seguro que desea eliminar éste registro?",
+    "change-language": "cambio de idioma"
   },
   "states": {
     "active": "activo",

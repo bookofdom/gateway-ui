@@ -142,7 +142,8 @@
   "prompts": {
     "generic": "choose one",
     "choose-x": "choose $t(__x__)",
-    "confirm-delete": "are you sure you want to delete this record?"
+    "confirm-delete": "are you sure you want to delete this record?",
+    "change-language": "change language"
   },
   "states": {
     "active": "active",
