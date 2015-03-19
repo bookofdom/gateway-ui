@@ -32,5 +32,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
         @send 'reload' if !config.meta['dev-mode']
     reload: ->
       window.location.reload()
+    localChange: (locale) ->
+      window.location.search = "locale=#{locale}"
 
 `export default ApplicationRoute`

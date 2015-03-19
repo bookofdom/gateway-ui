@@ -155,7 +155,10 @@
     "delete": "DELETE"
   },
   "languages": {
-    "javascript": "JavaScript"
+    "javascript": "JavaScript",
+    "english": "English",
+    "spanish": "Español",
+    "hindi": "मानक हिन्दी"
   },
   "errors": {
     "unknown": "ha ocurrido un error inesperado",
