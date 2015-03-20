@@ -49,7 +49,11 @@
       "endpoint-groups": "os grupos mencionados agrupam os endpoints da proxy por conveniência",
       "remote-endpoints": "define os endpoints remotos da API que proporcionam servicios aos endpoints da proxy",
       "hosts": "define os servidores associados com a API",
-      "libraries": "define bibliotecas compartilhadas para uso em blocos de código de JavaScript"
+      "libraries": "define bibliotecas compartilhadas para uso em blocos de código de JavaScript",
+      "formatted": {
+        "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",
+        "build-app": "<b>(login necessário)</b><br>Constrói aplicações de multi-canais com a plataforma AnyPresence"
+      }
     },
     "support": "suporte",
     "documentation_plural": "documentação",
