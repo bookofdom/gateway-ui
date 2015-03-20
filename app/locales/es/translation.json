@@ -36,8 +36,8 @@
     "home": "inicio",
     "define-api": "defina la API",
     "define-api_plural": "defina las APIs",
-    "manage-api": "manage API",
-    "manage-api_plural": "manage APIs",
+    "manage-api": "administre la API",
+    "manage-api_plural": "administre las APIs",
     "build-app": "build de aplicación",
     "build-app_plural": "build de aplicaciones",
     "descriptions": {
@@ -59,7 +59,7 @@
   "brands": {
     "anypresence": "AnyPresence",
     "gateway": "Gateway",
-    "just-apis": "sólo APIs",
+    "just-apis": "Just APIs",
     "brought-to-you-by-anypresence": "traído a ti por AnyPresence"
   },
   "resources": {
@@ -159,6 +159,7 @@
     "javascript": "JavaScript",
     "english": "English",
     "spanish": "Español",
+    "brazilian-portuguese": "Português Brasileiro",
     "hindi": "मानक हिन्दी"
   },
   "errors": {
