@@ -1,0 +1,180 @@
+{
+  "dev": {
+    "components": "biblioteca de componentes",
+    "bootstrap": "bootstrap",
+    "grid": "grade",
+    "grid_plural": "grades",
+    "container": "contêiner",
+    "row": "linha",
+    "column": "coluna",
+    "option": "opção",
+    "option_plural": "opções",
+    "heading": "cabeçalho",
+    "secondary": "texto secundário",
+    "button": "botão",
+    "button_plural": "botões"
+  },
+  "actions": {
+    "toggle-navivagation": "alterar navegação",
+    "login": "entrar",
+    "logout": "sair",
+    "delete": "deletar",
+    "save": "salvar",
+    "cancel": "cancelar",
+    "new": "novo",
+    "new-x": "novo $t(__x__)",
+    "edit": "editar",
+    "edit-x": "editar $t(__x__)",
+    "import": "importar",
+    "export": "exportar",
+    "toggle": "alterar",
+    "toggle-x": "alterar $t(__x__)",
+    "drop-or-click-to-upload": "solte ou pressione para subir",
+    "select-add-component-type": "selecione um tipo de componente para adicionar"
+  },
+  "nav": {
+    "home": "início",
+    "define-api": "definir a API",
+    "define-api_plural": "definir as APIs",
+    "manage-api": "gerenciar a API",
+    "manage-api_plural": "gerenciar as APIs",
+    "build-app": "construir o aplicativo",
+    "build-app_plural": "construir os aplicativos",
+    "descriptions": {
+      "define-api": "define os endpoints da API e o fluxo da lógica do negócio",
+      "manage-api": "cria as chave e especifica as regras das suas APIs",
+      "build-app": "constrói aplicações de multi-canais com a plataforma AnyPresence",
+      "proxy-endpoints": "define os endpoints da proxy e a lógica correspondente",
+      "environments": "especifica ambiente, variáveis e outros atributos",
+      "endpoint-groups": "os grupos mencionados agrupam os endpoints da proxy por conveniência",
+      "remote-endpoints": "define os endpoints remotos da API que proporcionam servicios aos endpoints da proxy",
+      "hosts": "define os servidores associados com a API",
+      "libraries": "define bibliotecas compartilhadas para uso em blocos de código de JavaScript"
+    },
+    "support": "suporte",
+    "documentation_plural": "documentação",
+    "help": "ajuda",
+    "account": "conta"
+  },
+  "brands": {
+    "anypresence": "AnyPresence",
+    "gateway": "Gateway",
+    "just-apis": "Just APIs",
+    "brought-to-you-by-anypresence": "trazido a você por AnyPresence"
+  },
+  "resources": {
+    "user": "usuário",
+    "user_plural": "usuários",
+    "api": "API",
+    "api_plural": "APIs",
+    "api-endpoint": "endpoint da API",
+    "api-endpoint_plural": "endpoints da API",
+    "proxy-endpoint": "endpoint da proxy",
+    "proxy-endpoint_plural": "endpoints da proxy",
+    "proxy-endpoint-route": "rota",
+    "proxy-endpoint-route_plural": "rotas",
+    "proxy-endpoint-component": "componente",
+    "proxy-endpoint-component_plural": "componentes",
+    "proxy-endpoint-component-call": "chamada",
+    "proxy-endpoint-component-call_plural": "chamadas",
+    "proxy-endpoint-component-transformation": "transformação",
+    "proxy-endpoint-component-transformation_plural": "transformações",
+    "environment": "ambiente",
+    "environment_plural": "ambientes",
+    "environment-variable": "variável do ambiente",
+    "environment-variable_plural": "variáveis do ambiente",
+    "endpoint-group": "grupo",
+    "endpoint-group_plural": "grupos",
+    "remote-endpoint": "endpoint remoto",
+    "remote-endpoint_plural": "endpoints remotos",
+    "remote-endpoint-environment-datum": "dado do ambiente",
+    "remote-endpoint-environment-datum_plural": "dados do ambiente",
+    "remote-endpoint-header": "cabeçalho",
+    "remote-endpoint-header_plural": "cabeçalhos",
+    "remote-endpoint-query-parameter": "parametro de consulta",
+    "remote-endpoint-query-parameter_plural": "parametros de consulta",
+    "host": "servidor",
+    "host_plural": "servidores",
+    "library": "biblioteca compartilhada",
+    "library_plural": "bibliotecas compartilhadas"
+  },
+  "proxy-endpoint-component-types": {
+    "single-proxy": "proxy",
+    "multi-proxy": "multi-proxy",
+    "javascript-logic": "lógica de JavaScript"
+  },
+  "fields": {
+    "email": "email",
+    "password": "senha",
+    "password_confirmation": "confirmar senha",
+    "name": "nome",
+    "description": "descrição",
+    "cors_allow_origin": "CORS de origem permitidos",
+    "cors_allow_headers": "CORS de cabeçalho permitidos",
+    "cors_allow_credentials": "CORS de credenciais permitidos",
+    "cors_request_headers": "CORS de cabeçalhos obrigatórios",
+    "cors_max_age": "CORS idade máxima",
+    "cors_enabled": "CORS habilitados",
+    "type": "tipo",
+    "active": "ativo",
+    "path": "rota",
+    "url": "URL",
+    "method": "método",
+    "methods": "métodos",
+    "conditional": "lógica condicional",
+    "conditional_positive": "condicional positivo",
+    "call-conditional": "chamada de lógica condicional",
+    "endpoint_name_override": "sobreescritura do nome do endpoint",
+    "before-type": "tipo anterior",
+    "after-type": "tipo posterior",
+    "logic": "lógica",
+    "before": "lógica antes da solicitação",
+    "after": "lógica após a solicitação",
+    "session_name": "nome da sessão",
+    "session_auth_key": "chave ds sessão",
+    "session_encryption_key": "chave da encriptação",
+    "session_auth_key_rotate": "chave da sessão rotativa",
+    "session_encryption_key_rotate": "chave de encriptação rotativa",
+    "codename": "nome da chave",
+    "hostname": "nome do servidor",
+    "value": "valor"
+  },
+  "prompts": {
+    "generic": "escolha um",
+    "choose-x": "escolha $t(__x__)",
+    "confirm-delete": "Você tem certeza que deseja deletar este registro?",
+    "change-language": "troca de idioma"
+  },
+  "states": {
+    "active": "ativo",
+    "inactive": "inativo"
+  },
+  "http-methods": {
+    "get": "GET",
+    "post": "POST",
+    "put": "PUT",
+    "delete": "DELETE"
+  },
+  "languages": {
+    "javascript": "JavaScript",
+    "english": "English",
+    "spanish": "Español",
+    "brazilian-portuguese": "Português Brasileiro",
+    "hindi": "मानक हिन्दी"
+  },
+  "errors": {
+    "unknown": "ocorreu um erro inesperado",
+    "no-user-with-that-email": "não exite usuário com esse email",
+    "invalid-password": "senha inválida"
+  },
+  "successes": {
+    "saved-successfully": "salvo com sucesso"
+  },
+  "headers": {
+    "x-workflow": "__x__ fluxo de trabalho"
+  },
+  "conditionals": {
+    "if": "if",
+    "unless": "unless"
+  }
+}
