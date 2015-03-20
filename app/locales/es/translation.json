@@ -42,7 +42,7 @@
     "build-app_plural": "build de aplicaciones",
     "descriptions": {
       "define-api": "define los endpoints de la API y el flujo de la lógica de negocio",
-      "manage-api": "crea las claves y especifica las reglas de las APIs (próximamente)",
+      "manage-api": "crea las claves y especifica las reglas de las APIs",
       "build-app": "realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence (autenticación requerida)",
       "proxy-endpoints": "define o edita proxy endpoints y la correspondiente lógica",
       "environments": "especifica entornos, variables y otros atributos",
