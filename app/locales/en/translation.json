@@ -103,9 +103,9 @@
     "library_plural": "shared libraries"
   },
   "proxy-endpoint-component-types": {
-    "single-proxy": "proxy",
-    "multi-proxy": "multi-proxy",
-    "javascript-logic": "JavaScript logic"
+    "single-proxy": "single call",
+    "multi-proxy": "multi-call",
+    "javascript-logic": "logic"
   },
   "fields": {
     "email": "email",

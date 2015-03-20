@@ -103,9 +103,9 @@
     "library_plural": "bibliotecas compartilhadas"
   },
   "proxy-endpoint-component-types": {
-    "single-proxy": "proxy",
-    "multi-proxy": "multi-proxy",
-    "javascript-logic": "lógica de JavaScript"
+    "single-proxy": "chamada",
+    "multi-proxy": "multi-chamada",
+    "javascript-logic": "lógica"
   },
   "fields": {
     "email": "email",
