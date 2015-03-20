@@ -42,8 +42,8 @@
     "build-app_plural": "build apps",
     "descriptions": {
       "define-api": "define API endpoints and workflow business logic",
-      "manage-api": "set up keys and specify entitlement rules across your APIs",
-      "build-app": "build multi-channel apps with the AnyPresence platform",
+      "manage-api": "set up keys and specify entitlement rules across your APIs (coming soon)",
+      "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
