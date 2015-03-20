@@ -36,8 +36,8 @@
     "home": "inicio",
     "define-api": "defina la API",
     "define-api_plural": "defina las APIs",
-    "manage-api": "manage API",
-    "manage-api_plural": "manage APIs",
+    "manage-api": "administre la API",
+    "manage-api_plural": "administre las APIs",
     "build-app": "build de aplicación",
     "build-app_plural": "build de aplicaciones",
     "descriptions": {
