@@ -42,14 +42,18 @@
     "build-app_plural": "build de aplicaciones",
     "descriptions": {
       "define-api": "define los endpoints de la API y el flujo de la lógica de negocio",
-      "manage-api": "crea las claves y especifica las reglas de las APIs (próximamente)",
+      "manage-api": "crea las claves y especifica las reglas de las APIs",
       "build-app": "realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence (autenticación requerida)",
       "proxy-endpoints": "define o edita proxy endpoints y la correspondiente lógica",
       "environments": "especifica entornos, variables y otros atributos",
       "endpoint-groups": "los grupos mencionados agrupan proxy endpoints segun conveniencia",
       "remote-endpoints": "define los endpoints remotos que proveen servicios a los proxy endpoints",
       "hosts": "define los servidores asociados con esta API",
-      "libraries": "define librerías compartidas para utilizar en bloques de código JavaScript"
+      "libraries": "define librerías compartidas para utilizar en bloques de código JavaScript",
+      "formatted": {
+        "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
+        "build-app": "<b>(autenticación requerida)</b><br>Realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence"
+      }
     },
     "support": "soporte",
     "documentation_plural": "documentación",
@@ -99,9 +103,9 @@
     "library_plural": "librerías compartidas"
   },
   "proxy-endpoint-component-types": {
-    "single-proxy": "proxy",
-    "multi-proxy": "multi-proxy",
-    "javascript-logic": "lógica de JavaScript"
+    "single-proxy": "llamada",
+    "multi-proxy": "multi-llamada",
+    "javascript-logic": "lógica"
   },
   "fields": {
     "email": "correo electrónica",
