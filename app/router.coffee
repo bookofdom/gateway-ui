@@ -48,10 +48,5 @@ Router.map ->
       @resource 'libraries', ->
         @resource 'library', path: ':library_id', ->
           @route 'edit'
-  
-  # development helpers
-  @route 'component-reference', ->
-    @route 'bootstrap'
-    @route 'anypresence'
 
 `export default Router`
