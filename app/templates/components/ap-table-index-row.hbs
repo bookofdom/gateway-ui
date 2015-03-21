@@ -20,9 +20,11 @@
         path=edit-path
         arg1=model}}
     {{/if}}
-    {{ap-list-link
-      t='actions.delete'
-      icon='the-essentials-011'
-      action='delete'}}
+    {{#if show-delete}}
+      {{ap-list-link
+        t='actions.delete'
+        icon='the-essentials-011'
+        action='delete'}}
+    {{/if}}
   {{/ap-list-nav-simple-icon}}
 </td>
