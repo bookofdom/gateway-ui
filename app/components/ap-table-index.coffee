@@ -5,6 +5,7 @@ ApTableIndexComponent = ApTableModelComponent.extend
   classNames: ['ap-table-index']
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName:i18nLabel:cellTemplateName' or 'fieldName,fieldName'
   path: null # 'resource.index', 'resource.edit', etc
+  'show-delete': true
   fieldsList: Ember.computed 'fields', ->
     fields = @get('fields')?.split(',') or []
     field.trim()?.split(':') for field in fields
