@@ -53,6 +53,8 @@ app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.wof
 // Gateway Icons
 app.import('bower_components/gateway-icons/dist/fonts/gateway.eot', {destDir: 'assets/fonts'});
 app.import('bower_components/gateway-icons/dist/fonts/gateway.svg', {destDir: 'assets/fonts'});
+app.import('bower_components/gateway-icons/dist/fonts/gateway.ttf', {destDir: 'assets/fonts'});
+app.import('bower_components/gateway-icons/dist/fonts/gateway.woff', {destDir: 'assets/fonts'});
 
 i18n = pickFiles('app', {
  srcDir: '/',
