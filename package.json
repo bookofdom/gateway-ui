@@ -11,7 +11,7 @@
     "start": "./node_modules/ember-cli/bin/ember serve --environment=development --port=${PORT}",
     "build": "ember build",
     "test": "ember test",
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "postinstall": "./node_modules/bower/bin/bower install && cd node_modules/ember-cli-anypresence && ../../node_modules/bower/bin/bower install"
   },
   "repository": "",
   "engines": {
@@ -28,6 +28,7 @@
     "broccoli-static-compiler": "0.2.1",
     "connect-restreamer": "^1.0.1",
     "ember-breadcrumbs": "0.1.1",
+    "ember-cli-anypresence": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/Anypresence/ember-cli-anypresence#f28a9589f8ccb7a6b96cbb7578e4ab2b885f4e19",
     "ember-cli": "0.1.6",
     "ember-cli-coffeescript": "0.7.0",
     "ember-cli-compass-compiler": "git+https://github.com/christophercurrie/ember-cli-compass-compiler#33f7812f693b2340b151cf4e7db9ac795990b681",
