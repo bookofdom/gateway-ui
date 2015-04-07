@@ -28,18 +28,6 @@ var app = new EmberApp({
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-// bootstrap
-app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js')
-// i18next
-app.import('bower_components/i18next/i18next.js');
-// moment
-app.import('bower_components/moment/moment.js');
-app.import('bower_components/moment/locale/es.js');
-app.import('bower_components/moment/locale/hi.js');
-// ace
-app.import('bower_components/ace-builds/src-noconflict/ace.js');
-app.import('bower_components/ace-builds/src-noconflict/ext-language_tools.js');
-app.import('bower_components/ace-builds/src-noconflict/mode-javascript.js');
 // jQuery UI
 app.import('bower_components/jquery-ui/jquery-ui.js');
 // jQuery File Upload
@@ -56,13 +44,6 @@ app.import('bower_components/gateway-icons/dist/fonts/gateway.svg', {destDir: 'a
 app.import('bower_components/gateway-icons/dist/fonts/gateway.ttf', {destDir: 'assets/fonts'});
 app.import('bower_components/gateway-icons/dist/fonts/gateway.woff', {destDir: 'assets/fonts'});
 
-i18n = pickFiles('app', {
- srcDir: '/',
- files: ['locales/*/*.json'],
- destDir: '/'
-});
-
 module.exports = mergeTrees([
-  app.toTree(),
-  i18n
+  app.toTree()
 ]);
