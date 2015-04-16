@@ -19,6 +19,7 @@ env
 log
 session
 url
+setFormBody
 '''.split /\n/
 
 initialize = (container, app) ->
