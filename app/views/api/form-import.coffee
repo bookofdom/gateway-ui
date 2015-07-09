@@ -9,8 +9,10 @@ ApiFormImportView = Ember.View.extend
         @get('controller').send 'upload-success'
       error: (xhr) =>
         json = JSON.parse xhr.responseText if xhr.responseText
-        error = (xhr.responseJSON || json)?.error
-        @get('controller').send 'upload-error', error
+        response =
+          errors:
+            base: [(xhr.responseJSON || json)?.error]
+        @get('controller').send 'upload-error', response
   click: (e) ->
     @$('[type=file]').click() if !Ember.$(e.target).is '[type=file]'
 
