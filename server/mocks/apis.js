@@ -46,7 +46,14 @@ module.exports = function(app) {
     body.api.id = id;
     res.status(201).send(body).end();
   });
-  
+
+  apisRouter.post('/import', function(req, res) {
+    var body = {
+      'error': 'Inserting API: Developer version allows 1 api(s).'
+    }
+    res.status(500).send(body).end();
+  });
+
   apisRouter.get('/:id', function(req, res) {
     var api = apis.filter(function (value) {
       return value.id == req.params.id;

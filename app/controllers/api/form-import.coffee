@@ -15,8 +15,8 @@ ApiFormImportController = Ember.ObjectController.extend
     'upload-success': ->
       @set 'name', null
       @send 'refresh'
-    'upload-error': (errors) ->
-      for name, errorList of errors
-        @get('errors').add name, errorList[0]
+    'upload-error': (error) ->
+      @get('errors').clear()
+      @get('errors').add 'base', error
 
 `export default ApiFormImportController`
