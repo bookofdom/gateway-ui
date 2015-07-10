@@ -147,6 +147,7 @@
     "generic": "elija uno",
     "choose-x": "elija $t(__x__)",
     "confirm-delete": "¿esta seguro que desea eliminar éste registro?",
+    "confirm-proxy-endpoint-leave": "deje el punto final de proxy actual sin guardar?",
     "change-language": "cambio de idioma"
   },
   "states": {
