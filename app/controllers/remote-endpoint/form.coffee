@@ -4,6 +4,7 @@
 RemoteEndpointFormController = FormController.extend
   needs: ['remote-endpoints']
   modelType: 'remote-endpoint'
+
   defaultFields: [
     name: 'name'
     required: true
@@ -11,14 +12,41 @@ RemoteEndpointFormController = FormController.extend
     name: 'codename'
     required: true
   ,
-    name: 'url'
-  ,
-    name: 'method'
-    type: 'select'
-  ,
     name: 'description'
     type: 'textarea'
   ]
+
+  platformFields:
+    http: [
+      name: 'url'
+    ,
+      name: 'method'
+      type: 'select'
+    ]
+    sqlserver: [
+    ,
+      name: 'server'
+      required: true
+    ,
+      name: 'port'
+      required: true
+    ,
+      name: 'user_id'
+      required: true
+    ,
+      name: 'password'
+      required: true
+    ,
+      name: 'database'
+      required: true
+    ,
+      name: 'schema'
+      required: true
+    ,
+      name: 'transactions'
+      required: false
+    ]
+
   'option-groups':
     method: [
       name: t 'http-methods.get'
