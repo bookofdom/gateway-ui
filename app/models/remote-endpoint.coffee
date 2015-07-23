@@ -22,6 +22,13 @@ RemoteEndpoint = Model.extend
   url: DS.attr 'string'
   method: DS.attr 'string'
 
+  # Computed
+  platform: Ember.computed 'type', ->
+    type = @get 'type'
+    RemoteEndpoint.types.findBy 'value', type
+  platformName: Ember.computed 'platform.name', ->
+    @get 'platform.name'
+
   # Relationships
   api: DS.belongsTo 'api', async: true
   headers: DS.hasMany 'remote-endpoint-header'
