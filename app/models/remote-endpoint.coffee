@@ -2,11 +2,13 @@
 `import Model from './model'`
 
 RemoteEndpoint = Model.extend
+  type: DS.attr 'string', defaultValue: 'http'
+
   name: DS.attr 'string'
   codename: DS.attr 'string'
-  type: DS.attr 'string', defaultValue: 'http'
   description: DS.attr 'string'
-  url: DS.attr 'string'
+
+  # sqlserver
   server: DS.attr 'string'
   port: DS.attr 'integer'
   user_id: DS.attr 'string'
@@ -14,11 +16,17 @@ RemoteEndpoint = Model.extend
   database: DS.attr 'string'
   schema: DS.attr 'string'
   transactions: DS.attr 'boolean'
+
+  # http
+  url: DS.attr 'string'
   method: DS.attr 'string'
+
+  # Relationships
   api: DS.belongsTo 'api', async: true
   headers: DS.hasMany 'remote-endpoint-header'
   query: DS.hasMany 'remote-endpoint-query-parameter'
   environment_data: DS.hasMany 'remote-endpoint-environment-datum'
+
   # manually manage relationship dirty
   environmentDataDirty: Ember.computed 'environment_data.@each.isDirty', ->
     @get('environment_data').filterBy('isDirty', true).get('length')
