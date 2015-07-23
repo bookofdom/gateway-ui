@@ -7,6 +7,13 @@ RemoteEndpoint = Model.extend
   type: DS.attr 'string', defaultValue: 'http'
   description: DS.attr 'string'
   url: DS.attr 'string'
+  server: DS.attr 'string'
+  port: DS.attr 'integer'
+  user_id: DS.attr 'string'
+  password: DS.attr 'string'
+  database: DS.attr 'string'
+  schema: DS.attr 'string'
+  transactions: DS.attr 'boolean'
   method: DS.attr 'string'
   api: DS.belongsTo 'api', async: true
   headers: DS.hasMany 'remote-endpoint-header'
