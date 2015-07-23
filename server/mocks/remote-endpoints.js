@@ -96,7 +96,7 @@ module.exports = function(app) {
                   }
               }
           ]
-      }, 
+      },
       {
           "id": 4,
           "api_id": 1,
@@ -105,12 +105,12 @@ module.exports = function(app) {
           "description": "sql",
           "type": "sqlserver",
           "data": {
-	      "server": "server.foo.com",
-	      "port": 1433,
-	      "user id": "anypresence",
-	      "password": "password",
-	      "database": "database",
-	      "schema": "schema",
+    	      "server": "server.foo.com",
+    	      "port": 1433,
+    	      "user id": "anypresence",
+    	      "password": "password",
+    	      "database": "database",
+    	      "schema": "schema"
           }
       }
   ];
