@@ -1,5 +1,6 @@
 `import DS from 'ember-data'`
 `import Model from './model'`
+`import t from '../helpers/i18n'`
 
 RemoteEndpoint = Model.extend
   type: DS.attr 'string', defaultValue: 'http'
@@ -10,7 +11,7 @@ RemoteEndpoint = Model.extend
 
   # sqlserver
   server: DS.attr 'string'
-  port: DS.attr 'integer'
+  port: DS.attr 'number'
   username: DS.attr 'string'
   password: DS.attr 'string'
   database: DS.attr 'string'
@@ -40,5 +41,14 @@ RemoteEndpoint = Model.extend
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
     Ember.run.once => @get 'relationshipsDirty'
+
+# Declare available types and their human-readable names
+types = 'http sqlserver'.split(' ').map (type) ->
+  name: t "types.remote-endpoint.#{type}"
+  slug: type
+  value: type
+
+RemoteEndpoint.reopenClass
+  types: types
 
 `export default RemoteEndpoint`

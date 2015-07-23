@@ -180,5 +180,11 @@
   "conditionals": {
     "if": "if",
     "unless": "unless"
+  },
+  "types": {
+    "remote-endpoint": {
+      "http": "HTTP",
+      "sqlserver": "SQL Server"
+    }
   }
 }
