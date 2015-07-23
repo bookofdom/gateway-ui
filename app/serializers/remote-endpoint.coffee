@@ -77,7 +77,15 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
           method: model.get 'method'
           headers: @serializeHeaders model
           query: @serializeQuery model
-      # TODO:  serialize the data object for sqlserver
+      when 'sqlserver'
+        serialized.data = 
+	  server: model.get 'data'
+	  port: model.get 'port'
+	  password: model.get 'password'
+	  database: model.get 'database'
+	  schema: model.get 'schema'
+	  transactions: model.get 'transactions'
+	serialized.data["user id"] = model.get 'username'
     serialized
   serializeHeaders: (model) ->
     headers = {}
