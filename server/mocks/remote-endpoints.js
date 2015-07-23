@@ -96,6 +96,22 @@ module.exports = function(app) {
                   }
               }
           ]
+      }, 
+      {
+          "id": 4,
+          "api_id": 1,
+          "name": "sql-hello",
+          "codename": "sql",
+          "description": "sql",
+          "type": "sqlserver",
+          "data": {
+	      "server": "server.foo.com",
+	      "port": 1433,
+	      "user id": "anypresence",
+	      "password": "password",
+	      "database": "database",
+	      "schema": "schema",
+          }
       }
   ];
 
