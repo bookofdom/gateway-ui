@@ -11,7 +11,7 @@ RemoteEndpoint = Model.extend
   # sqlserver
   server: DS.attr 'string'
   port: DS.attr 'integer'
-  user_id: DS.attr 'string'
+  username: DS.attr 'string'
   password: DS.attr 'string'
   database: DS.attr 'string'
   schema: DS.attr 'string'

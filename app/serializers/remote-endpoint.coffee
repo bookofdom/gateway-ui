@@ -17,13 +17,23 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     environment_data:
       embedded: 'always'
   normalize: (type, hash, property) ->
-    # `data` is reserved in Ember, so transform into `url` and `method`
-    hash.url = hash.data.url
-    hash.method = hash.data.method
-    @normalizeHeaders hash
-    @normalizeQuery hash
-    @normalizeEnvironmentData hash
-    @normalizeEnvironmentDataLinks hash
+    switch hash.type
+      when 'http'
+        # `data` is reserved in Ember, so transform into `url` and `method`
+        hash.url = hash.data.url
+        hash.method = hash.data.method
+        @normalizeHeaders hash
+        @normalizeQuery hash
+        @normalizeEnvironmentData hash
+        @normalizeEnvironmentDataLinks hash
+      when 'sqlserver'
+        hash.server = hash.data.server
+        hash.port = hash.data.port
+        hash.username = hash.data['user id']
+        hash.password = hash.data.password
+        hash.database = hash.data.database
+        hash.schema = hash.data.schema
+        hash.transactions = hash.data.transactions
     @_super.apply @, arguments
   normalizeHeaders: (hash) ->
     hash.headers = []
@@ -60,11 +70,14 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     hash
   serialize: (model) ->
     serialized = @_super.apply @, arguments
-    serialized.data =
-      url: model.get 'url'
-      method: model.get 'method'
-      headers: @serializeHeaders model
-      query: @serializeQuery model
+    switch serialized.type
+      when 'http'
+        serialized.data =
+          url: model.get 'url'
+          method: model.get 'method'
+          headers: @serializeHeaders model
+          query: @serializeQuery model
+      # TODO:  serialize the data object for sqlserver
     serialized
   serializeHeaders: (model) ->
     headers = {}
