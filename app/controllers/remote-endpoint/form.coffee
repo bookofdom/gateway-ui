@@ -72,15 +72,12 @@ RemoteEndpointFormController = FormController.extend
     ,
       name: 'timeout'
       type: 'integer'
-      required: false
     ,
       name: 'maxidle'
       type: 'integer'
-      required: false
     ,
       name: 'maxopen'
       type: 'integer'
-      required: false
     ]
 
   fields: Ember.computed 'isNew', 'platform.slug', 'platformFields', ->
