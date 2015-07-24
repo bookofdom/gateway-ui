@@ -147,7 +147,10 @@
     "username": "username",
     "database": "database",
     "schema": "schema",
-    "transactions": "transactions"
+    "transactions": "transactions",
+    "help": {
+      "remote-endpoint-type": "Coming soon:  support for PostgreSQL, MongoDB, and MySQL remote endpoint types"
+    }
   },
   "prompts": {
     "generic": "choose one",

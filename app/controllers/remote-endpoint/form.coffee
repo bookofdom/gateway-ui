@@ -37,6 +37,7 @@ RemoteEndpointFormController = FormController.extend
     name: 'type'
     required: true
     type: 'select'
+    help: t 'fields.help.remote-endpoint-type'
   ]
 
   platformFields:
