@@ -28,6 +28,8 @@ RemoteEndpoint = Model.extend
     RemoteEndpoint.types.findBy 'value', type
   platformName: Ember.computed 'platform.name', ->
     @get 'platform.name'
+  isHttp: Ember.computed 'platform.slug', ->
+    @get('platform.slug') == 'http'
 
   # Relationships
   api: DS.belongsTo 'api', async: true

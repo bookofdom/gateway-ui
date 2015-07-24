@@ -4,45 +4,47 @@
     fields=fields}}
 
     {{#unless isNew}}
-      {{#bs-row}}
-        {{#bs-col md=6}}
-          {{#ap-panel-edit t='resources.remote-endpoint-header_plural'}}
-            {{ap-table-model
-              models=model.headers
-              delete-action='delete-remote-endpoint-header'
-              auto-delete=false
-              partial-path='remote-endpoint-header/-inline-form'}}
-            {{ap-button-block-new
-              t='resources.remote-endpoint-header'
-              action='new-remote-endpoint-header'}}
-          {{/ap-panel-edit}}
-        {{/bs-col}}
-        {{#bs-col md=6}}
-          {{#ap-panel-edit t='resources.remote-endpoint-query-parameter_plural'}}
-            {{ap-table-model
-              models=model.query
-              delete-action='delete-remote-endpoint-query-parameter'
-              auto-delete=false
-              partial-path='remote-endpoint-query-parameter/-inline-form'}}
-            {{ap-button-block-new
-              t='resources.remote-endpoint-query-parameter'
-              action='new-remote-endpoint-query-parameter'}}
-          {{/ap-panel-edit}}
-        {{/bs-col}}
-      {{/bs-row}}
-      
-      {{#ap-panel-edit t='resources.remote-endpoint-environment-datum_plural'}}
-        {{ap-table-index
-          models=model.environment_data
-          fields='environment:resources.environment:object-name'
-          delete-action='delete-remote-endpoint-environment-datum'
-          auto-delete=false
-          path='remote-endpoint-environment-datum.edit'
-          edit-path='remote-endpoint-environment-datum.edit'}}
-        {{ap-button-block-new
-          t='resources.remote-endpoint-environment-datum'
-          action='new-remote-endpoint-environment-datum'}}
-      {{/ap-panel-edit}}
+      {{#if isHttp}}
+        {{#bs-row}}
+          {{#bs-col md=6}}
+            {{#ap-panel-edit t='resources.remote-endpoint-header_plural'}}
+              {{ap-table-model
+                models=model.headers
+                delete-action='delete-remote-endpoint-header'
+                auto-delete=false
+                partial-path='remote-endpoint-header/-inline-form'}}
+              {{ap-button-block-new
+                t='resources.remote-endpoint-header'
+                action='new-remote-endpoint-header'}}
+            {{/ap-panel-edit}}
+          {{/bs-col}}
+          {{#bs-col md=6}}
+            {{#ap-panel-edit t='resources.remote-endpoint-query-parameter_plural'}}
+              {{ap-table-model
+                models=model.query
+                delete-action='delete-remote-endpoint-query-parameter'
+                auto-delete=false
+                partial-path='remote-endpoint-query-parameter/-inline-form'}}
+              {{ap-button-block-new
+                t='resources.remote-endpoint-query-parameter'
+                action='new-remote-endpoint-query-parameter'}}
+            {{/ap-panel-edit}}
+          {{/bs-col}}
+        {{/bs-row}}
+
+        {{#ap-panel-edit t='resources.remote-endpoint-environment-datum_plural'}}
+          {{ap-table-index
+            models=model.environment_data
+            fields='environment:resources.environment:object-name'
+            delete-action='delete-remote-endpoint-environment-datum'
+            auto-delete=false
+            path='remote-endpoint-environment-datum.edit'
+            edit-path='remote-endpoint-environment-datum.edit'}}
+          {{ap-button-block-new
+            t='resources.remote-endpoint-environment-datum'
+            action='new-remote-endpoint-environment-datum'}}
+        {{/ap-panel-edit}}
+      {{/if}}
     {{/unless}}
 
 {{/ap-model-form}}
