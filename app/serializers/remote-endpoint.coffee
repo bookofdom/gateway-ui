@@ -27,13 +27,16 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         @normalizeEnvironmentData hash
         @normalizeEnvironmentDataLinks hash
       when 'sqlserver'
-        hash.server = hash.data.server
-        hash.port = hash.data.port
-        hash.username = hash.data['user id']
-        hash.password = hash.data.password
-        hash.database = hash.data.database
-        hash.schema = hash.data.schema
+        hash.server = hash.data.config.server
+        hash.port = hash.data.config.port
+        hash.username = hash.data.config['user id']
+        hash.password = hash.data.config.password
+        hash.database = hash.data.config.database
+        hash.schema = hash.data.config.schema
+        hash.timeout = hash.data.config.timeout
         hash.transactions = hash.data.transactions
+        hash.maxopenconn = hash.data.maxOpenConn
+        hash.maxidleconn = hash.data.maxIdleConn
     @_super.apply @, arguments
   normalizeHeaders: (hash) ->
     hash.headers = []
@@ -79,13 +82,17 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
           query: @serializeQuery model
       when 'sqlserver'
         serialized.data =
-          server: model.get 'server'
-          port: model.get 'port'
-          'user id': model.get 'username'
-          password: model.get 'password'
-          database: model.get 'database'
-          schema: model.get 'schema'
+          config:
+            server: model.get 'server'
+            port: model.get 'port'
+            'user id': model.get 'username'
+            password: model.get 'password'
+            database: model.get 'database'
+            schema: model.get 'schema'
+            'connection timeout': model.get 'timeout'
           transactions: model.get 'transactions'
+          maxIdleConn: model.get 'maxidle'
+          maxOpenConn: model.get 'maxopen'
     serialized
   serializeHeaders: (model) ->
     headers = {}

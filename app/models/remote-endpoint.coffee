@@ -17,6 +17,7 @@ RemoteEndpoint = Model.extend
   database: DS.attr 'string'
   schema: DS.attr 'string'
   transactions: DS.attr 'boolean'
+  timeout: DS.attr 'number'
 
   # http
   url: DS.attr 'string'

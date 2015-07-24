@@ -118,7 +118,7 @@ module.exports = function(app) {
       {
         "id": 5,
         "api_id": 1,
-        "name": "sql-query",
+        "name": "sql-complex",
         "codename": "sql",
         "description": "sql",
         "type": "sqlserver",

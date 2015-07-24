@@ -148,6 +148,9 @@
     "database": "database",
     "schema": "schema",
     "transactions": "transactions",
+    "timeout": "connection timeout (s)",
+    "maxidle": "max. idle connections",
+    "maxopen": "max. open connections",
     "help": {
       "remote-endpoint-type": "Coming soon:  support for PostgreSQL, MongoDB, and MySQL remote endpoint types"
     }
