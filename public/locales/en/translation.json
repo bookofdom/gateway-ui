@@ -141,7 +141,13 @@
     "session_encryption_key_rotate": "session encryption key rotate",
     "codename": "codename",
     "hostname": "hostname",
-    "value": "value"
+    "value": "value",
+    "server": "server",
+    "port": "port",
+    "username": "username",
+    "database": "database",
+    "schema": "schema",
+    "transactions": "transactions"
   },
   "prompts": {
     "generic": "choose one",
