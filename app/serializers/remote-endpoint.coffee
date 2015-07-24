@@ -79,7 +79,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
           query: @serializeQuery model
       when 'sqlserver'
         serialized.data =
-          server: model.get 'data'
+          server: model.get 'server'
           port: model.get 'port'
           'user id': model.get 'username'
           password: model.get 'password'
