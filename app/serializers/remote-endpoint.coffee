@@ -35,8 +35,8 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.schema = hash.data.config.schema
         hash.timeout = hash.data.config['connection timeout']
         hash.transactions = hash.data.transactions
-        hash.maxopenconn = hash.data.maxOpenConn
-        hash.maxidleconn = hash.data.maxIdleConn
+        hash.maxopen = hash.data.maxOpenConn
+        hash.maxidle = hash.data.maxIdleConn
     @_super.apply @, arguments
   normalizeHeaders: (hash) ->
     hash.headers = []

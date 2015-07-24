@@ -133,8 +133,8 @@ module.exports = function(app) {
             "connection timeout": 30
           },
           "transactions": false,
-          "maxIdleConns": 100,
-          "maxOpenConns": 80,
+          "maxIdleConn": 100,
+          "maxOpenConn": 80,
         }
       }
   ];
