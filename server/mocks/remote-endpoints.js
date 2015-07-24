@@ -98,20 +98,105 @@ module.exports = function(app) {
           ]
       },
       {
-          "id": 4,
-          "api_id": 1,
-          "name": "sql-hello",
-          "codename": "sql",
-          "description": "sql",
-          "type": "sqlserver",
-          "data": {
+        "id": 4,
+        "api_id": 1,
+        "name": "sql-simple",
+        "codename": "sql",
+        "description": "sql",
+        "type": "sqlserver",
+        "data": {
+          "config": {
     	      "server": "server.foo.com",
     	      "port": 1433,
     	      "user id": "anypresence",
     	      "password": "password",
     	      "database": "database",
     	      "schema": "schema"
+          },
+          "transactions": false,
+        }
+      },
+      {
+        "id": 5,
+        "api_id": 1,
+        "name": "sql-query",
+        "codename": "sql",
+        "description": "sql",
+        "type": "sqlserver",
+        "data": {
+          "config": {
+            "server": "server.foo.com",
+            "port": 1433,
+            "user id": "anypresence",
+            "password": "password",
+            "database": "database",
+            "schema": "schema"
+          },
+          "transactions": false,
+          "query": "SELECT id, hat_name, hat_color, 9 as hat_size FROM hats WHERE id = ?",
+          "parameters": [1]
+        }
+      },
+      {
+        "id": 6,
+        "api_id": 1,
+        "name": "sql-execute",
+        "codename": "sql",
+        "description": "sql",
+        "type": "sqlserver",
+        "data": {
+          "config": {
+            "server": "server.foo.com",
+            "port": 1433,
+            "user id": "anypresence",
+            "password": "password",
+            "database": "database",
+            "schema": "schema"
+          },
+          "maxIdleConns": 100,
+          "maxOpenConns": 80,
+          "transactions": false,
+          "execute": "INSERT INTO hats (hat_name, hat_color) VALUES (?, ?)",
+          "parameters": ['baseball_cap', 'blue']
+        }
+      },
+      {
+        "id": 7,
+        "api_id": 1,
+        "name": "sql-complex",
+        "codename": "sql",
+        "description": "sql",
+        "type": "sqlserver",
+        "data": {
+          "config": {
+            "server": "server.foo.com",
+            "port": 1433,
+            "user id": "anypresence",
+            "password": "password",
+            "database": "database",
+            "schema": "schema"   
           }
+        },
+        "environment_data": [
+          {
+            "environment_id": 2,
+            "data": {
+              "connection timeout": 30,
+              "dial timeout": 5,
+              "keepAlive": 0,
+              "log": 8,
+              "encrypt": "disable",
+              "TrustServerCertificate": true,
+              "certificate": "/var/gateway/tmp-cert.pem",
+              "Workstation ID": "gateway",
+              "app name": "go-mssqldb",
+              "ServerSPN": "MSSQLSvc/host:12345"   
+            },
+            "maxIdleConns": 100,
+            "maxOpenConns": 80,
+            "transactions": true
+          }
+        ]
       }
   ];
 
