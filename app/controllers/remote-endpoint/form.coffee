@@ -23,10 +23,6 @@ RemoteEndpointFormController = FormController.extend
     ]
 
   defaultFields: [
-    name: 'type'
-    required: true
-    type: 'select'
-  ,
     name: 'name'
     required: true
   ,
@@ -35,6 +31,12 @@ RemoteEndpointFormController = FormController.extend
   ,
     name: 'description'
     type: 'textarea'
+  ]
+
+  newFields: [
+    name: 'type'
+    required: true
+    type: 'select'
   ]
 
   platformFields:
