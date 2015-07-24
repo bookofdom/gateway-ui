@@ -1,11 +1,32 @@
 `import FormController from 'gateway/controllers/form'`
+`import RemoteEndpoint from '../../models/remote-endpoint'`
 `import t from 'gateway/helpers/i18n'`
 
 RemoteEndpointFormController = FormController.extend
   needs: ['remote-endpoints']
   modelType: 'remote-endpoint'
 
+  'option-groups':
+    type: RemoteEndpoint.types
+    method: [
+      name: t 'http-methods.get'
+      value: 'GET'
+    ,
+      name: t 'http-methods.post'
+      value: 'POST'
+    ,
+      name: t 'http-methods.put'
+      value: 'PUT'
+    ,
+      name: t 'http-methods.delete'
+      value: 'DELETE'
+    ]
+
   defaultFields: [
+    name: 'type'
+    required: true
+    type: 'select'
+  ,
     name: 'name'
     required: true
   ,
@@ -24,7 +45,6 @@ RemoteEndpointFormController = FormController.extend
       type: 'select'
     ]
     sqlserver: [
-    ,
       name: 'server'
       required: true
     ,
@@ -47,20 +67,6 @@ RemoteEndpointFormController = FormController.extend
       required: false
     ]
 
-  'option-groups':
-    method: [
-      name: t 'http-methods.get'
-      value: 'GET'
-    ,
-      name: t 'http-methods.post'
-      value: 'POST'
-    ,
-      name: t 'http-methods.put'
-      value: 'PUT'
-    , 
-      name: t 'http-methods.delete'
-      value: 'DELETE'
-    ]
   createNewHeaderModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'remote-endpoint-header'
