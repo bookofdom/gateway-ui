@@ -49,9 +49,10 @@ RemoteEndpointFormController = FormController.extend
       required: true
     ,
       name: 'port'
+      type: 'integer'
       required: true
     ,
-      name: 'user_id'
+      name: 'username'
       required: true
     ,
       name: 'password'
@@ -66,6 +67,12 @@ RemoteEndpointFormController = FormController.extend
       name: 'transactions'
       required: false
     ]
+
+  fields: Ember.computed 'isNew', 'platform.slug', 'platformFields', ->
+    fields = @_super.apply @, arguments
+    platformFields = @get "platformFields.#{@get 'platform.slug'}"
+    fields = Ember.copy(fields).pushObjects platformFields if platformFields
+    fields
 
   createNewHeaderModel: ->
     model = @get 'model'
