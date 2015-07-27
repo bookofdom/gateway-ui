@@ -68,7 +68,6 @@ RemoteEndpointFormController = FormController.extend
       required: true
     ,
       name: 'transactions'
-      required: false
     ,
       name: 'timeout'
       type: 'integer'
