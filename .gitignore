@@ -18,3 +18,5 @@
 npm-debug.log
 testem.log
 .tddium*
+
+*.sw[nop]
