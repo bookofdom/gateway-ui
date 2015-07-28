@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import EditRoute from '../edit'`
 `import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-RemoteEndpointEnvironmentDatumEditRoute = Ember.Route.extend AuthenticatedRouteMixin
+RemoteEndpointEnvironmentDatumEditRoute = EditRoute.extend AuthenticatedRouteMixin
 
 `export default RemoteEndpointEnvironmentDatumEditRoute`
