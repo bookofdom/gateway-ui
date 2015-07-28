@@ -132,7 +132,7 @@ module.exports = function(app) {
             "schema": "schema",
             "connection timeout": 30
           },
-          "transactions": false,
+          "transactions": true,
           "maxIdleConn": 100,
           "maxOpenConn": 80,
         }
