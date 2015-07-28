@@ -141,7 +141,19 @@
     "session_encryption_key_rotate": "clave de encriptación rotativa",
     "codename": "nombre clave",
     "hostname": "nombre de host",
-    "value": "valor"
+    "value": "valor",
+    "server": "servidor",
+    "port": "puerto",
+    "username": "nombre de usuario",
+    "database": "base de datos",
+    "schema": "esquema",
+    "transactions": "transacciones",
+    "timeout": "conexión expirada​",
+    "maxidle": "máximas conexiones inactivas",
+    "maxopen": "máximas conexiones abiertas",
+    "help": {
+      "remote-endpoint-type": "En breve: soporte para tipos de endpoints remotos de PostgreSQL, MongoDB y MySQL"
+    }
   },
   "prompts": {
     "generic": "elija uno",
