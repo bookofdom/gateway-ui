@@ -141,7 +141,19 @@
     "session_encryption_key_rotate": "session encryption key rotate",
     "codename": "codename",
     "hostname": "hostname",
-    "value": "value"
+    "value": "value",
+    "server": "server",
+    "port": "port",
+    "username": "username",
+    "database": "database",
+    "schema": "schema",
+    "transactions": "transactions",
+    "timeout": "connection timeout (s)",
+    "maxidle": "max. idle connections",
+    "maxopen": "max. open connections",
+    "help": {
+      "remote-endpoint-type": "Coming soon:  support for PostgreSQL, MongoDB, and MySQL remote endpoint types"
+    }
   },
   "prompts": {
     "generic": "choose one",
@@ -180,5 +192,11 @@
   "conditionals": {
     "if": "if",
     "unless": "unless"
+  },
+  "types": {
+    "remote-endpoint": {
+      "http": "HTTP",
+      "sqlserver": "SQL Server"
+    }
   }
 }

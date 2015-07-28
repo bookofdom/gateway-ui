@@ -11,7 +11,8 @@ FormController = Ember.ObjectController.extend
   defaultFields: []
   fields: Ember.computed 'isNew', ->
     fields = if @get 'isNew' then @get 'newFields' else @get 'editFields'
-    fields ?= @get 'defaultFields'
+    fields ?= []
+    fields = Ember.copy(fields).pushObjects @get('defaultFields')
     fields
   onInit: Ember.on 'init', ->
     if !@get 'model'

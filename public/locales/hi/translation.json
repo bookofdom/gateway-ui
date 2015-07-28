@@ -141,7 +141,19 @@
     "session_encryption_key_rotate": "session encryption key rotate",
     "codename": "codename",
     "hostname": "hostname",
-    "value": "value"
+    "value": "value",
+    "server": "सर्वर",
+    "port": "पोर्ट",
+    "username": "उपयोगकर्ता नाम",
+    "database": "डेटाबेस",
+    "schema": "योजना",
+    "transactions": "लेन-देन",
+    "timeout": "सम्पर्क समय समाप्त (सेकंड्‌स)",
+    "maxidle": "अधिकतम निष्क्रिय सम्पर्क",
+    "maxopen": "अधिकतम मुक्त सम्पर्क",
+    "help": {
+      "remote-endpoint-type": "शीघ्र आ रहा है: पोस्त्ग्रेस, मोंगोडीबी, और माइ एसक्यूएल प्रकार"
+    }
   },
   "prompts": {
     "generic": "choose one",

@@ -1,13 +1,13 @@
 {{#ap-page t='resources.remote-endpoint_plural' help-url='http://docs.justapis.com/remote-end-points'}}
-  
+
   {{ap-table-index
       models=model
-      fields='name,codename,url,method'
+      fields='name,platformName:fields.type,codename,url,method'
       path='remote-endpoint.index'
       edit-path='remote-endpoint.edit'}}
-  
+
   {{#ap-panel-new t='resources.remote-endpoint' closed=model.length}}
     {{render 'remote-endpoint/form'}}
   {{/ap-panel-new}}
-  
+
 {{/ap-page}}
