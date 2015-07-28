@@ -93,7 +93,6 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
           transactions: serialized.transactions
           maxIdleConn: serialized.maxidle
           maxOpenConn: serialized.maxopen
-    console.log serialized
     serialized
   serializeHeaders: (model) ->
     headers = {}
