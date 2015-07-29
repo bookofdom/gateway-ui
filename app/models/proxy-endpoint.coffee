@@ -7,12 +7,15 @@ ProxyEndpoint = Model.extend
   description: DS.attr 'string'
   active: DS.attr 'boolean'
   cors_enabled: DS.attr 'boolean'
+
+  # Relationships
   api: DS.belongsTo 'api', async: true
   environment: DS.belongsTo 'environment', async: true
   endpoint_group: DS.belongsTo 'endpoint-group', async: true
   routes: DS.hasMany 'proxy-endpoint-route'
   components: DS.hasMany 'proxy-endpoint-component'
   tests: DS.hasMany 'proxy-endpoint-test'
+
   # Must manually manage isDirty for relationships:
   # http://paulferrett.com/2014/ember-model-isdirty-when-belongsto-changes/
   environmentDirty: Ember.computed 'environment.@each', ->

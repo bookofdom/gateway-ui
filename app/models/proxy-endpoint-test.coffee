@@ -14,14 +14,17 @@ ProxyEndpointTest = Model.extend
     ProxyEndpointTest.methods.findBy 'value', method
 
   # Relationships
-  pairs: DS.hasMany 'proxy-endpoint-test-pairs'
+  headers: DS.hasMany 'proxy-endpoint-test-header'
+  query: DS.hasMany 'proxy-endpoint-test-query-parameter'
   proxy_endpoint: DS.belongsTo 'proxy-endpoint'
 
   # manually manage relationship dirty
-  pairsDirty: Ember.computed 'pairs.@each.isDirty', ->
-    @get('pairs').filterBy('isDirty', true).get('length')
-  relationshipsDirty: Ember.computed 'pairsDirty', ->
-    @get('pairsDirty')
+  headersDirty: Ember.computed 'headers.@each.isDirty', ->
+    @get('headers').filterBy('isDirty', true).get 'length'
+  queryDirty: Ember.computed 'query.@each.isDirty', ->
+    @get('query').filterBy('isDirty', true).get 'length'
+  relationshipsDirty: Ember.computed 'headersDirty', 'queryDirty', ->
+    @get('headersDirty') or @get('queryDirty')
   relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
@@ -30,7 +33,8 @@ ProxyEndpointTest = Model.extend
   reload: ->
     @get('proxy_endpoint').reload()
   rollback: ->
-    @get('pairs')?.forEach (record) -> record.rollback()
+    @get('headers')?.forEach (record) -> record.rollback()
+    @get('query')?.forEach (record) -> record.rollback()
     @_super.apply @, arguments
   save: ->
     # delegate save to parent proxy endpoint and then
