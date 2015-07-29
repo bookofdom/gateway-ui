@@ -1,11 +1,17 @@
 `import DS from 'ember-data'`
 `import Model from './model'`
+`import t from '../helpers/i18n'`
 
 ProxyEndpointTest = Model.extend
   name: DS.attr 'string', defaultValue: 'Test'
   method: DS.attr 'string', defaultValue: 'get'
   route: DS.attr 'string'
   body: DS.attr 'string'
+
+  # Computed
+  methodType: Ember.computed 'method', ->
+    method = @get 'method'
+    ProxyEndpointTest.methods.findBy 'value', method
 
   # Relationships
   pairs: DS.hasMany 'proxy-endpoint-test-pairs'
@@ -45,5 +51,14 @@ ProxyEndpointTest = Model.extend
     proxyEndpoint.save().then (->
       proxyEndpoint.rollback()
     ), (=>)
+
+# Declare available methods and their human-readable names
+methods = 'get post put delete'.split(' ').map (method) ->
+  name: t "http-methods.#{method}"
+  slug: method
+  value: method
+
+ProxyEndpointTest.reopenClass
+  methods: methods
 
 `export default ProxyEndpointTest`
