@@ -1,6 +1,5 @@
 `import DS from 'ember-data'`
 `import Model from './model'`
-`import config from  '../config/environment'`
 
 ProxyEndpointTest = Model.extend
   name: DS.attr 'string', defaultValue: 'Test'
@@ -46,19 +45,5 @@ ProxyEndpointTest = Model.extend
     proxyEndpoint.save().then (->
       proxyEndpoint.rollback()
     ), (=>)
-  testUrl: Ember.computed ->
-    url = []
-    url.push config.api.url
-    url.push 'apis'
-    url.push @get('proxy_endpoint.api.id')
-    url.push 'proxy_endpoints'
-    url.push @get('proxy_endpoint.id')
-    url.push 'tests'
-    url.push @get('id')
-    url.push 'test'
-    url = url.join '/'
-    host = "#{window.location.protocol}//#{window.location.host}"
-    url = "#{host}#{url}" if !config.api.host
-    url
 
 `export default ProxyEndpointTest`
