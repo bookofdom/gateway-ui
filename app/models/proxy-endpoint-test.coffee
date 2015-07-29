@@ -4,7 +4,7 @@
 
 ProxyEndpointTest = Model.extend
   name: DS.attr 'string', defaultValue: 'Test'
-  method: DS.attr 'string', defaultValue: 'get'
+  method: DS.attr 'string', defaultValue: 'GET'
   route: DS.attr 'string'
   body: DS.attr 'string'
 
@@ -56,7 +56,7 @@ ProxyEndpointTest = Model.extend
 methods = 'get post put delete'.split(' ').map (method) ->
   name: t "http-methods.#{method}"
   slug: method
-  value: method
+  value: method.toUpperCase()
 
 ProxyEndpointTest.reopenClass
   methods: methods

@@ -64,7 +64,7 @@ module.exports = function(app) {
     {
       "id": 2,
       "name": "Test 2",
-      "methods": ["GET", "POST", "PUT", "DELETE"],
+      "methods": ["POST"],
       "route": "/endpoint",
       "pairs": [
         {
