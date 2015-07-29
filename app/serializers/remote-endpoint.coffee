@@ -76,23 +76,23 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     switch serialized.type
       when 'http'
         serialized.data =
-          url: model.get 'url'
-          method: model.get 'method'
+          url: serialized.url
+          method: serialized.method
           headers: @serializeHeaders model
           query: @serializeQuery model
       when 'sqlserver'
         serialized.data =
           config:
-            server: model.get 'server'
-            port: model.get 'port'
-            'user id': model.get 'username'
-            password: model.get 'password'
-            database: model.get 'database'
-            schema: model.get 'schema'
-            'connection timeout': model.get 'timeout'
-          transactions: model.get 'transactions'
-          maxIdleConn: model.get 'maxidle'
-          maxOpenConn: model.get 'maxopen'
+            server: serialized.server
+            port: serialized.port
+            'user id': serialized.username
+            password: serialized.password
+            database: serialized.database
+            schema: serialized.schema
+            'connection timeout': serialized.timeout
+          transactions: serialized.transactions
+          maxIdleConn: serialized.maxidle
+          maxOpenConn: serialized.maxopen
     serialized
   serializeHeaders: (model) ->
     headers = {}
