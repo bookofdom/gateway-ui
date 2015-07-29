@@ -10,10 +10,6 @@ ProxyEndpointTest = Model.extend
   body: DS.attr 'string'
   pairs: DS.hasMany 'proxy-endpoint-test-pairs'
   proxy_endpoint: DS.belongsTo 'proxy-endpoint'
-  methodsArray: Ember.computed 'method', ->
-    methods = []
-    methods.push(@get('method').toUpperCase()) if @get('method')
-    methods.compact()
   addContentType: Ember.observer 'method', ->
     method = @get('method')
     oldMethod = @get('_oldMethod')
