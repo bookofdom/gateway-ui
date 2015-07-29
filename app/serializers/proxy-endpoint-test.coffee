@@ -7,7 +7,6 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
       embedded: 'always'
   normalize: (type, hash, property) ->
     @normalizeMethods hash
-    @normalizeContentType hash
     @_super.apply @, arguments
   normalizeMethods: (hash) ->
     hash.methods ?= []
@@ -15,18 +14,11 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
     hash.method = hash.methods[0] if hash.methods.length > 0
     delete hash['methods']
     hash
-  normalizeContentType: (hash) ->
-    hash.pairs ?= []
-    for pair in hash['pairs']
-      if pair['type'] == 'header' && pair['key'] == 'Content-Type'
-        hash.content_type = pair['value']
-    hash
   serialize: (model) ->
     serialized = @_super.apply @, arguments
     serialized.id = parseInt(serialized.id, 10) if serialized.id?
     serialized.methods = if serialized.method then [serialized.method] else []
     delete serialized['method']
-    delete serialized['content_type']
     serialized
 
 `export default ProxyEndpointTestSerializer`

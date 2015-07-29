@@ -6,32 +6,13 @@ ProxyEndpointTest = Model.extend
   name: DS.attr 'string', defaultValue: 'Test'
   method: DS.attr 'string', defaultValue: 'get'
   route: DS.attr 'string'
-  content_type: DS.attr 'string', defaultValue: ''
   body: DS.attr 'string'
+
+  # Relationships
   pairs: DS.hasMany 'proxy-endpoint-test-pairs'
   proxy_endpoint: DS.belongsTo 'proxy-endpoint'
-  addContentType: Ember.observer 'method', ->
-    method = @get('method')
-    oldMethod = @get('_oldMethod')
-    header = @get('pairs').find (item) ->
-      item.get('type') == 'header' && item.get('key') == 'Content-Type'
-    if (method == 'get' || method == 'delete') && header
-      header.deleteRecord()
-    else if method == 'post' || method == 'put'
-      if !header
-        header = @store?.createRecord 'proxy-endpoint-test-pair'
-        header.set('type', 'header')
-        header.set('key', 'Content-Type')
-        @get('pairs').pushObject header
-      if method == 'post' && oldMethod && oldMethod != 'post'
-        @set('content_type', 'application/x-www-form-urlencoded')
-      else if method == 'put' && oldMethod && oldMethod != 'put'
-        @set('content_type', 'application/json')
-    @set('_oldMethod', method)
-  updateContentType: Ember.observer 'content_type', ->
-    header = @get('pairs').find (item) ->
-      item.get('type') == 'header' && item.get('key') == 'Content-Type'
-    header?.set('value', @get('content_type'))
+
+  # manually manage relationship dirty
   pairsDirty: Ember.computed 'pairs.@each.isDirty', ->
     @get('pairs').filterBy('isDirty', true).get('length')
   relationshipsDirty: Ember.computed 'pairsDirty', ->
@@ -40,6 +21,7 @@ ProxyEndpointTest = Model.extend
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
     Ember.run.once => @get 'relationshipsDirty'
+
   reload: ->
     @get('proxy_endpoint').reload()
   rollback: ->
