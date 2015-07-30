@@ -3,7 +3,7 @@
 `import t from '../helpers/i18n'`
 
 ProxyEndpointTest = Model.extend
-  name: DS.attr 'string', defaultValue: 'Test'
+  name: DS.attr 'string'
   method: DS.attr 'string', defaultValue: 'GET'
   route: DS.attr 'string'
   body: DS.attr 'string'
