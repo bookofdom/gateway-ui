@@ -157,6 +157,7 @@
     "timeout": "connection timeout (s)",
     "maxidle": "max. idle connections",
     "maxopen": "max. open connections",
+    "content_type": "content type",
     "help": {
       "remote-endpoint-type": "Coming soon:  support for PostgreSQL, MongoDB, and MySQL remote endpoint types"
     }

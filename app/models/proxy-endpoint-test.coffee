@@ -6,6 +6,7 @@ ProxyEndpointTest = Model.extend
   name: DS.attr 'string'
   method: DS.attr 'string', defaultValue: 'GET'
   route: DS.attr 'string'
+  content_type: DS.attr 'string'
   body: DS.attr 'string'
 
   # Computed

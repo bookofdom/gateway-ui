@@ -22,6 +22,8 @@ ProxyEndpointTestFormController = FormController.extend
       label: 'resources.proxy-endpoint-route'
       required: true
       type: 'select'
+    ,
+      name: 'content_type'
     ]
   createNewHeaderModel: ->
     model = @get 'model'

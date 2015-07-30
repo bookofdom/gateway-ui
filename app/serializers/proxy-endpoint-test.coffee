@@ -9,6 +9,7 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
       embedded: 'always'
   normalize: (type, hash, property) ->
     @normalizeMethods hash
+    @normalizeContentType hash
     @normalizeHeaders hash
     @normalizeQuery hash
     delete hash.pairs
@@ -17,6 +18,15 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
     hash.methods ?= []
     hash.method = hash.methods[0]
     delete hash.methods
+    hash
+  normalizeContentType: (hash) ->
+    # find a content type header
+    contentType = hash.pairs.find (pair) ->
+      (pair.type is 'header') and (pair.key is 'Content-Type')
+    if contentType
+      hash.pairs = hash.pairs.filter (pair) ->
+        !((pair.type is 'header') and (pair.key is 'Content-Type'))
+      hash.content_type = contentType.value
     hash
   normalizeHeaders: (hash) ->
     hash.pairs ?= []
@@ -38,13 +48,18 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
     serialized = @_super.apply @, arguments
     serialized.id = parseInt(serialized.id, 10) if serialized.id?
     serialized.methods = if serialized.method then [serialized.method] else []
-    serialized.pairs = @serializePairs model
+    serialized.pairs = @serializePairs model, serialized
     delete serialized.method
     delete serialized.headers
     delete serialized.query
     serialized
-  serializePairs: (model) ->
+  serializePairs: (model, serialized) ->
     pairs = []
+    if serialized.content_type
+      pairs.push
+        type: 'header'
+        key: 'Content-Type'
+        value: serialized.content_type
     model.get('headers').forEach (header) ->
       pairs.push
         id: header.get 'id'

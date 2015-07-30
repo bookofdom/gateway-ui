@@ -157,6 +157,7 @@
     "timeout": "conexión expirada​",
     "maxidle": "máximas conexiones inactivas",
     "maxopen": "máximas conexiones abiertas",
+    "content_type": "tipo de contenido",
     "help": {
       "remote-endpoint-type": "En breve: soporte para tipos de endpoints remotos de PostgreSQL, MongoDB y MySQL"
     }

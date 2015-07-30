@@ -80,6 +80,12 @@ module.exports = function(app) {
           "value": "value 2"
         },
         {
+          "id": 7,
+          "type": "header",
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
           "id": 6,
           "type": "header",
           "key": "key 1",
