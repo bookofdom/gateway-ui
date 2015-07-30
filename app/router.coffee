@@ -7,7 +7,7 @@ Router = Ember.Router.extend
 Router.map ->
   # auth
   @route 'login'
-  
+
   # resources
   @resource 'users', ->
     @resource 'user', path: ':user_id', ->
@@ -29,6 +29,10 @@ Router.map ->
               @resource 'proxy-endpoint-component-calls', path: 'calls', ->
                 @resource 'proxy-endpoint-component-call', path: ':proxy_endpoint_component_call_id', ->
                   @route 'edit'
+          @resource 'proxy-endpoint-tests', path: 'tests', ->
+            @route 'new'
+            @resource 'proxy-endpoint-test', path: ':proxy_endpoint_test_id', ->
+              @route 'edit'
       @resource 'environments', ->
         @resource 'environment', path: ':environment_id', ->
           @route 'edit'
