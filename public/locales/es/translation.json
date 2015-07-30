@@ -83,6 +83,8 @@
     "proxy-endpoint-component-call_plural": "llamadas",
     "proxy-endpoint-component-transformation": "transformación",
     "proxy-endpoint-component-transformation_plural": "transformaciones",
+    "proxy-endpoint-test": "prueba",
+    "proxy-endpoint-test_plural": "pruebas",
     "environment": "entorno",
     "environment_plural": "entornos",
     "environment-variable": "variable de entorno",
