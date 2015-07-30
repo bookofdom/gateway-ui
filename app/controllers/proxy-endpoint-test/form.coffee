@@ -23,7 +23,19 @@ ProxyEndpointTestFormController = FormController.extend
       required: true
       type: 'select'
     ]
+  createNewHeaderModel: ->
+    model = @get 'model'
+    newModel = @store?.createRecord 'proxy-endpoint-test-header'
+    model.get('headers').pushObject newModel
+  createNewQueryParameterModel: ->
+    model = @get 'model'
+    newModel = @store?.createRecord 'proxy-endpoint-test-query-parameter'
+    model.get('query').pushObject newModel
   actions:
+    'delete-proxy-endpoint-test-header': (record) -> record.deleteRecord()
+    'new-proxy-endpoint-test-header': -> @createNewHeaderModel()
+    'delete-proxy-endpoint-test-query-parameter': (record) -> record.deleteRecord()
+    'new-proxy-endpoint-test-query-parameter': -> @createNewQueryParameterModel()
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'
