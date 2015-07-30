@@ -9,7 +9,7 @@ ProxyEndpointTestFormController = FormController.extend
     route: @get('controllers.proxy-endpoint.routes').map (route) ->
       name: route.get 'name'
       value: route.get 'path'
-  fields: Ember.computed 'controllers.proxy-endpoint.routes.@each', ->
+  defaultFields: Ember.computed 'controllers.proxy-endpoint.routes.@each', ->
     [
       name: 'name'
       required: true
@@ -22,9 +22,25 @@ ProxyEndpointTestFormController = FormController.extend
       label: 'resources.proxy-endpoint-route'
       required: true
       type: 'select'
-    ,
+    ]
+  methodFields: Ember.computed 'method', ->
+    'POST': [
       name: 'content_type'
     ]
+    'PUT': [
+      name: 'content_type'
+    ]
+
+  fields: Ember.computed 'isNew', 'method', 'methodFields', ->
+    fields = @_super.apply @, arguments
+    methodFields = @get "methodFields.#{@get 'method'}"
+    fields = Ember.copy(fields).pushObjects methodFields if methodFields
+    fields
+
+  defaultContentType: Ember.observer 'method', ->
+    method = @get 'method'
+    @set 'content_type', 'application/json' if (method is 'POST') or (method is 'PUT')
+
   createNewHeaderModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'proxy-endpoint-test-header'
