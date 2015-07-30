@@ -9,7 +9,7 @@ ProxyEndpointTestFormController = FormController.extend
     route: @get('controllers.proxy-endpoint.routes').map (route) ->
       name: route.get 'name'
       value: route.get 'path'
-  fields: Ember.computed ->
+  fields: Ember.computed 'controllers.proxy-endpoint.routes.@each', ->
     [
       name: 'name'
       required: true
