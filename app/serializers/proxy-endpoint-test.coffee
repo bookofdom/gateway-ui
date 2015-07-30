@@ -39,7 +39,9 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
     serialized.id = parseInt(serialized.id, 10) if serialized.id?
     serialized.methods = if serialized.method then [serialized.method] else []
     serialized.pairs = @serializePairs model
-    delete serialized['method']
+    delete serialized.method
+    delete serialized.headers
+    delete serialized.query
     serialized
   serializePairs: (model) ->
     pairs = []
