@@ -1,4 +1,35 @@
-{{ap-model-form
+{{#ap-model-form
   model=model
   option-groups=option-groups
   fields=fields}}
+
+  {{#unless isNew}}
+    {{#bs-row}}
+      {{#bs-col md=6}}
+        {{#ap-panel-edit t='resources.proxy-endpoint-test-header_plural'}}
+          {{ap-table-model
+            models=model.headers
+            delete-action='delete-proxy-endpoint-test-header'
+            auto-delete=false
+            partial-path='proxy-endpoint-test-header/-inline-form'}}
+          {{ap-button-block-new
+            t='resources.proxy-endpoint-test-header'
+            action='new-proxy-endpoint-test-header'}}
+        {{/ap-panel-edit}}
+      {{/bs-col}}
+      {{#bs-col md=6}}
+        {{#ap-panel-edit t='resources.proxy-endpoint-test-query-parameter_plural'}}
+          {{ap-table-model
+            models=model.query
+            delete-action='delete-proxy-endpoint-test-query-parameter'
+            auto-delete=false
+            partial-path='proxy-endpoint-test-query-parameter/-inline-form'}}
+          {{ap-button-block-new
+            t='resources.proxy-endpoint-test-query-parameter'
+            action='new-proxy-endpoint-test-query-parameter'}}
+        {{/ap-panel-edit}}
+      {{/bs-col}}
+    {{/bs-row}}
+  {{/unless}}
+
+{{/ap-model-form}}
