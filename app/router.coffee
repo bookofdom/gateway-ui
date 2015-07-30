@@ -30,7 +30,6 @@ Router.map ->
                 @resource 'proxy-endpoint-component-call', path: ':proxy_endpoint_component_call_id', ->
                   @route 'edit'
           @resource 'proxy-endpoint-tests', path: 'tests', ->
-            @route 'new'
             @resource 'proxy-endpoint-test', path: ':proxy_endpoint_test_id', ->
               @route 'edit'
       @resource 'environments', ->
