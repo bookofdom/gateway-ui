@@ -18,16 +18,18 @@
         {{/ap-panel-edit}}
       {{/bs-col}}
       {{#bs-col md=6}}
-        {{#ap-panel-edit t='resources.proxy-endpoint-test-query-parameter_plural'}}
-          {{ap-table-model
-            models=model.query
-            delete-action='delete-proxy-endpoint-test-query-parameter'
-            auto-delete=false
-            partial-path='proxy-endpoint-test-query-parameter/-inline-form'}}
-          {{ap-button-block-new
-            t='resources.proxy-endpoint-test-query-parameter'
-            action='new-proxy-endpoint-test-query-parameter'}}
-        {{/ap-panel-edit}}
+        {{#if showQueryParameters}}
+          {{#ap-panel-edit t='resources.proxy-endpoint-test-query-parameter_plural'}}
+            {{ap-table-model
+              models=model.query
+              delete-action='delete-proxy-endpoint-test-query-parameter'
+              auto-delete=false
+              partial-path='proxy-endpoint-test-query-parameter/-inline-form'}}
+            {{ap-button-block-new
+              t='resources.proxy-endpoint-test-query-parameter'
+              action='new-proxy-endpoint-test-query-parameter'}}
+          {{/ap-panel-edit}}
+        {{/if}}
       {{/bs-col}}
     {{/bs-row}}
   {{/unless}}

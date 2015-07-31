@@ -1,6 +1,24 @@
 `import FormController from 'gateway/controllers/form'`
 `import ProxyEndpointTest from '../../models/proxy-endpoint-test'`
 
+# Field Rules
+#
+# content_type shows if:
+# method is POST or PUT
+#
+# content_type resets to null or empty when (model-level enforcement):
+# method is GET or DELETE
+#
+# body shows when:
+# method is POST or PUT and content-type is not 'application/x-www-form-urlencoded'
+#
+# headers show when:
+# always
+#
+# query params show if:
+# the method is GET
+# or the method is POST or PUT and content type is 'application/x-www-form-urlencoded'
+
 ProxyEndpointTestFormController = FormController.extend
   needs: ['proxy-endpoint', 'proxy-endpoint-tests']
   modelType: 'proxy-endpoint-test'
@@ -23,14 +41,13 @@ ProxyEndpointTestFormController = FormController.extend
       required: true
       type: 'select'
     ]
-  methodFields: Ember.computed 'method', ->
+  methodFields:
     'POST': [
       name: 'content_type'
     ]
     'PUT': [
       name: 'content_type'
     ]
-
   fields: Ember.computed 'isNew', 'method', 'methodFields', ->
     fields = @_super.apply @, arguments
     methodFields = @get "methodFields.#{@get 'method'}"
@@ -40,6 +57,10 @@ ProxyEndpointTestFormController = FormController.extend
   defaultContentType: Ember.observer 'method', ->
     method = @get 'method'
     @set 'content_type', 'application/json' if (method is 'POST') or (method is 'PUT')
+
+  showQueryParameters: Ember.computed 'method', 'isFormEncoded', ->
+    method = @get 'method'
+    (method is 'GET') or (@get('isFormEncoded') and ((method is 'POST') or (method is 'PUT')))
 
   createNewHeaderModel: ->
     model = @get 'model'

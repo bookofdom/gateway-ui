@@ -19,6 +19,12 @@ ProxyEndpointTest = Model.extend
   methodType: Ember.computed 'method', ->
     method = @get 'method'
     ProxyEndpointTest.methods.findBy 'value', method
+  isFormEncoded: Ember.computed 'content_type', ->
+    @get('content_type') is 'application/x-www-form-urlencoded'
+  isJson: Ember.computed 'content_type', ->
+    @get('content_type') is 'application/json'
+  isXml: Ember.computed 'content_type', ->
+    @get('content_type') is 'application/xml'
 
   # Relationships
   headers: DS.hasMany 'proxy-endpoint-test-header'
