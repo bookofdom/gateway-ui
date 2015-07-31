@@ -29,6 +29,7 @@
     "export": "export",
     "toggle": "toggle",
     "toggle-x": "toggle $t(__x__)",
+    "specify-custom": "specify custom",
     "drop-or-click-to-upload": "drop or click to upload",
     "select-add-component-type": "select a component type to add"
   },

@@ -29,6 +29,7 @@
     "export": "exportar",
     "toggle": "alterar",
     "toggle-x": "alterar $t(__x__)",
+    "specify-custom": "especificar costume",
     "drop-or-click-to-upload": "solte ou pressione para subir",
     "select-add-component-type": "selecione um tipo de componente para adicionar"
   },
