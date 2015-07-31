@@ -3,6 +3,27 @@
   option-groups=option-groups
   fields=fields}}
 
+  {{#if showBodyField}}
+    {{#ap-model-form-group
+      model=model
+      name=bodyField.name
+      label=bodyField.label
+      help=bodyField.help
+      type=bodyField.type
+      required=bodyField.required
+      horizontal=true}}
+      {{ap-model-field
+        model=model
+        name=bodyField.name
+        label=bodyField.label
+        help=bodyField.help
+        type=bodyField.type
+        required=bodyField.required
+        option-groups=option-groups
+        show-placeholder=bodyField.show-placeholders}}
+    {{/ap-model-form-group}}
+  {{/if}}
+
   {{#unless isNew}}
     {{#bs-row}}
       {{#bs-col md=6}}
