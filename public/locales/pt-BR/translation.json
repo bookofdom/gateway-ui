@@ -158,6 +158,7 @@
     "maxidle": "limite máximo de conexões inativas",
     "maxopen": "limite máximo de conexões abertas",
     "content_type": "tipo de conteúdo",
+    "body": "conteúdo",
     "help": {
       "remote-endpoint-type": "Em breve: suporte para endpoints remotos em PostgreSQL, MongoDB e MySQL."
     }
