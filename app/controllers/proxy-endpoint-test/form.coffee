@@ -99,5 +99,7 @@ ProxyEndpointTestFormController = FormController.extend
       if model.get 'isNew'
         tests = @get 'controllers.proxy-endpoint-tests.model'
         tests.pushObject model
+    executeTest: ->
+      @get('model').executeTest()
 
 `export default ProxyEndpointTestFormController`

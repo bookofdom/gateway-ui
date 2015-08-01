@@ -68,6 +68,9 @@ ProxyEndpointTest = Model.extend
     proxyEndpoint.save().then (->
       proxyEndpoint.rollback()
     ), (=>)
+  executeTest: ->
+    adapter = @container.lookup 'adapter:proxy-endpoint-test'
+    adapter.executeTest @
 
 # Declare available methods and their human-readable names
 methods = 'get post put delete'.split(' ').map (method) ->
