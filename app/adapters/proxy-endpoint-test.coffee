@@ -2,28 +2,33 @@
 `import config from  '../config/environment'`
 
 ProxyEndpointTestAdapter = ApplicationAdapter.extend
-  buildTestUrl: (record) ->
-    store = @store
-    testId = record.get 'id'
-    new Ember.RSVP.Promise (resolve, reject) =>
+  buildURL: (type, id, record) ->
+    if record
+      # models
       proxyEndpoint = record.get 'proxy_endpoint'
-      id = proxyEndpoint.get 'id'
-      typeKey = proxyEndpoint.constructor.typeKey
-      adapter = @container.lookup 'adapter:proxy-endpoint'
-      url = adapter.buildURL typeKey, id, @
-      url = "#{url}/tests/#{testId}/test"
-      resolve url
+      # adapters
+      proxyEndpointAdapter = @container.lookup 'adapter:proxy-endpoint'
+      # IDs
+      testId = record.get 'id'
+      proxyEndpointId = proxyEndpoint.get 'id'
+      # URLs
+      proxyEndpointTypeKey = proxyEndpoint.constructor.typeKey
+      proxyEndpointUrl = proxyEndpointAdapter.buildURL proxyEndpointTypeKey, proxyEndpointId, proxyEndpoint
+      "#{proxyEndpointUrl}/tests/#{testId}"
+
+  buildTestUrl: (record) ->
+    "#{@buildURL null, null, record}/test"
 
   ###
   record:  environment instance
   ###
   executeTest: (record) ->
+    url = @buildTestUrl record
     new Ember.RSVP.Promise (resolve, reject) =>
-      @buildTestUrl(record).then (url) =>
-        console.log url
-        #data =
-        #  environment_id: record.get 'environment.id'
-        #  deployment_id: record.get 'id'
-        #@ajax(url, 'POST', data: data).then resolve, reject
+      @ajax(url, 'GET').then (response) ->
+        if response?[0]
+          resolve response[0]
+        else
+          reject response
 
 `export default ProxyEndpointTestAdapter`
