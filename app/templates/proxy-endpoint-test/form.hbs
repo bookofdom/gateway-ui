@@ -26,8 +26,9 @@
 
   {{#unless isNew}}
     {{#bs-row}}
-      {{#bs-col md=6}}
-        {{#ap-panel-edit t='resources.proxy-endpoint-test-header_plural'}}
+      {{#bs-col lg=6}}
+        {{#ap-panel-edit t='resources.proxy-endpoint-test-header_plural'
+          class='panel-small'}}
           {{ap-table-model
             models=model.headers
             delete-action='delete-proxy-endpoint-test-header'
@@ -38,9 +39,10 @@
             action='new-proxy-endpoint-test-header'}}
         {{/ap-panel-edit}}
       {{/bs-col}}
-      {{#bs-col md=6}}
+      {{#bs-col lg=6}}
         {{#if showQueryParameters}}
-          {{#ap-panel-edit t='resources.proxy-endpoint-test-query-parameter_plural'}}
+          {{#ap-panel-edit t='resources.proxy-endpoint-test-query-parameter_plural'
+            class='panel-small'}}
             {{ap-table-model
               models=model.query
               delete-action='delete-proxy-endpoint-test-query-parameter'

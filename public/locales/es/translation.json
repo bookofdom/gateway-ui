@@ -163,7 +163,8 @@
     "body": "contenido",
     "log": "registro",
     "help": {
-      "remote-endpoint-type": "En breve: soporte para tipos de endpoints remotos de PostgreSQL, MongoDB y MySQL"
+      "remote-endpoint-type": "En breve: soporte para tipos de endpoints remotos de PostgreSQL, MongoDB y MySQL",
+      "content-type": "Buscando algo más? Especifique una costumbre Content-Type en las cabeceras de petición."
     }
   },
   "prompts": {
