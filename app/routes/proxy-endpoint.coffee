@@ -16,8 +16,8 @@ ProxyEndpointRoute = Ember.Route.extend AuthenticatedRouteMixin,
     # supported in Ember.  To work-around this issue, we first transition away
     # from the component edit route and then back to it with the new model.
     'proxy-endpoint-component-edit': (model) ->
-      @transitionTo('proxy-endpoint').then (=>), =>
-        Ember.run.schedule 'afterRender', @, =>
-          @transitionTo 'proxy-endpoint-component.edit', model
+      #@transitionTo('proxy-endpoint').then (=>), =>
+      #  Ember.run.schedule 'afterRender', @, =>
+      #    @transitionTo 'proxy-endpoint-component.edit', model
 
 `export default ProxyEndpointRoute`
