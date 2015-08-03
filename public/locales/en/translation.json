@@ -29,6 +29,7 @@
     "export": "export",
     "toggle": "toggle",
     "toggle-x": "toggle $t(__x__)",
+    "execute": "execute",
     "specify-custom": "specify custom",
     "drop-or-click-to-upload": "drop or click to upload",
     "select-add-component-type": "select a component type to add"
@@ -160,6 +161,7 @@
     "maxopen": "max. open connections",
     "content_type": "content type",
     "body": "body",
+    "log": "log",
     "help": {
       "remote-endpoint-type": "Coming soon:  support for PostgreSQL, MongoDB, and MySQL remote endpoint types"
     }

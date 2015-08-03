@@ -26,8 +26,12 @@ ProxyEndpointTestAdapter = ApplicationAdapter.extend
     url = @buildTestUrl record
     new Ember.RSVP.Promise (resolve, reject) =>
       @ajax(url, 'GET').then (response) ->
-        if response?[0]
-          resolve response[0]
+        result = response?.results?[0]
+        if result
+          result.method = record.get 'method' # for consistency
+          result.route = record.get 'route' # for convenience
+          result.error = +result.status > 300
+          resolve result
         else
           reject response
 

@@ -29,6 +29,7 @@
     "export": "export",
     "toggle": "toggle",
     "toggle-x": "toggle $t(__x__)",
+    "execute": "निष्पादित",
     "specify-custom": "कस्टम निर्दिष्ट",
     "drop-or-click-to-upload": "drop or click to upload",
     "select-add-component-type": "select a component type to add"
@@ -160,6 +161,7 @@
     "maxopen": "अधिकतम मुक्त सम्पर्क",
     "content_type": "सामग्री का प्रकार",
     "body": "सामग्री",
+    "log": "लॉग इन करें",
     "help": {
       "remote-endpoint-type": "शीघ्र आ रहा है: पोस्त्ग्रेस, मोंगोडीबी, और माइ एसक्यूएल प्रकार"
     }

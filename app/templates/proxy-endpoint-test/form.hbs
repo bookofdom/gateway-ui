@@ -57,4 +57,31 @@
 
 {{/ap-model-form}}
 
-<a class="btn btn-default" {{action 'executeTest'}}>Execute</a>
+
+{{#if response}}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {{#unless response.error}}
+        <span class="label label-success">{{response.status}}</span>
+      {{/unless}}
+      {{#if response.error}}
+        <span class="label label-danger">{{response.status}}</span>
+      {{/if}}
+      <span class="label label-default">{{response.method}}</span>
+      <code>{{response.route}}</code>
+    </div>
+    <div class="panel-body">
+      <h4>{{t 'fields.body'}}</h4>
+      <pre>{{response.body}}</pre>
+
+      <h4>{{t 'fields.log'}}</h4>
+      <pre>{{response.log}}</pre>
+    </div>
+  </div>
+{{/if}}
+
+{{#unless isDirty}}
+  {{#unless executing}}
+    <a class="btn btn-primary btn-lg" {{action 'executeTest'}}>{{t 'actions.execute'}}</a>
+  {{/unless}}
+{{/unless}}
