@@ -29,6 +29,17 @@ ProxyEndpointTestFormController = FormController.extend
     route: @get('controllers.proxy-endpoint.routes').map (route) ->
       name: route.get 'name'
       value: route.get 'path'
+    content_type:
+      [
+        name: 'application/json'
+        value: 'application/json'
+      ,
+        name: 'application/xml'
+        value: 'application/xml'
+      ,
+        name: 'application/x-www-form-urlencoded'
+        value: 'application/x-www-form-urlencoded'
+      ]
 
   defaultFields: Ember.computed 'controllers.proxy-endpoint.routes.@each', ->
     [
@@ -47,9 +58,11 @@ ProxyEndpointTestFormController = FormController.extend
   methodFields:
     'POST': [
       name: 'content_type'
+      type: 'select'
     ]
     'PUT': [
       name: 'content_type'
+      type: 'select'
     ]
   fields: Ember.computed 'isNew', 'method', 'methodFields', ->
     fields = @_super.apply @, arguments
