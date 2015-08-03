@@ -59,10 +59,12 @@ ProxyEndpointTestFormController = FormController.extend
     'POST': [
       name: 'content_type'
       type: 'select'
+      help: "fields.help.content-type"
     ]
     'PUT': [
       name: 'content_type'
       type: 'select'
+      help: "fields.help.content-type"
     ]
   fields: Ember.computed 'isNew', 'method', 'methodFields', ->
     fields = @_super.apply @, arguments
