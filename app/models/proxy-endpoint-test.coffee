@@ -78,7 +78,14 @@ methods = 'get post put delete'.split(' ').map (method) ->
   slug: method
   value: method.toUpperCase()
 
+# Declare available default content types
+contentTypes = 'application/json application/xml application/x-www-form-urlencoded'.split(' ').map (type) ->
+  name: type
+  slug: type
+  value: type
+
 ProxyEndpointTest.reopenClass
   methods: methods
+  contentTypes: contentTypes
 
 `export default ProxyEndpointTest`
