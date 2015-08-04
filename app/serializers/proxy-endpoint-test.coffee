@@ -31,6 +31,8 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
       hash.content_type = value
       hash.pairs = hash.pairs.filter (pair) ->
         !((pair.type is 'header') and (pair.key is 'Content-Type'))
+    else
+      hash.content_type = null
     hash
   normalizeHeaders: (hash) ->
     hash.pairs ?= []
