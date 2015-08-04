@@ -66,13 +66,13 @@ ProxyEndpointTestFormController = FormController.extend
     fields
 
   hasContentTypeHeader: Ember.computed 'headers.@each.name', ->
-    @get('headers').filterBy('name', 'Content-Type').get('length') > 0
+    !!@get('headers').findBy 'name', 'Content-Type'
 
   defaultContentType: Ember.observer 'method', 'content_type', 'hasContentTypeHeader', ->
-    return if @get('hasContentTypeHeader')
-    method = @get 'method'
-    contentType = @get 'content_type'
-    @set 'content_type', 'application/json' if !contentType and ((method is 'POST') or (method is 'PUT'))
+    if !@get 'hasContentTypeHeader'
+      method = @get 'method'
+      contentType = @get 'content_type'
+      @set 'content_type', 'application/json' if !contentType and ((method is 'POST') or (method is 'PUT'))
 
   bodyLanguage: Ember.computed 'content_type', ->
     language = 'text' if !@get 'isFormEncoded'
