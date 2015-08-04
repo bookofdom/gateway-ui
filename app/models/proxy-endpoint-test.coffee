@@ -79,7 +79,7 @@ methods = 'get post put delete'.split(' ').map (method) ->
   value: method.toUpperCase()
 
 # Declare available default content types
-contentTypes = 'application/json application/xml application/x-www-form-urlencoded'.split(' ').map (type) ->
+contentTypes = 'application/json application/xml application/x-www-form-urlencoded custom/content-type'.split(' ').map (type) ->
   name: type
   slug: type
   value: type
