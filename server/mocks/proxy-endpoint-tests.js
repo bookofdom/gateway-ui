@@ -13,7 +13,8 @@ module.exports = function(app) {
         {name: 'X-Gateway-Requestid', value: 'ed32998f-f857-4335-9f0f-288010ddb282'}
       ],
       body: '{"get-test": "this is a get test"}',
-      log: 'this is a log message for a get request'
+      log: 'this is a log message for a get request',
+      time: 8177770
     },
     {
       method: 'post',
@@ -25,7 +26,8 @@ module.exports = function(app) {
         {name: 'X-Gateway-Requestid', value: 'ed32998f-f857-4335-9f0f-288010ddb282'}
       ],
       body: '{"post-test": "this is a post test"}',
-      log: 'this is a log message for a post request'
+      log: 'this is a log message for a post request',
+      time: 8177770
     },
     {
       method: 'put',
@@ -37,7 +39,8 @@ module.exports = function(app) {
         {name: 'X-Gateway-Requestid', value: 'ed32998f-f857-4335-9f0f-288010ddb282'}
       ],
       body: '{"error": "this is a put test error"}',
-      log: 'this is a log message for a put request'
+      log: 'this is a log message for a put request',
+      time: 8177770
     }
   ];
 
