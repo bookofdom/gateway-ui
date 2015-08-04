@@ -83,6 +83,17 @@
   {{#if response}}
     <div class="panel-body">
       <div class="form-group">
+        <label class="control-label col-sm-2">{{t 'resources.proxy-endpoint-test-header_plural'}}</label>
+        <div class="col-sm-10">
+          <dl class="dl-horizontal text-mono">
+            {{#each header in response.headers}}
+              <dt {{bind-attr title=header.name}}>{{header.name}}</dt>
+              <dd>{{header.value}}</dd>
+            {{/each}}
+          </dl>
+        </div><!-- /.col -->
+      </div><!-- /.form-group -->
+      <div class="form-group">
         <label class="control-label col-sm-2">{{t 'fields.body'}}</label>
         <div class="col-sm-10">
           <pre class="form-control form-control-flexible">{{response.body}}</pre>
