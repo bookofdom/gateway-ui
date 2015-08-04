@@ -14,7 +14,7 @@ module.exports = function(app) {
       ],
       body: '{"get-test": "this is a get test"}',
       log: 'this is a log message for a get request',
-      time: 8177770
+      time: 8
     },
     {
       method: 'post',
@@ -27,7 +27,7 @@ module.exports = function(app) {
       ],
       body: '{"post-test": "this is a post test"}',
       log: 'this is a log message for a post request',
-      time: 8177770
+      time: 8
     },
     {
       method: 'put',
@@ -40,7 +40,7 @@ module.exports = function(app) {
       ],
       body: '{"error": "this is a put test error"}',
       log: 'this is a log message for a put request',
-      time: 8177770
+      time: 8
     }
   ];
 
