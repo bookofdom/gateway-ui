@@ -27,12 +27,10 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
     value = contentType?.value
     # If a content type header is one of the default content types, remove it from headers.
     # Default content types are always exposed via the model field content_type.
-    if value in ProxyEndpointTest.contentTypes.map((type) -> type.value).filter((type) -> type isnt 'custom/content-type')
+    if value in ProxyEndpointTest.contentTypes.map((type) -> type.value)
       hash.content_type = value
       hash.pairs = hash.pairs.filter (pair) ->
         !((pair.type is 'header') and (pair.key is 'Content-Type'))
-    else if value
-      hash.content_type = 'custom/content-type'
     else
       hash.content_type = null
     hash

@@ -65,21 +65,14 @@ ProxyEndpointTestFormController = FormController.extend
     fields = Ember.copy(fields).pushObjects methodFields if methodFields
     fields
 
-  defaultContentType: Ember.observer 'method', 'content_type', ->
+  hasContentTypeHeader: Ember.computed 'headers.@each.name', ->
+    @get('headers').filterBy('name', 'Content-Type').get('length') > 0
+
+  defaultContentType: Ember.observer 'method', 'content_type', 'hasContentTypeHeader', ->
+    return if @get('hasContentTypeHeader')
     method = @get 'method'
     contentType = @get 'content_type'
     @set 'content_type', 'application/json' if !contentType and ((method is 'POST') or (method is 'PUT'))
-
-  customContentType: Ember.observer 'content_type', ->
-    if @get('content_type') == 'custom/content-type'
-      model = @get 'model'
-      if !model.get('headers').filterBy('name', 'Content-Type').get('length')
-        newModel = @store?.createRecord 'proxy-endpoint-test-header'
-        newModel.set('name', 'Content-Type')
-        newModel.set('value', 'custom/content-type')
-        model.get('headers').pushObject newModel
-        Ember.run.schedule 'afterRender', @, =>
-          $('input').filter(-> @value == 'custom/content-type').focus().select()
 
   bodyLanguage: Ember.computed 'content_type', ->
     language = 'text' if !@get 'isFormEncoded'
