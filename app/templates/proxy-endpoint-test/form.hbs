@@ -60,30 +60,40 @@
 {{/ap-model-form}}
 
 
-{{#if response}}
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      {{#unless response.error}}
-        <span class="label label-success">{{response.status}}</span>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{#unless response.error}}
+      <span class="label label-success">{{response.status}}</span>
+    {{/unless}}
+    {{#if response.error}}
+      <span class="label label-danger">{{response.status}}</span>
+    {{/if}}
+    <span class="label label-default">{{method}}</span>
+    <code>{{route}}</code>
+    {{#unless isDirty}}
+      {{#unless executing}}
+        <a class="btn btn-default pull-right" {{action 'executeTest'}}>
+          {{t 'actions.execute'}}
+          {{ap-icon icon='arrows-006'}}
+        </a>
       {{/unless}}
-      {{#if response.error}}
-        <span class="label label-danger">{{response.status}}</span>
-      {{/if}}
-      <span class="label label-default">{{response.method}}</span>
-      <code>{{response.route}}</code>
-    </div>
-    <div class="panel-body">
-      <h4>{{t 'fields.body'}}</h4>
-      <pre>{{response.body}}</pre>
-
-      <h4>{{t 'fields.log'}}</h4>
-      <pre>{{response.log}}</pre>
-    </div>
+    {{/unless}}
   </div>
-{{/if}}
-
-{{#unless isDirty}}
-  {{#unless executing}}
-    <a class="btn btn-primary btn-lg" {{action 'executeTest'}}>{{t 'actions.execute'}}</a>
-  {{/unless}}
-{{/unless}}
+  {{#if response}}
+    <div class="panel-body">
+      <div class="form-group">
+        <label class="control-label col-sm-2">{{t 'fields.body'}}</label>
+        <div class="col-sm-10">
+          <pre class="form-control form-control-flexible">{{response.body}}</pre>
+        </div><!-- /.col -->
+      </div><!-- /.form-group -->
+      <div class="form-group">
+        <label class="control-label col-sm-2">{{t 'fields.log'}}</label>
+        <div class="col-sm-10">
+          <pre class="form-control form-control-flexible">{{response.log}}</pre>
+        </div><!-- /.col -->
+      </div><!-- /.form-group -->
+    </div>
+  {{/if}}
+</div>
