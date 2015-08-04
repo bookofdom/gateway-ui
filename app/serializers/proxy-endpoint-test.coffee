@@ -21,6 +21,7 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
     delete hash.methods
     hash
   normalizeContentType: (hash) ->
+    hash.pairs ?= []
     # find a content type header
     contentType = hash.pairs.find (pair) ->
       (pair.type is 'header') and (pair.key is 'Content-Type')
@@ -70,14 +71,18 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
         key: 'Content-Type'
         value: serialized.content_type
     model.get('headers').forEach (header) ->
+      id = header.get 'id'
+      id = parseInt(id, 10) if id
       pairs.push
-        id: header.get 'id'
+        id: id
         type: 'header'
         key: header.get 'name'
         value: header.get 'value'
     model.get('query').forEach (param) ->
+      id = param.get 'id'
+      id = parseInt(id, 10) if id
       pairs.push
-        id: param.get 'id'
+        id: id
         type: 'get'
         key: param.get 'name'
         value: param.get 'value'
