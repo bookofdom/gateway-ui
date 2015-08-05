@@ -138,7 +138,7 @@ module.exports = function(app) {
       }
     },
     {
-      "id":5,
+      "id":6,
       "api_id":1,
       "name":"postgres-simple",
       "codename":"super-postgres",
