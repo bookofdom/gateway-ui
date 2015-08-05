@@ -9,21 +9,23 @@ RemoteEndpoint = Model.extend
   codename: DS.attr 'string'
   description: DS.attr 'string'
 
+  # http
+  url: DS.attr 'string'
+  method: DS.attr 'string'
+
   # sqlserver
+  schema: DS.attr 'string'
+
+  # sqlserver and postgres
   server: DS.attr 'string'
   port: DS.attr 'number'
   username: DS.attr 'string'
   password: DS.attr 'string'
   database: DS.attr 'string'
-  schema: DS.attr 'string'
   transactions: DS.attr 'boolean'
   timeout: DS.attr 'number'
   maxopen: DS.attr 'number'
   maxidle: DS.attr 'number'
-
-  # http
-  url: DS.attr 'string'
-  method: DS.attr 'string'
 
   # Computed
   platform: Ember.computed 'type', ->
@@ -55,7 +57,7 @@ RemoteEndpoint = Model.extend
     Ember.run.once => @get 'relationshipsDirty'
 
 # Declare available types and their human-readable names
-types = 'http sqlserver'.split(' ').map (type) ->
+types = 'http sqlserver postgres'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type
