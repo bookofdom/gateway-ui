@@ -16,7 +16,8 @@ RemoteEndpoint = Model.extend
   # sqlserver
   schema: DS.attr 'string'
 
-  # sqlserver and postgres
+  # sqlserver
+  # postgres
   server: DS.attr 'string'
   port: DS.attr 'number'
   username: DS.attr 'string'
@@ -26,6 +27,9 @@ RemoteEndpoint = Model.extend
   timeout: DS.attr 'number'
   maxopen: DS.attr 'number'
   maxidle: DS.attr 'number'
+
+  # postgres
+  host_address: DS.attr 'string'
 
   # Computed
   platform: Ember.computed 'type', ->
