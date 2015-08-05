@@ -29,7 +29,7 @@
     "broccoli-static-compiler": "0.2.1",
     "connect-restreamer": "^1.0.1",
     "ember-breadcrumbs": "0.1.1",
-    "ember-cli-anypresence": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/Anypresence/ember-cli-anypresence#f28a9589f8ccb7a6b96cbb7578e4ab2b885f4e19",
+    "ember-cli-anypresence": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/Anypresence/ember-cli-anypresence#901ee709a975cdec233936208afd54a067da0283",
     "ember-cli": "0.1.6",
     "ember-cli-coffeescript": "0.7.0",
     "ember-cli-compass-compiler": "git+https://github.com/christophercurrie/ember-cli-compass-compiler#33f7812f693b2340b151cf4e7db9ac795990b681",

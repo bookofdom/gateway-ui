@@ -6,7 +6,12 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app'),
 
 var app = new EmberApp({
   fingerprint: {
-    exclude: ['assets/worker-javascript.js']
+    exclude: [
+      'worker-javascript.js',
+      'worker-json.js',
+      'worker-text.js',
+      'worker-xml.js'
+    ]
   },
   gzip: {
     enabled: false,
