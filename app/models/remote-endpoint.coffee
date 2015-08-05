@@ -55,7 +55,7 @@ RemoteEndpoint = Model.extend
     Ember.run.once => @get 'relationshipsDirty'
 
 # Declare available types and their human-readable names
-types = 'http sqlserver'.split(' ').map (type) ->
+types = 'http sqlserver mongodb'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type
