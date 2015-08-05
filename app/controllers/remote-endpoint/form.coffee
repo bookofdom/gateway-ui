@@ -81,10 +81,8 @@ RemoteEndpointFormController = FormController.extend
     postgres: [
       name: 'server'
       label: 'resources.host'
-      required: true
     ,
       name: 'host_address'
-      required: true
     ,
       name: 'port'
       type: 'integer'
