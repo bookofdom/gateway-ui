@@ -78,6 +78,34 @@ RemoteEndpointFormController = FormController.extend
       name: 'maxopen'
       type: 'integer'
     ]
+    postgres: [
+      name: 'server'
+      required: true
+    ,
+      name: 'port'
+      type: 'integer'
+      required: true
+    ,
+      name: 'username'
+      required: true
+    ,
+      name: 'password'
+      required: true
+    ,
+      name: 'database'
+      required: true
+    ,
+      name: 'transactions'
+    ,
+      name: 'timeout'
+      type: 'integer'
+    ,
+      name: 'maxidle'
+      type: 'integer'
+    ,
+      name: 'maxopen'
+      type: 'integer'
+    ]
 
   fields: Ember.computed 'isNew', 'platform.slug', 'platformFields', ->
     fields = @_super.apply @, arguments
