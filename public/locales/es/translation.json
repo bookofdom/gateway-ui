@@ -171,6 +171,7 @@
     "generic": "elija uno",
     "choose-x": "elija $t(__x__)",
     "confirm-delete": "¿esta seguro que desea eliminar éste registro?",
+    "confirm-abandon": "are you sure you want to leave this record without saving?",
     "change-language": "cambio de idioma"
   },
   "states": {
