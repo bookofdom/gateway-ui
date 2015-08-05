@@ -24,9 +24,6 @@ ProxyEndpointTestFormController = FormController.extend
   needs: ['proxy-endpoint', 'proxy-endpoint-tests']
   modelType: 'proxy-endpoint-test'
 
-  response: null # holds response from test execution
-  executing: false # true while test execution request is in progress
-
   'option-groups': Ember.computed 'controllers.proxy-endpoint.routes.@each', ->
     method: ProxyEndpointTest.methods
     route: @get('controllers.proxy-endpoint.routes').map (route) ->
@@ -111,13 +108,5 @@ ProxyEndpointTestFormController = FormController.extend
       if model.get 'isNew'
         tests = @get 'controllers.proxy-endpoint-tests.model'
         tests.pushObject model
-    executeTest: ->
-      @set 'response', null
-      @set 'executing', true
-      @get('model').executeTest()
-        .then (response) =>
-          @set 'response', response
-        .finally =>
-          @set 'executing', false
 
 `export default ProxyEndpointTestFormController`

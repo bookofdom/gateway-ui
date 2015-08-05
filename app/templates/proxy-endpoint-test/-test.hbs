@@ -1,52 +1,51 @@
-{{#unless isNew}}
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      {{#unless response.error}}
-        <span class="label label-success">{{response.status}}</span>
-      {{/unless}}
-      {{#if response.error}}
-        <span class="label label-danger">{{response.status}}</span>
-      {{/if}}
-      <span class="label label-default">{{method}}</span>
-      {{#if response.time}}
-        <span class="label label-default">{{response.time}} ms</span>
-      {{/if}}
-      <code>{{route}}</code>
-      {{#unless isDirty}}
-        {{#unless executing}}
-          <a class="btn btn-default pull-right" {{action 'executeTest'}}>
-            {{t 'actions.execute'}}
-            {{ap-icon icon='arrows-006'}}
-          </a>
-        {{/unless}}
-      {{/unless}}
-    </div>
-    {{#if response}}
-      <div class="panel-body">
-        <div class="form-group">
-          <label class="control-label col-sm-2">{{t 'resources.proxy-endpoint-test-header_plural'}}</label>
-          <div class="col-sm-10">
-            <dl class="dl-horizontal text-mono">
-              {{#each header in response.headers}}
-                <dt {{bind-attr title=header.name}}>{{header.name}}</dt>
-                <dd>{{header.value}}</dd>
-              {{/each}}
-            </dl>
-          </div><!-- /.col -->
-        </div><!-- /.form-group -->
-        <div class="form-group">
-          <label class="control-label col-sm-2">{{t 'fields.body'}}</label>
-          <div class="col-sm-10">
-            <pre class="form-control form-control-flexible">{{response.body}}</pre>
-          </div><!-- /.col -->
-        </div><!-- /.form-group -->
-        <div class="form-group">
-          <label class="control-label col-sm-2">{{t 'fields.log'}}</label>
-          <div class="col-sm-10">
-            <pre class="form-control form-control-flexible">{{response.log}}</pre>
-          </div><!-- /.col -->
-        </div><!-- /.form-group -->
-      </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{#unless response.error}}
+      <span class="label label-success">{{response.status}}</span>
+    {{/unless}}
+    {{#if response.error}}
+      <span class="label label-danger">{{response.status}}</span>
     {{/if}}
+    <span class="label label-default">{{method}}</span>
+    {{#if response.time}}
+      <span class="label label-default">{{response.time}} ms</span>
+    {{/if}}
+    <code>{{route}}</code>
   </div>
-{{/unless}}
+
+  <div class="panel-body">
+    {{#if response}}
+      <div class="form-group">
+        <label class="control-label col-sm-2">{{t 'resources.proxy-endpoint-test-header_plural'}}</label>
+        <div class="col-sm-10">
+          <dl class="dl-horizontal text-mono">
+            {{#each header in response.headers}}
+              <dt {{bind-attr title=header.name}}>{{header.name}}</dt>
+              <dd>{{header.value}}</dd>
+            {{/each}}
+          </dl>
+        </div><!-- /.col -->
+      </div><!-- /.form-group -->
+      <div class="form-group">
+        <label class="control-label col-sm-2">{{t 'fields.body'}}</label>
+        <div class="col-sm-10">
+          <pre class="form-control form-control-flexible">{{formattedResponseBody}}</pre>
+        </div><!-- /.col -->
+      </div><!-- /.form-group -->
+      <div class="form-group">
+        <label class="control-label col-sm-2">{{t 'fields.log'}}</label>
+        <div class="col-sm-10">
+          <pre class="form-control form-control-flexible">{{response.log}}</pre>
+        </div><!-- /.col -->
+      </div><!-- /.form-group -->
+    {{/if}}
+    {{#unless isDirty}}
+      {{#unless executing}}
+        <a class="btn btn-default" {{action 'executeTest'}}>
+          {{t 'actions.execute'}}
+          {{ap-icon icon='arrows-006'}}
+        </a>
+      {{/unless}}
+    {{/unless}}
+  </div><!-- /.panel-body -->
+</div>
