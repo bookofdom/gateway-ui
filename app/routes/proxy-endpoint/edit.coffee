@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import EditRoute from '../edit'`
 `import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-ProxyEndpointEditRoute = Ember.Route.extend AuthenticatedRouteMixin
+ProxyEndpointEditRoute = EditRoute.extend AuthenticatedRouteMixin
 
 `export default ProxyEndpointEditRoute`

@@ -159,6 +159,7 @@
     "generic": "choose one",
     "choose-x": "choose $t(__x__)",
     "confirm-delete": "are you sure you want to delete this record?",
+    "confirm-abandon": "are you sure you want to leave this record without saving?",
     "change-language": "change language"
   },
   "states": {
