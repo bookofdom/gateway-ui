@@ -21,6 +21,9 @@ RemoteEndpoint = Model.extend
   maxopen: DS.attr 'number'
   maxidle: DS.attr 'number'
 
+  # mongodb
+  host: DS.attr 'string'
+
   # http
   url: DS.attr 'string'
   method: DS.attr 'string'

@@ -37,6 +37,12 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.transactions = hash.data.transactions
         hash.maxopen = hash.data.maxOpenConn
         hash.maxidle = hash.data.maxIdleConn
+      when 'mongodb'
+        hash.host = hash.data.host
+        hash.port = hash.data.port
+        hash.database = hash.data.database
+        hash.username = hash.data.username
+        hash.password = hash.data.password
     @_super.apply @, arguments
   normalizeHeaders: (hash) ->
     hash.headers = []
@@ -93,6 +99,12 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
           transactions: serialized.transactions
           maxIdleConn: serialized.maxidle
           maxOpenConn: serialized.maxopen
+      when 'mongodb'
+        serialized.data =
+          host: serialized.host
+          port: serialized.port
+          username: serialized.username
+          password: serialized.password
     serialized
   serializeHeaders: (model) ->
     headers = {}
