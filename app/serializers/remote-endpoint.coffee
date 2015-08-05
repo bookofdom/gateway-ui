@@ -32,13 +32,17 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.username = hash.data.config['user id']
         hash.timeout = hash.data.config['connection timeout']
         hash.schema = hash.data.config.schema
+        hash.port = hash.data.config.port
+        hash.password = hash.data.config.password
+        hash.transactions = hash.data.transactions
+        hash.maxopen = hash.data.maxOpenConn
+        hash.maxidle = hash.data.maxIdleConn
       when 'postgres'
         hash.server = hash.data.config.host
         hash.host_address = hash.data.config.hostaddr
         hash.database = hash.data.config.dbname
         hash.username = hash.data.config.user
         hash.timeout = hash.data.config.connect_timeout
-      when 'sqlserver', 'postgres'
         hash.port = hash.data.config.port
         hash.password = hash.data.config.password
         hash.transactions = hash.data.transactions
