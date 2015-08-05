@@ -150,8 +150,7 @@ module.exports = function(app) {
           "port":1433,
           "user id":"anypresence",
           "password":"password",
-          "database":"database",
-          "schema":"schema"
+          "database":"database"
         }
       }
     }
