@@ -78,6 +78,23 @@ RemoteEndpointFormController = FormController.extend
       name: 'maxopen'
       type: 'integer'
     ]
+    mongodb: [
+      name: 'host'
+      required: true
+    ,
+      name: 'port'
+      type: 'integer'
+      required: true
+    ,
+      name: 'database'
+      required: true
+    ,
+      name: 'username'
+      required: true
+    ,
+      name: 'password'
+      required: true
+    ]
 
   fields: Ember.computed 'isNew', 'platform.slug', 'platformFields', ->
     fields = @_super.apply @, arguments
