@@ -7,13 +7,18 @@ ProxyEndpointTestEditController = Ember.ObjectController.extend
   # returns `json`, `xml`, or `text`
   responseType: Ember.computed 'response.headers.@each.name', ->
     contentType = @get('response.headers')?.findBy 'name', 'Content-Type'
-    value = contentType?.value
-    type = 'text'
-    type = 'json' if value is 'application/json'
-    type = 'xml' if value is 'application/json'
+    contentType?.value
 
-  formattedResponseBody: Ember.computed 'response.body', 'responseType', ->
+  responseIsJson: Ember.computed 'responseType', ->
+    @get('responseType') is 'application/json'
+
+  responseIsXml: Ember.computed 'responseType', ->
+    @get('responseType') is 'application/xml'
+
+  formattedResponseBody: Ember.computed 'response.body', 'responseIsJson', 'responseIsXml', ->
     body = @get 'response.body'
+    body = vkbeautify.json body if @get 'responseIsJson'
+    body = vkbeautify.xml body if @get 'responseIsXml'
     body
 
   actions:
