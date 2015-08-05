@@ -26,7 +26,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         @normalizeQuery hash
         @normalizeEnvironmentData hash
         @normalizeEnvironmentDataLinks hash
-      when 'sqlserver', 'postgresql'
+      when 'sqlserver', 'postgres'
         hash.server = hash.data.config.server
         hash.port = hash.data.config.port
         hash.username = hash.data.config['user id']
