@@ -145,11 +145,13 @@ module.exports = function(app) {
       "description":"MongoDB endpoint",
       "type":"mongodb",
       "data":{
-        "host":"www.mongodb.com",
-        "port":27017,
-        "database":"myproject",
-        "username":"mongo-user",
-        "password":"password"
+        "config": {
+          "host":"www.mongodb.com",
+          "port":27017,
+          "database":"myproject",
+          "username":"mongo-user",
+          "password":"password"
+        }
       }
     }
   ];
