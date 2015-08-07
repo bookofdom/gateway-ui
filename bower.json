@@ -17,6 +17,7 @@
     "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#3c939ddb6da3c6b4abc3acf238cc1d5939e02746",
     "ember-simple-auth": "0.7.2",
     "jquery-ui": "~1.11.2",
-    "jquery-file-upload": "~9.9.3"
+    "jquery-file-upload": "~9.9.3",
+    "vkbeautify": "git+https://github.com/vkiryukhin/vkBeautify.git"
   }
 }

@@ -1,0 +1,5 @@
+`import ProxyEndpointTestQueryParameterFormController from 'gateway/controllers/proxy-endpoint-test-query-parameter/form'`
+
+ProxyEndpointTestQueryParameterInlineFormController = ProxyEndpointTestQueryParameterFormController.extend()
+
+`export default ProxyEndpointTestQueryParameterInlineFormController`

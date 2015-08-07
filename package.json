@@ -33,7 +33,6 @@
     "ember-cli": "0.1.6",
     "ember-cli-coffeescript": "0.7.0",
     "ember-cli-compass-compiler": "git+https://github.com/christophercurrie/ember-cli-compass-compiler#33f7812f693b2340b151cf4e7db9ac795990b681",
-    "ember-cli-content-security-policy": "0.3.0",
     "ember-cli-dependency-checker": "0.0.7",
     "ember-cli-esnext": "0.1.1",
     "ember-cli-gzip": "1.1.1",
