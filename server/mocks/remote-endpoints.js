@@ -96,6 +96,46 @@ module.exports = function(app) {
                   }
               }
           ]
+      },
+      {
+        "id": 4,
+        "api_id": 1,
+        "name": "sql-simple",
+        "codename": "sql",
+        "description": "sql",
+        "type": "sqlserver",
+        "data": {
+          "config": {
+    	      "server": "server.foo.com",
+    	      "port": 1433,
+    	      "user id": "anypresence",
+    	      "password": "password",
+    	      "database": "database",
+    	      "schema": "schema"
+          }
+        }
+      },
+      {
+        "id": 5,
+        "api_id": 1,
+        "name": "sql-complex",
+        "codename": "sql",
+        "description": "sql",
+        "type": "sqlserver",
+        "data": {
+          "config": {
+            "server": "server.foo.com",
+            "port": 1433,
+            "user id": "anypresence",
+            "password": "password",
+            "database": "database",
+            "schema": "schema",
+            "connection timeout": 30
+          },
+          "transactions": true,
+          "maxIdleConn": 100,
+          "maxOpenConn": 80,
+        }
       }
   ];
 

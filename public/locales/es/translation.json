@@ -29,6 +29,8 @@
     "export": "exportar",
     "toggle": "alternar",
     "toggle-x": "alternar $t(__x__)",
+    "execute": "ejecutar",
+    "specify-custom": "especifique personalizada",
     "drop-or-click-to-upload": "suelta o presiona para subir",
     "select-add-component-type": "selecciona un tipo de componente para agregar"
   },
@@ -83,6 +85,12 @@
     "proxy-endpoint-component-call_plural": "llamadas",
     "proxy-endpoint-component-transformation": "transformación",
     "proxy-endpoint-component-transformation_plural": "transformaciones",
+    "proxy-endpoint-test": "prueba",
+    "proxy-endpoint-test_plural": "pruebas",
+    "proxy-endpoint-test-header": "cabecera",
+    "proxy-endpoint-test-header_plural": "cabeceras",
+    "proxy-endpoint-test-query-parameter": "parámetro de consulta",
+    "proxy-endpoint-test-query-parameter_plural": "parámetros de consulta",
     "environment": "entorno",
     "environment_plural": "entornos",
     "environment-variable": "variable de entorno",
@@ -141,12 +149,29 @@
     "session_encryption_key_rotate": "clave de encriptación rotativa",
     "codename": "nombre clave",
     "hostname": "nombre de host",
-    "value": "valor"
+    "value": "valor",
+    "server": "servidor",
+    "port": "puerto",
+    "username": "nombre de usuario",
+    "database": "base de datos",
+    "schema": "esquema",
+    "transactions": "transacciones",
+    "timeout": "conexión expirada​",
+    "maxidle": "máximas conexiones inactivas",
+    "maxopen": "máximas conexiones abiertas",
+    "content_type": "tipo de contenido",
+    "body": "contenido",
+    "log": "registro",
+    "help": {
+      "remote-endpoint-type": "En breve: soporte para tipos de endpoints remotos de PostgreSQL, MongoDB y MySQL",
+      "content-type": "Buscando algo más? Especifique una costumbre Content-Type en las cabeceras de petición."
+    }
   },
   "prompts": {
     "generic": "elija uno",
     "choose-x": "elija $t(__x__)",
     "confirm-delete": "¿esta seguro que desea eliminar éste registro?",
+    "confirm-abandon": "are you sure you want to leave this record without saving?",
     "change-language": "cambio de idioma"
   },
   "states": {

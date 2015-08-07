@@ -1,25 +1,13 @@
 `import FormController from 'gateway/controllers/form'`
+`import RemoteEndpoint from '../../models/remote-endpoint'`
 `import t from 'gateway/helpers/i18n'`
 
 RemoteEndpointFormController = FormController.extend
   needs: ['remote-endpoints']
   modelType: 'remote-endpoint'
-  defaultFields: [
-    name: 'name'
-    required: true
-  ,
-    name: 'codename'
-    required: true
-  ,
-    name: 'url'
-  ,
-    name: 'method'
-    type: 'select'
-  ,
-    name: 'description'
-    type: 'textarea'
-  ]
+
   'option-groups':
+    type: RemoteEndpoint.types
     method: [
       name: t 'http-methods.get'
       value: 'GET'
@@ -29,10 +17,74 @@ RemoteEndpointFormController = FormController.extend
     ,
       name: t 'http-methods.put'
       value: 'PUT'
-    , 
+    ,
       name: t 'http-methods.delete'
       value: 'DELETE'
     ]
+
+  defaultFields: [
+    name: 'name'
+    required: true
+  ,
+    name: 'codename'
+    required: true
+  ,
+    name: 'description'
+    type: 'textarea'
+  ]
+
+  newFields: [
+    name: 'type'
+    required: true
+    type: 'select'
+    help: t 'fields.help.remote-endpoint-type'
+  ]
+
+  platformFields:
+    http: [
+      name: 'url'
+    ,
+      name: 'method'
+      type: 'select'
+    ]
+    sqlserver: [
+      name: 'server'
+      required: true
+    ,
+      name: 'port'
+      type: 'integer'
+      required: true
+    ,
+      name: 'username'
+      required: true
+    ,
+      name: 'password'
+      required: true
+    ,
+      name: 'database'
+      required: true
+    ,
+      name: 'schema'
+      required: true
+    ,
+      name: 'transactions'
+    ,
+      name: 'timeout'
+      type: 'integer'
+    ,
+      name: 'maxidle'
+      type: 'integer'
+    ,
+      name: 'maxopen'
+      type: 'integer'
+    ]
+
+  fields: Ember.computed 'isNew', 'platform.slug', 'platformFields', ->
+    fields = @_super.apply @, arguments
+    platformFields = @get "platformFields.#{@get 'platform.slug'}"
+    fields = Ember.copy(fields).pushObjects platformFields if platformFields
+    fields
+
   createNewHeaderModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'remote-endpoint-header'

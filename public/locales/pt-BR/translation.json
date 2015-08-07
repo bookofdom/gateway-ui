@@ -29,6 +29,8 @@
     "export": "exportar",
     "toggle": "alterar",
     "toggle-x": "alterar $t(__x__)",
+    "execute": "executar",
+    "specify-custom": "especificar costume",
     "drop-or-click-to-upload": "solte ou pressione para subir",
     "select-add-component-type": "selecione um tipo de componente para adicionar"
   },
@@ -83,6 +85,12 @@
     "proxy-endpoint-component-call_plural": "chamadas",
     "proxy-endpoint-component-transformation": "transformação",
     "proxy-endpoint-component-transformation_plural": "transformações",
+    "proxy-endpoint-test": "teste",
+    "proxy-endpoint-test_plural": "testes",
+    "proxy-endpoint-test-header": "cabeçalho",
+    "proxy-endpoint-test-header_plural": "cabeçalhos",
+    "proxy-endpoint-test-query-parameter": "parametro de consulta",
+    "proxy-endpoint-test-query-parameter_plural": "parametros de consulta",
     "environment": "ambiente",
     "environment_plural": "ambientes",
     "environment-variable": "variável do ambiente",
@@ -141,12 +149,29 @@
     "session_encryption_key_rotate": "chave de encriptação rotativa",
     "codename": "nome da chave",
     "hostname": "nome do servidor",
-    "value": "valor"
+    "value": "valor",
+    "server": "servidor",
+    "port": "porta",
+    "username": "nome do usuário",
+    "database": "base de dados",
+    "schema": "esquema",
+    "transactions": "transações",
+    "timeout": "tempo de conexão esgotado",
+    "maxidle": "limite máximo de conexões inativas",
+    "maxopen": "limite máximo de conexões abertas",
+    "content_type": "tipo de conteúdo",
+    "body": "conteúdo",
+    "log": "registro",
+    "help": {
+      "remote-endpoint-type": "Em breve: suporte para endpoints remotos em PostgreSQL, MongoDB e MySQL.",
+      "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação."
+    }
   },
   "prompts": {
     "generic": "escolha um",
     "choose-x": "escolha $t(__x__)",
-    "confirm-delete": "Você tem certeza que deseja deletar este registro?",
+    "confirm-delete": "tem certeza que deseja deletar este registro?",
+    "confirm-abandon": "tem certeza que deseja sair sem salvar?",
     "change-language": "troca de idioma"
   },
   "states": {

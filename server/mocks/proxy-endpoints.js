@@ -34,6 +34,66 @@ module.exports = function(app) {
   		"methods": ["GET", "POST", "PUT", "DELETE"]
     }
   ];
+  var tests = [
+    {
+      "id": 1,
+      "name": "Test 1",
+      "methods": ["GET"],
+      "route": "/somewhere/over-the/rainbow.json",
+      "pairs": [
+        {
+          "id": 1,
+          "type": "get",
+          "key": "key 1",
+          "value": "value 1"
+        },
+        {
+          "id": 2,
+          "type": "get",
+          "key": "key 2",
+          "value": "value 2"
+        },
+        {
+          "id": 5,
+          "type": "header",
+          "key": "key 1",
+          "value": "value 1"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Test 2",
+      "methods": ["POST"],
+      "route": "/endpoint",
+      "pairs": [
+        {
+          "id": 3,
+          "type": "get",
+          "key": "key 1",
+          "value": "value 1"
+        },
+        {
+          "id": 4,
+          "type": "get",
+          "key": "key 2",
+          "value": "value 2"
+        },
+        {
+          "id": 7,
+          "type": "header",
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "id": 6,
+          "type": "header",
+          "key": "key 1",
+          "value": "value 1"
+        }
+      ]
+    }
+  ];
   var components = [
     {
         "id": 1,
@@ -154,6 +214,10 @@ module.exports = function(app) {
     })[0];
     endpoint = _.clone(endpoint);
     endpoint.routes = routes;
+    endpoint.tests = _.clone(tests);
+    endpoint.tests.forEach(function (test) {
+      test.proxy_endpoint_id = endpoint.id
+    });
     endpoint.components = components;
     res.send({
       'proxy_endpoint': endpoint
@@ -198,6 +262,21 @@ module.exports = function(app) {
         });
       }
     });
+
+    body.proxy_endpoint.tests = body.proxy_endpoint.tests || [];
+    tests = body.proxy_endpoint.tests
+    body.proxy_endpoint.tests.forEach(function (test) {
+      var id = Math.round(Math.random() * 100) + 100;
+      test.id = test.id || id;
+      test.proxy_endpoint_id = test.proxy_endpoint_id || body.proxy_endpoint.id
+
+      test.pairs = test.pairs || [];
+      test.pairs.forEach(function (pair) {
+        var id = Math.round(Math.random() * 100) + 100;
+        pair.id = pair.id || id;
+      })
+    });
+
     if (body.proxy_endpoint.name.toLowerCase() == 'error') {
       res.status(422).send({errors: {name: 'This field is in error.'}})
     } else {

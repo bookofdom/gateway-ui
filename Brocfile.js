@@ -6,7 +6,12 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app'),
 
 var app = new EmberApp({
   fingerprint: {
-    exclude: ['assets/worker-javascript.js']
+    exclude: [
+      'worker-javascript.js',
+      'worker-json.js',
+      'worker-text.js',
+      'worker-xml.js'
+    ]
   },
   gzip: {
     enabled: false,
@@ -33,6 +38,8 @@ app.import('bower_components/jquery-ui/jquery-ui.js');
 // jQuery File Upload
 app.import('bower_components/jquery-file-upload/js/jquery.iframe-transport.js');
 app.import('bower_components/jquery-file-upload/js/jquery.fileupload.js');
+// vkBeautify
+app.import('bower_components/vkbeautify/vkbeautify.js');
 // Retina Icons
 app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.eot', {destDir: 'assets/fonts'});
 app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.svg', {destDir: 'assets/fonts'});

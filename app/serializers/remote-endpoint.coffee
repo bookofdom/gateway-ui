@@ -17,13 +17,26 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     environment_data:
       embedded: 'always'
   normalize: (type, hash, property) ->
-    # `data` is reserved in Ember, so transform into `url` and `method`
-    hash.url = hash.data.url
-    hash.method = hash.data.method
-    @normalizeHeaders hash
-    @normalizeQuery hash
-    @normalizeEnvironmentData hash
-    @normalizeEnvironmentDataLinks hash
+    switch hash.type
+      when 'http'
+        # `data` is reserved in Ember, so transform into `url` and `method`
+        hash.url = hash.data.url
+        hash.method = hash.data.method
+        @normalizeHeaders hash
+        @normalizeQuery hash
+        @normalizeEnvironmentData hash
+        @normalizeEnvironmentDataLinks hash
+      when 'sqlserver'
+        hash.server = hash.data.config.server
+        hash.port = hash.data.config.port
+        hash.username = hash.data.config['user id']
+        hash.password = hash.data.config.password
+        hash.database = hash.data.config.database
+        hash.schema = hash.data.config.schema
+        hash.timeout = hash.data.config['connection timeout']
+        hash.transactions = hash.data.transactions
+        hash.maxopen = hash.data.maxOpenConn
+        hash.maxidle = hash.data.maxIdleConn
     @_super.apply @, arguments
   normalizeHeaders: (hash) ->
     hash.headers = []
@@ -60,11 +73,26 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     hash
   serialize: (model) ->
     serialized = @_super.apply @, arguments
-    serialized.data =
-      url: model.get 'url'
-      method: model.get 'method'
-      headers: @serializeHeaders model
-      query: @serializeQuery model
+    switch serialized.type
+      when 'http'
+        serialized.data =
+          url: serialized.url
+          method: serialized.method
+          headers: @serializeHeaders model
+          query: @serializeQuery model
+      when 'sqlserver'
+        serialized.data =
+          config:
+            server: serialized.server
+            port: serialized.port
+            'user id': serialized.username
+            password: serialized.password
+            database: serialized.database
+            schema: serialized.schema
+            'connection timeout': serialized.timeout
+          transactions: serialized.transactions
+          maxIdleConn: serialized.maxidle
+          maxOpenConn: serialized.maxopen
     serialized
   serializeHeaders: (model) ->
     headers = {}

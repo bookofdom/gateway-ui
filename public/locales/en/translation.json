@@ -29,6 +29,8 @@
     "export": "export",
     "toggle": "toggle",
     "toggle-x": "toggle $t(__x__)",
+    "execute": "execute",
+    "specify-custom": "specify custom",
     "drop-or-click-to-upload": "drop or click to upload",
     "select-add-component-type": "select a component type to add"
   },
@@ -83,6 +85,12 @@
     "proxy-endpoint-component-call_plural": "calls",
     "proxy-endpoint-component-transformation": "transformation",
     "proxy-endpoint-component-transformation_plural": "transformations",
+    "proxy-endpoint-test": "test",
+    "proxy-endpoint-test_plural": "tests",
+    "proxy-endpoint-test-header": "header",
+    "proxy-endpoint-test-header_plural": "headers",
+    "proxy-endpoint-test-query-parameter": "query parameter",
+    "proxy-endpoint-test-query-parameter_plural": "query parameters",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
@@ -141,12 +149,29 @@
     "session_encryption_key_rotate": "session encryption key rotate",
     "codename": "codename",
     "hostname": "hostname",
-    "value": "value"
+    "value": "value",
+    "server": "server",
+    "port": "port",
+    "username": "username",
+    "database": "database",
+    "schema": "schema",
+    "transactions": "transactions",
+    "timeout": "connection timeout (s)",
+    "maxidle": "max. idle connections",
+    "maxopen": "max. open connections",
+    "content_type": "content type",
+    "body": "body",
+    "log": "log",
+    "help": {
+      "remote-endpoint-type": "Coming soon:  support for PostgreSQL, MongoDB, and MySQL remote endpoint types",
+      "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."
+    }
   },
   "prompts": {
     "generic": "choose one",
     "choose-x": "choose $t(__x__)",
     "confirm-delete": "are you sure you want to delete this record?",
+    "confirm-abandon": "are you sure you want to leave this record without saving?",
     "change-language": "change language"
   },
   "states": {
@@ -180,5 +205,11 @@
   "conditionals": {
     "if": "if",
     "unless": "unless"
+  },
+  "types": {
+    "remote-endpoint": {
+      "http": "HTTP",
+      "sqlserver": "SQL Server"
+    }
   }
 }
