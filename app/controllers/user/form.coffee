@@ -16,5 +16,8 @@ UserFormController = FormController.extend
       name: 'password_confirmation'
       type: 'password'
     ]
+  actions:
+    afterDelete: ->
+      @send 'deleted'
 
 `export default UserFormController`

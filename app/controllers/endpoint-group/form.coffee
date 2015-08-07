@@ -17,5 +17,7 @@ EndpointGroupFormController = FormController.extend
       if model.get 'isNew'
         endpointGroups = @get 'controllers.endpoint-groups.model'
         endpointGroups.pushObject model
+    afterDelete: ->
+      @send 'deleted'
 
 `export default EndpointGroupFormController`

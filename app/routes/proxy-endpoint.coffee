@@ -14,5 +14,7 @@ ProxyEndpointRoute = Ember.Route.extend AuthenticatedRouteMixin,
     'proxy-endpoint-component-edit': (model) ->
       # no op
       # https://github.com/AnyPresence/gateway-ui/pull/158
+    deleted: ->
+      @transitionTo 'proxy-endpoints'
 
 `export default ProxyEndpointRoute`
