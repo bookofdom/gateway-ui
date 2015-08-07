@@ -1,0 +1,60 @@
+{{#ap-model-form
+  model=model
+  option-groups=option-groups
+  fields=fields}}
+
+  {{#if showBodyField}}
+    {{#ap-model-form-group
+      model=model
+      name=bodyField.name
+      label=bodyField.label
+      help=bodyField.help
+      type=bodyField.type
+      required=bodyField.required
+      horizontal=true}}
+      {{ap-model-field
+        model=model
+        name=bodyField.name
+        label=bodyField.label
+        help=bodyField.help
+        type=bodyField.type
+        required=bodyField.required
+        option-groups=option-groups
+        show-placeholder=bodyField.show-placeholders}}
+    {{/ap-model-form-group}}
+  {{/if}}
+
+  {{#unless isNew}}
+    {{#bs-row}}
+      {{#bs-col lg=6}}
+        {{#ap-panel-edit t='resources.proxy-endpoint-test-header_plural'
+          class='panel-small'}}
+          {{ap-table-model
+            models=model.headers
+            delete-action='delete-proxy-endpoint-test-header'
+            auto-delete=false
+            partial-path='proxy-endpoint-test-header/-inline-form'}}
+          {{ap-button-block-new
+            t='resources.proxy-endpoint-test-header'
+            action='new-proxy-endpoint-test-header'}}
+        {{/ap-panel-edit}}
+      {{/bs-col}}
+      {{#bs-col lg=6}}
+        {{#if showQueryParameters}}
+          {{#ap-panel-edit t='resources.proxy-endpoint-test-query-parameter_plural'
+            class='panel-small'}}
+            {{ap-table-model
+              models=model.query
+              delete-action='delete-proxy-endpoint-test-query-parameter'
+              auto-delete=false
+              partial-path='proxy-endpoint-test-query-parameter/-inline-form'}}
+            {{ap-button-block-new
+              t='resources.proxy-endpoint-test-query-parameter'
+              action='new-proxy-endpoint-test-query-parameter'}}
+          {{/ap-panel-edit}}
+        {{/if}}
+      {{/bs-col}}
+    {{/bs-row}}
+  {{/unless}}
+
+{{/ap-model-form}}
