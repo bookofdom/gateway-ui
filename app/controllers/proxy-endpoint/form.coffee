@@ -63,5 +63,7 @@ ProxyEndpointFormController = FormController.extend
       if model.get 'isNew'
         proxyEndpoints = @get 'controllers.proxy-endpoints.model'
         proxyEndpoints.pushObject model
+    afterDelete: ->
+      @send 'deleted'
 
 `export default ProxyEndpointFormController`
