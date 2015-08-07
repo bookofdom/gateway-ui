@@ -59,6 +59,7 @@ RemoteEndpointFormController = FormController.extend
       required: true
     ,
       name: 'password'
+      type: 'password'
       required: true
     ,
       name: 'database'
