@@ -29,6 +29,8 @@
     "export": "export",
     "toggle": "toggle",
     "toggle-x": "toggle $t(__x__)",
+    "execute": "निष्पादित",
+    "specify-custom": "कस्टम निर्दिष्ट",
     "drop-or-click-to-upload": "drop or click to upload",
     "select-add-component-type": "select a component type to add"
   },
@@ -83,6 +85,12 @@
     "proxy-endpoint-component-call_plural": "calls",
     "proxy-endpoint-component-transformation": "transformation",
     "proxy-endpoint-component-transformation_plural": "transformations",
+    "proxy-endpoint-test": "कसौटी",
+    "proxy-endpoint-test_plural": "परीक्षण",
+    "proxy-endpoint-test-header": "cabecera",
+    "proxy-endpoint-test-header_plural": "cabeceras",
+    "proxy-endpoint-test-query-parameter": "parámetro de consulta",
+    "proxy-endpoint-test-query-parameter_plural": "parámetros de consulta",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
@@ -152,8 +160,12 @@
     "maxidle": "अधिकतम निष्क्रिय सम्पर्क",
     "maxopen": "अधिकतम मुक्त सम्पर्क",
     "host_address": "मेजबान का पता",
+    "content_type": "सामग्री का प्रकार",
+    "body": "सामग्री",
+    "log": "लॉग इन करें",
     "help": {
-      "remote-endpoint-type": "शीघ्र आ रहा है: पोस्त्ग्रेस, मोंगोडीबी, और माइ एसक्यूएल प्रकार"
+      "remote-endpoint-type": "शीघ्र आ रहा है: पोस्त्ग्रेस, मोंगोडीबी, और माइ एसक्यूएल प्रकार",
+      "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।"
     }
   },
   "prompts": {
