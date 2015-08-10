@@ -1,0 +1,23 @@
+{{#each field in fields}}
+  {{#ap-model-form-group
+    model=model
+    name=field.name
+    label=field.label
+    help=field.help
+    type=field.type
+    required=field.required
+    inline=inline
+    horizontal=horizontal}}
+    {{ap-model-field
+      model=model
+      name=field.name
+      label=field.label
+      help=field.help
+      type=field.type
+      required=field.required
+      option-groups=option-groups
+      show-placeholder=show-placeholders}}
+  {{/ap-model-form-group}}
+{{/each}}
+
+{{yield}}

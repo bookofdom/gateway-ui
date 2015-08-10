@@ -146,8 +146,7 @@ module.exports = function(app) {
       "type":"mongodb",
       "data":{
         "config": {
-          "host":"www.mongodb.com",
-          "port":27017,
+          "hosts":[{"host":"www.mongodb.com", "port":27017}],
           "database":"myproject",
           "username":"mongo-user",
           "password":"password"

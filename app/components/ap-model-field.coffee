@@ -33,7 +33,11 @@ ApModelFieldComponent = BsBaseComponent.extend
     @set 'fieldRequired', value if value? and (value != previousValue)
     @get 'fieldRequired'
   placeholder: Ember.computed 'show-placeholder', 'label', ->
-    t(@get 'label').capitalize() if @get 'show-placeholder'
+    if @get 'show-placeholder'
+      if @get 'required'
+        t(@get 'label').capitalize() + "*"
+      else
+        t(@get 'label').capitalize()
   prompt: Ember.computed 'label', ->
     t('prompts.choose-x', x: @get 'label').capitalize()
   options: Ember.computed 'name', 'option-groups', ->

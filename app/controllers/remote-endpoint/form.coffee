@@ -79,13 +79,6 @@ RemoteEndpointFormController = FormController.extend
       type: 'integer'
     ]
     mongodb: [
-      name: 'host'
-      required: true
-    ,
-      name: 'port'
-      type: 'integer'
-      required: true
-    ,
       name: 'database'
       required: true
     ,
@@ -102,6 +95,14 @@ RemoteEndpointFormController = FormController.extend
     fields = Ember.copy(fields).pushObjects platformFields if platformFields
     fields
 
+  addHostModel: Ember.observer 'platform.slug', ->
+    @_super.apply @, arguments
+    model = @get 'model'
+    count = model?.get 'hosts.length'
+    isNew = model?.get 'isNew'
+    platform = model?.get 'platform.slug'
+    # if an existing model has no hosts, add one by default
+    @createNewHostModel() if model and isNew and !count and platform is 'mongodb'
   createNewHeaderModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'remote-endpoint-header'
@@ -110,11 +111,18 @@ RemoteEndpointFormController = FormController.extend
     model = @get 'model'
     newModel = @store?.createRecord 'remote-endpoint-query-parameter'
     model.get('query').pushObject newModel
+  createNewHostModel: ->
+    model = @get 'model'
+    newModel = @store?.createRecord 'remote-endpoint-host'
+    model.get('hosts').pushObject newModel
   actions:
     'delete-remote-endpoint-header': (record) -> record.deleteRecord()
     'new-remote-endpoint-header': -> @createNewHeaderModel()
     'delete-remote-endpoint-query-parameter': (record) -> record.deleteRecord()
     'new-remote-endpoint-query-parameter': -> @createNewQueryParameterModel()
+    'delete-remote-endpoint-host': (record) ->
+      record.deleteRecord() if @get('hosts.length') > 1
+    'new-remote-endpoint-host': -> @createNewHostModel()
     'delete-remote-endpoint-environment-datum': (record) ->
       record.deleteRecord()
     'new-remote-endpoint-environment-datum': ->

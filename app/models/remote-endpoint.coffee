@@ -22,7 +22,7 @@ RemoteEndpoint = Model.extend
   maxidle: DS.attr 'number'
 
   # mongodb
-  host: DS.attr 'string'
+  hosts: DS.hasMany 'remote-endpoint-host'
 
   # http
   url: DS.attr 'string'
@@ -36,6 +36,8 @@ RemoteEndpoint = Model.extend
     @get 'platform.name'
   isHttp: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'http'
+  isMongodb: Ember.computed 'platform.slug', ->
+    @get('platform.slug') == 'mongodb'
 
   # Relationships
   api: DS.belongsTo 'api', async: true
@@ -50,8 +52,10 @@ RemoteEndpoint = Model.extend
     @get('headers').filterBy('isDirty', true).get('length')
   queryDirty: Ember.computed 'query.@each.isDirty', ->
     @get('query').filterBy('isDirty', true).get('length')
-  relationshipsDirty: Ember.computed 'environmentDataDirty', 'headersDirty', 'queryDirty', ->
-    @get('environmentDataDirty') or @get('headersDirty') or @get('queryDirty')
+  hostsDirty: Ember.computed 'hosts.@each.isDirty', ->
+    @get('hosts').filterBy('isDirty', true).get('length')
+  relationshipsDirty: Ember.computed 'environmentDataDirty', 'headersDirty', 'queryDirty', 'hostsDirty', ->
+    @get('environmentDataDirty') or @get('headersDirty') or @get('queryDirty') or @get('hostsDirty')
   relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
