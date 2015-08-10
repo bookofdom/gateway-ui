@@ -163,6 +163,7 @@
     "content_type": "tipo de conteúdo",
     "body": "conteúdo",
     "log": "registro",
+    "limit": "limite piscina",
     "help": {
       "remote-endpoint-type": "Em breve: suporte para endpoints remotos em PostgreSQL, MongoDB e MySQL.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação."

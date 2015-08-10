@@ -87,6 +87,10 @@ RemoteEndpointFormController = FormController.extend
     ,
       name: 'password'
       required: true
+    ,
+      name: 'limit'
+      type: 'integer'
+      required: true
     ]
 
   fields: Ember.computed 'isNew', 'platform.slug', 'platformFields', ->

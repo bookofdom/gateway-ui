@@ -46,6 +46,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.database = hash.data.config.database
         hash.username = hash.data.config.username
         hash.password = hash.data.config.password
+        hash.limit = hash.data.limit
     @_super.apply @, arguments
   normalizeHeaders: (hash) ->
     hash.headers = []
@@ -118,6 +119,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
             database: serialized.database
             username: serialized.username
             password: serialized.password
+          limit: serialized.limit
     serialized
   serializeHeaders: (model) ->
     headers = {}

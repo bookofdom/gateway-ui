@@ -22,6 +22,7 @@ RemoteEndpoint = Model.extend
   maxidle: DS.attr 'number'
 
   # mongodb
+  limit: DS.attr 'number', defaultValue: 4096
   hosts: DS.hasMany 'remote-endpoint-host'
 
   # http

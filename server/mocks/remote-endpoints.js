@@ -150,7 +150,8 @@ module.exports = function(app) {
           "database":"myproject",
           "username":"mongo-user",
           "password":"password"
-        }
+        },
+        "limit": 4096
       }
     }
   ];
