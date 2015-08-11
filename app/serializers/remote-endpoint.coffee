@@ -134,6 +134,6 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   serializeHosts: (model) ->
     model.get('hosts').map (host) ->
       host: host.get 'host'
-      port: parseInt(host.get 'port', 10)
+      port: parseInt host.get('port'), 10
 
 `export default RemoteEndpointSerializer`
