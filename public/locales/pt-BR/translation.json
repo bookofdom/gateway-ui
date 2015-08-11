@@ -163,7 +163,7 @@
     "content_type": "tipo de conteúdo",
     "body": "conteúdo",
     "log": "registro",
-    "limit": "limite piscina",
+    "limit": "limite de agrupamento conexão",
     "location": "localização",
     "help": {
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação."
