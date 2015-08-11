@@ -35,7 +35,7 @@ ApModelFieldComponent = BsBaseComponent.extend
   placeholder: Ember.computed 'show-placeholder', 'label', 'required', ->
     if @get 'show-placeholder'
       label = t(@get 'label').capitalize()
-      label += "*" if @get 'required'
+      label = "#{label}*" if @get 'required'
       label
   prompt: Ember.computed 'label', ->
     t('prompts.choose-x', x: @get 'label').capitalize()
