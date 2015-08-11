@@ -66,7 +66,6 @@ RemoteEndpointFormController = FormController.extend
       required: true
     ,
       name: 'schema'
-      required: true
     ,
       name: 'transactions'
     ,
