@@ -26,5 +26,8 @@ ApiFormController = FormController.extend
       type: 'integer'
     ]
     if @get 'isNew' then newFields else editFields
+  actions:
+    afterDelete: ->
+      @send 'deleted'
 
 `export default ApiFormController`

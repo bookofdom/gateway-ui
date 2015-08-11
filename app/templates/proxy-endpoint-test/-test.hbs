@@ -15,6 +15,16 @@
 
   <div class="panel-body">
     {{#if response}}
+      {{#unless isDirty}}
+        {{#unless executing}}
+          <a class="btn btn-default" {{action 'executeTest'}}>
+            {{t 'actions.execute'}}
+            {{ap-icon icon='arrows-006'}}
+          </a>
+          <br>
+          <br>
+        {{/unless}}
+      {{/unless}}
       <div class="form-group">
         <label class="control-label col-sm-2">{{t 'resources.proxy-endpoint-test-header_plural'}}</label>
         <div class="col-sm-10">

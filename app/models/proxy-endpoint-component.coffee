@@ -63,6 +63,7 @@ ProxyEndpointComponent = Model.extend
     @store.dematerializeRecord @
   destroyRecord: ->
     @deleteRecord()
+    @transitionTo 'loaded.saved' # clear deleted state
     proxyEndpoint = @get 'proxy_endpoint'
     proxyEndpoint.save().then (->
       proxyEndpoint.rollback()

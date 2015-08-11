@@ -98,102 +98,124 @@ module.exports = function(app) {
       ]
     },
     {
-      "id":4,
+     "id":4,
+     "api_id":1,
+     "name":"sql-server-simple",
+     "codename":"sql-server",
+     "description":"sql",
+     "type":"sqlserver",
+     "data":{
+       "config":{
+         "server":"server.foo.com",
+         "port":1433,
+         "user id":"anypresence",
+         "password":"password",
+         "database":"database",
+         "schema":"schema"
+       }
+     }
+   },
+   {
+     "id":5,
+     "api_id":1,
+     "name":"sql-server-complex",
+     "codename":"sql-server",
+     "description":"sql",
+     "type":"sqlserver",
+     "data":{
+       "config":{
+         "server":"server.foo.com",
+         "port":1433,
+         "user id":"anypresence",
+         "password":"password",
+         "database":"database",
+         "schema":"schema",
+         "connection timeout":30
+       },
+       "transactions":true,
+       "maxIdleConn":100,
+       "maxOpenConn":80
+     }
+   },
+   {
+     "id": 6,
+     "api_id": 1,
+     "name": "postgres-simple",
+     "codename": "psql",
+     "description": "psql",
+     "type": "postgres",
+     "data": {
+       "config": {
+         "host": "server.foo.com",
+         "port": 1433,
+         "user": "anypresence",
+         "password": "password",
+         "dbname": "database"
+       },
+       "transactions": true,
+       "maxIdleConn": 100,
+       "maxOpenConn": 80
+     }
+   },
+   {
+     "id": 7,
+     "api_id": 1,
+     "name": "postgres-hostaddr",
+     "codename": "psql-hostaddr",
+     "description": "psql",
+     "type": "postgres",
+     "data": {
+       "config": {
+         "hostaddr": "127.0.0.0",
+         "port": 1433,
+         "user": "anypresence",
+         "password": "password",
+         "dbname": "database"
+       }
+     }
+   },
+   {
+     "id": 8,
+     "api_id": 1,
+     "name": "postgres-both",
+     "codename": "psql-both",
+     "description": "psql",
+     "type": "postgres",
+     "data": {
+       "config": {
+         "host": "server",
+         "hostaddr": "8.8.4.4",
+         "port": 1433,
+         "user": "anypresence",
+         "password": "password",
+         "dbname": "database",
+         "connect_timeout": 30
+       },
+       "transactions": true,
+       "maxIdleConn": 100,
+       "maxOpenConn": 80
+     }
+   },
+   {
+      "id":9,
       "api_id":1,
-      "name":"sql-simple",
-      "codename":"sql",
-      "description":"sql",
-      "type":"sqlserver",
+      "name":"mongo",
+      "codename":"mongodb",
+      "description":"MongoDB endpoint",
+      "type":"mongodb",
       "data":{
-        "config":{
-          "server":"server.foo.com",
-          "port":1433,
-          "user id":"anypresence",
-          "password":"password",
-          "database":"database",
-          "schema":"schema"
-        }
-      }
-    },
-    {
-      "id":5,
-      "api_id":1,
-      "name":"sql-complex",
-      "codename":"sql",
-      "description":"sql",
-      "type":"sqlserver",
-      "data":{
-        "config":{
-          "server":"server.foo.com",
-          "port":1433,
-          "user id":"anypresence",
-          "password":"password",
-          "database":"database",
-          "schema":"schema",
-          "connection timeout":30
-        },
-        "transactions":true,
-        "maxIdleConn":100,
-        "maxOpenConn":80
-      }
-    },
-    {
-      "id": 6,
-      "api_id": 1,
-      "name": "postgres-simple",
-      "codename": "psql",
-      "description": "psql",
-      "type": "postgres",
-      "data": {
         "config": {
-          "host": "server.foo.com",
-          "port": 1433,
-          "user": "anypresence",
-          "password": "password",
-          "dbname": "database"
+          "hosts":[
+            {
+              "host": "www.mongodb.com",
+              "port": 27017
+            }
+          ],
+          "database":"myproject",
+          "username":"mongo-user",
+          "password":"password"
         },
-        "transactions": true,
-        "maxIdleConn": 100,
-        "maxOpenConn": 80
-      }
-    },
-    {
-      "id": 7,
-      "api_id": 1,
-      "name": "postgres-hostaddr",
-      "codename": "psql-hostaddr",
-      "description": "psql",
-      "type": "postgres",
-      "data": {
-        "config": {
-          "hostaddr": "127.0.0.0",
-          "port": 1433,
-          "user": "anypresence",
-          "password": "password",
-          "dbname": "database"
-        }
-      }
-    },
-    {
-      "id": 8,
-      "api_id": 1,
-      "name": "postgres-both",
-      "codename": "psql-both",
-      "description": "psql",
-      "type": "postgres",
-      "data": {
-        "config": {
-          "host": "server",
-          "hostaddr": "8.8.4.4",
-          "port": 1433,
-          "user": "anypresence",
-          "password": "password",
-          "dbname": "database",
-          "connect_timeout": 30
-        },
-        "transactions": true,
-        "maxIdleConn": 100,
-        "maxOpenConn": 80
+        "limit": 4096
       }
     }
   ];

@@ -160,11 +160,13 @@
     "maxidle": "max. idle connections",
     "maxopen": "max. open connections",
     "host_address": "host address",
+    "host": "host",
     "content_type": "content type",
     "body": "body",
     "log": "log",
+    "limit": "connection pool limit",
+    "location": "location",
     "help": {
-      "remote-endpoint-type": "Coming soon:  support for PostgreSQL, MongoDB, and MySQL remote endpoint types",
       "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."
     }
   },
@@ -211,7 +213,8 @@
     "remote-endpoint": {
       "http": "HTTP",
       "sqlserver": "SQL Server",
-      "postgres": "PostgreSQL"
+      "postgres": "PostgreSQL",
+      "mongodb": "MongoDB"
     }
   }
 }
