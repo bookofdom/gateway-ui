@@ -21,6 +21,10 @@ RemoteEndpoint = Model.extend
   maxopen: DS.attr 'number'
   maxidle: DS.attr 'number'
 
+  # mongodb
+  limit: DS.attr 'number', defaultValue: 4096
+  hosts: DS.hasMany 'remote-endpoint-host'
+
   # http
   url: DS.attr 'string'
   method: DS.attr 'string'
@@ -33,6 +37,8 @@ RemoteEndpoint = Model.extend
     @get 'platform.name'
   isHttp: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'http'
+  isMongo: Ember.computed 'platform.slug', ->
+    @get('platform.slug') == 'mongodb'
   location: Ember.computed 'url', 'server', ->
     @get('url') or @get('server')
 
@@ -49,15 +55,17 @@ RemoteEndpoint = Model.extend
     @get('headers').filterBy('isDirty', true).get('length')
   queryDirty: Ember.computed 'query.@each.isDirty', ->
     @get('query').filterBy('isDirty', true).get('length')
-  relationshipsDirty: Ember.computed 'environmentDataDirty', 'headersDirty', 'queryDirty', ->
-    @get('environmentDataDirty') or @get('headersDirty') or @get('queryDirty')
+  hostsDirty: Ember.computed 'hosts.@each.isDirty', ->
+    @get('hosts').filterBy('isDirty', true).get('length')
+  relationshipsDirty: Ember.computed 'environmentDataDirty', 'headersDirty', 'queryDirty', 'hostsDirty', ->
+    @get('environmentDataDirty') or @get('headersDirty') or @get('queryDirty') or @get('hostsDirty')
   relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
     Ember.run.once => @get 'relationshipsDirty'
 
 # Declare available types and their human-readable names
-types = 'http sqlserver'.split(' ').map (type) ->
+types = 'http sqlserver mongodb'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type

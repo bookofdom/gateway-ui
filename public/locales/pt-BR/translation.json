@@ -159,12 +159,13 @@
     "timeout": "tempo de conexão esgotado",
     "maxidle": "limite máximo de conexões inativas",
     "maxopen": "limite máximo de conexões abertas",
+    "host": "hospedeiro",
     "content_type": "tipo de conteúdo",
     "body": "conteúdo",
     "log": "registro",
+    "limit": "limite de agrupamento conexão",
     "location": "localização",
     "help": {
-      "remote-endpoint-type": "Em breve: suporte para endpoints remotos em PostgreSQL, MongoDB e MySQL.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação."
     }
   },
