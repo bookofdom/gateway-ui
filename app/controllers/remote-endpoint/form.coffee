@@ -102,11 +102,12 @@ RemoteEndpointFormController = FormController.extend
   addHostModel: Ember.observer 'isMongo', ->
     @_super.apply @, arguments
     model = @get 'model'
-    count = model?.get 'hosts.length'
-    isNew = model?.get 'isNew'
-    isMongo = model?.get 'isMongo'
-    # if an existing model has no hosts, add one by default
-    @createNewHostModel() if model and isNew and !count and isMongo
+    if model
+      isHostsEmpty = !model.get 'hosts.length'
+      isNew = model.get 'isNew'
+      isMongo = model.get 'isMongo'
+      # if an existing model has no hosts, add one by default
+      @createNewHostModel() if isNew and isMongo and isHostsEmpty
   createNewHeaderModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'remote-endpoint-header'
