@@ -45,7 +45,10 @@ RemoteEndpoint = Model.extend
   isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
   location: Ember.computed 'url', 'server', ->
-    @get('url') or @get('server')
+    location = @get('url') or @get('server') or @get('host_address')
+    location = "#{@get 'server'} / #{@get 'host_address'}" if @get('server') and @get('host_address')
+    location = @get('hosts').map((host) -> host.get 'host')?.join(' / ') if @get 'isMongo'
+    location
 
   # Relationships
   api: DS.belongsTo 'api', async: true
