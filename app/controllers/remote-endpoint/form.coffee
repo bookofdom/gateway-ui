@@ -99,14 +99,14 @@ RemoteEndpointFormController = FormController.extend
     fields = Ember.copy(fields).pushObjects platformFields if platformFields
     fields
 
-  addHostModel: Ember.observer 'platform.slug', ->
+  addHostModel: Ember.observer 'isMongo', ->
     @_super.apply @, arguments
     model = @get 'model'
     count = model?.get 'hosts.length'
     isNew = model?.get 'isNew'
-    platform = model?.get 'platform.slug'
+    isMongo = model?.get 'isMongo'
     # if an existing model has no hosts, add one by default
-    @createNewHostModel() if model and isNew and !count and platform is 'mongodb'
+    @createNewHostModel() if model and isNew and !count and isMongo
   createNewHeaderModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'remote-endpoint-header'
@@ -124,8 +124,7 @@ RemoteEndpointFormController = FormController.extend
     'new-remote-endpoint-header': -> @createNewHeaderModel()
     'delete-remote-endpoint-query-parameter': (record) -> record.deleteRecord()
     'new-remote-endpoint-query-parameter': -> @createNewQueryParameterModel()
-    'delete-remote-endpoint-host': (record) ->
-      record.deleteRecord() if @get('hosts.length') > 1
+    'delete-remote-endpoint-host': (record) -> record.deleteRecord()
     'new-remote-endpoint-host': -> @createNewHostModel()
     'delete-remote-endpoint-environment-datum': (record) ->
       record.deleteRecord()

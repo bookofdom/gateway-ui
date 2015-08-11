@@ -37,7 +37,7 @@ RemoteEndpoint = Model.extend
     @get 'platform.name'
   isHttp: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'http'
-  isMongodb: Ember.computed 'platform.slug', ->
+  isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
 
   # Relationships

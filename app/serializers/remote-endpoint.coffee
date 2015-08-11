@@ -132,13 +132,12 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
       query[param.get 'name'] = param.get 'value'
     query
   serializeHosts: (model) ->
-    hosts = []
-    model.get('hosts').forEach (param) ->
-      port = param.get 'port'
+    model.get('hosts').map (host) ->
+      port = host.get 'port'
       port = parseInt(port, 10) if port?
-      hosts.push
-        host: param.get 'host'
+      {
+        host: host.get 'host'
         port: port
-    hosts
+      }
 
 `export default RemoteEndpointSerializer`
