@@ -8,17 +8,14 @@ hostIdCounter = 1
 RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     headers:
-      #embedded: 'always'
       serialize: false
       deserialize: 'records'
     query:
-      #embedded: 'always'
-      serialize: false
-      deserialize: 'records'
-    hosts:
       serialize: false
       deserialize: 'records'
     environment_data:
+      embedded: 'always'
+    hosts:
       embedded: 'always'
   normalize: (type, hash, property) ->
     switch hash.type
@@ -42,11 +39,11 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.maxopen = hash.data.maxOpenConn
         hash.maxidle = hash.data.maxIdleConn
       when 'mongodb'
-        @normalizeHosts hash
         hash.database = hash.data.config.database
         hash.username = hash.data.config.username
         hash.password = hash.data.config.password
         hash.limit = hash.data.limit
+        @normalizeHosts hash
     @_super.apply @, arguments
   normalizeHeaders: (hash) ->
     hash.headers = []
@@ -115,11 +112,12 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
       when 'mongodb'
         serialized.data =
           config:
-            hosts: @serializeHosts model
+            hosts: serialized.hosts
             database: serialized.database
             username: serialized.username
             password: serialized.password
           limit: serialized.limit
+        delete serialized.hosts
     serialized
   serializeHeaders: (model) ->
     headers = {}
@@ -131,9 +129,5 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     model.get('query').forEach (param) ->
       query[param.get 'name'] = param.get 'value'
     query
-  serializeHosts: (model) ->
-    model.get('hosts').map (host) ->
-      host: host.get 'host'
-      port: parseInt host.get('port'), 10
 
 `export default RemoteEndpointSerializer`
