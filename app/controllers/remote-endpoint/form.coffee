@@ -59,6 +59,7 @@ RemoteEndpointFormController = FormController.extend
       required: true
     ,
       name: 'password'
+      type: 'password'
       required: true
     ,
       name: 'database'
@@ -135,5 +136,7 @@ RemoteEndpointFormController = FormController.extend
       if model.get 'isNew'
         remoteEndpoints = @get 'controllers.remote-endpoints.model'
         remoteEndpoints.pushObject model
+    afterDelete: ->
+      @send 'deleted'
 
 `export default RemoteEndpointFormController`

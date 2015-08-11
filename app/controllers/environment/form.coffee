@@ -43,5 +43,7 @@ EnvironmentFormController = FormController.extend
       if model.get 'isNew'
         environments = @get 'controllers.environments.model'
         environments.pushObject model
+    afterDelete: ->
+      @send 'deleted'
 
 `export default EnvironmentFormController`

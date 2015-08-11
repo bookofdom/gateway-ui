@@ -21,6 +21,8 @@ ProxyEndpointTestEditController = Ember.ObjectController.extend
     body = vkbeautify.xml body if @get 'responseIsXml'
     body
 
+  reset: -> @set 'response', null
+
   actions:
     executeTest: ->
       @set 'response', null

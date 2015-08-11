@@ -62,7 +62,7 @@ ApModelFormComponent = BsFormComponent.extend
     delete: ->
       confirmText = t('prompts.confirm-delete').capitalize()
       if @get('auto-delete') and @confirm(confirmText)
-        @get('model').destroyRecord()
-        @sendAction 'after-delete-action'
+        @get('model').destroyRecord().then =>
+          @sendAction 'after-delete-action'
 
 `export default ApModelFormComponent`

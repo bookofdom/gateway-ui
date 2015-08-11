@@ -39,6 +39,8 @@ RemoteEndpoint = Model.extend
     @get('platform.slug') == 'http'
   isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
+  location: Ember.computed 'url', 'server', ->
+    @get('url') or @get('server')
 
   # Relationships
   api: DS.belongsTo 'api', async: true
