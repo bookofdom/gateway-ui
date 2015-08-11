@@ -166,7 +166,6 @@
     "limit": "pool limit",
     "location": "location",
     "help": {
-      "remote-endpoint-type": "Coming soon:  support for PostgreSQL, MongoDB, and MySQL remote endpoint types",
       "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."
     }
   },
