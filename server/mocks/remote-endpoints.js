@@ -98,47 +98,67 @@ module.exports = function(app) {
       ]
     },
     {
-      "id":4,
-      "api_id":1,
-      "name":"sql-simple",
-      "codename":"sql",
-      "description":"sql",
-      "type":"sqlserver",
-      "data":{
-        "config":{
-          "server":"server.foo.com",
-          "port":1433,
-          "user id":"anypresence",
-          "password":"password",
-          "database":"database",
-          "schema":"schema"
-        }
-      }
-    },
-    {
-      "id":5,
-      "api_id":1,
-      "name":"sql-complex",
-      "codename":"sql",
-      "description":"sql",
-      "type":"sqlserver",
-      "data":{
-        "config":{
-          "server":"server.foo.com",
-          "port":1433,
-          "user id":"anypresence",
-          "password":"password",
-          "database":"database",
-          "schema":"schema",
-          "connection timeout":30
-        },
-        "transactions":true,
-        "maxIdleConn":100,
-        "maxOpenConn":80
-      }
-    },
-    {
-      "id":7,
+     "id":4,
+     "api_id":1,
+     "name":"sql-server-simple",
+     "codename":"sql-server",
+     "description":"sql",
+     "type":"sqlserver",
+     "data":{
+       "config":{
+         "server":"server.foo.com",
+         "port":1433,
+         "user id":"anypresence",
+         "password":"password",
+         "database":"database",
+         "schema":"schema"
+       }
+     }
+   },
+   {
+     "id":5,
+     "api_id":1,
+     "name":"sql-server-complex",
+     "codename":"sql-server",
+     "description":"sql",
+     "type":"sqlserver",
+     "data":{
+       "config":{
+         "server":"server.foo.com",
+         "port":1433,
+         "user id":"anypresence",
+         "password":"password",
+         "database":"database",
+         "schema":"schema",
+         "connection timeout":30
+       },
+       "transactions":true,
+       "maxIdleConn":100,
+       "maxOpenConn":80
+     }
+   },
+   {
+     "id": 6,
+     "api_id": 1,
+     "name": "postgres-simple",
+     "codename": "psql",
+     "description": "psql",
+     "type": "postgres",
+     "data": {
+       "config": {
+         "host": "server.foo.com",
+         "port": 1433,
+         "user": "anypresence",
+         "password": "password",
+         "dbname": "database"
+       },
+       "transactions": true,
+       "maxIdleConn": 100,
+       "maxOpenConn": 80
+     }
+   },
+   {
+      "id":9,
       "api_id":1,
       "name":"mongo",
       "codename":"mongodb",

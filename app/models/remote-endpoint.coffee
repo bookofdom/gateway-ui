@@ -9,13 +9,20 @@ RemoteEndpoint = Model.extend
   codename: DS.attr 'string'
   description: DS.attr 'string'
 
+  # http
+  url: DS.attr 'string'
+  method: DS.attr 'string'
+
   # sqlserver
+  schema: DS.attr 'string'
+
+  # sqlserver
+  # postgres
   server: DS.attr 'string'
   port: DS.attr 'number'
   username: DS.attr 'string'
   password: DS.attr 'string'
   database: DS.attr 'string'
-  schema: DS.attr 'string'
   transactions: DS.attr 'boolean'
   timeout: DS.attr 'number'
   maxopen: DS.attr 'number'
@@ -23,11 +30,6 @@ RemoteEndpoint = Model.extend
 
   # mongodb
   limit: DS.attr 'number', defaultValue: 4096
-  hosts: DS.hasMany 'remote-endpoint-host'
-
-  # http
-  url: DS.attr 'string'
-  method: DS.attr 'string'
 
   # Computed
   platform: Ember.computed 'type', ->
@@ -40,13 +42,16 @@ RemoteEndpoint = Model.extend
   isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
   location: Ember.computed 'url', 'server', ->
-    @get('url') or @get('server')
+    location = @get('url') or @get('server')
+    location = @get('hosts').map((host) -> host.get 'host')?.join(' / ') if @get 'isMongo'
+    location
 
   # Relationships
   api: DS.belongsTo 'api', async: true
   headers: DS.hasMany 'remote-endpoint-header'
   query: DS.hasMany 'remote-endpoint-query-parameter'
   environment_data: DS.hasMany 'remote-endpoint-environment-datum'
+  hosts: DS.hasMany 'remote-endpoint-host'
 
   # manually manage relationship dirty
   environmentDataDirty: Ember.computed 'environment_data.@each.isDirty', ->
@@ -65,7 +70,7 @@ RemoteEndpoint = Model.extend
     Ember.run.once => @get 'relationshipsDirty'
 
 # Declare available types and their human-readable names
-types = 'http sqlserver mongodb'.split(' ').map (type) ->
+types = 'http sqlserver postgres mongodb'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type

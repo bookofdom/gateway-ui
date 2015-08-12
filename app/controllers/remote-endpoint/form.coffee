@@ -77,6 +77,35 @@ RemoteEndpointFormController = FormController.extend
       name: 'maxopen'
       type: 'integer'
     ]
+    postgres: [
+      name: 'server'
+      label: 'resources.host'
+      required: true
+    ,
+      name: 'port'
+      type: 'integer'
+      required: true
+    ,
+      name: 'database'
+      required: true
+    ,
+      name: 'username'
+      required: true
+    ,
+      name: 'password'
+      required: true
+    ,
+      name: 'timeout'
+      type: 'integer'
+    ,
+      name: 'transactions'
+    ,
+      name: 'maxidle'
+      type: 'integer'
+    ,
+      name: 'maxopen'
+      type: 'integer'
+    ]
     mongodb: [
       name: 'database'
       required: true
