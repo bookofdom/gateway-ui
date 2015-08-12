@@ -159,7 +159,6 @@
     "timeout": "conexión expirada​",
     "maxidle": "máximas conexiones inactivas",
     "maxopen": "máximas conexiones abiertas",
-    "host_address": "dirección de host",
     "host": "host",
     "content_type": "tipo de contenido",
     "body": "contenido",

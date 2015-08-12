@@ -28,9 +28,6 @@ RemoteEndpoint = Model.extend
   maxopen: DS.attr 'number'
   maxidle: DS.attr 'number'
 
-  # postgres
-  host_address: DS.attr 'string'
-
   # mongodb
   limit: DS.attr 'number', defaultValue: 4096
 
@@ -45,8 +42,7 @@ RemoteEndpoint = Model.extend
   isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
   location: Ember.computed 'url', 'server', ->
-    location = @get('url') or @get('server') or @get('host_address')
-    location = "#{@get 'server'} / #{@get 'host_address'}" if @get('server') and @get('host_address')
+    location = @get('url') or @get('server')
     location = @get('hosts').map((host) -> host.get 'host')?.join(' / ') if @get 'isMongo'
     location
 

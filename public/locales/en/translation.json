@@ -159,7 +159,6 @@
     "timeout": "connection timeout (s)",
     "maxidle": "max. idle connections",
     "maxopen": "max. open connections",
-    "host_address": "host address",
     "host": "host",
     "content_type": "content type",
     "body": "body",

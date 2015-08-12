@@ -81,8 +81,6 @@ RemoteEndpointFormController = FormController.extend
       name: 'server'
       label: 'resources.host'
     ,
-      name: 'host_address'
-    ,
       name: 'port'
       type: 'integer'
       required: true

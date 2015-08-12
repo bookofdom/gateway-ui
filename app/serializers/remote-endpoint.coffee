@@ -40,7 +40,6 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.maxidle = hash.data.maxIdleConn
       when 'postgres'
         hash.server = hash.data.config.host
-        hash.host_address = hash.data.config.hostaddr
         hash.database = hash.data.config.dbname
         hash.username = hash.data.config.user
         hash.timeout = hash.data.config.connect_timeout
@@ -124,7 +123,6 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         serialized.data =
           config:
             host: serialized.server
-            hostaddr: serialized.host_address
             port: serialized.port
             user: serialized.username
             password: serialized.password
