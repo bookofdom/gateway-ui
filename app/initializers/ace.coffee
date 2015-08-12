@@ -20,6 +20,10 @@ log
 session
 url
 setFormBody
+AP.SQLServer.Request
+AP.Postgres.Request
+AP.Mongo.Request
+ObjectId
 '''.split /\n/
 
 initialize = (container, app) ->
