@@ -158,45 +158,6 @@ module.exports = function(app) {
      }
    },
    {
-     "id": 7,
-     "api_id": 1,
-     "name": "postgres-hostaddr",
-     "codename": "psql-hostaddr",
-     "description": "psql",
-     "type": "postgres",
-     "data": {
-       "config": {
-         "hostaddr": "127.0.0.0",
-         "port": 1433,
-         "user": "anypresence",
-         "password": "password",
-         "dbname": "database"
-       }
-     }
-   },
-   {
-     "id": 8,
-     "api_id": 1,
-     "name": "postgres-both",
-     "codename": "psql-both",
-     "description": "psql",
-     "type": "postgres",
-     "data": {
-       "config": {
-         "host": "server",
-         "hostaddr": "8.8.4.4",
-         "port": 1433,
-         "user": "anypresence",
-         "password": "password",
-         "dbname": "database",
-         "connect_timeout": 30
-       },
-       "transactions": true,
-       "maxIdleConn": 100,
-       "maxOpenConn": 80
-     }
-   },
-   {
       "id":9,
       "api_id":1,
       "name":"mongo",
