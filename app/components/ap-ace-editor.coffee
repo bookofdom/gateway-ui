@@ -1,8 +1,10 @@
 `import Ember from 'ember'`
 
 ApAceEditorComponent = Ember.Component.extend
+  classNameBindings: ['size']
   value: null
   editor: null
+  size: null
   language: 'javascript'
   options:
     enableBasicAutocompletion: true

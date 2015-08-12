@@ -13,7 +13,7 @@ LibraryFormController = FormController.extend
     ,
       name: 'body'
       label: 'fields.logic'
-      type: 'javascript'
+      type: 'javascript-lg'
     ]
   actions:
     beforeSave: ->
