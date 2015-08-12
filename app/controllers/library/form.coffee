@@ -13,7 +13,7 @@ LibraryFormController = FormController.extend
     ,
       name: 'body'
       label: 'fields.logic'
-      type: 'javascript'
+      type: 'javascript-lg'
     ]
   actions:
     beforeSave: ->
@@ -21,5 +21,7 @@ LibraryFormController = FormController.extend
       if model.get 'isNew'
         libraries = @get 'controllers.libraries.model'
         libraries.pushObject model
+    afterDelete: ->
+      @send 'deleted'
 
 `export default LibraryFormController`

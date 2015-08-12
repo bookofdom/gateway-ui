@@ -159,11 +159,13 @@
     "timeout": "conexión expirada​",
     "maxidle": "máximas conexiones inactivas",
     "maxopen": "máximas conexiones abiertas",
+    "host": "host",
     "content_type": "tipo de contenido",
     "body": "contenido",
     "log": "registro",
+    "limit": "límite de agrupación de conexiones",
+    "location": "localización",
     "help": {
-      "remote-endpoint-type": "En breve: soporte para tipos de endpoints remotos de PostgreSQL, MongoDB y MySQL",
       "content-type": "Buscando algo más? Especifique una costumbre Content-Type en las cabeceras de petición."
     }
   },

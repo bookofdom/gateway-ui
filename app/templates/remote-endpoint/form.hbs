@@ -47,4 +47,16 @@
       {{/if}}
     {{/unless}}
 
+    {{#if isMongo}}
+      {{#ap-panel-edit t='resources.host_plural'}}
+        {{ap-table-model
+          models=model.hosts
+          delete-action='delete-remote-endpoint-host'
+          auto-delete=false
+          partial-path='remote-endpoint-host/-inline-form'}}
+        {{ap-button-block-new
+          t='resources.host'
+          action='new-remote-endpoint-host'}}
+      {{/ap-panel-edit}}
+    {{/if}}
 {{/ap-model-form}}

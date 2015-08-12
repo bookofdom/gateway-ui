@@ -3,18 +3,19 @@
 
 headerIdCounter = 1
 queryIdCounter = 1
+hostIdCounter = 1
 
 RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     headers:
-      #embedded: 'always'
       serialize: false
       deserialize: 'records'
     query:
-      #embedded: 'always'
       serialize: false
       deserialize: 'records'
     environment_data:
+      embedded: 'always'
+    hosts:
       embedded: 'always'
   normalize: (type, hash, property) ->
     switch hash.type
@@ -28,15 +29,31 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         @normalizeEnvironmentDataLinks hash
       when 'sqlserver'
         hash.server = hash.data.config.server
-        hash.port = hash.data.config.port
-        hash.username = hash.data.config['user id']
-        hash.password = hash.data.config.password
         hash.database = hash.data.config.database
-        hash.schema = hash.data.config.schema
+        hash.username = hash.data.config['user id']
         hash.timeout = hash.data.config['connection timeout']
+        hash.schema = hash.data.config.schema
+        hash.port = hash.data.config.port
+        hash.password = hash.data.config.password
         hash.transactions = hash.data.transactions
         hash.maxopen = hash.data.maxOpenConn
         hash.maxidle = hash.data.maxIdleConn
+      when 'postgres'
+        hash.server = hash.data.config.host
+        hash.database = hash.data.config.dbname
+        hash.username = hash.data.config.user
+        hash.timeout = hash.data.config.connect_timeout
+        hash.port = hash.data.config.port
+        hash.password = hash.data.config.password
+        hash.transactions = hash.data.transactions
+        hash.maxopen = hash.data.maxOpenConn
+        hash.maxidle = hash.data.maxIdleConn
+      when 'mongodb'
+        hash.database = hash.data.config.database
+        hash.username = hash.data.config.username
+        hash.password = hash.data.config.password
+        hash.limit = hash.data.limit
+        @normalizeHosts hash
     @_super.apply @, arguments
   normalizeHeaders: (hash) ->
     hash.headers = []
@@ -55,6 +72,15 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         id: queryIdCounter++
         name: key
         value: value
+    hash
+  normalizeHosts: (hash) ->
+    hash.hosts = []
+    hash.data.config.hosts ?= []
+    for host in hash.data.config.hosts
+      hash.hosts.push
+        id: hostIdCounter++
+        host: host.host
+        port: host.port
     hash
   # Adds ephemeral IDs to embedded environment data records, since IDs are required.
   normalizeEnvironmentData: (hash) ->
@@ -93,6 +119,27 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
           transactions: serialized.transactions
           maxIdleConn: serialized.maxidle
           maxOpenConn: serialized.maxopen
+      when 'postgres'
+        serialized.data =
+          config:
+            host: serialized.server
+            port: serialized.port
+            user: serialized.username
+            password: serialized.password
+            dbname: serialized.database
+            connect_timeout: serialized.timeout
+          transactions: serialized.transactions
+          maxIdleConn: serialized.maxidle
+          maxOpenConn: serialized.maxopen
+      when 'mongodb'
+        serialized.data =
+          config:
+            hosts: serialized.hosts
+            database: serialized.database
+            username: serialized.username
+            password: serialized.password
+          limit: serialized.limit
+        delete serialized.hosts
     serialized
   serializeHeaders: (model) ->
     headers = {}

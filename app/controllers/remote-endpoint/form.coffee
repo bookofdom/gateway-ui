@@ -37,7 +37,6 @@ RemoteEndpointFormController = FormController.extend
     name: 'type'
     required: true
     type: 'select'
-    help: t 'fields.help.remote-endpoint-type'
   ]
 
   platformFields:
@@ -59,13 +58,13 @@ RemoteEndpointFormController = FormController.extend
       required: true
     ,
       name: 'password'
+      type: 'password'
       required: true
     ,
       name: 'database'
       required: true
     ,
       name: 'schema'
-      required: true
     ,
       name: 'transactions'
     ,
@@ -78,6 +77,49 @@ RemoteEndpointFormController = FormController.extend
       name: 'maxopen'
       type: 'integer'
     ]
+    postgres: [
+      name: 'server'
+      label: 'resources.host'
+      required: true
+    ,
+      name: 'port'
+      type: 'integer'
+      required: true
+    ,
+      name: 'database'
+      required: true
+    ,
+      name: 'username'
+      required: true
+    ,
+      name: 'password'
+      required: true
+    ,
+      name: 'timeout'
+      type: 'integer'
+    ,
+      name: 'transactions'
+    ,
+      name: 'maxidle'
+      type: 'integer'
+    ,
+      name: 'maxopen'
+      type: 'integer'
+    ]
+    mongodb: [
+      name: 'database'
+      required: true
+    ,
+      name: 'username'
+      required: true
+    ,
+      name: 'password'
+      required: true
+    ,
+      name: 'limit'
+      type: 'integer'
+      required: true
+    ]
 
   fields: Ember.computed 'isNew', 'platform.slug', 'platformFields', ->
     fields = @_super.apply @, arguments
@@ -85,6 +127,15 @@ RemoteEndpointFormController = FormController.extend
     fields = Ember.copy(fields).pushObjects platformFields if platformFields
     fields
 
+  addHostModel: Ember.observer 'isMongo', ->
+    @_super.apply @, arguments
+    model = @get 'model'
+    if model
+      isHostsEmpty = !model.get 'hosts.length'
+      isNew = model.get 'isNew'
+      isMongo = model.get 'isMongo'
+      # if an existing model has no hosts, add one by default
+      @createNewHostModel() if isNew and isMongo and isHostsEmpty
   createNewHeaderModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'remote-endpoint-header'
@@ -93,11 +144,17 @@ RemoteEndpointFormController = FormController.extend
     model = @get 'model'
     newModel = @store?.createRecord 'remote-endpoint-query-parameter'
     model.get('query').pushObject newModel
+  createNewHostModel: ->
+    model = @get 'model'
+    newModel = @store?.createRecord 'remote-endpoint-host'
+    model.get('hosts').pushObject newModel
   actions:
     'delete-remote-endpoint-header': (record) -> record.deleteRecord()
     'new-remote-endpoint-header': -> @createNewHeaderModel()
     'delete-remote-endpoint-query-parameter': (record) -> record.deleteRecord()
     'new-remote-endpoint-query-parameter': -> @createNewQueryParameterModel()
+    'delete-remote-endpoint-host': (record) -> record.deleteRecord()
+    'new-remote-endpoint-host': -> @createNewHostModel()
     'delete-remote-endpoint-environment-datum': (record) ->
       record.deleteRecord()
     'new-remote-endpoint-environment-datum': ->
@@ -107,5 +164,7 @@ RemoteEndpointFormController = FormController.extend
       if model.get 'isNew'
         remoteEndpoints = @get 'controllers.remote-endpoints.model'
         remoteEndpoints.pushObject model
+    afterDelete: ->
+      @send 'deleted'
 
 `export default RemoteEndpointFormController`

@@ -34,5 +34,7 @@ ProxyEndpointComponentFormController = FormController.extend
       # resend this action (using a different name)
       # so that the router can handle it if necessary
       @send 'saved'
+    afterDelete: ->
+      @send 'deleted'
 
 `export default ProxyEndpointComponentFormController`

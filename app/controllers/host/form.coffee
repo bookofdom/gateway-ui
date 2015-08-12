@@ -17,5 +17,7 @@ HostFormController = FormController.extend
       if model.get 'isNew'
         hosts = @get 'controllers.hosts.model'
         hosts.pushObject model
+    afterDelete: ->
+      @send 'deleted'
 
 `export default HostFormController`

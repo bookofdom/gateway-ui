@@ -39,6 +39,7 @@ RemoteEndpointEnvironmentDatum = Model.extend
     @store.dematerializeRecord @
   destroyRecord: ->
     @deleteRecord()
+    @transitionTo 'loaded.saved' # clear deleted state
     remoteEndpoint = @get 'remote_endpoint'
     remoteEndpoint.save().then (->
       remoteEndpoint.rollback()
