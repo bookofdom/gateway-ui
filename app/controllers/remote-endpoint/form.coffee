@@ -107,6 +107,36 @@ RemoteEndpointFormController = FormController.extend
       name: 'maxopen'
       type: 'integer'
     ]
+    mysql: [
+      name: 'server'
+      label: 'resources.host'
+      required: true
+    ,
+      name: 'port'
+      type: 'integer'
+      required: true
+    ,
+      name: 'database'
+      required: true
+    ,
+      name: 'username'
+      required: true
+    ,
+      name: 'password'
+      type: 'password'
+      required: true
+    ,
+      name: 'timeout'
+      type: 'integer'
+    ,
+      name: 'transactions'
+    ,
+      name: 'maxidle'
+      type: 'integer'
+    ,
+      name: 'maxopen'
+      type: 'integer'
+    ]
     mongodb: [
       name: 'database'
       required: true

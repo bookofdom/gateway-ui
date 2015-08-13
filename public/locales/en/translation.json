@@ -213,6 +213,7 @@
       "http": "HTTP",
       "sqlserver": "SQL Server",
       "postgres": "PostgreSQL",
+      "mysql": "MySQL",
       "mongodb": "MongoDB"
     }
   }

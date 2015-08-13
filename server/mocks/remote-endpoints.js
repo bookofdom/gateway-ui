@@ -178,6 +178,44 @@ module.exports = function(app) {
         },
         "limit": 4096
       }
+   },
+  {
+    "id":10,
+    "api_id":1,
+    "name":"mysql",
+    "codename":"mysql",
+    "description":"MySQL endpoint",
+    "type":"mysql",
+    "data":{
+      "config": {
+        "server":"server.foo.com",
+        "port":1433,
+        "username":"anypresence",
+        "password":"password",
+        "dbname":"database"
+      }
+    }
+  },
+  {
+    "id":11,
+    "api_id":1,
+    "name":"mysql",
+    "codename":"mysql",
+    "description":"MySQL endpoint",
+    "type":"mysql",
+    "data":{
+      "config": {
+        "server":"server.foo.com",
+        "port":1433,
+        "username":"anypresence",
+        "password":"password",
+        "dbname":"database",
+        "timeout":"65000ms"
+      },
+      "transactions":true,
+      "maxIdleConn":100,
+      "maxOpenConn":80
+      }
     }
   ];
 
