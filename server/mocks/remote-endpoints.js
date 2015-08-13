@@ -191,7 +191,13 @@ module.exports = function(app) {
     var body = req.body;
     var id = Math.round(Math.random() * 100) + 100;
     body.remote_endpoint.id = id;
-    res.status(201).send(body).end();
+    if (body.remote_endpoint.name.toLowerCase() == 'error') {
+      res.status(422).send({errors: {name: 'This field is in error.'}});
+    } else if (body.remote_endpoint.name.toLowerCase() == '500') {
+      res.status(500).send();
+    } else {
+      res.status(201).send(body).end();
+    }
   });
 
   remoteEndpointsRouter.get('/:id', function(req, res) {
