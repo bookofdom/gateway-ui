@@ -48,6 +48,16 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.transactions = hash.data.transactions
         hash.maxopen = hash.data.maxOpenConn
         hash.maxidle = hash.data.maxIdleConn
+      when 'mysql'
+        hash.server = hash.data.config.host
+        hash.database = hash.data.config.dbname
+        hash.username = hash.data.config.username
+        hash.timeout = parseInt(hash.data.config.timeout, 10)
+        hash.port = hash.data.config.port
+        hash.password = hash.data.config.password
+        hash.transactions = hash.data.transactions
+        hash.maxopen = hash.data.maxOpenConn
+        hash.maxidle = hash.data.maxIdleConn
       when 'mongodb'
         hash.database = hash.data.config.database
         hash.username = hash.data.config.username
@@ -128,6 +138,18 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
             password: serialized.password
             dbname: serialized.database
             connect_timeout: serialized.timeout
+          transactions: serialized.transactions
+          maxIdleConn: serialized.maxidle
+          maxOpenConn: serialized.maxopen
+      when 'mysql'
+        serialized.data =
+          config:
+            host: serialized.server
+            port: serialized.port
+            username: serialized.username
+            password: serialized.password
+            dbname: serialized.database
+            timeout: "#{serialized.timeout}ms" if serialized.timeout
           transactions: serialized.transactions
           maxIdleConn: serialized.maxidle
           maxOpenConn: serialized.maxopen

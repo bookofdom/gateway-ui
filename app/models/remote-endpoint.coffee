@@ -18,6 +18,7 @@ RemoteEndpoint = Model.extend
 
   # sqlserver
   # postgres
+  # mysql
   server: DS.attr 'string'
   port: DS.attr 'number'
   username: DS.attr 'string'
