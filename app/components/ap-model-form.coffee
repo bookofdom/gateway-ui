@@ -45,7 +45,9 @@ ApModelFormComponent = BsFormComponent.extend
   keyDown: (e) ->
     if (e.metaKey or e.ctrlKey) and (e.keyCode is 83)
       e.preventDefault()
-      @$().trigger 'submit'
+      # a hacky way to programmatically submit the form, since
+      # all direct methods fail to trigger proper validation
+      @$('[type=submit]').click()
   confirm: (text) ->
     if config.confirmDelete
       confirm text

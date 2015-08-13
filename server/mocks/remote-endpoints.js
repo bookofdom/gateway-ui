@@ -178,6 +178,44 @@ module.exports = function(app) {
         },
         "limit": 4096
       }
+   },
+  {
+    "id":10,
+    "api_id":1,
+    "name":"mysql",
+    "codename":"mysql",
+    "description":"MySQL endpoint",
+    "type":"mysql",
+    "data":{
+      "config": {
+        "server":"server.foo.com",
+        "port":1433,
+        "username":"anypresence",
+        "password":"password",
+        "dbname":"database"
+      }
+    }
+  },
+  {
+    "id":11,
+    "api_id":1,
+    "name":"mysql",
+    "codename":"mysql",
+    "description":"MySQL endpoint",
+    "type":"mysql",
+    "data":{
+      "config": {
+        "server":"server.foo.com",
+        "port":1433,
+        "username":"anypresence",
+        "password":"password",
+        "dbname":"database",
+        "timeout":"65000ms"
+      },
+      "transactions":true,
+      "maxIdleConn":100,
+      "maxOpenConn":80
+      }
     }
   ];
 
@@ -191,7 +229,13 @@ module.exports = function(app) {
     var body = req.body;
     var id = Math.round(Math.random() * 100) + 100;
     body.remote_endpoint.id = id;
-    res.status(201).send(body).end();
+    if (body.remote_endpoint.name.toLowerCase() == 'error') {
+      res.status(422).send({errors: {name: 'This field is in error.'}});
+    } else if (body.remote_endpoint.name.toLowerCase() == '500') {
+      res.status(500).send();
+    } else {
+      res.status(201).send(body).end();
+    }
   });
 
   remoteEndpointsRouter.get('/:id', function(req, res) {
