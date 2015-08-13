@@ -93,6 +93,7 @@ RemoteEndpointFormController = FormController.extend
       required: true
     ,
       name: 'password'
+      type: 'password'
       required: true
     ,
       name: 'timeout'
@@ -114,6 +115,7 @@ RemoteEndpointFormController = FormController.extend
       required: true
     ,
       name: 'password'
+      type: 'password'
       required: true
     ,
       name: 'limit'
