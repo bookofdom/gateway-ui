@@ -210,7 +210,7 @@ module.exports = function(app) {
         "username":"anypresence",
         "password":"password",
         "dbname":"database",
-        "timeout":"1m30.5s"
+        "timeout":"65000ms"
       },
       "transactions":true,
       "maxIdleConn":100,
