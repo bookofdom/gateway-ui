@@ -49,7 +49,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.maxopen = hash.data.maxOpenConn
         hash.maxidle = hash.data.maxIdleConn
       when 'mysql'
-        hash.server = hash.data.config.host
+        hash.server = hash.data.config.server
         hash.database = hash.data.config.dbname
         hash.username = hash.data.config.username
         hash.timeout = parseInt(hash.data.config.timeout, 10)
@@ -144,7 +144,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
       when 'mysql'
         serialized.data =
           config:
-            host: serialized.server
+            server: serialized.server
             port: serialized.port
             username: serialized.username
             password: serialized.password
