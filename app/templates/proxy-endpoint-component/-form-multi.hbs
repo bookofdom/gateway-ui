@@ -10,7 +10,7 @@
   {{#unless model.isNew}}
     {{#ap-panel-edit t='resources.proxy-endpoint-component-call_plural'}}
       {{ap-table-model
-        models=calls
+        models=model.calls
         delete-action='delete-proxy-endpoint-component-call'
         auto-delete=false
         edit-path='proxy-endpoint-component-call.edit'
