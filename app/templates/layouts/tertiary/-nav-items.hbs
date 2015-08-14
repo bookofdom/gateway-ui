@@ -2,36 +2,36 @@
     class='ap-inverse ap-unsortable'
     path='proxy-endpoint.edit'
     icon='the-essentials-129'
-    t=name}}
+    t=model.name}}
 
-{{#each components}}
-  {{#unless isNew}}
-    {{#if single}}
+{{#each component in model.components}}
+  {{#unless component.isNew}}
+    {{#if component.single}}
       {{ap-list-link
         path='proxy-endpoint-component.edit'
         action='proxy-endpoint-component-edit'
-        arg1=this
+        arg1=component
         icon='the-essentials-072'
-        t=name
+        t=component.name
         index=id}}
     {{/if}}
-    {{#if multi}}
+    {{#if component.multi}}
       {{ap-list-link
         path='proxy-endpoint-component.edit'
         action='proxy-endpoint-component-edit'
-        arg1=this
+        arg1=component
         icon-type='gateway'
         icon='multiproxy'
-        t=name
+        t=component.name
         index=id}}
     {{/if}}
-    {{#if js}}
+    {{#if component.js}}
       {{ap-list-link
         path='proxy-endpoint-component.edit'
         action='proxy-endpoint-component-edit'
-        arg1=this
+        arg1=component
         icon='file-type-content-055'
-        t=name
+        t=component.name
         index=id}}
     {{/if}}
   {{/unless}}
