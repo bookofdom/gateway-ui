@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-RemoteEndpointsController = Ember.ArrayController.extend
+RemoteEndpointsController = Ember.Controller.extend
   breadCrumb: 'resources.remote-endpoint_plural'
 
 `export default RemoteEndpointsController`
