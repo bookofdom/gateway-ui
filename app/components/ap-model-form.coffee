@@ -18,7 +18,7 @@ ApModelFormComponent = BsFormComponent.extend
   'auto-cancel': true
   'auto-delete': true
   'option-groups': null
-  dirty: Ember.computed 'model.isDirty', -> @get 'model.isDirty'
+  dirty: Ember.computed 'model.hasDirtyAttributes', -> @get 'model.hasDirtyAttributes'
   'show-save': Ember.computed 'dirty', -> @get 'dirty'
   'show-cancel': Ember.computed 'dirty', 'model.isNew', ->
     @get('dirty') and !@get('model.isNew')

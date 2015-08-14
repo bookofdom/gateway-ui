@@ -16,7 +16,7 @@ ProxyEndpoint = Model.extend
   components: DS.hasMany 'proxy-endpoint-component'
   tests: DS.hasMany 'proxy-endpoint-test'
 
-  # Must manually manage isDirty for relationships:
+  # Must manually manage hasDirtyAttributes for relationships:
   # http://paulferrett.com/2014/ember-model-isdirty-when-belongsto-changes/
   environmentDirty: Ember.computed 'environment.[]', ->
     original = @get('_data.environment.id') or null
@@ -26,8 +26,8 @@ ProxyEndpoint = Model.extend
     original = @get('_data.endpoint_group.id') or null
     current = @get('endpoint_group.id') or null
     original != current
-  routesDirty: Ember.computed 'routes.@each.isDirty', ->
-    @get('routes').filterBy('isDirty', true).get('length')
+  routesDirty: Ember.computed 'routes.@each.hasDirtyAttributes', ->
+    @get('routes').filterBy('hasDirtyAttributes', true).get('length')
   relationshipsDirty: Ember.computed 'environmentDirty', 'endpointGroupDirty', 'routesDirty', ->
     @get('environmentDirty') or @get('endpointGroupDirty') or @get('routesDirty')
   relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->

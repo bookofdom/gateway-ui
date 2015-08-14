@@ -12,8 +12,8 @@ Environment = Model.extend
   api: DS.belongsTo 'api', async: true
   variables: DS.hasMany 'environment-variable'
   # manually manage relationship dirty
-  variablesDirty: Ember.computed 'variables.@each.isDirty', ->
-    @get('variables').filterBy('isDirty', true).get('length')
+  variablesDirty: Ember.computed 'variables.@each.hasDirtyAttributes', ->
+    @get('variables').filterBy('hasDirtyAttributes', true).get('length')
   relationshipsDirty: Ember.computed 'variablesDirty', -> @get('variablesDirty')
   relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
     @send 'becomeDirty' if @get 'relationshipsDirty'

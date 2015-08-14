@@ -32,10 +32,10 @@ ProxyEndpointTest = Model.extend
   proxy_endpoint: DS.belongsTo 'proxy-endpoint'
 
   # manually manage relationship dirty
-  headersDirty: Ember.computed 'headers.@each.isDirty', ->
-    @get('headers').filterBy('isDirty', true).get 'length'
-  queryDirty: Ember.computed 'query.@each.isDirty', ->
-    @get('query').filterBy('isDirty', true).get 'length'
+  headersDirty: Ember.computed 'headers.@each.hasDirtyAttributes', ->
+    @get('headers').filterBy('hasDirtyAttributes', true).get 'length'
+  queryDirty: Ember.computed 'query.@each.hasDirtyAttributes', ->
+    @get('query').filterBy('hasDirtyAttributes', true).get 'length'
   relationshipsDirty: Ember.computed 'headersDirty', 'queryDirty', ->
     @get('headersDirty') or @get('queryDirty')
   relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->

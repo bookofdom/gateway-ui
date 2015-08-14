@@ -13,10 +13,10 @@ ProxyEndpointComponentCall = Model.extend
     original = @get('_data.remote_endpoint.id') or null
     current = @get('remote_endpoint.id') or null
     original != current
-  beforeDirty: Ember.computed 'before.@each.isDirty', ->
-    @get('before').filterBy('isDirty', true).get('length')
-  afterDirty: Ember.computed 'after.@each.isDirty', ->
-    @get('after').filterBy('isDirty', true).get('length')
+  beforeDirty: Ember.computed 'before.@each.hasDirtyAttributes', ->
+    @get('before').filterBy('hasDirtyAttributes', true).get('length')
+  afterDirty: Ember.computed 'after.@each.hasDirtyAttributes', ->
+    @get('after').filterBy('hasDirtyAttributes', true).get('length')
   relationshipsDirty: Ember.computed 'remoteEndpointDirty', 'beforeDirty', 'afterDirty', ->
     @get('remoteEndpointDirty') or @get('beforeDirty') or @get('afterDirty')
   relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->

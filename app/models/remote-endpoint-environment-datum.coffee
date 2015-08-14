@@ -13,10 +13,10 @@ RemoteEndpointEnvironmentDatum = Model.extend
     original = @get('_data.environment.id') or null
     current = @get('environment.id') or null
     original != current
-  headersDirty: Ember.computed 'headers.@each.isDirty', ->
-    @get('headers').filterBy('isDirty', true).get('length')
-  queryDirty: Ember.computed 'query.@each.isDirty', ->
-    @get('query').filterBy('isDirty', true).get('length')
+  headersDirty: Ember.computed 'headers.@each.hasDirtyAttributes', ->
+    @get('headers').filterBy('hasDirtyAttributes', true).get('length')
+  queryDirty: Ember.computed 'query.@each.hasDirtyAttributes', ->
+    @get('query').filterBy('hasDirtyAttributes', true).get('length')
   relationshipsDirty: Ember.computed 'environmentDirty', 'headersDirty', 'queryDirty', ->
     @get('environmentDirty') or @get('headersDirty') or @get('queryDirty')
   relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
