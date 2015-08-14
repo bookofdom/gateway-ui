@@ -1,7 +1,7 @@
 `import FormController from 'gateway/controllers/form'`
 
 EnvironmentFormController = FormController.extend
-  needs: ['environments']
+  environments: Ember.inject.controller()
   modelType: 'environment'
   newFields: [
     name: 'name'
@@ -41,7 +41,7 @@ EnvironmentFormController = FormController.extend
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'
-        environments = @get 'controllers.environments.model'
+        environments = @get 'environments.model'
         environments.pushObject model
     afterDelete: ->
       @send 'deleted'

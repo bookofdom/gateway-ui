@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
 
 ProxyEndpointComponentsNewIndexController = Ember.Controller.extend
-  needs: ['proxy-endpoint-components']
-  components: Ember.computed 'controllers.proxy-endpoint-components.model.[]', ->
-    @get 'controllers.proxy-endpoint-components.model'
+  'proxy-endpoint-components': Ember.inject.controller()
+  components: Ember.computed 'proxy-endpoint-components.model.[]', ->
+    @get 'proxy-endpoint-components.model'
 
 `export default ProxyEndpointComponentsNewIndexController`

@@ -1,7 +1,7 @@
 `import FormController from 'gateway/controllers/form'`
 
 HostFormController = FormController.extend
-  needs: ['hosts']
+  hosts: Ember.inject.controller()
   modelType: 'host'
   fields: Ember.computed ->
     [
@@ -15,7 +15,7 @@ HostFormController = FormController.extend
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'
-        hosts = @get 'controllers.hosts.model'
+        hosts = @get 'hosts.model'
         hosts.pushObject model
     afterDelete: ->
       @send 'deleted'

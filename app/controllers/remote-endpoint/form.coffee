@@ -3,7 +3,7 @@
 `import t from 'gateway/helpers/i18n'`
 
 RemoteEndpointFormController = FormController.extend
-  needs: ['remote-endpoints']
+  'remote-endpoints': Ember.inject.controller()
   modelType: 'remote-endpoint'
 
   'option-groups':
@@ -194,7 +194,7 @@ RemoteEndpointFormController = FormController.extend
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'
-        remoteEndpoints = @get 'controllers.remote-endpoints.model'
+        remoteEndpoints = @get 'remote-endpoints.model'
         remoteEndpoints.pushObject model
     afterDelete: ->
       @send 'deleted'

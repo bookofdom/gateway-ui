@@ -1,7 +1,7 @@
 `import FormController from 'gateway/controllers/form'`
 
 EndpointGroupFormController = FormController.extend
-  needs: ['endpoint-groups']
+  'endpoint-groups': Ember.inject.controller()
   modelType: 'endpoint-group'
   fields: Ember.computed ->
     [
@@ -15,7 +15,7 @@ EndpointGroupFormController = FormController.extend
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'
-        endpointGroups = @get 'controllers.endpoint-groups.model'
+        endpointGroups = @get 'endpoint-groups.model'
         endpointGroups.pushObject model
     afterDelete: ->
       @send 'deleted'

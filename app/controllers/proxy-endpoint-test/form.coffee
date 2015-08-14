@@ -21,17 +21,18 @@
 # or the method is POST or PUT and content type is 'application/x-www-form-urlencoded'
 
 ProxyEndpointTestFormController = FormController.extend
-  needs: ['proxy-endpoint', 'proxy-endpoint-tests']
+  'proxy-endpoint': Ember.inject.controller()
+  'proxy-endpoint-tests': Ember.inject.controller()
   modelType: 'proxy-endpoint-test'
 
-  'option-groups': Ember.computed 'controllers.proxy-endpoint.routes.[]', ->
+  'option-groups': Ember.computed 'proxy-endpoint.model.routes.[]', ->
     method: ProxyEndpointTest.methods
-    route: @get('controllers.proxy-endpoint.routes').map (route) ->
+    route: @get('proxy-endpoint.model.routes').map (route) ->
       name: route.get 'name'
       value: route.get 'path'
     content_type: ProxyEndpointTest.contentTypes
 
-  defaultFields: Ember.computed 'controllers.proxy-endpoint.routes.[]', ->
+  defaultFields: Ember.computed 'proxy-endpoint.model.routes.[]', ->
     [
       name: 'name'
       required: true
@@ -106,7 +107,7 @@ ProxyEndpointTestFormController = FormController.extend
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'
-        tests = @get 'controllers.proxy-endpoint-tests.model'
+        tests = @get 'proxy-endpoint-tests.model'
         tests.pushObject model
     afterDelete: ->
       @send 'deleted'
