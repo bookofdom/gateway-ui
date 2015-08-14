@@ -12,8 +12,8 @@ ProxyEndpointTestAdapter = ApplicationAdapter.extend
       testId = record.get 'id'
       proxyEndpointId = proxyEndpoint.get 'id'
       # URLs
-      proxyEndpointTypeKey = proxyEndpoint.constructor.typeKey
-      proxyEndpointUrl = proxyEndpointAdapter.buildURL proxyEndpointTypeKey, proxyEndpointId, proxyEndpoint
+      proxyEndpointModelName = proxyEndpoint.constructor.modelName
+      proxyEndpointUrl = proxyEndpointAdapter.buildURL proxyEndpointModelName, proxyEndpointId, proxyEndpoint
       "#{proxyEndpointUrl}/tests/#{testId}"
 
   buildTestUrl: (record) ->

@@ -10,7 +10,7 @@ ApplicationSerializer = DS.RESTSerializer.extend
       when 'hasMany' then "#{singularKey}_ids"
       else key
   serializeIntoHash: (data, type, record, options) ->
-    root = Ember.String.decamelize type.typeKey
+    root = Ember.String.decamelize type.modelName
     serialized = @serialize record, options
     # "api_id" field is always transient
     delete serialized['api_id']

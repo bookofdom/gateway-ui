@@ -26,10 +26,10 @@ ApModelFormGroupComponent = BsFormGroupComponent.extend
         ("fields.#{@get 'name'}" if @get 'name')
 
   'label-for': Ember.computed 'model', 'name', ->
-    typeKey = @get 'model.constructor.typeKey'
+    modelName = @get 'model.constructor.modelName'
     id = @get('model.id') or @get('model.clientId')
     name = @get 'name'
-    if id then "#{typeKey}-#{id}-#{name}" else "#{typeKey}-#{name}"
+    if id then "#{modelName}-#{id}-#{name}" else "#{modelName}-#{name}"
 
   help: Ember.computed 'fieldHelp', 'hasErrors', (key, value, previousValue) ->
     @set 'fieldHelp', value if value? and (value != previousValue)
