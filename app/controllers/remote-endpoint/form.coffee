@@ -153,13 +153,13 @@ RemoteEndpointFormController = FormController.extend
       required: true
     ]
 
-  fields: Ember.computed 'isNew', 'platform.slug', 'platformFields', ->
+  fields: Ember.computed 'model.isNew', 'model.platform.slug', 'platformFields', ->
     fields = @_super.apply @, arguments
-    platformFields = @get "platformFields.#{@get 'platform.slug'}"
+    platformFields = @get "platformFields.#{@get 'model.platform.slug'}"
     fields = Ember.copy(fields).pushObjects platformFields if platformFields
     fields
 
-  addHostModel: Ember.observer 'isMongo', ->
+  addHostModel: Ember.observer 'model.isMongo', ->
     @_super.apply @, arguments
     model = @get 'model'
     if model

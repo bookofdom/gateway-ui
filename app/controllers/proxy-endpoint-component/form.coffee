@@ -1,10 +1,10 @@
 `import FormController from 'gateway/controllers/form'`
 
 ProxyEndpointComponentFormController = FormController.extend
-  formTemplateName: Ember.computed 'type', ->
-    type = @get 'type'
+  formTemplateName: Ember.computed 'model.type', ->
+    type = @get 'model.type'
     "proxy-endpoint-component/form-#{type}"
-  fields: Ember.computed 'js', 'single', 'multi', ->
+  fields: Ember.computed 'model.js', 'model.single', 'model.multi', ->
     fields = [
       name: 'conditional_positive'
       type: 'conditional-positive'
@@ -12,7 +12,7 @@ ProxyEndpointComponentFormController = FormController.extend
       name: 'conditional'
       type: 'javascript'
     ]
-    if @get 'js'
+    if @get 'model.js'
       fields.push
         name: 'body'
         label: 'fields.logic'

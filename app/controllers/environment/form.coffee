@@ -29,8 +29,8 @@ EnvironmentFormController = FormController.extend
     name: 'session_encryption_key_rotate'
     type: 'textarea'
   ]
-  fields: Ember.computed 'isNew', ->
-    if @get 'isNew' then @get 'newFields' else @get 'editFields'
+  fields: Ember.computed 'model.isNew', ->
+    if @get 'model.isNew' then @get 'newFields' else @get 'editFields'
   createNewVariableModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'environment-variable'

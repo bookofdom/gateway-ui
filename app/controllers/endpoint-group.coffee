@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-EndpointGroupController = Ember.ObjectController.extend
-  breadCrumb: Ember.computed 'name', -> @get 'name'
+EndpointGroupController = Ember.Controller.extend
+  breadCrumb: Ember.computed 'model.name', -> @get 'model.name'
 
 `export default EndpointGroupController`

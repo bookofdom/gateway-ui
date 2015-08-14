@@ -7,7 +7,7 @@ ProxyEndpointComponentCallFormController = FormController.extend
   modelType: 'proxy-endpoint-component-call'
   'option-groups': Ember.computed 'controllers.proxy-endpoints.remote_endpoints.[]', ->
     remote_endpoint: @get('controllers.proxy-endpoints.remote_endpoints').filterBy 'isNew', false
-  fields: Ember.computed 'isNew', ->
+  fields: Ember.computed 'model.isNew', ->
     newFields = [
       name: 'remote_endpoint'
       label: 'resources.remote-endpoint'
@@ -31,7 +31,7 @@ ProxyEndpointComponentCallFormController = FormController.extend
       label: 'fields.call-conditional'
       type: 'javascript'
     ]
-    if @get 'isNew' then newFields else editFields
+    if @get 'model.isNew' then newFields else editFields
   actions:
     beforeSave: ->
       model = @get 'model'

@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-ProxyEndpointComponentController = Ember.ObjectController.extend
-  breadCrumb: Ember.computed 'name', -> @get 'name'
+ProxyEndpointComponentController = Ember.Controller.extend
+  breadCrumb: Ember.computed 'model.name', -> @get 'model.name'
 
 `export default ProxyEndpointComponentController`

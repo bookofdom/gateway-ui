@@ -56,39 +56,39 @@ ProxyEndpointTestFormController = FormController.extend
       type: 'select'
       help: "fields.help.content-type"
     ]
-  fields: Ember.computed 'isNew', 'method', 'methodFields', ->
+  fields: Ember.computed 'model.isNew', 'model.method', 'methodFields', ->
     fields = @_super.apply @, arguments
-    methodFields = @get "methodFields.#{@get 'method'}"
+    methodFields = @get "methodFields.#{@get 'model.method'}"
     fields = Ember.copy(fields).pushObjects methodFields if methodFields
     fields
 
-  hasContentTypeHeader: Ember.computed 'headers.@each.name', ->
-    !!@get('headers').findBy 'name', 'Content-Type'
+  hasContentTypeHeader: Ember.computed 'model.headers.@each.name', ->
+    !!@get('model.headers').findBy 'name', 'Content-Type'
 
-  defaultContentType: Ember.observer 'method', 'content_type', 'hasContentTypeHeader', ->
+  defaultContentType: Ember.observer 'model.method', 'model.content_type', 'hasContentTypeHeader', ->
     if !@get 'hasContentTypeHeader'
-      method = @get 'method'
-      contentType = @get 'content_type'
-      @set 'content_type', 'application/json' if !contentType and ((method is 'POST') or (method is 'PUT'))
+      method = @get 'model.method'
+      contentType = @get 'model.content_type'
+      @set 'model.content_type', 'application/json' if !contentType and ((method is 'POST') or (method is 'PUT'))
 
-  bodyLanguage: Ember.computed 'content_type', ->
-    language = 'text' if !@get 'isFormEncoded'
-    language = 'json' if @get 'isJson'
-    language = 'xml' if @get 'isXml'
+  bodyLanguage: Ember.computed 'model.content_type', ->
+    language = 'text' if !@get 'model.isFormEncoded'
+    language = 'json' if @get 'model.isJson'
+    language = 'xml' if @get 'model.isXml'
     language
 
   bodyField: Ember.computed 'bodyLanguage', ->
     name: 'body'
     type: "editor-#{@get 'bodyLanguage'}"
 
-  showBodyField: Ember.computed 'method', 'isFormEncoded', ->
-    method = @get 'method'
-    isFormEncoded = @get 'isFormEncoded'
+  showBodyField: Ember.computed 'model.method', 'model.isFormEncoded', ->
+    method = @get 'model.method'
+    isFormEncoded = @get 'model.isFormEncoded'
     ((method is 'POST') or (method is 'PUT')) and !isFormEncoded
 
-  showQueryParameters: Ember.computed 'method', 'isFormEncoded', ->
-    method = @get 'method'
-    (method is 'GET') or (@get('isFormEncoded') and ((method is 'POST') or (method is 'PUT')))
+  showQueryParameters: Ember.computed 'model.method', 'model.isFormEncoded', ->
+    method = @get 'model.method'
+    (method is 'GET') or (@get('model.isFormEncoded') and ((method is 'POST') or (method is 'PUT')))
 
   createNewHeaderModel: ->
     model = @get 'model'

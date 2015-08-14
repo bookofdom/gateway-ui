@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-EnvironmentController = Ember.ObjectController.extend
-  breadCrumb: Ember.computed 'name', -> @get 'name'
+EnvironmentController = Ember.Controller.extend
+  breadCrumb: Ember.computed 'model.name', -> @get 'model.name'
 
 `export default EnvironmentController`

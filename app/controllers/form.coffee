@@ -2,15 +2,15 @@
 `import Notify from 'ember-notify'`
 `import t from 'gateway/helpers/i18n'`
 
-FormController = Ember.ObjectController.extend
+FormController = Ember.Controller.extend
   modelType: null
   model: null
   newForm: false
   newFields: null
   editFields: null
   defaultFields: []
-  fields: Ember.computed 'isNew', ->
-    fields = if @get 'isNew' then @get 'newFields' else @get 'editFields'
+  fields: Ember.computed 'model.isNew', ->
+    fields = if @get 'model.isNew' then @get 'newFields' else @get 'editFields'
     fields ?= []
     fields = Ember.copy(fields).pushObjects @get('defaultFields')
     fields
