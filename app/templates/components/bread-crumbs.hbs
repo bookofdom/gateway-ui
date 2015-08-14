@@ -4,7 +4,7 @@
       {{t 'nav.home'}}
     {{/link-to}}
   </li>
-  {{#each crumb in breadCrumbs}}
+  {{#each breadCrumbs as |crumb|}}
     <li class="separator">
       {{ap-icon icon='arrows-006'}}
     </li>

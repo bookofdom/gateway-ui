@@ -1,7 +1,7 @@
 <table class="table {{if striped 'table-striped'}} {{if bordered 'table-bordered'}} {{if hover 'table-hover'}} {{if condensed 'table-condensed'}}">
   <thead>
     <tr>
-      {{#each heading in headings-text}}
+      {{#each headings-text as |heading|}}
         <th>{{heading}}</th>
       {{/each}}
     </tr>

@@ -29,7 +29,7 @@
         <label class="control-label col-sm-2">{{t 'resources.proxy-endpoint-test-header_plural'}}</label>
         <div class="col-sm-10">
           <dl class="dl-horizontal text-mono">
-            {{#each header in response.headers}}
+            {{#each response.headers as |header|}}
               <dt title="{{header.name}}">{{header.name}}</dt>
               <dd>{{header.value}}</dd>
             {{/each}}

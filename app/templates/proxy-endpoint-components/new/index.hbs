@@ -6,7 +6,7 @@
       icon='the-essentials-129'
       t=model.name}}
 
-  {{#each component in model.components}}
+  {{#each model.components as |component|}}
     {{#unless component.isNew}}
       {{#if component.single}}
         {{ap-list-link
