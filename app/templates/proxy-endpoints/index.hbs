@@ -1,13 +1,13 @@
 {{#ap-page t='resources.proxy-endpoint_plural' help-url='http://docs.justapis.com/proxy-end-points'}}
-  
+
   {{ap-table-index
       models=model
       fields='name,description,environment:resources.environment:object-name,endpoint_group:resources.endpoint-group:object-name,active::active-label'
       path='proxy-endpoint.index'
       edit-path='proxy-endpoint.edit'}}
-  
+
   {{#ap-panel-new t='resources.proxy-endpoint' closed=model.length}}
-    {{render 'proxy-endpoint/form'}}
+    {{render 'proxy-endpoint.form'}}
   {{/ap-panel-new}}
-  
+
 {{/ap-page}}

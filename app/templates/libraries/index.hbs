@@ -1,13 +1,13 @@
 {{#ap-page t='resources.library_plural' help-url='http://docs.justapis.com/shared-libraries'}}
-  
+
   {{ap-table-index
       models=model
       fields='name,description'
       path='library.index'
       edit-path='library.edit'}}
-  
+
   {{#ap-panel-new t='resources.library' closed=model.length}}
-    {{render 'library/form'}}
+    {{render 'library.form'}}
   {{/ap-panel-new}}
-  
+
 {{/ap-page}}
