@@ -6,11 +6,11 @@
     {{#if response.error}}
       <span class="label label-danger">{{response.status}}</span>
     {{/if}}
-    <span class="label label-default">{{method}}</span>
+    <span class="label label-default">{{model.method}}</span>
     {{#if response.time}}
       <span class="label label-default">{{response.time}} ms</span>
     {{/if}}
-    <code>{{route}}</code>
+    <code>{{model.route}}</code>
   </div>
 
   <div class="panel-body">
