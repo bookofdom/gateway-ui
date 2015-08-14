@@ -2,7 +2,7 @@
 `import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
 ApisRoute = Ember.Route.extend AuthenticatedRouteMixin,
-  model: -> @store.find 'api'
+  model: -> @store.findAll 'api'
   actions:
     refresh: -> @refresh()
 
