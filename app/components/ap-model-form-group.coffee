@@ -57,10 +57,10 @@ ApModelFormGroupComponent = BsFormGroupComponent.extend
   checkbox: Ember.computed 'type', ->
     (@get('type') == 'checkbox') or (@get('type') == 'boolean')
   radio: Ember.computed 'type', -> @get('type') == 'radio'
-  errorsForField: Ember.computed 'model.errors.@each', 'name', ->
+  errorsForField: Ember.computed 'model.errors.[]', 'name', ->
     name = @get 'name'
     @get('model.errors')?.errorsFor(name) or []
-  'error-messages': Ember.computed 'errorsForField.@each', ->
+  'error-messages': Ember.computed 'errorsForField.[]', ->
     "#{error.message.capitalize()}" for error in @get('errorsForField')
   hasErrors: Ember.computed 'error-messages', -> !!@get('error-messages.length')
 

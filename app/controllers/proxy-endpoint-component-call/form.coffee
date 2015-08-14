@@ -5,7 +5,7 @@
 ProxyEndpointComponentCallFormController = FormController.extend
   needs: ['proxy-endpoints', 'proxy-endpoint-component-calls']
   modelType: 'proxy-endpoint-component-call'
-  'option-groups': Ember.computed 'controllers.proxy-endpoints.remote_endpoints.@each', ->
+  'option-groups': Ember.computed 'controllers.proxy-endpoints.remote_endpoints.[]', ->
     remote_endpoint: @get('controllers.proxy-endpoints.remote_endpoints').filterBy 'isNew', false
   fields: Ember.computed 'isNew', ->
     newFields = [

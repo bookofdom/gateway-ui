@@ -16,7 +16,7 @@ RemoteEndpointEnvironmentDatumFormController = FormController.extend
       name: 'method'
       type: 'select'
     ]
-  'option-groups': Ember.computed 'controllers.remote-endpoints.environments.@each', ->
+  'option-groups': Ember.computed 'controllers.remote-endpoints.environments.[]', ->
     environment: @get('controllers.remote-endpoints.environments').filterBy 'isNew', false
     method: [
       name: t 'http-methods.get'

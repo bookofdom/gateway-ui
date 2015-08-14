@@ -9,7 +9,7 @@ ProxyEndpointComponentCall = Model.extend
   before: DS.hasMany 'proxy-endpoint-component-transformation'
   after: DS.hasMany 'proxy-endpoint-component-transformation'
   proxy_endpoint_component: DS.belongsTo 'proxy-endpoint-component', inverse: null
-  remoteEndpointDirty: Ember.computed 'remote_endpoint.@each', ->
+  remoteEndpointDirty: Ember.computed 'remote_endpoint.[]', ->
     original = @get('_data.remote_endpoint.id') or null
     current = @get('remote_endpoint.id') or null
     original != current

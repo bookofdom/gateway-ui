@@ -41,7 +41,7 @@ ProxyEndpointFormController = FormController.extend
   ]
   fields: Ember.computed 'isNew', ->
     if @get('isNew') then @get('newFields') else @get('editFields')
-  'option-groups': Ember.computed 'controllers.proxy-endpoints.environments.@each', 'controllers.proxy-endpoints.endpoint_groups.@each', ->
+  'option-groups': Ember.computed 'controllers.proxy-endpoints.environments.[]', 'controllers.proxy-endpoints.endpoint_groups.[]', ->
     environment: @get('controllers.proxy-endpoints.environments').filterBy 'isNew', false
     endpoint_group: @get('controllers.proxy-endpoints.endpoint_groups').filterBy 'isNew', false
   createNewRouteModel: ->

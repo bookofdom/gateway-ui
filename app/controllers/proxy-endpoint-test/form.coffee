@@ -24,14 +24,14 @@ ProxyEndpointTestFormController = FormController.extend
   needs: ['proxy-endpoint', 'proxy-endpoint-tests']
   modelType: 'proxy-endpoint-test'
 
-  'option-groups': Ember.computed 'controllers.proxy-endpoint.routes.@each', ->
+  'option-groups': Ember.computed 'controllers.proxy-endpoint.routes.[]', ->
     method: ProxyEndpointTest.methods
     route: @get('controllers.proxy-endpoint.routes').map (route) ->
       name: route.get 'name'
       value: route.get 'path'
     content_type: ProxyEndpointTest.contentTypes
 
-  defaultFields: Ember.computed 'controllers.proxy-endpoint.routes.@each', ->
+  defaultFields: Ember.computed 'controllers.proxy-endpoint.routes.[]', ->
     [
       name: 'name'
       required: true

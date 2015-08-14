@@ -9,7 +9,7 @@ RemoteEndpointEnvironmentDatum = Model.extend
   headers: DS.hasMany 'remote-endpoint-header'
   query: DS.hasMany 'remote-endpoint-query-parameter'
   # manual relationship dirty
-  environmentDirty: Ember.computed 'environment.@each', ->
+  environmentDirty: Ember.computed 'environment.[]', ->
     original = @get('_data.environment.id') or null
     current = @get('environment.id') or null
     original != current

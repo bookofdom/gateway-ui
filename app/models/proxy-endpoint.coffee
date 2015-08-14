@@ -18,11 +18,11 @@ ProxyEndpoint = Model.extend
 
   # Must manually manage isDirty for relationships:
   # http://paulferrett.com/2014/ember-model-isdirty-when-belongsto-changes/
-  environmentDirty: Ember.computed 'environment.@each', ->
+  environmentDirty: Ember.computed 'environment.[]', ->
     original = @get('_data.environment.id') or null
     current = @get('environment.id') or null
     original != current
-  endpointGroupDirty: Ember.computed 'endpoint_group.@each', ->
+  endpointGroupDirty: Ember.computed 'endpoint_group.[]', ->
     original = @get('_data.endpoint_group.id') or null
     current = @get('endpoint_group.id') or null
     original != current
