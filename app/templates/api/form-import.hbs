@@ -1,4 +1,4 @@
-<form method="POST" enctype="multipart/form-data" {{bind-attr action=url}}>
+<form method="POST" enctype="multipart/form-data" action="{{url}}">
   {{input name='name' value=name class='hidden'}}
   {{input name='export' type='file' class='hidden'}}
   {{ap-panel-upload}}

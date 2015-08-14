@@ -1,7 +1,7 @@
 {{#if show-heading}}
   <div class="panel-heading">
     {{#if collapse}}
-      <a {{bind-attr href=collapse-href}} data-toggle="collapse">
+      <a href="{{collapse-href}}" data-toggle="collapse">
         {{partial 'components/bs-text'}}
       </a>
     {{/if}}
@@ -11,7 +11,7 @@
   </div>
 {{/if}}
 {{#if collapse}}
-  <div {{bind-attr id=panel-collapse-id class='closed::in :panel-collapse :collapse'}}>
+  <div id="{{panel-collapse-id}}" class="{{if closed '' 'in'}} panel-collapse collapse">
     {{partial 'components/bs-panel/-panel-body'}}
   </div>
 {{/if}}

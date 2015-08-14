@@ -1,4 +1,4 @@
-<table {{bind-attr class=':table striped:table-striped bordered:table-bordered hover:table-hover condensed:table-condensed'}}>
+<table class="table {{if striped 'table-striped'}} {{if bordered 'table-bordered'}} {{if hover 'table-hover'}} {{if condensed 'table-condensed'}}">
   <thead>
     <tr>
       {{#each heading in headings-text}}

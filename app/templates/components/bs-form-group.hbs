@@ -1,4 +1,4 @@
-<label {{bind-attr for=label-for class="control-label-classes"}}>{{text}}{{#if required}}<b>*</b>{{/if}}</label>
+<label for="{{label-for}}" class="{{control-label-classes}}">{{text}}{{#if required}}<b>*</b>{{/if}}</label>
 
 {{#if inline}}
   {{#unless is-boolean}}
@@ -7,9 +7,9 @@
       <span class="help-block">{{secondary-text}}</span>
     {{/if}}
   {{/unless}}
-  
+
   {{#if is-boolean}}
-    <div {{bind-attr class=boolean-type-class}}>
+    <div class="{{boolean-type-class}}">
       <label>
         {{yield}}
       </label>
@@ -21,17 +21,17 @@
 {{/if}}
 
 {{#unless inline}}
-<div {{bind-attr class=control-wrapper-classes}}>
-  
+<div class="{{control-wrapper-classes}}">
+
   {{#unless is-boolean}}
     {{yield}}
     {{#if secondary-text}}
       <span class="help-block">{{secondary-text}}</span>
     {{/if}}
   {{/unless}}
-  
+
   {{#if is-boolean}}
-    <div {{bind-attr class=boolean-type-class}}>
+    <div class="{{boolean-type-class}}">
       <label>
         {{yield}}
       </label>
@@ -40,6 +40,6 @@
       {{/if}}
     </div>
   {{/if}}
-  
+
 </div>
 {{/unless}}
