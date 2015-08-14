@@ -3,8 +3,8 @@
     option-groups=option-groups
     fields=fields}}
 
-    {{#unless isNew}}
-      {{#if isHttp}}
+    {{#unless model.isNew}}
+      {{#if model.isHttp}}
         {{#bs-row}}
           {{#bs-col md=6}}
             {{#ap-panel-edit t='resources.remote-endpoint-header_plural'}}
@@ -47,7 +47,7 @@
       {{/if}}
     {{/unless}}
 
-    {{#if isMongo}}
+    {{#if model.isMongo}}
       {{#ap-panel-edit t='resources.host_plural'}}
         {{ap-table-model
           models=model.hosts

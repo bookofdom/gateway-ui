@@ -2,7 +2,7 @@
   model=model
   fields=fields}}
 
-  {{#unless isNew}}
+  {{#unless model.isNew}}
     {{#ap-panel-edit t='resources.environment-variable_plural'}}
       {{ap-table-model
         models=model.variables

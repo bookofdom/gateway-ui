@@ -2,8 +2,8 @@
   model=model
   option-groups=option-groups
   fields=fields}}
-  
-  {{#unless isNew}}
+
+  {{#unless model.isNew}}
     {{#bs-row}}
       {{#bs-col md=6}}
         {{#ap-panel-edit t='resources.remote-endpoint-header_plural'}}
@@ -31,5 +31,5 @@
       {{/bs-col}}
     {{/bs-row}}
   {{/unless}}
-  
+
 {{/ap-model-form}}

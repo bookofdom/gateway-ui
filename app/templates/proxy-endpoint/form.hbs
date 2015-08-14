@@ -2,8 +2,8 @@
   model=model
   option-groups=option-groups
   fields=fields}}
-  
-  {{#unless isNew}}
+
+  {{#unless model.isNew}}
     {{#ap-panel-edit t='resources.proxy-endpoint-route_plural'}}
       {{ap-table-model
         models=model.routes
@@ -15,5 +15,5 @@
         action='new-proxy-endpoint-route'}}
     {{/ap-panel-edit}}
   {{/unless}}
-  
+
 {{/ap-model-form}}

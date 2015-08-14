@@ -15,7 +15,7 @@
 
   <div class="panel-body">
     {{#if response}}
-      {{#unless isDirty}}
+      {{#unless model.isDirty}}
         {{#unless executing}}
           <a class="btn btn-default" {{action 'executeTest'}}>
             {{t 'actions.execute'}}
@@ -49,7 +49,7 @@
         </div><!-- /.col -->
       </div><!-- /.form-group -->
     {{/if}}
-    {{#unless isDirty}}
+    {{#unless model.isDirty}}
       {{#unless executing}}
         <a class="btn btn-default" {{action 'executeTest'}}>
           {{t 'actions.execute'}}

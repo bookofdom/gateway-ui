@@ -6,8 +6,8 @@
   {{#each before}}
     {{render 'proxy-endpoint-component-transformation/inline-before-form' this}}
   {{/each}}
-  
-  {{#unless isNew}}
+
+  {{#unless model.isNew}}
     {{#ap-panel-edit t='resources.proxy-endpoint-component-call_plural'}}
       {{ap-table-model
         models=calls
@@ -20,7 +20,7 @@
         action='new-proxy-endpoint-component-call'}}
     {{/ap-panel-edit}}
   {{/unless}}
-  
+
   {{#each after}}
     {{render 'proxy-endpoint-component-transformation/inline-after-form' this}}
   {{/each}}

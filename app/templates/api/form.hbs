@@ -1,8 +1,8 @@
 {{#ap-model-form
   model=model
   fields=fields}}
-  
-  {{#if isNew}}
+
+  {{#if model.isNew}}
     {{#bs-form-group label='actions.import' horizontal=true}}
       {{render 'api/form-import' model}}
     {{/bs-form-group}}
