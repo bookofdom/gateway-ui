@@ -48,7 +48,7 @@
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "1.13.0",
     "ember-export-application-global": "^1.0.0",
-    "ember-notify": "3.1.1",
+    "ember-notify": "git+https://github.com/aexmachina/ember-notify.git#master",
     "express": "^4.8.5",
     "glob": "5.0.3",
     "morgan": "^1.5.1",

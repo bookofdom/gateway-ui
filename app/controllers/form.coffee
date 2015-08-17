@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
-`import Notify from 'ember-notify'`
 `import t from 'gateway/helpers/i18n'`
 
 FormController = Ember.Controller.extend
+  notify: Ember.inject.service()
   modelType: null
   model: null
   newForm: false
@@ -27,7 +27,7 @@ FormController = Ember.Controller.extend
     @set 'model', newModel
     newModel
   notifySaveSuccess: ->
-    Notify.success "#{t('successes.saved-successfully')}."
+    @get('notify').success "#{t('successes.saved-successfully')}."
   actions:
     beforeSave: ->
       # no op:  override in subclass
