@@ -13,15 +13,21 @@ ProxyEndpointComponent = Model.extend
   before: DS.hasMany 'proxy-endpoint-component-transformation'
   after: DS.hasMany 'proxy-endpoint-component-transformation'
   # computed
-  single: Ember.computed 'type', (key, value, previousValue) ->
-    @set 'type', 'single' if value? and (value != previousValue)
-    @get('type') == 'single'
-  multi: Ember.computed 'type', (key, value, previousValue) ->
-    @set 'type', 'multi' if value? and (value != previousValue)
-    @get('type') == 'multi'
-  js: Ember.computed 'type', (key, value, previousValue) ->
-    @set 'type', 'js' if value? and (value != previousValue)
-    @get('type') == 'js'
+  single: Ember.computed 'type',
+    get: -> @get('type') == 'single'
+    set: (key, value) ->
+      @set 'type', 'single' if value?
+      @get 'single'
+  multi: Ember.computed 'type',
+    get: -> @get('type') == 'multi'
+    set: (key, value) ->
+      @set 'type', 'multi' if value?
+      @get 'multi'
+  js: Ember.computed 'type',
+    get: -> @get('type') == 'js'
+    set: (key, value) ->
+      @set 'type', 'js' if value?
+      @get 'js'
   name: Ember.computed 'type', ->
     t(switch @get 'type'
         when 'single' then 'proxy-endpoint-component-types.single-proxy'
