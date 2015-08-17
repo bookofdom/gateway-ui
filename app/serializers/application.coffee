@@ -2,6 +2,8 @@
 `import DS from 'ember-data'`
 
 ApplicationSerializer = DS.RESTSerializer.extend
+  payloadKeyFromModelName: (modelName) ->
+    Ember.String.underscore modelName
   keyForRelationship: (rawKey, kind) ->
     key = Ember.String.decamelize rawKey
     singularKey = Ember.String.singularize key
@@ -10,7 +12,7 @@ ApplicationSerializer = DS.RESTSerializer.extend
       when 'hasMany' then "#{singularKey}_ids"
       else key
   serializeIntoHash: (data, type, record, options) ->
-    root = Ember.String.decamelize type.modelName
+    root = @payloadKeyFromModelName type.modelName
     serialized = @serialize record, options
     # "api_id" field is always transient
     delete serialized['api_id']
