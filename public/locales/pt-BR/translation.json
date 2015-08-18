@@ -165,6 +165,7 @@
     "log": "registro",
     "limit": "limite de agrupamento conexão",
     "location": "localização",
+    "sslmode": "modo SSL",
     "help": {
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação."
     }
@@ -207,5 +208,15 @@
   "conditionals": {
     "if": "if",
     "unless": "unless"
+  },
+  "types": {
+    "remote-endpoint": {
+      "ssl-modes": {
+        "disable": "incapacitar",
+        "allow": "permitir",
+        "prefer": "preferir",
+        "require": "exigir"
+      }
+    }
   }
 }

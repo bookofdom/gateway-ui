@@ -165,6 +165,7 @@
     "log": "log",
     "limit": "connection pool limit",
     "location": "location",
+    "sslmode": "SSL mode",
     "help": {
       "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."
     }
@@ -214,7 +215,13 @@
       "sqlserver": "SQL Server",
       "postgres": "PostgreSQL",
       "mysql": "MySQL",
-      "mongodb": "MongoDB"
+      "mongodb": "MongoDB",
+      "ssl-modes": {
+        "disable": "disable",
+        "allow": "allow",
+        "prefer": "prefer",
+        "require": "require"
+      }
     }
   }
 }

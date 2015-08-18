@@ -150,7 +150,8 @@ module.exports = function(app) {
          "port": 1433,
          "user": "anypresence",
          "password": "password",
-         "dbname": "database"
+         "dbname": "database",
+         "sslmode": "allow"
        },
        "transactions": true,
        "maxIdleConn": 100,
