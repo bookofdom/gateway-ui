@@ -24,6 +24,7 @@ AP.SQLServer.Request
 AP.Postgres.Request
 AP.Mongo.Request
 ObjectId
+AP.MySQL.Request
 '''.split /\n/
 
 initialize = (container, app) ->
