@@ -167,6 +167,7 @@
     "location": "localización",
     "sslmode": "modo SSL",
     "help": {
+      "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique una costumbre Content-Type en las cabeceras de petición."
     }
   },
