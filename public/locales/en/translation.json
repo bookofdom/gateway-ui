@@ -156,7 +156,7 @@
     "database": "database",
     "schema": "schema",
     "transactions": "transactions",
-    "timeout": "connection timeout (s)",
+    "timeout": "connection timeout",
     "maxidle": "max. idle connections",
     "maxopen": "max. open connections",
     "host": "host",
@@ -167,6 +167,7 @@
     "location": "location",
     "sslmode": "SSL mode",
     "help": {
+      "timeout": "Number of seconds.",
       "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."
     }
   },

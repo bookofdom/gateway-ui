@@ -151,7 +151,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
             username: serialized.username
             password: serialized.password
             dbname: serialized.database
-            timeout: "#{serialized.timeout}ms" if serialized.timeout
+            timeout: "#{serialized.timeout}s" if serialized.timeout
           transactions: serialized.transactions
           maxIdleConn: serialized.maxidle
           maxOpenConn: serialized.maxopen
