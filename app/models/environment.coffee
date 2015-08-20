@@ -9,8 +9,11 @@ Environment = Model.extend
   session_encryption_key: DS.attr 'string'
   session_auth_key_rotate: DS.attr 'string'
   session_encryption_key_rotate: DS.attr 'string'
+
+  # Relationships
   api: DS.belongsTo 'api', async: true
-  variables: DS.hasMany 'environment-variable'
+  variables: DS.hasMany 'environment-variable', async: false
+
   # manually manage relationship dirty
   variablesDirty: Ember.computed 'variables.@each.hasDirtyAttributes', ->
     @get('variables').filterBy('hasDirtyAttributes', true).get('length')

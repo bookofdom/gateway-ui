@@ -12,9 +12,9 @@ ProxyEndpoint = Model.extend
   api: DS.belongsTo 'api', async: true
   environment: DS.belongsTo 'environment', async: true
   endpoint_group: DS.belongsTo 'endpoint-group', async: true
-  routes: DS.hasMany 'proxy-endpoint-route'
-  components: DS.hasMany 'proxy-endpoint-component'
-  tests: DS.hasMany 'proxy-endpoint-test'
+  routes: DS.hasMany 'proxy-endpoint-route', async: false
+  components: DS.hasMany 'proxy-endpoint-component', async: false
+  tests: DS.hasMany 'proxy-endpoint-test', async: false
 
   # Must manually manage hasDirtyAttributes for relationships:
   # http://paulferrett.com/2014/ember-model-isdirty-when-belongsto-changes/

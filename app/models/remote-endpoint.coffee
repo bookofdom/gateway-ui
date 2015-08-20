@@ -35,6 +35,13 @@ RemoteEndpoint = Model.extend
   # mongodb
   limit: DS.attr 'number', defaultValue: 4096
 
+  # Relationships
+  api: DS.belongsTo 'api', async: true
+  headers: DS.hasMany 'remote-endpoint-header', async: false
+  query: DS.hasMany 'remote-endpoint-query-parameter', async: false
+  environment_data: DS.hasMany 'remote-endpoint-environment-datum', async: false
+  hosts: DS.hasMany 'remote-endpoint-host', async: false
+
   # Computed
   platform: Ember.computed 'type', ->
     type = @get 'type'
@@ -54,13 +61,6 @@ RemoteEndpoint = Model.extend
     RemoteEndpoint.sslModes.findBy 'value', mode
   sslModeTypeName: Ember.computed 'sslModeType.name', ->
     @get 'sslModeType.name'
-
-  # Relationships
-  api: DS.belongsTo 'api', async: true
-  headers: DS.hasMany 'remote-endpoint-header'
-  query: DS.hasMany 'remote-endpoint-query-parameter'
-  environment_data: DS.hasMany 'remote-endpoint-environment-datum'
-  hosts: DS.hasMany 'remote-endpoint-host'
 
   # manually manage relationship dirty
   environmentDataDirty: Ember.computed 'environment_data.@each.hasDirtyAttributes', ->

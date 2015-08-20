@@ -7,11 +7,14 @@ ProxyEndpointComponent = Model.extend
   conditional: DS.attr 'string', defaultValue: ''
   conditional_positive: DS.attr 'boolean', defaultValue: true
   body: DS.attr 'string', defaultValue: ''
-  proxy_endpoint: DS.belongsTo 'proxy-endpoint'
-  call: DS.belongsTo 'proxy-endpoint-component-call'
-  calls: DS.hasMany 'proxy-endpoint-component-call'
-  before: DS.hasMany 'proxy-endpoint-component-transformation'
-  after: DS.hasMany 'proxy-endpoint-component-transformation'
+
+  # Relationships
+  proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
+  call: DS.belongsTo 'proxy-endpoint-component-call', async: false
+  calls: DS.hasMany 'proxy-endpoint-component-call', async: false
+  before: DS.hasMany 'proxy-endpoint-component-transformation', async: false
+  after: DS.hasMany 'proxy-endpoint-component-transformation', async: false
+
   # computed
   single: Ember.computed 'type',
     get: -> @get('type') == 'single'
@@ -33,6 +36,7 @@ ProxyEndpointComponent = Model.extend
         when 'single' then 'proxy-endpoint-component-types.single-proxy'
         when 'multi' then 'proxy-endpoint-component-types.multi-proxy'
         when 'js' then 'proxy-endpoint-component-types.javascript-logic').capitalize()
+
   callDirty: Ember.computed 'call.hasDirtyAttributes', ->
     @get('call')?.get 'hasDirtyAttributes'
   callsDirty: Ember.computed 'calls.@each.hasDirtyAttributes', ->
@@ -47,6 +51,7 @@ ProxyEndpointComponent = Model.extend
     @send 'becomeDirty' if @get 'relationshipsDirty'
   onInit: Ember.on 'init', ->
     Ember.run.once => @get 'relationshipsDirty'
+
   reload: ->
     @get('proxy_endpoint').reload()
   rollback: ->

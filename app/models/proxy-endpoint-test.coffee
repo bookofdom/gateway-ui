@@ -9,6 +9,11 @@ ProxyEndpointTest = Model.extend
   content_type: DS.attr 'string'
   body: DS.attr 'string'
 
+  # Relationships
+  headers: DS.hasMany 'proxy-endpoint-test-header', async: false
+  query: DS.hasMany 'proxy-endpoint-test-query-parameter', async: false
+  proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
+
   # Observers
   cleanContentType: Ember.observer 'method', ->
     # unset content_type when method is GET or DELETE
@@ -25,11 +30,6 @@ ProxyEndpointTest = Model.extend
     @get('content_type') is 'application/json'
   isXml: Ember.computed 'content_type', ->
     @get('content_type') is 'application/xml'
-
-  # Relationships
-  headers: DS.hasMany 'proxy-endpoint-test-header'
-  query: DS.hasMany 'proxy-endpoint-test-query-parameter'
-  proxy_endpoint: DS.belongsTo 'proxy-endpoint'
 
   # manually manage relationship dirty
   headersDirty: Ember.computed 'headers.@each.hasDirtyAttributes', ->

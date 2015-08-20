@@ -4,10 +4,13 @@
 RemoteEndpointEnvironmentDatum = Model.extend
   url: DS.attr 'string'
   method: DS.attr 'string'
+
+  # Relationships
   environment: DS.belongsTo 'environment', async: true
-  remote_endpoint: DS.belongsTo 'remote-endpoint'
-  headers: DS.hasMany 'remote-endpoint-header'
-  query: DS.hasMany 'remote-endpoint-query-parameter'
+  remote_endpoint: DS.belongsTo 'remote-endpoint', async: false
+  headers: DS.hasMany 'remote-endpoint-header', async: false
+  query: DS.hasMany 'remote-endpoint-query-parameter', async: false
+
   # manual relationship dirty
   environmentDirty: Ember.computed 'environment.[]', ->
     original = @get('_data.environment.id') or null
