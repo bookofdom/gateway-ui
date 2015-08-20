@@ -31,31 +31,6 @@ ProxyEndpointTest = Model.extend
   isXml: Ember.computed 'content_type', ->
     @get('content_type') is 'application/xml'
   
-  reload: ->
-    @get('proxy_endpoint').reload()
-  rollback: ->
-    @get('headers')?.forEach (record) -> record.rollback()
-    @get('query')?.forEach (record) -> record.rollback()
-    @_super.apply @, arguments
-  save: ->
-    # delegate save to parent proxy endpoint and then
-    # "rollback" to now-saved embedded record
-    new Ember.RSVP.Promise (resolve, reject) =>
-      @get('errors').clear()
-      @get('proxy_endpoint').save().then (=>
-        @rollback()
-        @get('proxy_endpoint')?.rollback()
-        resolve @
-      ), (-> reject @)
-  deleteRecord: ->
-    @_super.apply @, arguments
-    @store.dematerializeRecord @
-  destroyRecord: ->
-    @deleteRecord()
-    proxyEndpoint = @get 'proxy_endpoint'
-    proxyEndpoint.save().then (->
-      proxyEndpoint.rollback()
-    ), (=>)
   executeTest: ->
     adapter = @container.lookup 'adapter:proxy-endpoint-test'
     adapter.executeTest @

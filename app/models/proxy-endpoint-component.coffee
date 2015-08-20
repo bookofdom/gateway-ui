@@ -36,33 +36,5 @@ ProxyEndpointComponent = Model.extend
         when 'single' then 'proxy-endpoint-component-types.single-proxy'
         when 'multi' then 'proxy-endpoint-component-types.multi-proxy'
         when 'js' then 'proxy-endpoint-component-types.javascript-logic').capitalize()
-  
-  reload: ->
-    @get('proxy_endpoint').reload()
-  rollback: ->
-    @get('call')?.rollback()
-    @get('calls')?.forEach (record) -> record.rollback()
-    @get('before')?.forEach (record) -> record.rollback()
-    @get('after')?.forEach (record) -> record.rollback()
-    @_super.apply @, arguments
-  save: ->
-    # delegate save to parent proxy endpoint and then
-    # "rollback" to now-saved embedded record
-    new Ember.RSVP.Promise (resolve, reject) =>
-      @get('errors').clear()
-      @get('proxy_endpoint').save().then (=>
-        @rollback()
-        resolve @
-      ), (-> reject @)
-  deleteRecord: ->
-    @_super.apply @, arguments
-    @store.dematerializeRecord @
-  destroyRecord: ->
-    @deleteRecord()
-    @transitionTo 'loaded.saved' # clear deleted state
-    proxyEndpoint = @get 'proxy_endpoint'
-    proxyEndpoint.save().then (->
-      proxyEndpoint.rollback()
-    ), (=>)
 
 `export default ProxyEndpointComponent`

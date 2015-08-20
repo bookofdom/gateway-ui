@@ -31,8 +31,5 @@ ProxyEndpoint = Model.extend
     components.removeObject component
     components.insertAt position, component
     @save()
-  reload: ->
-    @rollback()
-    @_super.apply @, arguments
 
 `export default ProxyEndpoint`
