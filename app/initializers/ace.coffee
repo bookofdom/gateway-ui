@@ -1,3 +1,6 @@
+# TODO
+# when mysql is allowed, re-add:
+# AP.MySQL.Request
 words = '''
 request
 response
@@ -24,7 +27,6 @@ AP.SQLServer.Request
 AP.Postgres.Request
 AP.Mongo.Request
 ObjectId
-AP.MySQL.Request
 '''.split /\n/
 
 initialize = (container, app) ->
