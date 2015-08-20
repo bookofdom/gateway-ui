@@ -42,7 +42,6 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.server = hash.data.config.host
         hash.database = hash.data.config.dbname
         hash.username = hash.data.config.user
-        hash.timeout = hash.data.config.connect_timeout
         hash.port = hash.data.config.port
         hash.password = hash.data.config.password
         hash.sslmode = hash.data.config.sslmode
@@ -139,7 +138,6 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
             password: serialized.password
             dbname: serialized.database
             sslmode: serialized.sslmode
-            connect_timeout: serialized.timeout
           transactions: serialized.transactions
           maxIdleConn: serialized.maxidle
           maxOpenConn: serialized.maxopen

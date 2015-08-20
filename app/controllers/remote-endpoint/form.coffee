@@ -100,9 +100,6 @@ RemoteEndpointFormController = FormController.extend
       name: 'sslmode'
       type: 'select'
     ,
-      name: 'timeout'
-      type: 'integer'
-    ,
       name: 'transactions'
     ,
       name: 'maxidle'
