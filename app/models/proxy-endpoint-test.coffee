@@ -30,19 +30,7 @@ ProxyEndpointTest = Model.extend
     @get('content_type') is 'application/json'
   isXml: Ember.computed 'content_type', ->
     @get('content_type') is 'application/xml'
-
-  # manually manage relationship dirty
-  headersDirty: Ember.computed 'headers.@each.hasDirtyAttributes', ->
-    @get('headers').filterBy('hasDirtyAttributes', true).get 'length'
-  queryDirty: Ember.computed 'query.@each.hasDirtyAttributes', ->
-    @get('query').filterBy('hasDirtyAttributes', true).get 'length'
-  relationshipsDirty: Ember.computed 'headersDirty', 'queryDirty', ->
-    @get('headersDirty') or @get('queryDirty')
-  relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
-    @send 'becomeDirty' if @get 'relationshipsDirty'
-  onInit: Ember.on 'init', ->
-    Ember.run.once => @get 'relationshipsDirty'
-
+  
   reload: ->
     @get('proxy_endpoint').reload()
   rollback: ->

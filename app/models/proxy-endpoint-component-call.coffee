@@ -13,23 +13,7 @@ ProxyEndpointComponentCall = Model.extend
   proxy_endpoint_component: DS.belongsTo 'proxy-endpoint-component',
     inverse: null
     async: false
-
-  # manual dirtying
-  remoteEndpointDirty: Ember.computed 'remote_endpoint.[]', ->
-    original = @get('_data.remote_endpoint.id') or null
-    current = @get('remote_endpoint.id') or null
-    original != current
-  beforeDirty: Ember.computed 'before.@each.hasDirtyAttributes', ->
-    @get('before').filterBy('hasDirtyAttributes', true).get('length')
-  afterDirty: Ember.computed 'after.@each.hasDirtyAttributes', ->
-    @get('after').filterBy('hasDirtyAttributes', true).get('length')
-  relationshipsDirty: Ember.computed 'remoteEndpointDirty', 'beforeDirty', 'afterDirty', ->
-    @get('remoteEndpointDirty') or @get('beforeDirty') or @get('afterDirty')
-  relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
-    @send 'becomeDirty' if @get 'relationshipsDirty'
-  onInit: Ember.on 'init', ->
-    Ember.run.once => @get 'relationshipsDirty'
-
+  
   reload: ->
     # delegate reload to parent proxy endpoint component
     @get('proxy_endpoint_component').reload()
