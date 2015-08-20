@@ -16,6 +16,9 @@ RemoteEndpoint = Model.extend
   # sqlserver
   schema: DS.attr 'string'
 
+  # postgres
+  sslmode: DS.attr 'string', defaultValue: 'prefer'
+
   # sqlserver
   # postgres
   # mysql
@@ -46,6 +49,11 @@ RemoteEndpoint = Model.extend
     location = @get('url') or @get('server')
     location = @get('hosts').map((host) -> host.get 'host')?.join(' / ') if @get 'isMongo'
     location
+  sslModeType: Ember.computed 'sslmode', ->
+    mode = @get 'sslmode'
+    RemoteEndpoint.sslModes.findBy 'value', mode
+  sslModeTypeName: Ember.computed 'sslModeType.name', ->
+    @get 'sslModeType.name'
 
   # Relationships
   api: DS.belongsTo 'api', async: true
@@ -76,7 +84,13 @@ types = 'http sqlserver postgres mysql mongodb'.split(' ').map (type) ->
   slug: type
   value: type
 
+sslModes = 'disable allow prefer require'.split(' ').map (mode) ->
+  name: t "types.remote-endpoint.ssl-modes.#{mode}"
+  slug: mode
+  value: mode
+
 RemoteEndpoint.reopenClass
   types: types
+  sslModes: sslModes
 
 `export default RemoteEndpoint`
