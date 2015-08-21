@@ -33,7 +33,7 @@ RemoteEndpoint = Model.extend
   maxidle: DS.attr 'number'
 
   # mongodb
-  limit: DS.attr 'number', defaultValue: 4096
+  limit: DS.attr 'number', defaultValue: 16
 
   # Computed
   platform: Ember.computed 'type', ->
