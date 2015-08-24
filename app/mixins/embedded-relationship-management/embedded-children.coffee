@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 EmbeddedChildrenMixin = Ember.Mixin.create
-  _embeddedChildOptionName: 'embeddedChild'
+  _embeddedChildOptionName: 'embedded'
 
   _forEachEmbeddedRelationship: (callback) ->
     @eachRelationship (relationshipName, relationship) =>
