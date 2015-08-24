@@ -23,8 +23,6 @@ CleanEmbeddedChildrenMixin = Ember.Mixin.create
   _rollbackChildren: ->
     @_forEachEmbeddedRecord (record) =>
       record.rollback()
-      if isFunction record._rollbackChildren
-        record._rollbackChildren()
 
   _forEachDirtyEmbeddedRecord: (record) ->
     @_forEachEmbeddedRecord (record) ->
