@@ -4,12 +4,12 @@
 `import CancelableChangesMixin from '../mixins/cancelable-changes'`
 `import StainedByChildrenMixin from '../mixins/embedded-relationship-management/stained-by-children'`
 `import CleanEmbeddedChildrenMixin from '../mixins/embedded-relationship-management/clean-embedded-children'`
-`import DelegateParentOperationsMixin from '../mixins/embedded-relationship-management/delegate-parent-operations'`
+`import DelegateEmbeddedOperationsMixin from '../mixins/embedded-relationship-management/delegate-embedded-operations'`
 
 Model = DS.Model.extend LifecycleHooksMixin,
   CancelableChangesMixin,
   StainedByChildrenMixin,
   CleanEmbeddedChildrenMixin,
-  DelegateParentOperationsMixin
+  DelegateEmbeddedOperationsMixin
 
 `export default Model`

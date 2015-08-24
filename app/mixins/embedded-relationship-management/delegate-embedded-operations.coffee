@@ -13,6 +13,6 @@
 # Call the delegated method on the parent.  Parent implicitly repeats process,
 # resulting in the operation resolving on the first unembedded ancestor.
 
-DelegateEmbeddedParentOperationsMixin = Ember.Mixin.create()
+DelegateEmbeddedOperationsMixin = Ember.Mixin.create()
 
-`export default DelegateParentOperationsMixin`
+`export default DelegateEmbeddedOperationsMixin`
