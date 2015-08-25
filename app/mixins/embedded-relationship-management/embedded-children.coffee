@@ -27,7 +27,7 @@ EmbeddedChildrenMixin = Ember.Mixin.create
       # `inverseFor` and direct relationship lookup return different hashes,
       # meaning there are at least two ways to express a relationship.  This
       # seems like a design oversight.  The hash returned by `inverseFor` is
-      # limited and does not contain the relationships `options`, critical for
+      # limited and does not contain the relationship's `options`, critical for
       # understanding the relationship.  Thus, we have to do the nonsense below
       # to get the "complete"-er relationship hash and its options.
       crappyInverseRelationshipHash = @inverseFor relationshipName
