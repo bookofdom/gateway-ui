@@ -24,10 +24,21 @@ EmbeddedChildrenMixin = Ember.Mixin.create
   # embedding, indicating a candidate parent relationship.
   eachRelationshipWithEmbeddingInverse: (callback) ->
     @eachRelationship (relationshipName, relationship) =>
-      inverseRelationship = @inverseFor(relationshipName)
-      inverseRelationshipIsEmbedding =
-        inverseRelationship.options[@_embeddedChildOptionName]
-      callback relationshipName, relationship if inverseRelationshipIsEmbedding
+      # `inverseFor` and direct relationship lookup return different hashes,
+      # meaning there are at least two ways to express a relationship.  This
+      # seems like a design oversight.  The hash returned by `inverseFor` is
+      # limited and does not contain the relationships `options`, critical for
+      # understanding the relationship.  Thus, we have to do the nonsense below
+      # to get the "complete"-er relationship hash and its options.
+      crappyInverseRelationshipHash = @inverseFor relationshipName
+      if crappyInverseRelationshipHash?.type?
+        relationshipsByName =
+          Ember.get crappyInverseRelationshipHash.type, 'relationshipsByName'
+        fullInverseRelationshipHash =
+          relationshipsByName.get crappyInverseRelationshipHash.name
+        isEmbedding =
+          fullInverseRelationshipHash.options[@_embeddedChildOptionName]
+        callback relationshipName, relationship if isEmbedding
 
   eachEmbeddedRelationship: (callback) ->
     embeddedChildOptionName = @_embeddedChildOptionName
