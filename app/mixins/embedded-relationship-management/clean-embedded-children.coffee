@@ -12,14 +12,12 @@ CleanEmbeddedChildrenMixin = Ember.Mixin.create
 
   _cleanChildren: ->
     @eachDirtyEmbeddedRecord (record) =>
+      # Must call `rollbackAttributes` on children since `rollback`
+      # is delegated to parents.
       record.rollbackAttributes()
       if isFunction record._cleanChildren
         record._cleanChildren()
 
-  _rollbackChildren: ->
-    @eachDirtyEmbeddedRecord (record) =>
-      # Must call `rollbackAttributes` on children since `rollback`
-      # is delegated to parents.
-      record.rollbackAttributes()
+  _rollbackChildren: -> @_cleanChildren()
 
 `export default CleanEmbeddedChildrenMixin`
