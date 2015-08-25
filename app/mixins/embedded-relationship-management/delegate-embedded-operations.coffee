@@ -1,9 +1,5 @@
 `import Ember from 'ember'`
 
-# TODO
-# Call the delegated method on the parent.  Parent implicitly repeats process,
-# resulting in the operation resolving on the first unembedded ancestor.
-
 DelegateEmbeddedOperationsMixin = Ember.Mixin.create
   save: ->
     embeddingParent = @get 'embeddingParent'
