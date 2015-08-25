@@ -3,13 +3,13 @@
 EmbeddedChildrenMixin = Ember.Mixin.create
   _embeddedChildOptionName: 'embedded'
 
-  _forEachEmbeddedRelationship: (callback) ->
+  eachEmbeddedRelationship: (callback) ->
     @eachRelationship (relationshipName, relationship) =>
       if relationship.options[@_embeddedChildOptionName]
         callback relationshipName, relationship
 
-  _forEachEmbeddedRecord: (callback) ->
-    @_forEachEmbeddedRelationship (relationshipName, relationship) =>
+  eachEmbeddedRecord: (callback) ->
+    @eachEmbeddedRelationship (relationshipName, relationship) =>
       recordOrRecords = @get relationshipName
       switch relationship.kind
         when 'belongsTo'
@@ -17,8 +17,8 @@ EmbeddedChildrenMixin = Ember.Mixin.create
         when 'hasMany'
           recordOrRecords.forEach (record) -> callback record
 
-  _forEachDirtyEmbeddedRecord: (callback) ->
-    @_forEachEmbeddedRecord (record) ->
+  eachDirtyEmbeddedRecord: (callback) ->
+    @eachEmbeddedRecord (record) ->
       if record?.get 'hasDirtyAttributes'
         callback record
 
