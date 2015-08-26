@@ -37,10 +37,18 @@ RemoteEndpoint = Model.extend
 
   # Relationships
   api: DS.belongsTo 'api', async: true
-  headers: DS.hasMany 'remote-endpoint-header', async: false
-  query: DS.hasMany 'remote-endpoint-query-parameter', async: false
-  environment_data: DS.hasMany 'remote-endpoint-environment-datum', async: false
-  hosts: DS.hasMany 'remote-endpoint-host', async: false
+  headers: DS.hasMany 'remote-endpoint-header',
+    async: false
+    embedded: true
+  query: DS.hasMany 'remote-endpoint-query-parameter',
+    async: false
+    embedded: true
+  environment_data: DS.hasMany 'remote-endpoint-environment-datum',
+    async: false
+    embedded: true
+  hosts: DS.hasMany 'remote-endpoint-host',
+    async: false
+    embedded: true
 
   # Computed
   platform: Ember.computed 'type', ->
@@ -61,7 +69,7 @@ RemoteEndpoint = Model.extend
     RemoteEndpoint.sslModes.findBy 'value', mode
   sslModeTypeName: Ember.computed 'sslModeType.name', ->
     @get 'sslModeType.name'
-    
+
 # Declare available types and their human-readable names
 types = 'http sqlserver postgres mysql mongodb'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
