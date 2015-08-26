@@ -3,11 +3,11 @@
 # note:  this form is currently used only for multi proxy calls
 
 ProxyEndpointComponentCallFormController = FormController.extend
-  'proxy-endpoints': Ember.inject.controller()
+  'api': Ember.inject.controller()
   'proxy-endpoint-component-calls': Ember.inject.controller()
   modelType: 'proxy-endpoint-component-call'
-  'option-groups': Ember.computed 'proxy-endpoints.remote_endpoints.[]', ->
-    remote_endpoint: @get('proxy-endpoints.remote_endpoints').filterBy 'isNew', false
+  'option-groups': Ember.computed 'api.remote_endpoints.@each.isNew', ->
+    remote_endpoint: @get('api.remote_endpoints').filterBy 'isNew', false
   fields: Ember.computed 'model.isNew', ->
     newFields = [
       name: 'remote_endpoint'
