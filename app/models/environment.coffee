@@ -12,6 +12,8 @@ Environment = Model.extend
 
   # Relationships
   api: DS.belongsTo 'api', async: true
-  variables: DS.hasMany 'environment-variable', async: false
+  variables: DS.hasMany 'environment-variable',
+    async: false
+    embedded: true
 
 `export default Environment`
