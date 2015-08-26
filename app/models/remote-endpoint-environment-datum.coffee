@@ -6,7 +6,7 @@ RemoteEndpointEnvironmentDatum = Model.extend
   method: DS.attr 'string'
 
   # Relationships
-  environment: DS.belongsTo 'environment', async: true
+  environment: DS.belongsTo 'environment', async: false
   remote_endpoint: DS.belongsTo 'remote-endpoint', async: false
   headers: DS.hasMany 'remote-endpoint-header',
     async: false
