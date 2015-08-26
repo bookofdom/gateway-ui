@@ -12,9 +12,15 @@ ProxyEndpoint = Model.extend
   api: DS.belongsTo 'api', async: true
   environment: DS.belongsTo 'environment', async: true
   endpoint_group: DS.belongsTo 'endpoint-group', async: true
-  routes: DS.hasMany 'proxy-endpoint-route', async: false
-  components: DS.hasMany 'proxy-endpoint-component', async: false
-  tests: DS.hasMany 'proxy-endpoint-test', async: false
+  routes: DS.hasMany 'proxy-endpoint-route',
+    async: false
+    embedded: true
+  components: DS.hasMany 'proxy-endpoint-component',
+    async: false
+    embedded: true
+  tests: DS.hasMany 'proxy-endpoint-test',
+    async: false
+    embedded: true
 
   # copy errors from proxy endpoint into embedded relationships if necessary,
   # for proper UI messaging

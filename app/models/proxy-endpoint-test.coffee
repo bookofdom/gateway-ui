@@ -10,9 +10,9 @@ ProxyEndpointTest = Model.extend
   body: DS.attr 'string'
 
   # Relationships
+  proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
   headers: DS.hasMany 'proxy-endpoint-test-header', async: false
   query: DS.hasMany 'proxy-endpoint-test-query-parameter', async: false
-  proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
 
   # Observers
   cleanContentType: Ember.observer 'method', ->
@@ -30,7 +30,7 @@ ProxyEndpointTest = Model.extend
     @get('content_type') is 'application/json'
   isXml: Ember.computed 'content_type', ->
     @get('content_type') is 'application/xml'
-  
+
   executeTest: ->
     adapter = @container.lookup 'adapter:proxy-endpoint-test'
     adapter.executeTest @
