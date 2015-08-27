@@ -1,6 +1,7 @@
 `import FormController from 'gateway/controllers/form'`
 
 ProxyEndpointFormController = FormController.extend
+  'api': Ember.inject.controller()
   'proxy-endpoints': Ember.inject.controller()
   modelType: 'proxy-endpoint'
   newFields: [
@@ -41,9 +42,9 @@ ProxyEndpointFormController = FormController.extend
   ]
   fields: Ember.computed 'model.isNew', ->
     if @get('model.isNew') then @get('newFields') else @get('editFields')
-  'option-groups': Ember.computed 'proxy-endpoints.environments.[]', 'proxy-endpoints.endpoint_groups.[]', ->
-    environment: @get('proxy-endpoints.environments').filterBy 'isNew', false
-    endpoint_group: @get('proxy-endpoints.endpoint_groups').filterBy 'isNew', false
+  'option-groups': Ember.computed 'api.environments.@each.isNew', 'api.endpoint_groups.@each.isNew', ->
+    environment: @get('api.environments').filterBy 'isNew', false
+    endpoint_group: @get('api.endpoint_groups').filterBy 'isNew', false
   createNewRouteModel: ->
     model = @get 'model'
     newRouteModel = @store?.createRecord 'proxy-endpoint-route'

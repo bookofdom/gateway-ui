@@ -2,7 +2,7 @@
 `import t from 'gateway/helpers/i18n'`
 
 RemoteEndpointEnvironmentDatumFormController = FormController.extend
-  'remote-endpoints': Ember.inject.controller()
+  'api': Ember.inject.controller()
   'remote-endpoint-environment-data': Ember.inject.controller()
   modelType: 'remote-endpoint-environment-datum'
   fields: Ember.computed ->
@@ -17,8 +17,8 @@ RemoteEndpointEnvironmentDatumFormController = FormController.extend
       name: 'method'
       type: 'select'
     ]
-  'option-groups': Ember.computed 'remote-endpoints.environments.[]', ->
-    environment: @get('remote-endpoints.environments').filterBy 'isNew', false
+  'option-groups': Ember.computed 'api.environments.@each.isNew', ->
+    environment: @get('api.environments').filterBy 'isNew', false
     method: [
       name: t 'http-methods.get'
       value: 'GET'

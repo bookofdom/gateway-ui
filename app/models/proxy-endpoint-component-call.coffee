@@ -7,7 +7,7 @@ ProxyEndpointComponentCall = Model.extend
   conditional_positive: DS.attr 'boolean', defaultValue: true
 
   # Relationships
-  remote_endpoint: DS.belongsTo 'remote-endpoint', async: true
+  remote_endpoint: DS.belongsTo 'remote-endpoint', async: false
   before: DS.hasMany 'proxy-endpoint-component-transformation', async: false
   after: DS.hasMany 'proxy-endpoint-component-transformation', async: false
   proxy_endpoint_component: DS.belongsTo 'proxy-endpoint-component',
