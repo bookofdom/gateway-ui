@@ -14,6 +14,7 @@ ProxyEndpoint = Model.extend
   endpoint_group: DS.belongsTo 'endpoint-group', async: false
   routes: DS.hasMany 'proxy-endpoint-route',
     async: false
+    stains: true
     embedded: true
   components: DS.hasMany 'proxy-endpoint-component',
     async: false

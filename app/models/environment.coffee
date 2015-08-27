@@ -14,6 +14,7 @@ Environment = Model.extend
   api: DS.belongsTo 'api', async: true
   variables: DS.hasMany 'environment-variable',
     async: false
+    stains: true
     embedded: true
 
 `export default Environment`

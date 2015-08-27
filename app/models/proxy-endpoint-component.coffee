@@ -10,10 +10,22 @@ ProxyEndpointComponent = Model.extend
 
   # Relationships
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
-  call: DS.belongsTo 'proxy-endpoint-component-call', async: false
-  calls: DS.hasMany 'proxy-endpoint-component-call', async: false
-  before: DS.hasMany 'proxy-endpoint-component-transformation', async: false
-  after: DS.hasMany 'proxy-endpoint-component-transformation', async: false
+  call: DS.belongsTo 'proxy-endpoint-component-call',
+    async: false
+    stains: true
+    embedded: true
+  calls: DS.hasMany 'proxy-endpoint-component-call',
+    async: false
+    stains: true
+    embedded: true
+  before: DS.hasMany 'proxy-endpoint-component-transformation',
+    async: false
+    stains: true
+    embedded: true
+  after: DS.hasMany 'proxy-endpoint-component-transformation',
+    async: false
+    stains: true
+    embedded: true
 
   # computed
   single: Ember.computed 'type',

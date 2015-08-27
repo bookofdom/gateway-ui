@@ -39,14 +39,17 @@ RemoteEndpoint = Model.extend
   api: DS.belongsTo 'api', async: true
   headers: DS.hasMany 'remote-endpoint-header',
     async: false
+    stains: true
     embedded: true
   query: DS.hasMany 'remote-endpoint-query-parameter',
     async: false
-    embedded: true
-  environment_data: DS.hasMany 'remote-endpoint-environment-datum',
-    async: false
+    stains: true
     embedded: true
   hosts: DS.hasMany 'remote-endpoint-host',
+    async: false
+    stains: true
+    embedded: true
+  environment_data: DS.hasMany 'remote-endpoint-environment-datum',
     async: false
     embedded: true
 

@@ -11,8 +11,14 @@ ProxyEndpointTest = Model.extend
 
   # Relationships
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
-  headers: DS.hasMany 'proxy-endpoint-test-header', async: false
-  query: DS.hasMany 'proxy-endpoint-test-query-parameter', async: false
+  headers: DS.hasMany 'proxy-endpoint-test-header',
+    async: false
+    stains: true
+    embedded: true
+  query: DS.hasMany 'proxy-endpoint-test-query-parameter',
+    async: false
+    stains: true
+    embedded: true
 
   # Observers
   cleanContentType: Ember.observer 'method', ->

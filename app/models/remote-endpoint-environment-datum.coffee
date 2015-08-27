@@ -10,9 +10,11 @@ RemoteEndpointEnvironmentDatum = Model.extend
   remote_endpoint: DS.belongsTo 'remote-endpoint', async: false
   headers: DS.hasMany 'remote-endpoint-header',
     async: false
+    stains: true
     embedded: true
   query: DS.hasMany 'remote-endpoint-query-parameter',
     async: false
+    stains: true
     embedded: true
 
 `export default RemoteEndpointEnvironmentDatum`
