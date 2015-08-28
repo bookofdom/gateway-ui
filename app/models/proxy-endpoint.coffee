@@ -10,8 +10,12 @@ ProxyEndpoint = Model.extend
 
   # Relationships
   api: DS.belongsTo 'api', async: true
-  environment: DS.belongsTo 'environment', async: false
-  endpoint_group: DS.belongsTo 'endpoint-group', async: false
+  environment: DS.belongsTo 'environment',
+    async: false
+    stains: true
+  endpoint_group: DS.belongsTo 'endpoint-group',
+    async: false
+    stains: true
   routes: DS.hasMany 'proxy-endpoint-route',
     async: false
     stains: true
