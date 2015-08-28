@@ -59,7 +59,7 @@ ApModelFieldComponent = BsBaseComponent.extend
     (@get('type') == 'checkbox') or (@get('type') == 'boolean')
   radio: Ember.computed 'type', -> @get('type') == 'radio'
   idName: Ember.computed 'model', 'name', ->
-    modelName = @get 'model.constructor.modelName'
+    modelName = @get('model').constructor.modelName
     id = @get('model.id') or @get('model.clientId')
     name = @get 'name'
     if id then "#{modelName}-#{id}-#{name}" else "#{modelName}-#{name}"
