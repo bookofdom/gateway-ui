@@ -13,4 +13,8 @@ LifecycleHooksMixin = Ember.Mixin.create
     @_super.apply @, arguments
     @trigger 'didRollback'
 
+  rollbackAttributes: ->
+    @_super.apply @, arguments
+    @trigger 'didRollbackAttributes'
+
 `export default LifecycleHooksMixin`
