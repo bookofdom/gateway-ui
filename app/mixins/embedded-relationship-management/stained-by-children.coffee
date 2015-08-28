@@ -1,10 +1,15 @@
 `import Ember from 'ember'`
 
 StainedByChildrenMixin = Ember.Mixin.create
-  hasDirtyAttributes: Ember.computed 'currentState.isDirty', 'hasDirtyChildren', ->
-    @get('currentState.isDirty') or @get('hasDirtyChildren')
+  hasDirtyAttributes: Ember.computed 'currentState.isDirty',
+    'hasDirtyChildren',
+    'hasChangedBelongsTo',
+    ->
+      @get('currentState.isDirty') or @get('hasDirtyChildren') or
+        @get('hasChangedBelongsTo')
 
   hasDirtyChildren: false
+  hasChangedBelongsTo: null
 
   _stainingRelationshipDirtyProperties: Ember.computed ->
     relationshipDirtyProperties = []
@@ -37,5 +42,38 @@ StainedByChildrenMixin = Ember.Mixin.create
       computedProps.push computedFn
       computed = Ember.computed.apply Ember, computedProps
       Ember.defineProperty @, 'hasDirtyChildren', computed
+
+  _setupHasChangedBelongsToProperty: Ember.on 'init', ->
+    dirtyProps = @get '_stainingRelationshipDirtyProperties'
+    belongsToProps = dirtyProps.filter (prop) -> prop.kind is 'belongsTo'
+    if belongsToProps.length
+      computedFn = ->
+        isDirty = false
+        for prop in belongsToProps
+          if !isDirty
+            internalRelationship = @get "_internalModel._relationships.initializedRelationships.#{prop.relationshipName}"
+            canonicalId = internalRelationship.canonicalState?.id
+            inverseId = internalRelationship.inverseRecord?.id
+            isDirty = !(canonicalId is inverseId)
+        isDirty
+      computedProps = ("#{prop.relationshipName}.id" for prop in belongsToProps)
+      computedProps.push computedFn
+      computed = Ember.computed.apply Ember, computedProps
+      Ember.defineProperty @, 'hasChangedBelongsTo', computed
+
+  _rollbackChangedBelongsToOn: Ember.on 'didRollbackAttributes', ->
+    @_rollbackChangedBelongsTo()
+
+  _rollbackChangedBelongsTo: ->
+    dirtyProps = @get '_stainingRelationshipDirtyProperties'
+    belongsToProps = dirtyProps.filter (prop) -> prop.kind is 'belongsTo'
+    if belongsToProps.length
+      for prop in belongsToProps
+        internalRelationship = @get "_internalModel._relationships.initializedRelationships.#{prop.relationshipName}"
+        canonicalId = internalRelationship.canonicalState?.id
+        inverseId = internalRelationship.inverseRecord?.id
+        isDirty = !(canonicalId is inverseId)
+        if isDirty
+          @set prop.relationshipName, internalRelationship.canonicalState.record
 
 `export default StainedByChildrenMixin`
