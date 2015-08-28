@@ -37,10 +37,21 @@ RemoteEndpoint = Model.extend
 
   # Relationships
   api: DS.belongsTo 'api', async: true
-  headers: DS.hasMany 'remote-endpoint-header', async: false
-  query: DS.hasMany 'remote-endpoint-query-parameter', async: false
-  environment_data: DS.hasMany 'remote-endpoint-environment-datum', async: false
-  hosts: DS.hasMany 'remote-endpoint-host', async: false
+  headers: DS.hasMany 'remote-endpoint-header',
+    async: false
+    stains: true
+    embedded: true
+  query: DS.hasMany 'remote-endpoint-query-parameter',
+    async: false
+    stains: true
+    embedded: true
+  hosts: DS.hasMany 'remote-endpoint-host',
+    async: false
+    stains: true
+    embedded: true
+  environment_data: DS.hasMany 'remote-endpoint-environment-datum',
+    async: false
+    embedded: true
 
   # Computed
   platform: Ember.computed 'type', ->
@@ -61,22 +72,6 @@ RemoteEndpoint = Model.extend
     RemoteEndpoint.sslModes.findBy 'value', mode
   sslModeTypeName: Ember.computed 'sslModeType.name', ->
     @get 'sslModeType.name'
-
-  # manually manage relationship dirty
-  environmentDataDirty: Ember.computed 'environment_data.@each.hasDirtyAttributes', ->
-    @get('environment_data').filterBy('hasDirtyAttributes', true).get('length')
-  headersDirty: Ember.computed 'headers.@each.hasDirtyAttributes', ->
-    @get('headers').filterBy('hasDirtyAttributes', true).get('length')
-  queryDirty: Ember.computed 'query.@each.hasDirtyAttributes', ->
-    @get('query').filterBy('hasDirtyAttributes', true).get('length')
-  hostsDirty: Ember.computed 'hosts.@each.hasDirtyAttributes', ->
-    @get('hosts').filterBy('hasDirtyAttributes', true).get('length')
-  relationshipsDirty: Ember.computed 'environmentDataDirty', 'headersDirty', 'queryDirty', 'hostsDirty', ->
-    @get('environmentDataDirty') or @get('headersDirty') or @get('queryDirty') or @get('hostsDirty')
-  relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
-    @send 'becomeDirty' if @get 'relationshipsDirty'
-  onInit: Ember.on 'init', ->
-    Ember.run.once => @get 'relationshipsDirty'
 
 # Declare available types and their human-readable names
 types = 'http sqlserver postgres mysql mongodb'.split(' ').map (type) ->

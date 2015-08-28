@@ -10,10 +10,22 @@ ProxyEndpointComponent = Model.extend
 
   # Relationships
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
-  call: DS.belongsTo 'proxy-endpoint-component-call', async: false
-  calls: DS.hasMany 'proxy-endpoint-component-call', async: false
-  before: DS.hasMany 'proxy-endpoint-component-transformation', async: false
-  after: DS.hasMany 'proxy-endpoint-component-transformation', async: false
+  call: DS.belongsTo 'proxy-endpoint-component-call',
+    async: false
+    stains: true
+    embedded: true
+  calls: DS.hasMany 'proxy-endpoint-component-call',
+    async: false
+    stains: true
+    embedded: true
+  before: DS.hasMany 'proxy-endpoint-component-transformation',
+    async: false
+    stains: true
+    embedded: true
+  after: DS.hasMany 'proxy-endpoint-component-transformation',
+    async: false
+    stains: true
+    embedded: true
 
   # computed
   single: Ember.computed 'type',
@@ -36,48 +48,5 @@ ProxyEndpointComponent = Model.extend
         when 'single' then 'proxy-endpoint-component-types.single-proxy'
         when 'multi' then 'proxy-endpoint-component-types.multi-proxy'
         when 'js' then 'proxy-endpoint-component-types.javascript-logic').capitalize()
-
-  callDirty: Ember.computed 'call.hasDirtyAttributes', ->
-    @get('call')?.get 'hasDirtyAttributes'
-  callsDirty: Ember.computed 'calls.@each.hasDirtyAttributes', ->
-    @get('calls').filterBy('hasDirtyAttributes', true).get('length')
-  beforeDirty: Ember.computed 'before.@each.hasDirtyAttributes', ->
-    @get('before').filterBy('hasDirtyAttributes', true).get('length')
-  afterDirty: Ember.computed 'after.@each.hasDirtyAttributes', ->
-    @get('after').filterBy('hasDirtyAttributes', true).get('length')
-  relationshipsDirty: Ember.computed 'callDirty', 'callsDirty', 'beforeDirty', 'afterDirty', ->
-    @get('callDirty') or @get('callsDirty') or @get('beforeDirty') or @get('afterDirty')
-  relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
-    @send 'becomeDirty' if @get 'relationshipsDirty'
-  onInit: Ember.on 'init', ->
-    Ember.run.once => @get 'relationshipsDirty'
-
-  reload: ->
-    @get('proxy_endpoint').reload()
-  rollback: ->
-    @get('call')?.rollback()
-    @get('calls')?.forEach (record) -> record.rollback()
-    @get('before')?.forEach (record) -> record.rollback()
-    @get('after')?.forEach (record) -> record.rollback()
-    @_super.apply @, arguments
-  save: ->
-    # delegate save to parent proxy endpoint and then
-    # "rollback" to now-saved embedded record
-    new Ember.RSVP.Promise (resolve, reject) =>
-      @get('errors').clear()
-      @get('proxy_endpoint').save().then (=>
-        @rollback()
-        resolve @
-      ), (-> reject @)
-  deleteRecord: ->
-    @_super.apply @, arguments
-    @store.dematerializeRecord @
-  destroyRecord: ->
-    @deleteRecord()
-    @transitionTo 'loaded.saved' # clear deleted state
-    proxyEndpoint = @get 'proxy_endpoint'
-    proxyEndpoint.save().then (->
-      proxyEndpoint.rollback()
-    ), (=>)
 
 `export default ProxyEndpointComponent`

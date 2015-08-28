@@ -17,10 +17,8 @@ ApTableModelComponent = BsBaseComponent.extend
       @notifyErrorsForRecord record
       @cancelDelete record
   cancelDelete: (record) ->
-    record.rollback()
+    record.cancel()
     record.transitionTo 'loaded.saved' # clear deleted state
-    record.reload().then ->
-      record.rollback()
   notifyErrorsForRecord: (record) ->
     errors = []
     record.get('errors').forEach (error) ->
