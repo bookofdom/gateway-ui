@@ -2,45 +2,17 @@
 {{#ap-list-nav-vertical-circle-icon class='invisible'}}
   {{ap-list-link
       class='ap-unsortable'
-      path='proxy-endpoint.edit'
-      icon='the-essentials-129'
-      t=model.name}}
+      icon='the-essentials-129'}}
 
-  {{#each model.components as |component|}}
+  {{#each model as |component|}}
     {{#unless component.isNew}}
-      {{#if component.single}}
-        {{ap-list-link
-          path='proxy-endpoint-component.edit'
-          action='proxy-endpoint-component-edit'
-          arg1=component
-          icon='the-essentials-072'
-          t=component.name
-          index=component.id}}
-      {{/if}}
-      {{#if component.multi}}
-        {{ap-list-link
-          path='proxy-endpoint-component.edit'
-          action='proxy-endpoint-component-edit'
-          arg1=component
-          icon='multiproxy'
-          icon-type='gateway'
-          t=component.name
-          index=component.id}}
-      {{/if}}
-      {{#if component.js}}
-        {{ap-list-link
-          path='proxy-endpoint-component.edit'
-          action='proxy-endpoint-component-edit'
-          arg1=component
-          icon='file-type-content-055'
-          t=component.name
-          index=component.id}}
-      {{/if}}
+      {{ap-list-link
+        class='ap-unsortable'
+        icon='the-essentials-129'}}
     {{/unless}}
   {{/each}}
 {{/ap-list-nav-vertical-circle-icon}}
 {{!-- end placeholders --}}
-
 
 {{#bs-panel t='actions.select-add-component-type'}}
   {{#ap-list-nav-circle-icon}}
