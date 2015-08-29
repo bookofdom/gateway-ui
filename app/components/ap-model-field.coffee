@@ -66,17 +66,14 @@ ApModelFieldComponent = BsBaseComponent.extend
   fieldTemplateName: Ember.computed 'type', ->
     "components/ap-model-field/-#{@get 'type'}"
   setupValueAttribute: Ember.on 'init', ->
-    computed = Ember.computed 'model', 'name', "model.#{@get 'name'}",
-      get: -> @get "model.#{@get 'name'}"
+    name = @get 'name'
+    propName = "model.#{@get 'name'}"
+    computed = Ember.computed propName,
+      get: -> @get propName
       set: (key, value) ->
-        name = @get 'name'
-        currentValue = @get "model.#{name}"
-        if !Ember.isNone(value) and (value != currentValue)
-          @set "model.#{name}", value
-        @get 'value'
+        currentValue = @get propName
+        @set propName, value if value? and (value != currentValue)
+        value
     Ember.defineProperty @, 'value', computed
-  actions:
-    select: (value) ->
-      @set 'value', value
 
 `export default ApModelFieldComponent`
