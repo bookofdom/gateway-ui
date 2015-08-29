@@ -10,12 +10,13 @@ ApAceEditorComponent = Ember.Component.extend
     enableBasicAutocompletion: true
     enableLiveAutocompletion: true
   didInsertElement: ->
-    el = @get 'element'
-    editor = window.ace.edit el
     language = @get 'language'
-    editor.getSession().setTabSize 2
+    options = @get 'options'
+    el = @$('.form-control').get 0
+    editor = window.ace.edit el
     #editor.getSession().setMode "ace/mode/#{language}"
-    editor.setOptions @get('options')
+    editor.getSession().setTabSize 2
+    editor.setOptions options
     editor.on 'change', =>
       value = editor.getSession().getValue()
       @trigger 'editorChange', value
