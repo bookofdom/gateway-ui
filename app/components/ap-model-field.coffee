@@ -75,5 +75,8 @@ ApModelFieldComponent = BsBaseComponent.extend
           @set "model.#{name}", value
         @get 'value'
     Ember.defineProperty @, 'value', computed
+  actions:
+    select: (value) ->
+      @set 'value', value
 
 `export default ApModelFieldComponent`

@@ -49,6 +49,7 @@
     "ember-data": "1.13.0",
     "ember-export-application-global": "^1.0.0",
     "ember-notify": "git+https://github.com/aexmachina/ember-notify.git#master",
+    "emberx-select": "2.0.1",
     "express": "^4.8.5",
     "glob": "5.0.3",
     "morgan": "^1.5.1",
