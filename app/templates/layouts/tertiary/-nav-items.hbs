@@ -13,7 +13,7 @@
         arg1=component
         icon='the-essentials-072'
         t=component.name
-        index=id}}
+        index=component.id}}
     {{/if}}
     {{#if component.multi}}
       {{ap-list-link
@@ -23,7 +23,7 @@
         icon-type='gateway'
         icon='multiproxy'
         t=component.name
-        index=id}}
+        index=component.id}}
     {{/if}}
     {{#if component.js}}
       {{ap-list-link
@@ -32,7 +32,7 @@
         arg1=component
         icon='file-type-content-055'
         t=component.name
-        index=id}}
+        index=component.id}}
     {{/if}}
   {{/unless}}
 {{/each}}

@@ -11,8 +11,8 @@ ProxyEndpointView = Ember.View.extend
         position = null
         $('[data-index]', @).each (i, item) ->
           position = i if $(item).is(ui.item)
-        $(@).sortable 'cancel'
-        ui.item.remove()
+        #$(@).sortable 'cancel'
+        #ui.item.remove()
         Ember.run -> view.send 'componentMoved', id, position
   actions:
     componentMoved: (id, position) ->
