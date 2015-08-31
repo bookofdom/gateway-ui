@@ -1,7 +1,8 @@
 `import Ember from 'ember'`
 
 ApAceEditorComponent = Ember.Component.extend
-  classNameBindings: ['size']
+  classNames: ['ap-ace-editor']
+  classNameBindings: ['sizeClass']
   value: null
   editor: null
   size: null
@@ -10,6 +11,9 @@ ApAceEditorComponent = Ember.Component.extend
   options:
     enableBasicAutocompletion: true
     enableLiveAutocompletion: true
+  sizeClass: Ember.computed 'size', ->
+    size = @get 'size'
+    "ap-ace-editor-#{size}" if size
   didInsertElement: ->
     language = @get 'language'
     theme = @get 'theme'
