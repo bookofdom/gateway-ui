@@ -7,7 +7,7 @@ RemoteEndpointFormController = FormController.extend
   modelType: 'remote-endpoint'
 
   'option-groups':
-    type: RemoteEndpoint.types.filter (type) -> type.value != 'mysql'
+    type: RemoteEndpoint.types
     sslmode: RemoteEndpoint.sslModes
     method: [
       name: t 'http-methods.get'
