@@ -14,7 +14,7 @@ ApAceEditorComponent = Ember.Component.extend
     options = @get 'options'
     el = @$('.form-control').get 0
     editor = window.ace.edit el
-    #editor.getSession().setMode "ace/mode/#{language}"
+    editor.getSession().setMode "ace/mode/#{language}"
     editor.getSession().setTabSize 2
     editor.setOptions options
     editor.on 'change', =>
