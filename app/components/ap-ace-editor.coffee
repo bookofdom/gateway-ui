@@ -6,15 +6,18 @@ ApAceEditorComponent = Ember.Component.extend
   editor: null
   size: null
   language: 'javascript'
+  theme: 'slate'
   options:
     enableBasicAutocompletion: true
     enableLiveAutocompletion: true
   didInsertElement: ->
     language = @get 'language'
+    theme = @get 'theme'
     options = @get 'options'
     el = @$('.form-control').get 0
     editor = window.ace.edit el
     editor.getSession().setMode "ace/mode/#{language}"
+    editor.setTheme "ace/theme/#{theme}"
     editor.getSession().setTabSize 2
     editor.setOptions options
     editor.on 'change', =>

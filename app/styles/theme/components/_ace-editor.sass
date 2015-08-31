@@ -1,0 +1,70 @@
+.ember-view
+  .ace_editor
+    border-color: transparent
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace
+    // standard antialiasing is more readable for code
+    -webkit-font-smoothing: subpixel-antialiased
+    -moz-font-smoothing: subpixel-antialiased
+    font-smoothing: subpixel-antialiased
+
+// Slate theme
+.ace-slate
+  background-color: $ap-slate-dark
+  color: rgb(212,212,212)
+  .ace_gutter
+    background: lighten($ap-slate-dark, 10%)
+    color: rgba(255,255,255,0.5)
+  .ace_print-margin
+    width: 1px
+    background: #FFF
+    opacity: 0.25
+  .ace_cursor
+    color: #8BA7A7
+  .ace_marker-layer .ace_selection
+    background: rgba(197, 223, 233, 0.5)
+  &.ace_multiselect .ace_selection.ace_start
+    box-shadow: 0 0 3px 0px rgba(27, 56, 73, 0.95)
+    border-radius: 2px
+  .ace_marker-layer
+    .ace_step
+      background: rgb(198, 219, 174)
+    .ace_bracket
+      margin: -1px 0 0 -1px
+      border: 1px solid rgba(255, 255, 255, 0.25)
+    .ace_active-line
+      background: rgba(0, 0, 0, 0.29)
+  .ace_gutter-active-line
+    background-color: rgba(0, 0, 0, 0.29)
+  .ace_marker-layer .ace_selected-word
+    border: 1px solid rgba(197, 223, 233, 0.5)
+  .ace_fold
+    background-color: #FFAA00
+    border-color: #F8F8F8
+  .ace_keyword
+    color: rgb(178,148,187)
+  .ace_operator
+    color: rgb(200,200,200)
+  .ace_constant
+    color: rgb(222,147,95)
+  .ace_support
+    color: #9DF39F
+    &.ace_function
+      color: #FFB454
+  .ace_storage
+    color: rgb(163,126,174)
+  .ace_invalid
+    color: #F8F8F8
+    background-color: rgba(216, 41, 13, 0.75)
+  .ace_string
+    color: rgb(181,189,104)
+    &.ace_regexp
+      color: #FFB454
+  .ace_comment
+    font-style: italic
+    color: #1E9AE0
+  .ace_variable
+    color: rgb(204,102,102)
+  .ace_meta.ace_tag
+    color: #9EFFFF
+  .ace_entity
+    color: rgb(129,162,190)
