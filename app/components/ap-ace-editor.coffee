@@ -28,5 +28,13 @@ ApAceEditorComponent = Ember.Component.extend
     editorValue = editor.getSession().getValue()
     if editorValue != value
       editor.getSession().setValue value
+  actions:
+    fullscreen: ->
+      editor = @get 'editor'
+      el = editor.container
+      el.requestFullscreen?()
+      el.msRequestFullscreen?()
+      el.mozRequestFullScreen?()
+      el.webkitRequestFullscreen?()
 
 `export default ApAceEditorComponent`

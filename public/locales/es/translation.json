@@ -32,7 +32,8 @@
     "execute": "ejecutar",
     "specify-custom": "especifique personalizada",
     "drop-or-click-to-upload": "suelta o presiona para subir",
-    "select-add-component-type": "selecciona un tipo de componente para agregar"
+    "select-add-component-type": "selecciona un tipo de componente para agregar",
+    "fullscreen": "pantalla completa"
   },
   "nav": {
     "home": "inicio",
