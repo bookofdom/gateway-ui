@@ -3,11 +3,11 @@
   option-groups=option-groups
   fields=fields}}
 
-  {{#each before as |transform|}}
+  {{#each model.before as |transform|}}
     {{render 'proxy-endpoint-component-transformation.inline-before-form' transform}}
   {{/each}}
 
-  {{#each after as |transform|}}
+  {{#each model.after as |transform|}}
     {{render 'proxy-endpoint-component-transformation.inline-after-form' transform}}
   {{/each}}
 
