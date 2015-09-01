@@ -11,7 +11,7 @@
     "start": "./node_modules/ember-cli/bin/ember serve --environment=development --port=${PORT}",
     "build": "ember build",
     "test": "ember test",
-    "postinstall": "./node_modules/bower/bin/bower install && cd node_modules/ember-cli-anypresence && ../../node_modules/bower/bin/bower install"
+    "postinstall": "cd node_modules/ember-cli-anypresence && ../../node_modules/bower/bin/bower install --allow-root"
   },
   "repository": "",
   "engines": {
