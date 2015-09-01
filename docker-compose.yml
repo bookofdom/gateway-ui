@@ -5,7 +5,7 @@ ember: &defaults
 
 npm:
   <<: *defaults
-  entrypoint: ['/usr/local/bin/npm']
+  entrypoint: ['/usr/local/bin/npm', '--unsafe-perm']
 
 bower:
   <<: *defaults
