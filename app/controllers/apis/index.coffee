@@ -1,10 +1,6 @@
 `import Ember from 'ember'`
 
 ApisIndexController = Ember.Controller.extend
-  'show-new-form': Ember.computed 'model.length', ->
-    @get('model')
-      .filterBy 'isNew', false
-      .length
   actions:
     'export-api': (api) ->
       exportUrl = api.get 'exportUrl'
