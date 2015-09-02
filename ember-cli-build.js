@@ -24,6 +24,14 @@ module.exports = function(defaults) {
       enabled: false,
       extensions: ['js', 'css', 'svg', 'eot', 'ttf'],
       appendSuffix: false
+    },
+    sourcemaps: {
+      enabled: false
+    },
+    sassOptions: {
+      includePaths: [
+        'node_modules/ember-cli-anypresence/bower_components/bootstrap-sass-official/assets/stylesheets'
+      ]
     }
   });
 
