@@ -2,6 +2,7 @@ tmp:
   image: node:0.12.7
   entrypoint: ['/bin/bash']
   volumes:
+    - /src/.sass-cache
     - /src/node_modules
     - /src/bower_components
     - /src/tmp
