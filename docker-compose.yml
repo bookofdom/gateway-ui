@@ -4,6 +4,7 @@ tmp:
   volumes:
     - /src/node_modules
     - /src/bower_components
+    - /src/tmp
 default: &defaults
   build: .
   volumes:
@@ -24,7 +25,6 @@ bower:
 server:
   <<: *defaults
   command: server --watcher polling
-  privileged: true
   ports:
     - "4200:4200"
     - "35729:35729" # legacy ember live reload port
