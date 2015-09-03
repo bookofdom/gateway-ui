@@ -82,15 +82,15 @@ RemoteEndpoint = Model.extend
     @get('platform.slug') == 'mongodb'
   statusType: Ember.computed 'status', ->
     status = @get 'status'
-    RemoteEndpoint.statusTypes.findBy 'value', status
-  isSuccess: Ember.computed 'statusType.slug', ->
-    @get('statusType.slug') is 'Success'
-  isError: Ember.computed 'statusType.slug', ->
-    @get('statusType.slug') is 'Error'
-  isPending: Ember.computed 'statusType.slug', ->
-    @get('statusType.slug') is 'Pending'
-  isProcessing: Ember.computed 'statusType.slug', ->
-    @get('statusType.slug') is 'Processing'
+    RemoteEndpoint.statusTypes.findBy 'value', status.underscore()
+  statusIsSuccess: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'success'
+  statusIsError: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'error'
+  statusIsPending: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'pending'
+  statusIsProcessing: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'processing'
   location: Ember.computed 'url', 'server', ->
     location = @get('url') or @get('server')
     location = @get('hosts').map((host) -> host.get 'host')?.join(' / ') if @get 'isMongo'
@@ -110,7 +110,7 @@ types = 'http soap sqlserver postgres mysql mongodb'.split(' ').map (type) ->
 statusTypes = 'success error pending processing'.split(' ').map (type) ->
   name: t "types.remote-endpoint.status-types.#{type}"
   slug: type
-  value: type
+  value: type.underscore()
 
 sslModes = 'disable allow prefer require'.split(' ').map (mode) ->
   name: t "types.remote-endpoint.ssl-modes.#{mode}"
@@ -119,6 +119,7 @@ sslModes = 'disable allow prefer require'.split(' ').map (mode) ->
 
 RemoteEndpoint.reopenClass
   types: types
+  statusTypes: statusTypes
   sslModes: sslModes
 
 `export default RemoteEndpoint`
