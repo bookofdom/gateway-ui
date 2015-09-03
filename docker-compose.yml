@@ -30,3 +30,18 @@ server:
     - "4200:4200"
     - "35729:35729" # legacy ember live reload port
     - "49152:49152" # ember 1.13.8 live reload port
+build_production:
+  build: .
+  volumes:
+    - ./app:/src/app
+    - ./config:/src/config
+    - ./dist:/src/dist
+    - ./public:/src/public
+    - ./.bowerrc:/src/.bowerrc
+    - ./.ember-cli:/src/.ember-cli
+    - ./.jshintrc:/src/.jshintrc
+    - ./bower.json:/src/bower.json
+    - ./ember-cli-build.js:/src/ember-cli-build.js
+    - ./package.json:/src/package.json
+  entrypoint: ['/bin/sh']
+  command: '-c "npm install --unsafe-perm && bower install --allow-root && ember build --environment production"'
