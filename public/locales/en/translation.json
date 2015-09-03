@@ -214,6 +214,7 @@
   "types": {
     "remote-endpoint": {
       "http": "HTTP",
+      "soap": "SOAP",
       "sqlserver": "SQL Server",
       "postgres": "PostgreSQL",
       "mysql": "MySQL",
