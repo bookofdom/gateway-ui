@@ -14,13 +14,18 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       # auto-invalidate if logged in with the wrong authenticator
       if (isDevMode and !isDevAuth) or (!isDevMode and isDevAuth)
         transition.send 'invalidateSession'
+  authenticate: ->
+    # auto-login using dev mode authenticator if in dev mode
+    if config.meta['dev-mode']
+      @get('session').authenticate 'authenticator:dev-mode', {}
+    else
+      @transitionTo config['simple-auth'].routeAfterInvalidation
   actions:
+    sessionRequiresAuthentication: ->
+      @authenticate()
     authenticateSession: ->
-      # auto-login using dev mode authenticator if in dev mode
-      if config.meta['dev-mode']
-        @get('session').authenticate 'authenticator:dev-mode', {}
-      else
-        @transitionTo config['simple-auth'].routeAfterInvalidation
+      # for older versions of simple-auth
+      @authenticate()
     sessionAuthenticationFailed: (error) ->
       message = slugify error
       loginController = @controllerFor('login')

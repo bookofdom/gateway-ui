@@ -11,7 +11,7 @@
     "ember-qunit-notifications": "0.0.7",
     "bower-retina-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/bower-retina-icons.git#ca94be48bcb731af9970fec9f82977b15a856b42",
     "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#3c939ddb6da3c6b4abc3acf238cc1d5939e02746",
-    "ember-simple-auth": "0.8.0",
+    "ember-simple-auth": "0.7.2",
     "jquery": "^1.11.3",
     "jquery-ui": "~1.11.2",
     "loader.js": "ember-cli/loader.js#3.2.1",
