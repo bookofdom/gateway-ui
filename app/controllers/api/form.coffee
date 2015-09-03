@@ -8,6 +8,7 @@ ApiFormController = FormController.extend
       required: true,
     ,
       name: 'export'
+      label: 'fields.import'
       type: 'file'
     ]
     editFields = [
