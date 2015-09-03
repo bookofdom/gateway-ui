@@ -42,9 +42,6 @@ module.exports = function(defaults) {
 
   // jQuery UI
   app.import('bower_components/jquery-ui/jquery-ui.js');
-  // jQuery File Upload
-  app.import('bower_components/jquery-file-upload/js/jquery.iframe-transport.js');
-  app.import('bower_components/jquery-file-upload/js/jquery.fileupload.js');
   // vkBeautify
   app.import('bower_components/vkbeautify/vkbeautify.js');
   // Retina Icons
