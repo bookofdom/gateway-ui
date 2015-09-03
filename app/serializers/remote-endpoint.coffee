@@ -27,6 +27,14 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         @normalizeQuery hash
         @normalizeEnvironmentData hash
         @normalizeEnvironmentDataLinks hash
+      when 'soap'
+        hash.wsdl = hash.data.wsdl
+        hash.service_name = hash.data.service_name
+        hash.endpoint_name = hash.data.endpoint_name
+        hash.action_name = hash.data.action_name
+        hash.url = hash.data.url
+        hash.username = hash.data.wsse_password_credentials.username
+        hash.password = hash.data.wsse_password_credentials.password
       when 'sqlserver'
         hash.server = hash.data.config.server
         hash.database = hash.data.config.database
@@ -116,6 +124,16 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
           method: serialized.method
           headers: @serializeHeaders model
           query: @serializeQuery model
+      when 'soap'
+        serialized.data =
+          wsdl: serialized.wsdl
+          service_name: serialized.service_name
+          endpoint_name: serialized.endpoint_name
+          action_name: serialized.action_name
+          url: serialized.url
+          wsse_password_credentials:
+            username: serialized.username
+            password: serialized.password
       when 'sqlserver'
         serialized.data =
           config:

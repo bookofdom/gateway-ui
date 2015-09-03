@@ -12,8 +12,17 @@ RemoteEndpoint = Model.extend
   status_message: DS.attr 'string'
 
   # http
-  url: DS.attr 'string'
   method: DS.attr 'string'
+
+  # soap
+  wsdl: DS.attr 'string'
+  service_name: DS.attr 'sring'
+  endpoint_name: DS.attr 'string'
+  action_name: DS.attr 'string'
+
+  # http
+  # soap
+  url: DS.attr 'string'
 
   # sqlserver
   schema: DS.attr 'string'
@@ -26,8 +35,6 @@ RemoteEndpoint = Model.extend
   # mysql
   server: DS.attr 'string'
   port: DS.attr 'number'
-  username: DS.attr 'string'
-  password: DS.attr 'string'
   database: DS.attr 'string'
   transactions: DS.attr 'boolean'
   timeout: DS.attr 'number'
@@ -36,6 +43,14 @@ RemoteEndpoint = Model.extend
 
   # mongodb
   limit: DS.attr 'number', defaultValue: 16
+
+  # soap
+  # sqlserver
+  # postgres
+  # mysql
+  # mongodb
+  username: DS.attr 'string'
+  password: DS.attr 'string'
 
   # Relationships
   api: DS.belongsTo 'api', async: true
