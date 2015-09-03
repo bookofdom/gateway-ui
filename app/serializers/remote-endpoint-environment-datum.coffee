@@ -44,6 +44,7 @@ RemoteEndpointEnvironmentDatumSerializer = ApplicationSerializer.extend DS.Embed
     hash
   serialize: (model) ->
     serialized = @_super.apply @, arguments
+    serialized.environment_id = parseInt(serialized.environment_id, 10) if serialized.environment_id?
     serialized.data =
       url: model.get 'url'
       method: model.get 'method'
