@@ -5,7 +5,7 @@ ProxyEndpointTestAdapter = ApplicationAdapter.extend
   buildURL: (type, id, record) ->
     if record
       # models
-      proxyEndpoint = record.get 'proxy_endpoint'
+      proxyEndpoint = record.belongsTo 'proxy_endpoint'
       # adapters
       proxyEndpointAdapter = @container.lookup 'adapter:proxy-endpoint'
       # IDs
@@ -17,7 +17,8 @@ ProxyEndpointTestAdapter = ApplicationAdapter.extend
       "#{proxyEndpointUrl}/tests/#{testId}"
 
   buildTestUrl: (record) ->
-    "#{@buildURL null, null, record}/test"
+    snapshot = record._createSnapshot()
+    "#{@buildURL null, null, snapshot}/test"
 
   ###
   record:  environment instance
