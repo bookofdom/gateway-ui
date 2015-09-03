@@ -213,6 +213,12 @@
   },
   "types": {
     "remote-endpoint": {
+      "status-types": {
+        "success": "सफलता",
+        "error": "एरर",
+        "pending": "अपूर्ण",
+        "processing": "प्रसंस्करण"
+      },
       "ssl-modes": {
         "disable": "अक्षम करें",
         "allow": "अनुमति देते हैं",

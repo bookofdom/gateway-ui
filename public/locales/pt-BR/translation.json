@@ -213,6 +213,12 @@
   },
   "types": {
     "remote-endpoint": {
+      "status-types": {
+        "success": "sucesso",
+        "error": "erro",
+        "pending": "pendente",
+        "processing": "processamento"
+      },
       "ssl-modes": {
         "disable": "incapacitar",
         "allow": "permitir",

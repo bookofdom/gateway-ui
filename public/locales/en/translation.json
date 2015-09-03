@@ -219,6 +219,12 @@
       "postgres": "PostgreSQL",
       "mysql": "MySQL",
       "mongodb": "MongoDB",
+      "status-types": {
+        "success": "success",
+        "error": "error",
+        "pending": "pending",
+        "processing": "processing"
+      },
       "ssl-modes": {
         "disable": "disable",
         "allow": "allow",

@@ -8,6 +8,8 @@ RemoteEndpoint = Model.extend
   name: DS.attr 'string'
   codename: DS.attr 'string'
   description: DS.attr 'string'
+  status: DS.attr 'string'
+  status_message: DS.attr 'string'
 
   # http
   url: DS.attr 'string'
@@ -63,6 +65,17 @@ RemoteEndpoint = Model.extend
     @get('platform.slug') == 'http'
   isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
+  statusType: Ember.computed 'status', ->
+    status = @get 'status'
+    RemoteEndpoint.statusTypes.findBy 'value', status
+  isSuccess: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'Success'
+  isError: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'Error'
+  isPending: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'Pending'
+  isProcessing: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'Processing'
   location: Ember.computed 'url', 'server', ->
     location = @get('url') or @get('server')
     location = @get('hosts').map((host) -> host.get 'host')?.join(' / ') if @get 'isMongo'
@@ -76,6 +89,11 @@ RemoteEndpoint = Model.extend
 # Declare available types and their human-readable names
 types = 'http soap sqlserver postgres mysql mongodb'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
+  slug: type
+  value: type
+
+statusTypes = 'success error pending processing'.split(' ').map (type) ->
+  name: t "types.remote-endpoint.status-types.#{type}"
   slug: type
   value: type
 
