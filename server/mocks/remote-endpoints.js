@@ -217,6 +217,44 @@ module.exports = function(app) {
       "maxIdleConn":100,
       "maxOpenConn":80
       }
+    },
+    {
+      "id": 12,
+      "api_id":1,
+      "codename":"soapy",
+      "name":"soapy",
+      "description":null,
+      "type":"soap",
+      "status":"Error",
+      "status_message":"The WSDL is crap.",
+      "data":{
+        "wsdl":"<data uri encoded wsdl file that was uploaded by the user>",
+        "service_name":"chargepointservices",
+        "endpoint_name":"chargepointservicesSOAP",
+        "action_name":"urn:provider/interface/chargepointservices/getStations",
+        "url":"http://someurl.com/chargepoint",
+        "wsse_password_credentials":{
+          "username":"me",
+          "password":"pass123"
+        }
+      },
+      "environment_data":[
+        /*
+        {
+          "environment_id":1,
+          "data":{
+            "service_name":"chargepointservices",
+            "endpoint_name":"chargepointservicesSOAP",
+            "action_name":"urn:provider/interface/chargepointservices/getStations",
+            "url":"http://someurl.com/chargepoint",
+            "wsse_password_credentials":{
+              "username":"me",
+              "password":"pass123"
+            }
+          }
+        }
+        */
+      ]
     }
   ];
 
