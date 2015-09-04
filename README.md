@@ -55,7 +55,7 @@ aliases permanent, copy the contents of `aliases.sh` to your `.bash_profile`.
 ## Building
 To output production build artifacts into the project's `dist/` folder:
 
-    `docker-compose run --rm build_production`
+    docker-compose run --rm build_production
 
 The build service installs NPM and Bower dependencies automatically in the
 container's ephemeral filesystem before every build.  Dependencies and build
