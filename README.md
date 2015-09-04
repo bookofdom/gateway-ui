@@ -62,6 +62,11 @@ container's ephemeral filesystem before every build.  Dependencies and build
 artifacts are never stored in shared Docker volumes and never persist across
 builds.  This ensures clean, consistent, and repeatable production builds.
 
+To output production build artifacts to a specific location, replace
+`/path/to/output` below with your desired destination folder.
+
+    docker-compose run --rm -v /path/to/output:/app/dist build_production
+
 
 ## Further Reading / Useful Links
 * [ember.js](http://emberjs.com/)
