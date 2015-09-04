@@ -65,7 +65,7 @@ builds.  This ensures clean, consistent, and repeatable production builds.
 To output production build artifacts to a specific location, replace
 `/path/to/output` below with your desired destination folder.
 
-    docker-compose run --rm -v /path/to/output:/app/dist build_production
+    docker-compose run --rm -v /path/to/output:/src/dist build_production
 
 
 ## Further Reading / Useful Links
