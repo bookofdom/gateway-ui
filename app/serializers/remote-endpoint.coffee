@@ -31,6 +31,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.wsdl = hash.data.wsdl
         hash.service_name = hash.data.service_name
         hash.endpoint_name = hash.data.endpoint_name
+        hash.operation_name = hash.data.operation_name
         hash.action_name = hash.data.action_name
         hash.url = hash.data.url
         hash.username = hash.data.wsse_password_credentials.username
@@ -129,6 +130,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
           wsdl: serialized.wsdl
           service_name: serialized.service_name
           endpoint_name: serialized.endpoint_name
+          operation_name: serialized.operation_name
           action_name: serialized.action_name
           url: serialized.url
           wsse_password_credentials:

@@ -47,6 +47,28 @@ RemoteEndpointFormController = FormController.extend
       name: 'method'
       type: 'select'
     ]
+    soap: [
+      name: 'wsdl'
+      type: 'file'
+      required: true
+    ,
+      name: 'service_name'
+      required: true
+    ,
+      name: 'endpoint_name'
+      required: true
+    ,
+      name: 'operation_name'
+    ,
+      name: 'action_name'
+    ,
+      name: 'url'
+    ,
+      name: 'username'
+    ,
+      name: 'password'
+      type: 'password'
+    ]
     sqlserver: [
       name: 'server'
       required: true

@@ -18,6 +18,7 @@ RemoteEndpoint = Model.extend
   wsdl: DS.attr 'string'
   service_name: DS.attr 'string'
   endpoint_name: DS.attr 'string'
+  operation_name: DS.attr 'string'
   action_name: DS.attr 'string'
 
   # http

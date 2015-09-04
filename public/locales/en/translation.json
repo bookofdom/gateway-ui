@@ -167,6 +167,11 @@
     "limit": "connection pool limit",
     "location": "location",
     "sslmode": "SSL mode",
+    "wsdl": "WSDL",
+    "service_name": "service name",
+    "endpoint_name": "endpoint name",
+    "operation_name": "operation name",
+    "action_name": "action name",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."

@@ -167,6 +167,10 @@
     "limit": "límite de agrupación de conexiones",
     "location": "localización",
     "sslmode": "modo SSL",
+    "service_name": "nombre del servicio",
+    "endpoint_name": "nombre del extremo",
+    "operation_name": "nombre de la operación",
+    "action_name": "nombre de la acción",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique una costumbre Content-Type en las cabeceras de petición."

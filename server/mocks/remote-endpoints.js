@@ -231,6 +231,7 @@ module.exports = function(app) {
         "wsdl":"<data uri encoded wsdl file that was uploaded by the user>",
         "service_name":"chargepointservices",
         "endpoint_name":"chargepointservicesSOAP",
+        "operation_name": "operation",
         "action_name":"urn:provider/interface/chargepointservices/getStations",
         "url":"http://someurl.com/chargepoint",
         "wsse_password_credentials":{
