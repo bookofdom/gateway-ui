@@ -89,6 +89,9 @@ RemoteEndpoint = Model.extend
     @get('statusType.slug') is 'pending'
   statusIsProcessing: Ember.computed 'statusType.slug', ->
     @get('statusType.slug') is 'processing'
+  authSchemeType: Ember.computed 'auth_scheme', ->
+    scheme = @get 'auth_scheme'
+    RemoteEndpoint.authSchemes.findBy 'value', scheme
   location: Ember.computed 'url', 'server', ->
     location = @get('url') or @get('server')
     location = @get('hosts').map((host) -> host.get 'host')?.join(' / ') if @get 'isMongo'
@@ -115,9 +118,15 @@ sslModes = 'disable allow prefer require'.split(' ').map (mode) ->
   slug: mode
   value: mode
 
+authSchemes = 'basic wsse'.split(' ').map (scheme) ->
+  name: t "types.remote-endpoint.auth-schemes.#{scheme}"
+  slug: scheme
+  value: scheme
+
 RemoteEndpoint.reopenClass
   types: types
   statusTypes: statusTypes
   sslModes: sslModes
+  authSchemes: authSchemes
 
 `export default RemoteEndpoint`

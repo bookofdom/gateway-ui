@@ -171,6 +171,7 @@
     "endpoint_name": "nome do endpoint",
     "operation_name": "nome da operação",
     "action_name": "nome da ação",
+    "auth_scheme": "esquema de autenticação",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação."
@@ -228,6 +229,10 @@
         "allow": "permitir",
         "prefer": "preferir",
         "require": "exigir"
+      },
+      "auth-schemes": {
+        "basic": "básico",
+        "wsse": "WSSE"
       }
     }
   }

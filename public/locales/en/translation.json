@@ -172,6 +172,7 @@
     "endpoint_name": "endpoint name",
     "operation_name": "operation name",
     "action_name": "action name",
+    "auth_scheme": "authentication scheme",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."
@@ -235,6 +236,10 @@
         "allow": "allow",
         "prefer": "prefer",
         "require": "require"
+      },
+      "auth-schemes": {
+        "basic": "basic",
+        "wsse": "WSSE"
       }
     }
   }

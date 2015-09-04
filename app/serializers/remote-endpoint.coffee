@@ -31,7 +31,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.wsdl = hash.data.wsdl
         hash.service_name = hash.data.service_name
         hash.url = hash.data.url
-        hash.auth_type = if hash.data.wsse_password_credentials? then 'wsse'
+        hash.auth_scheme = if hash.data.wsse_password_credentials? then 'wsse'
         hash.username = hash.data.wsse_password_credentials.username
         hash.password = hash.data.wsse_password_credentials.password
       when 'sqlserver'
@@ -128,7 +128,7 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
           wsdl: serialized.wsdl
           service_name: serialized.service_name
           url: serialized.url
-          wsse_password_credentials: if serialized.auth_type is 'wsse'
+          wsse_password_credentials: if serialized.auth_scheme is 'wsse'
             username: serialized.username
             password: serialized.password
       when 'sqlserver'

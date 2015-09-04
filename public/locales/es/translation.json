@@ -171,6 +171,7 @@
     "endpoint_name": "nombre del extremo",
     "operation_name": "nombre de la operación",
     "action_name": "nombre de la acción",
+    "auth_scheme": "esquema de autenticación",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique una costumbre Content-Type en las cabeceras de petición."
@@ -228,6 +229,10 @@
         "allow": "permitir",
         "prefer": "preferir",
         "require": "exigir"
+      },
+      "auth-schemes": {
+        "basic": "básico",
+        "wsse": "WSSE"
       }
     }
   }
