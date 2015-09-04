@@ -60,7 +60,6 @@ RemoteEndpointFormController = FormController.extend
     ,
       name: 'auth_scheme'
       type: 'select'
-      prompt: false
     ,
       name: 'username'
     ,
