@@ -55,13 +55,6 @@ RemoteEndpointFormController = FormController.extend
       name: 'service_name'
       required: true
     ,
-      name: 'endpoint_name'
-      required: true
-    ,
-      name: 'operation_name'
-    ,
-      name: 'action_name'
-    ,
       name: 'url'
     ,
       name: 'username'
