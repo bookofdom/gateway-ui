@@ -70,8 +70,8 @@ StainedByChildrenMixin = Ember.Mixin.create
     if belongsToProps.length
       for prop in belongsToProps
         internalRelationship = @get "_internalModel._relationships.initializedRelationships.#{prop.relationshipName}"
-        canonicalId = internalRelationship.canonicalState?.id
-        inverseId = internalRelationship.inverseRecord?.id
+        canonicalId = internalRelationship?.canonicalState?.id
+        inverseId = internalRelationship?.inverseRecord?.id
         isDirty = !(canonicalId is inverseId)
         if isDirty
           @set prop.relationshipName, internalRelationship.canonicalState.record
