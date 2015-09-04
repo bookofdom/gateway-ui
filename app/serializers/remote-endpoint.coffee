@@ -29,18 +29,18 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         @normalizeEnvironmentDataLinks hash
       when 'soap'
         hash.wsdl = hash.data.wsdl
-        hash.service_name = hash.data.service_name
+        hash.service_name = hash.data.serviceName
         hash.url = hash.data.url
         hash.auth_scheme =
-          if hash.data.basic_auth_credentials? then 'basic'
-          else if hash.data.wsse_password_credentials? then 'wsse'
+          if hash.data.basicAuthCredentials? then 'basic'
+          else if hash.data.wssePasswordCredentials? then 'wsse'
         switch hash.auth_scheme
           when 'basic'
-            hash.username = hash.data.basic_auth_credentials.username
-            hash.password = hash.data.basic_auth_credentials.password
+            hash.username = hash.data.basicAuthCredentials.username
+            hash.password = hash.data.basicAuthCredentials.password
           when 'wsse'
-            hash.username = hash.data.wsse_password_credentials.username
-            hash.password = hash.data.wsse_password_credentials.password
+            hash.username = hash.data.wssePasswordCredentials.username
+            hash.password = hash.data.wssePasswordCredentials.password
       when 'sqlserver'
         hash.server = hash.data.config.server
         hash.database = hash.data.config.database
@@ -133,12 +133,12 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
       when 'soap'
         serialized.data =
           wsdl: serialized.wsdl
-          service_name: serialized.service_name
+          serviceName: serialized.service_name
           url: serialized.url
-          basic_auth_credentials: if serialized.auth_scheme is 'basic'
+          basicAuthCredentials: if serialized.auth_scheme is 'basic'
             username: serialized.username
             password: serialized.password
-          wsse_password_credentials: if serialized.auth_scheme is 'wsse'
+          wssePasswordCredentials: if serialized.auth_scheme is 'wsse'
             username: serialized.username
             password: serialized.password
       when 'sqlserver'

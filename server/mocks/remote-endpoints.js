@@ -229,9 +229,9 @@ module.exports = function(app) {
       "status_message":"The WSDL is crap.",
       "data":{
         "wsdl":"<data uri encoded wsdl file that was uploaded by the user>",
-        "service_name":"chargepointservices",
+        "serviceName":"chargepointservices",
         "url":"http://someurl.com/chargepoint",
-        "wsse_password_credentials":{
+        "wssePasswordCredentials":{
           "username":"me",
           "password":"pass123"
         }
@@ -241,9 +241,9 @@ module.exports = function(app) {
         {
           "environment_id":1,
           "data":{
-            "service_name":"chargepointservices",
+            "serviceName":"chargepointservices",
             "url":"http://someurl.com/chargepoint",
-            "wsse_password_credentials":{
+            "wssePasswordCredentials":{
               "username":"me",
               "password":"pass123"
             }
