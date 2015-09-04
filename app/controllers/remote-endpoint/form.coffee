@@ -9,7 +9,9 @@ RemoteEndpointFormController = FormController.extend
   'option-groups':
     type: RemoteEndpoint.types
     sslmode: RemoteEndpoint.sslModes
-    auth_scheme: RemoteEndpoint.authSchemes
+    # TODO expose basic auth when available in backend
+    auth_scheme: RemoteEndpoint.authSchemes.filter (scheme) ->
+      scheme.slug != 'basic'
     method: [
       name: t 'http-methods.get'
       value: 'GET'
