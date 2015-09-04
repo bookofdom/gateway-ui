@@ -17,6 +17,7 @@ RemoteEndpoint = Model.extend
   # soap
   wsdl: DS.attr 'string'
   service_name: DS.attr 'string'
+  auth_scheme: DS.attr 'string'
 
   # http
   # soap

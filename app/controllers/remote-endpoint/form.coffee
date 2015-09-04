@@ -9,6 +9,7 @@ RemoteEndpointFormController = FormController.extend
   'option-groups':
     type: RemoteEndpoint.types
     sslmode: RemoteEndpoint.sslModes
+    auth_scheme: RemoteEndpoint.authSchemes
     method: [
       name: t 'http-methods.get'
       value: 'GET'
@@ -56,6 +57,10 @@ RemoteEndpointFormController = FormController.extend
       required: true
     ,
       name: 'url'
+    ,
+      name: 'auth_scheme'
+      type: 'select'
+      prompt: false
     ,
       name: 'username'
     ,
