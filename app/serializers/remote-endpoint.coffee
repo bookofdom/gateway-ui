@@ -31,8 +31,9 @@ RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         hash.wsdl = hash.data.wsdl
         hash.service_name = hash.data.service_name
         hash.url = hash.data.url
-        hash.auth_scheme = if hash.data.basic_auth_credentials? then 'basic'
-        hash.auth_scheme = if hash.data.wsse_password_credentials? then 'wsse'
+        hash.auth_scheme =
+          if hash.data.basic_auth_credentials? then 'basic'
+          else if hash.data.wsse_password_credentials? then 'wsse'
         switch hash.auth_scheme
           when 'basic'
             hash.username = hash.data.basic_auth_credentials.username
