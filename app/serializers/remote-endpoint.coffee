@@ -1,11 +1,12 @@
 `import DS from 'ember-data'`
 `import RemoteEndpointLikeSerializer from './remote-endpoint-like'`
 
-headerIdCounter = 1
-queryIdCounter = 1
-hostIdCounter = 1
-
 RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecordsMixin,
+  generateChildIdFor: (modelName, ownerId) ->
+    if modelName is 'remote-endpoint-environment-datum'
+      parseInt(ownerId, 10) * 10000
+    else
+      @_super.apply @, arguments
   normalize: (type, hash, property) ->
     switch hash.type
       when 'http'
@@ -73,7 +74,7 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
     hash.data.headers ?= {}
     for key, value of hash.data.headers
       hash.headers.push
-        id: headerIdCounter++
+        id: @generateChildIdFor 'remote-endpoint-header', hash.id
         name: key
         value: value
     hash
@@ -82,7 +83,7 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
     hash.data.query ?= {}
     for key, value of hash.data.query
       hash.query.push
-        id: queryIdCounter++
+        id: @generateChildIdFor 'remote-endpoint-query', hash.id
         name: key
         value: value
     hash
@@ -91,13 +92,13 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
     hash.data.config.hosts ?= []
     for host in hash.data.config.hosts
       hash.hosts.push
-        id: hostIdCounter++
+        id: @generateChildIdFor 'remote-endpoint-host', hash.id
         host: host.host
         port: host.port
     hash
   # Adds ephemeral IDs to embedded environment data records, since IDs are required.
   normalizeEnvironmentData: (hash) ->
-    datumIdCounter = parseInt(hash.id, 10) * 10000
+    datumIdCounter = @generateChildIdFor 'remote-endpoint-environment-datum', hash.id
     hash.environment_data ?= []
     for datum in hash.environment_data
       datum.id = datumIdCounter++
