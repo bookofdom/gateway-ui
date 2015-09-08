@@ -11,7 +11,6 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
         @normalizeHeaders hash
         @normalizeQuery hash
         @normalizeEnvironmentData hash
-        @normalizeEnvironmentDataLinks hash
       when 'soap'
         hash.wsdl = hash.data.wsdl
         hash.service_name = hash.data.serviceName
@@ -96,14 +95,6 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
     hash.environment_data ?= []
     for datum in hash.environment_data
       datum.id = @generateId()
-    hash
-  # Adds links to embedded environment data
-  normalizeEnvironmentDataLinks: (hash) ->
-    if hash.environment_data
-      for datum in hash.environment_data
-        if datum.environment_id
-          datum.links =
-            environment: "/apis/#{hash.api_id}/environments/#{datum.environment_id}"
     hash
   serialize: (model) ->
     serialized = @_super.apply @, arguments
