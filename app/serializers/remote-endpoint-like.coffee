@@ -17,12 +17,16 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       embedded: 'always'
     environment_data:
       embedded: 'always'
+
   # Returns a generated consecutive ID for an embedded model.  Useful for
-  # embedded records that have no IDs.
-  generateChildIdFor: (modelName, ownerId) ->
-    idCounter = idCounters[modelName] || 0
+  # embedded records that have no IDs.  Optionally accepts `startsAt`, to offset
+  # generated IDs by a given number.
+  generateChildIdFor: (modelName, ownerId, offset=0) ->
+    idCounter = idCounters[modelName] or 0
+    startsAt = @get "idStartingAt.#{modelName}"
     idCounter++
     idCounters[modelName] = idCounter
+    idCounter = idCounter + offset
     idCounter
 
 `export default RemoteEndpointLikeSerializer`

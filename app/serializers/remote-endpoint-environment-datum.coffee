@@ -1,12 +1,6 @@
 `import DS from 'ember-data'`
 `import RemoteEndpointLikeSerializer from './remote-endpoint-like'`
 
-# offset by since remote endpoints also have headers...
-# if their ephemeral ID counters started at the same number,
-# there would be ID colisions
-headerIdCounter = 1000000
-queryIdCounter = 1000000
-
 RemoteEndpointEnvironmentDatumSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecordsMixin,
   normalize: (type, hash, property) ->
     # `data` is reserved in Ember, so transform into `url` and `method`
@@ -20,7 +14,7 @@ RemoteEndpointEnvironmentDatumSerializer = RemoteEndpointLikeSerializer.extend D
     hash.data.headers ?= {}
     for key, value of hash.data.headers
       hash.headers.push
-        id: headerIdCounter++
+        id: @generateChildIdFor 'remote-endpoint-header', hash.id, 1000000
         name: key
         value: value
     hash
@@ -29,7 +23,7 @@ RemoteEndpointEnvironmentDatumSerializer = RemoteEndpointLikeSerializer.extend D
     hash.data.query ?= {}
     for key, value of hash.data.query
       hash.query.push
-        id: queryIdCounter++
+        id: @generateChildIdFor 'remote-endpoint-query', hash.id, 1000000
         name: key
         value: value
     hash
