@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from './application'`
+`import RemoteEndpointLikeSerializer from './remote-endpoint-like'`
 
 # offset by since remote endpoints also have headers...
 # if their ephemeral ID counters started at the same number,
@@ -7,16 +7,7 @@
 headerIdCounter = 1000000
 queryIdCounter = 1000000
 
-RemoteEndpointEnvironmentDatumSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
-  attrs:
-    headers:
-      #embedded: 'always'
-      serialize: false
-      deserialize: 'records'
-    query:
-      #embedded: 'always'
-      serialize: false
-      deserialize: 'records'
+RemoteEndpointEnvironmentDatumSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecordsMixin,
   normalize: (type, hash, property) ->
     # `data` is reserved in Ember, so transform into `url` and `method`
     hash.url = hash.data.url

@@ -1,22 +1,11 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from './application'`
+`import RemoteEndpointLikeSerializer from './remote-endpoint-like'`
 
 headerIdCounter = 1
 queryIdCounter = 1
 hostIdCounter = 1
 
-RemoteEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
-  attrs:
-    headers:
-      serialize: false
-      deserialize: 'records'
-    query:
-      serialize: false
-      deserialize: 'records'
-    environment_data:
-      embedded: 'always'
-    hosts:
-      embedded: 'always'
+RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecordsMixin,
   normalize: (type, hash, property) ->
     switch hash.type
       when 'http'
