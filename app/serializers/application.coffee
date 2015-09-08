@@ -37,4 +37,8 @@ ApplicationSerializer = DS.RESTSerializer.extend
       if relationship.options.polymorphic
         @serializePolymorphicType snapshot, json, relationship
 
+  # Generates a unique ID.  Useful for adding temporary client-side IDs to
+  # embedded records, many of which may have no ID of their own.
+  generateId: -> window.uuid.v4()
+
 `export default ApplicationSerializer`

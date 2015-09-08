@@ -14,7 +14,7 @@ RemoteEndpointEnvironmentDatumSerializer = RemoteEndpointLikeSerializer.extend D
     hash.data.headers ?= {}
     for key, value of hash.data.headers
       hash.headers.push
-        id: @generateChildIdFor 'remote-endpoint-header', hash.id, 1000000
+        id: @generateId()
         name: key
         value: value
     hash
@@ -23,7 +23,7 @@ RemoteEndpointEnvironmentDatumSerializer = RemoteEndpointLikeSerializer.extend D
     hash.data.query ?= {}
     for key, value of hash.data.query
       hash.query.push
-        id: @generateChildIdFor 'remote-endpoint-query', hash.id, 1000000
+        id: @generateId()
         name: key
         value: value
     hash

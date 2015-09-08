@@ -16,6 +16,7 @@
     "jquery-ui": "~1.11.2",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "vkbeautify": "git+https://github.com/vkiryukhin/vkBeautify.git",
-    "qunit": "~1.18.0"
+    "qunit": "~1.18.0",
+    "node-uuid": "~1.4.3"
   }
 }
