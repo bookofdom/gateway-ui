@@ -7,7 +7,7 @@ ApplicationSerializer = DS.RESTSerializer.extend
   generateId: -> window.uuid.v4()
   # If the instance didn't come with an ID, it's critical to add one
   # for client-side tracking purposes.
-  normalize: (hash) ->
+  normalize: (type, hash, property) ->
     hash.id = @generateId() if !hash.id
     @_super.apply @, arguments
 

@@ -10,7 +10,6 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
         hash.method = hash.data.method
         @normalizeHeaders hash
         @normalizeQuery hash
-        @normalizeEnvironmentData hash
       when 'soap'
         hash.wsdl = hash.data.wsdl
         hash.service_name = hash.data.serviceName
@@ -89,12 +88,6 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
         id: @generateId()
         host: host.host
         port: host.port
-    hash
-  # Adds ephemeral IDs to embedded environment data records, since IDs are required.
-  normalizeEnvironmentData: (hash) ->
-    hash.environment_data ?= []
-    for datum in hash.environment_data
-      datum.id = @generateId()
     hash
   serialize: (model) ->
     serialized = @_super.apply @, arguments
