@@ -59,7 +59,7 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend
         hash.password = hash.data.config.password
         hash.limit = hash.data.limit
     @_super.apply @, arguments
-  serialize: (model) ->
+  serialize: ->
     serialized = @_super.apply @, arguments
     switch serialized.type
       when 'http'
