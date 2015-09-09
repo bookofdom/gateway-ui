@@ -8,8 +8,6 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
         # `data` is reserved in Ember, so transform into `url` and `method`
         hash.url = hash.data.url
         hash.method = hash.data.method
-        @normalizeHeaders hash
-        @normalizeQuery hash
       when 'soap'
         hash.wsdl = hash.data.wsdl
         hash.service_name = hash.data.serviceName
@@ -60,28 +58,7 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
         hash.username = hash.data.config.username
         hash.password = hash.data.config.password
         hash.limit = hash.data.limit
-        @normalizeHosts hash
     @_super.apply @, arguments
-  normalizeHeaders: (hash) ->
-    hash.headers = []
-    hash.data.headers ?= {}
-    for key, value of hash.data.headers
-      hash.headers.push
-        id: @generateId()
-        name: key
-        value: value
-    hash
-  normalizeQuery: (hash) ->
-    hash.query = []
-    hash.data.query ?= {}
-    for key, value of hash.data.query
-      hash.query.push
-        id: @generateId()
-        name: key
-        value: value
-    hash
-  normalizeHosts: (hash) ->
-    hash.hosts = hash.data.config.hosts
   serialize: (model) ->
     serialized = @_super.apply @, arguments
     switch serialized.type
