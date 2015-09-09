@@ -81,14 +81,7 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
         value: value
     hash
   normalizeHosts: (hash) ->
-    hash.hosts = []
-    hash.data.config.hosts ?= []
-    for host in hash.data.config.hosts
-      hash.hosts.push
-        id: @generateId()
-        host: host.host
-        port: host.port
-    hash
+    hash.hosts = hash.data.config.hosts
   serialize: (model) ->
     serialized = @_super.apply @, arguments
     switch serialized.type
