@@ -18,14 +18,6 @@ RemoteEndpointEnvironmentDatumFormController = RemoteEndpointLikeFormController.
       required: true
     ]
 
-  createNewModel: ->
-    modelType = @get 'modelType'
-    remoteEndpointType = @get 'remote-endpoint.model.type'
-    newModel = @store?.createRecord modelType
-    newModel.set 'type', remoteEndpointType
-    @set 'model', newModel
-    newModel
-
   actions:
     beforeSave: ->
       model = @get 'model'
