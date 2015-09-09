@@ -1,58 +1,60 @@
 {{#ap-model-form
-    model=model
-    option-groups=option-groups
-    fields=fields}}
+  model=model
+  option-groups=option-groups
+  fields=fields}}
 
-    {{#unless model.isNew}}
-      {{#if model.isHttp}}
-        {{#bs-row}}
-          {{#bs-col md=6}}
-            {{#ap-panel-edit t='resources.remote-endpoint-header_plural'}}
-              {{ap-table-model
-                models=model.headers
-                delete-action='delete-remote-endpoint-header'
-                partial-path='remote-endpoint-header/-inline-form'}}
-              {{ap-button-block-new
-                t='resources.remote-endpoint-header'
-                action='new-remote-endpoint-header'}}
-            {{/ap-panel-edit}}
-          {{/bs-col}}
-          {{#bs-col md=6}}
-            {{#ap-panel-edit t='resources.remote-endpoint-query-parameter_plural'}}
-              {{ap-table-model
-                models=model.query
-                delete-action='delete-remote-endpoint-query-parameter'
-                partial-path='remote-endpoint-query-parameter/-inline-form'}}
-              {{ap-button-block-new
-                t='resources.remote-endpoint-query-parameter'
-                action='new-remote-endpoint-query-parameter'}}
-            {{/ap-panel-edit}}
-          {{/bs-col}}
-        {{/bs-row}}
-
-        {{#ap-panel-edit t='resources.remote-endpoint-environment-datum_plural'}}
-          {{ap-table-index
-            models=model.environment_data
-            fields='environment:resources.environment:object-name'
-            delete-action='delete-remote-endpoint-environment-datum'
-            path='remote-endpoint-environment-datum.edit'
-            edit-path='remote-endpoint-environment-datum.edit'}}
-          {{ap-button-block-new
-            t='resources.remote-endpoint-environment-datum'
-            action='new-remote-endpoint-environment-datum'}}
-        {{/ap-panel-edit}}
-      {{/if}}
-    {{/unless}}
-
-    {{#if model.isMongo}}
-      {{#ap-panel-edit t='resources.host_plural'}}
-        {{ap-table-model
-          models=model.hosts
-          delete-action='delete-remote-endpoint-host'
-          partial-path='remote-endpoint-host/-inline-form'}}
-        {{ap-button-block-new
-          t='resources.host'
-          action='new-remote-endpoint-host'}}
-      {{/ap-panel-edit}}
+  {{#unless model.isNew}}
+    {{#if model.isHttp}}
+      {{#bs-row}}
+        {{#bs-col md=6}}
+          {{#ap-panel-edit t='resources.remote-endpoint-header_plural'}}
+            {{ap-table-model
+              models=model.headers
+              delete-action='delete-remote-endpoint-header'
+              partial-path='remote-endpoint-header/-inline-form'}}
+            {{ap-button-block-new
+              t='resources.remote-endpoint-header'
+              action='new-remote-endpoint-header'}}
+          {{/ap-panel-edit}}
+        {{/bs-col}}
+        {{#bs-col md=6}}
+          {{#ap-panel-edit t='resources.remote-endpoint-query-parameter_plural'}}
+            {{ap-table-model
+              models=model.query
+              delete-action='delete-remote-endpoint-query-parameter'
+              partial-path='remote-endpoint-query-parameter/-inline-form'}}
+            {{ap-button-block-new
+              t='resources.remote-endpoint-query-parameter'
+              action='new-remote-endpoint-query-parameter'}}
+          {{/ap-panel-edit}}
+        {{/bs-col}}
+      {{/bs-row}}
     {{/if}}
+  {{/unless}}
+
+  {{#if model.isMongo}}
+    {{#ap-panel-edit t='resources.host_plural'}}
+      {{ap-table-model
+        models=model.hosts
+        delete-action='delete-remote-endpoint-host'
+        partial-path='remote-endpoint-host/-inline-form'}}
+      {{ap-button-block-new
+        t='resources.host'
+        action='new-remote-endpoint-host'}}
+    {{/ap-panel-edit}}
+  {{/if}}
+
+  {{#unless model.isNew}}
+    {{#ap-panel-edit t='resources.remote-endpoint-environment-datum_plural'}}
+      {{ap-table-index
+        models=model.environment_data
+        fields='environment:resources.environment:object-name'
+        delete-action='delete-remote-endpoint-environment-datum'
+        path='remote-endpoint-environment-datum.edit'
+        edit-path='remote-endpoint-environment-datum.edit'}}
+      {{ap-button-block-new
+        t='resources.remote-endpoint-environment-datum'
+        action='new-remote-endpoint-environment-datum'}}
+    {{/ap-panel-edit}}
+  {{/unless}}
 {{/ap-model-form}}
