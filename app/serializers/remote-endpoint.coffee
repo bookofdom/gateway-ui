@@ -63,13 +63,11 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
     serialized = @_super.apply @, arguments
     switch serialized.type
       when 'http'
-        serialized.data =
+        serialized.data = Ember.merge serialized.data,
           url: serialized.url
           method: serialized.method
-          headers: @serializeHeaders model
-          query: @serializeQuery model
       when 'soap'
-        serialized.data =
+        serialized.data = Ember.merge serialized.data,
           wsdl: serialized.wsdl
           serviceName: serialized.service_name
           url: serialized.url
@@ -80,7 +78,7 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
             username: serialized.username
             password: serialized.password
       when 'sqlserver'
-        serialized.data =
+        serialized.data = Ember.merge serialized.data,
           config:
             server: serialized.server
             port: serialized.port
@@ -93,7 +91,7 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
           maxIdleConn: serialized.maxidle
           maxOpenConn: serialized.maxopen
       when 'postgres'
-        serialized.data =
+        serialized.data = Ember.merge serialized.data,
           config:
             host: serialized.server
             port: serialized.port
@@ -105,7 +103,7 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
           maxIdleConn: serialized.maxidle
           maxOpenConn: serialized.maxopen
       when 'mysql'
-        serialized.data =
+        serialized.data = Ember.merge serialized.data,
           config:
             server: serialized.server
             port: serialized.port
@@ -117,7 +115,7 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
           maxIdleConn: serialized.maxidle
           maxOpenConn: serialized.maxopen
       when 'mongodb'
-        serialized.data =
+        serialized.data = Ember.merge serialized.data,
           config:
             hosts: serialized.hosts
             database: serialized.database
@@ -126,15 +124,5 @@ RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecord
           limit: serialized.limit
         delete serialized.hosts
     serialized
-  serializeHeaders: (model) ->
-    headers = {}
-    model.get('headers').forEach (header) ->
-      headers[header.get 'name'] = header.get 'value'
-    headers
-  serializeQuery: (model) ->
-    query = {}
-    model.get('query').forEach (param) ->
-      query[param.get 'name'] = param.get 'value'
-    query
 
 `export default RemoteEndpointSerializer`

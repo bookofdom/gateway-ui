@@ -10,21 +10,9 @@ RemoteEndpointEnvironmentDatumSerializer = RemoteEndpointLikeSerializer.extend D
   serialize: (model) ->
     serialized = @_super.apply @, arguments
     serialized.environment_id = parseInt(serialized.environment_id, 10) if serialized.environment_id?
-    serialized.data =
+    serialized.data = Ember.merge serialized.data,
       url: model.get 'url'
       method: model.get 'method'
-      headers: @serializeHeaders model
-      query: @serializeQuery model
     serialized
-  serializeHeaders: (model) ->
-    headers = {}
-    model.get('headers').forEach (header) ->
-      headers[header.get 'name'] = header.get 'value'
-    headers
-  serializeQuery: (model) ->
-    query = {}
-    model.get('query').forEach (param) ->
-      query[param.get 'name'] = param.get 'value'
-    query
 
 `export default RemoteEndpointEnvironmentDatumSerializer`
