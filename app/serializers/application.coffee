@@ -2,6 +2,15 @@
 `import DS from 'ember-data'`
 
 ApplicationSerializer = DS.RESTSerializer.extend
+  # Generates a unique ID.  Useful for adding temporary client-side IDs to
+  # embedded records, many of which may have no ID of their own.
+  generateId: -> window.uuid.v4()
+  # If the instance didn't come with an ID, it's critical to add one
+  # for client-side tracking purposes.
+  normalize: (hash) ->
+    hash.id = @generateId() if !hash.id
+    @_super.apply @, arguments
+
   payloadKeyFromModelName: (modelName) ->
     Ember.String.underscore modelName
   keyForRelationship: (rawKey, kind) ->
@@ -36,9 +45,5 @@ ApplicationSerializer = DS.RESTSerializer.extend
         json[payloadKey] = value
       if relationship.options.polymorphic
         @serializePolymorphicType snapshot, json, relationship
-
-  # Generates a unique ID.  Useful for adding temporary client-side IDs to
-  # embedded records, many of which may have no ID of their own.
-  generateId: -> window.uuid.v4()
 
 `export default ApplicationSerializer`
