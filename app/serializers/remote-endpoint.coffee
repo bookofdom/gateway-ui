@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
 `import RemoteEndpointLikeSerializer from './remote-endpoint-like'`
 
-RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend DS.EmbeddedRecordsMixin,
+RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend
   normalize: (type, hash, property) ->
     switch hash.type
       when 'http'

@@ -17,8 +17,6 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
     @_super.apply @, arguments
   serialize: (model) ->
     serialized = @_super.apply @, arguments
-    # IDs should be numeric
-    serialized.id = parseInt(serialized.id, 10) if serialized.id?
     # Serializes `body` back into `data`
     serialized.data = model.get 'body'
     delete serialized['body']
