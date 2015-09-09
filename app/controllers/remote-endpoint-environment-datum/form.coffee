@@ -23,6 +23,7 @@ RemoteEndpointEnvironmentDatumFormController = RemoteEndpointLikeFormController.
       model = @get 'model'
       if model.get 'isNew'
         environmentData = @get 'remote-endpoint-environment-data.model'
+        model.set 'type', @get('remote-endpoint.model.type')
         environmentData.pushObject model
     afterSave: ->
       @notifySaveSuccess()

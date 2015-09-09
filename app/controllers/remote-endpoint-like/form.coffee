@@ -159,9 +159,10 @@ RemoteEndpointLikeFormController = FormController.extend
     fields.soap.shift() if @get('modelType') is 'remote-endpoint-environment-datum'
     fields
 
-  fields: Ember.computed 'model.isNew', 'model.platform.slug', 'platformFields', ->
+  fields: Ember.computed 'model.isNew', 'model.platform.slug', 'remote-endpoint.model.platform.slug', 'platformFields', ->
     fields = @_super.apply @, arguments
-    platformFields = @get "platformFields.#{@get 'model.platform.slug'}"
+    platformSlug = @get('remote-endpoint.model.platform.slug') or @get('model.platform.slug')
+    platformFields = @get "platformFields.#{platformSlug}"
     fields = Ember.copy(fields).pushObjects platformFields if platformFields
     fields
 
