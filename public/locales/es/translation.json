@@ -109,7 +109,9 @@
     "host": "servidor",
     "host_plural": "servidores",
     "library": "librería compartida",
-    "library_plural": "librerías compartidas"
+    "library_plural": "librerías compartidas",
+    "log": "registro",
+    "log_plural": "registros"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "llamada",
