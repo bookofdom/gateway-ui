@@ -12,6 +12,7 @@ Router.map ->
   @resource 'users', ->
     @resource 'user', path: ':user_id', ->
       @route 'edit'
+  @resource 'logs', (->)
   @resource 'apis', ->
     @resource 'api', path: ':api_id', ->
       @route 'edit'
