@@ -19,5 +19,5 @@ module.exports = function(app) {
     res.send(logs);
   });
 
-  app.use('/admin/logs/search', logsRouter);
+  app.use('/admin/logs', logsRouter);
 };

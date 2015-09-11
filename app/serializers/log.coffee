@@ -3,7 +3,7 @@
 
 LogSerializer = ApplicationSerializer.extend
   extractArray: (store, typeClass, payload, id, requestType) ->
-    payload = [payload]
+    payload = logs: [payload]
     @_super.apply @, [store, typeClass, payload, id, requestType]
   normalize: (type, hash, property) ->
     hash.body = hash.logs
