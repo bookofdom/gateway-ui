@@ -4,4 +4,10 @@
 Log = Model.extend
   body: DS.attr 'string'
 
+  # search-related fields
+  query: DS.attr 'string'
+  start: DS.attr 'datetime'
+  end: DS.attr 'datetime'
+  limit: DS.attr 'number'
+
 `export default Log`
