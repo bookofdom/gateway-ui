@@ -2,6 +2,16 @@
 `import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
 LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
-  model: -> @store.findAll 'log'
+  queryParams:
+    query:
+      refreshModel: true
+    start:
+      refreshModel: true
+    end:
+      refreshModel: true
+    limit:
+      refreshModel: true
+
+  model: (params) -> @store.findQuery 'log', params
 
 `export default LogsRoute`
