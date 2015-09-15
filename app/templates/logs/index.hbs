@@ -1,5 +1,7 @@
 {{#ap-page t='resources.log_plural'}}
 
-  {{model}}
+  {{#each model as |log|}}
+    {{ap-log value=log.body}}
+  {{/each}}
 
 {{/ap-page}}
