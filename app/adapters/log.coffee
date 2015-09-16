@@ -3,6 +3,7 @@
 
 # Only one log socket allowed in app.  That socket is kept here.
 # Record updating is handled by the adapter, so the record is stored here.
+# These are kept outside of the adapter class since adapters are disposable.
 socket = null
 socketRecord = null
 
@@ -20,6 +21,8 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
     url = @buildSocketURL 'log', record.id, snapshot
     @prepareRecordForStreaming record
     @openSocket url
+
+  disableStreaming: -> @closeSocket()
 
   prepareRecordForStreaming: (record) ->
     record.set 'body', ''

@@ -17,10 +17,16 @@ LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
   model: (params) ->
     streaming = !!params.streaming
     delete params.streaming
+    @disableStreaming()
     if streaming
       @createStreamingModel()
     else
       @store.findQuery 'log', params
+
+  disableStreaming: ->
+    model = @modelFor 'logs'
+    if model
+      instance.disableStreaming() for instance in model
 
   createStreamingModel: ->
     model = @store.createRecord 'log'

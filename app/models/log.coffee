@@ -10,7 +10,11 @@ Log = Model.extend
     @set 'body', body
 
   enableStreaming: ->
-    adapter = @container.lookup 'adapter:log'
+    adapter = @store.adapterFor 'log'
     adapter.enableStreaming @
+
+  disableStreaming: ->
+    adapter = @store.adapterFor 'log'
+    adapter.disableStreaming()
 
 `export default Log`
