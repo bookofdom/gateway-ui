@@ -17,7 +17,7 @@ module.exports = function (httpServer) {
 
     var interval = setInterval(function () {
       ws.send('127.0.0.1 captain picard [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326\n');
-    }, 1000);
+    }, 3000);
   });
 
   return wss;

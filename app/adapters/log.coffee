@@ -1,13 +1,13 @@
 `import ApplicationAdapter from './application'`
 `import config from  '../config/environment'`
 
+# Only one log socket allowed in app.  That socket is kept here.
+# Record updating is handled by the adapter, so the record is stored here.
+socket = null
+socketRecord = null
+
 LogAdapter = ApplicationAdapter.extend Ember.Evented,
   websockets: Ember.inject.service 'websockets'
-
-  # Only one log socket allowed in app.  That socket is kept here.
-  # Record updating is handled by the adapter, so the record is stored here.
-  socket: null
-  socketRecord: null
 
   buildSocketURL: (type, id, snapshot) ->
     url = @buildURL type, id, snapshot
@@ -23,20 +23,21 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
 
   prepareRecordForStreaming: (record) ->
     record.set 'body', ''
-    @set 'socketRecord', record
+    socketRecord = record
 
   closeSocket: ->
-    oldSocketUrl = @get 'socket.socket.url'
-    @get('websockets').closeSocketFor oldSocketUrl if oldSocketUrl
+    oldSocketUrl = socket?.socket?.url
+    if oldSocketUrl
+      @get('websockets').closeSocketFor oldSocketUrl
 
   openSocket: (url) ->
     @closeSocket()
-    socket = @get('websockets').socketFor url
-    socket.on 'message', ((event) -> @trigger 'socketMessage', event.data), @
-    @set 'socket', socket
+    newSocket = @get('websockets').socketFor url
+    newSocket.on 'message', ((event) -> @trigger 'socketMessage', event.data), @
+    socket = newSocket
 
   onSocketMessage: Ember.on 'socketMessage', (data) ->
-    record = @get 'socketRecord'
+    record = socketRecord
     record.pushLogLine data
 
 `export default LogAdapter`
