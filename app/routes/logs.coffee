@@ -17,7 +17,6 @@ LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
   model: (params) ->
     streaming = !!params.streaming
     delete params.streaming
-    @disableStreaming()
     if streaming
       @createStreamingModel()
     else
@@ -32,5 +31,11 @@ LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
     model = @store.createRecord 'log'
     model.enableStreaming()
     [model]
+
+  actions:
+    # Will transition is triggered whenever query params on the current route
+    # change, as well as when leaving the route altogether.
+    willTransition: ->
+      @disableStreaming()
 
 `export default LogsRoute`
