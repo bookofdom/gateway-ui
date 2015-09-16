@@ -4,10 +4,15 @@ module.exports = function (httpServer) {
       wss = new WebSocketServer({server: httpServer});
 
   wss.on('connection', function connection(ws) {
-    console.log('socket connection:', ws.upgradeReq.url);
+    console.log('Opened socket connection:', ws.upgradeReq.url);
 
     ws.on('message', function incoming(message) {
       console.log('received: %s', message);
+    });
+
+    ws.on('close', function closed() {
+      console.log('Closed socket connection:', ws.upgradeReq.url);
+      clearInterval(interval);
     });
 
     var interval = setInterval(function () {
