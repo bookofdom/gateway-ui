@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label>{{t 'fields.search'}}</label>
+      {{input type='text' value=logsController.query class='form-control'}}
+    </div>
+  </div><!-- /.col -->
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>{{t 'fields.start_date'}}</label>
+      {{ap-datetime-field value=logsController.start}}
+    </div>
+  </div><!-- /.col -->
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>{{t 'fields.end_date'}}</label>
+      {{ap-datetime-field value=logsController.end}}
+    </div>
+  </div><!-- /.col -->
+  <div class="col-sm-2">
+    <div class="form-group">
+      <label>{{t 'fields.maximum_lines'}}</label>
+      {{input type='number' step=1 min=1 value=logsController.limit class='form-control col-sm-1'}}
+    </div>
+  </div><!-- /.col -->
+  <div class="col-sm-2">
+    {{#if logsController.streaming}}
+      <span class="label label-success pull-right">{{t 'states.streaming'}}</span>
+    {{/if}}
+    {{#unless logsController.streaming}}
+      <span class="label label-warning pull-right">{{t 'states.not-streaming'}}</span>
+    {{/unless}}
+    <br>
+    <a href="#" class="text-success" {{action 'toggle-streaming'}}>
+      {{t '$t(actions.toggle-x, {"x": "states.streaming"})'}}
+    </a>
+  </div><!-- /.col -->
+</div><!-- /.row -->
