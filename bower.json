@@ -18,6 +18,7 @@
     "vkbeautify": "git+https://github.com/vkiryukhin/vkBeautify.git",
     "qunit": "~1.18.0",
     "node-uuid": "~1.4.3",
-    "eonasdan-bootstrap-datetimepicker": "~4.17.37"
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37",
+    "uri.js": "~1.16.0"
   }
 }
