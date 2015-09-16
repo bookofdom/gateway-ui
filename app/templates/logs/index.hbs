@@ -1,5 +1,44 @@
 {{#ap-page t='resources.log_plural'}}
 
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label>{{t 'fields.search'}}</label>
+        {{input type='text' value=logs.query class='form-control'}}
+      </div>
+    </div><!-- /.col -->
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label>{{t 'fields.start_date'}}</label>
+        {{ap-datetime-field value=logs.start}}
+      </div>
+    </div><!-- /.col -->
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label>{{t 'fields.end_date'}}</label>
+        {{ap-datetime-field value=logs.end}}
+      </div>
+    </div><!-- /.col -->
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label>{{t 'fields.maximum_lines'}}</label>
+        {{input type='number' step=1 min=1 value=logs.limit class='form-control col-sm-1'}}
+      </div>
+    </div><!-- /.col -->
+    <div class="col-sm-2">
+      {{#if logs.streaming}}
+        <span class="label label-success pull-right">{{t 'states.streaming'}}</span>
+      {{/if}}
+      {{#unless logs.streaming}}
+        <span class="label label-warning pull-right">{{t 'states.not-streaming'}}</span>
+      {{/unless}}
+      <br>
+      <a href="#" class="text-success" {{action 'toggle-streaming'}}>
+        {{t '$t(actions.toggle-x, {"x": "states.streaming"})'}}
+      </a>
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+
   {{#each model as |log|}}
     {{ap-log value=log.body}}
   {{/each}}

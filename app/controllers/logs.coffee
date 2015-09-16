@@ -2,6 +2,6 @@
 
 LogsController = Ember.Controller.extend
   breadCrumb: 'resources.log_plural'
-  queryParams: ['query', 'start', 'end', 'limit']
+  queryParams: ['query', 'start', 'end', 'limit', 'streaming']
 
 `export default LogsController`

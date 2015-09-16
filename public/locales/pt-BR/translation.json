@@ -21,6 +21,7 @@
     "delete": "deletar",
     "save": "salvar",
     "cancel": "cancelar",
+    "clear": "claro",
     "new": "novo",
     "new-x": "novo $t(__x__)",
     "edit": "editar",
@@ -174,6 +175,10 @@
     "operation_name": "nome da operação",
     "action_name": "nome da ação",
     "auth_scheme": "esquema de autenticação",
+    "search": "pesquisa",
+    "start_date": "data de início",
+    "end_date": "data final",
+    "maximum_lines": "linhas máximos",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação."
@@ -188,7 +193,9 @@
   },
   "states": {
     "active": "ativo",
-    "inactive": "inativo"
+    "inactive": "inativo",
+    "streaming": "transmissão",
+    "not-streaming": "não transmitir"
   },
   "http-methods": {
     "get": "GET",
