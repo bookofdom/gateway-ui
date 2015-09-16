@@ -11,7 +11,20 @@ LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
       refreshModel: true
     limit:
       refreshModel: true
+    streaming:
+      refreshModel: true
 
-  model: (params) -> @store.findQuery 'log', params
+  model: (params) ->
+    streaming = !!params.streaming
+    delete params.streaming
+    if streaming
+      @createStreamingModel()
+    else
+      @store.findQuery 'log', params
+
+  createStreamingModel: ->
+    model = @store.createRecord 'log'
+    model.enableStreaming()
+    [model]
 
 `export default LogsRoute`
