@@ -4,6 +4,10 @@
 Log = Model.extend
   body: DS.attr 'string'
 
+  # Relationships
+  api: DS.belongsTo 'api', async: false
+  proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
+
   pushLogLine: (line) ->
     body = @get 'body'
     body = [body, line].join ''
