@@ -1,9 +1,1 @@
-{{#ap-page t='resources.log_plural'}}
-
-  {{partial 'logs/-search-form'}}
-
-  {{#each model as |log|}}
-    {{ap-log value=log.body}}
-  {{/each}}
-
-{{/ap-page}}
+{{partial 'logs/-index'}}
