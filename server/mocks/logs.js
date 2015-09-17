@@ -39,4 +39,6 @@ module.exports = function(app) {
   });
 
   app.use('/admin/logs', logsRouter);
+  app.use('/admin/apis/:api_id/logs', logsRouter);
+  app.use('/admin/apis/:api_id/proxy_endpoints/:proxy_endpoint_id/logs', logsRouter);
 };
