@@ -167,6 +167,12 @@
     "limit": "connection pool limit",
     "location": "location",
     "sslmode": "SSL mode",
+    "wsdl": "WSDL",
+    "service_name": "service name",
+    "endpoint_name": "endpoint name",
+    "operation_name": "operation name",
+    "action_name": "action name",
+    "auth_scheme": "authentication scheme",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."
@@ -214,15 +220,26 @@
   "types": {
     "remote-endpoint": {
       "http": "HTTP",
+      "soap": "SOAP",
       "sqlserver": "SQL Server",
       "postgres": "PostgreSQL",
       "mysql": "MySQL",
       "mongodb": "MongoDB",
+      "status-types": {
+        "success": "success",
+        "error": "error",
+        "pending": "pending",
+        "processing": "processing"
+      },
       "ssl-modes": {
         "disable": "disable",
         "allow": "allow",
         "prefer": "prefer",
         "require": "require"
+      },
+      "auth-schemes": {
+        "basic": "basic",
+        "wsse": "WSSE"
       }
     }
   }

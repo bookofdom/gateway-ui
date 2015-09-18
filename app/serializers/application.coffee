@@ -2,6 +2,15 @@
 `import DS from 'ember-data'`
 
 ApplicationSerializer = DS.RESTSerializer.extend
+  # Generates a unique ID.  Useful for adding temporary client-side IDs to
+  # embedded records, many of which may have no ID of their own.
+  generateId: -> window.uuid.v4()
+  # If the instance didn't come with an ID, it's critical to add one
+  # for client-side tracking purposes.
+  normalize: (type, hash, property) ->
+    hash.id = @generateId() if !hash.id
+    @_super.apply @, arguments
+
   payloadKeyFromModelName: (modelName) ->
     Ember.String.underscore modelName
   keyForRelationship: (rawKey, kind) ->
@@ -11,30 +20,25 @@ ApplicationSerializer = DS.RESTSerializer.extend
       when 'belongsTo' then "#{key}_id"
       when 'hasMany' then "#{singularKey}_ids"
       else key
-  serializeIntoHash: (data, type, snapshot, options) ->
-    root = @payloadKeyFromModelName type.modelName
-    serialized = @serialize snapshot, options
-    # "api_id" field is always transient
+  # Request payload is rooted.
+  serialize: ->
+    serialized = @_super.apply @, arguments
     delete serialized['api_id']
-    data[root] = serialized
+    serialized
+  # Server wants IDs to be numeric.
   serializeBelongsTo: (snapshot, json, relationship) ->
     key = relationship.key
     if @_canSerialize key
-      belongsTo = Ember.get snapshot, key
+      belongsToId = snapshot.belongsTo key, id: true
       # if provided, use the mapping provided by `attrs` in
       # the serializer
       payloadKey = @_getMappedKey key
-      if (payloadKey == key) and @keyForRelationship
-        payloadKey = @keyForRelationship key, 'belongsTo'
+      if (payloadKey is key) and @keyForRelationship
+        payloadKey = @keyForRelationship key, 'belongsTo', 'serialize'
       # Need to check whether the id is there for new&async records
-      if Ember.isNone(belongsTo) || Ember.isNone Ember.get(belongsTo, 'id')
+      if Ember.isNone belongsToId
         json[payloadKey] = null
       else
-        # prefer data.id value since it is uncast
-        # "id" will be a string, which is unacceptable to the server
-        value = Ember.get(belongsTo, 'data.id') or Ember.get(belongsTo, 'id')
-        json[payloadKey] = value
-      if relationship.options.polymorphic
-        @serializePolymorphicType snapshot, json, relationship
+        json[payloadKey] = parseInt belongsToId, 10
 
 `export default ApplicationSerializer`
