@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default">
+  <form class="navbar-form navbar-left" role="search">
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">
+          {{ap-icon icon='the-essentials-007'}}
+        </span><!-- /.input-group-addon -->
+        {{input type='text' value=logsController.query placeholder=(t 'fields.search') class='form-control'}}
+        {{input type='number' step=1 min=1 value=logsController.limit placeholder=(t 'fields.maximum_lines') class='form-control'}}
+      </div><!-- /.input-group -->
+    </div><!-- /.form-group -->
+
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">
+          {{ap-icon icon='the-essentials-120'}}
+        </span><!-- /.input-group-addon -->
+        {{ap-datetime-field value=logsController.start placeholder=(t 'fields.start_date')}}
+        {{ap-datetime-field value=logsController.end placeholder=(t 'fields.end_date')}}
+      </div><!-- /.input-group -->
+    </div><!-- /.form-group -->
+  </form><!-- /.navbar-form -->
+
+  <form class="navbar-form navbar-right">
+    <div class="form-group">
+      {{#unless logsController.streaming}}
+        <a href="#" class="btn btn-default" title={{t '$t(actions.toggle-x, {"x": "states.streaming"})'}} {{action 'toggle-streaming'}}>
+          {{t 'states.not-streaming'}}
+          <span class="text-muted">{{ap-icon icon='the-essentials-103'}}</span>
+        </a>
+      {{/unless}}
+      {{#if logsController.streaming}}
+        <a href="#" class="btn btn-default" title={{t '$t(actions.toggle-x, {"x": "states.streaming"})'}} {{action 'toggle-streaming'}}>
+          <span class="text-success">
+            {{t 'states.streaming'}}
+            {{ap-icon icon='the-essentials-102'}}
+          </span><!-- /.text-success -->
+        </a>
+      {{/if}}
+      &nbsp;
+    </div>
+  </form><!-- /.navbar-form -->
+
+</nav><!-- /.navbar -->

@@ -50,6 +50,9 @@ module.exports = function(defaults) {
 
   // jQuery UI
   app.import('bower_components/jquery-ui/jquery-ui.js');
+  // datetime picker
+  app.import('bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
+  app.import('bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css');
   // vkBeautify
   app.import('bower_components/vkbeautify/vkbeautify.js');
   // uuid
