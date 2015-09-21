@@ -97,7 +97,20 @@ module.exports = function(app) {
   var components = [
     {
         "id": 1,
-        "conditional": "var foo = function () {\n\n};",
+        "conditional": "\
+var foo = function () {\n\
+  var someCondition = true;\n\
+  var myInt = 25;\n\
+  if (someCondition && myInt) {\n\
+    this.makeACall();\n\
+    return {\n\
+      key_1: 'this is a string',\n\
+      key_2: myInt,\n\
+      key_3: MyOtherClass.getString('some_value')\n\
+    };\n\
+  }\n\
+};\n\
+        ",
         "conditional_positive": true,
         "type": "single",
         "before": [

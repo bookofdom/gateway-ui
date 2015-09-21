@@ -1,10 +1,17 @@
-{{view 'select'
-    name=name
-    id=idName
-    selection=value.content
-    content=options
-    optionValuePath='content.id'
-    optionLabelPath='content.name'
-    prompt=prompt
-    required=required
-    class='form-control'}}
+{{#x-select
+  name=name
+  id=idName
+  value=value
+  required=required
+  disabled=disabled
+  class='form-control'}}
+
+  {{#if prompt}}
+    {{#x-option}}{{prompt}}{{/x-option}}
+  {{/if}}
+
+  {{#each options as |option|}}
+    {{#x-option value=option}}{{option.name}}{{/x-option}}
+  {{/each}}
+
+{{/x-select}}

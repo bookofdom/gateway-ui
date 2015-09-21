@@ -1,5 +1,5 @@
 {{#bs-table headings=headings}}
-  {{#each model in models}}
+  {{#each models as |model|}}
     {{#unless model.isNew}}
       {{ap-table-index-row
         model=model

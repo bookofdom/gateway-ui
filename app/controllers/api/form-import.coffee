@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 `import config from '../../config/environment'`
 
-ApiFormImportController = Ember.ObjectController.extend
+ApiFormImportController = Ember.Controller.extend
   url: Ember.computed ->
     url = []
     url.push config.api.url
@@ -13,11 +13,11 @@ ApiFormImportController = Ember.ObjectController.extend
     url
   actions:
     'upload-success': ->
-      @set 'name', null
+      @set 'model.name', null
       @send 'refresh'
     'upload-error': (response) ->
-      @get('errors').clear()
+      @get('model.errors').clear()
       for name, errorList of response.errors
-        @get('errors').add name, errorList[0]
+        @get('model.errors').add name, errorList[0]
 
 `export default ApiFormImportController`

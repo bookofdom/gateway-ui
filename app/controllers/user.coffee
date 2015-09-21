@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-UserController = Ember.ObjectController.extend
-  breadCrumb: Ember.computed 'name', -> @get 'name'
+UserController = Ember.Controller.extend
+  breadCrumb: Ember.computed 'model.name', -> @get 'model.name'
 
 `export default UserController`

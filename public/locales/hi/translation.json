@@ -32,7 +32,8 @@
     "execute": "निष्पादित",
     "specify-custom": "कस्टम निर्दिष्ट",
     "drop-or-click-to-upload": "drop or click to upload",
-    "select-add-component-type": "select a component type to add"
+    "select-add-component-type": "select a component type to add",
+    "fullscreen": "पूर्ण स्क्रीन"
   },
   "nav": {
     "home": "home",

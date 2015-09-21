@@ -2,12 +2,12 @@
   {{ap-icon icon=icon type=icon-type title=text.string}}
 {{/if}}
 
-<span {{bind-attr class="textSrOnlyClass :text"}}>
+<span class="{{textSrOnlyClass}} text">
 {{text}}
 </span>
 
 {{#if secondary-text}}
-  <small {{bind-attr class="textSrOnlyClass :text-secondary"}}>{{secondary-text}}</small>
+  <small class="{{textSrOnlyClass}} text-secondary">{{secondary-text}}</small>
 {{/if}}
 
 {{#if hasIconAfter}}

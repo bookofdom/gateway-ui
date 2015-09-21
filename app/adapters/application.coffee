@@ -16,20 +16,20 @@ ApplicationAdapter = DS.RESTAdapter.extend
       data = data or '{}'
       data
     @_super url, method, hash
-  ajaxError: (xhr, responseText) ->
+  ajaxError: (xhr) ->
     error = @_super.apply @, arguments
     response = null
     if (xhr?.status >= 400) and !(xhr?.status == 404)
-      response = Ember.$.parseJSON responseText if responseText
+      response = Ember.$.parseJSON xhr.responseText if xhr?.responseText
       if response?.error and typeof response.error == 'string'
         response =
           errors:
             base: [response.error]
-      if !responseText
+      if !xhr?.responseText
         response =
           errors:
             base: ["#{t('errors.unknown').capitalize()}."]
-      new DS.InvalidError response
+      new DS.InvalidError response.errors
     else
       error
 

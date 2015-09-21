@@ -13,25 +13,35 @@ ApModelFieldComponent = BsBaseComponent.extend
   fieldHelp: null
   fieldType: null
   fieldRequired: null
-  name: Ember.computed 'fieldName', (key, value, previousValue) ->
-    @set 'fieldName', value if value? and (value != previousValue)
-    @get 'fieldName'
-  label: Ember.computed 'fieldLabel', (key, value, previousValue) ->
-    @set 'fieldLabel', value if value? and (value != previousValue)
-    @get('fieldLabel') or
-      ("fields.#{@get 'name'}" if @get 'name')
-  help: Ember.computed 'fieldHelp', (key, value, previousValue) ->
-    @set 'fieldHelp', value if value? and (value != previousValue)
-    @get 'fieldHelp'
-  type: Ember.computed 'fieldType', (key, value, previousValue) ->
-    @set 'fieldType', value if value? and (value != previousValue)
-    attribute = @get 'attribute'
-    type = @get('fieldType') or attribute?.type or 'string'
-    type = 'boolean' if type == 'checkbox' or type == 'radio'
-    type
-  required: Ember.computed 'fieldRequired', (key, value, previousValue) ->
-    @set 'fieldRequired', value if value? and (value != previousValue)
-    @get 'fieldRequired'
+  name: Ember.computed 'fieldName',
+    get: -> @get 'fieldName'
+    set: (key, value) ->
+      @set 'fieldName', value if value?
+      value
+  label: Ember.computed 'fieldLabel',
+    get: -> @get('fieldLabel') or ("fields.#{@get 'name'}" if @get 'name')
+    set: (key, value) ->
+      @set 'fieldLabel', value if value?
+      @get 'label'
+  help: Ember.computed 'fieldHelp',
+    get: -> @get 'fieldHelp'
+    set: (key, value) ->
+      @set 'fieldHelp', value if value?
+      value
+  type: Ember.computed 'fieldType',
+    get: ->
+      attribute = @get 'attribute'
+      type = @get('fieldType') or attribute?.type or 'string'
+      type = 'boolean' if type == 'checkbox' or type == 'radio'
+      type
+    set: (key, value) ->
+      @set 'fieldType', value if value?
+      @get 'type'
+  required: Ember.computed 'fieldRequired',
+    get: -> @get 'fieldRequired'
+    set: (key, value) ->
+      @set 'fieldRequired', value if value?
+      value
   placeholder: Ember.computed 'show-placeholder', 'label', 'required', ->
     if @get 'show-placeholder'
       label = t(@get 'label').capitalize()
@@ -49,19 +59,21 @@ ApModelFieldComponent = BsBaseComponent.extend
     (@get('type') == 'checkbox') or (@get('type') == 'boolean')
   radio: Ember.computed 'type', -> @get('type') == 'radio'
   idName: Ember.computed 'model', 'name', ->
-    typeKey = @get 'model.constructor.typeKey'
+    modelName = @get('model').constructor.modelName
     id = @get('model.id') or @get('model.clientId')
     name = @get 'name'
-    if id then "#{typeKey}-#{id}-#{name}" else "#{typeKey}-#{name}"
+    if id then "#{modelName}-#{id}-#{name}" else "#{modelName}-#{name}"
   fieldTemplateName: Ember.computed 'type', ->
     "components/ap-model-field/-#{@get 'type'}"
   setupValueAttribute: Ember.on 'init', ->
-    computed = Ember.computed 'model', 'name', "model.#{@get 'name'}", (key, value, previousValue) ->
-      name = @get 'name'
-      currentValue = @get "model.#{name}"
-      if !Ember.isNone(value) and (value != currentValue)
-        @set "model.#{name}", value
-      @get "model.#{name}"
+    name = @get 'name'
+    propName = "model.#{@get 'name'}"
+    computed = Ember.computed propName,
+      get: -> @get propName
+      set: (key, value) ->
+        currentValue = @get propName
+        @set propName, value if value? and (value != currentValue)
+        value
     Ember.defineProperty @, 'value', computed
 
 `export default ApModelFieldComponent`

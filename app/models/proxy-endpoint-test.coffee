@@ -9,6 +9,17 @@ ProxyEndpointTest = Model.extend
   content_type: DS.attr 'string'
   body: DS.attr 'string'
 
+  # Relationships
+  proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
+  headers: DS.hasMany 'proxy-endpoint-test-header',
+    async: false
+    stains: true
+    embedded: true
+  query: DS.hasMany 'proxy-endpoint-test-query-parameter',
+    async: false
+    stains: true
+    embedded: true
+
   # Observers
   cleanContentType: Ember.observer 'method', ->
     # unset content_type when method is GET or DELETE
@@ -26,48 +37,6 @@ ProxyEndpointTest = Model.extend
   isXml: Ember.computed 'content_type', ->
     @get('content_type') is 'application/xml'
 
-  # Relationships
-  headers: DS.hasMany 'proxy-endpoint-test-header'
-  query: DS.hasMany 'proxy-endpoint-test-query-parameter'
-  proxy_endpoint: DS.belongsTo 'proxy-endpoint'
-
-  # manually manage relationship dirty
-  headersDirty: Ember.computed 'headers.@each.isDirty', ->
-    @get('headers').filterBy('isDirty', true).get 'length'
-  queryDirty: Ember.computed 'query.@each.isDirty', ->
-    @get('query').filterBy('isDirty', true).get 'length'
-  relationshipsDirty: Ember.computed 'headersDirty', 'queryDirty', ->
-    @get('headersDirty') or @get('queryDirty')
-  relationshipsDirtyChange: Ember.observer 'relationshipsDirty', ->
-    @send 'becomeDirty' if @get 'relationshipsDirty'
-  onInit: Ember.on 'init', ->
-    Ember.run.once => @get 'relationshipsDirty'
-
-  reload: ->
-    @get('proxy_endpoint').reload()
-  rollback: ->
-    @get('headers')?.forEach (record) -> record.rollback()
-    @get('query')?.forEach (record) -> record.rollback()
-    @_super.apply @, arguments
-  save: ->
-    # delegate save to parent proxy endpoint and then
-    # "rollback" to now-saved embedded record
-    new Ember.RSVP.Promise (resolve, reject) =>
-      @get('errors').clear()
-      @get('proxy_endpoint').save().then (=>
-        @rollback()
-        @get('proxy_endpoint')?.rollback()
-        resolve @
-      ), (-> reject @)
-  deleteRecord: ->
-    @_super.apply @, arguments
-    @store.dematerializeRecord @
-  destroyRecord: ->
-    @deleteRecord()
-    proxyEndpoint = @get 'proxy_endpoint'
-    proxyEndpoint.save().then (->
-      proxyEndpoint.rollback()
-    ), (=>)
   executeTest: ->
     adapter = @container.lookup 'adapter:proxy-endpoint-test'
     adapter.executeTest @

@@ -3,11 +3,11 @@
 `import t from 'gateway/helpers/i18n'`
 
 RemoteEndpointFormController = FormController.extend
-  needs: ['remote-endpoints']
+  'remote-endpoints': Ember.inject.controller()
   modelType: 'remote-endpoint'
 
   'option-groups':
-    type: RemoteEndpoint.types.filter (type) -> type.value != 'mysql'
+    type: RemoteEndpoint.types
     sslmode: RemoteEndpoint.sslModes
     method: [
       name: t 'http-methods.get'
@@ -154,13 +154,13 @@ RemoteEndpointFormController = FormController.extend
       required: true
     ]
 
-  fields: Ember.computed 'isNew', 'platform.slug', 'platformFields', ->
+  fields: Ember.computed 'model.isNew', 'model.platform.slug', 'platformFields', ->
     fields = @_super.apply @, arguments
-    platformFields = @get "platformFields.#{@get 'platform.slug'}"
+    platformFields = @get "platformFields.#{@get 'model.platform.slug'}"
     fields = Ember.copy(fields).pushObjects platformFields if platformFields
     fields
 
-  addHostModel: Ember.observer 'isMongo', ->
+  addHostModel: Ember.observer 'model.isMongo', ->
     @_super.apply @, arguments
     model = @get 'model'
     if model
@@ -195,7 +195,7 @@ RemoteEndpointFormController = FormController.extend
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'
-        remoteEndpoints = @get 'controllers.remote-endpoints.model'
+        remoteEndpoints = @get 'remote-endpoints.model'
         remoteEndpoints.pushObject model
     afterDelete: ->
       @send 'deleted'

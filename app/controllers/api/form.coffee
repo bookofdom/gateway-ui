@@ -2,7 +2,7 @@
 
 ApiFormController = FormController.extend
   modelType: 'api'
-  fields: Ember.computed 'isNew', ->
+  fields: Ember.computed 'model.isNew', ->
     newFields = [
       name: 'name'
       required: true
@@ -25,7 +25,7 @@ ApiFormController = FormController.extend
       name: 'cors_max_age'
       type: 'integer'
     ]
-    if @get 'isNew' then newFields else editFields
+    if @get 'model.isNew' then newFields else editFields
   actions:
     afterDelete: ->
       @send 'deleted'

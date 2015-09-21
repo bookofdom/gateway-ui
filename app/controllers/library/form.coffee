@@ -1,7 +1,7 @@
 `import FormController from 'gateway/controllers/form'`
 
 LibraryFormController = FormController.extend
-  needs: ['libraries']
+  libraries: Ember.inject.controller()
   modelType: 'library'
   fields: Ember.computed ->
     [
@@ -19,7 +19,7 @@ LibraryFormController = FormController.extend
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'
-        libraries = @get 'controllers.libraries.model'
+        libraries = @get 'libraries.model'
         libraries.pushObject model
     afterDelete: ->
       @send 'deleted'

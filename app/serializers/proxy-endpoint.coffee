@@ -43,5 +43,11 @@ ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
               call.links =
                 remote_endpoint: "/apis/#{hash.api_id}/remote_endpoints/#{call.remote_endpoint_id}"
     hash
+  serialize: (model) ->
+    serialized = @_super.apply @, arguments
+    serialized.id = parseInt(serialized.id, 10) if serialized.id?
+    serialized.endpoint_group_id = parseInt(serialized.endpoint_group_id, 10) if serialized.endpoint_group_id?
+    serialized.environment_id = parseInt(serialized.environment_id, 10) if serialized.environment_id?
+    serialized
 
 `export default ProxyEndpointSerializer`

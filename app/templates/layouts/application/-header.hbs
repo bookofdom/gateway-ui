@@ -1,6 +1,6 @@
 <header class="ap-app-header">
   <nav class="ap-navbar-header navbar navbar-inverse" role="navigation">
-    
+
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".ap-nav-header">
@@ -33,7 +33,7 @@
         {{#if session.isAuthenticated}}
           <li class="dropdown">
             <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-              <span class="text-lowercase">{{session.email}}</span>
+              <span class="text-lowercase">{{session.secure.email}}</span>
               <span class="retina-arrows-007"></span>
             </a><!-- .btn -->
             <ul class="dropdown-menu">
@@ -63,8 +63,8 @@
           </li><!-- .dropdown -->
         {{/if}}
       </ul><!-- /.nav -->
-      
+
     </div><!-- /.navbar-collapse -->
-    
+
   </nav><!-- /.navbar -->
 </header><!-- /.ap-app-header -->

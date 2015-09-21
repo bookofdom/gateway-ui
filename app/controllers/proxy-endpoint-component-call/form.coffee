@@ -3,11 +3,12 @@
 # note:  this form is currently used only for multi proxy calls
 
 ProxyEndpointComponentCallFormController = FormController.extend
-  needs: ['proxy-endpoints', 'proxy-endpoint-component-calls']
+  'api': Ember.inject.controller()
+  'proxy-endpoint-component-calls': Ember.inject.controller()
   modelType: 'proxy-endpoint-component-call'
-  'option-groups': Ember.computed 'controllers.proxy-endpoints.remote_endpoints.@each', ->
-    remote_endpoint: @get('controllers.proxy-endpoints.remote_endpoints').filterBy 'isNew', false
-  fields: Ember.computed 'isNew', ->
+  'option-groups': Ember.computed 'api.remote_endpoints.@each.isNew', ->
+    remote_endpoint: @get('api.remote_endpoints').filterBy 'isNew', false
+  fields: Ember.computed 'model.isNew', ->
     newFields = [
       name: 'remote_endpoint'
       label: 'resources.remote-endpoint'
@@ -31,7 +32,7 @@ ProxyEndpointComponentCallFormController = FormController.extend
       label: 'fields.call-conditional'
       type: 'javascript'
     ]
-    if @get 'isNew' then newFields else editFields
+    if @get 'model.isNew' then newFields else editFields
   actions:
     beforeSave: ->
       model = @get 'model'
@@ -42,7 +43,7 @@ ProxyEndpointComponentCallFormController = FormController.extend
         if model.get('after.length') == 0
           newAfter = @store?.createRecord 'proxy-endpoint-component-transformation'
           model.get('after').pushObject newAfter
-        calls = @get 'controllers.proxy-endpoint-component-calls.model'
+        calls = @get 'proxy-endpoint-component-calls.model'
         calls.pushObject model
 
 `export default ProxyEndpointComponentCallFormController`

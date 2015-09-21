@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-UsersController = Ember.ArrayController.extend
+UsersController = Ember.Controller.extend
   breadCrumb: 'resources.user_plural'
 
 `export default UsersController`

@@ -1,7 +1,7 @@
-<button {{bind-attr class=":btn buttonStyleClass :dropdown-toggle"}} data-toggle="dropdown">
+<button class="btn {{buttonStyleClass}} dropdown-toggle" data-toggle="dropdown">
   {{text}}
   <span class="caret"></span>
 </button>
-<ul {{bind-attr class=":dropdown-menu alignmentClass"}} role="menu">
+<ul class="dropdown-menu {{alignmentClass}}" role="menu">
   {{yield}}
 </ul>

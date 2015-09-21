@@ -1,7 +1,8 @@
 `import FormController from 'gateway/controllers/form'`
 
 ProxyEndpointFormController = FormController.extend
-  needs: ['proxy-endpoints']
+  'api': Ember.inject.controller()
+  'proxy-endpoints': Ember.inject.controller()
   modelType: 'proxy-endpoint'
   newFields: [
     name: 'name'
@@ -39,11 +40,11 @@ ProxyEndpointFormController = FormController.extend
     label: 'resources.endpoint-group'
     type: 'select-model-name'
   ]
-  fields: Ember.computed 'isNew', ->
-    if @get('isNew') then @get('newFields') else @get('editFields')
-  'option-groups': Ember.computed 'controllers.proxy-endpoints.environments.@each', 'controllers.proxy-endpoints.endpoint_groups.@each', ->
-    environment: @get('controllers.proxy-endpoints.environments').filterBy 'isNew', false
-    endpoint_group: @get('controllers.proxy-endpoints.endpoint_groups').filterBy 'isNew', false
+  fields: Ember.computed 'model.isNew', ->
+    if @get('model.isNew') then @get('newFields') else @get('editFields')
+  'option-groups': Ember.computed 'api.environments.@each.isNew', 'api.endpoint_groups.@each.isNew', ->
+    environment: @get('api.environments').filterBy 'isNew', false
+    endpoint_group: @get('api.endpoint_groups').filterBy 'isNew', false
   createNewRouteModel: ->
     model = @get 'model'
     newRouteModel = @store?.createRecord 'proxy-endpoint-route'
@@ -61,7 +62,7 @@ ProxyEndpointFormController = FormController.extend
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'
-        proxyEndpoints = @get 'controllers.proxy-endpoints.model'
+        proxyEndpoints = @get 'proxy-endpoints.model'
         proxyEndpoints.pushObject model
     afterDelete: ->
       @send 'deleted'

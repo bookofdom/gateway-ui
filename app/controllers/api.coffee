@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-ApiController = Ember.ObjectController.extend
-  breadCrumb: Ember.computed 'name', -> @get 'name'
+ApiController = Ember.Controller.extend
+  breadCrumb: Ember.computed 'model.name', -> @get 'model.name'
 
 `export default ApiController`
