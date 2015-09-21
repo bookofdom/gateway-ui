@@ -1,16 +1,16 @@
 `import Ember from 'ember'`
-`import Notify from 'ember-notify'`
 `import t from 'gateway/helpers/i18n'`
 
-FormController = Ember.ObjectController.extend
+FormController = Ember.Controller.extend
+  notify: Ember.inject.service()
   modelType: null
   model: null
   newForm: false
   newFields: null
   editFields: null
   defaultFields: []
-  fields: Ember.computed 'isNew', ->
-    fields = if @get 'isNew' then @get 'newFields' else @get 'editFields'
+  fields: Ember.computed 'model.isNew', ->
+    fields = if @get 'model.isNew' then @get 'newFields' else @get 'editFields'
     fields ?= []
     fields = Ember.copy(fields).pushObjects @get('defaultFields')
     fields
@@ -27,7 +27,7 @@ FormController = Ember.ObjectController.extend
     @set 'model', newModel
     newModel
   notifySaveSuccess: ->
-    Notify.success "#{t('successes.saved-successfully')}."
+    @get('notify').success "#{t('successes.saved-successfully')}."
   actions:
     beforeSave: ->
       # no op:  override in subclass

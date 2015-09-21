@@ -9,13 +9,13 @@ ProxyEndpointComponentTransformationFormController = FormController.extend
       name: t('languages.javascript').capitalize()
       value: 'js'
     ]
-  fields: Ember.computed 'before', 'after', ->
+  fields: Ember.computed 'model.before', 'model.after', ->
     typeLabel = 'fields.type'
     bodyLabel = 'fields.logic'
-    if @get 'before'
+    if @get 'model.before'
       typeLabel = 'fields.before-type'
       bodyLabel = 'fields.before'
-    if @get 'after'
+    if @get 'model.after'
       typeLabel = 'fields.after-type'
       bodyLabel = 'fields.after'
     [

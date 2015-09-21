@@ -4,17 +4,17 @@
       {{t 'nav.home'}}
     {{/link-to}}
   </li>
-  {{#each crumb in breadCrumbs}}
+  {{#each breadCrumbs as |crumb|}}
     <li class="separator">
       {{ap-icon icon='arrows-006'}}
     </li>
-    <li {{bind-attr class="crumb.isCurrent:active:"}}>
+    <li class="{{if crumb.isCurrent 'active'}}">
       {{#if crumb.linkable}}
         {{#link-to crumb.path}}
-          {{t crumb.name}}
+          {{t crumb.label}}
         {{/link-to}}
       {{else}}
-        {{t crumb.name}}
+        {{t crumb.label}}
       {{/if}}
     </li>
   {{/each}}

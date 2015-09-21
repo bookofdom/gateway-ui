@@ -1,23 +1,22 @@
 {
   "name": "gateway",
   "dependencies": {
-    "handlebars": "~1.3.0",
-    "jquery": "^1.11.1",
-    "ember": "1.8.1",
-    "ember-data": "1.0.0-beta.12",
+    "ember": "1.13.8",
+    "ember-data": "1.13.8",
     "ember-resolver": "~0.1.11",
-    "loader.js": "ember-cli/loader.js#1.0.1",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
-    "ember-cli-test-loader": "rwjblue/ember-cli-test-loader#0.0.4",
-    "ember-load-initializers": "ember-cli/ember-load-initializers#0.0.2",
-    "ember-qunit": "0.1.8",
-    "ember-qunit-notifications": "0.0.4",
-    "qunit": "~1.15.0",
+    "ember-cli-test-loader": "ember-cli-test-loader#0.1.3",
+    "ember-load-initializers": "ember-cli/ember-load-initializers#0.1.5",
+    "ember-qunit": "0.4.9",
+    "ember-qunit-notifications": "0.0.7",
     "bower-retina-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/bower-retina-icons.git#ca94be48bcb731af9970fec9f82977b15a856b42",
     "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#3c939ddb6da3c6b4abc3acf238cc1d5939e02746",
-    "ember-simple-auth": "0.7.2",
+    "ember-simple-auth": "0.8.0",
+    "jquery": "^1.11.3",
     "jquery-ui": "~1.11.2",
     "jquery-file-upload": "~9.9.3",
-    "vkbeautify": "git+https://github.com/vkiryukhin/vkBeautify.git"
+    "loader.js": "ember-cli/loader.js#3.2.1",
+    "vkbeautify": "git+https://github.com/vkiryukhin/vkBeautify.git",
+    "qunit": "~1.18.0"
   }
 }

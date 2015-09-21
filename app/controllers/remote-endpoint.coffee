@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-RemoteEndpointController = Ember.ObjectController.extend
-  breadCrumb: Ember.computed 'name', -> @get 'name'
+RemoteEndpointController = Ember.Controller.extend
+  breadCrumb: Ember.computed 'model.name', -> @get 'model.name'
 
 `export default RemoteEndpointController`

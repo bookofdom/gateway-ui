@@ -11,6 +11,7 @@ ProxyEndpointComponentCallSerializer = ApplicationSerializer.extend DS.EmbeddedR
     serialized = @_super.apply @, arguments
     # IDs should be numeric
     serialized.id = parseInt(serialized.id, 10) if serialized.id?
+    serialized.remote_endpoint_id = parseInt(serialized.remote_endpoint_id, 10) if serialized.remote_endpoint_id?
     serialized
 
 `export default ProxyEndpointComponentCallSerializer`

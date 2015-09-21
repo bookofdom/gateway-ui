@@ -3,16 +3,15 @@
     fields=fields
     show-delete=true}}
   <br>
-  {{#each before}}
-    {{render 'proxy-endpoint-component-transformation/inline-before-form' this}}
+  {{#each model.before as |transform|}}
+    {{render 'proxy-endpoint-component-transformation.inline-before-form' transform}}
   {{/each}}
-  
-  {{#unless isNew}}
+
+  {{#unless model.isNew}}
     {{#ap-panel-edit t='resources.proxy-endpoint-component-call_plural'}}
       {{ap-table-model
-        models=calls
+        models=model.calls
         delete-action='delete-proxy-endpoint-component-call'
-        auto-delete=false
         edit-path='proxy-endpoint-component-call.edit'
         partial-path='proxy-endpoint-component-call/-inline-tabular-form'}}
       {{ap-button-block-new
@@ -20,8 +19,8 @@
         action='new-proxy-endpoint-component-call'}}
     {{/ap-panel-edit}}
   {{/unless}}
-  
-  {{#each after}}
-    {{render 'proxy-endpoint-component-transformation/inline-after-form' this}}
+
+  {{#each model.after as |transform|}}
+    {{render 'proxy-endpoint-component-transformation.inline-after-form' transform}}
   {{/each}}
 {{/ap-model-form}}

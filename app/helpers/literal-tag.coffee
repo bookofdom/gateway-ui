@@ -1,9 +1,9 @@
 `import Ember from 'ember'`
 
-literalTag = (value, opening) ->
-  "&lt;#{value}&gt;".htmlSafe()
+literalTag = (params) ->
+  "&lt;#{params[0]}&gt;".htmlSafe()
 
-LiteralTagHelper = Ember.Handlebars.makeBoundHelper literalTag
+LiteralTagHelper = Ember.Helper.helper literalTag
 
 `export { literalTag }`
 

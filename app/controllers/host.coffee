@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-HostController = Ember.ObjectController.extend
-  breadCrumb: Ember.computed 'name', -> @get 'name'
+HostController = Ember.Controller.extend
+  breadCrumb: Ember.computed 'model.name', -> @get 'model.name'
 
 `export default HostController`

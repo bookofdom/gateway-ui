@@ -3,13 +3,13 @@
     fields=fields
     show-delete=true}}
   <br>
-  {{#each before}}
-    {{render 'proxy-endpoint-component-transformation/inline-before-form' this}}
+  {{#each model.before as |transform|}}
+    {{render 'proxy-endpoint-component-transformation.inline-before-form' transform}}
   {{/each}}
-  
-  {{render 'proxy-endpoint-component-call/inline-form' call}}
-  
-  {{#each after}}
-    {{render 'proxy-endpoint-component-transformation/inline-after-form' this}}
+
+  {{render 'proxy-endpoint-component-call.inline-form' model.call}}
+
+  {{#each model.after as |transform|}}
+    {{render 'proxy-endpoint-component-transformation.inline-after-form' transform}}
   {{/each}}
 {{/ap-model-form}}

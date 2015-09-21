@@ -1,13 +1,13 @@
 {{#ap-page t='resources.host_plural' help-url='http://docs.justapis.com/hosts'}}
-  
+
   {{ap-table-index
       models=model
       fields='name,hostname'
       path='host.index'
       edit-path='host.edit'}}
-  
+
   {{#ap-panel-new t='resources.host' closed=model.length}}
-    {{render 'host/form'}}
+    {{render 'host.form'}}
   {{/ap-panel-new}}
-  
+
 {{/ap-page}}

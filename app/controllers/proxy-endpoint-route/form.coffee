@@ -1,7 +1,7 @@
 `import FormController from 'gateway/controllers/form'`
 
 ProxyEndpointRouteFormController = FormController.extend
-  needs: ['proxy-endpoint-routes']
+  'proxy-endpoint-routes': Ember.inject.controller()
   modelType: 'proxy-endpoint-route'
   fields: Ember.computed ->
     [
@@ -15,7 +15,7 @@ ProxyEndpointRouteFormController = FormController.extend
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'
-        routes = @get 'controllers.proxy-endpoint-routes.model'
+        routes = @get 'proxy-endpoint-routes.model'
         routes.pushObject model
 
 `export default ProxyEndpointRouteFormController`

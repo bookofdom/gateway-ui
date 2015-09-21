@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-HostsController = Ember.ArrayController.extend
+HostsController = Ember.Controller.extend
   breadCrumb: 'resources.host_plural'
 
 `export default HostsController`

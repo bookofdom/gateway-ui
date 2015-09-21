@@ -1,7 +1,7 @@
 `import FormController from 'gateway/controllers/form'`
 
 EnvironmentFormController = FormController.extend
-  needs: ['environments']
+  environments: Ember.inject.controller()
   modelType: 'environment'
   newFields: [
     name: 'name'
@@ -29,8 +29,8 @@ EnvironmentFormController = FormController.extend
     name: 'session_encryption_key_rotate'
     type: 'textarea'
   ]
-  fields: Ember.computed 'isNew', ->
-    if @get 'isNew' then @get 'newFields' else @get 'editFields'
+  fields: Ember.computed 'model.isNew', ->
+    if @get 'model.isNew' then @get 'newFields' else @get 'editFields'
   createNewVariableModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'environment-variable'
@@ -41,7 +41,7 @@ EnvironmentFormController = FormController.extend
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'
-        environments = @get 'controllers.environments.model'
+        environments = @get 'environments.model'
         environments.pushObject model
     afterDelete: ->
       @send 'deleted'

@@ -1,10 +1,10 @@
 `import Ember from 'ember'`
 
-formatDate = (value) ->
+formatDate = (params) ->
   # ll = localized month name, day, year
-  moment(value).format 'll'
+  moment(params[0]).format 'll'
 
-FormatDateHelper = Ember.Handlebars.makeBoundHelper formatDate
+FormatDateHelper = Ember.Helper.helper formatDate
 
 `export { formatDate }`
 

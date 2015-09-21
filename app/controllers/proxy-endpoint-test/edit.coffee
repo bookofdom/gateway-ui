@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-ProxyEndpointTestEditController = Ember.ObjectController.extend
+ProxyEndpointTestEditController = Ember.Controller.extend
   executing: false # true while test execution request is in progress
   response: null # holds response from test execution
 
