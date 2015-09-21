@@ -9,6 +9,7 @@ ApModelFormComponent = BsFormComponent.extend
   'cancel-action': 'cancel'
   'before-save-action': 'beforeSave'
   'after-save-action': 'afterSave'
+  'after-cancel-action': 'afterCancel'
   'after-delete-action': 'afterDelete'
   model: null
   fields: null # 'fieldName:i18nLabel, fieldName:i18nLabel' or 'fieldName:i18nLabel:help:type' or 'fieldName,fieldName'
@@ -56,7 +57,8 @@ ApModelFormComponent = BsFormComponent.extend
   actions:
     cancel: ->
       if @get 'auto-cancel'
-        @get('model').cancel()
+        @get('model').cancel().then =>
+          @sendAction 'after-cancel-action'
       else
         @sendAction 'cancel-action', @get('model')
     delete: ->
