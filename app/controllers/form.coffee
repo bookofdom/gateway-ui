@@ -33,6 +33,8 @@ FormController = Ember.Controller.extend
       # no op:  override in subclass
     afterSave: ->
       @notifySaveSuccess()
+    afterCancel: ->
+      # no op:  override in subclass
     afterDelete: ->
       # no op:  override in subclass
 
