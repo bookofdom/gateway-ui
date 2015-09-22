@@ -19,7 +19,7 @@ bash:
   entrypoint: ['/bin/bash']
 npm:
   <<: *defaults
-  entrypoint: ['/usr/local/bin/npm', '--unsafe-perm']
+  entrypoint: ['/usr/local/bin/npm']
 bower:
   <<: *defaults
   entrypoint: ['/usr/local/bin/bower', '--allow-root']
@@ -44,4 +44,4 @@ build_production:
     - ./ember-cli-build.js:/src/ember-cli-build.js
     - ./package.json:/src/package.json
   entrypoint: ['/bin/sh']
-  command: '-c "npm install --unsafe-perm && bower install --allow-root && ember build --environment production"'
+  command: '-c "npm install && bower install --allow-root && ember build --environment production"'
