@@ -32,7 +32,7 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
     socket = newSocket
 
   onSocketMessage: Ember.on 'socketMessage', (payload) ->
-    data = JSON.parse payload
-    @store.createRecord 'notification', data
+    data = notifications: [JSON.parse payload]
+    @store.pushPayload 'notification', data
 
 `export default NotificationAdapter`
