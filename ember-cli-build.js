@@ -1,8 +1,7 @@
 /* global require, module */
 
-var EmberApp = require('ember-cli/lib/broccoli/ember-app'),
-  pickFiles = require('broccoli-static-compiler'),
-  mergeTrees = require('broccoli-merge-trees');
+var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var Funnel = require('broccoli-funnel');
 
 /*
  * Updated build syntax:
@@ -30,7 +29,7 @@ module.exports = function(defaults) {
     },
     sassOptions: {
       includePaths: [
-        'node_modules/ember-cli-anypresence/bower_components/bootstrap-sass-official/assets/stylesheets'
+        'bower_components/bootstrap-sass/assets/stylesheets'
       ]
     }
   });
@@ -48,8 +47,25 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  // jQuery UI
-  app.import('bower_components/jquery-ui/jquery-ui.js');
+  // Bootstrap
+  app.import('bower_components/bootstrap-sass/assets/javascripts/bootstrap.js');
+  // i18next
+  app.import('bower_components/i18next/i18next.js');
+  // moment
+  app.import('bower_components/moment/moment.js');
+  app.import('bower_components/moment/locale/es.js');
+  app.import('bower_components/moment/locale/hi.js');
+  app.import('bower_components/moment/locale/pt-br.js');
+  // ACE
+  // TODO:  customized for Ember compatibility
+  app.import('vendor/ace-builds/src-noconflict/ace.js');
+  // Standard ACE libraries
+  app.import('bower_components/ace-builds/src-noconflict/ext-language_tools.js');
+  app.import('bower_components/ace-builds/src-noconflict/mode-javascript.js');
+  app.import('bower_components/ace-builds/src-noconflict/mode-text.js');
+
+  // jQuery UI (sortable-only custom build)
+  app.import('vendor/jquery-ui-1.11.4.custom/jquery-ui.js');
   // datetime picker
   app.import('bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
   app.import('bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css');
@@ -57,16 +73,21 @@ module.exports = function(defaults) {
   app.import('bower_components/vkbeautify/vkbeautify.js');
   // uuid
   app.import('bower_components/node-uuid/uuid.js');
-  // Retina Icons
-  app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.eot', {destDir: 'assets/fonts'});
-  app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.svg', {destDir: 'assets/fonts'});
-  app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.ttf', {destDir: 'assets/fonts'});
-  app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.woff', {destDir: 'assets/fonts'});
   // Gateway Icons
   app.import('bower_components/gateway-icons/dist/fonts/gateway.eot', {destDir: 'assets/fonts'});
   app.import('bower_components/gateway-icons/dist/fonts/gateway.svg', {destDir: 'assets/fonts'});
   app.import('bower_components/gateway-icons/dist/fonts/gateway.ttf', {destDir: 'assets/fonts'});
   app.import('bower_components/gateway-icons/dist/fonts/gateway.woff', {destDir: 'assets/fonts'});
 
-  return app.toTree();
+  // ACE workers are loaded at runtime via AJAX and thus are included seperately
+  var aceAssets = new Funnel('bower_components/ace-builds/src-noconflict', {
+    srcDir: '/',
+    include: [
+      'worker-javascript.js',
+      'worker-text.js'
+    ],
+    destDir: '/'
+  });
+
+  return app.toTree(aceAssets);
 };
