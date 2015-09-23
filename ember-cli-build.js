@@ -62,10 +62,7 @@ module.exports = function(defaults) {
   // Standard ACE libraries
   app.import('bower_components/ace-builds/src-noconflict/ext-language_tools.js');
   app.import('bower_components/ace-builds/src-noconflict/mode-javascript.js');
-  app.import('bower_components/ace-builds/src-noconflict/mode-json.js');
-  app.import('bower_components/ace-builds/src-noconflict/mode-ruby.js');
   app.import('bower_components/ace-builds/src-noconflict/mode-text.js');
-  app.import('bower_components/ace-builds/src-noconflict/mode-xml.js');
 
   // jQuery UI (sortable-only custom build)
   app.import('vendor/jquery-ui-1.11.4.custom/jquery-ui.js');
@@ -87,9 +84,7 @@ module.exports = function(defaults) {
     srcDir: '/',
     include: [
       'worker-javascript.js',
-      'worker-json.js',
-      'worker-text.js',
-      'worker-xml.js'
+      'worker-text.js'
     ],
     destDir: '/'
   });
