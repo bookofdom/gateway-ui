@@ -10,13 +10,29 @@ Notification = DS.Model.extend
   user: DS.attr 'string'
 
   # Computed
-  message: Ember.computed 'resource', 'action', 'user', ->
-    resource = @get 'resource'
+  resourceType: Ember.computed 'resource', ->
+    @get('resource').dasherize()
+  resourceIsLoaded: Ember.computed 'resourceType', 'resource_id', ->
+    resourceType = @get 'resourceType'
+    resourceId = @get 'resource_id'
+    @store.hasRecordForId resourceType, resourceId
+  resourceRecord: Ember.computed 'resourceType', 'resource_id', 'resourceIsLoaded', ->
+    resourceType = @get 'resourceType'
+    resourceId = @get 'resource_id'
+    isLoaded = @get 'resourceIsLoaded'
+    if isLoaded
+      @store.find resourceType, resourceId
+  message: Ember.computed 'resourceType', 'action', 'user', ->
+    resourceType = @get 'resourceType'
+    resourceRecord = @get 'resourceRecord'
     action = @get 'action'
     user = @get 'user'
-    resourceName = t "resources.#{resource.dasherize()}"
-    t "notifications.#{action}",
+    resourceTitle = t "resources.#{resourceType}"
+    resourceName = resourceRecord?.get 'name'
+    message = t "notifications.#{action}",
       user: user
-      resource: resourceName
+      resource: resourceTitle
+    message = "#{message} (\"#{resourceName}\")" if resourceName
+    message
 
 `export default Notification`
