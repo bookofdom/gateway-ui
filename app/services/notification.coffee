@@ -4,7 +4,8 @@ NotificationService = Ember.Object.extend
   adapter: null
   init: ->
     @_super.apply @, arguments
-    adapter = @store.adapterFor 'notification'
+    store = @container.lookup 'store:main'
+    adapter = store.adapterFor 'notification'
     adapter.on 'notification', @onNotification, @
     @set 'adapter', adapter
   enableNotifications: ->
@@ -14,6 +15,6 @@ NotificationService = Ember.Object.extend
     adapter = @get 'adapter'
     adapter.disableStreaming()
   onNotification: (notification) ->
-    #console.log notification
+    console.log notification
 
 `export default NotificationService`
