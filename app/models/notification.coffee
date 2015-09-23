@@ -8,6 +8,7 @@ Notification = DS.Model.extend
   api_id: DS.attr 'number'
   action: DS.attr 'string'
   user: DS.attr 'string'
+  created: DS.attr 'date', defaultValue: -> Date.now()
 
   # Computed
   resourceType: Ember.computed 'resource', ->
