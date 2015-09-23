@@ -4,6 +4,10 @@ module.exports = function (httpServer) {
       wss = new WebSocketServer({server: httpServer});
 
   wss.on('connection', function connection(ws) {
+    var interval;
+    var isLogs = !!ws.upgradeReq.url.match('/logs/socket');
+    var isNotifications = !!ws.upgradeReq.url.match('/notify');
+
     console.log('Opened socket connection:', ws.upgradeReq.url);
 
     ws.on('message', function incoming(message) {
@@ -15,9 +19,11 @@ module.exports = function (httpServer) {
       clearInterval(interval);
     });
 
-    var interval = setInterval(function () {
-      ws.send('127.0.0.1 captain picard [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326\n');
-    }, 3000);
+    if (isLogs) {
+      interval = setInterval(function () {
+        ws.send('127.0.0.1 captain picard [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326\n');
+      }, 3000);
+    }
   });
 
   return wss;
