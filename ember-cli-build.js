@@ -67,8 +67,8 @@ module.exports = function(defaults) {
   app.import('bower_components/ace-builds/src-noconflict/mode-text.js');
   app.import('bower_components/ace-builds/src-noconflict/mode-xml.js');
 
-  // jQuery UI
-  app.import('bower_components/jquery-ui/jquery-ui.js');
+  // jQuery UI (sortable-only custom build)
+  app.import('vendor/jquery-ui-1.11.4.custom/jquery-ui.js');
   // datetime picker
   app.import('bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
   app.import('bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css');

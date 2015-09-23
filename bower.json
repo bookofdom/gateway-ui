@@ -17,12 +17,11 @@
     "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#3c939ddb6da3c6b4abc3acf238cc1d5939e02746",
     "i18next": "~1.10.2",
     "jquery": "^1.11.3",
-    "jquery-ui": "~1.11.2",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "moment": "~2.10.6",
     "node-uuid": "~1.4.3",
     "qunit": "~1.18.0",
-    "uri.js": "~1.16.0",
-    "vkbeautify": "git+https://github.com/vkiryukhin/vkBeautify.git"
+    "vkbeautify": "git+https://github.com/vkiryukhin/vkBeautify.git",
+    "uri.js": "~1.16.0"
   }
 }

@@ -37,6 +37,7 @@ build_production:
     - ./config:/src/config
     - ./dist:/src/dist
     - ./public:/src/public
+    - ./vendor:/src/vendor
     - ./.bowerrc:/src/.bowerrc
     - ./.ember-cli:/src/.ember-cli
     - ./.jshintrc:/src/.jshintrc
