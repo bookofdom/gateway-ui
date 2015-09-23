@@ -38,7 +38,7 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
   triggerNotification: ->
     notifications = @store.peekAll 'notification'
     latestAll = notifications.sortBy 'created'
-    latest = latestAll[0]
+    latest = latestAll.reverse()[0]
     @trigger 'notification', latest
 
 `export default NotificationAdapter`

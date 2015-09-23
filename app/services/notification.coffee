@@ -1,12 +1,13 @@
 `import Ember from 'ember'`
 
-NotificationService = Ember.Object.extend
+NotificationService = Ember.Object.extend Ember.Evented,
   adapter: null
   init: ->
     @_super.apply @, arguments
     store = @container.lookup 'store:main'
     adapter = store.adapterFor 'notification'
-    adapter.on 'notification', @onNotification, @
+    adapter.on 'notification', (notification) =>
+      @trigger 'notification', notification
     @set 'adapter', adapter
   enableNotifications: ->
     adapter = @get 'adapter'
@@ -14,7 +15,5 @@ NotificationService = Ember.Object.extend
   disableNotifications: ->
     adapter = @get 'adapter'
     adapter.disableStreaming()
-  onNotification: (notification) ->
-    console.log notification
 
 `export default NotificationService`

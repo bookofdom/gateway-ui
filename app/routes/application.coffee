@@ -5,6 +5,7 @@
 
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   notificationService: Ember.inject.service 'notification'
+  notify: Ember.inject.service()
 
   isDevMode: config.meta['dev-mode']
 
@@ -27,7 +28,18 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     notificationService = @get 'notificationService'
     # enable notifications for authenticated non-dev-mode sessions
     if !isDevMode and session.isAuthenticated
+      notificationService.on 'notification', (notification) =>
+        @trigger 'notification', notification
       notificationService.enableNotifications()
+  disableNotifications: ->
+    isDevMode = @get 'isDevMode'
+    notificationService = @get 'notificationService'
+    if !isDevMode
+      notificationService.off 'notification'
+      notificationService.disableNotifications()
+  onNotification: Ember.on 'notification', (notification) ->
+    message = notification.get('message')
+    @get('notify').info message
 
   authenticate: ->
     # auto-login using dev mode authenticator if in dev mode
@@ -51,11 +63,11 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     sessionInvalidationSucceeded: ->
       isDevMode = @get 'isDevMode'
       notificationService = @get 'notificationService'
+      # stop notifications
+      @disableNotifications()
       # redirect
       @transitionTo(config['simple-auth'].routeAfterInvalidation).then =>
         if !isDevMode
-          # stop notifications
-          notificationService.disableNotifications()
           # refresh page (except in dev mode)
           @send 'reload'
     reload: ->

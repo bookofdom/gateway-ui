@@ -24,18 +24,18 @@ module.exports = function (httpServer) {
         ws.send('127.0.0.1 captain picard [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326\n');
       }, 3000);
     }
-    
+
     if (isNotifications) {
       var payload = JSON.stringify({
         resource: 'proxy_endpoint',
         resource_id: 1,
         api_id: 1,
-        action: 'updated',
+        action: 'update',
         user: 'developer@software.com'
       });
       interval = setInterval(function () {
         ws.send(payload);
-      }, 3000);
+      }, 6000);
     }
   });
 

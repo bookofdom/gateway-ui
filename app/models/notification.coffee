@@ -22,18 +22,19 @@ Notification = DS.Model.extend
     resourceId = @get 'resource_id'
     isLoaded = @get 'resourceIsLoaded'
     if isLoaded
-      @store.find resourceType, resourceId
+      @store.peekRecord resourceType, resourceId
   message: Ember.computed 'resourceType', 'action', 'user', ->
     resourceType = @get 'resourceType'
     resourceRecord = @get 'resourceRecord'
-    action = @get 'action'
-    user = @get 'user'
     resourceTitle = t "resources.#{resourceType}"
     resourceName = resourceRecord?.get 'name'
+    action = @get 'action'
+    user = @get 'user'
     message = t "notifications.#{action}",
       user: user
       resource: resourceTitle
-    message = "#{message} (\"#{resourceName}\")" if resourceName
+    message = message.toLowerCase()
+    message = "#{message}:  \"#{resourceName}\"" if resourceName
     message
 
 `export default Notification`
