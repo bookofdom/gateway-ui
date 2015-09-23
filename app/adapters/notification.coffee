@@ -13,8 +13,7 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
     url = "#{location.host}#{url}" if !config.api.host
     "ws://#{url}"
 
-  enableStreaming: (record) ->
-    snapshot = record._createSnapshot()
+  enableStreaming: ->
     url = @buildSocketURL 'notification'
     @openSocket url
 
@@ -34,5 +33,12 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
   onSocketMessage: Ember.on 'socketMessage', (payload) ->
     data = notifications: [JSON.parse payload]
     @store.pushPayload 'notification', data
+    @triggerNotification()
+
+  triggerNotification: ->
+    notifications = @store.peekAll 'notification'
+    latestAll = notifications.sortBy 'created'
+    latest = latestAll[0]
+    @trigger 'notification', latest
 
 `export default NotificationAdapter`
