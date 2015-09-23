@@ -76,11 +76,6 @@ module.exports = function(defaults) {
   app.import('bower_components/vkbeautify/vkbeautify.js');
   // uuid
   app.import('bower_components/node-uuid/uuid.js');
-  // Retina Icons
-  app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.eot', {destDir: 'assets/fonts'});
-  app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.svg', {destDir: 'assets/fonts'});
-  app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.ttf', {destDir: 'assets/fonts'});
-  app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.woff', {destDir: 'assets/fonts'});
   // Gateway Icons
   app.import('bower_components/gateway-icons/dist/fonts/gateway.eot', {destDir: 'assets/fonts'});
   app.import('bower_components/gateway-icons/dist/fonts/gateway.svg', {destDir: 'assets/fonts'});
