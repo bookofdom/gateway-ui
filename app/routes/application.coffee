@@ -41,6 +41,37 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     # notify user of change
     message = notification.get('message')
     @get('notify').info message
+    # refresh resource
+    @refreshResourceForNotification notification
+  # Handles reloading of model(s) that received notification.
+  # on create/update:
+  #   - both instance and index are unloaded:  do nothing
+  #   - index is loaded, instance is not:  reload index
+  #   - instance is loaded:  reload instance
+  # on delete:
+  #   - both instance and index are unloaded: do nothing
+  #   - index is loaded, instance is not:  reload index
+  #   - instance is loaded:  mark as deleted
+  #
+  # Instances marked as deleted should not be editable.  They will fall off
+  # with the next reload of the resource.  UI needs an indication of deletion.
+  refreshResourceForNotification: (notification) ->
+    type = notification.get 'resourceType'
+    action = notification.get 'action'
+    resourceRecord = notification.get 'resourceRecord'
+    index = @modelFor type.pluralize()
+    resourceIsLoaded = notification.get 'resourceIsLoaded'
+    indexIsLoaded = index?
+    if indexIsLoaded and !resourceIsLoaded
+      index.reload()
+    else if resourceIsLoaded
+      switch action
+        when 'create', 'update'
+          # cancel does two things:  reload and rollback
+          resourceRecord.cancel()
+        when 'delete'
+          # mark as deleted (see mark as delete mixin)
+          resourceRecord.markAsDeleted()
 
   authenticate: ->
     # auto-login using dev mode authenticator if in dev mode

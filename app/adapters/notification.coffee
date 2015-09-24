@@ -32,7 +32,7 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
 
   onSocketMessage: Ember.on 'socketMessage', (payload) ->
     data = notifications: [JSON.parse payload]
-    @store.pushPayload 'notification', data
+    @store.pushPayload data
     @triggerNotification()
 
   triggerNotification: ->
