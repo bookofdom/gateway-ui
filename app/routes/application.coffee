@@ -38,6 +38,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       notificationService.off 'notification'
       notificationService.disableNotifications()
   onNotification: Ember.on 'notification', (notification) ->
+    # notify user of change
     message = notification.get('message')
     @get('notify').info message
 

@@ -36,5 +36,8 @@ Notification = DS.Model.extend
     message = message.toLowerCase()
     message = "#{message}:  \"#{resourceName}\"" if resourceName
     message
+  isCreated: Ember.computed 'action', -> @get('action') is 'create'
+  isUpdated: Ember.computed 'action', -> @get('action') is 'update'
+  isDeleted: Ember.computed 'action', -> @get('action') is 'delete'
 
 `export default Notification`
