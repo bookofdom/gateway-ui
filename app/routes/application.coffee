@@ -56,8 +56,8 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   #   - index is loaded, instance is not:  reload index
   #   - instance is loaded:  mark as deleted
   #
-  # Instances marked as deleted should not be editable.  They will fall off
-  # with the next reload of the resource.  UI needs an indication of deletion.
+  # Instances marked as deleted will not be editable.  They will fall off
+  # with the next reload of the resource.
   refreshResourceForNotification: (notification) ->
     type = notification.get 'resourceType'
     action = notification.get 'action'
@@ -73,7 +73,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
           # cancel does two things:  reload and rollback
           resourceRecord.cancel()
         when 'delete'
-          # mark as deleted (see mark as delete mixin)
+          # mark as deleted
           resourceRecord.deleteRecord()
 
   authenticate: ->
