@@ -4,7 +4,9 @@
 EditRoute = Ember.Route.extend
   actions:
     willTransition: (transition) ->
-      if @currentModel.get 'hasDirtyAttributes'
+      isDirty = @currentModel.get 'hasDirtyAttributes'
+      isDeleted = @currentModel.get 'isDeleted'
+      if isDirty and !isDeleted
         if confirm t 'prompts.confirm-abandon'
           @currentModel.cancel()
           true

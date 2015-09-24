@@ -40,4 +40,11 @@ Notification = DS.Model.extend
   isUpdated: Ember.computed 'action', -> @get('action') is 'update'
   isDeleted: Ember.computed 'action', -> @get('action') is 'delete'
 
+  # Give the resource a reference to this notification.
+  # Overwrite whatever was there previously, since notifications are meant
+  # to be transient.
+  onInit: Ember.on 'init', ->
+    resourceRecord = @get 'resourceRecord'
+    resourceRecord?.set 'notification', @
+
 `export default Notification`

@@ -40,7 +40,10 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   onNotification: Ember.on 'notification', (notification) ->
     # notify user of change
     message = notification.get('message')
-    @get('notify').info message
+    if notification.get 'isDeleted'
+      @get('notify').error message
+    else
+      @get('notify').info message
     # refresh resource
     @refreshResourceForNotification notification
   # Handles reloading of model(s) that received notification.
@@ -71,7 +74,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
           resourceRecord.cancel()
         when 'delete'
           # mark as deleted (see mark as delete mixin)
-          resourceRecord.markAsDeleted()
+          resourceRecord.deleteRecord()
 
   authenticate: ->
     # auto-login using dev mode authenticator if in dev mode
