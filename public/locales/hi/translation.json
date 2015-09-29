@@ -92,6 +92,8 @@
     "proxy-endpoint-test-header_plural": "cabeceras",
     "proxy-endpoint-test-query-parameter": "parámetro de consulta",
     "proxy-endpoint-test-query-parameter_plural": "parámetros de consulta",
+    "proxy-endpoint-test-path-parameter": "पथ पैरामीटर",
+    "proxy-endpoint-test-path-parameter_plural": "पथ के मापदंडों",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",

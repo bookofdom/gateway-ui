@@ -92,6 +92,8 @@
     "proxy-endpoint-test-header_plural": "cabeçalhos",
     "proxy-endpoint-test-query-parameter": "parametro de consulta",
     "proxy-endpoint-test-query-parameter_plural": "parametros de consulta",
+    "proxy-endpoint-test-path-parameter": "parâmetro path",
+    "proxy-endpoint-test-path-parameter_plural": "parâmetros de caminho",
     "environment": "ambiente",
     "environment_plural": "ambientes",
     "environment-variable": "variável do ambiente",

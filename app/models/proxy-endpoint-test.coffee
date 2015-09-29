@@ -19,6 +19,10 @@ ProxyEndpointTest = Model.extend
     async: false
     stains: true
     embedded: true
+  path_parameters: DS.hasMany 'proxy-endpoint-test-path-parameter',
+    async: false
+    stains: true
+    embedded: true
 
   # Observers
   cleanContentType: Ember.observer 'method', ->

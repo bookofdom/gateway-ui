@@ -8,11 +8,14 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
       embedded: 'always'
     query:
       embedded: 'always'
+    path_parameters:
+      embedded: 'always'
   normalize: (type, hash, property) ->
     @normalizeMethods hash
     @normalizeContentType hash
     @normalizeHeaders hash
     @normalizeQuery hash
+    @normalizePath hash
     delete hash.pairs
     @_super.apply @, arguments
   normalizeMethods: (hash) ->
@@ -50,6 +53,14 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
       name: param.key
       value: param.value
     hash
+  normalizePath: (hash) ->
+    hash.pairs ?= []
+    hash.path_parameters = hash.pairs.filter (pair) -> pair.type is 'path'
+    hash.path_parameters = hash.path_parameters.map (param) ->
+      id: param.id
+      name: param.key
+      value: param.value
+    hash
   serialize: (model) ->
     serialized = @_super.apply @, arguments
     serialized.id = parseInt(serialized.id, 10) if serialized.id?
@@ -58,6 +69,7 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
     delete serialized.method
     delete serialized.headers
     delete serialized.query
+    delete serialized.path_parameters
     delete serialized.content_type
     serialized
   serializePairs: (model, serialized) ->
@@ -83,6 +95,14 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
       pairs.push
         id: id
         type: 'get'
+        key: param.get 'name'
+        value: param.get 'value'
+    model.get('path_parameters').forEach (param) ->
+      id = param.get 'id'
+      id = parseInt(id, 10) if id
+      pairs.push
+        id: id
+        type: 'path'
         key: param.get 'name'
         value: param.get 'value'
     pairs
