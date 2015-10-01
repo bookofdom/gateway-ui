@@ -14,9 +14,7 @@ module.exports = function(defaults) {
       exclude: [
         'theme-slate.js',
         'worker-javascript.js',
-        'worker-json.js',
-        'worker-text.js',
-        'worker-xml.js'
+        'worker-tern.js'
       ]
     },
     gzip: {
@@ -81,10 +79,11 @@ module.exports = function(defaults) {
   app.import('bower_components/gateway-icons/dist/fonts/gateway.woff', {destDir: 'assets/fonts'});
 
   // ACE workers are loaded at runtime via AJAX and thus are included seperately
-  var aceAssets = new Funnel('bower_components/ace-builds/src-noconflict', {
+  var aceAssets = new Funnel('bower_components/ace-tern/ace-builds/src-noconflict', {
     srcDir: '/',
     include: [
       'worker-javascript.js',
+      'worker-tern.js',
       'worker-text.js'
     ],
     destDir: '/'

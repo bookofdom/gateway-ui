@@ -5,6 +5,7 @@ ApAceEditorComponent = Ember.Component.extend
   classNameBindings: ['sizeClass']
   value: null
   editor: null
+  server: null
   size: null
   language: 'javascript'
   theme: 'slate'
@@ -16,6 +17,9 @@ ApAceEditorComponent = Ember.Component.extend
     size = @get 'size'
     "ap-ace-editor-#{size}" if size
   didInsertElement: ->
+    @initializeEditor()
+    @initializeTern()
+  initializeEditor: ->
     language = @get 'language'
     theme = @get 'theme'
     options = @get 'options'
@@ -29,6 +33,16 @@ ApAceEditorComponent = Ember.Component.extend
       value = editor.getSession().getValue()
       @trigger 'editorChange', value
     @set 'editor', editor
+  initializeTern: ->
+    editor = @get 'editor'
+    server = editor.ternServer
+    server.options.plugins =
+      requirejs:
+        baseURL: ''
+        paths: {}
+      doc_comment: true
+    server.restart()
+    @set 'server', server
   onEditorChange: Ember.on 'editorChange', (value) -> @set 'value', value
   onValueChange: Ember.observer 'value', ->
     editor = @get 'editor'
