@@ -1,5 +1,0 @@
-`import ProxyEndpointTestPathParameterFormController from 'gateway/controllers/proxy-endpoint-test-path-parameter/form'`
-
-ProxyEndpointTestPathParameterInlineFormController = ProxyEndpointTestPathParameterFormController.extend()
-
-`export default ProxyEndpointTestPathParameterInlineFormController`

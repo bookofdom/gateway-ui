@@ -99,17 +99,17 @@ ProxyEndpointTestFormController = FormController.extend
     model = @get 'model'
     newModel = @store?.createRecord 'proxy-endpoint-test-query-parameter'
     model.get('query').pushObject newModel
-  createNewPathParameterModel: ->
+  createNewArgumentModel: ->
     model = @get 'model'
-    newModel = @store?.createRecord 'proxy-endpoint-test-path-parameter'
-    model.get('path_parameters').pushObject newModel
+    newModel = @store?.createRecord 'proxy-endpoint-test-argument'
+    model.get('argument').pushObject newModel
   actions:
     'delete-proxy-endpoint-test-header': (record) -> record.deleteRecord()
     'new-proxy-endpoint-test-header': -> @createNewHeaderModel()
     'delete-proxy-endpoint-test-query-parameter': (record) -> record.deleteRecord()
     'new-proxy-endpoint-test-query-parameter': -> @createNewQueryParameterModel()
-    'delete-proxy-endpoint-test-path-parameter': (record) -> record.deleteRecord()
-    'new-proxy-endpoint-test-path-parameter': -> @createNewPathParameterModel()
+    'delete-proxy-endpoint-test-argument': (record) -> record.deleteRecord()
+    'new-proxy-endpoint-test-argument': -> @createNewArgumentModel()
     beforeSave: ->
       model = @get 'model'
       if model.get 'isNew'

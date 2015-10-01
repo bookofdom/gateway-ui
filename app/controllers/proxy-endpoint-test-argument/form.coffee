@@ -1,6 +1,6 @@
 `import FormController from 'gateway/controllers/form'`
 
-ProxyEndpointTestPathParameterFormController = FormController.extend
+ProxyEndpointTestArgumentFormController = FormController.extend
   fields: Ember.computed ->
     [
       name: 'name'
@@ -10,4 +10,4 @@ ProxyEndpointTestPathParameterFormController = FormController.extend
       required: true
     ]
 
-`export default ProxyEndpointTestPathParameterFormController`
+`export default ProxyEndpointTestArgumentFormController`

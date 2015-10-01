@@ -27,15 +27,15 @@
   {{#unless model.isNew}}
     {{#bs-row}}
       {{#bs-col lg=12}}
-        {{#ap-panel-edit t='resources.proxy-endpoint-test-path-parameter_plural'
+        {{#ap-panel-edit t='resources.proxy-endpoint-test-argument_plural'
           class='panel-small'}}
           {{ap-table-model
-            models=model.path_parameters
-            delete-action='delete-proxy-endpoint-test-path-parameter'
-            partial-path='proxy-endpoint-test-path-parameter/-inline-form'}}
+            models=model.argument
+            delete-action='delete-proxy-endpoint-test-argument'
+            partial-path='proxy-endpoint-test-argument/-inline-form'}}
           {{ap-button-block-new
-            t='resources.proxy-endpoint-test-path-parameter'
-            action='new-proxy-endpoint-test-path-parameter'}}
+            t='resources.proxy-endpoint-test-argument'
+            action='new-proxy-endpoint-test-argument'}}
         {{/ap-panel-edit}}
       {{/bs-col}}
     {{/bs-row}}

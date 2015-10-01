@@ -19,7 +19,7 @@ ProxyEndpointTest = Model.extend
     async: false
     stains: true
     embedded: true
-  path_parameters: DS.hasMany 'proxy-endpoint-test-path-parameter',
+  argument: DS.hasMany 'proxy-endpoint-test-argument',
     async: false
     stains: true
     embedded: true

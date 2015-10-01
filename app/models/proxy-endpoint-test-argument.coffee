@@ -1,8 +1,8 @@
 `import DS from 'ember-data'`
 `import Model from './model'`
 
-ProxyEndpointTestPathParameter = Model.extend
+ProxyEndpointTestArgument = Model.extend
   name: DS.attr 'string'
   value: DS.attr 'string'
 
-`export default ProxyEndpointTestPathParameter`
+`export default ProxyEndpointTestArgument`
