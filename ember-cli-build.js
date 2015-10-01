@@ -58,11 +58,12 @@ module.exports = function(defaults) {
   app.import('bower_components/moment/locale/pt-br.js');
   // ACE
   // TODO:  customized for Ember compatibility
-  app.import('vendor/ace-builds/src-noconflict/ace.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/ace.js');
   // Standard ACE libraries
-  app.import('bower_components/ace-builds/src-noconflict/ext-language_tools.js');
-  app.import('bower_components/ace-builds/src-noconflict/mode-javascript.js');
-  app.import('bower_components/ace-builds/src-noconflict/mode-text.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/ext-language_tools.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/ext-tern.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-javascript.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-text.js');
 
   // jQuery UI (sortable-only custom build)
   app.import('vendor/jquery-ui-1.11.4.custom/jquery-ui.js');

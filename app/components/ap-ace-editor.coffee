@@ -9,8 +9,9 @@ ApAceEditorComponent = Ember.Component.extend
   language: 'javascript'
   theme: 'slate'
   options:
+    enableTern: true
+    enableSnippets: false
     enableBasicAutocompletion: true
-    enableLiveAutocompletion: true
   sizeClass: Ember.computed 'size', ->
     size = @get 'size'
     "ap-ace-editor-#{size}" if size
