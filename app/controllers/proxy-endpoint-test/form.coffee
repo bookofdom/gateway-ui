@@ -102,7 +102,7 @@ ProxyEndpointTestFormController = FormController.extend
   createNewArgumentModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'proxy-endpoint-test-argument'
-    model.get('argument').pushObject newModel
+    model.get('arguments').pushObject newModel
   actions:
     'delete-proxy-endpoint-test-header': (record) -> record.deleteRecord()
     'new-proxy-endpoint-test-header': -> @createNewHeaderModel()
