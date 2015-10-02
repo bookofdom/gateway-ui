@@ -7,7 +7,15 @@ module.exports = function(app) {
         "id": 1,
         "name": "Basic Library",
         "description": "Does something, anything.",
-        "data": "magical js"
+        "data": "\
+/**\
+ * Description of this fn\
+ * @param {string} name - document name\
+ * @param {string} doc - content\
+ * @returns {number} the product of the passed parameters \
+ */\
+function doSomething (name, doc) {};\
+        "
     },
     {
         "api_id": 1,
