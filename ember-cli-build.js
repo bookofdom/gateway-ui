@@ -59,7 +59,7 @@ module.exports = function(defaults) {
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/ace.js');
   // Standard ACE libraries
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/ext-language_tools.js');
-  app.import('bower_components/ace-tern/ace-builds/src-noconflict/ext-tern.js');
+  app.import('vendor/ace-tern/ace-builds/src-noconflict/ext-tern.js');
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-javascript.js');
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-text.js');
 
