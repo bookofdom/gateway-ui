@@ -6,6 +6,9 @@ ApAceEditorComponent = Ember.Component.extend
   classNames: ['ap-ace-editor']
   classNameBindings: ['sizeClass']
   value: null
+  # Libraries are name/value pairs, where the values are code documents
+  # that Tern should include in autocomplete.
+  libraries: null
   editor: null
   server: null
   size: null
@@ -47,9 +50,20 @@ ApAceEditorComponent = Ember.Component.extend
     @set 'editor', editor
   initializeTern: ->
     @restartTern()
+    @addTernLibraries()
   restartTern: ->
     server = @get 'editor.ternServer'
     server.restart()
+  addTernLibraries: ->
+    mode = @get 'aceMode'
+    libraries = @get 'libraries'
+    server = @get 'editor.ternServer'
+    EditSession = ace.require('ace/edit_session').EditSession
+    libraries?.forEach (library) ->
+      name = library.get 'name'
+      value = library.get 'value'
+      doc = new EditSession value, mode
+      server.addDoc name, doc
   onEditorChange: Ember.on 'editorChange', (value) ->
     @set 'value', value
   onValueChange: Ember.observer 'value', ->

@@ -14,21 +14,34 @@ module.exports = function(app) {
  * @param {string} doc - content\n\
  * @returns {number} the product of the passed parameters\n\
  */\n\
-function doSomething (name, doc) {};\n"
+function libraryOne (name, doc) {};\n"
     },
     {
         "api_id": 1,
         "id": 2,
         "name": "Intermediate Library",
         "description": "Does something, anything.",
-        "data": "magical js"
+        "data": "\
+/**\n\
+ * Description of this fn\n\
+ * @param {number} i - index\n\
+ * @param {string} doc - content\n\
+ * @returns {number} the product of the passed parameters\n\
+ */\n\
+function libraryTwo (i, doc) {};\n"
     },
     {
         "api_id": 1,
         "id": 3,
         "name": "Advanced Library",
         "description": "Does something, anything.",
-        "data": "magical js"
+        "data": "\
+/**\n\
+ * Description of this fn\n\
+ * @param {string} name - document name\n\
+ * @param {boolean} show - show the document?\n\
+ */\n\
+function libraryThree (name, show) {};\n"
     }
   ];
 

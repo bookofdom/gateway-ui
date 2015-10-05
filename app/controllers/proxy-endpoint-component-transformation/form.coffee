@@ -2,9 +2,11 @@
 `import t from 'gateway/helpers/i18n'`
 
 ProxyEndpointComponentTransformationFormController = FormController.extend
+  'api': Ember.inject.controller()
   before: false
   after: false
-  'option-groups':
+  'option-groups': Ember.computed 'api.libraries', ->
+    body: @get 'api.libraries'
     type: [
       name: t('languages.javascript').capitalize()
       value: 'js'
