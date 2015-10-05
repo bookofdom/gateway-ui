@@ -1,5 +1,7 @@
 `import Ember from 'ember'`
 
+ace = window.ace
+
 ApAceEditorComponent = Ember.Component.extend
   classNames: ['ap-ace-editor']
   classNameBindings: ['sizeClass']
@@ -10,40 +12,46 @@ ApAceEditorComponent = Ember.Component.extend
   language: 'javascript'
   theme: 'slate'
   options:
-    enableTern: true
-    enableSnippets: false
+    enableTern:
+      # http://ternjs.net/doc/manual.html#option_defs
+      defs: ['browser', 'ecma5']
+      # http://ternjs.net/doc/manual.html#plugins
+      plugins:
+        doc_comment:
+          fullDocs: true
+    enableSnippets: true
     enableBasicAutocompletion: true
   sizeClass: Ember.computed 'size', ->
     size = @get 'size'
     "ap-ace-editor-#{size}" if size
+  aceMode: Ember.computed 'language', ->
+    "ace/mode/#{@get 'language'}"
+  aceTheme: Ember.computed 'theme', ->
+    "ace/theme/#{@get 'theme'}"
   didInsertElement: ->
-    @initializeEditor()
-    @initializeTern()
+    Ember.run =>
+      @initializeEditor()
+      @initializeTern()
   initializeEditor: ->
-    language = @get 'language'
-    theme = @get 'theme'
     options = @get 'options'
     el = @$('.form-control').get 0
-    editor = window.ace.edit el
-    editor.getSession().setMode "ace/mode/#{language}"
-    editor.setTheme "ace/theme/#{theme}"
+    editor = ace.edit el
+    editor.getSession().setMode @get('aceMode')
+    editor.setTheme @get('aceTheme')
     editor.getSession().setTabSize 2
     editor.setOptions options
+    editor.$blockScrolling = Infinity # prevents ace from logging warnings
     editor.on 'change', =>
       value = editor.getSession().getValue()
       @trigger 'editorChange', value
     @set 'editor', editor
   initializeTern: ->
-    editor = @get 'editor'
-    server = editor.ternServer
-    server.options.plugins =
-      requirejs:
-        baseURL: ''
-        paths: {}
-      doc_comment: true
+    @restartTern()
+  restartTern: ->
+    server = @get 'editor.ternServer'
     server.restart()
-    @set 'server', server
-  onEditorChange: Ember.on 'editorChange', (value) -> @set 'value', value
+  onEditorChange: Ember.on 'editorChange', (value) ->
+    @set 'value', value
   onValueChange: Ember.observer 'value', ->
     editor = @get 'editor'
     value = @get('value') or ''

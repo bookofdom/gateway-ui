@@ -3363,6 +3363,7 @@ ace.define("ace/tern/tern_server",["require","exports","module","ace/range","ace
         }
     }
     function closeArgHints(ts) {
+        closeAllTips();
         if (ts.activeArgHints) {
             remove(ts.activeArgHints);
             ts.activeArgHints = null;

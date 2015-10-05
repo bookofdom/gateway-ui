@@ -8,14 +8,13 @@ module.exports = function(app) {
         "name": "Basic Library",
         "description": "Does something, anything.",
         "data": "\
-/**\
- * Description of this fn\
- * @param {string} name - document name\
- * @param {string} doc - content\
- * @returns {number} the product of the passed parameters \
- */\
-function doSomething (name, doc) {};\
-        "
+/**\n\
+ * Description of this fn\n\
+ * @param {string} name - document name\n\
+ * @param {string} doc - content\n\
+ * @returns {number} the product of the passed parameters\n\
+ */\n\
+function doSomething (name, doc) {};\n"
     },
     {
         "api_id": 1,

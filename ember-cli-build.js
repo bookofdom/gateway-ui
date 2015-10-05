@@ -12,6 +12,7 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     fingerprint: {
       exclude: [
+        'snippets/javascript.js',
         'theme-slate.js',
         'worker-javascript.js',
         'worker-tern.js'
@@ -82,6 +83,7 @@ module.exports = function(defaults) {
   var aceAssets = new Funnel('bower_components/ace-tern/ace-builds/src-noconflict', {
     srcDir: '/',
     include: [
+      'snippets/javascript.js',
       'worker-javascript.js',
       'worker-tern.js',
       'worker-text.js'
