@@ -8,10 +8,20 @@ RemoteEndpoint = Model.extend
   name: DS.attr 'string'
   codename: DS.attr 'string'
   description: DS.attr 'string'
+  status: DS.attr 'string'
+  status_message: DS.attr 'string'
 
   # http
-  url: DS.attr 'string'
   method: DS.attr 'string'
+
+  # soap
+  wsdl: DS.attr 'string'
+  service_name: DS.attr 'string'
+  auth_scheme: DS.attr 'string'
+
+  # http
+  # soap
+  url: DS.attr 'string'
 
   # sqlserver
   schema: DS.attr 'string'
@@ -24,8 +34,6 @@ RemoteEndpoint = Model.extend
   # mysql
   server: DS.attr 'string'
   port: DS.attr 'number'
-  username: DS.attr 'string'
-  password: DS.attr 'string'
   database: DS.attr 'string'
   transactions: DS.attr 'boolean'
   timeout: DS.attr 'number'
@@ -34,6 +42,14 @@ RemoteEndpoint = Model.extend
 
   # mongodb
   limit: DS.attr 'number', defaultValue: 16
+
+  # soap
+  # sqlserver
+  # postgres
+  # mysql
+  # mongodb
+  username: DS.attr 'string'
+  password: DS.attr 'string'
 
   # Relationships
   api: DS.belongsTo 'api', async: true
@@ -63,6 +79,20 @@ RemoteEndpoint = Model.extend
     @get('platform.slug') == 'http'
   isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
+  statusType: Ember.computed 'status', ->
+    status = @get 'status'
+    RemoteEndpoint.statusTypes.findBy 'value', status.underscore()
+  statusIsSuccess: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'success'
+  statusIsError: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'error'
+  statusIsPending: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'pending'
+  statusIsProcessing: Ember.computed 'statusType.slug', ->
+    @get('statusType.slug') is 'processing'
+  authSchemeType: Ember.computed 'auth_scheme', ->
+    scheme = @get 'auth_scheme'
+    RemoteEndpoint.authSchemes.findBy 'value', scheme
   location: Ember.computed 'url', 'server', ->
     location = @get('url') or @get('server')
     location = @get('hosts').map((host) -> host.get 'host')?.join(' / ') if @get 'isMongo'
@@ -74,18 +104,30 @@ RemoteEndpoint = Model.extend
     @get 'sslModeType.name'
 
 # Declare available types and their human-readable names
-types = 'http sqlserver postgres mysql mongodb'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type
+
+statusTypes = 'success error pending processing'.split(' ').map (type) ->
+  name: t "types.remote-endpoint.status-types.#{type}"
+  slug: type
+  value: type.underscore()
 
 sslModes = 'disable allow prefer require'.split(' ').map (mode) ->
   name: t "types.remote-endpoint.ssl-modes.#{mode}"
   slug: mode
   value: mode
 
+authSchemes = 'basic wsse'.split(' ').map (scheme) ->
+  name: t "types.remote-endpoint.auth-schemes.#{scheme}"
+  slug: scheme
+  value: scheme
+
 RemoteEndpoint.reopenClass
   types: types
+  statusTypes: statusTypes
   sslModes: sslModes
+  authSchemes: authSchemes
 
 `export default RemoteEndpoint`

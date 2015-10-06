@@ -169,6 +169,11 @@
     "limit": "कनेक्शन समूहीकरण सीमा",
     "location": "स्थान",
     "sslmode": "एसएसएल मोड",
+    "service_name": "सेवा का नाम",
+    "endpoint_name": "समापन बिंदु नाम",
+    "operation_name": "ऑपरेशन के नाम",
+    "action_name": "कार्रवाई के नाम",
+    "auth_scheme": "प्रमाणीकरण योजना",
     "help": {
       "timeout": "सेकंड की संख्या।",
       "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।"
@@ -215,11 +220,21 @@
   },
   "types": {
     "remote-endpoint": {
+      "status-types": {
+        "success": "सफलता",
+        "error": "एरर",
+        "pending": "अपूर्ण",
+        "processing": "प्रसंस्करण"
+      },
       "ssl-modes": {
         "disable": "अक्षम करें",
         "allow": "अनुमति देते हैं",
         "prefer": "पसंद करते हैं",
         "require": "आवश्यकता"
+      },
+      "auth-schemes": {
+        "basic": "बुनियादी",
+        "wsse": "WSSE"
       }
     }
   }
