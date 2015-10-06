@@ -5,7 +5,11 @@ ApiFormController = FormController.extend
   fields: Ember.computed 'model.isNew', ->
     newFields = [
       name: 'name'
-      required: true
+      required: true,
+    ,
+      name: 'export'
+      label: 'fields.import'
+      type: 'file'
     ]
     editFields = [
       name: 'name'
