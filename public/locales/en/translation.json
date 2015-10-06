@@ -92,6 +92,8 @@
     "proxy-endpoint-test-header_plural": "headers",
     "proxy-endpoint-test-query-parameter": "query parameter",
     "proxy-endpoint-test-query-parameter_plural": "query parameters",
+    "proxy-endpoint-test-argument": "argument",
+    "proxy-endpoint-test-argument_plural": "arguments",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",

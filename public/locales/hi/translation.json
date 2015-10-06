@@ -92,6 +92,8 @@
     "proxy-endpoint-test-header_plural": "cabeceras",
     "proxy-endpoint-test-query-parameter": "parámetro de consulta",
     "proxy-endpoint-test-query-parameter_plural": "parámetros de consulta",
+    "proxy-endpoint-test-argument": "तर्क",
+    "proxy-endpoint-test-argument_plural": "तर्क",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
