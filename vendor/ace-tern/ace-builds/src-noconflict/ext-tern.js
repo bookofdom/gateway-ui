@@ -2309,6 +2309,10 @@ ace.define("ace/tern/tern_server",["require","exports","module","ace/range","ace
                     popupSelectionChanged(); //call once if popupselect bound exited to show tooltip for first item
                 }
                 function bindPopupSelect() {
+                    // TODO added to ensure info tooltip is always recreated,
+                    // since otherwise it will fail to update if there are
+                    // multiple code areas visible at once
+                    popupSelectBound = false;
                     if (popupSelectBound) {
                         return false;
                     }
