@@ -169,6 +169,11 @@
     "limit": "límite de agrupación de conexiones",
     "location": "localización",
     "sslmode": "modo SSL",
+    "service_name": "nombre del servicio",
+    "endpoint_name": "nombre del extremo",
+    "operation_name": "nombre de la operación",
+    "action_name": "nombre de la acción",
+    "auth_scheme": "esquema de autenticación",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique una costumbre Content-Type en las cabeceras de petición."
@@ -215,11 +220,21 @@
   },
   "types": {
     "remote-endpoint": {
+      "status-types": {
+        "success": "éxito",
+        "error": "error",
+        "pending": "pendientes",
+        "processing": "procesamiento"
+      },
       "ssl-modes": {
         "disable": "inhabilitar",
         "allow": "permitir",
         "prefer": "preferir",
         "require": "exigir"
+      },
+      "auth-schemes": {
+        "basic": "básico",
+        "wsse": "WSSE"
       }
     }
   }

@@ -9,6 +9,9 @@ RemoteEndpointFormController = FormController.extend
   'option-groups':
     type: RemoteEndpoint.types
     sslmode: RemoteEndpoint.sslModes
+    # TODO expose basic auth when available in backend
+    auth_scheme: RemoteEndpoint.authSchemes.filter (scheme) ->
+      scheme.slug != 'basic'
     method: [
       name: t 'http-methods.get'
       value: 'GET'
@@ -46,6 +49,24 @@ RemoteEndpointFormController = FormController.extend
     ,
       name: 'method'
       type: 'select'
+    ]
+    soap: [
+      name: 'wsdl'
+      type: 'file'
+      required: true
+    ,
+      name: 'service_name'
+      required: true
+    ,
+      name: 'url'
+    ,
+      name: 'auth_scheme'
+      type: 'select'
+    ,
+      name: 'username'
+    ,
+      name: 'password'
+      type: 'password'
     ]
     sqlserver: [
       name: 'server'
