@@ -1,13 +1,9 @@
 `import DS from 'ember-data'`
 `import ApplicationSerializer from './application'`
 
-variableIdCounter = 1
-
 EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     variables:
-      assignTransientIds: true
-      #embedded: 'always'
       serialize: false
       deserialize: 'records'
   normalize: (type, hash, property) ->

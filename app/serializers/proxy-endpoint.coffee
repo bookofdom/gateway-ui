@@ -4,7 +4,6 @@
 ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     routes:
-      assignTransientIds: true
       embedded: 'always'
     components:
       embedded: 'always'
@@ -12,7 +11,6 @@ ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
       embedded: 'always'
   normalize: (type, hash, property) ->
     @normalizeLinks hash
-    @normalizeRoutes hash
     @normalizeComponentCallLinks hash
     @_super.apply @, arguments
   # Adds links to async relationships.
