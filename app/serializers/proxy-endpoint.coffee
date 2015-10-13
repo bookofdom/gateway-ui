@@ -1,11 +1,10 @@
 `import DS from 'ember-data'`
 `import ApplicationSerializer from './application'`
 
-routeIdCounter = 1
-
 ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     routes:
+      assignTransientIds: true
       embedded: 'always'
     components:
       embedded: 'always'
@@ -23,12 +22,6 @@ ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         "/apis/#{hash.api_id}/environments/#{hash.environment_id}" if hash.environment_id
       endpoint_group:
         "/apis/#{hash.api_id}/endpoint_groups/#{hash.endpoint_group_id}" if hash.endpoint_group_id
-    hash
-  # Adds ephemeral IDs to embedded route records, since IDs are required.
-  normalizeRoutes: (hash) ->
-    hash.routes ?= []
-    for route in hash.routes
-      route.id = routeIdCounter++
     hash
   # Adds links to embedded component calls
   normalizeComponentCallLinks: (hash) ->

@@ -10,14 +10,18 @@
 RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     headers:
+      assignTransientIds: true
       serialize: false
       deserialize: 'records'
     query:
+      assignTransientIds: true
       serialize: false
       deserialize: 'records'
     hosts:
+      assignTransientIds: true
       embedded: 'always'
     environment_data:
+      assignTransientIds: true
       embedded: 'always'
 
   # Normalization

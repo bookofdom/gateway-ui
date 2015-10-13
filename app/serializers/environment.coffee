@@ -6,6 +6,7 @@ variableIdCounter = 1
 EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     variables:
+      assignTransientIds: true
       #embedded: 'always'
       serialize: false
       deserialize: 'records'
@@ -14,12 +15,10 @@ EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     @_super.apply @, arguments
   normalizeVariables: (hash) ->
     # `data` is reserved in Ember, so transform into `variables`
-    # adds ephemeral IDs to generated variable records
     hash.data ?= {}
     hash.variables = []
     for key, value of hash.data
       hash.variables.push
-        id: variableIdCounter++
         name: key
         value: value
     hash
