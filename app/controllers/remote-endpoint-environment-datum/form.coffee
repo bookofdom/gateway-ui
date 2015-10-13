@@ -30,7 +30,5 @@ RemoteEndpointEnvironmentDatumFormController = RemoteEndpointLikeFormController.
       # resend this action (using a different name)
       # so that the router can handle it if necessary
       @send 'saved'
-    afterCancel: ->
-      @send 'canceled'
 
 `export default RemoteEndpointEnvironmentDatumFormController`
