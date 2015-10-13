@@ -2,13 +2,20 @@
 `import DS from 'ember-data'`
 
 ApplicationSerializer = DS.RESTSerializer.extend
-  # Generates a unique ID.  Useful for adding temporary client-side IDs to
-  # embedded records, many of which may have no ID of their own.
-  generateId: -> window.uuid.v4()
-  # If the instance didn't come with an ID, it's critical to add one
-  # for client-side tracking purposes.
+  # For each entry in `attrs` where `assignTransientIds` is `true`, assign a
+  # transient ID to each child of the array in the format `parentId_index`.
+  normalizeTransientIdHasManyFields: (hash) ->
+    attrs = @get 'attrs'
+    transientIdsFieldNames =
+      ((key if value.assignTransientIds) for key, value of attrs).compact()
+    transientIdsFieldNames.forEach (fieldName) =>
+      @assignTransientIdsToEach hash, fieldName
+  assignTransientIdsToEach: (hash, fieldName) ->
+    id = hash.id
+    items = hash[fieldName]
+    items?.forEach (item, i) -> item.id = "#{id}_#{i}"
   normalize: (type, hash, property) ->
-    hash.id = @generateId() if !hash.id
+    @normalizeTransientIdHasManyFields hash
     @_super.apply @, arguments
 
   payloadKeyFromModelName: (modelName) ->

@@ -44,8 +44,6 @@ module.exports = function(defaults) {
   app.import('bower_components/jquery-ui/jquery-ui.js');
   // vkBeautify
   app.import('bower_components/vkbeautify/vkbeautify.js');
-  // uuid
-  app.import('bower_components/node-uuid/uuid.js');
   // Retina Icons
   app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.eot', {destDir: 'assets/fonts'});
   app.import('bower_components/bower-retina-icons/assets/fonts/retinaicon-font.svg', {destDir: 'assets/fonts'});
