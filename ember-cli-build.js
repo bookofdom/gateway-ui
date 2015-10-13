@@ -42,6 +42,8 @@ module.exports = function(defaults) {
 
   // jQuery UI
   app.import('bower_components/jquery-ui/jquery-ui.js');
+  // UUID
+  app.import('bower_components/node-uuid/uuid.js');
   // vkBeautify
   app.import('bower_components/vkbeautify/vkbeautify.js');
   // Retina Icons

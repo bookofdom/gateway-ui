@@ -9,5 +9,7 @@ RemoteEndpointEnvironmentDatumRoute = Ember.Route.extend AuthenticatedRouteMixin
       @transitionTo 'remote-endpoint'
     deleted: ->
       @transitionTo 'remote-endpoint'
+    canceled: ->
+      @transitionTo 'remote-endpoint'
 
 `export default RemoteEndpointEnvironmentDatumRoute`
