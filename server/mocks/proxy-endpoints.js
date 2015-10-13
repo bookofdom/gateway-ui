@@ -58,6 +58,12 @@ module.exports = function(app) {
           "type": "header",
           "key": "key 1",
           "value": "value 1"
+        },
+        {
+          "id": 8,
+          "type": "path",
+          "key": "key 1",
+          "value": "value 1"
         }
       ]
     },
@@ -88,6 +94,12 @@ module.exports = function(app) {
         {
           "id": 6,
           "type": "header",
+          "key": "key 1",
+          "value": "value 1"
+        },
+        {
+          "id": 9,
+          "type": "path",
           "key": "key 1",
           "value": "value 1"
         }
