@@ -4,7 +4,6 @@
 ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     routes:
-      assignTransientIds: true
       embedded: 'always'
     components:
       embedded: 'always'
