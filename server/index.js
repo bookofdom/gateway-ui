@@ -22,5 +22,5 @@ module.exports = function (app, server) {
   proxies.forEach(function(route) { route(app); });
 
   // uncomment to enable socket mock
-  var wss = require('./socket-mocks/logs-and-notifications.js')(server.httpServer);
+  //var wss = require('./socket-mocks/logs-and-notifications.js')(server.httpServer);
 };

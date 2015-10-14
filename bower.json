@@ -1,7 +1,7 @@
 {
   "name": "gateway",
   "dependencies": {
-    "ace-builds": "1.1.9",
+    "ace-tern": "git+https://github.com/sevin7676/Ace.Tern.git",
     "bootstrap-sass": "bootstrap-sass-official#~3.3.5",
     "ember": "1.13.8",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
