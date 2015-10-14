@@ -1,6 +1,10 @@
 `import FormController from 'gateway/controllers/form'`
 
 ProxyEndpointComponentFormController = FormController.extend
+  'api': Ember.inject.controller()
+  'option-groups': Ember.computed 'api.libraries', ->
+    conditional: @get 'api.libraries'
+    body: @get 'api.libraries'
   formTemplateName: Ember.computed 'model.type', ->
     type = @get 'model.type'
     "proxy-endpoint-component/form-#{type}"

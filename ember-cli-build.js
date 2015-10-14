@@ -12,11 +12,10 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     fingerprint: {
       exclude: [
+        'snippets/javascript.js',
         'theme-slate.js',
         'worker-javascript.js',
-        'worker-json.js',
-        'worker-text.js',
-        'worker-xml.js'
+        'worker-tern.js'
       ]
     },
     gzip: {
@@ -58,17 +57,20 @@ module.exports = function(defaults) {
   app.import('bower_components/moment/locale/pt-br.js');
   // ACE
   // TODO:  customized for Ember compatibility
-  app.import('vendor/ace-builds/src-noconflict/ace.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/ace.js');
   // Standard ACE libraries
-  app.import('bower_components/ace-builds/src-noconflict/ext-language_tools.js');
-  app.import('bower_components/ace-builds/src-noconflict/mode-javascript.js');
-  app.import('bower_components/ace-builds/src-noconflict/mode-text.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/ext-language_tools.js');
+  app.import('vendor/ace-tern/ace-builds/src-noconflict/ext-tern.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-javascript.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-text.js');
 
   // jQuery UI (sortable-only custom build)
   app.import('vendor/jquery-ui-1.11.4.custom/jquery-ui.js');
   // datetime picker
   app.import('bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
   app.import('bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css');
+  // UUID
+  app.import('bower_components/node-uuid/uuid.js');
   // vkBeautify
   app.import('bower_components/vkbeautify/vkbeautify.js');
   // uuid
@@ -80,10 +82,12 @@ module.exports = function(defaults) {
   app.import('bower_components/gateway-icons/dist/fonts/gateway.woff', {destDir: 'assets/fonts'});
 
   // ACE workers are loaded at runtime via AJAX and thus are included seperately
-  var aceAssets = new Funnel('bower_components/ace-builds/src-noconflict', {
+  var aceAssets = new Funnel('bower_components/ace-tern/ace-builds/src-noconflict', {
     srcDir: '/',
     include: [
+      'snippets/javascript.js',
       'worker-javascript.js',
+      'worker-tern.js',
       'worker-text.js'
     ],
     destDir: '/'

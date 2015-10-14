@@ -24,20 +24,17 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
         transition.send 'invalidateSession'
 
   enableNotifications: ->
-    isDevMode = @get 'isDevMode'
     session = @get 'session'
     notificationService = @get 'notificationService'
     # enable notifications for authenticated non-dev-mode sessions
-    if !isDevMode and session.isAuthenticated
+    if session.isAuthenticated
       notificationService.on 'notification', (notification) =>
         @trigger 'notification', notification
       notificationService.enableNotifications()
   disableNotifications: ->
-    isDevMode = @get 'isDevMode'
     notificationService = @get 'notificationService'
-    if !isDevMode
-      notificationService.off 'notification'
-      notificationService.disableNotifications()
+    notificationService.off 'notification'
+    notificationService.disableNotifications()
   onNotification: Ember.on 'notification', (notification) ->
     # notify user of change
     message = notification.get('message')

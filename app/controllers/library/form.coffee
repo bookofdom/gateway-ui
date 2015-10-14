@@ -3,6 +3,8 @@
 LibraryFormController = FormController.extend
   libraries: Ember.inject.controller()
   modelType: 'library'
+  'option-groups': Ember.computed 'libraries.model', ->
+    body: @get 'libraries.model'
   fields: Ember.computed ->
     [
       name: 'name'

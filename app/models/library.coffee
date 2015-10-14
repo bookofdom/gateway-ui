@@ -6,6 +6,10 @@ Library = Model.extend
   description: DS.attr 'string'
   body: DS.attr 'string', defaultValue: ''
 
+  # Computed
+  value: Ember.computed 'body', ->
+    @get 'body'
+
   # Relationships
   api: DS.belongsTo 'api', async: true
 
