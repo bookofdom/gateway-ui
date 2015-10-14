@@ -115,7 +115,9 @@
     "library": "shared library",
     "library_plural": "shared libraries",
     "log": "सर्वर लॉग",
-    "log_plural": "सर्वर लॉग"
+    "log_plural": "सर्वर लॉग",
+    "notificaiton": "अधिसूचना",
+    "notification_plural": "सूचनाएं"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single call",
@@ -227,6 +229,11 @@
   "conditionals": {
     "if": "if",
     "unless": "unless"
+  },
+  "notifications": {
+    "create": "__user__ एक __resource__ बनाया",
+    "update": "__user__ अद्यतन एक __resource__",
+    "delete": "__user__ एक __resource__ हटाए गए"
   },
   "types": {
     "remote-endpoint": {

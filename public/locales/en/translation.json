@@ -115,7 +115,9 @@
     "library": "shared library",
     "library_plural": "shared libraries",
     "log": "log",
-    "log_plural": "logs"
+    "log_plural": "logs",
+    "notificaiton": "notification",
+    "notification_plural": "notifications"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single call",
@@ -228,6 +230,11 @@
   "conditionals": {
     "if": "if",
     "unless": "unless"
+  },
+  "notifications": {
+    "create": "__user__ created one __resource__",
+    "update": "__user__ updated one __resource__",
+    "delete": "__user__ deleted one __resource__"
   },
   "types": {
     "remote-endpoint": {
