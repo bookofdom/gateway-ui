@@ -47,6 +47,7 @@
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3",
     "ember-notify": "git+https://github.com/aexmachina/ember-notify.git#master",
+    "ember-spin-spinner": "0.2.4",
     "ember-websockets": "^1.2.3",
     "emberx-select": "2.0.1",
     "express": "^4.8.5",
