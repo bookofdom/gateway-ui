@@ -184,6 +184,7 @@
     "start_date": "data de início",
     "end_date": "data final",
     "maximum_lines": "linhas máximos",
+    "import": "importação",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação."
