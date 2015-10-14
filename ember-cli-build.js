@@ -69,6 +69,8 @@ module.exports = function(defaults) {
   // datetime picker
   app.import('bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
   app.import('bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css');
+  // UUID
+  app.import('bower_components/node-uuid/uuid.js');
   // vkBeautify
   app.import('bower_components/vkbeautify/vkbeautify.js');
   // uuid
