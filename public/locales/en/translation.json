@@ -185,6 +185,7 @@
     "start_date": "start date",
     "end_date": "end date",
     "maximum_lines": "maximum lines",
+    "import": "import",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."
