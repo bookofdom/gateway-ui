@@ -21,6 +21,7 @@
     "delete": "delete",
     "save": "save",
     "cancel": "cancel",
+    "clear": "clear",
     "new": "new",
     "new-x": "new $t(__x__)",
     "edit": "edit",
@@ -53,6 +54,7 @@
       "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints",
       "hosts": "define named hosts associated with this API",
       "libraries": "define shared libraries for use in JavaScript code blocks",
+      "logs": "view, search, and stream logs",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
@@ -111,7 +113,11 @@
     "host": "host",
     "host_plural": "hosts",
     "library": "shared library",
-    "library_plural": "shared libraries"
+    "library_plural": "shared libraries",
+    "log": "log",
+    "log_plural": "logs",
+    "notificaiton": "notification",
+    "notification_plural": "notifications"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single call",
@@ -175,6 +181,10 @@
     "operation_name": "operation name",
     "action_name": "action name",
     "auth_scheme": "authentication scheme",
+    "search": "search",
+    "start_date": "start date",
+    "end_date": "end date",
+    "maximum_lines": "maximum lines",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."
@@ -189,7 +199,9 @@
   },
   "states": {
     "active": "active",
-    "inactive": "inactive"
+    "inactive": "inactive",
+    "streaming": "streaming",
+    "not-streaming": "not streaming"
   },
   "http-methods": {
     "get": "GET",
@@ -218,6 +230,11 @@
   "conditionals": {
     "if": "if",
     "unless": "unless"
+  },
+  "notifications": {
+    "create": "__user__ created one __resource__",
+    "update": "__user__ updated one __resource__",
+    "delete": "__user__ deleted one __resource__"
   },
   "types": {
     "remote-endpoint": {
