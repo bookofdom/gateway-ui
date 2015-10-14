@@ -54,6 +54,7 @@
       "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints",
       "hosts": "define named hosts associated with this API",
       "libraries": "define shared libraries for use in JavaScript code blocks",
+      "logs": "view, search, and stream logs",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
@@ -93,6 +94,8 @@
     "proxy-endpoint-test-header_plural": "headers",
     "proxy-endpoint-test-query-parameter": "query parameter",
     "proxy-endpoint-test-query-parameter_plural": "query parameters",
+    "proxy-endpoint-test-argument": "argument",
+    "proxy-endpoint-test-argument_plural": "arguments",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
