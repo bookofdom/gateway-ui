@@ -21,6 +21,7 @@
     "delete": "deletar",
     "save": "salvar",
     "cancel": "cancelar",
+    "clear": "claro",
     "new": "novo",
     "new-x": "novo $t(__x__)",
     "edit": "editar",
@@ -53,6 +54,7 @@
       "remote-endpoints": "define os endpoints remotos da API que proporcionam servicios aos endpoints da proxy",
       "hosts": "define os servidores associados com a API",
       "libraries": "define bibliotecas compartilhadas para uso em blocos de código de JavaScript",
+      "logs": "visualização, pesquisa e transmissão de registros",
       "formatted": {
         "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",
         "build-app": "<b>(login necessário)</b><br>Constrói aplicações de multi-canais com a plataforma AnyPresence"
@@ -111,7 +113,9 @@
     "host": "servidor",
     "host_plural": "servidores",
     "library": "biblioteca compartilhada",
-    "library_plural": "bibliotecas compartilhadas"
+    "library_plural": "bibliotecas compartilhadas",
+    "log": "registro",
+    "log_plural": "registros"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "chamada",
@@ -174,6 +178,10 @@
     "operation_name": "nome da operação",
     "action_name": "nome da ação",
     "auth_scheme": "esquema de autenticação",
+    "search": "pesquisa",
+    "start_date": "data de início",
+    "end_date": "data final",
+    "maximum_lines": "linhas máximos",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação."
@@ -188,7 +196,9 @@
   },
   "states": {
     "active": "ativo",
-    "inactive": "inativo"
+    "inactive": "inativo",
+    "streaming": "transmissão",
+    "not-streaming": "não transmitir"
   },
   "http-methods": {
     "get": "GET",

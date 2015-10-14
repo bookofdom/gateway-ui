@@ -12,6 +12,7 @@ Router.map ->
   @resource 'users', ->
     @resource 'user', path: ':user_id', ->
       @route 'edit'
+  @resource 'logs', (->)
   @resource 'apis', ->
     @resource 'api', path: ':api_id', ->
       @route 'edit'
@@ -32,6 +33,7 @@ Router.map ->
           @resource 'proxy-endpoint-tests', path: 'tests', ->
             @resource 'proxy-endpoint-test', path: ':proxy_endpoint_test_id', ->
               @route 'edit'
+          @resource 'logs-proxy-endpoint', path: 'logs', (->)
       @resource 'environments', ->
         @resource 'environment', path: ':environment_id', ->
           @route 'edit'
@@ -51,5 +53,6 @@ Router.map ->
       @resource 'libraries', ->
         @resource 'library', path: ':library_id', ->
           @route 'edit'
+      @resource 'logs-api', path: 'logs', (->)
 
 `export default Router`

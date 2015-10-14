@@ -21,6 +21,7 @@
     "delete": "delete",
     "save": "save",
     "cancel": "cancel",
+    "clear": "स्पष्ट",
     "new": "new",
     "new-x": "new $t(__x__)",
     "edit": "edit",
@@ -53,6 +54,7 @@
       "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints",
       "hosts": "define named hosts associated with this API",
       "libraries": "define shared libraries for use in JavaScript code blocks",
+      "logs": "देखें , खोज, और धारा के लॉग",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
@@ -111,7 +113,9 @@
     "host": "host",
     "host_plural": "hosts",
     "library": "shared library",
-    "library_plural": "shared libraries"
+    "library_plural": "shared libraries",
+    "log": "सर्वर लॉग",
+    "log_plural": "सर्वर लॉग"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single call",
@@ -174,6 +178,10 @@
     "operation_name": "ऑपरेशन के नाम",
     "action_name": "कार्रवाई के नाम",
     "auth_scheme": "प्रमाणीकरण योजना",
+    "search": "खोज",
+    "start_date": "आरंभ करने की तिथि",
+    "end_date": "अंतिम तिथि",
+    "maximum_lines": "अधिकतम लाइनों",
     "help": {
       "timeout": "सेकंड की संख्या।",
       "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।"
@@ -188,7 +196,9 @@
   },
   "states": {
     "active": "active",
-    "inactive": "inactive"
+    "inactive": "inactive",
+    "streaming": "स्ट्रीमिंग",
+    "not-streaming": "स्ट्रीमिंग नहीं"
   },
   "http-methods": {
     "get": "GET",
