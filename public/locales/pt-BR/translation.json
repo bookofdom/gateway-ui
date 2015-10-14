@@ -54,6 +54,7 @@
       "remote-endpoints": "define os endpoints remotos da API que proporcionam servicios aos endpoints da proxy",
       "hosts": "define os servidores associados com a API",
       "libraries": "define bibliotecas compartilhadas para uso em blocos de código de JavaScript",
+      "logs": "visualização, pesquisa e transmissão de registros",
       "formatted": {
         "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",
         "build-app": "<b>(login necessário)</b><br>Constrói aplicações de multi-canais com a plataforma AnyPresence"
@@ -93,6 +94,8 @@
     "proxy-endpoint-test-header_plural": "cabeçalhos",
     "proxy-endpoint-test-query-parameter": "parametro de consulta",
     "proxy-endpoint-test-query-parameter_plural": "parametros de consulta",
+    "proxy-endpoint-test-argument": "argumento",
+    "proxy-endpoint-test-argument_plural": "argumento",
     "environment": "ambiente",
     "environment_plural": "ambientes",
     "environment-variable": "variável do ambiente",
