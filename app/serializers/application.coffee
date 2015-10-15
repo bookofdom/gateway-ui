@@ -20,10 +20,17 @@ ApplicationSerializer = DS.RESTSerializer.extend
       when 'belongsTo' then "#{key}_id"
       when 'hasMany' then "#{singularKey}_ids"
       else key
-  # Request payload is rooted.
+
   serialize: ->
     serialized = @_super.apply @, arguments
+    @serializeId serialized
     delete serialized['api_id']
+    serialized
+  # Numericize the ID if possible
+  serializeId: (serialized) ->
+    id = serialized.id
+    numericId = parseInt id, 10 if id?
+    serialized.id = numericId if id?.toString() == numericId?.toString()
     serialized
   # Server wants IDs to be numeric.
   serializeBelongsTo: (snapshot, json, relationship) ->
