@@ -6,7 +6,7 @@ LogSerializer = ApplicationSerializer.extend
     payload = logs: [payload]
     @_super.apply @, [store, typeClass, payload, id, requestType]
   normalize: (type, hash, property) ->
-    hash.body = hash.logs
+    hash.lines = [hash.logs]
     @_super.apply @, arguments
 
 `export default LogSerializer`
