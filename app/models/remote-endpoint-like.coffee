@@ -51,6 +51,11 @@ RemoteEndpointLike = Model.extend
   username: DS.attr 'string'
   password: DS.attr 'string'
 
+  # script
+  interpreter: DS.attr 'string'
+  filepath: DS.attr 'string'
+  script: DS.attr 'string'
+
   # Relationships
   headers: DS.hasMany 'remote-endpoint-header',
     async: false
@@ -100,7 +105,7 @@ RemoteEndpointLike = Model.extend
     @get 'sslModeType.name'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb script'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type
@@ -120,10 +125,29 @@ authSchemes = 'basic wsse'.split(' ').map (scheme) ->
   slug: scheme
   value: scheme
 
+interpreters = [
+  name: 'sh'
+  os: 'darwin'
+  value: 'sh'
+,
+  name: 'sh'
+  os: 'linux'
+  value: 'sh'
+,
+  name: 'bash'
+  os: 'linux'
+  value: 'bash'
+,
+  name: 'cmd.exe'
+  os: 'windows'
+  value: 'cmd.exe'
+]
+
 RemoteEndpointLike.reopenClass
   types: types
   statusTypes: statusTypes
   sslModes: sslModes
   authSchemes: authSchemes
+  interpreters: interpreters
 
 `export default RemoteEndpointLike`

@@ -1,6 +1,7 @@
 `import FormController from 'gateway/controllers/form'`
 `import RemoteEndpointLike from '../../models/remote-endpoint-like'`
 `import t from 'gateway/helpers/i18n'`
+`import config from  '../../config/environment'`
 
 RemoteEndpointLikeFormController = FormController.extend
   'option-groups': Ember.computed ->
@@ -22,6 +23,11 @@ RemoteEndpointLikeFormController = FormController.extend
       name: t 'http-methods.delete'
       value: 'DELETE'
     ]
+    interpreter: RemoteEndpointLike.interpreters.filter (interpreter) ->
+      if config.meta['goos']
+        interpreter.os == config.meta['goos']
+      else
+        true
 
   platformFields: Ember.computed 'modelType', ->
     fields =
@@ -154,6 +160,16 @@ RemoteEndpointLikeFormController = FormController.extend
         name: 'limit'
         type: 'integer'
         required: true
+      ]
+      script: [
+        name: 'interpreter'
+        type: 'select'
+        required: true
+      ,
+        name: 'filepath'
+      ,
+        name: 'script'
+        type: 'editor-text'
       ]
     # environment datum may not set WSDL
     fields.soap.shift() if @get('modelType') is 'remote-endpoint-environment-datum'

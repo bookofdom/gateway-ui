@@ -188,7 +188,10 @@
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique una costumbre Content-Type en las cabeceras de petición."
-    }
+    },
+    "interpreter": "intérprete",
+    "filepath": "ruta de archivo",
+    "script": "guión"
   },
   "prompts": {
     "generic": "elija uno",
@@ -238,6 +241,7 @@
   },
   "types": {
     "remote-endpoint": {
+      "script": "guión",
       "status-types": {
         "success": "éxito",
         "error": "error",
