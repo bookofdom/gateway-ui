@@ -166,6 +166,10 @@ RemoteEndpointLikeFormController = FormController.extend
         type: 'select'
         required: true
       ,
+        name: 'timeout'
+        label: 'fields.execution-timeout'
+        type: 'integer'
+      ,
         name: 'filepath'
       ,
         name: 'script'

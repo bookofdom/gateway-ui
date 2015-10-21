@@ -166,6 +166,7 @@
     "schema": "schema",
     "transactions": "transactions",
     "timeout": "connection timeout",
+    "execution-timeout": "execution timeout",
     "maxidle": "max. idle connections",
     "maxopen": "max. open connections",
     "host": "host",

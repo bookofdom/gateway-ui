@@ -166,6 +166,7 @@
     "schema": "esquema",
     "transactions": "transacciones",
     "timeout": "conexión expirada​",
+    "execution-timeout": "tiempo de espera de la ejecución",
     "maxidle": "máximas conexiones inactivas",
     "maxopen": "máximas conexiones abiertas",
     "host": "host",
