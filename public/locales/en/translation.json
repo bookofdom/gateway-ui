@@ -239,7 +239,8 @@
   "notifications": {
     "create": "__user__ created one __resource__",
     "update": "__user__ updated one __resource__",
-    "delete": "__user__ deleted one __resource__"
+    "delete": "__user__ deleted one __resource__",
+    "import": "__user__ imported one __resource__"
   },
   "types": {
     "remote-endpoint": {

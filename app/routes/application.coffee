@@ -38,7 +38,10 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   onNotification: Ember.on 'notification', (notification) ->
     # notify user of change
     message = notification.get('message')
-    if notification.get 'isDeleted'
+    if notification.get 'isImported'
+      if notification.get 'isAPI'
+        @get('notify').info message
+    else if notification.get 'isDeleted'
       @get('notify').error message
     else
       @get('notify').info message
@@ -67,7 +70,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       index.reload()
     else if resourceIsLoaded
       switch action
-        when 'create', 'update'
+        when 'create', 'update', 'import'
           # cancel does two things:  reload and rollback
           resourceRecord.cancel()
         when 'delete'

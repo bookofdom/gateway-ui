@@ -39,6 +39,8 @@ Notification = DS.Model.extend
   isCreated: Ember.computed 'action', -> @get('action') is 'create'
   isUpdated: Ember.computed 'action', -> @get('action') is 'update'
   isDeleted: Ember.computed 'action', -> @get('action') is 'delete'
+  isImported: Ember.computed 'action', -> @get('action') is 'import'
+  isAPI: Ember.computed 'resource', -> @get('resource') is 'api'
 
   # Give the resource a reference to this notification.
   # Overwrite whatever was there previously, since notifications are meant
