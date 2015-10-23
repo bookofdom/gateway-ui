@@ -84,7 +84,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   loadingObserver: Ember.observer 'isLoading', ->
     isLoading = @get 'isLoading'
     appController = @controller
-    appController.set 'isLoading', isLoading
+    appController?.set 'isLoading', isLoading
 
   actions:
     sessionRequiresAuthentication: ->

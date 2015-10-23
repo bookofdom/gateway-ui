@@ -1,10 +1,14 @@
 `import FormController from 'gateway/controllers/form'`
 
 LibraryFormController = FormController.extend
+  'api': Ember.inject.controller()
   libraries: Ember.inject.controller()
   modelType: 'library'
-  'option-groups': Ember.computed 'libraries.model', ->
-    body: @get 'libraries.model'
+  # Use preloaded api.libraries rather than libraries.model,
+  # since libraries.model is filtered to remove internal libraries
+  # which *should* be included in autocomplete.
+  'option-groups': Ember.computed 'api.libraries', ->
+    body: @get 'api.libraries'
   fields: Ember.computed ->
     [
       name: 'name'

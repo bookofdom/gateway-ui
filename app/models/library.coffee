@@ -5,6 +5,7 @@ Library = Model.extend
   name: DS.attr 'string'
   description: DS.attr 'string'
   body: DS.attr 'string', defaultValue: ''
+  internal: DS.attr 'boolean'
 
   # Computed
   value: Ember.computed 'body', ->
