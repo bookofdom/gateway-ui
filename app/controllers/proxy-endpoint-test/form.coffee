@@ -76,7 +76,12 @@ ProxyEndpointTestFormController = FormController.extend
     language = 'text' if !@get 'model.isFormEncoded'
     language = 'json' if @get 'model.isJson'
     language = 'xml' if @get 'model.isXml'
-    language
+    # TODO
+    # Harcoded to text to eliminate the associated mode and worker scripts
+    # otherwise required to support json and xml editing.
+    # If full editor support for json and xml is desired, it may be reenabled
+    # by importing the proper mode and worker scripts in ember-cli-build.js
+    'text'
 
   bodyField: Ember.computed 'bodyLanguage', ->
     name: 'body'

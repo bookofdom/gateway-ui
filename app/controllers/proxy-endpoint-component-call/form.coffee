@@ -6,7 +6,8 @@ ProxyEndpointComponentCallFormController = FormController.extend
   'api': Ember.inject.controller()
   'proxy-endpoint-component-calls': Ember.inject.controller()
   modelType: 'proxy-endpoint-component-call'
-  'option-groups': Ember.computed 'api.remote_endpoints.@each.isNew', ->
+  'option-groups': Ember.computed 'api.libraries', 'api.remote_endpoints.@each.isNew', ->
+    conditional: @get 'api.libraries'
     remote_endpoint: @get('api.remote_endpoints').filterBy 'isNew', false
   fields: Ember.computed 'model.isNew', ->
     newFields = [

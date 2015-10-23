@@ -5,5 +5,6 @@ ProxyEndpointTestEditRoute = Ember.Route.extend AuthenticatedRouteMixin,
   actions:
     didTransition: ->
       @controller.reset()
+      true
 
 `export default ProxyEndpointTestEditRoute`

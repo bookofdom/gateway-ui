@@ -1,34 +1,71 @@
 `import Ember from 'ember'`
 
+ace = window.ace
+
 ApAceEditorComponent = Ember.Component.extend
   classNames: ['ap-ace-editor']
   classNameBindings: ['sizeClass']
   value: null
+  # Libraries are name/value pairs, where the values are code documents
+  # that Tern should include in autocomplete.
+  libraries: null
   editor: null
+  server: null
   size: null
   language: 'javascript'
   theme: 'slate'
   options:
+    enableTern:
+      # http://ternjs.net/doc/manual.html#option_defs
+      defs: ['browser', 'ecma5']
+      # http://ternjs.net/doc/manual.html#plugins
+      plugins:
+        doc_comment:
+          fullDocs: true
+    enableSnippets: true
     enableBasicAutocompletion: true
-    enableLiveAutocompletion: true
   sizeClass: Ember.computed 'size', ->
     size = @get 'size'
     "ap-ace-editor-#{size}" if size
+  aceMode: Ember.computed 'language', ->
+    "ace/mode/#{@get 'language'}"
+  aceTheme: Ember.computed 'theme', ->
+    "ace/theme/#{@get 'theme'}"
   didInsertElement: ->
-    language = @get 'language'
-    theme = @get 'theme'
+    Ember.run =>
+      @initializeEditor()
+      @initializeTern()
+  initializeEditor: ->
     options = @get 'options'
     el = @$('.form-control').get 0
-    editor = window.ace.edit el
-    editor.getSession().setMode "ace/mode/#{language}"
-    editor.setTheme "ace/theme/#{theme}"
+    editor = ace.edit el
+    editor.getSession().setMode @get('aceMode')
+    editor.setTheme @get('aceTheme')
     editor.getSession().setTabSize 2
     editor.setOptions options
+    editor.$blockScrolling = Infinity # prevents ace from logging warnings
     editor.on 'change', =>
       value = editor.getSession().getValue()
       @trigger 'editorChange', value
     @set 'editor', editor
-  onEditorChange: Ember.on 'editorChange', (value) -> @set 'value', value
+  initializeTern: ->
+    @restartTern()
+    @addTernLibraries()
+  restartTern: ->
+    server = @get 'editor.ternServer'
+    server.restart()
+  addTernLibraries: ->
+    mode = @get 'aceMode'
+    libraries = @get 'libraries'
+    server = @get 'editor.ternServer'
+    EditSession = ace.require('ace/edit_session').EditSession
+    libraries?.forEach (library) ->
+      name = library.get 'name'
+      value = library.get 'value'
+      doc = new EditSession value, mode
+      server.addDoc name, doc
+  onEditorChange: Ember.on 'editorChange', (value) ->
+    @set 'value', value
   onValueChange: Ember.observer 'value', ->
     editor = @get 'editor'
     value = @get('value') or ''

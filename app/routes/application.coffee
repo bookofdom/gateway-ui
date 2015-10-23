@@ -7,6 +7,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   notificationService: Ember.inject.service 'notification'
   notify: Ember.inject.service()
 
+  isLoading: false
   isDevMode: config.meta['dev-mode']
 
   afterModel: (first, transition) ->
@@ -79,6 +80,12 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       @get('session').authenticate 'authenticator:dev-mode', {}
     else
       @transitionTo config['simple-auth'].routeAfterInvalidation
+
+  loadingObserver: Ember.observer 'isLoading', ->
+    isLoading = @get 'isLoading'
+    appController = @controller
+    appController?.set 'isLoading', isLoading
+
   actions:
     sessionRequiresAuthentication: ->
       @authenticate()
@@ -106,5 +113,11 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       window.location.reload()
     localChange: (locale) ->
       window.location.search = "locale=#{locale}"
+    loading: ->
+      @set 'isLoading', true
+      true
+    didTransition: ->
+      Ember.run.later (=> @set 'isLoading', false), 1000
+      true
 
 `export default ApplicationRoute`

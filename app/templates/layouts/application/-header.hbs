@@ -16,6 +16,11 @@
           <span class="ap-brand ap-brand-version">{{meta.version}}</span>
         {{/if}}
       {{/link-to}}<!-- /.navbar-brand -->
+      {{#if isLoading}}
+        <div class="ap-loading-container pull-left">
+          {{spin-spinner lines=13 length=5 width=2 radius=5 color='#FFF' hwaccel=true}}
+        </div><!-- /.ap-loading-container -->
+      {{/if}}
     </div><!-- /.navbar-header -->
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -34,7 +39,7 @@
           <li class="dropdown">
             <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
               <span class="text-lowercase">{{session.secure.email}}</span>
-              <span class="retina-arrows-007"></span>
+              {{ap-icon icon='arrows-007'}}
             </a><!-- .btn -->
             <ul class="dropdown-menu">
               {{#unless meta.dev-mode}}

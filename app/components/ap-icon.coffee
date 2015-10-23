@@ -6,13 +6,14 @@ ApIconComponent = BsBaseComponent.extend
   classNames: ['ap-icon']
   attributeBindings: ['titleText:title']
   icon: null
-  type: 'retina'
+  type: 'gateway-icon'
   style: 'primary'
   title: null
   iconClass: Ember.computed 'icon', ->
     type = @get 'type'
+    prefix = type.replace '-icon', ''
     icon = @get 'icon'
-    "#{type} #{type}-#{icon}" if icon
+    "#{type} #{prefix}-#{icon}" if icon
   titleText: Ember.computed 'title', ->
     @get('title')?.capitalize() if typeof @get('title') == 'string'
 
