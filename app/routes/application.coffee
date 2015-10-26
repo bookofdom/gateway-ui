@@ -38,13 +38,11 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   onNotification: Ember.on 'notification', (notification) ->
     # notify user of change
     message = notification.get('message')
-    if notification.get 'isImported'
-      if notification.get 'isAPI'
+    if notification.get 'isDisplayed'
+      if notification.get 'isDeleted'
+        @get('notify').error message
+      else
         @get('notify').info message
-    else if notification.get 'isDeleted'
-      @get('notify').error message
-    else
-      @get('notify').info message
     # refresh resource
     @refreshResourceForNotification notification
   # Handles reloading of model(s) that received notification.
@@ -70,7 +68,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       index.reload()
     else if resourceIsLoaded
       switch action
-        when 'create', 'update', 'import'
+        when 'create', 'update'
           # cancel does two things:  reload and rollback
           resourceRecord.cancel()
         when 'delete'
