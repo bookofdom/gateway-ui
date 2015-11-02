@@ -1,0 +1,13 @@
+{{#ap-page t='resources.user_plural'}}
+
+  {{ap-table-index
+      models=model
+      fields='name,email'
+      path='library.index'
+      edit-path='library.edit'}}
+
+  {{#ap-panel-new t='resources.user' closed=model.length}}
+    {{render 'user.form'}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}
