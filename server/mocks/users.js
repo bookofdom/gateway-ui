@@ -6,6 +6,11 @@ module.exports = function(app) {
       id: 1,
       name: 'Admin',
       email: 'test@foo.com'
+    },
+    {
+      id: 2,
+      name: 'Sally Field',
+      email: 'fields_of@sally.com'
     }
   ]
 
@@ -14,14 +19,14 @@ module.exports = function(app) {
       'users': users
     });
   });
-  
+
   usersRouter.post('/', function(req, res) {
     var body = req.body;
     var id = Math.round(Math.random() * 100) + 100;
     body.user.id = id;
     res.status(201).send(body).end();
   });
-  
+
   usersRouter.get('/:id', function(req, res) {
     var user = users.filter(function (value) {
       return value.id == req.params.id;
