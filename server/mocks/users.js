@@ -9,7 +9,7 @@ module.exports = function(app) {
     },
     {
       id: 2,
-      name: 'Sally Fields',
+      name: 'Sally Field',
       email: 'fields_of@sally.com'
     }
   ]
