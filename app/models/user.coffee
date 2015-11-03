@@ -1,3 +1,4 @@
+`import Ember from 'ember'`
 `import DS from 'ember-data'`
 `import Model from './model'`
 `import t from 'gateway/helpers/i18n'`
@@ -9,7 +10,7 @@ User = Model.extend
   password_confirmation: DS.attr 'string'
 
   # Services
-  session: Ember.inject.service 'session'
+  session: Ember.inject.service 'simple-auth-session:main'
 
   # Computed
   isAuthenticated: Ember.computed 'session.secure.email', ->
