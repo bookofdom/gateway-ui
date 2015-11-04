@@ -5,6 +5,8 @@ ProxyEndpointsRoute = Ember.Route.extend AuthenticatedRouteMixin,
   queryParams:
     environment_id:
       refreshModel: false
+    endpoint_group_id:
+      refreshModel: false
 
   model: -> @modelFor('api').get 'proxy_endpoints'
 
