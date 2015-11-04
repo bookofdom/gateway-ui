@@ -34,7 +34,8 @@
     "specify-custom": "especifique personalizada",
     "drop-or-click-to-upload": "suelta o presiona para subir",
     "select-add-component-type": "selecciona un tipo de componente para agregar",
-    "fullscreen": "pantalla completa"
+    "fullscreen": "pantalla completa",
+    "filter": "filtro"
   },
   "nav": {
     "home": "inicio",
