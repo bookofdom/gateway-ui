@@ -96,6 +96,8 @@
     "proxy-endpoint-test-query-parameter_plural": "parametros de consulta",
     "proxy-endpoint-test-argument": "argumento",
     "proxy-endpoint-test-argument_plural": "argumento",
+    "proxy-endpoint-schema": "validação de esquema",
+    "proxy-endpoint-schema_plural": "validações de esquema",
     "environment": "ambiente",
     "environment_plural": "ambientes",
     "environment-variable": "variável do ambiente",
@@ -192,7 +194,10 @@
     },
     "interpreter": "intérprete",
     "filepath": "caminho de arquivo",
-    "script": "script"
+    "script": "script",
+    "request_schema": "esquema de solicitação",
+    "response_same_as_request": "como resposta mesmo pedido",
+    "response_schema": "esquema de resposta"
   },
   "prompts": {
     "generic": "escolha um",

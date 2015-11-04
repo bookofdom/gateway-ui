@@ -96,6 +96,8 @@
     "proxy-endpoint-test-query-parameter_plural": "parámetros de consulta",
     "proxy-endpoint-test-argument": "तर्क",
     "proxy-endpoint-test-argument_plural": "तर्क",
+    "proxy-endpoint-schema": "स्कीमा मान्यता",
+    "proxy-endpoint-schema_plural": "स्कीमा सत्यापन",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
@@ -192,7 +194,10 @@
     },
     "interpreter": "दुभाषिया",
     "filepath": "दस्तावेज पथ",
-    "script": "लिपि"
+    "script": "लिपि",
+    "request_schema": "अनुरोध स्कीमा",
+    "response_same_as_request": "अनुरोध के रूप में एक ही प्रतिक्रिया",
+    "response_schema": "प्रतिक्रिया स्कीमा"
   },
   "prompts": {
     "generic": "choose one",

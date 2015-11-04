@@ -33,6 +33,9 @@ Router.map ->
           @resource 'proxy-endpoint-tests', path: 'tests', ->
             @resource 'proxy-endpoint-test', path: ':proxy_endpoint_test_id', ->
               @route 'edit'
+          @resource 'proxy-endpoint-schemas', path: 'schemas', ->
+            @resource 'proxy-endpoint-schema', path: ':proxy_endpoint_schema_id', ->
+              @route 'edit'
           @resource 'logs-proxy-endpoint', path: 'logs', (->)
       @resource 'environments', ->
         @resource 'environment', path: ':environment_id', ->
