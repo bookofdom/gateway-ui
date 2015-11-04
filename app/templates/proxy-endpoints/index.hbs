@@ -1,5 +1,7 @@
 {{#ap-page t='resources.proxy-endpoint_plural' help-url='http://docs.justapis.com/proxy-end-points'}}
 
+  {{partial 'proxy-endpoints/-filter-form'}}
+
   {{ap-table-index
       models=filtered
       fields='name,description,environment:resources.environment:object-name,endpoint_group:resources.endpoint-group:object-name,active::active-label'
