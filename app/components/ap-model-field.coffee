@@ -12,6 +12,7 @@ ApModelFieldComponent = BsBaseComponent.extend
   fieldLabel: null
   fieldHelp: null
   fieldType: null
+  fieldPrompt: null
   fieldRequired: null
   name: Ember.computed 'fieldName',
     get: -> @get 'fieldName'
@@ -47,8 +48,15 @@ ApModelFieldComponent = BsBaseComponent.extend
       label = t(@get 'label').capitalize()
       label = "#{label}*" if @get 'required'
       label
-  prompt: Ember.computed 'label', ->
-    t('prompts.choose-x', x: @get 'label').capitalize()
+  prompt: Ember.computed 'label', 'fieldPrompt',
+    get: ->
+      prompt = @get 'fieldPrompt'
+      prompt = t('prompts.choose-x', x: @get 'label').capitalize() if !prompt?
+      prompt
+    set: (key, value) ->
+      currentValue = @get 'fieldPrompt'
+      @set 'fieldPrompt', value if value? and (value != currentValue)
+      @get 'prompt'
   options: Ember.computed 'name', 'option-groups', ->
     @get('option-groups')?[@get('name')]
   attribute: Ember.computed 'model', 'name', ->
