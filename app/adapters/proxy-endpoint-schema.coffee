@@ -17,6 +17,6 @@ ProxyEndpointSchemaAdapter = ApplicationAdapter.extend
       if schemaId
         "#{proxyEndpointUrl}/schemas/#{schemaId}"
       else
-        "#{proxyEndpointUrl}/schemas/"
+        "#{proxyEndpointUrl}/schemas"
 
 `export default ProxyEndpointSchemaAdapter`
