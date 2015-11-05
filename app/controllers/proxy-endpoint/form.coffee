@@ -15,6 +15,7 @@ ProxyEndpointFormController = FormController.extend
     label: 'resources.environment'
     type: 'select-model-name'
     required: true
+    prompt: false
   ,
     name: 'endpoint_group'
     label: 'resources.endpoint-group'
