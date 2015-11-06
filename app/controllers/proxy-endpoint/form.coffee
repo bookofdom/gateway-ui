@@ -36,6 +36,7 @@ ProxyEndpointFormController = FormController.extend
     label: 'resources.environment'
     type: 'select-model-name'
     required: true
+    prompt: false
   ,
     name: 'endpoint_group'
     label: 'resources.endpoint-group'
@@ -46,6 +47,13 @@ ProxyEndpointFormController = FormController.extend
   'option-groups': Ember.computed 'api.environments.@each.isNew', 'api.endpoint_groups.@each.isNew', ->
     environment: @get('api.environments').filterBy 'isNew', false
     endpoint_group: @get('api.endpoint_groups').filterBy 'isNew', false
+  createNewModel: ->
+    modelType = @get 'modelType'
+    newModel = @store?.createRecord modelType
+    firstEnvironment = @get 'option-groups.environment.firstObject'
+    newModel.set 'environment', firstEnvironment
+    @set 'model', newModel
+    newModel
   createNewRouteModel: ->
     model = @get 'model'
     newRouteModel = @store?.createRecord 'proxy-endpoint-route'
