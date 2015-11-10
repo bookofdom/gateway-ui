@@ -2309,6 +2309,13 @@ ace.define("ace/tern/tern_server",["require","exports","module","ace/range","ace
                     popupSelectionChanged(); //call once if popupselect bound exited to show tooltip for first item
                 }
                 function bindPopupSelect() {
+                    // TODO obviously, tooltips and helpers should close when
+                    // the editor is blurred.  Why this is not the default
+                    // behavior remains a mystery.
+                    editor.on('blur', function () {
+                      closeAllTips();
+                      editor.completer.popup.hide();
+                    });
                     // TODO added to ensure info tooltip is always recreated,
                     // since otherwise it will fail to update if there are
                     // multiple code areas visible at once
