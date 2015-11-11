@@ -2,7 +2,6 @@
 
 BsBaseComponent = Ember.Component.extend
   classNameBindings: [
-    'active'
     'disabled'
     'hiddenClasses'
     'pullClass'
@@ -13,7 +12,6 @@ BsBaseComponent = Ember.Component.extend
   ]
   sizes: ['xs', 'sm', 'md', 'lg']
   stateNames: ['primary', 'success', 'info', 'warning', 'danger']
-  active: false
   disabled: false
   left: false
   right: false
