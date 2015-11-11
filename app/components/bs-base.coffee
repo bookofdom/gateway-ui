@@ -6,8 +6,6 @@ BsBaseComponent = Ember.Component.extend
     'hiddenClasses'
     'pullClass'
     'textAlignmentClass'
-    'textContextClass'
-    'bgContextClass'
   ]
   sizes: ['xs', 'sm', 'md', 'lg']
   stateNames: ['primary', 'success', 'info', 'warning', 'danger']
@@ -34,17 +32,5 @@ BsBaseComponent = Ember.Component.extend
       'text-right'
     else if @get 'text-center'
       'text-center'
-  textContextClass: Ember.computed 'text-{muted,primary,success,info,warning,danger}', ->
-    states = @get('stateNames').slice()
-    states.push 'muted'
-    (for state in states
-      stateClass = "text-#{state}"
-      stateClass if @get stateClass
-    ).compact().join ' '
-  bgContextClass: Ember.computed 'bg-{primary,success,info,warning,danger}', ->
-    (for state in @get 'stateNames'
-      stateClass = "bg-#{state}"
-      stateClass if @get stateClass
-    ).compact().join ' '
 
 `export default BsBaseComponent`
