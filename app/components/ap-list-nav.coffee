@@ -1,6 +1,8 @@
 `import Ember from 'ember'`
 `import BsBaseComponent from 'gateway/components/bs-base'`
 
+sizes = ['xs', 'sm', 'lg', 'xl']
+
 ApListNavComponent = BsBaseComponent.extend
   tagName: 'ul'
   classNames: ['ap-list-nav', 'list-unstyled']
@@ -20,8 +22,6 @@ ApListNavComponent = BsBaseComponent.extend
   'secondary-hover': false
   'show-text': true
   sizeClass: Ember.computed '{xs,sm,lg,xl}', ->
-    sizes = @get('sizes').slice()
-    sizes.push 'xl'
     classes = (for size in sizes
       sizeClass = "ap-list-nav-#{size}"
       sizeClass if @get size

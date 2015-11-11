@@ -1,6 +1,8 @@
 `import Ember from 'ember'`
 `import BsTextComponent from 'gateway/components/bs-text'`
 
+sizes = ['xs', 'sm', 'lg']
+
 BsButtonComponent = BsTextComponent.extend
   tagName: 'a'
   classNames: ['btn']
@@ -16,7 +18,7 @@ BsButtonComponent = BsTextComponent.extend
   block: false
   styleClass: Ember.computed 'style', -> "btn-#{@get 'style'}"
   sizeClass: Ember.computed '{xs,sm,lg}', ->
-    (for size in @get 'sizes'
+    (for size in sizes
       sizeClass = "btn-#{size}"
       sizeClass if @get size
     ).compact().join ' '
