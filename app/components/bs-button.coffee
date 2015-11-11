@@ -1,12 +1,16 @@
 `import Ember from 'ember'`
 `import BsTextComponent from 'gateway/components/bs-text'`
 
-sizes = ['xs', 'sm', 'lg']
-
 BsButtonComponent = BsTextComponent.extend
   tagName: 'a'
   classNames: ['btn']
-  classNameBindings: ['styleClass', 'sizeClass', 'block:btn-block']
+  classNameBindings: [
+    'styleClass'
+    'xs:btn-xs'
+    'sm:btn-sm'
+    'lg:btn-lg'
+    'block:btn-block'
+  ]
   attributeBindings: ['url:href', 'target']
   action: null
   url: null
@@ -17,11 +21,6 @@ BsButtonComponent = BsTextComponent.extend
   lg: false
   block: false
   styleClass: Ember.computed 'style', -> "btn-#{@get 'style'}"
-  sizeClass: Ember.computed '{xs,sm,lg}', ->
-    (for size in sizes
-      sizeClass = "btn-#{size}"
-      sizeClass if @get size
-    ).compact().join ' '
   click: -> @sendAction() if !@get 'disabled'
 
 `export default BsButtonComponent`

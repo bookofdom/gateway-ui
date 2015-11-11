@@ -4,7 +4,7 @@
 
 BsFormGroupComponent = BsTextComponent.extend
   classNames: ['form-group']
-  classNameBindings: ['errorClass']
+  classNameBindings: ['error:has-error']
   label: null
   help: null
   inline: false
@@ -18,7 +18,6 @@ BsFormGroupComponent = BsTextComponent.extend
   offset: null
   t: Ember.computed 'label', -> @get 'label'
   secondary: Ember.computed 'help', -> @get 'help'
-  errorClass: Ember.computed 'error', -> 'has-error' if @get 'error'
   'control-label-classes': Ember.computed 'horizontal', 'show-label', ->
     labelClasses = []
     labelClasses.push('control-label') if !@get 'inline'

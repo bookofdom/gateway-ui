@@ -3,12 +3,8 @@
 
 BsFormComponent = BsBaseComponent.extend
   tagName: 'form'
-  classNameBindings: ['formTypeClass']
+  classNameBindings: ['inline:form-inline', 'horizontal:form-horizontal']
   inline: false
   horizontal: false
-  formTypeClass: Ember.computed 'inline', 'horizontal', ->
-    formTypeClass = 'form-inline' if @get 'inline'
-    formTypeClass = 'form-horizontal' if @get 'horizontal'
-    formTypeClass
 
 `export default BsFormComponent`

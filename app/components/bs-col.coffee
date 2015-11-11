@@ -7,8 +7,6 @@ BsColComponent = BsBaseComponent.extend
   classNameBindings: [
     'sizeClasses'
     'offsetClasses'
-    'pushClasses'
-    'pullClasses'
   ]
   sizeClasses: Ember.computed '{xs,sm,md,lg}', ->
     (for size in sizes
@@ -17,16 +15,6 @@ BsColComponent = BsBaseComponent.extend
     (for size in sizes
       offset = @get(size.toString() + '-offset')
       "col-#{size}-offset-#{offset}" if offset
-    ).compact().join ' '
-  pushClasses: Ember.computed '{xs,sm,md,lg}-push', ->
-    (for size in sizes
-      push = @get(size.toString() + '-push')
-      "col-#{size}-push-#{push}" if push
-    ).compact().join ' '
-  pullClasses: Ember.computed '{xs,sm,md,lg}-pull', ->
-    (for size in sizes
-      pull = @get(size.toString() + '-pull')
-      "col-#{size}-pull-#{pull}" if pull
     ).compact().join ' '
 
 `export default BsColComponent`
