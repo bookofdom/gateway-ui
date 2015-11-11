@@ -6,7 +6,6 @@ BsBaseComponent = Ember.Component.extend
     'hiddenClasses'
     'pullClass'
     'textAlignmentClass'
-    'textTransformClass'
     'textContextClass'
     'bgContextClass'
   ]
@@ -18,9 +17,6 @@ BsBaseComponent = Ember.Component.extend
   'text-left': false
   'text-right': false
   'text-center': false
-  lowercase: false
-  uppercase: false
-  capitalize: false
   hiddenClasses: Ember.computed 'hidden-{xs,sm,md,lg}', ->
     (for size in @get 'sizes'
       hiddenClass = "hidden-#{size}"
@@ -38,13 +34,6 @@ BsBaseComponent = Ember.Component.extend
       'text-right'
     else if @get 'text-center'
       'text-center'
-  textTransformClass: Ember.computed '{lowercase,uppercase,capitalize}', ->
-    if @get 'lowercase'
-      'text-lowercase'
-    else if @get 'uppercase'
-      'text-uppercase'
-    else if @get 'capitalize'
-      'text-capitalize'
   textContextClass: Ember.computed 'text-{muted,primary,success,info,warning,danger}', ->
     states = @get('stateNames').slice()
     states.push 'muted'
