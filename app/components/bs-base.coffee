@@ -3,7 +3,6 @@
 BsBaseComponent = Ember.Component.extend
   classNameBindings: [
     'disabled'
-    'hiddenClasses'
     'pullClass'
     'textAlignmentClass'
   ]
@@ -15,11 +14,6 @@ BsBaseComponent = Ember.Component.extend
   'text-left': false
   'text-right': false
   'text-center': false
-  hiddenClasses: Ember.computed 'hidden-{xs,sm,md,lg}', ->
-    (for size in @get 'sizes'
-      hiddenClass = "hidden-#{size}"
-      hiddenClass if @get hiddenClass
-    ).compact().join ' '
   pullClass: Ember.computed '{left,right}', ->
     if @get 'left'
       'pull-left'
