@@ -4,7 +4,6 @@ BsBaseComponent = Ember.Component.extend
   classNameBindings: [
     'active'
     'disabled'
-    'clearfix'
     'hiddenClasses'
     'pullClass'
     'textAlignmentClass'
@@ -16,7 +15,6 @@ BsBaseComponent = Ember.Component.extend
   stateNames: ['primary', 'success', 'info', 'warning', 'danger']
   active: false
   disabled: false
-  clearfix: false
   left: false
   right: false
   'text-left': false
