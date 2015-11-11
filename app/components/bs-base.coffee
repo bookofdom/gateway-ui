@@ -7,7 +7,6 @@ BsBaseComponent = Ember.Component.extend
     'textAlignmentClass'
   ]
   sizes: ['xs', 'sm', 'md', 'lg']
-  stateNames: ['primary', 'success', 'info', 'warning', 'danger']
   disabled: false
   left: false
   right: false
