@@ -25,8 +25,8 @@
   {{/if}}
 
   {{#unless model.isNew}}
-    {{#bs-row}}
-      {{#bs-col lg=6}}
+    <div class="row">
+      <div class="col-lg-6">
         {{#ap-panel-edit t='resources.proxy-endpoint-test-header_plural'
           class='panel-small'}}
           {{ap-table-model
@@ -37,8 +37,8 @@
             t='resources.proxy-endpoint-test-header'
             action='new-proxy-endpoint-test-header'}}
         {{/ap-panel-edit}}
-      {{/bs-col}}
-      {{#bs-col lg=6}}
+      </div><!-- /.col -->
+      <div class="col-lg-6">
         {{#if showQueryParameters}}
           {{#ap-panel-edit t='resources.proxy-endpoint-test-query-parameter_plural'
             class='panel-small'}}
@@ -51,8 +51,8 @@
               action='new-proxy-endpoint-test-query-parameter'}}
           {{/ap-panel-edit}}
         {{/if}}
-      {{/bs-col}}
-    {{/bs-row}}
+      </div><!-- /.col -->
+    </div><!-- /.row -->
 
     {{#ap-panel-edit t='resources.proxy-endpoint-test-argument_plural' class='panel-small'}}
       {{ap-table-model
