@@ -3,7 +3,7 @@
 
 ApFormActionsComponent = BsBaseComponent.extend
   classNames: ['ap-form-actions']
-  classNameBindings: ['extraClassNames']
+  classNameBindings: ['inline:form-group']
   inline: false
   horizontal: true
   offset: true
@@ -15,9 +15,6 @@ ApFormActionsComponent = BsBaseComponent.extend
   'delete-text': 'actions.delete'
   'cancel-action': 'cancel'
   'delete-action': 'delete'
-  extraClassNames: Ember.computed 'inline', ->
-    # add form-group class for proper inlining
-    'form-group' if @get 'inline'
   actions:
     cancel: -> @sendAction 'cancel-action'
     delete: -> @sendAction 'delete-action'

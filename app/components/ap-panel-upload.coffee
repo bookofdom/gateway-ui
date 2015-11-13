@@ -4,10 +4,9 @@
 
 ApPanelUploadComponent = BsPanelComponent.extend
   tagName: 'label'
-  classNames: ['ap-panel-upload']
+  classNames: ['ap-panel-upload text-center']
   value: null
   style: 'drop'
-  'text-center': true
   t: 'actions.drop-or-click-to-upload'
   text: Ember.computed 't', 'isSet', ->
     translationKey = @get 't'
