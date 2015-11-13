@@ -28,6 +28,8 @@ ApiFormController = FormController.extend
     ,
       name: 'cors_max_age'
       type: 'integer'
+    ,
+      name: 'enable_swagger'
     ]
     if @get 'model.isNew' then newFields else editFields
   actions:

@@ -138,6 +138,7 @@
     "cors_request_headers": "CORS request headers",
     "cors_max_age": "CORS max age",
     "cors_enabled": "CORS enabled",
+    "enable_swagger": "सक्षम swagger",
     "type": "type",
     "active": "active",
     "path": "path",
