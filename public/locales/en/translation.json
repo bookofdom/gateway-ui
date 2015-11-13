@@ -34,7 +34,8 @@
     "specify-custom": "specify custom",
     "drop-or-click-to-upload": "drop or click to upload",
     "select-add-component-type": "select a component type to add",
-    "fullscreen": "fullscreen"
+    "fullscreen": "fullscreen",
+    "filter": "filter"
   },
   "nav": {
     "home": "home",
@@ -166,6 +167,7 @@
     "schema": "schema",
     "transactions": "transactions",
     "timeout": "connection timeout",
+    "execution-timeout": "execution timeout",
     "maxidle": "max. idle connections",
     "maxopen": "max. open connections",
     "host": "host",
@@ -189,7 +191,10 @@
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."
-    }
+    },
+    "interpreter": "interpreter",
+    "filepath": "file path",
+    "script": "script"
   },
   "prompts": {
     "generic": "choose one",
@@ -235,7 +240,8 @@
   "notifications": {
     "create": "__user__ created one __resource__",
     "update": "__user__ updated one __resource__",
-    "delete": "__user__ deleted one __resource__"
+    "delete": "__user__ deleted one __resource__",
+    "import": "__user__ imported one __resource__"
   },
   "types": {
     "remote-endpoint": {
@@ -245,6 +251,7 @@
       "postgres": "PostgreSQL",
       "mysql": "MySQL",
       "mongodb": "MongoDB",
+      "script": "Script",
       "status-types": {
         "success": "success",
         "error": "error",

@@ -38,10 +38,11 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   onNotification: Ember.on 'notification', (notification) ->
     # notify user of change
     message = notification.get('message')
-    if notification.get 'isDeleted'
-      @get('notify').error message
-    else
-      @get('notify').info message
+    if notification.get 'isDisplayed'
+      if notification.get 'isDeleted'
+        @get('notify').error message
+      else
+        @get('notify').info message
     # refresh resource
     @refreshResourceForNotification notification
   # Handles reloading of model(s) that received notification.

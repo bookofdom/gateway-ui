@@ -34,7 +34,8 @@
     "specify-custom": "especifique personalizada",
     "drop-or-click-to-upload": "suelta o presiona para subir",
     "select-add-component-type": "selecciona un tipo de componente para agregar",
-    "fullscreen": "pantalla completa"
+    "fullscreen": "pantalla completa",
+    "filter": "filtro"
   },
   "nav": {
     "home": "inicio",
@@ -166,6 +167,7 @@
     "schema": "esquema",
     "transactions": "transacciones",
     "timeout": "conexión expirada​",
+    "execution-timeout": "tiempo de espera de la ejecución",
     "maxidle": "máximas conexiones inactivas",
     "maxopen": "máximas conexiones abiertas",
     "host": "host",
@@ -188,7 +190,10 @@
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique una costumbre Content-Type en las cabeceras de petición."
-    }
+    },
+    "interpreter": "intérprete",
+    "filepath": "ruta de archivo",
+    "script": "guión"
   },
   "prompts": {
     "generic": "elija uno",
@@ -234,10 +239,12 @@
   "notifications": {
     "create": "__user__ creó un __resource__",
     "update": "__user__ actualizado un __resource__",
-    "delete": "__user__ borrado un __resource__"
+    "delete": "__user__ borrado un __resource__",
+    "import": "__user__ importados un __resource__"
   },
   "types": {
     "remote-endpoint": {
+      "script": "guión",
       "status-types": {
         "success": "éxito",
         "error": "error",
