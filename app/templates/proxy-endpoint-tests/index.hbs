@@ -7,7 +7,7 @@
     path='proxy-endpoint-test.index'
     edit-path='proxy-endpoint-test.edit'}}
 
-  {{#ap-panel-new t='resources.proxy-endpoint-test' closed=model.length}}
+  {{#ap-panel-new t='resources.proxy-endpoint-test' closed=(unbound model.length)}}
     {{render 'proxy-endpoint-test.form'}}
   {{/ap-panel-new}}
 
