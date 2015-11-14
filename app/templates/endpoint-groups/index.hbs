@@ -6,7 +6,7 @@
       path='endpoint-group.index'
       edit-path='endpoint-group.edit'}}
 
-  {{#ap-panel-new t='resources.endpoint-group' closed=model.length}}
+  {{#ap-panel-new t='resources.endpoint-group' closed=(unbound model.length)}}
     {{render 'endpoint-group.form'}}
   {{/ap-panel-new}}
 

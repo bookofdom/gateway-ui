@@ -8,7 +8,7 @@
       path='proxy-endpoint.index'
       edit-path='proxy-endpoint.edit'}}
 
-  {{#ap-panel-new t='resources.proxy-endpoint' closed=filtered.length}}
+  {{#ap-panel-new t='resources.proxy-endpoint' closed=(unbound filtered.length)}}
     {{render 'proxy-endpoint.form'}}
   {{/ap-panel-new}}
 
