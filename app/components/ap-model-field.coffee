@@ -38,6 +38,8 @@ ApModelFieldComponent = BsBaseComponent.extend
     set: (key, value) ->
       @set 'fieldType', value if value?
       @get 'type'
+  isSelect: Ember.computed 'type', ->
+    !!@get('type').match /select/
   required: Ember.computed 'fieldRequired',
     get: -> @get 'fieldRequired'
     set: (key, value) ->
@@ -76,8 +78,17 @@ ApModelFieldComponent = BsBaseComponent.extend
   setupValueAttribute: Ember.on 'init', ->
     name = @get 'name'
     propName = "model.#{@get 'name'}"
-    computed = Ember.computed propName,
-      get: -> @get propName
+    computed = Ember.computed propName, 'prompt', 'options.[]', 'isSelect',
+      get: ->
+        value = @get propName
+        prompt = @get 'prompt'
+        firstOption = @get 'options.firstObject'
+        isSelect = @get 'isSelect'
+        # Selects with no value set AND no prompt should have the first
+        # option automatically selected as the value.
+        if isSelect and !prompt and !value and firstOption
+          @set 'value', firstOption
+        value
       set: (key, value) ->
         currentValue = @get propName
         @set propName, value if value? and (value != currentValue)
