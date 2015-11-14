@@ -6,6 +6,8 @@ socket = null
 
 NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
   websockets: Ember.inject.service 'websockets'
+  autoReconnect: true
+  enabled: false
 
   buildSocketURL: (type) ->
     url = @urlForFindAll type
@@ -15,9 +17,12 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
 
   enableStreaming: ->
     url = @buildSocketURL 'notification'
+    @set 'enabled', true
     @openSocket url
 
-  disableStreaming: -> @closeSocket()
+  disableStreaming: ->
+    @set 'enabled', false
+    @closeSocket()
 
   closeSocket: ->
     oldSocketUrl = socket?.socket?.url
@@ -28,12 +33,17 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
     @closeSocket()
     newSocket = @get('websockets').socketFor url
     newSocket.on 'message', ((event) -> @trigger 'socketMessage', event.data), @
+    newSocket.on 'close', (-> @trigger 'socketClose'), @
     socket = newSocket
 
   onSocketMessage: Ember.on 'socketMessage', (payload) ->
     data = notifications: [JSON.parse payload]
     @store.pushPayload data
     @triggerNotification()
+
+  onSocketClose: Ember.on 'socketClose', ->
+    if @get('enabled') and @get('autoReconnect')
+      Ember.run.later (-> socket.reconnect()), 1000
 
   triggerNotification: ->
     notifications = @store.peekAll 'notification'
