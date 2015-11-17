@@ -31,11 +31,11 @@ ProxyEndpoint = Model.extend
   # for proper UI messaging
   onComponentErrors: Ember.observer 'errors.components', ->
     @get('errors.components')?.forEach (error) =>
-      @get('components')?.forEach (component) ->
+      @get('components').filterBy('hasDirtyAttributes', true).forEach (component) ->
         component.get('errors').add 'base', error.message
   onTestErrors: Ember.observer 'errors.tests', ->
     @get('errors.tests')?.forEach (error) =>
-      @get('tests')?.forEach (test) ->
+      @get('tests').filterBy('hasDirtyAttributes', true).forEach (test) ->
         test.get('errors').add 'base', error.message
 
   # given a list of component IDs,
