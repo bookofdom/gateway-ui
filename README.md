@@ -55,17 +55,19 @@ aliases permanent, copy the contents of `aliases.sh` to your `.bash_profile`.
 ## Building
 To output production build artifacts into the project's `dist/` folder:
 
-    docker-compose run --rm build_production
+    GATEWAY_UI_DEST=./dist docker-compose run --rm build_production
+
+**Note**:  the `GATEWAY_UI_DEST` environment variable _must_ be set.
 
 The build service installs NPM and Bower dependencies automatically in the
 container's ephemeral filesystem before every build.  Dependencies and build
 artifacts are never stored in shared Docker volumes and never persist across
 builds.  This ensures clean, consistent, and repeatable production builds.
 
-To output production build artifacts to a specific location, replace
+To output production build artifacts to a another location, replace
 `/path/to/output` below with your desired destination folder.
 
-    docker-compose run --rm -v /path/to/output:/src/dist build_production
+    GATEWAY_UI_DEST=/path/to/output docker-compose run --rm build_production
 
 
 ## Further Reading / Useful Links
