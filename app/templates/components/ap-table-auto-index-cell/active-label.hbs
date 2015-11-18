@@ -1,0 +1,6 @@
+{{#if (get model field.name)}}
+  <span class="label label-success text-uppercase">{{t 'states.active'}}</span>
+{{/if}}
+{{#unless (get model field.name)}}
+  <span class="label label-danger text-uppercase">{{t 'states.inactive'}}</span>
+{{/unless}}
