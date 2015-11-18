@@ -1,10 +1,9 @@
 {{#ap-page t='resources.remote-endpoint_plural' help-url='http://docs.justapis.com/remote-end-points'}}
 
-  {{ap-table-index
-      models=model
-      fields='name,platformName:fields.type,codename,location,method'
-      path='remote-endpoint.index'
-      edit-path='remote-endpoint.edit'}}
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='remote-endpoint.edit'}}
 
   {{#ap-panel-new t='resources.remote-endpoint' closed=(unbound model.length)}}
     {{render 'remote-endpoint.form'}}
