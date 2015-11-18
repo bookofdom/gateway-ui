@@ -21,13 +21,12 @@ ApTableAutoIndexComponent = Ember.Component.extend
 
   delete: (model) ->
     model.destroyRecord().catch =>
-      @notifyErrorsFor model
+      # notify user of errors
+      model.get('errors').forEach (error) ->
+        @get('notify').alert error.message
       # clear deleted state
       model.cancel()
       model.transitionTo 'loaded.saved'
-  notifyErrorsFor: (model) ->
-    model.get('errors').forEach (error) ->
-      @get('notify').alert error.message
 
   actions:
     delete: (model) ->
