@@ -65,7 +65,10 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     resourceIsLoaded = notification.get 'resourceIsLoaded'
     indexIsLoaded = index?
     if indexIsLoaded and !resourceIsLoaded
-      index.reload()
+      if type is 'api'
+        @store.findAll 'api'
+      else
+        index.reload()
     else if resourceIsLoaded
       switch action
         when 'create', 'update'
