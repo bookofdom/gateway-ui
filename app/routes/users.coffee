@@ -3,5 +3,7 @@
 
 UsersRoute = Ember.Route.extend AuthenticatedRouteMixin,
   model: -> @store.findAll 'user'
+  actions:
+    refresh: -> @refresh()
 
 `export default UsersRoute`

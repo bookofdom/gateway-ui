@@ -6,6 +6,7 @@ ApTableModelComponent = BsBaseComponent.extend
   classNames: ['ap-table-model']
   models: null # array of model instances
   'delete-action': 'delete'
+  'refresh-action': 'refresh'
   'auto-delete': true
   'edit-path': null
   'partial-path': null
@@ -18,7 +19,8 @@ ApTableModelComponent = BsBaseComponent.extend
       @cancelDelete record
   cancelDelete: (record) ->
     record.transitionTo 'loaded.saved' # clear deleted state
-    record.cancel()
+    record.cancel().then =>
+      @sendAction 'refresh-action'
   notifyErrorsForRecord: (record) ->
     errors = []
     record.get('errors').forEach (error) =>
