@@ -1,10 +1,12 @@
 `import Ember from 'ember'`
-`import BsFormComponent from 'gateway/components/bs-form'`
 `import t from 'gateway/helpers/i18n'`
 `import config from '../config/environment'`
 
-ApModelFormComponent = BsFormComponent.extend
+ApModelFormComponent = Ember.Component.extend
+  tagName: 'form'
   classNames: ['ap-model-form']
+  classNameBindings: ['inline:form-inline', 'horizontal:form-horizontal']
+  inline: false
   action: 'submit'
   'cancel-action': 'cancel'
   'before-save-action': 'beforeSave'

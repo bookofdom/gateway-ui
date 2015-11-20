@@ -5,8 +5,8 @@
 
   {{#unless model.isNew}}
     {{#if model.isHttp}}
-      {{#bs-row}}
-        {{#bs-col md=6}}
+      <div class="row">
+        <div class="col-md-6">
           {{#ap-panel-edit t='resources.remote-endpoint-header_plural'}}
             {{ap-table-model
               models=model.headers
@@ -16,8 +16,8 @@
               t='resources.remote-endpoint-header'
               action='new-remote-endpoint-header'}}
           {{/ap-panel-edit}}
-        {{/bs-col}}
-        {{#bs-col md=6}}
+        </div><!-- /.col -->
+        <div class="col-md-6">
           {{#ap-panel-edit t='resources.remote-endpoint-query-parameter_plural'}}
             {{ap-table-model
               models=model.query
@@ -27,8 +27,8 @@
               t='resources.remote-endpoint-query-parameter'
               action='new-remote-endpoint-query-parameter'}}
           {{/ap-panel-edit}}
-        {{/bs-col}}
-      {{/bs-row}}
+        </div><!-- /.col -->
+      </div><!-- /.row -->
     {{/if}}
   {{/unless}}
 

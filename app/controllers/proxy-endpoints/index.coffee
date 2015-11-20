@@ -26,4 +26,23 @@ ProxyEndpointsIndexController = Ember.Controller.extend
       model = model.filterBy 'endpoint_group.id', endpoint_group_id
     model
 
+  # 'name,description,environment:resources.environment:object-name,endpoint_group:resources.endpoint-group:object-name,active::active-label'
+  fields: [
+    name: 'name'
+    label: 'fields.name'
+    type: 'string'
+  ,
+    name: 'environment.name'
+    label: 'resources.environment'
+    type: 'string'
+  ,
+    name: 'endpoint_group.name'
+    label: 'resources.endpoint-group'
+    type: 'string'
+  ,
+    name: 'active'
+    label: 'fields.active'
+    type: 'active-label'
+  ]
+
 `export default ProxyEndpointsIndexController`

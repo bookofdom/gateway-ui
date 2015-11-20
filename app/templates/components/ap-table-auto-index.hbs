@@ -1,0 +1,41 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      {{#each fields as |field|}}
+        <th>{{t field.label}}</th>
+      {{/each}}
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |model|}}
+      {{#unless model.isNew}}
+        <tr>
+          {{#each fields as |field i|}}
+            <td>
+              {{!-- first cell gets link --}}
+              {{#if (eq i 0)}}
+                {{#link-to route model}}
+                  {{partial (concat 'components/ap-table-auto-index-cell/' field.type)}}
+                {{/link-to}}
+              {{/if}}
+              {{!-- subsequent cells do not get links --}}
+              {{#unless (eq i 0)}}
+                {{partial (concat 'components/ap-table-auto-index-cell/' field.type)}}
+              {{/unless}}
+            </td>
+          {{/each}}
+          <td>
+            {{#ap-list-nav-simple-icon class='pull-right'}}
+              {{ap-list-link
+                t='actions.delete'
+                icon='the-essentials-011'
+                action='delete'
+                arg1=model}}
+            {{/ap-list-nav-simple-icon}}
+          </td>
+        </tr>
+      {{/unless}}
+    {{/each}}
+  </tbody>
+</table><!-- /.table -->

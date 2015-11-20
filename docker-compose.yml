@@ -35,7 +35,7 @@ build_production:
   volumes:
     - ./app:/src/app
     - ./config:/src/config
-    - ./dist:/src/dist
+    - $GATEWAY_UI_DEST:/src/dist
     - ./public:/src/public
     - ./vendor:/src/vendor
     - ./.bowerrc:/src/.bowerrc

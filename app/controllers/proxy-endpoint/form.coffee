@@ -50,8 +50,6 @@ ProxyEndpointFormController = FormController.extend
   createNewModel: ->
     modelType = @get 'modelType'
     newModel = @store?.createRecord modelType
-    firstEnvironment = @get 'option-groups.environment.firstObject'
-    newModel.set 'environment', firstEnvironment
     @set 'model', newModel
     newModel
   createNewRouteModel: ->

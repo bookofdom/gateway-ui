@@ -5,11 +5,14 @@ ApListNavComponent = BsBaseComponent.extend
   tagName: 'ul'
   classNames: ['ap-list-nav', 'list-unstyled']
   classNameBindings: [
-    'sizeClass'
-    'inlineClass'
-    'circleClass'
-    'secondaryHoverClass'
-    'showTextClass'
+    'xs:ap-list-nav-xs'
+    'sm:ap-list-nav-sm'
+    'lg:ap-list-nav-lg'
+    'xl:ap-list-nav-xl'
+    'inline:list-inline'
+    'circle:ap-list-nav-circle'
+    'secondary-hover:ap-list-nav-secondary-hover'
+    'show-text::ap-list-nav-hide-text'
   ]
   xs: false
   sm: false
@@ -19,19 +22,5 @@ ApListNavComponent = BsBaseComponent.extend
   circle: false
   'secondary-hover': false
   'show-text': true
-  sizeClass: Ember.computed '{xs,sm,lg,xl}', ->
-    sizes = @get('sizes').slice()
-    sizes.push 'xl'
-    classes = (for size in sizes
-      sizeClass = "ap-list-nav-#{size}"
-      sizeClass if @get size
-    ).compact().join ' '
-    classes
-  inlineClass: Ember.computed 'inline', -> 'list-inline' if @get 'inline'
-  circleClass: Ember.computed 'circle', -> 'ap-list-nav-circle' if @get 'circle'
-  secondaryHoverClass: Ember.computed 'secondary-hover', ->
-    'ap-list-nav-secondary-hover' if @get 'secondary-hover'
-  showTextClass: Ember.computed 'show-text', ->
-    'ap-list-nav-hide-text' if !@get 'show-text'
 
 `export default ApListNavComponent`

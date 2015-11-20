@@ -26,9 +26,10 @@ ProxyEndpointTest = Model.extend
 
   # Observers
   cleanContentType: Ember.observer 'method', ->
-    # unset content_type when method is GET or DELETE
-    method = @get 'method'
-    @set 'content_type', null if (method is 'GET') or (method is 'DELETE')
+    if !@get 'isDeleted'
+      # unset content_type when method is GET or DELETE
+      method = @get 'method'
+      @set 'content_type', null if (method is 'GET') or (method is 'DELETE')
 
   # Computed
   methodType: Ember.computed 'method', ->
