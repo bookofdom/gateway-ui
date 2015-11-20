@@ -126,6 +126,7 @@
     "javascript-logic": "lógica"
   },
   "fields": {
+    "admin": "administración",
     "email": "correo electrónica",
     "password": "contraseña",
     "password_confirmation": "confirmar contraseña",

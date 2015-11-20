@@ -17,11 +17,11 @@ ApTableModelComponent = BsBaseComponent.extend
       @notifyErrorsForRecord record
       @cancelDelete record
   cancelDelete: (record) ->
-    record.cancel()
     record.transitionTo 'loaded.saved' # clear deleted state
+    record.cancel()
   notifyErrorsForRecord: (record) ->
     errors = []
-    record.get('errors').forEach (error) ->
+    record.get('errors').forEach (error) =>
       @get('notify').alert error.message
   actions:
     'custom-primary': (record) ->
