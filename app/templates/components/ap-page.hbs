@@ -3,7 +3,17 @@
     {{ap-button-help url=help-url class='pull-right'}}
   {{/if}}
   {{#if t}}
-    <h1>{{partial 'components/bs-text'}}</h1>
+    <h1>
+      {{partial 'components/bs-text'}}
+      {{#if showNew}}
+        {{bs-button
+          style='link'
+          t='actions.new'
+          icon='the-essentials-010'
+          icon-after=true
+          action='show-new'}}
+      {{/if}}
+    </h1>
   {{/if}}
 </div>
 
