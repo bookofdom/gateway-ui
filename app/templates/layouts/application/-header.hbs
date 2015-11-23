@@ -43,9 +43,11 @@
             </a><!-- .btn -->
             <ul class="dropdown-menu">
               {{#unless meta.dev-mode}}
-                {{ap-list-link
-                  path='users'
-                  t='resources.user_plural'}}
+                {{#if session.secure.admin}}
+                  {{ap-list-link
+                    path='users'
+                    t='resources.user_plural'}}
+                {{/if}}
                 {{ap-list-link
                   action='invalidateSession'
                   t='actions.logout'}}
