@@ -35,7 +35,9 @@
     "drop-or-click-to-upload": "drop or click to upload",
     "select-add-component-type": "select a component type to add",
     "fullscreen": "पूर्ण स्क्रीन",
-    "filter": "फिल्टर"
+    "filter": "फिल्टर",
+    "reset": "रीसेट",
+    "reset-password": "पासवर्ड रीसेट"
   },
   "nav": {
     "home": "home",
@@ -227,7 +229,8 @@
     "invalid-password": "invalid password"
   },
   "successes": {
-    "saved-successfully": "saved successfully"
+    "saved-successfully": "saved successfully",
+    "password-reset-confirmation": "पासवर्ड रीसेट पुष्टिकरण ईमेल भेजा"
   },
   "headers": {
     "x-workflow": "__x__ workflow"

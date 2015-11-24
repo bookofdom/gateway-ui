@@ -35,7 +35,9 @@
     "drop-or-click-to-upload": "suelta o presiona para subir",
     "select-add-component-type": "selecciona un tipo de componente para agregar",
     "fullscreen": "pantalla completa",
-    "filter": "filtro"
+    "filter": "filtro",
+    "reset": "reiniciar",
+    "reset-password": "restablecer la contraseña"
   },
   "nav": {
     "home": "inicio",
@@ -227,7 +229,8 @@
     "invalid-password": "contraseña inválida"
   },
   "successes": {
-    "saved-successfully": "grabado satisfactoriamente"
+    "saved-successfully": "grabado satisfactoriamente",
+    "password-reset-confirmation": "correo electrónico de confirmación de restablecimiento de contraseña enviada"
   },
   "headers": {
     "x-workflow": "__x__ flujo de trabajo"

@@ -35,7 +35,9 @@
     "drop-or-click-to-upload": "drop or click to upload",
     "select-add-component-type": "select a component type to add",
     "fullscreen": "fullscreen",
-    "filter": "filter"
+    "filter": "filter",
+    "reset": "reset",
+    "reset-password": "reset password"
   },
   "nav": {
     "home": "home",
@@ -228,7 +230,8 @@
     "invalid-password": "invalid password"
   },
   "successes": {
-    "saved-successfully": "saved successfully"
+    "saved-successfully": "saved successfully",
+    "password-reset-confirmation": "password reset confirmation email sent"
   },
   "headers": {
     "x-workflow": "__x__ workflow"

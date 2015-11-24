@@ -7,6 +7,8 @@ Router = Ember.Router.extend
 Router.map ->
   # auth
   @route 'login'
+  @route 'password', ->
+    @route 'reset'
 
   # resources
   @resource 'users', ->
