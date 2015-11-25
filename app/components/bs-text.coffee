@@ -3,6 +3,10 @@
 `import t from 'gateway/helpers/i18n'`
 
 BsTextComponent = BsBaseComponent.extend
+  attributeBindings: [
+    't:data-t'
+    'secondary:data-secondary'
+  ]
   t: null
   secondary: null
   icon: null
