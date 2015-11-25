@@ -1,20 +1,8 @@
-`import ApplicationAdapter from './application'`
+`import ProxyEndpointRelatedAdapter from './proxy-endpoint-related'`
 `import config from  '../config/environment'`
 
-ProxyEndpointTestAdapter = ApplicationAdapter.extend
-  buildURL: (type, id, record) ->
-    if record
-      # models
-      proxyEndpoint = record.belongsTo 'proxy_endpoint'
-      # adapters
-      proxyEndpointAdapter = @container.lookup 'adapter:proxy-endpoint'
-      # IDs
-      testId = record.get 'id'
-      proxyEndpointId = proxyEndpoint.get 'id'
-      # URLs
-      proxyEndpointModelName = proxyEndpoint.constructor.modelName
-      proxyEndpointUrl = proxyEndpointAdapter.buildURL proxyEndpointModelName, proxyEndpointId, proxyEndpoint
-      "#{proxyEndpointUrl}/tests/#{testId}"
+ProxyEndpointTestAdapter = ProxyEndpointRelatedAdapter.extend
+  recordPath: 'tests'
 
   buildTestUrl: (record) ->
     snapshot = record._createSnapshot()
