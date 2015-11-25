@@ -2,6 +2,6 @@
 `import config from  '../config/environment'`
 
 ProxyEndpointSchemaAdapter = ProxyEndpointRelatedAdapter.extend
-  recordPath: 'schemas'
+  pathForType: -> 'schemas'
 
 `export default ProxyEndpointSchemaAdapter`

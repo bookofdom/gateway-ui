@@ -2,7 +2,7 @@
 `import config from  '../config/environment'`
 
 ProxyEndpointTestAdapter = ProxyEndpointRelatedAdapter.extend
-  recordPath: 'tests'
+  pathForType: -> 'tests'
 
   buildTestUrl: (record) ->
     snapshot = record._createSnapshot()

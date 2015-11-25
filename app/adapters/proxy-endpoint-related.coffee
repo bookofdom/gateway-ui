@@ -2,7 +2,6 @@
 `import config from  '../config/environment'`
 
 ProxyEndpointRelatedAdapter = ApplicationAdapter.extend
-  recordPath: null
   buildURL: (type, id, record) ->
     if record
       # models
@@ -16,8 +15,8 @@ ProxyEndpointRelatedAdapter = ApplicationAdapter.extend
       proxyEndpointModelName = proxyEndpoint.constructor.modelName
       proxyEndpointUrl = proxyEndpointAdapter.buildURL proxyEndpointModelName, proxyEndpointId, proxyEndpoint
       if recordId
-        "#{proxyEndpointUrl}/#{@recordPath}/#{recordId}"
+        "#{proxyEndpointUrl}/#{@pathForType()}/#{recordId}"
       else
-        "#{proxyEndpointUrl}/#{@recordPath}"
+        "#{proxyEndpointUrl}/#{@pathForType()}"
 
 `export default ProxyEndpointRelatedAdapter`
