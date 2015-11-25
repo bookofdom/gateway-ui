@@ -230,7 +230,8 @@
   },
   "successes": {
     "saved-successfully": "grabado satisfactoriamente",
-    "password-reset-confirmation": "correo electrónico de confirmación de restablecimiento de contraseña enviada"
+    "password-reset": "correo electrónico de confirmación de restablecimiento de contraseña enviada",
+    "password-reset-confirmation": "restablecimiento de contraseñas con éxito"
   },
   "headers": {
     "x-workflow": "__x__ flujo de trabajo"

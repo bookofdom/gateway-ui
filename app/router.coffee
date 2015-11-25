@@ -9,6 +9,7 @@ Router.map ->
   @route 'login'
   @route 'password', ->
     @route 'reset'
+    @route 'reset-confirmation'
 
   # resources
   @resource 'users', ->

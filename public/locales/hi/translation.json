@@ -230,7 +230,8 @@
   },
   "successes": {
     "saved-successfully": "saved successfully",
-    "password-reset-confirmation": "पासवर्ड रीसेट पुष्टिकरण ईमेल भेजा"
+    "password-reset": "पासवर्ड रीसेट पुष्टिकरण ईमेल भेजा",
+    "password-reset-confirmation": "पासवर्ड सफलतापूर्वक रीसेट"
   },
   "headers": {
     "x-workflow": "__x__ workflow"

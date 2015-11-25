@@ -230,7 +230,8 @@
   },
   "successes": {
     "saved-successfully": "salvo com sucesso",
-    "password-reset-confirmation": "mail de confirmação de redefinição de senha enviada"
+    "password-reset": "mail de confirmação de redefinição de senha enviada",
+    "password-reset-confirmation": "redefinição de senha com sucesso"
   },
   "headers": {
     "x-workflow": "__x__ fluxo de trabalho"

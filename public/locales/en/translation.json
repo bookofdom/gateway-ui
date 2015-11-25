@@ -231,7 +231,8 @@
   },
   "successes": {
     "saved-successfully": "saved successfully",
-    "password-reset-confirmation": "password reset confirmation email sent"
+    "password-reset": "password reset confirmation email sent",
+    "password-reset-confirmation": "password successfully reset"
   },
   "headers": {
     "x-workflow": "__x__ workflow"

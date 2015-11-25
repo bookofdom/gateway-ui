@@ -15,7 +15,8 @@ PasswordResetFormController = FormController.extend
       model = @get 'model'
       model.save().finally =>
         if !model.get 'errors.messages.length'
-          successMessage = t 'successes.password-reset-confirmation'
+          successMessage = t 'successes.password-reset'
+          @createNewModel()
           @transitionToRoute 'login'
           @get('notify').info successMessage
 
