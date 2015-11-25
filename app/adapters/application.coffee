@@ -8,6 +8,10 @@ ApplicationAdapter = DS.RESTAdapter.extend
     path = Ember.Inflector.inflector.pluralize type
     path = Ember.String.underscore path
     path
+  buildURL: (type, id, snapshot) ->
+    url = @_super.apply @, arguments
+    url = url.replace /^\/\//, '/' # replace double leading slash with single
+    url
   ajax: (url, method, hash={}) ->
     hash.crossDomain = true
     hash.xhrFields ?= {}
