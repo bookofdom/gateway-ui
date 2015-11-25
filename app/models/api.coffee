@@ -10,6 +10,7 @@ Api = Model.extend
   cors_allow_credentials: DS.attr 'boolean', defaultValue: true
   cors_request_headers: DS.attr 'string', defaultValue: '*'
   cors_max_age: DS.attr 'number', defaultValue: 600
+  enable_swagger: DS.attr 'boolean', defaultValue: true
   export: DS.attr 'string'
 
   # Relationships

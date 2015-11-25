@@ -139,6 +139,7 @@
     "cors_request_headers": "CORS de encabezados requeridos",
     "cors_max_age": "CORS antigüedad máxima",
     "cors_enabled": "CORS habilitados",
+    "enable_swagger": "habilitar swagger",
     "type": "tipo",
     "active": "activo",
     "path": "ruta",
