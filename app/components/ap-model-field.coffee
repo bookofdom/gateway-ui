@@ -10,7 +10,6 @@ ApModelFieldComponent = BsBaseComponent.extend
   'option-groups': null
   fieldName: null
   fieldLabel: null
-  fieldHelp: null
   fieldType: null
   fieldPrompt: null
   fieldRequired: null
@@ -24,11 +23,6 @@ ApModelFieldComponent = BsBaseComponent.extend
     set: (key, value) ->
       @set 'fieldLabel', value if value?
       @get 'label'
-  help: Ember.computed 'fieldHelp',
-    get: -> @get 'fieldHelp'
-    set: (key, value) ->
-      @set 'fieldHelp', value if value?
-      value
   type: Ember.computed 'fieldType',
     get: ->
       attribute = @get 'attribute'
