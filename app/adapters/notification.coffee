@@ -9,11 +9,15 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
   autoReconnect: true
   enabled: false
 
+  isSecure: Ember.computed -> location.protocol is 'https:'
+
   buildSocketURL: (type) ->
     url = @urlForFindAll type
     url = url.replace 'http://', ''
     url = "#{location.host}#{url}" if !config.api.host
-    "ws://#{url}"
+    isSecure = @get 'isSecure'
+    protocol = if isSecure then 'wss:' else 'ws:'
+    "#{protocol}//#{url}"
 
   enableStreaming: ->
     url = @buildSocketURL 'notification'
