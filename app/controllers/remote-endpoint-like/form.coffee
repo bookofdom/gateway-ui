@@ -4,14 +4,12 @@
 `import config from  '../../config/environment'`
 
 RemoteEndpointLikeFormController = FormController.extend
-  'option-groups': Ember.computed ->
-    enabledTypes = config.meta['remote-endpoint-types-enabled']?.split ','
-    types = RemoteEndpointLike.types
-    if enabledTypes
-      types = types.filter (type) ->
-        type.value in enabledTypes
+  'remote-endpoints/index': Ember.inject.controller()
 
-    type: types
+  types: Ember.computed.alias 'remote-endpoints/index.types'
+
+  'option-groups': Ember.computed ->
+    type: @get 'types'
     sslmode: RemoteEndpointLike.sslModes
     # TODO expose basic auth when available in backend
     auth_scheme: RemoteEndpointLike.authSchemes.filter (scheme) ->
