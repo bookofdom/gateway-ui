@@ -15,6 +15,7 @@ module.exports = function(defaults) {
         'snippets/javascript.js',
         'theme-slate.js',
         'worker-javascript.js',
+        'worker-json.js',
         'worker-tern.js'
       ]
     },
@@ -62,6 +63,7 @@ module.exports = function(defaults) {
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/ext-language_tools.js');
   app.import('vendor/ace-tern/ace-builds/src-noconflict/ext-tern.js');
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-javascript.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-json.js');
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-text.js');
 
   // jQuery UI (sortable-only custom build)
@@ -86,7 +88,10 @@ module.exports = function(defaults) {
     srcDir: '/',
     include: [
       'snippets/javascript.js',
+      'snippets/json.js',
+      'snippets/text.js',
       'worker-javascript.js',
+      'worker-json.js',
       'worker-tern.js',
       'worker-text.js'
     ],
