@@ -17,7 +17,10 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
     url = "#{location.host}#{url}" if !config.api.host
     isSecure = @get 'isSecure'
     protocol = if isSecure then 'wss:' else 'ws:'
-    "#{protocol}//#{url}"
+    url = "#{protocol}//#{url}"
+    # replace double leading slash with single
+    url = @cleanURL url
+    url
 
   enableStreaming: ->
     url = @buildSocketURL 'notification'

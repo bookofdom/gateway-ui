@@ -15,9 +15,6 @@ ApiRelatedAdapter = ApplicationAdapter.extend
       url.insertAt 1, @pathForType('api')
       url.insertAt 1, basePath if basePath
     url = url.filter((value) -> !!value).join '/'
-    # if this is a relative path (because no API host was specified),
-    # then add an initial slash to make the path absolute
-    url = "/#{url}" if !config.api.host
     url
 
 `export default ApiRelatedAdapter`

@@ -8,9 +8,17 @@ ApplicationAdapter = DS.RESTAdapter.extend
     path = Ember.Inflector.inflector.pluralize type
     path = Ember.String.underscore path
     path
+  cleanURL: (url) ->
+    # if this is a relative path (because no host was specified),
+    # then add an initial slash to make the path absolute
+    url = "/#{url}" if !url.match /((http)|(ws)s?:\/\/)/
+    # replace double leading slash with single
+    url = url.replace /((http)|(ws)s?:\/\/)(.*)(\/\/)(.*)/, '$1$4/$6'
+    url = url.replace /^\/\//, '/'
+    url
   buildURL: (type, id, snapshot) ->
     url = @_super.apply @, arguments
-    url = url.replace /^\/\//, '/' # replace double leading slash with single
+    url = @cleanURL url
     url
   ajax: (url, method, hash={}) ->
     hash.crossDomain = true
