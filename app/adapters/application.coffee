@@ -9,12 +9,20 @@ ApplicationAdapter = DS.RESTAdapter.extend
     path = Ember.String.underscore path
     path
   cleanURL: (url) ->
+    leadingProtocol = /^(http|ws)s?\:\/{2}/
+    doubleSlashes = /\/{2}/g
     # if this is a relative path (because no host was specified),
     # then add an initial slash to make the path absolute
-    url = "/#{url}" if !url.match /((http)|(ws)s?:\/\/)/
-    # replace double leading slash with single
-    url = url.replace /((http)|(ws)s?:\/\/)(.*)(\/\/)(.*)/, '$1$4/$6'
-    url = url.replace /^\/\//, '/'
+    url = "/#{url}" if !url.match leadingProtocol
+    # if protocol is included,
+    hasProtocol = url.match leadingProtocol
+    if hasProtocol
+      protocol = hasProtocol[0]
+      remaining = url.replace(protocol, '').replace doubleSlashes, '/'
+    else
+      protocol = ''
+      remaining = url.replace doubleSlashes, '/'
+    url = "#{protocol}#{remaining}"
     url
   buildURL: (type, id, snapshot) ->
     url = @_super.apply @, arguments

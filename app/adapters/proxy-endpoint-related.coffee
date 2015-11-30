@@ -17,8 +17,9 @@ ProxyEndpointRelatedAdapter = ApplicationAdapter.extend
       proxyEndpointModelName = proxyEndpoint.constructor.modelName
       proxyEndpointUrl = proxyEndpointAdapter.buildURL proxyEndpointModelName, proxyEndpointId, proxyEndpoint
       if recordId
-        "#{proxyEndpointUrl}/#{@pathForType(type)}/#{recordId}"
+        url = "#{proxyEndpointUrl}/#{@pathForType(type)}/#{recordId}"
       else
-        "#{proxyEndpointUrl}/#{@pathForType(type)}"
+        url = "#{proxyEndpointUrl}/#{@pathForType(type)}"
+      @cleanURL url
 
 `export default ProxyEndpointRelatedAdapter`
