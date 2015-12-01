@@ -1,9 +1,9 @@
 `import FormController from 'gateway/controllers/form'`
 `import t from 'gateway/helpers/i18n'`
 
-RegisterFormController = FormController.extend
+RegistrationFormController = FormController.extend
   notify: Ember.inject.service()
-  modelType: 'user'
+  modelType: 'registration'
 
   'base-error': Ember.computed 'model.errors.[]', ->
     @get('model.errors')?.errorsFor('base')?[0]?.message
@@ -26,4 +26,4 @@ RegisterFormController = FormController.extend
           @transitionToRoute 'login'
           @get('notify').info successMessage
 
-`export default RegisterFormController`
+`export default RegistrationFormController`
