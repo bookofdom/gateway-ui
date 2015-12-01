@@ -37,7 +37,8 @@
     "fullscreen": "पूर्ण स्क्रीन",
     "filter": "फिल्टर",
     "reset": "रीसेट",
-    "reset-password": "पासवर्ड रीसेट"
+    "reset-password": "पासवर्ड रीसेट",
+    "sign-up": "साइन अप करें"
   },
   "nav": {
     "home": "home",
@@ -201,14 +202,16 @@
     "script": "लिपि",
     "request_schema": "अनुरोध स्कीमा",
     "response_same_as_request": "अनुरोध के रूप में एक ही प्रतिक्रिया",
-    "response_schema": "प्रतिक्रिया स्कीमा"
+    "response_schema": "प्रतिक्रिया स्कीमा",
+    "organization": "संगठन"
   },
   "prompts": {
     "generic": "choose one",
     "choose-x": "choose $t(__x__)",
     "confirm-delete": "are you sure you want to delete this record?",
     "confirm-abandon": "क्या आप रिकॉर्ड बिना सुरक्षित किए छोड़ना चाहते हैं ?",
-    "change-language": "change language"
+    "change-language": "change language",
+    "optional-x": "$t(__x__) (ऐच्छिक)"
   },
   "states": {
     "active": "active",
@@ -237,7 +240,8 @@
   "successes": {
     "saved-successfully": "saved successfully",
     "password-reset": "पासवर्ड रीसेट पुष्टिकरण ईमेल भेजा",
-    "password-reset-confirmation": "पासवर्ड सफलतापूर्वक रीसेट"
+    "password-reset-confirmation": "पासवर्ड सफलतापूर्वक रीसेट",
+    "sign-up": "सफल पंजीकरण"
   },
   "headers": {
     "x-workflow": "__x__ workflow"
