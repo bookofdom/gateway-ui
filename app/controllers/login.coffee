@@ -8,14 +8,8 @@ LoginController = Ember.Controller.extend LoginControllerMixin,
     email: t('fields.email').capitalize()
     password: t('fields.password').capitalize()
   authenticationError: null
-  authenticationErrorText: Ember.computed 'authenticationError', ->
+  'base-error': Ember.computed 'authenticationError', ->
     error = @get 'authenticationError'
-    t("errors.#{error}").capitalize() if error
-  'email-error': Ember.computed 'authenticationError', 'authenticationErrorText', ->
-    if @get('authenticationError')?.indexOf('email') > 0
-      @get 'authenticationErrorText'
-  'password-error': Ember.computed 'authenticationError', 'authenticationErrorText', ->
-    if @get('authenticationError')?.indexOf('password') > 0
-      @get 'authenticationErrorText'
+    t('errors.login').capitalize() if error
 
 `export default LoginController`
