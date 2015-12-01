@@ -82,7 +82,7 @@ RemoteEndpointLike = Model.extend
     @get('platform.slug') == 'mongodb'
   statusType: Ember.computed 'status', ->
     status = @get 'status'
-    RemoteEndpointLike.statusTypes.findBy 'value', status.underscore()
+    RemoteEndpointLike.statusTypes.findBy 'value', status?.underscore()
   statusIsSuccess: Ember.computed 'statusType.slug', ->
     @get('statusType.slug') is 'success'
   statusIsError: Ember.computed 'statusType.slug', ->

@@ -13,7 +13,7 @@
     "ember-resolver": "~0.1.11",
     "ember-simple-auth": "0.8.0",
     "eonasdan-bootstrap-datetimepicker": "~4.17.37",
-    "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#fbd17becda1a0bf74ae19cc44ad7099868a090b9",
+    "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#7ae1697c887d422036a9f8d2455b95e3487f744a",
     "i18next": "~1.10.2",
     "jquery": "^1.11.3",
     "loader.js": "ember-cli/loader.js#3.2.1",

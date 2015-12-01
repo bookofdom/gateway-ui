@@ -7,17 +7,12 @@
 ApiRelatedAdapter = ApplicationAdapter.extend
   buildURL: (type, id, snapshot) ->
     url = @_super.apply @, arguments
-    basePath = config.api.basePath
-    url = url.split "/#{basePath}/"
+    host = @get 'host'
+    url = url.replace host, ''
     apiId = snapshot?.belongsTo('api').id
-    if apiId and basePath
-      url.insertAt 1, apiId
-      url.insertAt 1, @pathForType('api')
-      url.insertAt 1, basePath if basePath
-    url = url.filter((value) -> !!value).join '/'
-    # if this is a relative path (because no API host was specified),
-    # then add an initial slash to make the path absolute
-    url = "/#{url}" if !config.api.host
-    url
+    if apiId
+      url = "#{@pathForType('api')}/#{apiId}/#{url}"
+    url = "#{host}/#{url}"
+    @cleanURL url
 
 `export default ApiRelatedAdapter`

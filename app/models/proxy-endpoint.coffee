@@ -26,6 +26,7 @@ ProxyEndpoint = Model.extend
   tests: DS.hasMany 'proxy-endpoint-test',
     async: false
     embedded: true
+  schemas: DS.hasMany 'proxy-endpoint-schema', async: true
 
   # copy errors from proxy endpoint into embedded relationships if necessary,
   # for proper UI messaging

@@ -66,7 +66,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     indexIsLoaded = index?
     if indexIsLoaded and !resourceIsLoaded
       if type is 'api'
-        @store.findAll 'api'
+        Ember.run.later (=> @store.findAll 'api'), 1000
       else
         index.reload()
     else if resourceIsLoaded

@@ -99,6 +99,8 @@
     "proxy-endpoint-test-query-parameter_plural": "query parameters",
     "proxy-endpoint-test-argument": "argument",
     "proxy-endpoint-test-argument_plural": "arguments",
+    "proxy-endpoint-schema": "schema validation",
+    "proxy-endpoint-schema_plural": "schema validations",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
@@ -139,6 +141,7 @@
     "cors_request_headers": "CORS request headers",
     "cors_max_age": "CORS max age",
     "cors_enabled": "CORS enabled",
+    "enable_swagger": "enable swagger",
     "type": "type",
     "active": "active",
     "path": "path",
@@ -196,7 +199,10 @@
     },
     "interpreter": "interpreter",
     "filepath": "file path",
-    "script": "script"
+    "script": "script",
+    "request_schema": "request schema",
+    "response_same_as_request": "response same as request",
+    "response_schema": "response schema"
   },
   "prompts": {
     "generic": "choose one",
