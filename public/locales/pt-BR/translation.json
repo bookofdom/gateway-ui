@@ -230,7 +230,8 @@
   "errors": {
     "unknown": "ocorreu um erro inesperado",
     "no-user-with-that-email": "não exite usuário com esse email",
-    "invalid-password": "senha inválida"
+    "invalid-password": "senha inválida",
+    "login": "não fomos capazes de fazer seu login"
   },
   "successes": {
     "saved-successfully": "salvo com sucesso"
