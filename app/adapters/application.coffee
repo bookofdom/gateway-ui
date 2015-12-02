@@ -5,7 +5,8 @@
 ApplicationAdapter = DS.RESTAdapter.extend
   host: config.api.url
   pathForType: (type) ->
-    path = Ember.Inflector.inflector.pluralize type
+    path = type
+    path = Ember.Inflector.inflector.pluralize type if type != 'swagger'
     path = Ember.String.underscore path
     path
   cleanURL: (url) ->
