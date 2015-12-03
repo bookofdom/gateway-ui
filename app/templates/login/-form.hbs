@@ -1,12 +1,12 @@
 <form class="ap-form-login" {{action 'authenticate' on='submit'}}>
-  {{#bs-form-group error=email-error help=email-error}}
+  {{#bs-form-group}}
     {{input
         name='identification'
         value=identification
         placeholder=labels.email
         class='form-control input-lg'}}
   {{/bs-form-group}}
-  {{#bs-form-group error=password-error help=password-error}}
+  {{#bs-form-group}}
     {{input
         name='password'
         value=password
@@ -18,5 +18,8 @@
     {{#bs-form-group}}
       {{bs-submit t='actions.login' lg=true}}
     {{/bs-form-group}}
+    {{#if base-error}}
+      <p class="text-danger">{{base-error}}</p>
+    {{/if}}
   </div>
 </form>

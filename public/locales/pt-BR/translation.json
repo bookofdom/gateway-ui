@@ -59,6 +59,7 @@
       "hosts": "define os servidores associados com a API",
       "libraries": "define bibliotecas compartilhadas para uso em blocos de código de JavaScript",
       "logs": "visualização, pesquisa e transmissão de registros",
+      "api-documentation": "visualizar a documentação da API e chamadas de API de teste interativos",
       "formatted": {
         "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",
         "build-app": "<b>(login necessário)</b><br>Constrói aplicações de multi-canais com a plataforma AnyPresence"
@@ -123,7 +124,9 @@
     "log": "registro",
     "log_plural": "registros",
     "notificaiton": "notificação",
-    "notification_plural": "notificações"
+    "notification_plural": "notificações",
+    "api-documentation": "documentação da API",
+    "api-documentation_plural": "$t(resources.api-documentation)"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "chamada",
@@ -235,7 +238,8 @@
   "errors": {
     "unknown": "ocorreu um erro inesperado",
     "no-user-with-that-email": "não exite usuário com esse email",
-    "invalid-password": "senha inválida"
+    "invalid-password": "senha inválida",
+    "login": "não fomos capazes de fazer seu login"
   },
   "successes": {
     "saved-successfully": "salvo com sucesso",

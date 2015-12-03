@@ -59,6 +59,7 @@
       "hosts": "define named hosts associated with this API",
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "view, search, and stream logs",
+      "api-documentation": "view interactive API documentation and test API calls",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
@@ -123,7 +124,9 @@
     "log": "log",
     "log_plural": "logs",
     "notificaiton": "notification",
-    "notification_plural": "notifications"
+    "notification_plural": "notifications",
+    "api-documentation": "API documentation",
+    "api-documentation_plural": "$t(resources.api-documentation)"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single call",
@@ -236,7 +239,8 @@
   "errors": {
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
-    "invalid-password": "invalid password"
+    "invalid-password": "invalid password",
+    "login": "we were unable to log you in"
   },
   "successes": {
     "saved-successfully": "saved successfully",

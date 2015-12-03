@@ -61,5 +61,7 @@ Router.map ->
         @resource 'library', path: ':library_id', ->
           @route 'edit'
       @resource 'logs-api', path: 'logs', (->)
+      @resource 'api-documentation', path: 'api', ->
+        @resource 'api-documentation-detail', path: ':host_id', (->)
 
 `export default Router`

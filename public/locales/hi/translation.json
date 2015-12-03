@@ -59,6 +59,7 @@
       "hosts": "define named hosts associated with this API",
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "देखें , खोज, और धारा के लॉग",
+      "api-documentation": "इंटरैक्टिव एपीआई प्रलेखन और परीक्षण एपीआई कॉल देखने",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
@@ -123,7 +124,9 @@
     "log": "सर्वर लॉग",
     "log_plural": "सर्वर लॉग",
     "notificaiton": "अधिसूचना",
-    "notification_plural": "सूचनाएं"
+    "notification_plural": "सूचनाएं",
+    "api-documentation": "एपीआई प्रलेखन",
+    "api-documentation_plural": "$t(resources.api-documentation)"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single call",
@@ -235,7 +238,8 @@
   "errors": {
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
-    "invalid-password": "invalid password"
+    "invalid-password": "invalid password",
+    "login": "हम आपको लॉग इन करने में असमर्थ थे"
   },
   "successes": {
     "saved-successfully": "saved successfully",

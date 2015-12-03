@@ -31,10 +31,15 @@ module.exports = function(environment) {
       'img-src': "'self' *",
       'style-src': "'self' 'unsafe-inline'"
     },
-    
+
     api: {
       host: process.env.API_HOST || '',
       basePath: 'admin',
+      swaggerViewerPath: '/swagger',
+      swaggerJsonPath: '/swagger.json',
+      logs: {
+        host: ''
+      },
       authentication: {
         path: 'sessions'
       }
@@ -47,8 +52,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    
+
     // uncomment for stand-alone gateway API
+    //ENV.api.swaggerViewerPath = '';
+    //ENV.api.swaggerJsonPath = '';
     //ENV.api.host = 'http://localhost:5000'
   }
 
@@ -62,7 +69,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-    
+
     ENV.confirmDelete = false;
   }
 
@@ -70,8 +77,9 @@ module.exports = function(environment) {
     ENV.baseURL = null;
     ENV.locationType = 'hash';
     ENV.api.basePath = 'API_BASE_PATH_PLACEHOLDER';
+    ENV.api.logs.host = 'BROKER_PLACEHOLDER';
   }
-  
+
   ENV.api.url = [ENV.api.host, ENV.api.basePath].join('/');
   ENV.api.authentication.url = [ENV.api.host, ENV.api.basePath, ENV.api.authentication.path].join('/');
   ENV['simple-auth'].crossOriginWhitelist = [ENV.api.authentication.url];

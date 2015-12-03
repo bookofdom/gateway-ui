@@ -1,0 +1,24 @@
+<div class="clearfix">
+  <span class="text-muted pull-left">{{t '$t(prompts.choose-x, {"x": "resources.host"})'}}:</span>
+
+  <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
+
+  <div class="dropdown pull-left">
+    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+      {{model.name}}
+      <span class="caret"></span>
+    </a><!-- /.dropdown-toggle -->
+    <ul class="dropdown-menu">
+      {{#each api-documentation.model as |host|}}
+        <li>
+          {{#link-to 'api-documentation-detail' host}}{{host.name}}{{/link-to}}
+        </li>
+      {{/each}}
+    </ul><!-- /.dropdown-menu -->
+  </div><!-- /.dropdown -->
+
+  <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
+  <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
+
+</div><!-- /.clearfix -->
+<br>
