@@ -3,9 +3,5 @@
 
 ApiDocumentationRoute = Ember.Route.extend AuthenticatedRouteMixin,
   model: -> @modelFor('api').get 'hosts'
-  afterModel: ->
-    firstHost = @modelFor('api-documentation')?.get 'firstObject'
-    if firstHost
-      @transitionTo 'api-documentation-detail', firstHost
 
 `export default ApiDocumentationRoute`
