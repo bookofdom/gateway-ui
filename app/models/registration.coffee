@@ -1,11 +1,10 @@
 `import DS from 'ember-data'`
 `import Model from './model'`
 
-User = Model.extend
-  name: DS.attr 'string'
+Registration = Model.extend
   email: DS.attr 'string'
   password: DS.attr 'string'
   password_confirmation: DS.attr 'string'
   organization: DS.attr 'string'
 
-`export default User`
+`export default Registration`
