@@ -1,0 +1,442 @@
+{
+    "definitions": {},
+    "info": {
+        "description": "",
+        "title": "Magic",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/alerts": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Get current news or alerts. this API shows 3 routes."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Simple logic based proxy"
+                ]
+            }
+        },
+        "/alerts.json": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Get current news or alerts. this API shows 3 routes."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Simple logic based proxy"
+                ]
+            }
+        },
+        "/auth": {
+            "post": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Authenticate using username and password, token persisted on session."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Session - Login"
+                ]
+            }
+        },
+        "/auth/alerts": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "This example demonstrates a two step policy in sequence - 1) token validation and 2) data call."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Multiple remote endpoints - sequential calls"
+                ]
+            }
+        },
+        "/auth/products": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Read products by passing token from session object. You must call Login call first."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Session - Read products"
+                ]
+            }
+        },
+        "/employee/{id}": {
+            "put": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description:": "Update a record in the table"
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "PgUpdateOne"
+                ]
+            }
+        },
+        "/employees": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Select all records from the table"
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "PgSelectAll"
+                ]
+            }
+        },
+        "/employees/count": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Return number of records in Mongo collection"
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "MongoCount"
+                ]
+            }
+        },
+        "/employees/{id}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description:": "Delete a record based on the key field"
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "PgDelete"
+                ]
+            }
+        },
+        "/events": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Call to get events from remote http source. Supports pagination, order by and filter by status."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "CRUD - Query events"
+                ]
+            }
+        },
+        "/events/{id}": {
+            "put": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description:": "Call to update event"
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "CRUD - Update an event"
+                ]
+            }
+        },
+        "/geolocation": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Pass latitude and longitude to get address info from Google. NOTE: Requires your Google API key in remote endpoint setup"
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Geolocation"
+                ]
+            }
+        },
+        "/helloworld": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "A simple hello world endpoint to test whether your JustAPIs instance running correctly."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "A Hello World proxy"
+                ]
+            }
+        },
+        "/helloworld.json": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "A simple hello world endpoint that returns JSON"
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "A JSON Hello World proxy"
+                ]
+            }
+        },
+        "/helloworld_remote": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "A simple endpoint that invokes a Remote Endpoint to return hello world"
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "A Remote Hello World proxy"
+                ]
+            }
+        },
+        "/mssqls": {
+            "post": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Create Table for MS SQL"
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "MsSqlCreateTable"
+                ]
+            }
+        },
+        "/news": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Get current news or alerts. this API shows 3 routes."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Simple logic based proxy"
+                ]
+            }
+        },
+        "/objects": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Show JustAPIs JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Request and response lifecycle"
+                ]
+            },
+            "post": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Show JustAPIs JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Request and response lifecycle"
+                ]
+            }
+        },
+        "/objects/{varField1}": {
+            "get": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "varField1",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description:": "Show JustAPIs JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Request and response lifecycle"
+                ]
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "varField1",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description:": "Show JustAPIs JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Request and response lifecycle"
+                ]
+            }
+        },
+        "/pgs": {
+            "post": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Create a table for PG"
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "PgCreateTable"
+                ]
+            }
+        },
+        "/products": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "Call to aggregate data from different remote endpoints.  This call will call two remote services in parallel and aggregate products and ratings."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "Multiple remote endpoints - parallel calls"
+                ]
+            }
+        },
+        "/rss.json": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "RSS Feed JSON Example"
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "RSS - JSON Example"
+                ]
+            }
+        },
+        "/rss.xml": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description:": "RSS example using XML."
+                    },
+                    "default": {
+                        "description": "error"
+                    }
+                },
+                "tags": [
+                    "RSS - XML Example"
+                ]
+            }
+        }
+    },
+    "swagger": "2.0"
+}
