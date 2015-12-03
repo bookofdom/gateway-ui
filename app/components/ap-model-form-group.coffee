@@ -9,7 +9,6 @@ ApModelFormGroupComponent = BsFormGroupComponent.extend
 
   fieldName: null
   fieldLabel: null
-  fieldHelp: null
   fieldType: null
   fieldRequired: null
 
@@ -35,18 +34,18 @@ ApModelFormGroupComponent = BsFormGroupComponent.extend
     name = @get 'name'
     if id then "#{modelName}-#{id}-#{name}" else "#{modelName}-#{name}"
 
-  help: Ember.computed 'fieldHelp', 'hasErrors',
-    get: ->
-      helpKey = "fields.help.#{@get 'name'}"
-      help = @get('fieldHelp') or (t helpKey if @get 'name')
-      # If help was looked-up via a translation key and no translation was found,
-      # do not pass string.
-      help = null if help.toLowerCase() == helpKey
-      help = @get('error-messages').join ' ' if @get 'hasErrors'
-      help
-    set: (key, value) ->
-      @set 'fieldHelp', value if value?
-      @get 'help'
+  errorHelp: Ember.computed 'hasErrors', ->
+    @get('error-messages').join ' ' if @get 'hasErrors'
+
+  secondary: Ember.computed 'help', 'errorHelp', ->
+    helpKey = "fields.help.#{@get 'name'}"
+    help = @get('help') or (t helpKey if @get 'name')
+    # If help was looked-up via a translation key and no translation was found,
+    # do not pass string.
+    help = null if help.toLowerCase() == helpKey
+    errorHelp = @get 'errorHelp'
+    help = errorHelp if errorHelp
+    help
 
   required: Ember.computed 'fieldRequired',
     get: -> @get 'fieldRequired'
@@ -58,7 +57,7 @@ ApModelFormGroupComponent = BsFormGroupComponent.extend
     attributes = []
     @get('model')?.eachAttribute (name, meta) -> attributes.push meta
     attributes.findBy 'name', @get('name')
-  
+
   type: Ember.computed 'fieldType',
     get: ->
       attribute = @get 'attribute'
@@ -72,11 +71,13 @@ ApModelFormGroupComponent = BsFormGroupComponent.extend
   checkbox: Ember.computed 'type', ->
     (@get('type') == 'checkbox') or (@get('type') == 'boolean')
   radio: Ember.computed 'type', -> @get('type') == 'radio'
-  errorsForField: Ember.computed 'model.errors.[]', 'name', ->
+
+  'error-messages': Ember.computed 'model.errors.[]', 'model.errors.length', 'name', ->
     name = @get 'name'
-    @get('model.errors')?.errorsFor(name) or []
-  'error-messages': Ember.computed 'errorsForField.[]', ->
-    "#{error.message.capitalize()}" for error in @get('errorsForField')
-  hasErrors: Ember.computed 'error-messages', -> !!@get('error-messages.length')
+    errorsForField = @get('model.errors')?.errorsFor(name) or []
+    "#{error.message.capitalize()}" for error in errorsForField
+
+  hasErrors: Ember.computed 'error-messages.[]', 'error-messages.length', ->
+    !!@get('error-messages.length')
 
 `export default ApModelFormGroupComponent`

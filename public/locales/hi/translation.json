@@ -97,6 +97,8 @@
     "proxy-endpoint-test-query-parameter_plural": "parámetros de consulta",
     "proxy-endpoint-test-argument": "तर्क",
     "proxy-endpoint-test-argument_plural": "तर्क",
+    "proxy-endpoint-schema": "स्कीमा मान्यता",
+    "proxy-endpoint-schema_plural": "स्कीमा सत्यापन",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
@@ -137,6 +139,7 @@
     "cors_request_headers": "CORS request headers",
     "cors_max_age": "CORS max age",
     "cors_enabled": "CORS enabled",
+    "enable_swagger": "सक्षम swagger",
     "type": "type",
     "active": "active",
     "path": "path",
@@ -193,7 +196,10 @@
     },
     "interpreter": "दुभाषिया",
     "filepath": "दस्तावेज पथ",
-    "script": "लिपि"
+    "script": "लिपि",
+    "request_schema": "अनुरोध स्कीमा",
+    "response_same_as_request": "अनुरोध के रूप में एक ही प्रतिक्रिया",
+    "response_schema": "प्रतिक्रिया स्कीमा"
   },
   "prompts": {
     "generic": "choose one",
@@ -224,7 +230,8 @@
   "errors": {
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
-    "invalid-password": "invalid password"
+    "invalid-password": "invalid password",
+    "login": "हम आपको लॉग इन करने में असमर्थ थे"
   },
   "successes": {
     "saved-successfully": "saved successfully"

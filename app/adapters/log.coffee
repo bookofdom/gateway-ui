@@ -10,6 +10,8 @@ socketRecord = null
 LogAdapter = ApplicationAdapter.extend Ember.Evented,
   websockets: Ember.inject.service 'websockets'
 
+  isSecure: Ember.computed -> location.protocol is 'https:'
+
   urlForQuery: (query, modelName) ->
     api = query.api
     proxyEndpoint = query.proxy_endpoint
@@ -27,9 +29,16 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
 
   buildSocketURL: (type, id, snapshot, query={}) ->
     url = @urlForQuery query, type
-    url = url.replace 'http://', ''
-    url = "#{location.host}#{url}" if !config.api.host
-    "ws://#{url}/socket"
+    url = url.replace location.host, ''
+    url = url.replace config.api.host, ''
+    host = config.api.logs.host or config.api.host or location.host
+    url = "#{host}#{url}"
+    url = url.replace /https?\:\/{2}/g, ''
+    isSecure = @get 'isSecure'
+    protocol = if isSecure then 'wss:' else 'ws:'
+    url = "#{protocol}//#{url}/socket"
+    url = @cleanURL url
+    url
 
   enableStreaming: (record) ->
     snapshot = record._createSnapshot()

@@ -97,6 +97,8 @@
     "proxy-endpoint-test-query-parameter_plural": "parámetros de consulta",
     "proxy-endpoint-test-argument": "argumento",
     "proxy-endpoint-test-argument_plural": "argumentos",
+    "proxy-endpoint-schema": "validación de esquema",
+    "proxy-endpoint-schema_plural": "validaciones de esquema",
     "environment": "entorno",
     "environment_plural": "entornos",
     "environment-variable": "variable de entorno",
@@ -137,6 +139,7 @@
     "cors_request_headers": "CORS de encabezados requeridos",
     "cors_max_age": "CORS antigüedad máxima",
     "cors_enabled": "CORS habilitados",
+    "enable_swagger": "habilitar swagger",
     "type": "tipo",
     "active": "activo",
     "path": "ruta",
@@ -193,7 +196,10 @@
     },
     "interpreter": "intérprete",
     "filepath": "ruta de archivo",
-    "script": "guión"
+    "script": "guión",
+    "request_schema": "solicitud de esquema",
+    "response_same_as_request": "respuesta mismo como petición",
+    "response_schema": "esquema de respuesta"
   },
   "prompts": {
     "generic": "elija uno",
@@ -224,7 +230,8 @@
   "errors": {
     "unknown": "ha ocurrido un error inesperado",
     "no-user-with-that-email": "no existe un usuario con ese correo electrónico",
-    "invalid-password": "contraseña inválida"
+    "invalid-password": "contraseña inválida",
+    "login": "nos ha sido imposible iniciar tu sesión"
   },
   "successes": {
     "saved-successfully": "grabado satisfactoriamente"
