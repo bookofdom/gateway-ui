@@ -6,7 +6,14 @@ module.exports = function(app) {
     var body = req.body;
     var id = Math.round(Math.random() * 100) + 100;
     body.registration.id = id;
-    res.status(201).send(body).end();
+
+    if (body.registration.email.toLowerCase() == 'error') {
+      res.status(422).send({errors: {email: 'This field is in error.'}});
+    } else if (body.registration.email.toLowerCase() == '500') {
+      res.status(500).send();
+    } else {
+      res.status(201).send(body).end();
+    }
   });
 
   app.use('/admin/registrations', registrationRouter);
