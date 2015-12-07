@@ -9,6 +9,7 @@ User = Model.extend
   password: DS.attr 'string'
   password_confirmation: DS.attr 'string'
   admin: DS.attr 'boolean'
+  confirmed: DS.attr 'boolean'
 
   # Services
   session: Ember.inject.service 'simple-auth-session:main'

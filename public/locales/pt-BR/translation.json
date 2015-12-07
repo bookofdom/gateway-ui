@@ -132,6 +132,7 @@
     "password_confirmation": "confirmar senha",
     "name": "nome",
     "description": "descrição",
+    "confirmed": "confirmado",
     "cors_allow_origin": "CORS de origem permitidos",
     "cors_allow_headers": "CORS de cabeçalho permitidos",
     "cors_allow_credentials": "CORS de credenciais permitidos",
