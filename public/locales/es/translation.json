@@ -134,10 +134,12 @@
     "javascript-logic": "lógica"
   },
   "fields": {
+    "admin": "administración",
     "email": "correo electrónica",
     "password": "contraseña",
     "password_confirmation": "confirmar contraseña",
     "name": "nombre",
+    "confirmed": "confirmado",
     "description": "descripción",
     "cors_allow_origin": "CORS de orígen permitidos",
     "cors_allow_headers": "CORS de encabezados permitidos",

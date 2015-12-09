@@ -10,6 +10,10 @@ UserFormController = FormController.extend
       name: 'email'
       required: true
     ,
+      name: 'admin'
+    ,
+      name: 'confirmed'
+    ,
       name: 'password'
       type: 'password'
     ,
