@@ -9,6 +9,7 @@ Environment = Model.extend
   session_encryption_key: DS.attr 'string'
   session_auth_key_rotate: DS.attr 'string'
   session_encryption_key_rotate: DS.attr 'string'
+  show_javascript_errors: DS.attr 'boolean'
 
   # Relationships
   api: DS.belongsTo 'api', async: true

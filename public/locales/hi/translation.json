@@ -198,6 +198,7 @@
     "end_date": "अंतिम तिथि",
     "maximum_lines": "अधिकतम लाइनों",
     "import": "आयात",
+    "show_javascript_errors": "$t(languages.javascript) त्रुटियों को दिखाने",
     "help": {
       "timeout": "सेकंड की संख्या।",
       "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।"

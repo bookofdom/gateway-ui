@@ -28,6 +28,9 @@ EnvironmentFormController = FormController.extend
   ,
     name: 'session_encryption_key_rotate'
     type: 'textarea'
+  ,
+    name: 'show_javascript_errors'
+    type: 'boolean'
   ]
   fields: Ember.computed 'model.isNew', ->
     if @get 'model.isNew' then @get 'newFields' else @get 'editFields'
