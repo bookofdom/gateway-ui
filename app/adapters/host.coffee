@@ -6,8 +6,8 @@ HostAdapter = ApiRelatedAdapter.extend
     jsonUrl = @buildSwaggerJsonUrl record
     jsonUrl = encodeURIComponent jsonUrl
     url = config.api.swaggerViewerPath
-    url ?= @buildURL 'swagger'
-    url = "#{url}.html?url=#{jsonUrl}"
+    url = @buildURL('swagger') if !url
+    "#{url}.html?url=#{jsonUrl}"
 
   buildSwaggerJsonUrl: (record) ->
     snapshot = record._createSnapshot()
@@ -15,9 +15,9 @@ HostAdapter = ApiRelatedAdapter.extend
     hostname = snapshot.get 'hostname'
     port = location.port
     host = if port then "#{hostname}:#{port}" else hostname
-    path = '/swagger.json'
-    url = config.api.swaggerJsonPath
-    url ?= "#{protocol}//#{host}#{path}"
-    url
+    path = '/swagger'
+    url = "#{config.api.swaggerJsonPath}"
+    url = "#{protocol}//#{host}#{path}" if !url
+    "#{url}.json"
 
 `export default HostAdapter`
