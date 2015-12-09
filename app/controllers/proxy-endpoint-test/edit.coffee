@@ -22,6 +22,14 @@ ProxyEndpointTestEditController = Ember.Controller.extend
       body = vkbeautify.xml body if @get 'responseIsXml'
     body
 
+  responseBodyParseError: Ember.computed 'response.body', 'responseIsJson', 'responseIsXml', ->
+    try
+      body = @get 'response.body'
+      vkbeautify.json body if @get 'responseIsJson'
+      vkbeautify.xml body if @get 'responseIsXml'
+    catch error
+      "#{error}"
+
   reset: -> @set 'response', null
 
   actions:

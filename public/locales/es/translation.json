@@ -179,6 +179,7 @@
     "host": "host",
     "content_type": "tipo de contenido",
     "body": "contenido",
+    "body_parse_error": "error de análisis",
     "log": "registro",
     "limit": "límite de agrupación de conexiones",
     "location": "localización",
