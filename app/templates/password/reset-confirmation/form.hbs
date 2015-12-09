@@ -1,0 +1,18 @@
+<form class="ap-form-login" {{action 'save' on='submit'}}>
+  {{#bs-form-group error=new-password-error help=new-password-error}}
+    {{input
+      name='new_password'
+      value=model.new_password
+      placeholder=(t '$t(actions.new-x, {"x": "fields.password"})')
+      class='form-control input-lg'
+      type='password'}}
+  {{/bs-form-group}}
+  <div class="form-actions">
+    {{#bs-form-group}}
+      {{bs-submit t='actions.save' lg=true}}
+    {{/bs-form-group}}
+    {{#if base-error}}
+      <p class="text-danger">{{base-error}}</p>
+    {{/if}}
+  </div>
+</form>

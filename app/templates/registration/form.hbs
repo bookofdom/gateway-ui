@@ -1,0 +1,43 @@
+<form class="ap-form-login" {{action 'save' on='submit'}}>
+  {{#bs-form-group error=email-error help=email-error}}
+    {{input
+      name='email'
+      value=model.email
+      placeholder=(t 'fields.email')
+      required=true
+      class='form-control input-lg'}}
+  {{/bs-form-group}}
+  {{#bs-form-group error=password-error help=password-error}}
+    {{input
+      name='password'
+      value=model.password
+      placeholder=(t 'fields.password')
+      required=true
+      type='password'
+      class='form-control input-lg'}}
+  {{/bs-form-group}}
+  {{#bs-form-group error=password-confirmation-error help=password-confirmation-error}}
+    {{input
+      name='password_confirmation'
+      value=model.password_confirmation
+      placeholder=(t 'fields.password_confirmation')
+      required=true
+      type='password'
+      class='form-control input-lg'}}
+  {{/bs-form-group}}
+  {{#bs-form-group error=organization-error help=organization-error}}
+    {{input
+      name='organization'
+      value=model.organization
+      placeholder=(t '$t(prompts.optional-x, {"x": "fields.organization"})')
+      class='form-control input-lg'}}
+  {{/bs-form-group}}
+  <div class="form-actions">
+    {{#bs-form-group}}
+      {{bs-submit t='actions.sign-up' lg=true}}
+    {{/bs-form-group}}
+    {{#if base-error}}
+      <p class="text-danger">{{base-error}}</p>
+    {{/if}}
+  </div>
+</form>

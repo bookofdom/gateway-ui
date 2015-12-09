@@ -35,7 +35,10 @@
     "drop-or-click-to-upload": "suelta o presiona para subir",
     "select-add-component-type": "selecciona un tipo de componente para agregar",
     "fullscreen": "pantalla completa",
-    "filter": "filtro"
+    "filter": "filtro",
+    "reset": "reiniciar",
+    "reset-password": "restablecer la contraseña",
+    "sign-up": "contratar"
   },
   "nav": {
     "home": "inicio",
@@ -202,14 +205,16 @@
     "script": "guión",
     "request_schema": "solicitud de esquema",
     "response_same_as_request": "respuesta mismo como petición",
-    "response_schema": "esquema de respuesta"
+    "response_schema": "esquema de respuesta",
+    "organization": "organización"
   },
   "prompts": {
     "generic": "elija uno",
     "choose-x": "elija $t(__x__)",
     "confirm-delete": "¿esta seguro que desea eliminar éste registro?",
     "confirm-abandon": "are you sure you want to leave this record without saving?",
-    "change-language": "cambio de idioma"
+    "change-language": "cambio de idioma",
+    "optional-x": "$t(__x__) (opcional)"
   },
   "states": {
     "active": "activo",
@@ -237,7 +242,10 @@
     "login": "nos ha sido imposible iniciar tu sesión"
   },
   "successes": {
-    "saved-successfully": "grabado satisfactoriamente"
+    "saved-successfully": "grabado satisfactoriamente",
+    "password-reset": "correo electrónico de confirmación de restablecimiento de contraseña enviada",
+    "password-reset-confirmation": "restablecimiento de contraseñas con éxito",
+    "sign-up": "inscribirse éxito"
   },
   "headers": {
     "x-workflow": "__x__ flujo de trabajo"

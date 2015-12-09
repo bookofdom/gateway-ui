@@ -35,7 +35,10 @@
     "drop-or-click-to-upload": "drop or click to upload",
     "select-add-component-type": "select a component type to add",
     "fullscreen": "fullscreen",
-    "filter": "filter"
+    "filter": "filter",
+    "reset": "reset",
+    "reset-password": "reset password",
+    "sign-up": "sign up"
   },
   "nav": {
     "home": "home",
@@ -203,14 +206,16 @@
     "script": "script",
     "request_schema": "request schema",
     "response_same_as_request": "response same as request",
-    "response_schema": "response schema"
+    "response_schema": "response schema",
+    "organization": "organization"
   },
   "prompts": {
     "generic": "choose one",
     "choose-x": "choose $t(__x__)",
     "confirm-delete": "are you sure you want to delete this record?",
     "confirm-abandon": "are you sure you want to leave this record without saving?",
-    "change-language": "change language"
+    "change-language": "change language",
+    "optional-x": "$t(__x__) (optional)"
   },
   "states": {
     "active": "active",
@@ -238,7 +243,10 @@
     "login": "we were unable to log you in"
   },
   "successes": {
-    "saved-successfully": "saved successfully"
+    "saved-successfully": "saved successfully",
+    "password-reset": "password reset confirmation email sent",
+    "password-reset-confirmation": "password successfully reset",
+    "sign-up": "sign up successful"
   },
   "headers": {
     "x-workflow": "__x__ workflow"
