@@ -35,8 +35,8 @@ module.exports = function(environment) {
     api: {
       host: process.env.API_HOST || '',
       basePath: 'admin',
-      swaggerViewerPath: '/swagger',
-      swaggerJsonPath: '/swagger.json',
+      swaggerViewerPath: null,
+      swaggerJsonPath: null,
       logs: {
         host: ''
       },
@@ -54,8 +54,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
     // uncomment for stand-alone gateway API
-    //ENV.api.swaggerViewerPath = '';
-    //ENV.api.swaggerJsonPath = '';
+    ENV.api.swaggerViewerPath = '/swagger';
+    ENV.api.swaggerJsonPath = '/swagger';
     //ENV.api.host = 'http://localhost:5000'
   }
 
