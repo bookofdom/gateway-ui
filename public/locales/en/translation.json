@@ -184,6 +184,7 @@
     "host": "host",
     "content_type": "content type",
     "body": "body",
+    "body_parse_error": "parse error",
     "log": "log",
     "limit": "connection pool limit",
     "location": "location",
