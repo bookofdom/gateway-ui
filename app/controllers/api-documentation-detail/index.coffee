@@ -16,10 +16,10 @@ ApiDocumentationDetailIndexController = Ember.Controller.extend
   actions:
     enableSwagger: ->
       model = @get 'api.model'
+      notify = @get 'notify'
       model.set 'enable_swagger', true
-      model.save().catch =>
-        # notify user of errors
+      model.save().catch ->
         model.get('errors').forEach (error) ->
-          @get('notify').alert error.message
+          notify.alert error.message
 
 `export default ApiDocumentationDetailIndexController`
