@@ -202,7 +202,8 @@
     "show_javascript_errors": "mostrar erros de $t(languages.javascript)",
     "help": {
       "timeout": "O número de segundos.",
-      "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação."
+      "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
+      "enable_swagger": "Ativar Swagger para procurar a documentação da API e publicar `swagger.json`."
     },
     "interpreter": "intérprete",
     "filepath": "caminho de arquivo",
