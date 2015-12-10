@@ -12,6 +12,7 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     fingerprint: {
       exclude: [
+        'swagger',
         'snippets/javascript.js',
         'theme-slate.js',
         'worker-javascript.js',
