@@ -16,7 +16,7 @@ HostAdapter = ApiRelatedAdapter.extend
     port = location.port
     host = if port then "#{hostname}:#{port}" else hostname
     path = '/swagger'
-    url = "#{config.api.swaggerJsonPath}"
+    url = config.api.swaggerJsonPath
     url = "#{protocol}//#{host}#{path}" if !url
     "#{url}.json"
 
