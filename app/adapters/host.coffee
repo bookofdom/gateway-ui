@@ -7,6 +7,7 @@ HostAdapter = ApiRelatedAdapter.extend
     jsonUrl = encodeURIComponent jsonUrl
     url = config.api.swaggerViewerPath
     url = @buildURL('swagger') if !url
+    url = url.replace /^\/\//g, '/' # replace double leading slashes
     "#{url}.html?url=#{jsonUrl}"
 
   buildSwaggerJsonUrl: (record) ->
