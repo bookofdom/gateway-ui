@@ -8,4 +8,7 @@ RemoteEndpointEnvironmentDatum = RemoteEndpointLike.extend
     async: false
     stains: true
 
+  errors: Ember.computed 'remote_endpoint.errors.[]', 'remote_endpoint.errors.length', ->
+    @get 'remote_endpoint.errors'
+
 `export default RemoteEndpointEnvironmentDatum`
