@@ -7,5 +7,6 @@ RemoteEndpoint = RemoteEndpointLike.extend
   environment_data: DS.hasMany 'remote-endpoint-environment-datum',
     async: false
     embedded: true
+    errors: true
 
 `export default RemoteEndpoint`
