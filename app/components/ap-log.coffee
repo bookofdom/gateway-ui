@@ -13,7 +13,7 @@ ApLogComponent = BsBaseComponent.extend
   scrollToBottom: ->
     Ember.run.later (=>
       if @get 'autoScroll'
-        scrollHeight = @$()[0]?.scrollHeight
+        scrollHeight = @$()?[0]?.scrollHeight
         @$().scrollTop(scrollHeight + 200) if scrollHeight
     ), 250
 
