@@ -12,6 +12,7 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     fingerprint: {
       exclude: [
+        'swagger',
         'snippets/javascript.js',
         'theme-slate.js',
         'worker-javascript.js',
@@ -83,6 +84,15 @@ module.exports = function(defaults) {
   app.import('bower_components/gateway-icons/dist/fonts/gateway.ttf', {destDir: 'assets/fonts'});
   app.import('bower_components/gateway-icons/dist/fonts/gateway.woff', {destDir: 'assets/fonts'});
 
+  // Swagger is included statically instead of compiled into assets.  It's best
+  // to treat swagger as a standalone app.  Thought it bills itself as
+  // dependency-free, it is actually a mess of third-party libraries and
+  // jQuery-based code.
+  var swaggerAssets = new Funnel('bower_components/swagger-ui/dist', {
+    srcDir: '/',
+    destDir: 'swagger'
+  });
+
   // ACE workers are loaded at runtime via AJAX and thus are included seperately
   var aceAssets = new Funnel('bower_components/ace-tern/ace-builds/src-noconflict', {
     srcDir: '/',
@@ -98,5 +108,5 @@ module.exports = function(defaults) {
     destDir: '/'
   });
 
-  return app.toTree(aceAssets);
+  return app.toTree(swaggerAssets, aceAssets);
 };

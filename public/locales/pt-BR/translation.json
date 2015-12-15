@@ -35,7 +35,10 @@
     "drop-or-click-to-upload": "solte ou pressione para subir",
     "select-add-component-type": "selecione um tipo de componente para adicionar",
     "fullscreen": "tela cheia",
-    "filter": "filtro"
+    "filter": "filtro",
+    "reset": "restabelecer",
+    "reset-password": "trocar a senha",
+    "sign-up": "inscrever-se"
   },
   "nav": {
     "home": "início",
@@ -56,6 +59,7 @@
       "hosts": "define os servidores associados com a API",
       "libraries": "define bibliotecas compartilhadas para uso em blocos de código de JavaScript",
       "logs": "visualização, pesquisa e transmissão de registros",
+      "api-documentation": "visualizar a documentação da API e chamadas de API de teste interativos",
       "formatted": {
         "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",
         "build-app": "<b>(login necessário)</b><br>Constrói aplicações de multi-canais com a plataforma AnyPresence"
@@ -120,7 +124,9 @@
     "log": "registro",
     "log_plural": "registros",
     "notificaiton": "notificação",
-    "notification_plural": "notificações"
+    "notification_plural": "notificações",
+    "api-documentation": "documentação da API",
+    "api-documentation_plural": "$t(resources.api-documentation)"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "chamada",
@@ -128,11 +134,13 @@
     "javascript-logic": "lógica"
   },
   "fields": {
+    "admin": "administrador",
     "email": "email",
     "password": "senha",
     "password_confirmation": "confirmar senha",
     "name": "nome",
     "description": "descrição",
+    "confirmed": "confirmado",
     "cors_allow_origin": "CORS de origem permitidos",
     "cors_allow_headers": "CORS de cabeçalho permitidos",
     "cors_allow_credentials": "CORS de credenciais permitidos",
@@ -176,6 +184,7 @@
     "host": "host",
     "content_type": "tipo de conteúdo",
     "body": "conteúdo",
+    "body_parse_error": "erro de análise",
     "log": "registro",
     "limit": "limite de agrupamento conexão",
     "location": "localização",
@@ -190,23 +199,27 @@
     "end_date": "data final",
     "maximum_lines": "linhas máximos",
     "import": "importação",
+    "show_javascript_errors": "mostrar erros de $t(languages.javascript)",
     "help": {
       "timeout": "O número de segundos.",
-      "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação."
+      "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
+      "enable_swagger": "Ativar Swagger para procurar a documentação da API e publicar `swagger.json`."
     },
     "interpreter": "intérprete",
     "filepath": "caminho de arquivo",
     "script": "script",
     "request_schema": "esquema de solicitação",
     "response_same_as_request": "como resposta mesmo pedido",
-    "response_schema": "esquema de resposta"
+    "response_schema": "esquema de resposta",
+    "organization": "organização"
   },
   "prompts": {
     "generic": "escolha um",
     "choose-x": "escolha $t(__x__)",
     "confirm-delete": "tem certeza que deseja deletar este registro?",
     "confirm-abandon": "tem certeza que deseja sair sem salvar?",
-    "change-language": "troca de idioma"
+    "change-language": "troca de idioma",
+    "optional-x": "$t(__x__) (opcional)"
   },
   "states": {
     "active": "ativo",
@@ -234,7 +247,10 @@
     "login": "não fomos capazes de fazer seu login"
   },
   "successes": {
-    "saved-successfully": "salvo com sucesso"
+    "saved-successfully": "salvo com sucesso",
+    "password-reset": "mail de confirmação de redefinição de senha enviada",
+    "password-reset-confirmation": "redefinição de senha com sucesso",
+    "sign-up": "inscrever-se bem-sucedida"
   },
   "headers": {
     "x-workflow": "__x__ fluxo de trabalho"

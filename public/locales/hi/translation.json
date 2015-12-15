@@ -35,7 +35,10 @@
     "drop-or-click-to-upload": "drop or click to upload",
     "select-add-component-type": "select a component type to add",
     "fullscreen": "पूर्ण स्क्रीन",
-    "filter": "फिल्टर"
+    "filter": "फिल्टर",
+    "reset": "रीसेट",
+    "reset-password": "पासवर्ड रीसेट",
+    "sign-up": "साइन अप करें"
   },
   "nav": {
     "home": "home",
@@ -56,6 +59,7 @@
       "hosts": "define named hosts associated with this API",
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "देखें , खोज, और धारा के लॉग",
+      "api-documentation": "इंटरैक्टिव एपीआई प्रलेखन और परीक्षण एपीआई कॉल देखने",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
@@ -120,7 +124,9 @@
     "log": "सर्वर लॉग",
     "log_plural": "सर्वर लॉग",
     "notificaiton": "अधिसूचना",
-    "notification_plural": "सूचनाएं"
+    "notification_plural": "सूचनाएं",
+    "api-documentation": "एपीआई प्रलेखन",
+    "api-documentation_plural": "$t(resources.api-documentation)"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single call",
@@ -128,11 +134,13 @@
     "javascript-logic": "logic"
   },
   "fields": {
+    "admin": "व्यवस्थापक",
     "email": "email",
     "password": "password",
     "password_confirmation": "confirm password",
     "name": "name",
     "description": "description",
+    "confirmed": "इस बात की पुष्टि",
     "cors_allow_origin": "CORS allowed origin",
     "cors_allow_headers": "CORS allowed headers",
     "cors_allow_credentials": "CORS allow credentials",
@@ -176,6 +184,7 @@
     "host": "मेज़बान",
     "content_type": "सामग्री का प्रकार",
     "body": "सामग्री",
+    "body_parse_error": "पार्स त्रुटि",
     "log": "लॉग इन करें",
     "limit": "कनेक्शन समूहीकरण सीमा",
     "location": "स्थान",
@@ -190,23 +199,27 @@
     "end_date": "अंतिम तिथि",
     "maximum_lines": "अधिकतम लाइनों",
     "import": "आयात",
+    "show_javascript_errors": "$t(languages.javascript) त्रुटियों को दिखाने",
     "help": {
       "timeout": "सेकंड की संख्या।",
-      "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।"
+      "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
+      "enable_swagger": "एपीआई प्रलेखन ब्राउज़ करें और `swagger.json` प्रकाशित करने के लिए अकड़ सक्षम करें।"
     },
     "interpreter": "दुभाषिया",
     "filepath": "दस्तावेज पथ",
     "script": "लिपि",
     "request_schema": "अनुरोध स्कीमा",
     "response_same_as_request": "अनुरोध के रूप में एक ही प्रतिक्रिया",
-    "response_schema": "प्रतिक्रिया स्कीमा"
+    "response_schema": "प्रतिक्रिया स्कीमा",
+    "organization": "संगठन"
   },
   "prompts": {
     "generic": "choose one",
     "choose-x": "choose $t(__x__)",
     "confirm-delete": "are you sure you want to delete this record?",
     "confirm-abandon": "क्या आप रिकॉर्ड बिना सुरक्षित किए छोड़ना चाहते हैं ?",
-    "change-language": "change language"
+    "change-language": "change language",
+    "optional-x": "$t(__x__) (ऐच्छिक)"
   },
   "states": {
     "active": "active",
@@ -234,7 +247,10 @@
     "login": "हम आपको लॉग इन करने में असमर्थ थे"
   },
   "successes": {
-    "saved-successfully": "saved successfully"
+    "saved-successfully": "saved successfully",
+    "password-reset": "पासवर्ड रीसेट पुष्टिकरण ईमेल भेजा",
+    "password-reset-confirmation": "पासवर्ड सफलतापूर्वक रीसेट",
+    "sign-up": "सफल पंजीकरण"
   },
   "headers": {
     "x-workflow": "__x__ workflow"

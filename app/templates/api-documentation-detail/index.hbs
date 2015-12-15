@@ -1,0 +1,13 @@
+{{#ap-page t='resources.api-documentation_plural'}}
+
+  {{#unless enableSwagger}}
+    <p class="alert alert-danger">{{t 'fields.help.enable_swagger'}}</p>
+    {{#bs-button t='fields.enable_swagger' action='enableSwagger'}}{{/bs-button}}
+  {{/unless}}
+
+  {{#if showDocs}}
+    {{partial 'api-documentation-detail/-select-form'}}
+    {{ap-iframe src=model.swaggerViewerUrl}}
+  {{/if}}
+
+{{/ap-page}}

@@ -35,7 +35,10 @@
     "drop-or-click-to-upload": "drop or click to upload",
     "select-add-component-type": "select a component type to add",
     "fullscreen": "fullscreen",
-    "filter": "filter"
+    "filter": "filter",
+    "reset": "reset",
+    "reset-password": "reset password",
+    "sign-up": "sign up"
   },
   "nav": {
     "home": "home",
@@ -56,6 +59,7 @@
       "hosts": "define named hosts associated with this API",
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "view, search, and stream logs",
+      "api-documentation": "view interactive API documentation and test API calls",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
@@ -120,7 +124,9 @@
     "log": "log",
     "log_plural": "logs",
     "notificaiton": "notification",
-    "notification_plural": "notifications"
+    "notification_plural": "notifications",
+    "api-documentation": "API documentation",
+    "api-documentation_plural": "$t(resources.api-documentation)"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single call",
@@ -128,8 +134,10 @@
     "javascript-logic": "logic"
   },
   "fields": {
+    "admin": "admin",
     "email": "email",
     "password": "password",
+    "confirmed": "confirmed",
     "password_confirmation": "confirm password",
     "name": "name",
     "description": "description",
@@ -176,6 +184,7 @@
     "host": "host",
     "content_type": "content type",
     "body": "body",
+    "body_parse_error": "parse error",
     "log": "log",
     "limit": "connection pool limit",
     "location": "location",
@@ -191,23 +200,27 @@
     "end_date": "end date",
     "maximum_lines": "maximum lines",
     "import": "import",
+    "show_javascript_errors": "show $t(languages.javascript) errors",
     "help": {
       "timeout": "Number of seconds.",
-      "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers."
+      "content-type": "Looking for something else?  Specify a custom Content-Type in the request headers.",
+      "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`."
     },
     "interpreter": "interpreter",
     "filepath": "file path",
     "script": "script",
     "request_schema": "request schema",
     "response_same_as_request": "response same as request",
-    "response_schema": "response schema"
+    "response_schema": "response schema",
+    "organization": "organization"
   },
   "prompts": {
     "generic": "choose one",
     "choose-x": "choose $t(__x__)",
     "confirm-delete": "are you sure you want to delete this record?",
     "confirm-abandon": "are you sure you want to leave this record without saving?",
-    "change-language": "change language"
+    "change-language": "change language",
+    "optional-x": "$t(__x__) (optional)"
   },
   "states": {
     "active": "active",
@@ -235,7 +248,10 @@
     "login": "we were unable to log you in"
   },
   "successes": {
-    "saved-successfully": "saved successfully"
+    "saved-successfully": "saved successfully",
+    "password-reset": "password reset confirmation email sent",
+    "password-reset-confirmation": "password successfully reset",
+    "sign-up": "sign up successful"
   },
   "headers": {
     "x-workflow": "__x__ workflow"
