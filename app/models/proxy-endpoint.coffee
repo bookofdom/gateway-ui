@@ -28,17 +28,6 @@ ProxyEndpoint = Model.extend
     embedded: true
   schemas: DS.hasMany 'proxy-endpoint-schema', async: true
 
-  # copy errors from proxy endpoint into embedded relationships if necessary,
-  # for proper UI messaging
-  onComponentErrors: Ember.observer 'errors.components', ->
-    @get('errors.components')?.forEach (error) =>
-      @get('components').filterBy('hasDirtyAttributes', true).forEach (component) ->
-        component.get('errors').add 'base', error.message
-  onTestErrors: Ember.observer 'errors.tests', ->
-    @get('errors.tests')?.forEach (error) =>
-      @get('tests').filterBy('hasDirtyAttributes', true).forEach (test) ->
-        test.get('errors').add 'base', error.message
-
   # given a list of component IDs,
   # re-order the underlaying components array and save
   moveComponentByIdTo: (id, position) ->
