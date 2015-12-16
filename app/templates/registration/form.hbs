@@ -35,6 +35,7 @@
   <div class="form-actions">
     {{#bs-form-group}}
       {{bs-submit t='actions.sign-up' lg=true}}
+      {{link-to (t 'actions.login') 'login' class='btn btn-link'}}
     {{/bs-form-group}}
     {{#if base-error}}
       <p class="text-danger">{{base-error}}</p>
