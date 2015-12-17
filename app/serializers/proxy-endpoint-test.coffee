@@ -12,7 +12,6 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
       embedded: 'always'
   normalize: (type, hash, property) ->
     @normalizeMethods hash
-    @normalizeContentType hash
     @normalizeHeaders hash
     @normalizeQuery hash
     @normalizeArguments hash
@@ -22,20 +21,6 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
     hash.methods ?= []
     hash.method = hash.methods[0]
     delete hash.methods
-    hash
-  normalizeContentType: (hash) ->
-    hash.pairs ?= []
-    hash.content_type = null
-    # find a content type header
-    contentType = hash.pairs.find (pair) ->
-      (pair.type is 'header') and (pair.key is 'Content-Type')
-    value = contentType?.value
-    # If a content type header is one of the default content types, remove it from headers.
-    # Default content types are always exposed via the model field content_type.
-    if value in ProxyEndpointTest.contentTypes.map((type) -> type.value)
-      hash.content_type = value
-      hash.pairs = hash.pairs.filter (pair) ->
-        !((pair.type is 'header') and (pair.key is 'Content-Type'))
     hash
   normalizeHeaders: (hash) ->
     hash.pairs ?= []
@@ -69,17 +54,9 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
     delete serialized.headers
     delete serialized.query
     delete serialized.arguments
-    delete serialized.content_type
     serialized
   serializePairs: (model, serialized) ->
     pairs = []
-    contentType = model.get('headers').find (header) ->
-      header.get('name') is 'Content-Type'
-    if serialized.content_type and !contentType
-      pairs.push
-        type: 'header'
-        key: 'Content-Type'
-        value: serialized.content_type
     model.get('headers').forEach (header) ->
       id = header.get 'id'
       id = parseInt(id, 10) if id
