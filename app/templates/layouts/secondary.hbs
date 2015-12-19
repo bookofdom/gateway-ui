@@ -1,5 +1,10 @@
 <div class="ap-app-secondary">
-  <div class="ap-app-secondary-sidebar">
+  <div {{bind-attr class=':ap-app-secondary-sidebar view.expanded'}}>
+    <a class="btn btn-default ap-toggle-nav visible-xs visible-sm" href="#" {{action 'toggleNav' target=view}}>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a><!-- /.btn -->
     {{#ap-list-nav-vertical}}
       {{partial 'layouts/secondary/nav-items'}}
     {{/ap-list-nav-vertical}}

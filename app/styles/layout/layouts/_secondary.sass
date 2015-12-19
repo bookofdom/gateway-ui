@@ -3,6 +3,13 @@
     float: left
     border-right: 1px solid
     width: $ap-app-secondary-sidebar-width
+    @media (max-width: $screen-sm-max)
+      width: 50px
+      transition: width 0.3s
+      &.expanded
+        width: $ap-app-secondary-sidebar-width
   .ap-app-secondary-content
     overflow: hidden
     margin-left: $ap-app-secondary-sidebar-width
+    @media (max-width: $screen-sm-max)
+      margin-left: 50px
