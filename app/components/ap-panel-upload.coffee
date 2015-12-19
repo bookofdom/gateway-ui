@@ -5,6 +5,7 @@
 ApPanelUploadComponent = BsPanelComponent.extend
   tagName: 'label'
   classNames: ['ap-panel-upload text-center']
+  classNameBindings: ['isSet:active']
   value: null
   style: 'drop'
   t: 'actions.drop-or-click-to-upload'
