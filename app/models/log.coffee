@@ -3,7 +3,7 @@
 
 Log = Model.extend
   body: DS.attr 'string'
-  lines: DS.attr 'array', defaultValue: -> []
+  lines: DS.attr 'string', defaultValue: -> ''
   buffer: DS.attr 'array', defaultValue: -> []
 
   # Relationships
@@ -23,7 +23,7 @@ Log = Model.extend
     bufferLength = buffer.length
     if bufferLength
       lines = @get 'lines'
-      @set 'lines', lines.concat(buffer)
+      @set 'lines', lines.concat(buffer.join '\n')
       buffer.clear()
 
   pushLogLine: (line) ->
