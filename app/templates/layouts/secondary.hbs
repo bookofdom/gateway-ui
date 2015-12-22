@@ -1,5 +1,5 @@
 <div class="ap-app-secondary">
-  <div {{bind-attr class=':ap-app-secondary-sidebar view.expanded'}}>
+  <div class="ap-app-secondary-sidebar {{if view.expanded 'expanded'}}">
     <a class="btn btn-default ap-toggle-nav visible-xs visible-sm" href="#" {{action 'toggleNav' target=view}}>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
