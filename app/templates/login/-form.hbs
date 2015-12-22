@@ -17,7 +17,9 @@
   <div class="form-actions">
     {{#bs-form-group}}
       {{bs-submit t='actions.login' lg=true}}
-      {{link-to (t 'actions.sign-up') 'registration' class='btn btn-link'}}
+      {{#if registrationEnabled}}
+        {{link-to (t 'actions.sign-up') 'registration' class='btn btn-link'}}
+      {{/if}}
       {{link-to (t 'actions.reset-password') 'password.reset' class='btn btn-link'}}
     {{/bs-form-group}}
     {{#if base-error}}
