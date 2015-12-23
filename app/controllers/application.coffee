@@ -2,6 +2,7 @@
 `import config from '../config/environment'`
 
 ApplicationController = Ember.Controller.extend
-  meta: Ember.computed -> config.meta
+  version: config.version
+  devMode: config.devMode
 
 `export default ApplicationController`

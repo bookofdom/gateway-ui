@@ -36,6 +36,11 @@ module.exports = function(environment) {
     confirmDelete: true,
     registrationEnabled: true, // expose the user registration UI?
 
+    version: null,
+    devMode: false,
+    goOs: null,
+    remoteEndpointTypesEnabled: null,
+
     api: {
       host: process.env.API_HOST || '',
       basePath: 'admin',
@@ -81,6 +86,10 @@ module.exports = function(environment) {
     ENV.baseURL = null;
     ENV.locationType = 'hash';
     ENV.registrationEnabled = 'REGISTRATION_ENABLED';
+    ENV.version = 'VERSION';
+    ENV.devMode = 'DEV_MODE';
+    ENV.goOs = 'GO_OS';
+    ENV.remoteEndpointTypesEnabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
     ENV.api.basePath = 'API_BASE_PATH_PLACEHOLDER';
     ENV.api.logs.host = 'BROKER_PLACEHOLDER';
   }
