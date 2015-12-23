@@ -250,7 +250,7 @@
     "saved-successfully": "saved successfully",
     "password-reset": "पासवर्ड रीसेट पुष्टिकरण ईमेल भेजा",
     "password-reset-confirmation": "पासवर्ड सफलतापूर्वक रीसेट",
-    "sign-up": "सफल पंजीकरण"
+    "sign-up": "अपने हस्ताक्षर की पुष्टि के लिए अपने ईमेल की जाँच कृपया"
   },
   "headers": {
     "x-workflow": "__x__ workflow"

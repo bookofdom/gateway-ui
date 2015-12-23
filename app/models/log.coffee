@@ -16,7 +16,7 @@ Log = Model.extend
   # Rate-limits log updates to once per second.
   # TODO:  does this belong in the controller?
   bufferObserver: Ember.observer 'buffer.length', ->
-    Ember.run.throttle @, @handleBuffer, 1000
+    Ember.run.throttle @, @handleBuffer, 1000, false
 
   handleBuffer: ->
     buffer = @get 'buffer'
