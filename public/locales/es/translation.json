@@ -31,7 +31,7 @@
     "toggle": "alternar",
     "toggle-x": "alternar $t(__x__)",
     "execute": "ejecutar",
-    "specify-custom": "especifique si es personalizado",
+    "specify-custom": "personalice",
     "drop-or-click-to-upload": "suelta o presiona para subir",
     "select-add-component-type": "selecciona un tipo de componente a agregar",
     "fullscreen": "pantalla completa",
