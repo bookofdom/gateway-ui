@@ -8,7 +8,9 @@
     {{render 'proxy-endpoint-component-transformation.inline-before-form' transform}}
   {{/each}}
 
-  {{render 'proxy-endpoint-component-call.inline-form' model.call}}
+  {{#each model.calls as |call|}}
+    {{render 'proxy-endpoint-component-call.inline-form' call}}
+  {{/each}}
 
   {{#each model.after as |transform|}}
     {{render 'proxy-endpoint-component-transformation.inline-after-form' transform}}
