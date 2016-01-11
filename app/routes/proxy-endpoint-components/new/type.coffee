@@ -23,7 +23,8 @@ ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend AuthenticatedRouteMixin
     @addNewAfter model
   addNewCall: (model) ->
     if model.get 'single'
-      model.set 'call', @store.createRecord 'proxy-endpoint-component-call'
+      calls = model.get 'calls'
+      calls.pushObject @store.createRecord 'proxy-endpoint-component-call'
   addNewBefore: (model) ->
     if !model.get 'js'
       record = @store.createRecord 'proxy-endpoint-component-transformation'
