@@ -7,7 +7,7 @@
     "container": "contenedor",
     "row": "fila",
     "column": "columna",
-    "option": "opcion",
+    "option": "opción",
     "option_plural": "opciones",
     "heading": "encabezado",
     "secondary": "texto secundario",
@@ -21,7 +21,7 @@
     "delete": "eliminar",
     "save": "guardar",
     "cancel": "cancelar",
-    "clear": "claro",
+    "clear": "limpiar",
     "new": "nuevo",
     "new-x": "nuevo $t(__x__)",
     "edit": "editar",
@@ -31,14 +31,14 @@
     "toggle": "alternar",
     "toggle-x": "alternar $t(__x__)",
     "execute": "ejecutar",
-    "specify-custom": "especifique personalizada",
+    "specify-custom": "personalice",
     "drop-or-click-to-upload": "suelta o presiona para subir",
-    "select-add-component-type": "selecciona un tipo de componente para agregar",
+    "select-add-component-type": "selecciona un tipo de componente a agregar",
     "fullscreen": "pantalla completa",
     "filter": "filtro",
     "reset": "reiniciar",
     "reset-password": "restablecer la contraseña",
-    "sign-up": "contratar"
+    "sign-up": "registrarse"
   },
   "nav": {
     "home": "inicio",
@@ -59,7 +59,7 @@
       "hosts": "define los servidores asociados con esta API",
       "libraries": "define librerías compartidas para utilizar en bloques de código JavaScript",
       "logs": "ver los registros, búsqueda y arroyos",
-      "api-documentation": "ver la documentación de la API y de las pruebas llamadas a la API interactivos",
+      "api-documentation": "ver la documentación y prueba las llamadas de la API",
       "formatted": {
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
         "build-app": "<b>(autenticación requerida)</b><br>Realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence"
@@ -74,7 +74,7 @@
     "anypresence": "AnyPresence",
     "gateway": "Gateway",
     "just-apis": "Just APIs",
-    "brought-to-you-by-anypresence": "traído a ti por AnyPresence"
+    "brought-to-you-by-anypresence": "provisto por AnyPresence"
   },
   "resources": {
     "user": "usuario",
@@ -135,7 +135,7 @@
   },
   "fields": {
     "admin": "administración",
-    "email": "correo electrónica",
+    "email": "correo electrónico",
     "password": "contraseña",
     "password_confirmation": "confirmar contraseña",
     "name": "nombre",
@@ -177,7 +177,7 @@
     "database": "base de datos",
     "schema": "esquema",
     "transactions": "transacciones",
-    "timeout": "conexión expirada​",
+    "timeout": "tiempo de conexión agotado",
     "execution-timeout": "tiempo de espera de la ejecución",
     "maxidle": "máximas conexiones inactivas",
     "maxopen": "máximas conexiones abiertas",
@@ -190,7 +190,7 @@
     "location": "localización",
     "sslmode": "modo SSL",
     "service_name": "nombre del servicio",
-    "endpoint_name": "nombre del extremo",
+    "endpoint_name": "nombre del endpoint",
     "operation_name": "nombre de la operación",
     "action_name": "nombre de la acción",
     "auth_scheme": "esquema de autenticación",
@@ -202,14 +202,14 @@
     "show_javascript_errors": "mostrar errores de $t(languages.javascript)",
     "help": {
       "timeout": "Número de segundos.",
-      "content-type": "Buscando algo más? Especifique una costumbre Content-Type en las cabeceras de petición.",
+      "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
       "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`."
     },
     "interpreter": "intérprete",
     "filepath": "ruta de archivo",
-    "script": "guión",
+    "script": "código",
     "request_schema": "solicitud de esquema",
-    "response_same_as_request": "respuesta mismo como petición",
+    "response_same_as_request": "respuesta igual a la petición",
     "response_schema": "esquema de respuesta",
     "organization": "organización"
   },
@@ -217,15 +217,15 @@
     "generic": "elija uno",
     "choose-x": "elija $t(__x__)",
     "confirm-delete": "¿esta seguro que desea eliminar éste registro?",
-    "confirm-abandon": "are you sure you want to leave this record without saving?",
-    "change-language": "cambio de idioma",
+    "confirm-abandon": "¿esta seguro que desea salir sin guardar los cambios de éste registro?",
+    "change-language": "elija idioma",
     "optional-x": "$t(__x__) (opcional)"
   },
   "states": {
     "active": "activo",
     "inactive": "inactivo",
-    "streaming": "transmisión",
-    "not-streaming": "no transmitir"
+    "streaming": "transmitiendo",
+    "not-streaming": "sin transmitir"
   },
   "http-methods": {
     "get": "GET",
@@ -261,24 +261,24 @@
   },
   "notifications": {
     "create": "__user__ creó un __resource__",
-    "update": "__user__ actualizado un __resource__",
-    "delete": "__user__ borrado un __resource__",
-    "import": "__user__ importados un __resource__"
+    "update": "__user__ actualizó un __resource__",
+    "delete": "__user__ borró un __resource__",
+    "import": "__user__ importó un __resource__"
   },
   "types": {
     "remote-endpoint": {
-      "script": "guión",
+      "script": "código",
       "status-types": {
         "success": "éxito",
         "error": "error",
-        "pending": "pendientes",
-        "processing": "procesamiento"
+        "pending": "pendiente",
+        "processing": "procesando"
       },
       "ssl-modes": {
         "disable": "inhabilitar",
         "allow": "permitir",
         "prefer": "preferir",
-        "require": "exigir"
+        "require": "requerir"
       },
       "auth-schemes": {
         "basic": "básico",
