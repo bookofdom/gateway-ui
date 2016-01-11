@@ -3,8 +3,19 @@
   border: 0
   font-size: 17px
   line-height: 1
+  @media (max-width: $screen-xs-max)
+    padding: 10px
 .panel-body
-  padding: 15px  25px
+  padding: 15px 25px
+  @media (max-width: $screen-xs-max)
+    padding: 10px
+
+.panel-default
+  @media (max-width: $screen-xs-max)
+    border: 0
+    .panel-heading, .panel-body
+      padding-left: 0
+      padding-right: 0
 
 .panel-drop
   border: 3px dashed
