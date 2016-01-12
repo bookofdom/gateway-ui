@@ -13,7 +13,6 @@ ProxyEndpointComponentCall = Model.extend
   before: DS.hasMany 'proxy-endpoint-component-transformation', async: false
   after: DS.hasMany 'proxy-endpoint-component-transformation', async: false
   proxy_endpoint_component: DS.belongsTo 'proxy-endpoint-component',
-    inverse: null
     async: false
 
 `export default ProxyEndpointComponentCall`
