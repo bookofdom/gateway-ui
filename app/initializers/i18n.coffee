@@ -13,6 +13,6 @@ I18nInitializer =
         locale = i18n.lng()
         moment.locale locale
         # TODO:  helper API deprecation
-        Ember.Handlebars.registerBoundHelper 't', I18nHelper
+        Ember.Helper.helper 't', I18nHelper
 
 `export default I18nInitializer`
