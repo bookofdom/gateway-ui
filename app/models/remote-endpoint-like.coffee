@@ -105,7 +105,7 @@ RemoteEndpointLike = Model.extend
     @get 'sslModeType.name'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb script'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb script store'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type

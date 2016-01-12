@@ -270,6 +270,7 @@
     "remote-endpoint": {
       "http": "HTTP",
       "soap": "SOAP",
+      "store": "Store",
       "sqlserver": "SQL Server",
       "postgres": "PostgreSQL",
       "mysql": "MySQL",

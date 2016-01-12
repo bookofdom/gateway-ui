@@ -267,6 +267,7 @@
   },
   "types": {
     "remote-endpoint": {
+      "store": "almacenar",
       "script": "guión",
       "status-types": {
         "success": "éxito",
