@@ -17,6 +17,7 @@
   <div class="form-actions">
     {{#bs-form-group}}
       {{bs-submit t='actions.login' lg=true}}
+      <br class="visible-xs">
       {{#if registrationEnabled}}
         {{link-to (t 'actions.sign-up') 'registration' class='btn btn-link'}}
       {{/if}}
