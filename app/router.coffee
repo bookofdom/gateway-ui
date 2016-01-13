@@ -57,7 +57,7 @@ Router.map ->
       @route 'hosts', resetNamespace: true, ->
         @route 'host', resetNamespace: true, path: ':host_id', ->
           @route 'edit'
-      @route 'libraries', ->
+      @route 'libraries', resetNamespace: true, ->
         @route 'library', resetNamespace: true, path: ':library_id', ->
           @route 'edit'
       @route 'logs-api', resetNamespace: true, path: 'logs', (->)
