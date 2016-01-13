@@ -5,7 +5,6 @@ I18nInitializer =
   initialize: (app) ->
     app.deferReadiness()
     i18n.init
-      getAsync: false
       detectLngQS: 'locale'
       fallbackLng: 'en'
     ,
