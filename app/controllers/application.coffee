@@ -3,6 +3,6 @@
 
 ApplicationController = Ember.Controller.extend
   version: config.version
-  devMode: config.devMode
+  devMode: config.devMode?.toString() is 'true'
 
 `export default ApplicationController`
