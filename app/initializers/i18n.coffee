@@ -2,7 +2,7 @@
 
 I18nInitializer =
   name: 'i18n'
-  initialize: (container, app) ->
+  initialize: (app) ->
     app.deferReadiness()
     i18n.init
       getAsync: false

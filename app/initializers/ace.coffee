@@ -27,7 +27,7 @@ ObjectId
 AP.MySQL.Request
 '''.split /\n/
 
-initialize = (container, app) ->
+initialize = (app) ->
   config = window.ace.require 'ace/config'
   langTools = window.ace.require 'ace/ext/language_tools'
   completer =
