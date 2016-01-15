@@ -4,7 +4,7 @@ ApisIndexController = Ember.Controller.extend
   actions:
     'export-api': (api) ->
       exportUrl = api.get 'exportUrl'
-      window.open exportUrl, '_blank'
+      window.open exportUrl, '_self'
 
 
 `export default ApisIndexController`
