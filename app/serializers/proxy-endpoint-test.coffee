@@ -11,6 +11,9 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
     arguments:
       embedded: 'always'
   normalize: (type, hash, property) ->
+    hash.headers = [] if !hash.headers
+    hash.query = [] if !hash.query
+    hash.arguments = [] if !hash.arguments
     @normalizeMethods hash
     @normalizeHeaders hash
     @normalizeQuery hash

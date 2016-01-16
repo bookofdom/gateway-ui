@@ -23,6 +23,10 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
 
   # Normalization
   normalize: (type, hash, property) ->
+    hash.headers = [] if !hash.headers
+    hash.query = [] if !hash.query
+    hash.hosts = [] if !hash.hosts
+    hash.environment_data = [] if !hash.environment_data
     hash.data ?= {}
     # normalize embedded resources
     @normalizeEnvironmentData hash

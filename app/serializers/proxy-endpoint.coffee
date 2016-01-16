@@ -10,6 +10,9 @@ ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     tests:
       embedded: 'always'
   normalize: (type, hash, property) ->
+    hash.routes = [] if !hash.routes
+    hash.components = [] if !hash.components
+    hash.tests = [] if !hash.tests
     @normalizeLinks hash
     @normalizeComponentCallLinks hash
     @_super.apply @, arguments

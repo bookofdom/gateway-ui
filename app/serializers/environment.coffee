@@ -7,6 +7,7 @@ EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
       serialize: false
       deserialize: 'records'
   normalize: (type, hash, property) ->
+    hash.variables = [] if !hash.variables
     @normalizeVariables hash
     @_super.apply @, arguments
   normalizeVariables: (hash) ->
