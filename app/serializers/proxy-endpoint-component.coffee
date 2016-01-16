@@ -19,11 +19,11 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
       hash.calls = [hash.call]
       delete hash.call
     hash
-  serialize: (model) ->
+  serialize: (snapshot) ->
     serialized = @_super.apply @, arguments
     @serializeCalls serialized
     # Serializes `body` back into `data`
-    serialized.data = model.get 'body'
+    serialized.data = snapshot.attributes().body
     delete serialized['body']
     serialized
   serializeCalls: (serialized) ->

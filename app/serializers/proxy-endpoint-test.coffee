@@ -46,41 +46,44 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
       name: param.key
       value: param.value
     hash
-  serialize: (model) ->
+  serialize: (snapshot) ->
     serialized = @_super.apply @, arguments
     serialized.methods = if serialized.method then [serialized.method] else []
-    serialized.pairs = @serializePairs model, serialized
+    serialized.pairs = @serializePairs snapshot, serialized
     delete serialized.method
     delete serialized.headers
     delete serialized.query
     delete serialized.arguments
     serialized
-  serializePairs: (model, serialized) ->
+  serializePairs: (snapshot, serialized) ->
     pairs = []
-    model.get('headers').forEach (header) ->
-      id = header.get 'id'
+    snapshot.hasMany('headers').forEach (headerSnapshot) ->
+      header = headerSnapshot.attributes()
+      id = header.id
       id = parseInt(id, 10) if id
       pairs.push
         id: id
         type: 'header'
-        key: header.get 'name'
-        value: header.get 'value'
-    model.get('query').forEach (param) ->
-      id = param.get 'id'
+        key: header.name
+        value: header.value
+    snapshot.get('query').forEach (querySnapshot) ->
+      param = querySnapshot.attributes()
+      id = param.id
       id = parseInt(id, 10) if id
       pairs.push
         id: id
         type: 'get'
-        key: param.get 'name'
-        value: param.get 'value'
-    model.get('arguments').forEach (param) ->
-      id = param.get 'id'
+        key: param.name
+        value: param.value
+    snapshot.get('arguments').forEach (argumentsSnapshot) ->
+      param = argumentsSnapshot.attributes()
+      id = param.id
       id = parseInt(id, 10) if id
       pairs.push
         id: id
         type: 'path'
-        key: param.get 'name'
-        value: param.get 'value'
+        key: param.name
+        value: param.value
     pairs
 
 `export default ProxyEndpointTestSerializer`

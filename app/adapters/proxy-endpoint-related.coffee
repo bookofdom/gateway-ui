@@ -4,10 +4,10 @@
 ProxyEndpointRelatedAdapter = ApplicationAdapter.extend
   pathForType: (type) ->
     @_super type.replace(/^proxy-endpoint-/, '')
-  buildURL: (type, id, record) ->
+  buildURL: (type, id, snapshot) ->
     if record
-      # models
-      proxyEndpoint = record.belongsTo 'proxy_endpoint'
+      # snapshots
+      proxyEndpoint = snapshot.belongsTo 'proxy_endpoint'
       # adapters
       proxyEndpointAdapter = @container.lookup 'adapter:proxy-endpoint'
       # IDs

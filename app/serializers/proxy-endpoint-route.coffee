@@ -14,9 +14,9 @@ ProxyEndpointRouteSerializer = ApplicationSerializer.extend
     hash.delete_method = hash.methods.contains 'delete'
     delete hash['method']
     hash
-  serialize: (model) ->
+  serialize: (snapshot) ->
     serialized = @_super.apply @, arguments
-    serialized.methods = model.get 'methodsArray'
+    serialized.methods = snapshot.attributes().methodsArray
     delete serialized['methodsArray']
     serialized
 
