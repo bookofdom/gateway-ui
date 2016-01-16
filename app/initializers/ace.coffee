@@ -27,33 +27,30 @@ ObjectId
 AP.MySQL.Request
 '''.split /\n/
 
-initialize = (app) ->
-  config = window.ace.require 'ace/config'
-  langTools = window.ace.require 'ace/ext/language_tools'
-  completer =
-    getCompletions: (editor, session, pos, prefix, callback) ->
-      if session.$modeId is 'ace/mode/javascript'
-        matches = []
-        if prefix.length
-          for word in words
-            # high score for matches at the beginning of a word
-            if word.toLowerCase().indexOf(prefix.toLowerCase()) == 0
-              matches.push
-                caption: word
-                value: word
-                meta: 'Gateway'
-            # low score for matches at the beginning of a word
-            else if word.toLowerCase().indexOf(prefix.toLowerCase()) > 0
-              matches.push
-                caption: word
-                value: word
-                meta: 'Gateway'
-        callback null, matches
-  langTools.addCompleter completer
-
 AceInitializer =
   name: 'ace'
-  initialize: initialize
+  initialize: (app) ->
+    config = window.ace.require 'ace/config'
+    langTools = window.ace.require 'ace/ext/language_tools'
+    completer =
+      getCompletions: (editor, session, pos, prefix, callback) ->
+        if session.$modeId is 'ace/mode/javascript'
+          matches = []
+          if prefix.length
+            for word in words
+              # high score for matches at the beginning of a word
+              if word.toLowerCase().indexOf(prefix.toLowerCase()) == 0
+                matches.push
+                  caption: word
+                  value: word
+                  meta: 'Gateway'
+              # low score for matches at the beginning of a word
+              else if word.toLowerCase().indexOf(prefix.toLowerCase()) > 0
+                matches.push
+                  caption: word
+                  value: word
+                  meta: 'Gateway'
+          callback null, matches
+    langTools.addCompleter completer
 
-`export {initialize}`
 `export default AceInitializer`
