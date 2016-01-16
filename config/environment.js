@@ -23,7 +23,7 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    confirmDelete: true,
+
     contentSecurityPolicy: {
       'default-src': "'self'",
       'script-src': "'self'",
@@ -32,6 +32,14 @@ module.exports = function(environment) {
       'img-src': "'self' *",
       'style-src': "'self' 'unsafe-inline'"
     },
+
+    confirmDelete: true,
+    registrationEnabled: true, // expose the user registration UI?
+
+    version: null,
+    devMode: false,
+    goOs: null,
+    remoteEndpointTypesEnabled: null,
 
     api: {
       host: process.env.API_HOST || '',
@@ -77,6 +85,11 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.baseURL = null;
     ENV.locationType = 'hash';
+    ENV.registrationEnabled = 'REGISTRATION_ENABLED';
+    ENV.version = 'VERSION';
+    ENV.devMode = 'DEV_MODE';
+    ENV.goOs = 'GO_OS';
+    ENV.remoteEndpointTypesEnabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
     ENV.api.basePath = 'API_BASE_PATH_PLACEHOLDER';
     ENV.api.logs.host = 'BROKER_PLACEHOLDER';
   }

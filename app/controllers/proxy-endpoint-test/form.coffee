@@ -4,21 +4,14 @@
 
 # Field Rules
 #
-# content_type shows if:
-# method is POST or PUT
-#
-# content_type resets to null or empty when (model-level enforcement):
-# method is GET or DELETE
-#
 # body shows when:
-# method is POST or PUT and content-type is not 'application/x-www-form-urlencoded'
+# method is POST or PUT
 #
 # headers show when:
 # always
 #
 # query params show if:
-# the method is GET
-# or the method is POST or PUT and content type is 'application/x-www-form-urlencoded'
+# the method is GET, POST or PUT
 
 ProxyEndpointTestFormController = FormController.extend
   'proxy-endpoint': Ember.inject.controller()
@@ -30,7 +23,6 @@ ProxyEndpointTestFormController = FormController.extend
     route: @get('proxy-endpoint.model.routes').map (route) ->
       name: route.get 'name'
       value: route.get 'path'
-    content_type: ProxyEndpointTest.contentTypes
 
   defaultFields: Ember.computed 'proxy-endpoint.model.routes.[]', ->
     [
@@ -46,55 +38,18 @@ ProxyEndpointTestFormController = FormController.extend
       required: true
       type: 'select'
     ]
-  methodFields:
-    'POST': [
-      name: 'content_type'
-      type: 'select'
-      help: "fields.help.content-type"
-    ]
-    'PUT': [
-      name: 'content_type'
-      type: 'select'
-      help: "fields.help.content-type"
-    ]
-  fields: Ember.computed 'model.isNew', 'model.method', 'methodFields', ->
-    fields = @_super.apply @, arguments
-    methodFields = @get "methodFields.#{@get 'model.method'}"
-    fields = Ember.copy(fields).pushObjects methodFields if methodFields
-    fields
 
-  hasContentTypeHeader: Ember.computed 'model.headers.@each.name', ->
-    !!@get('model.headers').findBy 'name', 'Content-Type'
-
-  defaultContentType: Ember.observer 'model.method', 'model.content_type', 'hasContentTypeHeader', ->
-    if !@get 'hasContentTypeHeader'
-      method = @get 'model.method'
-      contentType = @get 'model.content_type'
-      @set 'model.content_type', 'application/json' if !contentType and ((method is 'POST') or (method is 'PUT'))
-
-  bodyLanguage: Ember.computed 'model.content_type', ->
-    language = 'text' if !@get 'model.isFormEncoded'
-    language = 'json' if @get 'model.isJson'
-    language = 'xml' if @get 'model.isXml'
-    # TODO
-    # Harcoded to text to eliminate the associated mode and worker scripts
-    # otherwise required to support json and xml editing.
-    # If full editor support for json and xml is desired, it may be reenabled
-    # by importing the proper mode and worker scripts in ember-cli-build.js
-    'text'
-
-  bodyField: Ember.computed 'bodyLanguage', ->
+  bodyField:
     name: 'body'
-    type: "editor-#{@get 'bodyLanguage'}"
+    type: 'editor-text'
 
-  showBodyField: Ember.computed 'model.method', 'model.isFormEncoded', ->
+  showBodyField: Ember.computed 'model.method', ->
     method = @get 'model.method'
-    isFormEncoded = @get 'model.isFormEncoded'
-    ((method is 'POST') or (method is 'PUT')) and !isFormEncoded
+    ((method is 'POST') or (method is 'PUT'))
 
-  showQueryParameters: Ember.computed 'model.method', 'model.isFormEncoded', ->
+  showQueryParameters: Ember.computed 'model.method', ->
     method = @get 'model.method'
-    (method is 'GET') or (@get('model.isFormEncoded') and ((method is 'POST') or (method is 'PUT')))
+    method != 'DELETE'
 
   createNewHeaderModel: ->
     model = @get 'model'

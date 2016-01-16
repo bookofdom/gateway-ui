@@ -12,8 +12,8 @@
       {{#link-to 'application' class='navbar-brand'}}
         {{ap-brand brand='just-apis'}}
         {{ap-brand brand='brought-to-you-by-anypresence' class='hidden-xs hidden-sm'}}
-        {{#if meta.version}}
-          <span class="ap-brand ap-brand-version">{{meta.version}}</span>
+        {{#if version}}
+          <span class="ap-brand ap-brand-version">{{version}}</span>
         {{/if}}
       {{/link-to}}<!-- /.navbar-brand -->
       {{#if isLoading}}
@@ -34,7 +34,7 @@
           t='nav.support'
           icon='the-essentials-097'
           url='http://support.anypresence.com'}}
-        <li class="separator"></li>
+        <li class="separator hidden-xs"></li>
         {{#if session.isAuthenticated}}
           <li class="dropdown">
             <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
@@ -42,7 +42,7 @@
               {{ap-icon icon='arrows-007'}}
             </a><!-- .btn -->
             <ul class="dropdown-menu">
-              {{#unless meta.dev-mode}}
+              {{#unless devMode}}
                 {{#if session.secure.admin}}
                   {{ap-list-link
                     path='users'

@@ -10,10 +10,6 @@ ProxyEndpointComponent = Model.extend
 
   # Relationships
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
-  call: DS.belongsTo 'proxy-endpoint-component-call',
-    async: false
-    stains: true
-    embedded: true
   calls: DS.hasMany 'proxy-endpoint-component-call',
     async: false
     stains: true

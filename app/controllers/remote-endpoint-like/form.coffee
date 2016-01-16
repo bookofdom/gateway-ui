@@ -28,8 +28,8 @@ RemoteEndpointLikeFormController = FormController.extend
       value: 'DELETE'
     ]
     interpreter: RemoteEndpointLike.interpreters.filter (interpreter) ->
-      if config.meta['goos']
-        interpreter.os == config.meta['goos']
+      if config.goOs
+        interpreter.os == config.goOs
       else
         true
 

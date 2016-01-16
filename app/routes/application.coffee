@@ -8,11 +8,11 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   notify: Ember.inject.service()
 
   isLoading: false
-  isDevMode: config.meta['dev-mode']
+  isDevMode: config.devMode?.toString() is 'true'
 
   afterModel: (first, transition) ->
     @checkSessionValidity transition
-    @enableNotifications()
+    #@enableNotifications()
 
   checkSessionValidity: (transition) ->
     session = @get 'session'
@@ -80,7 +80,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
 
   authenticate: ->
     # auto-login using dev mode authenticator if in dev mode
-    if config.meta['dev-mode']
+    if @get 'isDevMode'
       @get('session').authenticate 'authenticator:dev-mode', {}
     else
       @transitionTo config['simple-auth'].routeAfterInvalidation
