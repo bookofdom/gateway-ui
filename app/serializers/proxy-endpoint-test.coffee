@@ -66,7 +66,7 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
         type: 'header'
         key: header.name
         value: header.value
-    snapshot.get('query').forEach (querySnapshot) ->
+    snapshot.hasMany('query').forEach (querySnapshot) ->
       param = querySnapshot.attributes()
       id = param.id
       id = parseInt(id, 10) if id
@@ -75,7 +75,7 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
         type: 'get'
         key: param.name
         value: param.value
-    snapshot.get('arguments').forEach (argumentsSnapshot) ->
+    snapshot.hasMany('arguments').forEach (argumentsSnapshot) ->
       param = argumentsSnapshot.attributes()
       id = param.id
       id = parseInt(id, 10) if id
