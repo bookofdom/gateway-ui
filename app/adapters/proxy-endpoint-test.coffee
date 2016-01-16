@@ -7,7 +7,7 @@ ProxyEndpointTestAdapter = ProxyEndpointRelatedAdapter.extend
     "#{@buildURL 'proxy-endpoint-test', null, snapshot}/test"
 
   ###
-  record:  environment instance
+  model:  environment instance
   ###
   executeTest: (model) ->
     url = @buildTestUrl model
