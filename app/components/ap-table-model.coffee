@@ -10,6 +10,7 @@ ApTableModelComponent = BsBaseComponent.extend
   'auto-delete': true
   'edit-path': null
   'partial-path': null
+  'component-name': null
   'custom-primary-action': null
   'custom-primary-icon': null
   'custom-primary-t': null
