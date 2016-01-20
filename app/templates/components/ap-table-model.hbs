@@ -6,7 +6,12 @@
       custom-primary-action=custom-primary-action
       custom-primary-icon=custom-primary-icon
       custom-primary-t=custom-primary-t}}
-      {{partial partial-path}}
+      {{#if partial-path}}
+        {{partial partial-path}}
+      {{/if}}
+      {{#if component-name}}
+        {{component component-name model=model}}
+      {{/if}}
     {{/ap-table-model-row}}
   {{/each}}
   {{yield}}
