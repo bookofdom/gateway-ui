@@ -3,6 +3,8 @@
 
 EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
+    api:
+      serialize: false
     variables:
       serialize: false
       deserialize: 'records'
