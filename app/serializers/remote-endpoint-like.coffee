@@ -10,6 +10,8 @@
 
 RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
+    api:
+      serialize: false
     headers:
       serialize: false
       deserialize: 'records'
@@ -73,13 +75,13 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
     serialized
   serializeHeaders: (snapshot) ->
     headers = {}
-    snapshot.hasMany('headers').forEach (headerSnapshot) ->
+    snapshot.hasMany('headers')?.forEach (headerSnapshot) ->
       attributes = headerSnapshot.attributes()
       headers[attributes.name] = attributes.value
     headers
   serializeQuery: (snapshot) ->
     query = {}
-    snapshot.hasMany('query').forEach (querySnapshot) ->
+    snapshot.hasMany('query')?.forEach (querySnapshot) ->
       attributes = querySnapshot.attributes()
       query[attributes.name] = attributes.value
     query
