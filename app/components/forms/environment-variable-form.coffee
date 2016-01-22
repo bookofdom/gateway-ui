@@ -1,13 +1,5 @@
-`import BaseFormComponent from './base-form'`
+`import BaseNameValueFormComponent from './base-name-value-form'`
 
-EnvironmentVariableFormComponent = BaseFormComponent.extend
-  fields: Ember.computed ->
-    [
-      name: 'name'
-      required: true
-    ,
-      name: 'value'
-      required: true
-    ]
+EnvironmentVariableFormComponent = BaseNameValueFormComponent.extend()
 
 `export default EnvironmentVariableFormComponent`
