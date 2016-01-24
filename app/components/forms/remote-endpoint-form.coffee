@@ -22,7 +22,7 @@ RemoteEndpointFormComponent = BaseRemoteEndpointFormComponent.extend
     type: 'select'
   ]
 
-  save: ->
+  submit: ->
     model = @get 'model'
     if model.get 'isNew'
       indexModel = @get 'indexModel'
