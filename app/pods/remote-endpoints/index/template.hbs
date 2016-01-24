@@ -8,7 +8,7 @@
       route='remote-endpoint.edit'}}
 
   {{#ap-panel-new t='resources.remote-endpoint' closed=(unbound filtered.length)}}
-    {{render 'remote-endpoint.form'}}
+    {{forms/remote-endpoint-form indexModel=model types=types}}
   {{/ap-panel-new}}
 
 {{/ap-page}}
