@@ -1,4 +1,4 @@
-`import ProxyEndpointRouteFormController from 'gateway/controllers/proxy-endpoint-route/form'`
+`import ProxyEndpointRouteFormController from 'gateway/pods/proxy-endpoint-route/form/controller'`
 
 ProxyEndpointRouteInlineFormController = ProxyEndpointRouteFormController.extend()
 
