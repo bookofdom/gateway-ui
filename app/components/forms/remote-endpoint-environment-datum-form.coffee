@@ -18,14 +18,16 @@ RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.ex
       required: true
     ]
 
+  submit: ->
+    model = @get 'model'
+    if model.get 'isNew'
+      indexModel = @get 'indexModel'
+      remoteEndpointType = @get 'remoteEndpointType'
+      model.set 'type', remoteEndpointType
+      indexModel.pushObject model
+    @_super.apply @, arguments
+
   actions:
-    beforeSave: ->
-      model = @get 'model'
-      if model.get 'isNew'
-        indexModel = @get 'indexModel'
-        remoteEndpointType = @get 'remoteEndpointType'
-        model.set 'type', remoteEndpointType
-        indexModel.pushObject model
     saved: ->
       @notifySaveSuccess()
       # resend this action (using a different name)
