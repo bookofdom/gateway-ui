@@ -1,4 +1,4 @@
-`import ProxyEndpointTestHeaderFormController from 'gateway/controllers/proxy-endpoint-test-header/form'`
+`import ProxyEndpointTestHeaderFormController from 'gateway/pods/proxy-endpoint-test-header/form/controller'`
 
 ProxyEndpointTestHeaderInlineFormController = ProxyEndpointTestHeaderFormController.extend()
 
