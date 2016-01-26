@@ -1,4 +1,5 @@
 `import FormController from 'gateway/controllers/form'`
+`import t from 'gateway/helpers/i18n'`
 
 ProxyEndpointComponentFormController = FormController.extend
   'api': Ember.inject.controller()
@@ -7,6 +8,13 @@ ProxyEndpointComponentFormController = FormController.extend
   'calls-option-groups': Ember.computed 'api.libraries', 'api.remote_endpoints.@each.isNew', ->
     conditional: @get 'api.libraries'
     remote_endpoint: @get('api.remote_endpoints').filterBy 'isNew', false
+
+  'transformation-option-groups': Ember.computed 'api.libraries', ->
+    body: @get 'api.libraries'
+    type: [
+      name: t('languages.javascript').capitalize()
+      value: 'js'
+    ]
 
   'option-groups': Ember.computed 'api.libraries', ->
     conditional: @get 'api.libraries'

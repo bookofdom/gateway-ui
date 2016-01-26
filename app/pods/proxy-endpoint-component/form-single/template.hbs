@@ -5,7 +5,7 @@
     show-delete=true}}
   <br>
   {{#each model.before as |transform|}}
-    {{render 'proxy-endpoint-component-transformation.inline-before-form' transform}}
+    {{forms/proxy-endpoint-component-transformation-inline-form before=true model=transform option-groups=transformation-option-groups}}
   {{/each}}
 
   {{#each model.calls as |call|}}
@@ -13,6 +13,6 @@
   {{/each}}
 
   {{#each model.after as |transform|}}
-    {{render 'proxy-endpoint-component-transformation.inline-after-form' transform}}
+    {{forms/proxy-endpoint-component-transformation-inline-form after=true model=transform option-groups=transformation-option-groups}}
   {{/each}}
 {{/ap-model-form}}

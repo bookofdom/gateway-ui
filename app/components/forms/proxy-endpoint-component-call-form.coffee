@@ -3,6 +3,7 @@
 ProxyEndpointComponentCallFormComponent = BaseForm.extend
   indexModel: null
   'option-groups': null # passed in by controllers
+  'transformation-option-groups': null
 
   modelType: 'proxy-endpoint-component-call'
 
