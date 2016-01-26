@@ -1,8 +1,9 @@
 `import ProxyEndpointComponentCallFormComponent from './proxy-endpoint-component-call-form'`
 
 ProxyEndpointComponentCallInlineFormComponent = ProxyEndpointComponentCallFormComponent.extend
-  'show-conditional-fields': false
-  fields: Ember.computed 'show-conditional-fields', ->
+  showConditionalFields: false
+
+  fields: Ember.computed 'showConditionalFields', ->
     fields = [
       name: 'remote_endpoint'
       label: 'resources.remote-endpoint'
@@ -26,6 +27,11 @@ ProxyEndpointComponentCallInlineFormComponent = ProxyEndpointComponentCallFormCo
     ,
       name: 'endpoint_name_override'
     ]
-    if @get 'show-conditional-fields' then withConditionals else fields
+    if @get 'showConditionalFields' then withConditionals else fields
+
+  actions:
+    'toggle-call': ->
+      showConditionalFields = @get 'showConditionalFields'
+      @set 'showConditionalFields', !showConditionalFields
 
 `export default ProxyEndpointComponentCallInlineFormComponent`
