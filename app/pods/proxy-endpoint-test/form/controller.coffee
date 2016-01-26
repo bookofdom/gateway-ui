@@ -1,6 +1,6 @@
 `import FormController from 'gateway/controllers/form'`
-`import ProxyEndpointTest from '../../models/proxy-endpoint-test'`
-`import t from '../../helpers/i18n'`
+`import ProxyEndpointTest from 'gateway/models/proxy-endpoint-test'`
+`import t from 'gateway/helpers/i18n'`
 
 # Field Rules
 #
