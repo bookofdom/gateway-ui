@@ -1,7 +1,7 @@
 `import ProxyEndpointComponentCallInlineFormComponent from './proxy-endpoint-component-call-inline-form'`
 `import InlineFormMixin from 'gateway/mixins/inline-form'`
 
-ProxyEndpointComponentCallInlineTabularFormComponent = ProxyEndpointComponentCallInlineFormComponent.extend
+ProxyEndpointComponentCallInlineTabularFormComponent = ProxyEndpointComponentCallInlineFormComponent.extend InlineFormMixin,
   fields: [
       name: 'remote_endpoint'
       label: 'resources.remote-endpoint'

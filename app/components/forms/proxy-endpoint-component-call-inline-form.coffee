@@ -1,7 +1,6 @@
 `import ProxyEndpointComponentCallFormComponent from './proxy-endpoint-component-call-form'`
-`import InlineFormMixin from 'gateway/mixins/inline-form'`
 
-ProxyEndpointComponentCallInlineFormComponent = ProxyEndpointComponentCallFormComponent.extend InlineFormMixin,
+ProxyEndpointComponentCallInlineFormComponent = ProxyEndpointComponentCallFormComponent.extend
   'show-conditional-fields': false
   fields: Ember.computed 'show-conditional-fields', ->
     fields = [
