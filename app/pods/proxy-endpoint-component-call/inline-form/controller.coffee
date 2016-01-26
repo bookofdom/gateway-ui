@@ -1,4 +1,4 @@
-`import ProxyEndpointComponentCallFormController from 'gateway/controllers/proxy-endpoint-component-call/form'`
+`import ProxyEndpointComponentCallFormController from 'gateway/pods/proxy-endpoint-component-call/form/controller'`
 
 ProxyEndpointComponentCallInlineFormController = ProxyEndpointComponentCallFormController.extend
   'show-conditional-fields': false

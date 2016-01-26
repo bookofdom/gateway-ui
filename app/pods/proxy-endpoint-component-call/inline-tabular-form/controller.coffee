@@ -1,8 +1,7 @@
-`import ProxyEndpointComponentCallFormController from 'gateway/controllers/proxy-endpoint-component-call/form'`
+`import ProxyEndpointComponentCallFormController from 'gateway/pods/proxy-endpoint-component-call/form/controller'`
 
 ProxyEndpointComponentCallInlineTabularFormController = ProxyEndpointComponentCallFormController.extend
-  fields: Ember.computed ->
-    fields = [
+  fields: [
       name: 'remote_endpoint'
       label: 'resources.remote-endpoint'
       type: 'select-model-name'
