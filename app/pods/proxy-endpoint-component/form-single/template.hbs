@@ -9,7 +9,7 @@
   {{/each}}
 
   {{#each model.calls as |call|}}
-    {{render 'proxy-endpoint-component-call.inline-form' call}}
+    {{forms/proxy-endpoint-component-call-inline-form model=call indexModel=callsIndexModel option-groups=calls-option-groups}}
   {{/each}}
 
   {{#each model.after as |transform|}}
