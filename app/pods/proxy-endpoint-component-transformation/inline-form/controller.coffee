@@ -1,4 +1,4 @@
-`import ProxyEndpointComponentTransformationFormController from 'gateway/controllers/proxy-endpoint-component-transformation/form'`
+`import ProxyEndpointComponentTransformationFormController from 'gateway/pods/proxy-endpoint-component-transformation/form/controller'`
 
 ProxyEndpointComponentTransformationInlineFormController = ProxyEndpointComponentTransformationFormController.extend()
 
