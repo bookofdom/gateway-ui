@@ -14,7 +14,9 @@
         models=model.calls
         delete-action='delete-proxy-endpoint-component-call'
         edit-path='proxy-endpoint-component-call.edit'
-        partial-path='proxy-endpoint-component-call/inline-tabular-form'}}
+        indexModel=callsIndexModel
+        option-groups=calls-option-groups
+        component-name='forms/proxy-endpoint-component-call-inline-tabular-form'}}
       {{ap-button-block-new
         t='resources.proxy-endpoint-component-call'
         action='new-proxy-endpoint-component-call'}}

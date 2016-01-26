@@ -1,0 +1,9 @@
+{{partial 'components/forms/base-form'}}
+
+{{#each model.before as |transform|}}
+  {{render 'proxy-endpoint-component-transformation.inline-before-form' transform}}
+{{/each}}
+
+{{#each model.after as |transform|}}
+  {{render 'proxy-endpoint-component-transformation.inline-after-form' transform}}
+{{/each}}
