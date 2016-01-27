@@ -1,5 +1,0 @@
-`import ProxyEndpointTestQueryParameterFormController from 'gateway/pods/proxy-endpoint-test-query-parameter/form/controller'`
-
-ProxyEndpointTestQueryParameterInlineFormController = ProxyEndpointTestQueryParameterFormController.extend()
-
-`export default ProxyEndpointTestQueryParameterInlineFormController`
