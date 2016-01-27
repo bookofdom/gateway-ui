@@ -1,7 +1,7 @@
-`import EditController from 'gateway/controllers/edit'`
+`import Ember from 'ember'`
 `import t from 'gateway/helpers/i18n'`
 
-ProxyEndpointComponentEditController = EditController.extend
+ProxyEndpointComponentsNewTypeController = Ember.Controller.extend
   'api': Ember.inject.controller()
 
   callsIndexModel: Ember.computed.alias 'model.calls'
@@ -18,4 +18,4 @@ ProxyEndpointComponentEditController = EditController.extend
     conditional: @get 'api.libraries'
     body: @get 'api.libraries'
 
-`export default ProxyEndpointComponentEditController`
+`export default ProxyEndpointComponentsNewTypeController`

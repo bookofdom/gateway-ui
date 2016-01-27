@@ -1,0 +1,23 @@
+<br>
+{{#each model.before as |transform|}}
+  {{forms/proxy-endpoint-component-transformation-inline-form before=true model=transform option-groups=transformation-option-groups}}
+{{/each}}
+
+{{#unless model.isNew}}
+  {{#ap-panel-edit t='resources.proxy-endpoint-component-call_plural'}}
+    {{ap-table-model
+      models=model.calls
+      delete-action='delete-proxy-endpoint-component-call'
+      edit-path='proxy-endpoint-component-call.edit'
+      indexModel=callsIndexModel
+      option-groups=calls-option-groups
+      component-name='forms/proxy-endpoint-component-call-inline-tabular-form'}}
+    {{ap-button-block-new
+      t='resources.proxy-endpoint-component-call'
+      action='new-proxy-endpoint-component-call'}}
+  {{/ap-panel-edit}}
+{{/unless}}
+
+{{#each model.after as |transform|}}
+  {{forms/proxy-endpoint-component-transformation-inline-form after=true model=transform option-groups=transformation-option-groups}}
+{{/each}}

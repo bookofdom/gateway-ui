@@ -1,3 +1,8 @@
 {{#ap-panel-new t=model.name}}
-  {{render 'proxy-endpoint-component.form' model}}
+  {{forms/proxy-endpoint-component-form
+    model=model
+    callsIndexModel=callsIndexModel
+    calls-option-groups=calls-option-groups
+    transformation-option-groups=transformation-option-groups
+    option-groups=option-groups}}
 {{/ap-panel-new}}
