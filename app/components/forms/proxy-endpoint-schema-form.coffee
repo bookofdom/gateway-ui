@@ -1,8 +1,10 @@
-`import FormController from 'gateway/controllers/form'`
+`import BaseFormComponent from './base-form'`
 
-ProxyEndpointSchemaFormController = FormController.extend
-  'proxy-endpoint-schemas': Ember.inject.controller()
+ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
+  indexModel: null
+
   modelType: 'proxy-endpoint-schema'
+
   newFields: [
     name: 'name'
     required: true
@@ -27,13 +29,12 @@ ProxyEndpointSchemaFormController = FormController.extend
       @get('editFields').filter (item) -> item.group isnt 'response'
     else
       @get('editFields')
-  actions:
-    beforeSave: ->
-      model = @get 'model'
-      if model.get 'isNew'
-        proxyEndpointSchemas = @get 'proxy-endpoint-schemas.model'
-        proxyEndpointSchemas.pushObject model
-    afterDelete: ->
-      @send 'deleted'
 
-`export default ProxyEndpointSchemaFormController`
+  submit: ->
+    model = @get 'model'
+    if model.get 'isNew'
+      proxyEndpointSchemas = @get 'indexModel'
+      proxyEndpointSchemas.pushObject model
+    @_super.apply @, arguments
+
+`export default ProxyEndpointSchemaFormComponent`
