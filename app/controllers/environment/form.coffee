@@ -1,8 +1,17 @@
 `import FormController from 'gateway/controllers/form'`
+`import t from 'gateway/helpers/i18n'`
 
 EnvironmentFormController = FormController.extend
   environments: Ember.inject.controller()
   modelType: 'environment'
+  'option-groups': Ember.computed ->
+    session_type: [
+      name: t 'types.session.client'
+      value: 'client'
+    ,
+      name: t 'types.session.server'
+      value: 'server'
+    ]
   newFields: [
     name: 'name'
     required: true
@@ -10,30 +19,55 @@ EnvironmentFormController = FormController.extend
     name: 'description'
     type: 'textarea'
   ]
-  editFields: [
-    name: 'name'
-    required: true
-  ,
-    name: 'description'
-    type: 'textarea'
-  ,
-    name: 'session_name'
-  ,
-    name: 'session_auth_key'
-  ,
-    name: 'session_encryption_key'
-    type: 'textarea'
-  ,
-    name: 'session_auth_key_rotate'
-  ,
-    name: 'session_encryption_key_rotate'
-    type: 'textarea'
-  ,
-    name: 'show_javascript_errors'
-    type: 'boolean'
-  ]
-  fields: Ember.computed 'model.isNew', ->
-    if @get 'model.isNew' then @get 'newFields' else @get 'editFields'
+  editFields:
+    client: [
+      name: 'name'
+      required: true
+    ,
+      name: 'description'
+      type: 'textarea'
+    ,
+      name: 'session_type'
+      type: 'select'
+    ,
+      name: 'session_name'
+    ,
+      name: 'session_auth_key'
+    ,
+      name: 'session_encryption_key'
+      type: 'textarea'
+    ,
+      name: 'session_auth_key_rotate'
+    ,
+      name: 'session_encryption_key_rotate'
+      type: 'textarea'
+    ,
+      name: 'show_javascript_errors'
+      type: 'boolean'
+    ]
+    server: [
+      name: 'name'
+      required: true
+    ,
+      name: 'description'
+      type: 'textarea'
+    ,
+      name: 'session_type'
+      type: 'select'
+    ,
+      name: 'session_name'
+    ,
+      name: 'session_header'
+    ,
+      name: 'show_javascript_errors'
+      type: 'boolean'
+    ]
+  fields: Ember.computed 'model.isNew', 'model.session_type', ->
+    if @get 'model.isNew'
+      @get 'newFields'
+    else
+      type = @get 'model.session_type'
+      @get "editFields.#{type}"
   createNewVariableModel: ->
     model = @get 'model'
     newModel = @store?.createRecord 'environment-variable'

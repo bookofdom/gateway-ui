@@ -164,6 +164,8 @@
     "logic": "lógica",
     "before": "lógica previa a la solicitud",
     "after": "lógica posterior a la solicitud",
+    "session_type": "tipo de sesión",
+    "session_header": "encabezado sesión",
     "session_name": "nombre de sesión",
     "session_auth_key": "clave de sesión",
     "session_encryption_key": "clave de encriptación",
@@ -267,6 +269,10 @@
     "import": "__user__ importó un __resource__"
   },
   "types": {
+    "session": {
+      "client": "cliente",
+      "server": "servidor"
+    },
     "remote-endpoint": {
       "script": "código",
       "status-types": {
