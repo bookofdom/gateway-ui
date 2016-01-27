@@ -1,4 +1,4 @@
-`import FormController from 'gateway/controllers/form'`
+`import BaseFormComponent from './base-form'`
 `import ProxyEndpointTest from 'gateway/models/proxy-endpoint-test'`
 `import t from 'gateway/helpers/i18n'`
 
@@ -13,18 +13,20 @@
 # query params show if:
 # the method is GET, POST or PUT
 
-ProxyEndpointTestFormController = FormController.extend
-  'proxy-endpoint': Ember.inject.controller()
-  'proxy-endpoint-tests': Ember.inject.controller()
+ProxyEndpointTestFormComponent = BaseFormComponent.extend
+  store: Ember.inject.service()
+
+  indexModel: null
+  routes: null
   modelType: 'proxy-endpoint-test'
 
-  'option-groups': Ember.computed 'proxy-endpoint.model.routes.[]', ->
+  'option-groups': Ember.computed 'routes.[]', ->
     method: ProxyEndpointTest.methods
-    route: @get('proxy-endpoint.model.routes').map (route) ->
+    route: @get('routes').map (route) ->
       name: route.get 'name'
       value: route.get 'path'
 
-  defaultFields: Ember.computed 'proxy-endpoint.model.routes.[]', ->
+  defaultFields: Ember.computed 'routes.[]', ->
     [
       name: 'name'
       required: true
@@ -53,16 +55,24 @@ ProxyEndpointTestFormController = FormController.extend
 
   createNewHeaderModel: ->
     model = @get 'model'
-    newModel = @store?.createRecord 'proxy-endpoint-test-header'
+    newModel = @get('store').createRecord 'proxy-endpoint-test-header'
     model.get('headers').pushObject newModel
   createNewQueryParameterModel: ->
     model = @get 'model'
-    newModel = @store?.createRecord 'proxy-endpoint-test-query-parameter'
+    newModel = @get('store').createRecord 'proxy-endpoint-test-query-parameter'
     model.get('query').pushObject newModel
   createNewArgumentModel: ->
     model = @get 'model'
-    newModel = @store?.createRecord 'proxy-endpoint-test-argument'
+    newModel = @get('store').createRecord 'proxy-endpoint-test-argument'
     model.get('arguments').pushObject newModel
+
+  submit: ->
+    model = @get 'model'
+    if model.get 'isNew'
+      tests = @get 'indexModel'
+      tests.pushObject model
+    @_super.apply @, arguments
+
   actions:
     'delete-proxy-endpoint-test-header': (record) -> record.deleteRecord()
     'new-proxy-endpoint-test-header': -> @createNewHeaderModel()
@@ -70,12 +80,5 @@ ProxyEndpointTestFormController = FormController.extend
     'new-proxy-endpoint-test-query-parameter': -> @createNewQueryParameterModel()
     'delete-proxy-endpoint-test-argument': (record) -> record.deleteRecord()
     'new-proxy-endpoint-test-argument': -> @createNewArgumentModel()
-    beforeSave: ->
-      model = @get 'model'
-      if model.get 'isNew'
-        tests = @get 'proxy-endpoint-tests.model'
-        tests.pushObject model
-    afterDelete: ->
-      @send 'deleted'
 
-`export default ProxyEndpointTestFormController`
+`export default ProxyEndpointTestFormComponent`
