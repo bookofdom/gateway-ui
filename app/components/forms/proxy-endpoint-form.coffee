@@ -1,9 +1,11 @@
-`import FormController from 'gateway/controllers/form'`
+`import BaseFormComponent from './base-form'`
 
-ProxyEndpointFormController = FormController.extend
-  'api': Ember.inject.controller()
-  'proxy-endpoints': Ember.inject.controller()
+ProxyEndpointComponentFormComponent = BaseFormComponent.extend
+  store: Ember.inject.service()
+
+  indexModel: null
   modelType: 'proxy-endpoint'
+
   newFields: [
     name: 'name'
     required: true
@@ -44,17 +46,15 @@ ProxyEndpointFormController = FormController.extend
   ]
   fields: Ember.computed 'model.isNew', ->
     if @get('model.isNew') then @get('newFields') else @get('editFields')
-  'option-groups': Ember.computed 'api.environments.@each.isNew', 'api.endpoint_groups.@each.isNew', ->
-    environment: @get('api.environments').filterBy 'isNew', false
-    endpoint_group: @get('api.endpoint_groups').filterBy 'isNew', false
+
   createNewModel: ->
     modelType = @get 'modelType'
-    newModel = @store?.createRecord modelType
+    newModel = @get('store').createRecord modelType
     @set 'model', newModel
     newModel
   createNewRouteModel: ->
     model = @get 'model'
-    newRouteModel = @store?.createRecord 'proxy-endpoint-route'
+    newRouteModel = @get('store').createRecord 'proxy-endpoint-route'
     model.get('routes').pushObject newRouteModel
   onInit: Ember.on 'init', ->
     @_super.apply @, arguments
@@ -63,15 +63,16 @@ ProxyEndpointFormController = FormController.extend
     isNew = model?.get 'isNew'
     # if an existing model has no routes, add one by default
     @createNewRouteModel() if model and !isNew and !count
+
+  submit: ->
+    model = @get 'model'
+    if model.get 'isNew'
+      proxyEndpoints = @get 'indexModel'
+      proxyEndpoints.pushObject model
+    @_super.apply @, arguments
+
   actions:
     'delete-proxy-endpoint-route': (record) -> record.deleteRecord()
     'new-proxy-endpoint-route': -> @createNewRouteModel()
-    beforeSave: ->
-      model = @get 'model'
-      if model.get 'isNew'
-        proxyEndpoints = @get 'proxy-endpoints.model'
-        proxyEndpoints.pushObject model
-    afterDelete: ->
-      @send 'deleted'
 
-`export default ProxyEndpointFormController`
+`export default ProxyEndpointComponentFormComponent`

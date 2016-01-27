@@ -5,6 +5,8 @@ ProxyEndpointsIndexController = Ember.Controller.extend
   api: Ember.inject.controller()
   'proxy-endpoints': Ember.inject.controller()
 
+  'option-groups': Ember.computed.alias 'proxy-endpoints.option-groups'
+
   environments: Ember.computed.alias 'api.environments'
   endpoint_groups: Ember.computed.alias 'api.endpoint_groups'
 

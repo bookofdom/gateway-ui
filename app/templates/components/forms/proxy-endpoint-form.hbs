@@ -1,0 +1,13 @@
+{{partial 'components/forms/base-form'}}
+
+{{#unless model.isNew}}
+  {{#ap-panel-edit t='resources.proxy-endpoint-route_plural'}}
+    {{ap-table-model
+      models=model.routes
+      delete-action='delete-proxy-endpoint-route'
+      component-name='forms/proxy-endpoint-route-inline-form'}}
+    {{ap-button-block-new
+      t='resources.proxy-endpoint-route'
+      action='new-proxy-endpoint-route'}}
+  {{/ap-panel-edit}}
+{{/unless}}
