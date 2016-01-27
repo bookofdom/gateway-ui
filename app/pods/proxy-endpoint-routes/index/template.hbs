@@ -7,7 +7,7 @@
       edit-path='proxy-endpoint-route.edit'}}
 
   {{#ap-panel-new t='resources.proxy-endpoint-route' closed=(unbound model.length)}}
-    {{render 'proxy-endpoint-route.form'}}
+    {{forms/proxy-endpoint-route-form indexModel=model}}
   {{/ap-panel-new}}
 
 {{/ap-page}}
