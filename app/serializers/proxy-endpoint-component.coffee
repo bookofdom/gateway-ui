@@ -3,6 +3,8 @@
 
 ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
+    proxy_endpoint:
+      serialize: false
     calls:
       embedded: 'always'
     before:

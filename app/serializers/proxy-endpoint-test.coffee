@@ -4,6 +4,8 @@
 
 ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
+    proxy_endpoint:
+      serialize: false
     headers:
       embedded: 'always'
     query:

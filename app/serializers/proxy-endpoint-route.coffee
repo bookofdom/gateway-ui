@@ -2,6 +2,9 @@
 `import ApplicationSerializer from './application'`
 
 ProxyEndpointRouteSerializer = ApplicationSerializer.extend
+  attrs:
+    proxy_endpoint:
+      serialize: false
   normalize: (type, hash, property) ->
     @normalizeMethods hash
     @_super.apply @, arguments

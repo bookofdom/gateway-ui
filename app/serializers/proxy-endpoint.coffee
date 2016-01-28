@@ -3,12 +3,20 @@
 
 ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
+    api:
+      serialize: false
+    environment:
+      serialize: 'id'
+    endpoint_group:
+      serialize: 'id'
     routes:
       embedded: 'always'
     components:
       embedded: 'always'
     tests:
       embedded: 'always'
+    schemas:
+      serialize: false
   normalize: (type, hash, property) ->
     hash.routes = [] if !hash.routes
     hash.components = [] if !hash.components

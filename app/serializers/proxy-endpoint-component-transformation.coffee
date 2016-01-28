@@ -2,6 +2,11 @@
 `import ApplicationSerializer from './application'`
 
 ProxyEndpointComponentTransformationSerializer = ApplicationSerializer.extend
+  attrs:
+    proxy_endpoint_component:
+      serialize: false
+    proxy_endpoint_component_call:
+      serialize: false
   normalize: (type, hash, property) ->
     # `data` is reserved in Ember, so transform to `body` attribute
     hash.body = hash.data
