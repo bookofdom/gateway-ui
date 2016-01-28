@@ -7,7 +7,7 @@
       edit-path='host.edit'}}
 
   {{#ap-panel-new t='resources.host' closed=(unbound model.length)}}
-    {{render 'host.form'}}
+    {{forms/host-form indexModel=model}}
   {{/ap-panel-new}}
 
 {{/ap-page}}
