@@ -7,7 +7,7 @@
       edit-path='library.edit'}}
 
   {{#ap-panel-new t='resources.library' closed=(unbound filtered.length)}}
-    {{render 'library.form'}}
+    {{forms/library-form indexModel=model option-groups=option-groups}}
   {{/ap-panel-new}}
 
 {{/ap-page}}
