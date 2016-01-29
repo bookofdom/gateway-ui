@@ -1,4 +1,4 @@
-<form class="ap-form-login" {{action 'save' on='submit'}}>
+<div class="ap-form-login">
   {{#bs-form-group error=email-error help=email-error}}
     {{input
       name='email'
@@ -41,4 +41,4 @@
       <p class="text-danger">{{base-error}}</p>
     {{/if}}
   </div>
-</form>
+</div>

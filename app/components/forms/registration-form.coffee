@@ -1,8 +1,6 @@
-`import FormController from 'gateway/controllers/form'`
-`import t from 'gateway/helpers/i18n'`
+`import BaseFormComponent from './base-form'`
 
-RegistrationFormController = FormController.extend
-  notify: Ember.inject.service()
+RegistrationFormComponent = BaseFormComponent.extend
   modelType: 'registration'
 
   'base-error': Ember.computed 'model.errors.[]', ->
@@ -16,14 +14,12 @@ RegistrationFormController = FormController.extend
   'organization-error': Ember.computed 'model.errors.[]', ->
     @get('model.errors')?.errorsFor('organization')?[0]?.message
 
-  actions:
-    save: ->
-      model = @get 'model'
-      model.save().finally =>
-        if !model.get 'errors.messages.length'
-          successMessage = t 'successes.sign-up'
-          @createNewModel()
-          @transitionToRoute 'login'
-          @get('notify').info successMessage
+  submit: ->
+    model = @get 'model'
+    model.save().finally =>
+      if !model.get 'errors.messages.length'
+        @createNewModel()
+        @sendAction 'savedAction'
+    false
 
-`export default RegistrationFormController`
+`export default RegistrationFormComponent`
