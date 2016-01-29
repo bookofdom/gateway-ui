@@ -1,6 +1,6 @@
 `import BaseFormComponent from './base-form'`
 
-ProxyEndpointComponentFormComponent = BaseFormComponent.extend
+HostFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'host'
   fields: Ember.computed ->
@@ -19,4 +19,4 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
       hosts.pushObject model
     @_super.apply @, arguments
 
-`export default ProxyEndpointComponentFormComponent`
+`export default HostFormComponent`

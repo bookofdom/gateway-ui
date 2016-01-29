@@ -1,6 +1,6 @@
 `import BaseFormComponent from './base-form'`
 
-ProxyEndpointComponentFormComponent = BaseFormComponent.extend
+ProxyEndpointFormComponent = BaseFormComponent.extend
   store: Ember.inject.service()
 
   indexModel: null
@@ -75,4 +75,4 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
     'delete-proxy-endpoint-route': (record) -> record.deleteRecord()
     'new-proxy-endpoint-route': -> @createNewRouteModel()
 
-`export default ProxyEndpointComponentFormComponent`
+`export default ProxyEndpointFormComponent`

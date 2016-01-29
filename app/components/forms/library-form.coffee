@@ -1,6 +1,6 @@
 `import BaseFormComponent from './base-form'`
 
-ProxyEndpointComponentFormComponent = BaseFormComponent.extend
+LibraryFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'library'
 
@@ -26,4 +26,4 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
       libraries.pushObject model
     @_super.apply @, arguments
 
-`export default ProxyEndpointComponentFormComponent`
+`export default LibraryFormComponent`

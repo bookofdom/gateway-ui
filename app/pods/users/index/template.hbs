@@ -7,7 +7,7 @@
       edit-path='user.edit'}}
 
   {{#ap-panel-new t='resources.user' closed=(unbound model.length)}}
-    {{render 'user.form'}}
+    {{forms/user-form indexModel=model}}
   {{/ap-panel-new}}
 
 {{/ap-page}}

@@ -1,6 +1,6 @@
 `import BaseFormComponent from './base-form'`
 
-ProxyEndpointComponentFormComponent = BaseFormComponent.extend
+EndpointGroupFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'endpoint-group'
   fields: Ember.computed ->
@@ -19,4 +19,4 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
       endpointGroups.pushObject model
     @_super.apply @, arguments
 
-`export default ProxyEndpointComponentFormComponent`
+`export default EndpointGroupFormComponent`
