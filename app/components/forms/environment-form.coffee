@@ -1,8 +1,9 @@
-`import FormController from 'gateway/controllers/form'`
+`import BaseFormComponent from './base-form'`
 
-EnvironmentFormController = FormController.extend
-  environments: Ember.inject.controller()
+EnvironmentFormComponent = BaseFormComponent.extend
+  indexModel: null
   modelType: 'environment'
+
   newFields: [
     name: 'name'
     required: true
@@ -32,21 +33,21 @@ EnvironmentFormController = FormController.extend
     name: 'show_javascript_errors'
     type: 'boolean'
   ]
-  fields: Ember.computed 'model.isNew', ->
-    if @get 'model.isNew' then @get 'newFields' else @get 'editFields'
+
   createNewVariableModel: ->
     model = @get 'model'
-    newModel = @store?.createRecord 'environment-variable'
+    newModel = @get('store').createRecord 'environment-variable'
     model.get('variables').pushObject newModel
+
+  submit: ->
+    model = @get 'model'
+    if model.get 'isNew'
+      environments = @get 'indexModel'
+      environments.pushObject model
+    @_super.apply @, arguments
+
   actions:
     'delete-environment-variable': (record) -> record.deleteRecord()
     'new-environment-variable': -> @createNewVariableModel()
-    beforeSave: ->
-      model = @get 'model'
-      if model.get 'isNew'
-        environments = @get 'environments.model'
-        environments.pushObject model
-    afterDelete: ->
-      @send 'deleted'
 
-`export default EnvironmentFormController`
+`export default EnvironmentFormComponent`

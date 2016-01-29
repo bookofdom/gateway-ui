@@ -27,9 +27,9 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
 
   createNewCallModel: ->
     model = @get 'model'
-    newModel = @store?.createRecord 'proxy-endpoint-component-call'
-    newBefore = @store?.createRecord 'proxy-endpoint-component-transformation'
-    newAfter = @store?.createRecord 'proxy-endpoint-component-transformation'
+    newModel = @get('store').createRecord 'proxy-endpoint-component-call'
+    newBefore = @get('store').createRecord 'proxy-endpoint-component-transformation'
+    newAfter = @get('store').createRecord 'proxy-endpoint-component-transformation'
     newModel.get('before').pushObject newBefore
     newModel.get('after').pushObject newAfter
     model.get('calls').pushObject newModel

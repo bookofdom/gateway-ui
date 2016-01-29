@@ -7,7 +7,7 @@
       edit-path='environment.edit'}}
 
   {{#ap-panel-new t='resources.environment' closed=(unbound model.length)}}
-    {{render 'environment.form'}}
+    {{forms/environment-form indexModel=model}}
   {{/ap-panel-new}}
 
 {{/ap-page}}

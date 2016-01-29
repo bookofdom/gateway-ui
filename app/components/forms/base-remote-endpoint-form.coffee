@@ -200,15 +200,15 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
 
   createNewHeaderModel: ->
     model = @get 'model'
-    newModel = @store?.createRecord 'remote-endpoint-header'
+    newModel = @get('store').createRecord 'remote-endpoint-header'
     model.get('headers').pushObject newModel
   createNewQueryParameterModel: ->
     model = @get 'model'
-    newModel = @store?.createRecord 'remote-endpoint-query-parameter'
+    newModel = @get('store').createRecord 'remote-endpoint-query-parameter'
     model.get('query').pushObject newModel
   createNewHostModel: ->
     model = @get 'model'
-    newModel = @store?.createRecord 'remote-endpoint-host'
+    newModel = @get('store').createRecord 'remote-endpoint-host'
     model.get('hosts').pushObject newModel
 
   actions:
