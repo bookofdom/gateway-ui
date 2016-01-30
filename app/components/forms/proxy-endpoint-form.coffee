@@ -1,10 +1,10 @@
 `import BaseFormComponent from './base-form'`
 
 ProxyEndpointFormComponent = BaseFormComponent.extend
-  store: Ember.inject.service()
-
   indexModel: null
   modelType: 'proxy-endpoint'
+
+  savedAction: null
 
   newFields: [
     name: 'name'

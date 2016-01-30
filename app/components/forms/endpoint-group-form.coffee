@@ -3,6 +3,9 @@
 EndpointGroupFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'endpoint-group'
+
+  savedAction: null
+
   fields: Ember.computed ->
     [
       name: 'name'

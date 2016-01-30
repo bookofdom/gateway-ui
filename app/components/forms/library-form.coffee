@@ -4,6 +4,8 @@ LibraryFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'library'
 
+  savedAction: null
+
   'option-groups': null
 
   fields: Ember.computed ->

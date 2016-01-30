@@ -4,8 +4,9 @@ RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.ex
   indexModel: null
   environments: null
   remoteEndpointType: null
-
   modelType: 'remote-endpoint-environment-datum'
+
+  savedAction: null
 
   'option-groups': Ember.computed 'environments.@each.isNew', ->
     Ember.merge @_super.apply(@, arguments),

@@ -4,6 +4,8 @@ EnvironmentFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'environment'
 
+  savedAction: null
+
   newFields: [
     name: 'name'
     required: true

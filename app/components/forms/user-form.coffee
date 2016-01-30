@@ -3,7 +3,9 @@
 UserFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'user'
-  
+
+  savedAction: null
+
   fields: [
     name: 'name'
     required: true

@@ -2,8 +2,9 @@
 
 RemoteEndpointFormComponent = BaseRemoteEndpointFormComponent.extend
   indexModel: null
-
   modelType: 'remote-endpoint'
+
+  savedAction: null
 
   defaultFields: [
     name: 'name'

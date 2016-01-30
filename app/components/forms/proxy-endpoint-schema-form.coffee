@@ -2,8 +2,9 @@
 
 ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
   indexModel: null
-
   modelType: 'proxy-endpoint-schema'
+
+  savedAction: null
 
   newFields: [
     name: 'name'

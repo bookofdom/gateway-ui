@@ -3,6 +3,9 @@
 HostFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'host'
+
+  savedAction: null
+  
   fields: Ember.computed ->
     [
       name: 'name'

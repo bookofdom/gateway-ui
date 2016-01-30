@@ -14,11 +14,11 @@
 # the method is GET, POST or PUT
 
 ProxyEndpointTestFormComponent = BaseFormComponent.extend
-  store: Ember.inject.service()
-
   indexModel: null
   routes: null
   modelType: 'proxy-endpoint-test'
+
+  savedAction: null
 
   'option-groups': Ember.computed 'routes.[]', ->
     method: ProxyEndpointTest.methods
