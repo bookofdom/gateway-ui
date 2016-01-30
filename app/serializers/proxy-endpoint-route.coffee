@@ -15,12 +15,15 @@ ProxyEndpointRouteSerializer = ApplicationSerializer.extend
     hash.post_method = hash.methods.contains 'post'
     hash.put_method = hash.methods.contains 'put'
     hash.delete_method = hash.methods.contains 'delete'
-    delete hash['method']
+    delete hash['methods']
     hash
   serialize: (snapshot) ->
     serialized = @_super.apply @, arguments
-    serialized.methods = snapshot.attributes().methodsArray
-    delete serialized['methodsArray']
+    serialized.methods = @serializeMethods serialized
     serialized
+  serializeMethods: (serialized) ->
+    methods = for method in ['get', 'post', 'put', 'delete']
+      method.toUpperCase() if serialized["#{method}_method"]
+    methods.compact()
 
 `export default ProxyEndpointRouteSerializer`
