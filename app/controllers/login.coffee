@@ -4,7 +4,7 @@
 `import t from 'gateway/helpers/i18n'`
 
 LoginController = Ember.Controller.extend LoginControllerMixin,
-  registrationEnabled: config.registrationEnabled
+  registrationEnabled: config.registrationEnabled?.toString() is 'true'
   authenticator: 'authenticator:gateway'
   labels:
     email: t('fields.email').capitalize()
