@@ -2,21 +2,21 @@
 `import config from  '../config/environment'`
 
 ProxyEndpointTestAdapter = ProxyEndpointRelatedAdapter.extend
-  buildTestUrl: (record) ->
-    snapshot = record._createSnapshot()
+  buildTestUrl: (model) ->
+    snapshot = model._createSnapshot()
     "#{@buildURL 'proxy-endpoint-test', null, snapshot}/test"
 
   ###
-  record:  environment instance
+  model:  environment instance
   ###
-  executeTest: (record) ->
-    url = @buildTestUrl record
+  executeTest: (model) ->
+    url = @buildTestUrl model
     new Ember.RSVP.Promise (resolve, reject) =>
       @ajax(url, 'GET').then (response) ->
         result = response?.results?[0]
         if result
-          result.method = record.get 'method' # for consistency
-          result.route = record.get 'route' # for convenience
+          result.method = model.get 'method' # for consistency
+          result.route = model.get 'route' # for convenience
           result.error = +result.status > 300
           resolve result
         else

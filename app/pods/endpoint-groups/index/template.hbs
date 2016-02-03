@@ -1,0 +1,13 @@
+{{#ap-page t='resources.endpoint-group_plural' help-url='http://docs.justapis.com/groups' showNew=true}}
+
+  {{ap-table-index
+      models=model
+      fields='name,description'
+      path='endpoint-group.index'
+      edit-path='endpoint-group.edit'}}
+
+  {{#ap-panel-new t='resources.endpoint-group' closed=(unbound model.length)}}
+    {{forms/endpoint-group-form indexModel=model}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}

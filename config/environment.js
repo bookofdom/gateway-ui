@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'gateway',
+    podModulePrefix: 'gateway/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

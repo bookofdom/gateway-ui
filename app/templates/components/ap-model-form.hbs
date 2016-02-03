@@ -40,6 +40,6 @@
     horizontal=horizontal}}
 {{/unless}}
 
-{{#if model.isDeleted}}
+{{#if (and model.isDeleted model.notification.message)}}
   {{bs-text t=model.notification.message class='alert alert-danger'}}
 {{/if}}

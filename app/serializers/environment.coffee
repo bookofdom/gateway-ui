@@ -3,10 +3,13 @@
 
 EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
+    api:
+      serialize: false
     variables:
       serialize: false
       deserialize: 'records'
   normalize: (type, hash, property) ->
+    hash.variables = [] if !hash.variables
     @normalizeVariables hash
     @_super.apply @, arguments
   normalizeVariables: (hash) ->
@@ -18,14 +21,15 @@ EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         name: key
         value: value
     hash
-  serialize: (model) ->
+  serialize: (snapshot) ->
     serialized = @_super.apply @, arguments
-    serialized.data = @serializeVariables model
+    serialized.data = @serializeVariables snapshot
     serialized
-  serializeVariables: (model) ->
+  serializeVariables: (snapshot) ->
     hash = {}
-    model.get('variables').forEach (variable) ->
-      hash[variable.get 'name'] = variable.get 'value'
+    snapshot.hasMany('variables').forEach (variableSnapshot) ->
+      attributes = variableSnapshot.attributes()
+      hash[attributes.name] = attributes.value
     hash
 
 `export default EnvironmentSerializer`
