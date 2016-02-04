@@ -75,7 +75,7 @@ BaseFormComponent = Ember.Component.extend
       e.preventDefault()
       # a hacky way to programmatically submit the form, since
       # all direct methods fail to trigger proper validation
-      @$('[type=submit]').click()
+      @$().submit()
   confirm: (text) ->
     if config.confirmDelete
       confirm text
