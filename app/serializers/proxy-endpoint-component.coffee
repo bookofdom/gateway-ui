@@ -16,8 +16,9 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
     hash.before = [] if !hash.before
     hash.after = [] if !hash.after
     @normalizeCalls hash
-    id = hash.proxy_endpoint_component_reference_id
-    hash.id = id if id
+    hash.id = hash.proxy_endpoint_component_reference_id
+    hash.pass_through_id = hash.proxy_endpoint_component_id
+    delete hash.proxy_endpoint_component_id
     # `data` is reserved in Ember, so transform to `body` attribute
     hash.body = hash.data
     @_super.apply @, arguments

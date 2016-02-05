@@ -7,7 +7,10 @@ ProxyEndpointComponent = Model.extend
   conditional: DS.attr 'string', defaultValue: ''
   conditional_positive: DS.attr 'boolean', defaultValue: true
   body: DS.attr 'string', defaultValue: ''
-  proxy_endpoint_component_id: DS.attr 'number'
+  # Maps to proxy_endpoint_component_id, see serializer.
+  # Using `proxy_endpoint_component_id` is apparently problematic for
+  # no apparent reason.
+  pass_through_id: DS.attr 'number'
 
   # Relationships
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
