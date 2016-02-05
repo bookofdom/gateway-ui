@@ -5,6 +5,8 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
   attrs:
     proxy_endpoint:
       serialize: false
+    shared_component:
+      serialize: 'id'
     calls:
       embedded: 'always'
     before:
@@ -36,6 +38,7 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
     # Serializes `body` back into `data`
     serialized.data = serialized.body
     delete serialized['body']
+    serialized = @serializeSharedComponent serialized if serialized.shared_component_id
     serialized
   serializeIds: (serialized) ->
     id = serialized.id
@@ -49,5 +52,11 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
       serialized.call = serialized.calls[0] if serialized.calls
       delete serialized.calls
     serialized
+  serializeSharedComponent: (serialized) ->
+    # components associated with a shared component have a simplified payload
+    serialized =
+      proxy_endpoint_component_id: serialized.proxy_endpoint_component_id
+      proxy_endpoint_component_reference_id: serialized.proxy_endpoint_component_reference_id
+      shared_component_id: serialized.shared_component_id
 
 `export default ProxyEndpointComponentSerializer`
