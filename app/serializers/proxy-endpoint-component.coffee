@@ -11,32 +11,39 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
       embedded: 'always'
     after:
       embedded: 'always'
+
   normalize: (type, hash, property) ->
-    hash.calls = [] if !hash.calls
-    hash.before = [] if !hash.before
-    hash.after = [] if !hash.after
+    @normalizeIds hash
     @normalizeCalls hash
-    hash.id = hash.proxy_endpoint_component_reference_id
-    hash.pass_through_id = hash.proxy_endpoint_component_id
-    delete hash.proxy_endpoint_component_id
     # `data` is reserved in Ember, so transform to `body` attribute
     hash.body = hash.data
     @_super.apply @, arguments
+  normalizeIds: (hash) ->
+    hash.id = hash.proxy_endpoint_component_reference_id
+    hash.pass_through_id = hash.proxy_endpoint_component_id
+    delete hash.proxy_endpoint_component_id
+    hash
   normalizeCalls: (hash) ->
-    if hash.type == 'single'
+    if (hash.type is 'single') and hash.call
       hash.calls = [hash.call]
       delete hash.call
     hash
+
   serialize: (snapshot) ->
     serialized = @_super.apply @, arguments
+    @serializeIds serialized
     @serializeCalls serialized
-    id = serialized.id
-    serialized.proxy_endpoint_component_reference_id = parseInt(id, 10) if id
-    delete serialized.id
     # Serializes `body` back into `data`
-    serialized.data = snapshot.attributes().body
+    serialized.data = serialized.body
     delete serialized['body']
     serialized
+  serializeIds: (serialized) ->
+    id = serialized.id
+    passThroughId = serialized.pass_through_id
+    serialized.proxy_endpoint_component_reference_id = parseInt(id, 10) if id
+    serialized.proxy_endpoint_component_id = parseInt(passThroughId, 10) if passThroughId
+    delete serialized.id
+    delete serialized.pass_through_id
   serializeCalls: (serialized) ->
     if serialized.type == 'single'
       serialized.call = serialized.calls[0] if serialized.calls
