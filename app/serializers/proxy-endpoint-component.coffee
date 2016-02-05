@@ -16,6 +16,8 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
     hash.before = [] if !hash.before
     hash.after = [] if !hash.after
     @normalizeCalls hash
+    id = hash.proxy_endpoint_component_reference_id
+    hash.id = id if id
     # `data` is reserved in Ember, so transform to `body` attribute
     hash.body = hash.data
     @_super.apply @, arguments
@@ -27,6 +29,9 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
   serialize: (snapshot) ->
     serialized = @_super.apply @, arguments
     @serializeCalls serialized
+    id = serialized.id
+    serialized.proxy_endpoint_component_reference_id = parseInt(id, 10) if id
+    delete serialized.id
     # Serializes `body` back into `data`
     serialized.data = snapshot.attributes().body
     delete serialized['body']
