@@ -130,9 +130,9 @@
     "api-documentation_plural": "$t(resources.api-documentation)"
   },
   "proxy-endpoint-component-types": {
-    "single-proxy": "llamada",
-    "multi-proxy": "multi-llamada",
-    "javascript-logic": "lógica"
+    "single": "llamada",
+    "multi": "multi-llamada",
+    "js": "lógica"
   },
   "fields": {
     "admin": "administración",

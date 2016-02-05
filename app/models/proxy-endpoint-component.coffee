@@ -45,9 +45,7 @@ ProxyEndpointComponent = Model.extend
       @set 'type', 'js' if value?
       @get 'js'
   name: Ember.computed 'type', ->
-    t(switch @get 'type'
-        when 'single' then 'proxy-endpoint-component-types.single-proxy'
-        when 'multi' then 'proxy-endpoint-component-types.multi-proxy'
-        when 'js' then 'proxy-endpoint-component-types.javascript-logic').capitalize()
+    type = @get 'type'
+    t("proxy-endpoint-component-types.#{type}").capitalize()
 
 `export default ProxyEndpointComponent`
