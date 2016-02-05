@@ -1,0 +1,12 @@
+{{#ap-page t='resources.shared-component_plural'}}
+
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='shared-component.edit'}}
+
+  {{#ap-panel-new t='resources.shared-component' closed=model.length}}
+    {{!--render 'shared-component.form'--}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}
