@@ -230,6 +230,26 @@ var foo = function () {\n\
         "conditional_positive": true,
         "type": "js",
         "data": "code string"
+    },
+    {
+        "proxy_endpoint_component_id": 1,
+        "proxy_endpoint_component_reference_id": 4,
+        "shared_component_id": 1
+    },
+    {
+        "proxy_endpoint_component_id": 2,
+        "proxy_endpoint_component_reference_id": 5,
+        "shared_component_id": 2
+    },
+    {
+        "proxy_endpoint_component_id": 3,
+        "proxy_endpoint_component_reference_id": 6,
+        "shared_component_id": 3
+    },
+    {
+        "proxy_endpoint_component_id": 3,
+        "proxy_endpoint_component_reference_id": 7,
+        "shared_component_id": 3
     }
   ];
 
