@@ -61,6 +61,7 @@
       "libraries": "define librerías compartidas para utilizar en bloques de código JavaScript",
       "logs": "ver los registros, búsqueda y arroyos",
       "api-documentation": "ver la documentación y prueba las llamadas de la API",
+      "shared-components": "crear componentes reutilizables para puntos finales de proxy",
       "formatted": {
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
         "build-app": "<b>(autenticación requerida)</b><br>Realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence"
@@ -127,7 +128,13 @@
     "notificaiton": "notificación",
     "notification_plural": "notificaciones",
     "api-documentation": "documentación de la API",
-    "api-documentation_plural": "$t(resources.api-documentation)"
+    "api-documentation_plural": "$t(resources.api-documentation)",
+    "shared-component": "$t(resources.proxy-endpoint-component)",
+    "shared-component_plural": "$t(resources.proxy-endpoint-component_plural)",
+    "shared-component-call": "$t(resources.proxy-endpoint-component-call)",
+    "shared-component-call_plural": "$t(resources.proxy-endpoint-component-call_plural)",
+    "shared-component-transformation": "$t(resources.proxy-endpoint-component-transformation)",
+    "shared-component-transformation_plural": "$t(resources.proxy-endpoint-component-transformation_plural)"
   },
   "proxy-endpoint-component-types": {
     "single": "llamada",
