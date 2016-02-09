@@ -6,7 +6,7 @@ ProxyEndpoint = Model.extend
   name: DS.attr 'string'
   description: DS.attr 'string'
   active: DS.attr 'boolean'
-  cors_enabled: DS.attr 'boolean'
+  cors_enabled: DS.attr 'boolean', defaultValue: true
 
   # Relationships
   api: DS.belongsTo 'api', async: true
