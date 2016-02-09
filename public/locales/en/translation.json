@@ -49,6 +49,7 @@
     "manage-api_plural": "manage APIs",
     "build-app": "build app",
     "build-app_plural": "build apps",
+    "terms-and-conditions": "terms and conditions",
     "descriptions": {
       "define-api": "define API endpoints and workflow business logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
@@ -62,6 +63,7 @@
       "logs": "view, search, and stream logs",
       "api-documentation": "view interactive API documentation and test API calls",
       "shared-components": "build reusable components for proxy endpoints",
+      "terms-and-conditions": "by registering for an account you accept the JustAPIs terms and conditions",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
