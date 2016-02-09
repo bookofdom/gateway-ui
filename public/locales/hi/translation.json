@@ -49,6 +49,7 @@
     "manage-api_plural": "manage APIs",
     "build-app": "build app",
     "build-app_plural": "build apps",
+    "terms-and-conditions": "नियम और शर्तें",
     "descriptions": {
       "define-api": "define API endpoints and workflow business logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
@@ -61,6 +62,7 @@
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "देखें , खोज, और धारा के लॉग",
       "api-documentation": "इंटरैक्टिव एपीआई प्रलेखन और परीक्षण एपीआई कॉल देखने",
+      "terms-and-conditions": "एक खाते के लिए पंजीकरण करके आप JustAPIs नियमों और शर्तों को स्वीकार करते",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
