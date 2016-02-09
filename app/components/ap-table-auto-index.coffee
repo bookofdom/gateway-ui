@@ -35,8 +35,9 @@ ApTableAutoIndexComponent = Ember.Component.extend
         @delete model
 
     toggleBoolean: (model, fieldName, autoSave) ->
-      value = model.get fieldName
-      model.set fieldName, !value
-      model.save() if autoSave
+      model.reload().then ->
+        value = model.get fieldName
+        model.set fieldName, !value
+        model.save() if autoSave
 
 `export default ApTableAutoIndexComponent`
