@@ -33,7 +33,5 @@ RemoteEndpointFormComponent = BaseRemoteEndpointFormComponent.extend
   actions:
     'delete-remote-endpoint-environment-datum': (model) ->
       model.deleteRecord()
-    'new-remote-endpoint-environment-datum': ->
-      @sendAction()
 
 `export default RemoteEndpointFormComponent`
