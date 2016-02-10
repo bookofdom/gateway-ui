@@ -4,6 +4,7 @@
 
 Api = Model.extend
   name: DS.attr 'string'
+  base_url: DS.attr 'string'
   description: DS.attr 'string'
   cors_allow_origin: DS.attr 'string', defaultValue: '*'
   cors_allow_headers: DS.attr 'string', defaultValue: 'content-type, accept'

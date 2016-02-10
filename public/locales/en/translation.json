@@ -211,6 +211,7 @@
     "maximum_lines": "maximum lines",
     "import": "import",
     "show_javascript_errors": "show $t(languages.javascript) errors",
+    "base_url": "base URL",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
