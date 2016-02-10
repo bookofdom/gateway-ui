@@ -80,7 +80,7 @@ ApModelFieldComponent = BsBaseComponent.extend
         isSelect = @get 'isSelect'
         # Selects with no value set AND no prompt should have the first
         # option automatically selected as the value.
-        if isSelect and !prompt and !value and firstOption
+        if isSelect and !prompt and firstOption and !value
           @set 'value', firstOption
         value
       set: (key, value) ->

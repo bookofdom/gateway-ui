@@ -32,6 +32,16 @@
       placeholder=(t '$t(prompts.optional-x, {"x": "fields.organization"})')
       class='form-control input-lg'}}
   {{/bs-form-group}}
+
+  <br>
+  {{#bs-form-group}}
+    <p>
+      <a class="text-light" href="http://www.anypresence.com/terms/#justapis" target="_blank">
+        {{t 'nav.descriptions.terms-and-conditions'}}.
+      </a>
+    </p>
+  {{/bs-form-group}}
+
   <div class="form-actions">
     {{#bs-form-group}}
       {{bs-submit t='actions.sign-up' lg=true}}
