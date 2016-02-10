@@ -23,6 +23,7 @@ module.exports = function(app) {
       },
       "environment_data":[
         {
+          "id":1,
           "environment_id":1,
           "data":{
             "url":"http://demo.ap.com",
@@ -35,6 +36,9 @@ module.exports = function(app) {
               "foo":"bar",
               "baz":"baf"
             }
+          },
+          "links":{
+            "pads": "/apis/1/remote_endpoints/1/environment_data/1/scratch_pads"
           }
         }
       ]

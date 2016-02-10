@@ -7,4 +7,8 @@ RemoteEndpointEnvironmentDatumEditController = EditController.extend
   environments: Ember.computed.alias 'remote-endpoint-environment-data.environments'
   remoteEndpointType: Ember.computed.alias 'remote-endpoint-environment-data.remoteEndpointType'
 
+  actions:
+    'new-scratch-pad': ->
+      @transitionToRoute 'scratch-pads.new'
+
 `export default RemoteEndpointEnvironmentDatumEditController`

@@ -7,5 +7,7 @@ RemoteEndpointEnvironmentDatumSerializer = RemoteEndpointLikeSerializer.extend
       serialize: false
     environment:
       serialize: 'id'
+    pads:
+      serialize: false
 
 `export default RemoteEndpointEnvironmentDatumSerializer`

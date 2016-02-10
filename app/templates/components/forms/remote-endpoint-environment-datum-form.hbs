@@ -40,3 +40,17 @@
       action='new-remote-endpoint-host'}}
   {{/ap-panel-edit}}
 {{/if}}
+
+{{#unless model.isNew}}
+  {{#ap-panel-edit t='resources.scratch_pad_plural'}}
+    {{ap-table-index
+      models=model.pads
+      fields='name'
+      delete-action='delete-scratch-pad'
+      path='scratch-pad.edit'
+      edit-path='scratch-pad.edit'}}
+    {{ap-button-block-new
+      t='resources.scratch-pad'
+      action='new-scratch-pad'}}
+  {{/ap-panel-edit}}
+{{/unless}}
