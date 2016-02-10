@@ -5,6 +5,7 @@ module.exports = function(app) {
     {
       id: 1,
       name: 'Mock API',
+      base_url: 'http://api.mock.com',
       description: 'Mock API for development purposes',
       cors_allow_origin: "",
       cors_allow_headers: "content-type, accept",
@@ -15,6 +16,7 @@ module.exports = function(app) {
     {
       id: 2,
       name: 'Demonstration API',
+      base_url: 'http://api.demonstration.com',
       description: 'Demonstration of the API resource',
       cors_allow_origin: "",
       cors_allow_headers: "content-type, accept",
@@ -25,6 +27,7 @@ module.exports = function(app) {
     {
       id: 3,
       name: 'Testing API',
+      base_url: 'http://api.testing.com',
       description: 'Another API for development purposes',
       cors_allow_origin: "",
       cors_allow_headers: "content-type, accept",
