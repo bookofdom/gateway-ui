@@ -40,7 +40,7 @@ ApplicationSerializer = DS.RESTSerializer.extend
       belongsToId = snapshot.belongsTo key, id: true
       # if provided, use the mapping provided by `attrs` in
       # the serializer
-      payloadKey = @_getMappedKey key
+      payloadKey = @_getMappedKey key, snapshot.type
       if (payloadKey is key) and @keyForRelationship
         payloadKey = @keyForRelationship key, 'belongsTo', 'serialize'
       # Need to check whether the id is there for new&async records
