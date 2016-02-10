@@ -28,10 +28,9 @@ ApplicationSerializer = DS.RESTSerializer.extend
     serialized
   # Numericize the ID if possible
   serializeId: (serialized) ->
-    for key, id of serialized
-      if /id$/.test(key.toLowerCase())
-        numericId = parseInt id, 10 if id?
-        serialized[key] = numericId if id?.toString() == numericId?.toString()
+    id = serialized.id
+    numericId = parseInt id, 10 if id?
+    serialized.id = numericId if id?.toString() == numericId?.toString()
     serialized
   # Server wants IDs to be numeric.
   serializeBelongsTo: (snapshot, json, relationship) ->
