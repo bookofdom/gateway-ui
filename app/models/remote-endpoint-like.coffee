@@ -83,6 +83,7 @@ RemoteEndpointLike = Model.extend
   statusType: Ember.computed 'status', ->
     status = @get 'status'
     RemoteEndpointLike.statusTypes.findBy 'value', status?.underscore()
+  statusTypeName: Ember.computed.alias 'statusType.name'
   statusIsSuccess: Ember.computed 'statusType.slug', ->
     @get('statusType.slug') is 'success'
   statusIsError: Ember.computed 'statusType.slug', ->
