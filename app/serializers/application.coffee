@@ -28,10 +28,9 @@ ApplicationSerializer = DS.RESTSerializer.extend
     serialized
   # Numericize the ID if possible
   serializeId: (serialized) ->
-    for key, id of serialized
-      if /id$/.test(key.toLowerCase())
-        numericId = parseInt id, 10 if id?
-        serialized[key] = numericId if id?.toString() == numericId?.toString()
+    id = serialized.id
+    numericId = parseInt id, 10 if id?
+    serialized.id = numericId if id?.toString() == numericId?.toString()
     serialized
   # Server wants IDs to be numeric.
   serializeBelongsTo: (snapshot, json, relationship) ->
@@ -40,7 +39,7 @@ ApplicationSerializer = DS.RESTSerializer.extend
       belongsToId = snapshot.belongsTo key, id: true
       # if provided, use the mapping provided by `attrs` in
       # the serializer
-      payloadKey = @_getMappedKey key
+      payloadKey = @_getMappedKey key, snapshot.type
       if (payloadKey is key) and @keyForRelationship
         payloadKey = @keyForRelationship key, 'belongsTo', 'serialize'
       # Need to check whether the id is there for new&async records
