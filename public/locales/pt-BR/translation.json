@@ -203,6 +203,7 @@
     "maximum_lines": "linhas máximos",
     "import": "importação",
     "show_javascript_errors": "mostrar erros de $t(languages.javascript)",
+    "status": "estado",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
