@@ -6,8 +6,6 @@ RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.ex
   remoteEndpointType: null
   modelType: 'remote-endpoint-environment-datum'
 
-  savedAction: null
-
   'option-groups': Ember.computed 'environments.@each.isNew', ->
     Ember.merge @_super.apply(@, arguments),
       environment: @get('environments').filterBy 'isNew', false
@@ -31,8 +29,8 @@ RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.ex
   actions:
     saved: ->
       @notifySaveSuccess()
-      # resend this action (using a different name)
+      # resend this action
       # so that the router can handle it if necessary
-      @send 'saved'
+      @sendAction 'savedAction'
 
 `export default RemoteEndpointEnvironmentDatumFormComponent`

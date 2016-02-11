@@ -3,8 +3,6 @@
 
 ProxyEndpointComponentCallSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
-    remote_endpoint:
-      serialize: 'id'
     proxy_endpoint_component:
       serialize: false
     before:
