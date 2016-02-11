@@ -4,8 +4,6 @@ ScratchPadFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'scratch-pad'
 
-  savedAction: null
-
   fields: [
     name: 'name'
     required: true
