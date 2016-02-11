@@ -1,0 +1,5 @@
+{{#if (get model field.name)}}
+  <span class="label label-{{if model.statusIsError 'danger'}}{{if model.statusIsSuccess 'success'}}{{if model.statusIsPending 'info'}}{{if model.statusIsProcessing 'warning'}}">
+    {{get model field.name}}{{#if model.status_message}}: {{model.status_message}}{{/if}}
+  </span>
+{{/if}}
