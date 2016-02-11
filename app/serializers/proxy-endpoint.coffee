@@ -5,10 +5,6 @@ ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     api:
       serialize: false
-    environment:
-      serialize: 'id'
-    endpoint_group:
-      serialize: 'id'
     routes:
       embedded: 'always'
     components:
