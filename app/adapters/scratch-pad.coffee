@@ -22,4 +22,20 @@ ScratchPadAdapter = ApplicationAdapter.extend
         url = "#{remoteEndpointUrl}/environment_data/#{environmentDatumId}/scratch_pads"
       @cleanURL url
 
+  buildTestUrl: (model) ->
+    snapshot = model._createSnapshot()
+    "#{@buildURL 'scratch-pad', null, snapshot}/test"
+
+  ###
+  model:  environment instance
+  ###
+  executeTest: (model) ->
+    url = @buildTestUrl model
+    new Ember.RSVP.Promise (resolve, reject) =>
+      @ajax(url, 'GET').then (response) ->
+        if response
+          resolve response
+        else
+          reject response
+
 `export default ScratchPadAdapter`

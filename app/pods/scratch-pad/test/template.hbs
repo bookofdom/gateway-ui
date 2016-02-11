@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{#if response}}
+      {{#unless model.hasDirtyAttributes}}
+        {{#unless executing}}
+          <a class="btn btn-default" {{action 'executeTest'}}>
+            {{t 'actions.execute'}}
+            {{ap-icon icon='arrows-006'}}
+          </a>
+          <br>
+          <br>
+        {{/unless}}
+      {{/unless}}
+      <div class="form-group">
+        <label class="control-label col-sm-2">{{t 'fields.request'}}</label>
+        <div class="col-sm-10">
+          <pre class="form-control form-control-flexible">{{formattedRequest}}</pre>
+        </div><!-- /.col -->
+      </div><!-- /.form-group -->
+      <div class="form-group">
+        <label class="control-label col-sm-2">{{t 'fields.response'}}</label>
+        <div class="col-sm-10">
+          <pre class="form-control form-control-flexible">{{formattedResponse}}</pre>
+        </div><!-- /.col -->
+      </div><!-- /.form-group -->
+    {{/if}}
+    {{#unless model.hasDirtyAttributes}}
+      {{#unless executing}}
+        <a class="btn btn-default" {{action 'executeTest'}}>
+          {{t 'actions.execute'}}
+          {{ap-icon icon='arrows-006'}}
+        </a>
+      {{/unless}}
+    {{/unless}}
+  </div><!-- /.panel-body -->
+</div>

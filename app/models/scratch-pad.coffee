@@ -9,4 +9,8 @@ ScratchPad = Model.extend
   # Relationships
   remote_endpoint_environment_data: DS.belongsTo 'remote-endpoint-environment-datum', async: true
 
+  executeTest: ->
+    adapter = @container.lookup 'adapter:scratch-pad'
+    adapter.executeTest @
+  
 `export default ScratchPad`

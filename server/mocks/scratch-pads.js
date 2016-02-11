@@ -16,6 +16,11 @@ module.exports = function(app) {
     }
   ];
 
+  var testResult = {
+    "request": '{"a": "request"}',
+    "response": '{"a": "response"}'
+  };
+
   padsRouter.get('/:remote_endpoint_id/environment_data/:environment_data_id/scratch_pads/', function(req, res) {
     var _pads = pads.filter(function (value) {
       return value.remote_endpoint_environment_data_id == req.params.environment_data_id;
@@ -55,6 +60,10 @@ module.exports = function(app) {
 
   padsRouter.delete('/:remote_endpoint_id/environment_data/:environment_data_id/scratch_pads/:id', function(req, res) {
     res.status(204).end();
+  });
+
+  padsRouter.get('/:remote_endpoint_id/environment_data/:environment_data_id/scratch_pads/:id/test', function(req, res) {
+    res.send(testResult);
   });
 
   app.use('/admin/apis/:api_id/remote_endpoints', padsRouter);
