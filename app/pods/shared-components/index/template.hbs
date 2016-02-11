@@ -6,7 +6,10 @@
       route='shared-component.edit'}}
 
   {{#ap-panel-new t='resources.shared-component' closed=model.length}}
-    {{!--render 'shared-component.form'--}}
+
+    {{forms/shared-component-form
+      indexModel=model}}
+
   {{/ap-panel-new}}
 
 {{/ap-page}}

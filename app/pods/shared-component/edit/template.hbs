@@ -1,5 +1,8 @@
 {{#ap-page}}
   {{#ap-panel-edit t=model.name}}
-    {{!--render 'shared-component.form' model--}}
+
+  {{forms/shared-component-form
+    model=model}}
+
   {{/ap-panel-edit}}
 {{/ap-page}}
