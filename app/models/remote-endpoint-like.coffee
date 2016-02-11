@@ -94,7 +94,7 @@ RemoteEndpointLike = Model.extend
   authSchemeType: Ember.computed 'auth_scheme', ->
     scheme = @get 'auth_scheme'
     RemoteEndpointLike.authSchemes.findBy 'value', scheme
-  location: Ember.computed 'url', 'server', ->
+  location: Ember.computed 'url', 'server', 'hosts.[]', ->
     location = @get('url') or @get('server')
     location = @get('hosts').map((host) -> host.get 'host')?.join(' / ') if @get 'isMongo'
     location
