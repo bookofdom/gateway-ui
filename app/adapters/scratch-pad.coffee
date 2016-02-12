@@ -32,10 +32,14 @@ ScratchPadAdapter = ApplicationAdapter.extend
   executeTest: (model) ->
     url = @buildTestUrl model
     new Ember.RSVP.Promise (resolve, reject) =>
-      @ajax(url, 'GET').then (response) ->
-        if response
-          resolve response
-        else
-          reject response
+      Ember.$.ajax
+        url: url
+        type: 'GET'
+        dataType: 'json'
+      .then (response) ->
+        resolve response
+      , (xhr, status, error) ->
+        reject xhr.responseJSON
+
 
 `export default ScratchPadAdapter`

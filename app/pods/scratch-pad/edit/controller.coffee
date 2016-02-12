@@ -25,6 +25,8 @@ ScratchPadEditController = EditController.extend
       @get('model').executeTest()
         .then (response) =>
           @set 'response', response
+        , (response) =>
+          @set 'response', response
         .finally =>
           @set 'executing', false
 

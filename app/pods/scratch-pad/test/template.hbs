@@ -11,18 +11,27 @@
           <br>
         {{/unless}}
       {{/unless}}
-      <div class="form-group">
-        <label class="control-label col-sm-2">{{t 'fields.request'}}</label>
-        <div class="col-sm-10">
-          <pre class="form-control form-control-flexible">{{formattedRequest}}</pre>
-        </div><!-- /.col -->
-      </div><!-- /.form-group -->
-      <div class="form-group">
-        <label class="control-label col-sm-2">{{t 'fields.response'}}</label>
-        <div class="col-sm-10">
-          <pre class="form-control form-control-flexible">{{formattedResponse}}</pre>
-        </div><!-- /.col -->
-      </div><!-- /.form-group -->
+      {{#if response.error}}
+        <div class="form-group">
+          <label class="control-label col-sm-2">{{t 'fields.error'}}</label>
+          <div class="col-sm-10">
+            <pre class="form-control form-control-flexible">{{response.error}}</pre>
+          </div><!-- /.col -->
+        </div><!-- /.form-group -->
+      {{else}}
+        <div class="form-group">
+          <label class="control-label col-sm-2">{{t 'fields.request'}}</label>
+          <div class="col-sm-10">
+            <pre class="form-control form-control-flexible">{{formattedRequest}}</pre>
+          </div><!-- /.col -->
+        </div><!-- /.form-group -->
+        <div class="form-group">
+          <label class="control-label col-sm-2">{{t 'fields.response'}}</label>
+          <div class="col-sm-10">
+            <pre class="form-control form-control-flexible">{{formattedResponse}}</pre>
+          </div><!-- /.col -->
+        </div><!-- /.form-group -->
+      {{/if}}
     {{/if}}
     {{#unless model.hasDirtyAttributes}}
       {{#unless executing}}
