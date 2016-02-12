@@ -17,6 +17,7 @@ module.exports = function(app) {
   ];
 
   var testResult = {
+    "time": 100,
     "request": '{"a": "request"}',
     "response": '{"a": "response"}'
   };

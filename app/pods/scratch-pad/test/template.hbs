@@ -1,4 +1,10 @@
 <div class="panel panel-default">
+  <div class="panel-heading">
+    {{#if response.time}}
+      <span class="label label-default">{{response.time}} ms</span>
+    {{/if}}
+  </div>
+
   <div class="panel-body">
     {{#if response}}
       {{#unless model.hasDirtyAttributes}}
