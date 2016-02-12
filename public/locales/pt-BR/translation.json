@@ -120,6 +120,8 @@
     "remote-endpoint-header_plural": "cabeçalhos",
     "remote-endpoint-query-parameter": "parametro de consulta",
     "remote-endpoint-query-parameter_plural": "parametros de consulta",
+    "scratch-pad": "bloco de rascunho",
+    "scratch-pad_plural": "almofadas de raspadinhas",
     "host": "servidor",
     "host_plural": "servidores",
     "library": "biblioteca compartilhada",
@@ -137,6 +139,10 @@
     "javascript-logic": "lógica"
   },
   "fields": {
+    "code": "código",
+    "error": "erro",
+    "request": "pedido",
+    "response": "resposta",
     "admin": "administrador",
     "email": "email",
     "password": "senha",

@@ -120,6 +120,8 @@
     "remote-endpoint-header_plural": "headers",
     "remote-endpoint-query-parameter": "query parameter",
     "remote-endpoint-query-parameter_plural": "query parameters",
+    "scratch-pad": "scratch pad",
+    "scratch-pad_plural": "scratch pads",
     "host": "host",
     "host_plural": "hosts",
     "library": "shared library",
@@ -137,6 +139,10 @@
     "javascript-logic": "logic"
   },
   "fields": {
+    "code": "code",
+    "error": "error",
+    "request": "request",
+    "response": "response",
     "admin": "admin",
     "email": "email",
     "password": "password",
