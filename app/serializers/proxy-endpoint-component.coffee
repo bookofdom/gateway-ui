@@ -3,6 +3,8 @@
 
 ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
+    proxy_endpoint:
+      serialize: false
     calls:
       embedded: 'always'
     before:
@@ -10,6 +12,9 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
     after:
       embedded: 'always'
   normalize: (type, hash, property) ->
+    hash.calls = [] if !hash.calls
+    hash.before = [] if !hash.before
+    hash.after = [] if !hash.after
     @normalizeCalls hash
     # `data` is reserved in Ember, so transform to `body` attribute
     hash.body = hash.data
@@ -19,11 +24,11 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
       hash.calls = [hash.call]
       delete hash.call
     hash
-  serialize: (model) ->
+  serialize: (snapshot) ->
     serialized = @_super.apply @, arguments
     @serializeCalls serialized
     # Serializes `body` back into `data`
-    serialized.data = model.get 'body'
+    serialized.data = snapshot.attributes().body
     delete serialized['body']
     serialized
   serializeCalls: (serialized) ->

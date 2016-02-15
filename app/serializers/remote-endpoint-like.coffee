@@ -10,6 +10,8 @@
 
 RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
+    api:
+      serialize: false
     headers:
       serialize: false
       deserialize: 'records'
@@ -23,6 +25,10 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
 
   # Normalization
   normalize: (type, hash, property) ->
+    hash.headers = [] if !hash.headers
+    hash.query = [] if !hash.query
+    hash.hosts = [] if !hash.hosts
+    hash.environment_data = [] if !hash.environment_data
     hash.data ?= {}
     # normalize embedded resources
     @normalizeEnvironmentData hash
@@ -49,13 +55,13 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       value: value
 
   # Serialization
-  serialize: (model) ->
+  serialize: (snapshot) ->
     serialized = @_super.apply @, arguments
     # serialize embedded records
     serialized.data ?= {}
     Ember.merge serialized.data,
-      headers: @serializeHeaders model
-      query: @serializeQuery model
+      headers: @serializeHeaders snapshot
+      query: @serializeQuery snapshot
     # serialize attributes
     switch serialized.type
       when 'http' then HttpRemoteEndpointSerializer.serialize serialized
@@ -67,15 +73,17 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       when 'mongodb' then MongodbRemoteEndpointSerializer.serialize serialized
       when 'script' then ScriptRemoteEndpointSerializer.serialize serialized
     serialized
-  serializeHeaders: (model) ->
+  serializeHeaders: (snapshot) ->
     headers = {}
-    model.get('headers').forEach (header) ->
-      headers[header.get 'name'] = header.get 'value'
+    snapshot.hasMany('headers')?.forEach (headerSnapshot) ->
+      attributes = headerSnapshot.attributes()
+      headers[attributes.name] = attributes.value
     headers
-  serializeQuery: (model) ->
+  serializeQuery: (snapshot) ->
     query = {}
-    model.get('query').forEach (param) ->
-      query[param.get 'name'] = param.get 'value'
+    snapshot.hasMany('query')?.forEach (querySnapshot) ->
+      attributes = querySnapshot.attributes()
+      query[attributes.name] = attributes.value
     query
 
 `export default RemoteEndpointLikeSerializer`

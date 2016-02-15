@@ -1,0 +1,14 @@
+{{#ap-page t='resources.remote-endpoint_plural' help-url='http://devhub.justapis.com/v4.1.0/docs/remote-endpoints' showNew=true}}
+
+  {{partial 'remote-endpoints/filter-form'}}
+
+  {{ap-table-auto-index
+      model=filtered
+      fields=fields
+      route='remote-endpoint.edit'}}
+
+  {{#ap-panel-new t='resources.remote-endpoint' closed=(unbound filtered.length)}}
+    {{forms/remote-endpoint-form indexModel=model types=types}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}

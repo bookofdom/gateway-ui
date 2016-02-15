@@ -49,6 +49,7 @@
     "manage-api_plural": "administre las APIs",
     "build-app": "build de aplicación",
     "build-app_plural": "build de aplicaciones",
+    "terms-and-conditions": "términos y condiciones",
     "descriptions": {
       "define-api": "define los endpoints de la API y el flujo de la lógica de negocio",
       "manage-api": "crea las claves y especifica las reglas de las APIs",
@@ -61,6 +62,7 @@
       "libraries": "define librerías compartidas para utilizar en bloques de código JavaScript",
       "logs": "ver los registros, búsqueda y arroyos",
       "api-documentation": "ver la documentación y prueba las llamadas de la API",
+      "terms-and-conditions": "mediante el registro de una cuenta que acepta los términos y condiciones JustAPIs",
       "formatted": {
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
         "build-app": "<b>(autenticación requerida)</b><br>Realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence"
@@ -203,6 +205,7 @@
     "maximum_lines": "líneas máximas",
     "import": "importación",
     "show_javascript_errors": "mostrar errores de $t(languages.javascript)",
+    "status": "estado",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",

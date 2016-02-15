@@ -1,6 +1,0 @@
-`import ProxyEndpointComponentTransformationInlineFormController from 'gateway/controllers/proxy-endpoint-component-transformation/inline-form'`
-
-ProxyEndpointComponentTransformationInlineAfterFormController = ProxyEndpointComponentTransformationInlineFormController.extend
-  after: true
-
-`export default ProxyEndpointComponentTransformationInlineAfterFormController`

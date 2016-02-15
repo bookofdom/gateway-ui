@@ -1,0 +1,16 @@
+{{#ap-page t='resources.api_plural' help-url='http://devhub.justapis.com/v4.1.0/docs/apis' showNew=true}}
+
+  {{ap-table-index
+      models=model
+      fields='name,base_url,description'
+      path='api.index'
+      edit-path='api.edit'
+      custom-primary-action='export-api'
+      custom-primary-icon='the-essentials-018'
+      custom-primary-t='actions.export'}}
+
+  {{#ap-panel-new t='resources.api' closed=(unbound model.length)}}
+    {{forms/api-form}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}
