@@ -1,5 +1,0 @@
-`import RemoteEndpointEnvironmentDatumFormController from 'gateway/controllers/remote-endpoint-environment-datum/form'`
-
-RemoteEndpointEnvironmentDatumInlineFormController = RemoteEndpointEnvironmentDatumFormController.extend()
-
-`export default RemoteEndpointEnvironmentDatumInlineFormController`

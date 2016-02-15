@@ -1,6 +1,3 @@
-{{#if (get model field.name)}}
-  <span class="label label-success text-uppercase">{{t 'states.active'}}</span>
-{{/if}}
-{{#unless (get model field.name)}}
-  <span class="label label-danger text-uppercase">{{t 'states.inactive'}}</span>
-{{/unless}}
+<span class="btn btn-sm {{if (get model field.name) "btn-success" "btn-danger"}} text-uppercase clickable" {{action 'toggleBoolean' model field.name true}}>
+  {{t (if (get model field.name) 'states.active' 'states.inactive')}}
+</span>

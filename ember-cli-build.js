@@ -2,6 +2,7 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var Funnel = require('broccoli-funnel');
+var mergeTrees = require('broccoli-merge-trees');
 
 /*
  * Updated build syntax:
@@ -13,8 +14,8 @@ module.exports = function(defaults) {
     fingerprint: {
       exclude: [
         'swagger',
-        'snippets/javascript.js',
         'theme-slate.js',
+        'snippets',
         'worker-javascript.js',
         'worker-json.js',
         'worker-tern.js'
@@ -102,11 +103,10 @@ module.exports = function(defaults) {
       'snippets/text.js',
       'worker-javascript.js',
       'worker-json.js',
-      'worker-tern.js',
-      'worker-text.js'
+      'worker-tern.js'
     ],
     destDir: '/'
   });
 
-  return app.toTree(swaggerAssets, aceAssets);
+  return mergeTrees([app.toTree(), swaggerAssets, aceAssets]);
 };

@@ -2,6 +2,7 @@
 
 ApiSerializer = ApplicationSerializer.extend
   normalize: (type, hash, property) ->
+    hash.export = null # reset export so as not to save it more than once
     hash.links =
       proxy_endpoints: "proxy_endpoints"
       environments: "environments"

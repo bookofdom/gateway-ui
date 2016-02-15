@@ -1,0 +1,14 @@
+
+{{#ap-page t='resources.proxy-endpoint-test_plural'}}
+
+  {{ap-table-index
+    models=model
+    fields='name,methodType.name:fields.method,route:resources.proxy-endpoint-route'
+    path='proxy-endpoint-test.index'
+    edit-path='proxy-endpoint-test.edit'}}
+
+  {{#ap-panel-new t='resources.proxy-endpoint-test' closed=(unbound model.length)}}
+    {{forms/proxy-endpoint-test-form indexModel=model routes=routes}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}

@@ -1,0 +1,13 @@
+{{#ap-page t='resources.environment_plural' help-url='http://devhub.justapis.com/v4.1.0/docs/environments' showNew=true}}
+
+  {{ap-table-index
+      models=model
+      fields='name,description'
+      path='environment.index'
+      edit-path='environment.edit'}}
+
+  {{#ap-panel-new t='resources.environment' closed=(unbound model.length)}}
+    {{forms/environment-form indexModel=model}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}

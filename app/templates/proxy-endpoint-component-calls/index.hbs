@@ -1,9 +1,0 @@
-{{ap-table-index
-  models=model
-  fields='remote_endpoint:resources.remote-endpoint:object-name,endpoint_name_override'
-  path='proxy-endpoint-component-call.index'
-  edit-path='proxy-endpoint-component-call.edit'}}
-
-{{#ap-panel-new t='resources.proxy-endpoint-component-call' closed=(unbound model.length)}}
-  {{render 'proxy-endpoint-component-call.form'}}
-{{/ap-panel-new}}
