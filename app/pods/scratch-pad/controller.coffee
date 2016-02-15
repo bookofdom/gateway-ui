@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
 ScratchPadController = Ember.Controller.extend
-  breadCrumb: 'resources.scratch-pad'
+  breadCrumb: Ember.computed 'model.name', -> @get 'model.name'
 
 `export default ScratchPadController`
