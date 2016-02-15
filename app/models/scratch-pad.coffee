@@ -12,5 +12,5 @@ ScratchPad = Model.extend
   executeTest: ->
     adapter = @container.lookup 'adapter:scratch-pad'
     adapter.executeTest @
-  
+
 `export default ScratchPad`
