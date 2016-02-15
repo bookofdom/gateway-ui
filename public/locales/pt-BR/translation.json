@@ -15,6 +15,7 @@
     "button_plural": "botões"
   },
   "actions": {
+    "executing": "execução...",
     "toggle-navivagation": "alterar navegação",
     "login": "entrar",
     "logout": "sair",

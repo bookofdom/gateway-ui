@@ -47,5 +47,8 @@
         </a>
       {{/unless}}
     {{/unless}}
+    {{#if executing}}
+      <span class="spinner">{{t 'actions.executing'}}</span>
+    {{/if}}
   </div><!-- /.panel-body -->
 </div>
