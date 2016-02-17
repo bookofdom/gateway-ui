@@ -1,7 +1,8 @@
 `import Ember from 'ember'`
+`import GooglePageviewMixin from './mixins/google-pageview'`
 `import config from './config/environment'`
 
-Router = Ember.Router.extend
+Router = Ember.Router.extend GooglePageviewMixin,
   location: config.locationType
 
 Router.map ->
