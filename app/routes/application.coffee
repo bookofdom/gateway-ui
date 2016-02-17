@@ -12,7 +12,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
 
   afterModel: (first, transition) ->
     @checkSessionValidity transition
-    #@enableNotifications()
+    @enableNotifications()
 
   checkSessionValidity: (transition) ->
     session = @get 'session'
