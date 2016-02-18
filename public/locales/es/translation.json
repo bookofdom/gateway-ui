@@ -281,7 +281,7 @@
       "script": "código",
       "status-types": {
         "success": "éxito",
-        "error": "error",
+        "failed": "ha fallado",
         "pending": "pendiente",
         "processing": "procesando"
       },

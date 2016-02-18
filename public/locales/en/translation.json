@@ -289,7 +289,7 @@
       "script": "Script",
       "status-types": {
         "success": "success",
-        "error": "error",
+        "failed": "failed",
         "pending": "pending",
         "processing": "processing"
       },
