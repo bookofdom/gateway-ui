@@ -274,7 +274,7 @@
       "script": "escrita",
       "status-types": {
         "success": "sucesso",
-        "error": "erro",
+        "failed": "fracassado",
         "pending": "pendente",
         "processing": "processamento"
       },
