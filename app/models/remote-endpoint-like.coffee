@@ -87,7 +87,7 @@ RemoteEndpointLike = Model.extend
   statusIsSuccess: Ember.computed 'statusType.slug', ->
     @get('statusType.slug') is 'success'
   statusIsError: Ember.computed 'statusType.slug', ->
-    @get('statusType.slug') is 'error'
+    @get('statusType.slug') is 'failed'
   statusIsPending: Ember.computed 'statusType.slug', ->
     @get('statusType.slug') is 'pending'
   statusIsProcessing: Ember.computed 'statusType.slug', ->
@@ -111,7 +111,7 @@ types = 'http soap sqlserver postgres mysql mongodb script'.split(' ').map (type
   slug: type
   value: type
 
-statusTypes = 'success error pending processing'.split(' ').map (type) ->
+statusTypes = 'success failed pending processing'.split(' ').map (type) ->
   name: t "types.remote-endpoint.status-types.#{type}"
   slug: type
   value: type.underscore()

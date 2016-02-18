@@ -274,7 +274,7 @@
       "script": "लिपि",
       "status-types": {
         "success": "सफलता",
-        "error": "एरर",
+        "failed": "अनुत्तीर्ण होना",
         "pending": "अपूर्ण",
         "processing": "प्रसंस्करण"
       },
