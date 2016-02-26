@@ -25,7 +25,7 @@ BaseFormComponent = Ember.Component.extend
   newFields: null
   editFields: null
   defaultFields: []
-  fields: Ember.computed 'model.isNew', ->
+  fields: Ember.computed 'defaultFields', 'model.isNew', ->
     fields = if @get 'model.isNew' then @get 'newFields' else @get 'editFields'
     fields ?= []
     fields = Ember.copy(fields).pushObjects @get('defaultFields')
