@@ -1,4 +1,5 @@
 `import Ember from 'ember'`
+`import SharedComponent from 'gateway/models/shared-component'`
 
 SharedComponentsIndexController = Ember.Controller.extend
   'api': Ember.inject.controller()
@@ -6,6 +7,7 @@ SharedComponentsIndexController = Ember.Controller.extend
   'option-groups': Ember.computed 'api.libraries', ->
     conditional: @get 'api.libraries'
     body: @get 'api.libraries'
+    type: SharedComponent.types
 
   fields: [
     name: 'name'
