@@ -42,11 +42,11 @@ Router.map ->
             @route 'proxy-endpoint-schema', resetNamespace: true, path: ':proxy_endpoint_schema_id', ->
               @route 'edit'
           @route 'logs-proxy-endpoint', resetNamespace: true, path: 'logs', (->)
-      @resource 'shared-components', path: 'components', ->
-        @resource 'shared-component', path: ':shared_component_id', ->
+      @route 'shared-components', resetNamespace: true, path: 'components', ->
+        @route 'shared-component', resetNamespace: true, path: ':shared_component_id', ->
           @route 'edit'
-          @resource 'shared-component-calls', path: 'calls', ->
-            @resource 'shared-component-call', path: ':shared_component_call_id', ->
+          @route 'shared-component-calls', resetNamespace: true, path: 'calls', ->
+            @route 'shared-component-call', resetNamespace: true, path: ':shared_component_call_id', ->
               @route 'edit'
       @route 'environments', resetNamespace: true, ->
         @route 'environment', resetNamespace: true, path: ':environment_id', ->
