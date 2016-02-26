@@ -14,7 +14,7 @@ SharedComponentFormComponent = BaseFormComponent.extend
     type: 'select'
   ]
 
-  defaultFields: Ember.computed 'model.js', 'model.single', 'model.multi', ->
+  defaultFields: Ember.computed 'model.js', ->
     fields = [
       name: 'conditional_positive'
       type: 'conditional-positive'
