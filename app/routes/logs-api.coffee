@@ -11,6 +11,7 @@ LogsApiRoute = LogsRoute.extend
 
   queryStore: (params) ->
     params.api = @modelFor 'api'
-    @store.findQuery 'log', params
+    # @store.findQuery 'log', params
+    @store.query 'log', params
 
 `export default LogsApiRoute`
