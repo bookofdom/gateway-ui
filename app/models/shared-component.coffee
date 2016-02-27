@@ -16,11 +16,11 @@ SharedComponent = Model.extend
 
   # Relationships
   api: DS.belongsTo 'api', async: false
-  ###
   calls: DS.hasMany 'shared-component-call',
     async: false
     stains: true
     embedded: true
+  ###
   before: DS.hasMany 'shared-component-transformation',
     async: false
     stains: true

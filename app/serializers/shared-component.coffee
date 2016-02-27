@@ -1,13 +1,13 @@
 `import DS from 'ember-data'`
 `import ApplicationSerializer from './application'`
 
-SharedComponentSerializer = ApplicationSerializer.extend
+SharedComponentSerializer = ApplicationSerializer.extend  DS.EmbeddedRecordsMixin,
   attrs:
     api:
       serialize: 'id'
-    ###
     calls:
       embedded: 'always'
+    ###
     before:
       embedded: 'always'
     after:
