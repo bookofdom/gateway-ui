@@ -14,25 +14,20 @@ ScratchPadFormComponent = BaseFormComponent.extend
     type: 'javascript'
   ]
 
+  codeDefaults:
+    http: 'request = new AP.HTTP.Request();'
+    sqlserver: 'request = new AP.SQLServer.Request();'
+    mysql: 'request = new AP.MySQL.Request();'
+    postgres: 'request = new AP.Postgres.Request();'
+    mongodb: 'request = new AP.Mongo.Request();'
+    script: 'request = new AP.Script.Request();'
+    soap: 'request = new AP.SOAP.Request();'
+
   modelObserver: Ember.observer 'model', ->
     model = @get 'model'
     if model?.get 'isNew'
       type = @get 'endpointModel.type'
-      switch type
-        when 'http'
-          model.set('code', 'request = new AP.HTTP.Request();')
-        when 'sqlserver'
-          model.set('code', 'request = new AP.SQLServer.Request();')
-        when 'mysql'
-          model.set('code', 'request = new AP.MySQL.Request();')
-        when 'postgres'
-          model.set('code', 'request = new AP.Postgres.Request();')
-        when 'mongodb'
-          model.set('code', 'request = new AP.Mongo.Request();')
-        when 'script'
-          model.set('code', 'request = new AP.Script.Request();')
-        when 'soap'
-          model.set('code', 'request = new AP.SOAP.Request();')
+      model.set('code', @get('codeDefaults')[type])
 
   submit: ->
     model = @get 'model'
