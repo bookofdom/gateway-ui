@@ -6,7 +6,7 @@ ScratchPadsNewController = Ember.Controller.extend
   'remote-endpoint': Ember.inject.controller()
   'scratch-pads': Ember.inject.controller()
 
-  endpointModel: Ember.computed.alias 'remote-endpoint.model'
+  endpointType: Ember.computed.alias 'remote-endpoint.model.type'
   indexModel: Ember.computed.alias 'scratch-pads.model'
 
 `export default ScratchPadsNewController`

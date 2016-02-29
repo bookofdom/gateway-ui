@@ -3,7 +3,7 @@
 
 ScratchPadFormComponent = BaseFormComponent.extend
   indexModel: null
-  endpointModel: null
+  endpointType: null
   modelType: 'scratch-pad'
 
   fields: [
@@ -26,7 +26,7 @@ ScratchPadFormComponent = BaseFormComponent.extend
   modelObserver: Ember.observer 'model', ->
     model = @get 'model'
     if model?.get 'isNew'
-      type = @get 'endpointModel.type'
+      type = @get 'endpointType'
       model.set('code', @get('codeDefaults')[type])
 
   submit: ->
