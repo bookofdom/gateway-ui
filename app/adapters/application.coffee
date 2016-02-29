@@ -25,6 +25,17 @@ ApplicationAdapter = DS.RESTAdapter.extend
       remaining = url.replace doubleSlashes, '/'
     url = "#{protocol}#{remaining}"
     url
+  generateURL: (snapshot, parent, path) ->
+    if snapshot
+      parent = snapshot.belongsTo parent
+      modelName = parent.modelName
+      adapter = @container.lookup "adapter:#{modelName}"
+      url = adapter.buildURL modelName, parent.id, parent
+      if snapshot.id
+        url = "#{url}/#{path}/#{snapshot.id}"
+      else
+        url = "#{url}/#{path}"
+      @cleanURL url
   buildURL: (type, id, snapshot) ->
     url = @_super.apply @, arguments
     url = @cleanURL url
