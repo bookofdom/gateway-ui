@@ -13,6 +13,10 @@ SharedComponentsIndexController = Ember.Controller.extend
     name: 'name'
     type: 'string'
     label: 'fields.name'
+  ,
+    name: 'typeName'
+    type: 'string'
+    label: 'fields.type'
   ]
 
 `export default SharedComponentsIndexController`
