@@ -19,10 +19,10 @@ ScratchPadEditController = EditController.extend
   reset: -> @set 'response', null
 
   actions:
-    executeTest: ->
+    execute: ->
       @set 'response', null
       @set 'executing', true
-      @get('model').executeTest()
+      @get('model').execute()
         .then (response) =>
           @set 'response', response
         , (response) =>

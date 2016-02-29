@@ -9,7 +9,7 @@
     {{#if response}}
       {{#unless model.hasDirtyAttributes}}
         {{#unless executing}}
-          <a class="btn btn-default" {{action 'executeTest'}}>
+          <a class="btn btn-default" {{action 'execute'}}>
             {{t 'actions.execute'}}
             {{ap-icon icon='arrows-006'}}
           </a>
@@ -41,7 +41,7 @@
     {{/if}}
     {{#unless model.hasDirtyAttributes}}
       {{#unless executing}}
-        <a class="btn btn-default" {{action 'executeTest'}}>
+        <a class="btn btn-default" {{action 'execute'}}>
           {{t 'actions.execute'}}
           {{ap-icon icon='arrows-006'}}
         </a>
