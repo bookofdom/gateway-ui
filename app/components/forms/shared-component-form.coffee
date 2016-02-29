@@ -16,6 +16,11 @@ SharedComponentFormComponent = BaseFormComponent.extend
 
   defaultFields: Ember.computed 'model.js', ->
     fields = [
+      name: 'name'
+    ,
+      name: 'description'
+      type: 'textarea'
+    ,
       name: 'conditional_positive'
       type: 'conditional-positive'
     ,

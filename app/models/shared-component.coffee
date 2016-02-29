@@ -9,6 +9,7 @@ SharedComponent = Model.extend
 
   # Fields
   name: DS.attr 'string'
+  description: DS.attr 'string'
   type: DS.attr 'string', defaultValue: 'single'
   conditional: DS.attr 'string', defaultValue: ''
   conditional_positive: DS.attr 'boolean'
@@ -37,8 +38,6 @@ SharedComponent = Model.extend
     SharedComponent.types.findBy 'value', type
   typeName: Ember.computed 'typeKind.name', ->
     @get 'typeKind.name'
-  name: Ember.computed 'typeName', ->
-    @get 'typeName'
   single: Ember.computed 'typeKind.slug',
     get: -> @get('typeKind.slug') == 'single'
     set: (key, value) ->
