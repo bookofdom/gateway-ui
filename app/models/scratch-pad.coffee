@@ -7,7 +7,7 @@ ScratchPad = Model.extend
   code: DS.attr 'string'
 
   # Relationships
-  remote_endpoint_environment_data: DS.belongsTo 'remote-endpoint-environment-datum', async: true
+  environment_datum: DS.belongsTo 'remote-endpoint-environment-datum', async: true
 
   execute: ->
     adapter = @container.lookup 'adapter:scratch-pad'

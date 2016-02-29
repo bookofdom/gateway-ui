@@ -5,7 +5,7 @@ ScratchPadAdapter = ApplicationAdapter.extend
   buildURL: (type, id, snapshot) ->
     if snapshot
       # snapshots
-      environmentDatumSnapshot = snapshot.belongsTo 'remote_endpoint_environment_data'
+      environmentDatumSnapshot = snapshot.belongsTo 'environment_datum'
       remoteEndpointSnapshot = environmentDatumSnapshot.belongsTo 'remote_endpoint'
       # adapters
       remoteEndpointAdapter = @container.lookup 'adapter:remote-endpoint'
