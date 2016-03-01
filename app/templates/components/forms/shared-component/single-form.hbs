@@ -1,6 +1,8 @@
 <br>
 {{#each model.before as |transform|}}
-  {{forms/shared-component-transformation-inline-form before=true model=transform option-groups=transformation-option-groups}}
+  {{#unless transform.isDeleted}}
+    {{forms/shared-component-transformation-inline-form before=true model=transform option-groups=transformation-option-groups}}
+  {{/unless}}
 {{/each}}
 
 {{#each model.calls as |call|}}
@@ -8,5 +10,7 @@
 {{/each}}
 
 {{#each model.after as |transform|}}
-  {{forms/shared-component-transformation-inline-form after=true model=transform option-groups=transformation-option-groups}}
+  {{#unless transform.isDeleted}}
+    {{forms/shared-component-transformation-inline-form after=true model=transform option-groups=transformation-option-groups}}
+  {{/unless}}
 {{/each}}
