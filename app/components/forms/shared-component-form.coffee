@@ -8,6 +8,9 @@ SharedComponentFormComponent = BaseFormComponent.extend
     type = @get 'model.type'
     "components/forms/shared-component/#{type}-form"
 
+  callsIndexModel: null
+  'calls-option-groups': null
+  'transformation-option-groups': null
   'option-groups': null
 
   newFields: [
@@ -46,5 +49,18 @@ SharedComponentFormComponent = BaseFormComponent.extend
       indexModel = @get 'indexModel'
       indexModel.pushObject model
     @_super.apply @, arguments
+
+  createNewCallModel: ->
+    model = @get 'model'
+    newModel = @get('store').createRecord 'shared-component-call'
+    newBefore = @get('store').createRecord 'shared-component-transformation'
+    newAfter = @get('store').createRecord 'shared-component-transformation'
+    newModel.get('before').pushObject newBefore
+    newModel.get('after').pushObject newAfter
+    model.get('calls').pushObject newModel
+
+  actions:
+    'new-shared-component-call': (record) -> @createNewCallModel()
+    'delete-shared-component-call': (record) -> record.deleteRecord()
 
 `export default SharedComponentFormComponent`

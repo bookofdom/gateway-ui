@@ -1,2 +1,5 @@
 {{partial 'components/forms/base-form'}}
-{{partial formTemplateName}}
+
+{{#unless model.isNew}}
+  {{partial formTemplateName}}
+{{/unless}}
