@@ -3,16 +3,16 @@
 ApiFormComponent = BaseFormComponent.extend
   savedAction: null
   modelType: 'api'
-  fields: Ember.computed 'model.isNew', ->
-    newFields = [
+
+  newFields: [
       name: 'name'
       required: true,
     ,
       name: 'export'
       label: 'fields.import'
       type: 'file'
-    ]
-    editFields = [
+  ]
+  editFields: [
       name: 'name'
       required: true
     ,
@@ -31,7 +31,6 @@ ApiFormComponent = BaseFormComponent.extend
       type: 'integer'
     ,
       name: 'enable_swagger'
-    ]
-    if @get 'model.isNew' then newFields else editFields
+  ]
 
 `export default ApiFormComponent`
