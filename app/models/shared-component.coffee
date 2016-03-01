@@ -21,7 +21,6 @@ SharedComponent = Model.extend
     async: false
     stains: true
     embedded: true
-  ###
   before: DS.hasMany 'shared-component-transformation',
     async: false
     stains: true
@@ -30,7 +29,6 @@ SharedComponent = Model.extend
     async: false
     stains: true
     embedded: true
-  ###
 
   # computed
   typeKind: Ember.computed 'type', ->

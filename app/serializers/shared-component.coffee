@@ -7,12 +7,10 @@ SharedComponentSerializer = ApplicationSerializer.extend  DS.EmbeddedRecordsMixi
       serialize: 'id'
     calls:
       embedded: 'always'
-    ###
     before:
       embedded: 'always'
     after:
       embedded: 'always'
-    ###
 
   normalize: (type, hash, property) ->
     @normalizeCalls hash

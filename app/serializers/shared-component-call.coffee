@@ -5,16 +5,14 @@ SharedComponentCallSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsM
   attrs:
     shared_component:
       serialize: false
-    ###
     before:
       embedded: 'always'
     after:
       embedded: 'always'
-    ###
 
   normalize: (type, hash, property) ->
-    #hash.before = [] if !hash.before
-    #hash.after = [] if !hash.after
+    hash.before = [] if !hash.before
+    hash.after = [] if !hash.after
     @_super.apply @, arguments
 
 `export default SharedComponentCallSerializer`

@@ -10,8 +10,8 @@ SharedComponentCall = Model.extend
   remote_endpoint: DS.belongsTo 'remote-endpoint',
     async: false
     stains: true
-  #before: DS.hasMany 'shared-component-transformation', async: false
-  #after: DS.hasMany 'shared-component-transformation', async: false
+  before: DS.hasMany 'shared-component-transformation', async: false
+  after: DS.hasMany 'shared-component-transformation', async: false
   shared_component: DS.belongsTo 'shared-component',
     async: false
 
