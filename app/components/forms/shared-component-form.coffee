@@ -12,9 +12,14 @@ SharedComponentFormComponent = BaseFormComponent.extend
   newFields: [
     name: 'type'
     type: 'select'
+  ,
+    name: 'name'
+  ,
+    name: 'description'
+    type: 'textarea'
   ]
 
-  defaultFields: Ember.computed 'model.js', ->
+  editFields: Ember.computed 'model.js', ->
     fields = [
       name: 'name'
     ,
