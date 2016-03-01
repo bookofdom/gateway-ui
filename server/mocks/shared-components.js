@@ -124,6 +124,55 @@ var foo = function () {\n\
     }
   ];
 
+  var setupEmbeddedIds = function (call, calls, before, after) {
+    if (call) {
+      var id = Math.round(Math.random() * 100) + 100;
+      call.id = call.id || id;
+      if (call.before) {
+        call.before.forEach(function (before) {
+          var id = Math.round(Math.random() * 100) + 100;
+          before.id = before.id || id;
+        });
+      }
+      if (call.after) {
+        call.after.forEach(function (after) {
+          var id = Math.round(Math.random() * 100) + 100;
+          after.id = after.id || id;
+        });
+      }
+    }
+    if (calls) {
+      calls.forEach(function (call) {
+        var id = Math.round(Math.random() * 100) + 100;
+        call.id = call.id || id;
+        if (call.before) {
+          call.before.forEach(function (before) {
+            var id = Math.round(Math.random() * 100) + 100;
+            before.id = before.id || id;
+          });
+        }
+        if (call.after) {
+          call.after.forEach(function (after) {
+            var id = Math.round(Math.random() * 100) + 100;
+            after.id = after.id || id;
+          });
+        }
+      });
+    }
+    if (before) {
+      before.forEach(function (before) {
+        var id = Math.round(Math.random() * 100) + 100;
+        before.id = before.id || id;
+      });
+    }
+    if (after) {
+      after.forEach(function (after) {
+        var id = Math.round(Math.random() * 100) + 100;
+        after.id = after.id || id;
+      });
+    }
+  };
+
   sharedComponentsRouter.get('/', function(req, res) {
     res.send({
       'shared_components': sharedComponents
@@ -133,6 +182,11 @@ var foo = function () {\n\
   sharedComponentsRouter.post('/', function(req, res) {
     var body = req.body;
     var id = Math.round(Math.random() * 100) + 100;
+    var call = body.shared_component.call,
+        calls = body.shared_component.calls,
+        before = body.shared_component.before,
+        after = body.shared_component.after;
+    setupEmbeddedIds(call, calls, before, after);
     body.shared_component.id = id;
     res.status(201).send(body).end();
   });
@@ -148,6 +202,11 @@ var foo = function () {\n\
 
   sharedComponentsRouter.put('/:id', function(req, res) {
     var body = req.body;
+    var call = body.shared_component.call,
+        calls = body.shared_component.calls,
+        before = body.shared_component.before,
+        after = body.shared_component.after;
+    setupEmbeddedIds(call, calls, before, after);
     body.shared_component.id = req.params.id;
     if (body.shared_component.name.toLowerCase() == 'error') {
       res.status(422).send({errors: {name: 'This field is in error.'}});
