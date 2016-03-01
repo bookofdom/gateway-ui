@@ -1,6 +1,7 @@
 `import BaseFormComponent from './base-form'`
 
 SharedComponentFormComponent = BaseFormComponent.extend
+  indexModel: null
   modelType: 'shared-component'
 
   formTemplateName: Ember.computed 'model.type', ->
@@ -38,5 +39,12 @@ SharedComponentFormComponent = BaseFormComponent.extend
         label: 'fields.logic'
         type: 'javascript'
     fields
+
+  submit: ->
+    model = @get 'model'
+    if model.get 'isNew'
+      indexModel = @get 'indexModel'
+      indexModel.pushObject model
+    @_super.apply @, arguments
 
 `export default SharedComponentFormComponent`
