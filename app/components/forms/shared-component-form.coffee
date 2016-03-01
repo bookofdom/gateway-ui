@@ -45,9 +45,24 @@ SharedComponentFormComponent = BaseFormComponent.extend
 
   submit: ->
     model = @get 'model'
+    store = @get 'store'
     if model.get 'isNew'
+      # add to index model
       indexModel = @get 'indexModel'
       indexModel.pushObject model
+      # setup embedded records
+      if !model.get 'isJs'
+        if model.get('single') and !model.get 'calls.length'
+          newCall = store.createRecord 'shared-component-call'
+          model.get('calls').pushObject newCall
+        if !model.get 'before.length'
+          newBefore = store.createRecord 'shared-component-transformation'
+          model.get('before').pushObject newBefore
+        if !model.get 'after.length'
+          newAfter = store.createRecord 'shared-component-transformation'
+          model.get('after').pushObject newAfter
+        calls = @get 'indexModel'
+        calls.pushObject model
     @_super.apply @, arguments
 
   createNewCallModel: ->

@@ -3,10 +3,6 @@
 `import t from 'gateway/helpers/i18n'`
 
 SharedComponent = Model.extend
-  # Related model names
-  callModelName: 'shared-component-call'
-  transformationModelName: 'shared-component-transformation'
-
   # Fields
   name: DS.attr 'string'
   description: DS.attr 'string'
@@ -51,32 +47,6 @@ SharedComponent = Model.extend
     set: (key, value) ->
       @set 'type', 'js' if value?
       @get 'js'
-
-  # Setup relationships
-  # New components may need calls and transformations added
-  populateRelationshipsOnBeforeSave: Ember.on 'willSave', -> @populateRelationships()
-  populateRelationships: ->
-    isJs = @get 'js'
-    isSingle = @get 'single'
-    hasCalls = @get 'calls.length'
-    hasBefore = @get 'before.length'
-    hasAfter = @get 'after.length'
-    if !isJs
-      @addNewCall() if isSingle and !hasCalls
-      @addNewBefore() if !hasBefore
-      @addNewAfter() if !hasAfter
-  addNewCall: ->
-    calls = @get 'calls'
-    modelName = @get 'callModelName'
-    calls.pushObject @store.createRecord modelName
-  addNewBefore: ->
-    modelName = @get 'transformationModelName'
-    record = @store.createRecord modelName
-    @get('before').pushObject record
-  addNewAfter: ->
-    modelName = @get 'transformationModelName'
-    record = @store.createRecord modelName
-    @get('after').pushObject record
 
 # Declare available types and their human-readable names
 types = 'single multi js'.split(' ').map (type) ->
