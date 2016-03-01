@@ -54,18 +54,17 @@ SharedComponent = Model.extend
 
   # Setup relationships
   # New components may need calls and transformations added
-  #populateRelationshipsOnReady: Ember.on 'ready', -> @populateRelationships()
+  populateRelationshipsOnBeforeSave: Ember.on 'willSave', -> @populateRelationships()
   populateRelationships: ->
-    @addNewCall() if @get('single') and !@get('calls.length') and !@get('isNew')
-    @addNewBefore() if !@get('js') and !@get('before.length') and !@get('isNew')
-    @addNewAfter() if !@get('js') and !@get('after.length') and !@get('isNew')
-  # New multi proxy components should not have calls though.  Type can change.
-  ###
-  removeCallsFromNewMulti: Ember.observer 'type', ->
-    if @get('multi') and @get('isNew')
-      calls = @get 'calls'
-      calls.clear()
-  ###
+    isJs = @get 'js'
+    isSingle = @get 'single'
+    hasCalls = @get 'calls.length'
+    hasBefore = @get 'before.length'
+    hasAfter = @get 'after.length'
+    if !isJs
+      @addNewCall() if isSingle and !hasCalls
+      @addNewBefore() if !hasBefore
+      @addNewAfter() if !hasAfter
   addNewCall: ->
     calls = @get 'calls'
     modelName = @get 'callModelName'
@@ -78,7 +77,6 @@ SharedComponent = Model.extend
     modelName = @get 'transformationModelName'
     record = @store.createRecord modelName
     @get('after').pushObject record
-
 
 # Declare available types and their human-readable names
 types = 'single multi js'.split(' ').map (type) ->

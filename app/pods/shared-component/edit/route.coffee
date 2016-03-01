@@ -2,8 +2,6 @@
 `import EditRoute from 'gateway/routes/edit'`
 `import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-SharedComponentEditRoute = EditRoute.extend AuthenticatedRouteMixin,
-  afterModel: ->
-    #@model.populateRelationships()
+SharedComponentEditRoute = EditRoute.extend AuthenticatedRouteMixin
 
 `export default SharedComponentEditRoute`
