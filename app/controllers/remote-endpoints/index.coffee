@@ -18,7 +18,7 @@ RemoteEndpointsIndexController = Ember.Controller.extend
     typeDef = RemoteEndpointLike.types.findBy 'value', type
     type: typeDef?.name or t('prompts.choose-x', x: 'fields.type')
 
-  filtered: Ember.computed 'model', 'remote-endpoints.type', ->
+  filtered: Ember.computed 'model.[]', 'remote-endpoints.type', ->
     type = @get 'remote-endpoints.type'
     filtered = @get 'model'
     filtered = filtered.filterBy 'type', type if type
@@ -36,6 +36,10 @@ RemoteEndpointsIndexController = Ember.Controller.extend
     name: 'location'
     label: 'fields.location'
     type: 'string'
+  ,
+    name: 'statusTypeName'
+    label: 'fields.status'
+    type: 'status-label'
   ,
     name: 'method'
     label: 'fields.method'

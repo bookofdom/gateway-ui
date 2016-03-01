@@ -9,12 +9,19 @@
       {{ap-icon icon='arrows-006'}}
     </li>
     <li class="{{if crumb.isCurrent 'active'}}">
-      {{#if crumb.linkable}}
-        {{#link-to crumb.path}}
+      <span class="breadcrumb-label">
+        {{#if crumb.linkable}}
+          {{#link-to crumb.path}}
+            {{t crumb.label}}
+          {{/link-to}}
+        {{else}}
           {{t crumb.label}}
-        {{/link-to}}
-      {{else}}
-        {{t crumb.label}}
+        {{/if}}
+      </span>
+      {{#if crumb.secondaryLabel}}
+        <span class="label label-info">
+          {{crumb.secondaryLabel}}
+        </span>
       {{/if}}
     </li>
   {{/each}}

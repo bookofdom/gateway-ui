@@ -49,6 +49,7 @@
     "manage-api_plural": "manage APIs",
     "build-app": "build app",
     "build-app_plural": "build apps",
+    "terms-and-conditions": "terms and conditions",
     "descriptions": {
       "define-api": "define API endpoints and workflow business logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
@@ -61,6 +62,7 @@
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "view, search, and stream logs",
       "api-documentation": "view interactive API documentation and test API calls",
+      "terms-and-conditions": "by registering for an account you accept the JustAPIs terms and conditions",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
@@ -202,6 +204,8 @@
     "maximum_lines": "maximum lines",
     "import": "import",
     "show_javascript_errors": "show $t(languages.javascript) errors",
+    "base_url": "base URL",
+    "status": "status",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -278,7 +282,7 @@
       "script": "Script",
       "status-types": {
         "success": "success",
-        "error": "error",
+        "failed": "failed",
         "pending": "pending",
         "processing": "processing"
       },
