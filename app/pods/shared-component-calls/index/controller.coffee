@@ -2,6 +2,7 @@
 `import t from 'gateway/helpers/i18n'`
 
 SharedComponentCallsController = Ember.Controller.extend
+  'shared-component': Ember.inject.controller()
   'shared-component-calls': Ember.inject.controller()
 
   indexModel: Ember.computed.alias 'shared-component-calls.indexModel'

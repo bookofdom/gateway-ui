@@ -6,8 +6,10 @@
     path='shared-component-call.index'
     edit-path='shared-component-call.edit'}}
 
-  {{#ap-panel-new t='resources.shared-component-call' closed=(unbound model.length)}}
-    {{forms/shared-component-call-form indexModel=indexModel option-groups=option-groups transformation-option-group=transformation-option-groups}}
-  {{/ap-panel-new}}
+  {{#if shared-component.multi}}
+    {{#ap-panel-new t='resources.shared-component-call' closed=(unbound model.length)}}
+      {{forms/shared-component-call-form indexModel=indexModel option-groups=option-groups transformation-option-group=transformation-option-groups}}
+    {{/ap-panel-new}}
+  {{/if}}
 
 {{/ap-page}}
