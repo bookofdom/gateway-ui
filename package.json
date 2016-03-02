@@ -13,20 +13,15 @@
     "test": "ember test"
   },
   "repository": "",
-  "engines": {
-    "node": ">= 0.10.0",
-    "npm": "1.4.28"
-  },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "body-parser": "1.10.2",
-    "bower": "1.5.2",
     "broccoli-asset-rev": "^2.2.0",
     "broccoli-funnel": "^0.2.8",
     "broccoli-merge-trees": "^0.2.3",
     "connect-restreamer": "^1.0.1",
-    "ember-cli": "1.13.14",
+    "ember-cli": "2.4.0",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-babel": "^5.1.5",
     "ember-cli-coffeescript": "^1.13.2",
@@ -47,13 +42,16 @@
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-legacy-views": "0.2.0",
+    "ember-load-initializers": "^0.5.1",
     "ember-notify": "git+https://github.com/aexmachina/ember-notify.git#master",
+    "ember-resolver": "^2.0.3",
     "ember-spin-spinner": "0.2.4",
     "ember-truth-helpers": "1.2.0",
     "ember-websockets": "^1.2.3",
     "emberx-select": "^2.0.2",
     "express": "^4.8.5",
     "glob": "5.0.3",
+    "loader.js": "^4.0.1",
     "morgan": "^1.5.1",
     "underscore": "^1.7.0",
     "ws": "^0.8.0"
