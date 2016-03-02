@@ -1,48 +1,24 @@
-tmp:
-  image: node:0.12.7
-  entrypoint: ['/bin/bash']
+ember: &defaults
+  image: randallmorey/sass-ember-cli
+  command: ['server', '--watcher', 'polling']
   volumes:
-    - /src/.sass-cache
-    - /src/node_modules
-    - /src/bower_components
-    - /src/tmp
-default: &defaults
-  build: .
-  volumes:
-    - .:/src
-  volumes_from:
-    - tmp
-ember:
+    - .:/ember-cli-app
+  ports:
+    - 4200:4200
+    - 49152:49152
+sh:
   <<: *defaults
-bash:
-  <<: *defaults
-  entrypoint: ['/bin/bash']
+  entrypoint: '/bin/sh'
+  command: ''
 npm:
   <<: *defaults
-  entrypoint: ['/usr/local/bin/npm']
+  entrypoint: ['/usr/bin/npm']
+  command: ['--help']
 bower:
   <<: *defaults
-  entrypoint: ['/usr/local/bin/bower', '--allow-root']
-server:
-  <<: *defaults
-  command: server --watcher polling
-  ports:
-    - "4200:4200"
-    - "35729:35729" # legacy ember live reload port
-    - "49152:49152" # ember 1.13.8 live reload port
+  entrypoint: ['/usr/bin/bower', '--allow-root', '--config.interactive=false']
+  command: ['--help']
 build_production:
-  build: .
-  volumes:
-    - ./app:/src/app
-    - ./config:/src/config
-    - $GATEWAY_UI_DEST:/src/dist
-    - ./public:/src/public
-    - ./vendor:/src/vendor
-    - ./.bowerrc:/src/.bowerrc
-    - ./.ember-cli:/src/.ember-cli
-    - ./.jshintrc:/src/.jshintrc
-    - ./bower.json:/src/bower.json
-    - ./ember-cli-build.js:/src/ember-cli-build.js
-    - ./package.json:/src/package.json
+  <<: *defaults
   entrypoint: ['/bin/sh']
-  command: '-c "npm install && bower install --allow-root && ember build --environment production"'
+  command: '-c "rm -rf node_modules bower_components && npm install && bower install --allow-root && ember build --environment production"'
