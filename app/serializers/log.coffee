@@ -2,9 +2,9 @@
 `import ApplicationSerializer from './application'`
 
 LogSerializer = ApplicationSerializer.extend
-  _normalizeResponse: (store, primaryModelClass, payload, id, requestType, isSingle) ->
+  normalizeResponse: (store, primaryModelClass, payload, id, requestType) ->
     payload = logs: [payload]
-    @_super.apply @, [store, primaryModelClass, payload, id, requestType, isSingle]
+    @_super.apply @, [store, primaryModelClass, payload, id, requestType]
   normalize: (type, hash, property) ->
     hash.lines = hash.logs
     @_super.apply @, arguments
