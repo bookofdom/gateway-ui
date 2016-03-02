@@ -35,7 +35,7 @@ LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
     [model]
 
   queryStore: (params) ->
-    @store.findQuery 'log', params
+    @store.query 'log', params
 
   actions:
     # Will transition is triggered whenever query params on the current route
