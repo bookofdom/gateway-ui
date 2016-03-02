@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import LogsRoute from './logs'`
+`import LogsRoute from '../logs/route'`
 
 LogsProxyEndpointRoute = LogsRoute.extend
   createStreamingModel: ->
