@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 `import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
-`import removeEmptyProperties from '../helpers/remove-empty-properties'`
+`import removeEmptyProperties from '../../helpers/remove-empty-properties'`
 
 LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
   queryParams:
