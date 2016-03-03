@@ -31,9 +31,10 @@ ProxyEndpointComponent = Model.extend
     embedded: true
 
   # computed
-  typeKind: Ember.computed 'type', ->
+  typeKind: Ember.computed 'type', 'shared_component.typeKind', ->
+    sharedTypeKind = @get 'shared_component.typeKind'
     type = @get 'type'
-    ProxyEndpointComponent.types.findBy 'value', type
+    sharedTypeKind or ProxyEndpointComponent.types.findBy('value', type)
   typeName: Ember.computed 'typeKind.name', ->
     @get 'typeKind.name'
   shared: Ember.computed 'shared_component', ->
