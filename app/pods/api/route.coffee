@@ -9,6 +9,7 @@ ApiRoute = Ember.Route.extend AuthenticatedRouteMixin,
       environments: @modelFor('api').get 'environments'
       libraries: @modelFor('api').get 'libraries'
       remote_endpoints: @modelFor('api').get 'remote_endpoints'
+      shared_components: @modelFor('api').get 'shared_components'
     .then (results) =>
       @set 'extraModels', results
   setupController: (controller) ->

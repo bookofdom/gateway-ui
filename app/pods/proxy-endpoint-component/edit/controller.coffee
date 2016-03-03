@@ -17,5 +17,6 @@ ProxyEndpointComponentEditController = EditController.extend
   'option-groups': Ember.computed 'api.libraries', ->
     conditional: @get 'api.libraries'
     body: @get 'api.libraries'
+    shared_component: @get 'api.shared_components'
 
 `export default ProxyEndpointComponentEditController`
