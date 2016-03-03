@@ -11,6 +11,6 @@ LogsProxyEndpointRoute = LogsRoute.extend
 
   queryStore: (params) ->
     params.proxy_endpoint = @modelFor 'proxy-endpoint'
-    @store.findQuery 'log', params
+    @store.query 'log', params
 
 `export default LogsProxyEndpointRoute`

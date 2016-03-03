@@ -14,6 +14,9 @@ ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     schemas:
       serialize: false
   normalize: (type, hash, property) ->
+    # console.log "type #{type}"
+    # console.log "hash #{hash}"
+    # console.log "property #{property}"
     hash.routes = [] if !hash.routes
     hash.components = [] if !hash.components
     hash.tests = [] if !hash.tests
