@@ -138,11 +138,6 @@
     "shared-component-transformation": "$t(resources.proxy-endpoint-component-transformation)",
     "shared-component-transformation_plural": "$t(resources.proxy-endpoint-component-transformation_plural)"
   },
-  "proxy-endpoint-component-types": {
-    "single": "llamada",
-    "multi": "multi-llamada",
-    "js": "lógica"
-  },
   "fields": {
     "admin": "administración",
     "email": "correo electrónico",
@@ -277,6 +272,12 @@
     "import": "__user__ importó un __resource__"
   },
   "types": {
+    "proxy-endpoint-component": {
+      "single": "llamada",
+      "multi": "multi-llamada",
+      "js": "lógica",
+      "shared": "compartido"
+    },
     "remote-endpoint": {
       "script": "código",
       "status-types": {

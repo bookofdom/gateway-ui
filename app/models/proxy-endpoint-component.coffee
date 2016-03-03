@@ -50,8 +50,7 @@ ProxyEndpointComponent = Model.extend
       @get 'js'
   name: Ember.computed 'type', ->
     type = @get 'type'
-    i18nKey = "proxy-endpoint-component-types.#{type}"
-    i18nKey = 'resources.shared-component' if @get 'shared'
-    t(i18nKey).capitalize()
+    type = 'shared' if @get 'shared'
+    t("types.proxy-endpoint-component.#{type}").capitalize()
 
 `export default ProxyEndpointComponent`

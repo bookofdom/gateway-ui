@@ -138,11 +138,6 @@
     "shared-component-transformation": "$t(resources.proxy-endpoint-component-transformation)",
     "shared-component-transformation_plural": "$t(resources.proxy-endpoint-component-transformation_plural)"
   },
-  "proxy-endpoint-component-types": {
-    "single": "single call",
-    "multi": "multi-call",
-    "js": "logic"
-  },
   "fields": {
     "admin": "व्यवस्थापक",
     "email": "email",
@@ -277,6 +272,12 @@
     "import": "__user__ आयातित एक __resource__"
   },
   "types": {
+    "proxy-endpoint-component": {
+      "single": "single call",
+      "multi": "multi-call",
+      "js": "logic",
+      "shared": "साझा",
+    },
     "remote-endpoint": {
       "script": "लिपि",
       "status-types": {

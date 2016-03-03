@@ -138,11 +138,6 @@
     "shared-component-transformation": "$t(resources.proxy-endpoint-component-transformation)",
     "shared-component-transformation_plural": "$t(resources.proxy-endpoint-component-transformation_plural)"
   },
-  "proxy-endpoint-component-types": {
-    "single": "single call",
-    "multi": "multi-call",
-    "js": "logic"
-  },
   "fields": {
     "admin": "admin",
     "email": "email",
@@ -279,6 +274,12 @@
     "import": "__user__ imported one __resource__"
   },
   "types": {
+    "proxy-endpoint-component": {
+      "single": "single call",
+      "multi": "multi-call",
+      "js": "logic",
+      "shared": "shared"
+    },
     "remote-endpoint": {
       "http": "HTTP",
       "soap": "SOAP",
