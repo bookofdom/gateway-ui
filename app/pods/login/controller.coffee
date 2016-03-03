@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 `import LoginControllerMixin from 'simple-auth/mixins/login-controller-mixin'`
-`import config from  '../config/environment'`
+`import config from  '../../config/environment'`
 `import t from 'gateway/helpers/i18n'`
 
 LoginController = Ember.Controller.extend LoginControllerMixin,
