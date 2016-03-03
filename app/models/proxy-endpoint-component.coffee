@@ -32,7 +32,7 @@ ProxyEndpointComponent = Model.extend
 
   # computed
   shared: Ember.computed 'shared_component', ->
-    !!@get 'shared_component'
+    (!!@get 'shared_component') or (@get('type') == 'shared')
   single: Ember.computed 'type',
     get: -> @get('type') == 'single'
     set: (key, value) ->
