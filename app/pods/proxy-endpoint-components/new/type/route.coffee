@@ -18,9 +18,10 @@ ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend AuthenticatedRouteMixin
     @modelFor('proxy-endpoint').get('components').filterBy('isNew', true).forEach (component) ->
       component.deleteRecord()
   populateRelationships: (model) ->
-    @addNewCall model
-    @addNewBefore model
-    @addNewAfter model
+    if !model.get 'shared'
+      @addNewCall model
+      @addNewBefore model
+      @addNewAfter model
   addNewCall: (model) ->
     if model.get 'single'
       calls = model.get 'calls'
