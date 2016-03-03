@@ -14,7 +14,9 @@ ProxyEndpointComponent = Model.extend
 
   # Relationships
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
-  shared_component: DS.belongsTo 'shared-component', async: false
+  shared_component: DS.belongsTo 'shared-component',
+    async: false
+    stains: true
   calls: DS.hasMany 'proxy-endpoint-component-call',
     async: false
     stains: true
@@ -29,6 +31,8 @@ ProxyEndpointComponent = Model.extend
     embedded: true
 
   # computed
+  shared: Ember.computed 'shared_component', ->
+    !!@get 'shared_component'
   single: Ember.computed 'type',
     get: -> @get('type') == 'single'
     set: (key, value) ->
@@ -46,6 +50,8 @@ ProxyEndpointComponent = Model.extend
       @get 'js'
   name: Ember.computed 'type', ->
     type = @get 'type'
-    t("proxy-endpoint-component-types.#{type}").capitalize()
+    i18nKey = "proxy-endpoint-component-types.#{type}"
+    i18nKey = 'resources.shared-component' if @get 'shared'
+    t(i18nKey).capitalize()
 
 `export default ProxyEndpointComponent`
