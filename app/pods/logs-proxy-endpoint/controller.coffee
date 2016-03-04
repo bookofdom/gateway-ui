@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import LogsController from './logs'`
+`import LogsController from 'gateway/pods/logs/controller'`
 
 LogsProxyEndpointController = LogsController.extend()
 
