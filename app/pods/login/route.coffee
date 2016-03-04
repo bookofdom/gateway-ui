@@ -7,5 +7,6 @@ LoginRoute = Ember.Route.extend UnauthenticatedRouteMixin,
   beforeModel: ->
     # redirect to after auth route if in dev mode
     @transitionTo config['simple-auth'].routeAfterAuthentication if @get('devMode')
+    @_super.apply @, arguments
 
 `export default LoginRoute`
