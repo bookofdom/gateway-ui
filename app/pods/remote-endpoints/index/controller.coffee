@@ -37,6 +37,10 @@ RemoteEndpointsIndexController = Ember.Controller.extend
     label: 'fields.location'
     type: 'string'
   ,
+    name: 'statusTypeName'
+    label: 'fields.status'
+    type: 'status-label'
+  ,
     name: 'method'
     label: 'fields.method'
     type: 'string'

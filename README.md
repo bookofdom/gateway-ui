@@ -21,10 +21,8 @@ is available in the terminal:
 ## Installation
 * `git clone <repository-url>` this repository
 * `cd` into the new directory
-* `docker-compose run --rm npm install` or if using aliases:
-`npm install`
-* `docker-compose run --rm bower install` or if using aliases:
-`bower install`
+* `docker-compose run --rm npm install`
+* `docker-compose run --rm bower install`
 
 
 ## Understanding Dependency Volumes
@@ -37,14 +35,8 @@ dependencies or executing ember functions.
 The production build process (see below) does not use shared Docker volumes.
 
 
-## Setup Aliases (Optional)
-For convenience, you may alias `npm`, `bower`, and `ember` to their Docker
-counterparts.  Execute `source aliases.sh` at the command line.  To make these
-aliases permanent, copy the contents of `aliases.sh` to your `.bash_profile`.
-
-
 ## Running / Development
-* `docker-compose up server` or if using aliases:  `ember server`
+* `docker-compose up server`
 * Determine your Docker container's IP:
   * On Mac OS X:  `docker-machine ls`
   * On Linux:  `docker inspect <container ID>`
