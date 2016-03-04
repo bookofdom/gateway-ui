@@ -15,7 +15,6 @@
     "button_plural": "buttons"
   },
   "actions": {
-    "executing": "क्रियान्वित...",
     "toggle-navivagation": "toggle navigation",
     "login": "login",
     "logout": "logout",
