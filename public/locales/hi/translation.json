@@ -279,6 +279,7 @@
       "shared": "साझा",
     },
     "remote-endpoint": {
+      "store": "दुकान",
       "script": "लिपि",
       "status-types": {
         "success": "सफलता",

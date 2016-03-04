@@ -279,6 +279,7 @@
       "shared": "compartilhado"
     },
     "remote-endpoint": {
+      "store": "armazenar",
       "script": "escrita",
       "status-types": {
         "success": "sucesso",
