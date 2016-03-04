@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import LogsRoute from './logs'`
+`import LogsRoute from 'gateway/pods/logs/route'`
 
 LogsProxyEndpointRoute = LogsRoute.extend
   createStreamingModel: ->
@@ -11,6 +11,6 @@ LogsProxyEndpointRoute = LogsRoute.extend
 
   queryStore: (params) ->
     params.proxy_endpoint = @modelFor 'proxy-endpoint'
-    @store.findQuery 'log', params
+    @store.query 'log', params
 
 `export default LogsProxyEndpointRoute`

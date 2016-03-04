@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import LogsRoute from './logs'`
+`import LogsRoute from 'gateway/pods/logs/route'`
 
 LogsApiRoute = LogsRoute.extend
   createStreamingModel: ->
@@ -11,6 +11,6 @@ LogsApiRoute = LogsRoute.extend
 
   queryStore: (params) ->
     params.api = @modelFor 'api'
-    @store.findQuery 'log', params
+    @store.query 'log', params
 
 `export default LogsApiRoute`

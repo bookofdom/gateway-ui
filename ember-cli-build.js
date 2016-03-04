@@ -79,11 +79,12 @@ module.exports = function(defaults) {
   app.import('bower_components/vkbeautify/vkbeautify.js');
   // uuid
   app.import('bower_components/node-uuid/uuid.js');
+
   // Gateway Icons
-  app.import('bower_components/gateway-icons/dist/fonts/gateway.eot', {destDir: 'assets/fonts'});
-  app.import('bower_components/gateway-icons/dist/fonts/gateway.svg', {destDir: 'assets/fonts'});
-  app.import('bower_components/gateway-icons/dist/fonts/gateway.ttf', {destDir: 'assets/fonts'});
-  app.import('bower_components/gateway-icons/dist/fonts/gateway.woff', {destDir: 'assets/fonts'});
+  var gatewayIcons = new Funnel('bower_components/gateway-icons/dist/fonts', {
+    srcDir: '/',
+    destDir: 'assets/fonts'
+  });
 
   // Swagger is included statically instead of compiled into assets.  It's best
   // to treat swagger as a standalone app.  Thought it bills itself as
@@ -108,5 +109,5 @@ module.exports = function(defaults) {
     destDir: '/'
   });
 
-  return mergeTrees([app.toTree(), swaggerAssets, aceAssets]);
+  return mergeTrees([app.toTree(), gatewayIcons, swaggerAssets, aceAssets]);
 };
