@@ -38,7 +38,7 @@ module.exports = function(app) {
             }
           },
           "links":{
-            "pads": "/apis/1/remote_endpoints/1/environment_data/1/scratch_pads"
+            "scratch_pads": "/apis/1/remote_endpoints/1/environment_data/1/scratch_pads"
           }
         }
       ]

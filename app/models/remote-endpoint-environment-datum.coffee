@@ -7,6 +7,6 @@ RemoteEndpointEnvironmentDatum = RemoteEndpointLike.extend
   environment: DS.belongsTo 'environment',
     async: false
     stains: true
-  pads: DS.hasMany 'scratch-pad', async: true
+  scratch_pads: DS.hasMany 'scratch-pad', async: true
 
 `export default RemoteEndpointEnvironmentDatum`
