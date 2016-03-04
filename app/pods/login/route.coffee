@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 `import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin'`
-`import config from  '../../config/environment'`
+`import config from  'gateway/config/environment'`
 
 LoginRoute = Ember.Route.extend UnauthenticatedRouteMixin,
   devMode: config.devMode?.toString() is 'true'
