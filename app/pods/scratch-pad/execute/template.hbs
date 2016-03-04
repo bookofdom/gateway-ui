@@ -48,7 +48,9 @@
       {{/unless}}
     {{/unless}}
     {{#if executing}}
-      <span class="spinner">{{t 'actions.executing'}}</span>
+      <div style="position: relative; margin-bottom: 40px;">
+        {{spin-spinner lines=13 length=5 width=2 radius=5 color='#000' hwaccel=true}}
+      </div>
     {{/if}}
   </div><!-- /.panel-body -->
 </div>
