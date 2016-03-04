@@ -1,5 +1,5 @@
 ember: &defaults
-  image: randallmorey/sass-ember-cli:2.4.0
+  image: randallmorey/ember-cli-native-support:2.4.0
   command: ['server', '--watcher', 'polling']
   volumes:
     - .:/ember-cli-app
@@ -8,7 +8,7 @@ ember: &defaults
     - 49152:49152
 sh:
   <<: *defaults
-  entrypoint: '/bin/sh'
+  entrypoint: ['/bin/sh']
   command: ''
 npm:
   <<: *defaults
@@ -21,4 +21,4 @@ bower:
 build_production:
   <<: *defaults
   entrypoint: ['/bin/sh']
-  command: '-c "rm -rf node_modules bower_components && npm install && bower install --allow-root && ember build --environment production"'
+  command: '-c "rm -rf node_modules bower_components && npm install && bower install --allow-root --config.interactive=false && ember build --environment production"'
