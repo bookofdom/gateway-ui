@@ -271,6 +271,7 @@
   },
   "types": {
     "remote-endpoint": {
+      "store": "almacenar",
       "script": "código",
       "status-types": {
         "success": "éxito",
