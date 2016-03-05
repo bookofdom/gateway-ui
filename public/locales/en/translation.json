@@ -206,18 +206,23 @@
     "show_javascript_errors": "show $t(languages.javascript) errors",
     "base_url": "base URL",
     "status": "status",
-    "help": {
-      "timeout": "Number of seconds.",
-      "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
-      "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`."
-    },
     "interpreter": "interpreter",
     "filepath": "file path",
     "script": "script",
     "request_schema": "request schema",
     "response_same_as_request": "response same as request",
     "response_schema": "response schema",
-    "organization": "organization"
+    "organization": "organization",
+    "use_tls": "use TLS",
+    "encoded_certificate": "encoded certificate",
+    "encoded_private_key": "encoded private key",
+    "server_name": "server name",
+    "private_key_password": "private key password",
+    "help": {
+      "timeout": "Number of seconds.",
+      "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
+      "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`."
+    }
   },
   "prompts": {
     "generic": "choose one",

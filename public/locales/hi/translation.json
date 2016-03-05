@@ -204,18 +204,23 @@
     "import": "आयात",
     "show_javascript_errors": "$t(languages.javascript) त्रुटियों को दिखाने",
     "status": "स्थिति",
-    "help": {
-      "timeout": "सेकंड की संख्या।",
-      "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
-      "enable_swagger": "एपीआई प्रलेखन ब्राउज़ करें और `swagger.json` प्रकाशित करने के लिए अकड़ सक्षम करें।"
-    },
     "interpreter": "दुभाषिया",
     "filepath": "दस्तावेज पथ",
     "script": "लिपि",
     "request_schema": "अनुरोध स्कीमा",
     "response_same_as_request": "अनुरोध के रूप में एक ही प्रतिक्रिया",
     "response_schema": "प्रतिक्रिया स्कीमा",
-    "organization": "संगठन"
+    "organization": "संगठन",
+    "use_tls": "टीएलएस का उपयोग",
+    "encoded_certificate": "इनकोडिंग प्रमाण पत्र",
+    "encoded_private_key": "इनकोडिंग निजी कुंजी",
+    "server_name": "सर्वर का नाम",
+    "private_key_password": "निजी कुंजी पासवर्ड",
+    "help": {
+      "timeout": "सेकंड की संख्या।",
+      "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
+      "enable_swagger": "एपीआई प्रलेखन ब्राउज़ करें और `swagger.json` प्रकाशित करने के लिए अकड़ सक्षम करें।"
+    }
   },
   "prompts": {
     "generic": "choose one",
