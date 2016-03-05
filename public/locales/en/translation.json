@@ -280,6 +280,7 @@
       "postgres": "PostgreSQL",
       "mysql": "MySQL",
       "mongodb": "MongoDB",
+      "ldap": "LDAP",
       "script": "Script",
       "status-types": {
         "success": "success",
