@@ -259,6 +259,27 @@ module.exports = function(app) {
         }
         */
       ]
+    },
+    {
+      "id": 13,
+      "name": "LDAP Test Server",
+      "api_id": 1,
+      "codename": "ldap",
+      "description": "An OpenLDAP test server with TLS.",
+      "type": "ldap",
+      "data": {
+        "username": "cn=anypresence.com, dc=anypresence, dc=com",
+        "password": "password",
+        "host": "192.168.99.100",
+        "port": 389,
+        "use_tls": true,
+        "tls": {
+          "encoded_certificate": "(omitted for brevity)",
+          "encoded_private_key": "(omitted for brevity)",
+          "server_name": "anypresence.com",
+          "private_key_password": null
+        }
+      }
     }
   ];
 
