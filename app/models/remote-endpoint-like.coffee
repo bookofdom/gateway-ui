@@ -47,10 +47,10 @@ RemoteEndpointLike = Model.extend
   username: DS.attr 'string'
   password: DS.attr 'string'
   # ldap
-  host: DS.attr 'string'
   use_tls: DS.attr 'boolean'
   encoded_certificate: DS.attr 'string'
   encoded_private_key: DS.attr 'string'
+  server_name: DS.attr 'string'
   private_key_password: DS.attr 'string'
   # script
   interpreter: DS.attr 'string'

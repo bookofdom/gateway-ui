@@ -6,6 +6,7 @@
 `import PostgresRemoteEndpointSerializer from './remote-endpoint/postgres'`
 `import MysqlRemoteEndpointSerializer from './remote-endpoint/mysql'`
 `import MongodbRemoteEndpointSerializer from './remote-endpoint/mongodb'`
+`import LdapRemoteEndpointSerializer from './remote-endpoint/ldap'`
 `import ScriptRemoteEndpointSerializer from './remote-endpoint/script'`
 
 RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
@@ -44,6 +45,7 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       when 'postgres' then PostgresRemoteEndpointSerializer.normalize hash
       when 'mysql' then MysqlRemoteEndpointSerializer.normalize hash
       when 'mongodb' then MongodbRemoteEndpointSerializer.normalize hash
+      when 'ldap' then LdapRemoteEndpointSerializer.normalize hash
       when 'script' then ScriptRemoteEndpointSerializer.normalize hash
     @_super.apply @, arguments
   normalizeEnvironmentData: (hash) ->
@@ -71,6 +73,7 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       when 'postgres' then PostgresRemoteEndpointSerializer.serialize serialized
       when 'mysql' then MysqlRemoteEndpointSerializer.serialize serialized
       when 'mongodb' then MongodbRemoteEndpointSerializer.serialize serialized
+      when 'ldap' then LdapRemoteEndpointSerializer.serialize serialized
       when 'script' then ScriptRemoteEndpointSerializer.serialize serialized
     serialized
   serializeHeaders: (snapshot) ->
