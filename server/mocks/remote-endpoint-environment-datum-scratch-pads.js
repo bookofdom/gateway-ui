@@ -3,20 +3,20 @@ module.exports = function(app) {
   var padsRouter = express.Router();
   var pads = [
     {
-        "remote_endpoint_environment_data_id": 1,
+        "environment_datum_id": 1,
         "id": 1,
         "name": "Test 1",
         "code": "console.log('Test 1');"
     },
     {
-        "remote_endpoint_environment_data_id": 1,
+        "environment_datum_id": 1,
         "id": 2,
         "name": "Test 2",
         "code": "console.log('Test 2');"
     }
   ];
 
-  var testResult = {
+  var executeResult = {
     "time": 100,
     "request": '{"a": "request"}',
     "response": '{"a": "response"}'
@@ -24,17 +24,17 @@ module.exports = function(app) {
 
   padsRouter.get('/:remote_endpoint_id/environment_data/:environment_data_id/scratch_pads/', function(req, res) {
     var _pads = pads.filter(function (value) {
-      return value.remote_endpoint_environment_data_id == req.params.environment_data_id;
+      return value.environment_datum_id == req.params.environment_data_id;
     });
     res.send({
-      'scratch-pads': _pads
+      'remote_endpoint_environment_datum_scratch_pads': _pads
     });
   });
 
   padsRouter.post('/:remote_endpoint_id/environment_data/:environment_data_id/scratch_pads/', function(req, res) {
     var body = req.body;
     var id = Math.round(Math.random() * 100) + 100;
-    body.scratch_pad.id = id;
+    body.remote_endpoint_environment_datum_scratch_pad.id = id;
     res.status(201).send(body).end();
   });
 
@@ -43,16 +43,16 @@ module.exports = function(app) {
       return value.id == req.params.id;
     });
     res.send({
-      'scratch_pad': pad[0]
+      'remote_endpoint_environment_datum_scratch_pad': pad[0]
     });
   });
 
   padsRouter.put('/:remote_endpoint_id/environment_data/:environment_data_id/scratch_pads/:id', function(req, res) {
     var body = req.body;
-    body.scratch_pad.id = req.params.id;
-    if (body.scratch_pad.name.toLowerCase() == 'error') {
+    body.remote_endpoint_environment_datum_scratch_pad.id = req.params.id;
+    if (body.remote_endpoint_environment_datum_scratch_pad.name.toLowerCase() == 'error') {
       res.status(422).send({errors: {name: 'This field is in error.'}});
-    } else if (body.scratch_pad.name.toLowerCase() == '500') {
+    } else if (body.remote_endpoint_environment_datum_scratch_pad.name.toLowerCase() == '500') {
       res.status(500).send();
     } else {
       res.send(body);
@@ -63,8 +63,8 @@ module.exports = function(app) {
     res.status(204).end();
   });
 
-  padsRouter.get('/:remote_endpoint_id/environment_data/:environment_data_id/scratch_pads/:id/test', function(req, res) {
-    res.send(testResult);
+  padsRouter.get('/:remote_endpoint_id/environment_data/:environment_data_id/scratch_pads/:id/execute', function(req, res) {
+    res.send(executeResult);
   });
 
   app.use('/admin/apis/:api_id/remote_endpoints', padsRouter);
