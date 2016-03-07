@@ -163,6 +163,36 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         type: 'integer'
         required: true
       ]
+      ldap: [
+        name: 'username'
+        required: true
+      ,
+        name: 'password'
+        type: 'password'
+        required: true
+      ,
+        name: 'server'
+        required: true
+      ,
+        name: 'port'
+        type: 'integer'
+        required: true
+      ,
+        name: 'use_tls'
+        type: 'boolean'
+      ,
+        name: 'encoded_certificate'
+        type: 'file'
+      ,
+        name: 'encoded_private_key'
+        type: 'file'
+      ,
+        name: 'server_name'
+        type: 'string'
+      ,
+        name: 'private_key_password'
+        type: 'password'
+      ]
       script: [
         name: 'interpreter'
         type: 'select'

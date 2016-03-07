@@ -4,53 +4,54 @@
 
 RemoteEndpointLike = Model.extend
   type: DS.attr 'string', defaultValue: 'http'
-
   name: DS.attr 'string'
   codename: DS.attr 'string'
   description: DS.attr 'string'
   status: DS.attr 'string'
   status_message: DS.attr 'string'
-
   # http
   method: DS.attr 'string'
-
   # soap
   wsdl: DS.attr 'string'
   service_name: DS.attr 'string'
   auth_scheme: DS.attr 'string'
-
+  # sqlserver
+  schema: DS.attr 'string'
+  # postgres
+  sslmode: DS.attr 'string', defaultValue: 'prefer'
+  # mongodb
+  limit: DS.attr 'number', defaultValue: 16
   # http
   # soap
   url: DS.attr 'string'
-
-  # sqlserver
-  schema: DS.attr 'string'
-
-  # postgres
-  sslmode: DS.attr 'string', defaultValue: 'prefer'
-
   # sqlserver
   # postgres
   # mysql
-  server: DS.attr 'string'
-  port: DS.attr 'number'
   database: DS.attr 'string'
   transactions: DS.attr 'boolean'
   timeout: DS.attr 'number'
   maxopen: DS.attr 'number'
   maxidle: DS.attr 'number'
-
-  # mongodb
-  limit: DS.attr 'number', defaultValue: 16
-
+  # sqlserver
+  # postgres
+  # mysql
+  # ldap
+  server: DS.attr 'string'
+  port: DS.attr 'number'
   # soap
   # sqlserver
   # postgres
   # mysql
   # mongodb
+  # ldap
   username: DS.attr 'string'
   password: DS.attr 'string'
-
+  # ldap
+  use_tls: DS.attr 'boolean'
+  encoded_certificate: DS.attr 'string'
+  encoded_private_key: DS.attr 'string'
+  server_name: DS.attr 'string'
+  private_key_password: DS.attr 'string'
   # script
   interpreter: DS.attr 'string'
   filepath: DS.attr 'string'
@@ -106,7 +107,7 @@ RemoteEndpointLike = Model.extend
     @get 'sslModeType.name'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb script store'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb ldap script store'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type
