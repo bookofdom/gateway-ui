@@ -27,14 +27,14 @@ module.exports = function(app) {
       return value.environment_datum_id == req.params.environment_data_id;
     });
     res.send({
-      'remote_endpoint_environment_datum_scratch_pads': _pads
+      'scratch_pads': _pads
     });
   });
 
   padsRouter.post('/:remote_endpoint_id/environment_data/:environment_data_id/scratch_pads/', function(req, res) {
     var body = req.body;
     var id = Math.round(Math.random() * 100) + 100;
-    body.remote_endpoint_environment_datum_scratch_pad.id = id;
+    body.scratch_pad.id = id;
     res.status(201).send(body).end();
   });
 
@@ -43,16 +43,16 @@ module.exports = function(app) {
       return value.id == req.params.id;
     });
     res.send({
-      'remote_endpoint_environment_datum_scratch_pad': pad[0]
+      'scratch_pad': pad[0]
     });
   });
 
   padsRouter.put('/:remote_endpoint_id/environment_data/:environment_data_id/scratch_pads/:id', function(req, res) {
     var body = req.body;
-    body.remote_endpoint_environment_datum_scratch_pad.id = req.params.id;
-    if (body.remote_endpoint_environment_datum_scratch_pad.name.toLowerCase() == 'error') {
+    body.scratch_pad.id = req.params.id;
+    if (body.scratch_pad.name.toLowerCase() == 'error') {
       res.status(422).send({errors: {name: 'This field is in error.'}});
-    } else if (body.remote_endpoint_environment_datum_scratch_pad.name.toLowerCase() == '500') {
+    } else if (body.scratch_pad.name.toLowerCase() == '500') {
       res.status(500).send();
     } else {
       res.send(body);
