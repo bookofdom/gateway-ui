@@ -204,18 +204,23 @@
     "import": "importação",
     "show_javascript_errors": "mostrar erros de $t(languages.javascript)",
     "status": "estado",
-    "help": {
-      "timeout": "O número de segundos.",
-      "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
-      "enable_swagger": "Ativar Swagger para procurar a documentação da API e publicar `swagger.json`."
-    },
     "interpreter": "intérprete",
     "filepath": "caminho de arquivo",
     "script": "script",
     "request_schema": "esquema de solicitação",
     "response_same_as_request": "como resposta mesmo pedido",
     "response_schema": "esquema de resposta",
-    "organization": "organização"
+    "organization": "organização",
+    "use_tls": "usar TLS",
+    "encoded_certificate": "certificado codificado",
+    "encoded_private_key": "chave privada codificado",
+    "server_name": "nome do servidor",
+    "private_key_password": "senha da chave privada",
+    "help": {
+      "timeout": "O número de segundos.",
+      "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
+      "enable_swagger": "Ativar Swagger para procurar a documentação da API e publicar `swagger.json`."
+    }
   },
   "prompts": {
     "generic": "escolha um",
