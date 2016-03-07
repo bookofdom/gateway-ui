@@ -1,6 +1,6 @@
 `import EditController from 'gateway/controllers/edit'`
 
-ScratchPadEditController = EditController.extend
+RemoteEndpointEnvironmentDatumScratchPadEditController = EditController.extend
   executing: false # true while execution is in progress
   result: null # holds result from execution
 
@@ -30,4 +30,4 @@ ScratchPadEditController = EditController.extend
         .finally =>
           @set 'executing', false
 
-`export default ScratchPadEditController`
+`export default RemoteEndpointEnvironmentDatumScratchPadEditController`

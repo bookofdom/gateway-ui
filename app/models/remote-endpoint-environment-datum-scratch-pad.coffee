@@ -2,7 +2,7 @@
 `import DS from 'ember-data'`
 `import Model from './model'`
 
-ScratchPad = Model.extend
+RemoteEndpointEnvironmentDatumScratchPad = Model.extend
   name: DS.attr 'string'
   code: DS.attr 'string'
   codeDefaults:
@@ -23,7 +23,7 @@ ScratchPad = Model.extend
       @set('code', @get('codeDefaults')[type])
 
   execute: ->
-    adapter = @container.lookup 'adapter:scratch-pad'
+    adapter = @container.lookup 'adapter:remote-endpoint-environment-datum-scratch-pad'
     adapter.execute @
 
-`export default ScratchPad`
+`export default RemoteEndpointEnvironmentDatumScratchPad`

@@ -1,9 +1,9 @@
 `import Ember from 'ember'`
 `import BaseFormComponent from './base-form'`
 
-ScratchPadFormComponent = BaseFormComponent.extend
+RemoteEndpointEnvironmentDatumScratchPadFormComponent = BaseFormComponent.extend
   indexModel: null
-  modelType: 'scratch-pad'
+  modelType: 'remote-endpoint-environment-datum-scratch-pad'
 
   fields: [
     name: 'name'
@@ -21,4 +21,4 @@ ScratchPadFormComponent = BaseFormComponent.extend
     scratch_pads.pushObject newModel
     newModel
 
-`export default ScratchPadFormComponent`
+`export default RemoteEndpointEnvironmentDatumScratchPadFormComponent`

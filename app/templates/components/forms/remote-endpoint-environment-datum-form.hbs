@@ -40,15 +40,15 @@
 {{/if}}
 
 {{#unless model.isNew}}
-  {{#ap-panel-edit t='resources.scratch-pad_plural'}}
+  {{#ap-panel-edit t='resources.remote-endpoint-environment-datum-scratch-pad_plural'}}
     {{ap-table-index
       models=model.scratch_pads
       fields='name'
-      delete-action='delete-scratch-pad'
-      path='scratch-pad.edit'
-      edit-path='scratch-pad.edit'}}
+      delete-action='delete-remote-endpoint-environment-datum-scratch-pad'
+      path='remote-endpoint-environment-datum-scratch-pad.edit'
+      edit-path='remote-endpoint-environment-datum-scratch-pad.edit'}}
     {{ap-button-block-new
-      t='resources.scratch-pad'
-      action='new-scratch-pad'}}
+      t='resources.remote-endpoint-environment-datum-scratch-pad'
+      action='new-remote-endpoint-environment-datum-scratch-pad'}}
   {{/ap-panel-edit}}
 {{/unless}}

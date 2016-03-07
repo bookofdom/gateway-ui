@@ -1,7 +1,7 @@
 `import ApplicationAdapter from './application'`
 `import config from  '../config/environment'`
 
-ScratchPadAdapter = ApplicationAdapter.extend
+RemoteEndpointEnvironmentDatumScratchPadAdapter = ApplicationAdapter.extend
   buildURL: (type, id, snapshot) ->
     @generateURL snapshot, 'environment_datum', 'scratch_pads'
 
@@ -25,4 +25,4 @@ ScratchPadAdapter = ApplicationAdapter.extend
         reject xhr.responseJSON
 
 
-`export default ScratchPadAdapter`
+`export default RemoteEndpointEnvironmentDatumScratchPadAdapter`
