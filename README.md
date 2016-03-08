@@ -36,7 +36,7 @@ The production build process (see below) does not use shared Docker volumes.
 
 
 ## Running / Development
-* `docker-compose up server`
+* `docker-compose up ember`
 * Determine your Docker container's IP:
   * On Mac OS X:  `docker-machine ls`
   * On Linux:  `docker inspect <container ID>`
