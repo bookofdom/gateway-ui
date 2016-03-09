@@ -5,7 +5,7 @@ LifecycleHooksMixin = Ember.Mixin.create
     @trigger 'didSave'
 
   reload: ->
-    @_super.apply(@, arguments).then (value) =>
+    @_super(arguments...).then (value) =>
       @trigger 'didReload'
       value
 

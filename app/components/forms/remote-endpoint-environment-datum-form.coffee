@@ -7,7 +7,7 @@ RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.ex
   modelType: 'remote-endpoint-environment-datum'
 
   'option-groups': Ember.computed 'environments.@each.isNew', ->
-    Ember.merge @_super.apply(@, arguments),
+    Ember.merge @_super(arguments...),
       environment: @get('environments').filterBy 'isNew', false
 
   defaultFields: [
