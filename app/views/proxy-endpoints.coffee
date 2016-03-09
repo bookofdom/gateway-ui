@@ -1,4 +1,4 @@
-`import SecondaryView from './secondary'`
+`import SecondaryView from 'gateway/views/secondary'`
 
 ProxyEndpointsView = SecondaryView.extend()
 

@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from './application'`
+`import ApplicationSerializer from 'gateway/serializers/application'`
 
 ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:

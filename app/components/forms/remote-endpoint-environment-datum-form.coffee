@@ -1,4 +1,4 @@
-`import BaseRemoteEndpointFormComponent from './base-remote-endpoint-form'`
+`import BaseRemoteEndpointFormComponent from 'gateway/components/forms/base-remote-endpoint-form'`
 
 RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.extend
   indexModel: null

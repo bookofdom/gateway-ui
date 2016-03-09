@@ -1,4 +1,4 @@
-`import ApplicationSerializer from './application'`
+`import ApplicationSerializer from 'gateway/serializers/application'`
 
 ApiSerializer = ApplicationSerializer.extend
   normalize: (type, hash, property) ->

@@ -1,4 +1,4 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 `import RemoteEndpointLike from 'gateway/models/remote-endpoint-like'`
 `import t from 'gateway/helpers/i18n'`
 `import config from  'gateway/config/environment'`
