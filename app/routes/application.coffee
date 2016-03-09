@@ -98,7 +98,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       @authenticate()
     sessionAuthenticationSucceeded: ->
       @enableNotifications()
-      @_super.apply @, arguments
+      @_super arguments...
     sessionAuthenticationFailed: (error) ->
       message = slugify error
       loginController = @controllerFor('login')

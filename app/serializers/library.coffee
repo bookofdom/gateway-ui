@@ -8,9 +8,9 @@ LibrarySerializer = ApplicationSerializer.extend
   normalize: (type, hash, property) ->
     # `data` is reserved in Ember, so transform to `body` attribute
     hash.body = hash.data
-    @_super.apply @, arguments
+    @_super arguments...
   serialize: (snapshot) ->
-    serialized = @_super.apply @, arguments
+    serialized = @_super arguments...
     # Serializes `body` back into `data`
     serialized.data = snapshot.attributes().body
     delete serialized['body']

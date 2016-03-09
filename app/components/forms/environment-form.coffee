@@ -46,7 +46,7 @@ EnvironmentFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       environments = @get 'indexModel'
       environments.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
   actions:
     'delete-environment-variable': (record) -> record.deleteRecord()

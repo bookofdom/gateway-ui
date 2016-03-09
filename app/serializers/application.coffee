@@ -9,7 +9,7 @@ ApplicationSerializer = DS.RESTSerializer.extend
   # for client-side tracking purposes.
   normalize: (type, hash, property) ->
     hash.id = @generateId() if !hash.id
-    @_super.apply @, arguments
+    @_super arguments...
 
   payloadKeyFromModelName: (modelName) ->
     Ember.String.underscore modelName
@@ -22,7 +22,7 @@ ApplicationSerializer = DS.RESTSerializer.extend
       else key
 
   serialize: ->
-    serialized = @_super.apply @, arguments
+    serialized = @_super arguments...
     @serializeId serialized
     delete serialized['api_id']
     serialized

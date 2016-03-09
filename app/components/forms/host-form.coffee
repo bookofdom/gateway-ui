@@ -20,6 +20,6 @@ HostFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       hosts = @get 'indexModel'
       hosts.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
 `export default HostFormComponent`

@@ -20,6 +20,6 @@ EndpointGroupFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       endpointGroups = @get 'indexModel'
       endpointGroups.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
 `export default EndpointGroupFormComponent`

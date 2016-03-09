@@ -18,14 +18,14 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
     @normalizeCalls hash
     # `data` is reserved in Ember, so transform to `body` attribute
     hash.body = hash.data
-    @_super.apply @, arguments
+    @_super arguments...
   normalizeCalls: (hash) ->
     if hash.type == 'single'
       hash.calls = [hash.call]
       delete hash.call
     hash
   serialize: (snapshot) ->
-    serialized = @_super.apply @, arguments
+    serialized = @_super arguments...
     @serializeCalls serialized
     # Serializes `body` back into `data`
     serialized.data = snapshot.attributes().body

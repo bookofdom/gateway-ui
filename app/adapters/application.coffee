@@ -26,7 +26,7 @@ ApplicationAdapter = DS.RESTAdapter.extend
     url = "#{protocol}#{remaining}"
     url
   buildURL: (type, id, snapshot) ->
-    url = @_super.apply @, arguments
+    url = @_super arguments...
     url = @cleanURL url
     url
   ajax: (url, method, hash={}) ->

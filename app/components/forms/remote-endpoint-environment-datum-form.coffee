@@ -24,7 +24,7 @@ RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.ex
       remoteEndpointType = @get 'remoteEndpointType'
       model.set 'type', remoteEndpointType
       indexModel.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
   actions:
     saved: ->

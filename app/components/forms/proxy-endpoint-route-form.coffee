@@ -17,6 +17,6 @@ ProxyEndpointRouteFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       routes = @get 'indexModel'
       routes.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
 `export default ProxyEndpointRouteFormComponent`

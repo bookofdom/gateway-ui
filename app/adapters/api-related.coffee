@@ -6,7 +6,7 @@
 
 ApiRelatedAdapter = ApplicationAdapter.extend
   buildURL: (type, id, snapshot) ->
-    url = @_super.apply @, arguments
+    url = @_super arguments...
     host = @get 'host'
     url = url.replace host, ''
     apiId = snapshot?.belongsTo('api').id
