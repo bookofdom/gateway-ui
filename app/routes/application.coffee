@@ -89,8 +89,6 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   actions:
     invalidateSession: ->
       @get('session').invalidate()
-    reload: ->
-      window.location.reload()
     localChange: (locale) ->
       window.location.search = "locale=#{locale}"
     loading: ->
