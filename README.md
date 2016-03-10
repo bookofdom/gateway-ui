@@ -25,16 +25,6 @@ is available in the terminal:
 * `docker-compose run --rm bower install`
 
 
-## Understanding Dependency Volumes
-Dependencies (`node_modules`, `bower_components`) and cached development build
-artifacts (`.sass-cache`, `tmp`) are stored within shared Docker volumes,
-thereby maintaining a clean host project folder.  You won't see these artifacts,
-although you may see empty folders appear within the project after installing
-dependencies or executing ember functions.
-
-The production build process (see below) does not use shared Docker volumes.
-
-
 ## Running / Development
 * `docker-compose up ember`
 * Determine your Docker container's IP:
@@ -47,19 +37,14 @@ The production build process (see below) does not use shared Docker volumes.
 ## Building
 To output production build artifacts into the project's `dist/` folder:
 
+    docker-compose run --rm npm install
+    docker-compose run --rm bower install
     GATEWAY_UI_DEST=./dist docker-compose run --rm build_production
 
 **Note**:  the `GATEWAY_UI_DEST` environment variable _must_ be set.
 
-The build service installs NPM and Bower dependencies automatically in the
-container's ephemeral filesystem before every build.  Dependencies and build
-artifacts are never stored in shared Docker volumes and never persist across
-builds.  This ensures clean, consistent, and repeatable production builds.
-
 To output production build artifacts to a another location, replace
-`/path/to/output` below with your desired destination folder.
-
-    GATEWAY_UI_DEST=/path/to/output docker-compose run --rm build_production
+`./dist` above with your desired destination folder.
 
 
 ## Further Reading / Useful Links
