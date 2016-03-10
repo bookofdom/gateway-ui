@@ -10,8 +10,7 @@ module.exports = function(environment) {
     'simple-auth': {
       routeAfterAuthentication: 'apis',
       routeIfAlreadyAuthenticated: 'apis',
-      routeAfterInvalidation: 'login',
-      store: 'simple-auth-session-store:cookie'
+      routeAfterInvalidation: 'login'
     },
     EmberENV: {
       FEATURES: {
