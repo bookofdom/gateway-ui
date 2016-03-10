@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-ProxyEndpointsRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+ProxyEndpointsRoute = Ember.Route.extend 
   queryParams:
     environment_id:
       refreshModel: false

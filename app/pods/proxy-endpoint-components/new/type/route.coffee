@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend 
   model: (params) ->
     # first, remove any lingering new unsaved components
     @removeNewComponents()

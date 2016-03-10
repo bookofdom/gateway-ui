@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-ApiRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+ApiRoute = Ember.Route.extend 
   model: (params) -> @modelFor('apis').findBy 'id', params.api_id
   afterModel: ->
     Ember.RSVP.hash

@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-EndpointGroupsRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+EndpointGroupsRoute = Ember.Route.extend 
   model: -> @modelFor('api').get 'endpoint_groups'
 
 `export default EndpointGroupsRoute`

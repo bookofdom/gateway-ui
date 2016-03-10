@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-HostRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+HostRoute = Ember.Route.extend 
   model: (params) ->
     @modelFor('hosts').findBy 'id', params.host_id
   actions:

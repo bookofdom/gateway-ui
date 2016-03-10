@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-LibraryRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+LibraryRoute = Ember.Route.extend 
   model: (params) ->
     @modelFor('libraries').findBy 'id', params.library_id
   actions:

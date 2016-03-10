@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-RemoteEndpointEnvironmentDataNewRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+RemoteEndpointEnvironmentDataNewRoute = Ember.Route.extend 
   actions:
     saved: ->
       model = @modelFor('remote-endpoint')

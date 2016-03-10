@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 `import EditRoute from 'gateway/routes/edit'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-ApiEditRoute = EditRoute.extend AuthenticatedRouteMixin
+
+ApiEditRoute = EditRoute.extend()
 
 `export default ApiEditRoute`

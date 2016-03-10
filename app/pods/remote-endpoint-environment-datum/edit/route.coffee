@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
 `import EditRoute from 'gateway/routes/edit'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-RemoteEndpointEnvironmentDatumEditRoute = EditRoute.extend AuthenticatedRouteMixin,
+
+RemoteEndpointEnvironmentDatumEditRoute = EditRoute.extend 
   actions:
     # Disable the abandon confirm message for this resource.
     # TODO this can be fixed in the future when environment data are no
