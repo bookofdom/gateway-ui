@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-ApiDocumentationIndexRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+ApiDocumentationIndexRoute = Ember.Route.extend 
   onActivate: Ember.on 'activate', ->
     firstHost = @modelFor('api-documentation')?.get 'firstObject'
     if firstHost
