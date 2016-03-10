@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from './application'`
+`import ApplicationSerializer from 'gateway/serializers/application'`
 
 ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
@@ -21,7 +21,7 @@ ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
     hash.components = [] if !hash.components
     hash.tests = [] if !hash.tests
     @normalizeLinks hash
-    @_super.apply @, arguments
+    @_super arguments...
   # Adds links to async relationships.
   normalizeLinks: (hash) ->
     hash.links =

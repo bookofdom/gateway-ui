@@ -4,7 +4,7 @@ NotificationService = Ember.Object.extend Ember.Evented,
   adapter: null
   store: Ember.inject.service()
   init: ->
-    @_super.apply @, arguments
+    @_super arguments...
     store = @get 'store'
     adapter = store.adapterFor 'notification'
     adapter.on 'notification', (notification) =>

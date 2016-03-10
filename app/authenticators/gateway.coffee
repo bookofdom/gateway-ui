@@ -1,5 +1,5 @@
 `import BaseAuthenticator from 'ember-simple-auth/authenticators/base'`
-`import config from '../config/environment'`
+`import config from 'gateway/config/environment'`
 
 GatewayAuthenticator = BaseAuthenticator.extend
   url: Ember.computed -> config.api.authentication.url

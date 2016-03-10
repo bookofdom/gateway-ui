@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from './model'`
+`import Model from 'gateway/models/model'`
 
 ProxyEndpointComponentTransformation = Model.extend
   type: DS.attr 'string', defaultValue: 'js'

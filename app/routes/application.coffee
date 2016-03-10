@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 `import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin'`
 `import { slugify } from 'gateway/helpers/slugify'`
-`import config from  '../config/environment'`
+`import config from  'gateway/config/environment'`
 
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   notificationService: Ember.inject.service 'notification'
@@ -94,7 +94,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   actions:
     sessionAuthenticated: ->
       @enableNotifications()
-      @_super.apply @, arguments
+      @_super arguments...
     sessionAuthenticationFailed: (error) ->
       message = slugify error
       loginController = @controllerFor('login')
