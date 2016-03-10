@@ -1,11 +1,12 @@
 `import Ember from 'ember'`
-`import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin'`
+`import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin'`
 `import { slugify } from 'gateway/helpers/slugify'`
 `import config from  '../config/environment'`
 
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   notificationService: Ember.inject.service 'notification'
   notify: Ember.inject.service()
+  session: Ember.inject.service()
 
   isLoading: false
   isDevMode: config.devMode?.toString() is 'true'
@@ -91,19 +92,14 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     appController?.set 'isLoading', isLoading
 
   actions:
-    sessionRequiresAuthentication: ->
-      @authenticate()
-    authenticateSession: ->
-      # for older versions of simple-auth
-      @authenticate()
-    sessionAuthenticationSucceeded: ->
+    sessionAuthenticated: ->
       @enableNotifications()
       @_super.apply @, arguments
     sessionAuthenticationFailed: (error) ->
       message = slugify error
       loginController = @controllerFor('login')
       loginController.set 'authenticationError', message
-    sessionInvalidationSucceeded: ->
+    sessionInvalidated: ->
       isDevMode = @get 'isDevMode'
       notificationService = @get 'notificationService'
       # stop notifications
