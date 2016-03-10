@@ -17,10 +17,11 @@ RemoteEndpointEnvironmentDatumScratchPad = Model.extend
   # Relationships
   environment_datum: DS.belongsTo 'remote-endpoint-environment-datum', async: true
 
-  codeDefaultObserver: Ember.observer 'environment_datum', ->
+  codeDefaultObserver: Ember.observer 'environment_datum.remote_endpoint.type', ->
     if @get 'isNew'
       type = @get 'environment_datum.remote_endpoint.type'
-      @set('code', @get('codeDefaults')[type])
+      defaultCode = @get "codeDefaults.#{type}"
+      @set 'code', defaultCode
 
   execute: ->
     adapter = @container.lookup 'adapter:remote-endpoint-environment-datum-scratch-pad'
