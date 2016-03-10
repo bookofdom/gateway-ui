@@ -97,10 +97,6 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     sessionAuthenticated: ->
       @enableNotifications()
       @_super arguments...
-    sessionAuthenticationFailed: (error) ->
-      message = slugify error
-      loginController = @controllerFor('login')
-      loginController.set 'authenticationError', message
     reload: ->
       window.location.reload()
     localChange: (locale) ->
