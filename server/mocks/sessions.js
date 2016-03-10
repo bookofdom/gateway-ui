@@ -13,7 +13,7 @@ module.exports = function(app) {
 
   sessionsRouter.post('/', function(req, res) {
     var body = req.body;
-    var match = {};
+    var match = null;
     credentials.forEach(function (credential) {
       if ((body.email == credential.email) && (body.password == credential.password)) {
         match = credential;
