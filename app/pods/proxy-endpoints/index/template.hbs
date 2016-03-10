@@ -7,14 +7,6 @@
       fields=fields
       route='proxy-endpoint.edit'}}
 
-  {{!--
-  {{ap-table-index
-      models=filtered
-      fields='name,description,environment:resources.environment:object-name,endpoint_group:resources.endpoint-group:object-name,active::active-label'
-      path='proxy-endpoint.index'
-      edit-path='proxy-endpoint.edit'}}
-  --}}
-
   {{#ap-panel-new t='resources.proxy-endpoint' closed=(unbound filtered.length)}}
     {{forms/proxy-endpoint-form indexModel=model option-groups=option-groups}}
   {{/ap-panel-new}}
