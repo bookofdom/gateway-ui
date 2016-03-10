@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from './model'`
+`import Model from 'gateway/models/model'`
 
 RemoteEndpointQueryParameter = Model.extend
   name: DS.attr 'string'

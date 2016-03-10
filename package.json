@@ -8,8 +8,8 @@
     "test": "tests"
   },
   "scripts": {
-    "start": "./node_modules/ember-cli/bin/ember serve --environment=development --port=${PORT}",
     "build": "ember build",
+    "start": "ember server",
     "test": "ember test"
   },
   "repository": "",
@@ -33,16 +33,15 @@
     "ember-cli-qunit": "^1.2.1",
     "ember-cli-release": "0.2.8",
     "ember-cli-sass": "4.2.0",
-    "ember-cli-simple-auth": "git+https://github.com/selvaa89/ember-cli-simple-auth#master",
-    "ember-cli-simple-auth-cookie-store": "^0.8.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "2.3.3",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-legacy-views": "0.2.0",
     "ember-load-initializers": "^0.5.0",
-    "ember-notify": "git+https://github.com/aexmachina/ember-notify.git#master",
+    "ember-notify": "aexmachina/ember-notify.git",
     "ember-resolver": "^2.0.3",
+    "ember-simple-auth": "rmorey-ap/ember-simple-auth",
     "ember-spin-spinner": "0.2.4",
     "ember-truth-helpers": "1.2.0",
     "ember-websockets": "^1.2.3",

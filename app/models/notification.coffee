@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import Model from './model'`
-`import t from '../helpers/i18n'`
+`import Model from 'gateway/models/model'`
+`import t from 'gateway/helpers/i18n'`
 
 Notification = DS.Model.extend
   resource: DS.attr 'string'

@@ -1,4 +1,4 @@
-`import BaseForm from './base-form'`
+`import BaseForm from 'gateway/components/forms/base-form'`
 
 ProxyEndpointComponentTransformationFormComponent = BaseForm.extend
   'option-groups': null # passed in by controllers

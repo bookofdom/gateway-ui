@@ -1,4 +1,4 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 
 ProxyEndpointFormComponent = BaseFormComponent.extend
   indexModel: null
@@ -57,7 +57,7 @@ ProxyEndpointFormComponent = BaseFormComponent.extend
     newRouteModel = @get('store').createRecord 'proxy-endpoint-route'
     model.get('routes').pushObject newRouteModel
   onInit: Ember.on 'init', ->
-    @_super.apply @, arguments
+    @_super arguments...
     model = @get 'model'
     count = model?.get 'routes.length'
     isNew = model?.get 'isNew'
@@ -69,7 +69,7 @@ ProxyEndpointFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       proxyEndpoints = @get 'indexModel'
       proxyEndpoints.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
   actions:
     'delete-proxy-endpoint-route': (record) -> record.deleteRecord()

@@ -7,7 +7,6 @@
     "ember-cli-shims": "0.1.0",
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
-    "ember-simple-auth": "0.8.0",
     "eonasdan-bootstrap-datetimepicker": "~4.17.37",
     "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#7ae1697c887d422036a9f8d2455b95e3487f744a",
     "i18next": "~1.10.2",

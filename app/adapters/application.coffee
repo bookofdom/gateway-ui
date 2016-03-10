@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import config from  '../config/environment'`
+`import config from  'gateway/config/environment'`
 `import t from 'gateway/helpers/i18n'`
 
 ApplicationAdapter = DS.RESTAdapter.extend
@@ -37,7 +37,7 @@ ApplicationAdapter = DS.RESTAdapter.extend
         url = "#{url}/#{path}"
       @cleanURL url
   buildURL: (type, id, snapshot) ->
-    url = @_super.apply @, arguments
+    url = @_super arguments...
     url = @cleanURL url
     url
   ajax: (url, method, hash={}) ->

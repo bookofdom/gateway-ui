@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import RemoteEndpointLikeSerializer from './remote-endpoint-like'`
+`import RemoteEndpointLikeSerializer from 'gateway/serializers/remote-endpoint-like'`
 
 RemoteEndpointEnvironmentDatumSerializer = RemoteEndpointLikeSerializer.extend
   attrs:
