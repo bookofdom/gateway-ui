@@ -120,6 +120,8 @@
     "remote-endpoint-header_plural": "cabeceras",
     "remote-endpoint-query-parameter": "parámetro de consulta",
     "remote-endpoint-query-parameter_plural": "parámetros de consulta",
+    "remote-endpoint-environment-datum-scratch-pad": "bloc para apuntes",
+    "remote-endpoint-environment-datum-scratch-pad_plural": "blocs de notas",
     "host": "servidor",
     "host_plural": "servidores",
     "library": "librería compartida",
@@ -137,6 +139,10 @@
     "javascript-logic": "lógica"
   },
   "fields": {
+    "code": "código",
+    "error": "error",
+    "request": "solicitud",
+    "response": "respuesta",
     "admin": "administración",
     "email": "correo electrónico",
     "password": "contraseña",
