@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from './model'`
+`import Model from 'gateway/models/model'`
 
 RemoteEndpointHost = Model.extend
   host: DS.attr 'string'

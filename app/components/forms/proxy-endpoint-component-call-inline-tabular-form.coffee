@@ -1,4 +1,4 @@
-`import ProxyEndpointComponentCallInlineFormComponent from './proxy-endpoint-component-call-inline-form'`
+`import ProxyEndpointComponentCallInlineFormComponent from 'gateway/components/forms/proxy-endpoint-component-call-inline-form'`
 `import InlineFormMixin from 'gateway/mixins/inline-form'`
 
 ProxyEndpointComponentCallInlineTabularFormComponent = ProxyEndpointComponentCallInlineFormComponent.extend InlineFormMixin,

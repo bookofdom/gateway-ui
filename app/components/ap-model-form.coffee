@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 `import t from 'gateway/helpers/i18n'`
-`import config from '../config/environment'`
+`import config from 'gateway/config/environment'`
 
 ApModelFormComponent = Ember.Component.extend
   tagName: 'form'

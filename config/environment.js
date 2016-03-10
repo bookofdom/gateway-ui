@@ -8,10 +8,9 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     'simple-auth': {
+      authenticationRoute: 'login',
       routeAfterAuthentication: 'apis',
-      routeIfAlreadyAuthenticated: 'apis',
-      routeAfterInvalidation: 'login',
-      store: 'simple-auth-session-store:cookie'
+      routeIfAlreadyAuthenticated: 'apis'
     },
     EmberENV: {
       FEATURES: {
@@ -93,6 +92,9 @@ module.exports = function(environment) {
     ENV.remoteEndpointTypesEnabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
     ENV.api.basePath = 'API_BASE_PATH_PLACEHOLDER';
     ENV.api.logs.host = 'BROKER_PLACEHOLDER';
+    ENV.googleAnalytics = {
+      webPropertyId: 'GOOGLE_ANALYTICS_TRACKING_ID'
+    };
   }
 
   ENV.api.url = [ENV.api.host, ENV.api.basePath].join('/');

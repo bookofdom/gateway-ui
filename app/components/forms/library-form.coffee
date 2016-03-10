@@ -1,4 +1,4 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 
 LibraryFormComponent = BaseFormComponent.extend
   indexModel: null
@@ -26,6 +26,6 @@ LibraryFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       libraries = @get 'indexModel'
       libraries.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
 `export default LibraryFormComponent`

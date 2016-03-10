@@ -1,5 +1,5 @@
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 `import t from 'gateway/helpers/i18n'`
-`import BaseFormComponent from './base-form'`
 
 EnvironmentFormComponent = BaseFormComponent.extend
   indexModel: null
@@ -80,7 +80,7 @@ EnvironmentFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       environments = @get 'indexModel'
       environments.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
   actions:
     'delete-environment-variable': (record) -> record.deleteRecord()

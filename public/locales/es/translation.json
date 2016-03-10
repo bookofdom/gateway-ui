@@ -206,18 +206,23 @@
     "import": "importación",
     "show_javascript_errors": "mostrar errores de $t(languages.javascript)",
     "status": "estado",
-    "help": {
-      "timeout": "Número de segundos.",
-      "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
-      "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`."
-    },
     "interpreter": "intérprete",
     "filepath": "ruta de archivo",
     "script": "código",
     "request_schema": "solicitud de esquema",
     "response_same_as_request": "respuesta igual a la petición",
     "response_schema": "esquema de respuesta",
-    "organization": "organización"
+    "organization": "organización",
+    "use_tls": "utilizar TLS",
+    "encoded_certificate": "certificado codificado",
+    "encoded_private_key": "clave privada codificada",
+    "server_name": "nombre del servidor",
+    "private_key_password": "contraseña de clave privada",
+    "help": {
+      "timeout": "Número de segundos.",
+      "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
+      "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`."
+    }
   },
   "prompts": {
     "generic": "elija uno",
@@ -277,10 +282,11 @@
       "server": "servidor"
     },
     "remote-endpoint": {
+      "store": "almacenar",
       "script": "código",
       "status-types": {
         "success": "éxito",
-        "error": "error",
+        "failed": "ha fallado",
         "pending": "pendiente",
         "processing": "procesando"
       },

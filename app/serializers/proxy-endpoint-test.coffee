@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from './application'`
-`import ProxyEndpointTest from '../models/proxy-endpoint-test'`
+`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ProxyEndpointTest from 'gateway/models/proxy-endpoint-test'`
 
 ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
@@ -21,7 +21,7 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
     @normalizeQuery hash
     @normalizeArguments hash
     delete hash.pairs
-    @_super.apply @, arguments
+    @_super arguments...
   normalizeMethods: (hash) ->
     hash.methods ?= []
     hash.method = hash.methods[0]
@@ -52,7 +52,7 @@ ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMix
       value: param.value
     hash
   serialize: (snapshot) ->
-    serialized = @_super.apply @, arguments
+    serialized = @_super arguments...
     serialized.methods = if serialized.method then [serialized.method] else []
     serialized.pairs = @serializePairs snapshot, serialized
     delete serialized.method

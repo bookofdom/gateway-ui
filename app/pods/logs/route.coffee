@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
-`import removeEmptyProperties from '../helpers/remove-empty-properties'`
+`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
+`import removeEmptyProperties from 'gateway/helpers/remove-empty-properties'`
 
 LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
   queryParams:
@@ -35,7 +35,7 @@ LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
     [model]
 
   queryStore: (params) ->
-    @store.findQuery 'log', params
+    @store.query 'log', params
 
   actions:
     # Will transition is triggered whenever query params on the current route

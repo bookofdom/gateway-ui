@@ -1,4 +1,4 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 `import RemoteEndpointLike from 'gateway/models/remote-endpoint-like'`
 `import t from 'gateway/helpers/i18n'`
 `import config from  'gateway/config/environment'`
@@ -163,6 +163,36 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         type: 'integer'
         required: true
       ]
+      ldap: [
+        name: 'username'
+        required: true
+      ,
+        name: 'password'
+        type: 'password'
+        required: true
+      ,
+        name: 'server'
+        required: true
+      ,
+        name: 'port'
+        type: 'integer'
+        required: true
+      ,
+        name: 'use_tls'
+        type: 'boolean'
+      ,
+        name: 'encoded_certificate'
+        type: 'file'
+      ,
+        name: 'encoded_private_key'
+        type: 'file'
+      ,
+        name: 'server_name'
+        type: 'string'
+      ,
+        name: 'private_key_password'
+        type: 'password'
+      ]
       script: [
         name: 'interpreter'
         type: 'select'
@@ -182,14 +212,14 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
     fields
 
   fields: Ember.computed 'model.isNew', 'model.platform.slug', 'remote-endpoint.model.platform.slug', 'platformFields', ->
-    fields = @_super.apply @, arguments
+    fields = @_super arguments...
     platformSlug = @get('remote-endpoint.model.platform.slug') or @get('model.platform.slug')
     platformFields = @get "platformFields.#{platformSlug}"
     fields = Ember.copy(fields).pushObjects platformFields if platformFields
     fields
 
   addHostModel: Ember.observer 'model.isMongo', ->
-    @_super.apply @, arguments
+    @_super arguments...
     model = @get 'model'
     if model
       isHostsEmpty = !model.get 'hosts.length'
