@@ -21,7 +21,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       isDevMode = @get 'isDevMode'
       isDevAuth = authenticator is 'authenticator:dev-mode'
       # auto-invalidate if logged in with the wrong authenticator
-      if (isDevMode and !isDevAuth) or (!isDevMode and isDevAuth)
+      if isDevMode != isDevAuth
         transition.send 'invalidateSession'
 
   enableNotifications: ->
