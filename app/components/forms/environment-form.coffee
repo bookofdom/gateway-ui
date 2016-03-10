@@ -16,7 +16,14 @@ EnvironmentFormComponent = BaseFormComponent.extend
 
   savedAction: null
 
-  defaultFields: [
+  newFields: [
+    name: 'name'
+    required: true
+  ,
+    name: 'description'
+    type: 'textarea'
+  ]
+  editFields: [
     name: 'name'
     required: true
   ,
@@ -46,9 +53,12 @@ EnvironmentFormComponent = BaseFormComponent.extend
     server: [
       name: 'session_header'
     ]
-  editFields: Ember.computed 'model.session_type', ->
+  fields: Ember.computed 'model.isNew', 'model.session_type', ->
+    fields = @_super arguments...
     type = @get 'model.session_type'
-    @get "sessionTypeFields.#{type}"
+    sessionTypeFields = @get "sessionTypeFields.#{type}"
+    fields = Ember.copy(fields).pushObjects sessionTypeFields if sessionTypeFields
+    fields
 
   createNewVariableModel: ->
     model = @get 'model'
