@@ -8,9 +8,9 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     'simple-auth': {
+      authenticationRoute: 'login',
       routeAfterAuthentication: 'apis',
-      routeIfAlreadyAuthenticated: 'apis',
-      routeAfterInvalidation: 'login'
+      routeIfAlreadyAuthenticated: 'apis'
     },
     EmberENV: {
       FEATURES: {
