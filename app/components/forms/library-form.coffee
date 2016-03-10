@@ -1,4 +1,4 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 
 LibraryFormComponent = BaseFormComponent.extend
   indexModel: null

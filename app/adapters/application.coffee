@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import config from  '../config/environment'`
+`import config from  'gateway/config/environment'`
 `import t from 'gateway/helpers/i18n'`
 
 ApplicationAdapter = DS.RESTAdapter.extend

@@ -1,13 +1,13 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from './application'`
-`import HttpRemoteEndpointSerializer from './remote-endpoint/http'`
-`import SoapRemoteEndpointSerializer from './remote-endpoint/soap'`
-`import SqlserverRemoteEndpointSerializer from './remote-endpoint/sqlserver'`
-`import PostgresRemoteEndpointSerializer from './remote-endpoint/postgres'`
-`import MysqlRemoteEndpointSerializer from './remote-endpoint/mysql'`
-`import MongodbRemoteEndpointSerializer from './remote-endpoint/mongodb'`
-`import LdapRemoteEndpointSerializer from './remote-endpoint/ldap'`
-`import ScriptRemoteEndpointSerializer from './remote-endpoint/script'`
+`import ApplicationSerializer from 'gateway/serializers/application'`
+`import HttpRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/http'`
+`import SoapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/soap'`
+`import SqlserverRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/sqlserver'`
+`import PostgresRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/postgres'`
+`import MysqlRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/mysql'`
+`import MongodbRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/mongodb'`
+`import LdapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/ldap'`
+`import ScriptRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/script'`
 
 RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:

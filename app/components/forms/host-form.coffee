@@ -1,11 +1,11 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 
 HostFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'host'
 
   savedAction: null
-  
+
   fields: Ember.computed ->
     [
       name: 'name'

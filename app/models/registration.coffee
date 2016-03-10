@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from './model'`
+`import Model from 'gateway/models/model'`
 
 Registration = Model.extend
   email: DS.attr 'string'

@@ -1,5 +1,5 @@
-`import ApplicationAdapter from './application'`
-`import config from  '../config/environment'`
+`import ApplicationAdapter from 'gateway/adapters/application'`
+`import config from  'gateway/config/environment'`
 
 # inserts the related API path in front of the resource path
 # many resource URLs are nested under API

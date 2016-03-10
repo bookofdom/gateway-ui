@@ -1,4 +1,4 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 `import ProxyEndpointTest from 'gateway/models/proxy-endpoint-test'`
 `import t from 'gateway/helpers/i18n'`
 

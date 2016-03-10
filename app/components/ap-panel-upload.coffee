@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import BsPanelComponent from './bs-panel'`
-`import t from '../helpers/i18n'`
+`import BsPanelComponent from 'gateway/components/bs-panel'`
+`import t from 'gateway/helpers/i18n'`
 
 ApPanelUploadComponent = BsPanelComponent.extend
   tagName: 'label'
