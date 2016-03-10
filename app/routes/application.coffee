@@ -6,7 +6,6 @@
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   notificationService: Ember.inject.service 'notification'
   notify: Ember.inject.service()
-  session: Ember.inject.service()
 
   isLoading: false
   isDevMode: config.devMode?.toString() is 'true'
@@ -17,9 +16,10 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
 
   checkSessionValidity: (transition) ->
     session = @get 'session'
-    if session.authenticator
+    authenticator = session.get 'session.authenticated.authenticator'
+    if authenticator
       isDevMode = @get 'isDevMode'
-      isDevAuth = session.authenticator is 'authenticator:dev-mode'
+      isDevAuth = authenticator is 'authenticator:dev-mode'
       # auto-invalidate if logged in with the wrong authenticator
       if (isDevMode and !isDevAuth) or (!isDevMode and isDevAuth)
         transition.send 'invalidateSession'
@@ -101,16 +101,6 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       message = slugify error
       loginController = @controllerFor('login')
       loginController.set 'authenticationError', message
-    sessionInvalidated: ->
-      isDevMode = @get 'isDevMode'
-      notificationService = @get 'notificationService'
-      # stop notifications
-      @disableNotifications()
-      # redirect
-      @transitionTo(config['simple-auth'].routeAfterInvalidation).then =>
-        if !isDevMode
-          # refresh page (except in dev mode)
-          @send 'reload'
     reload: ->
       window.location.reload()
     localChange: (locale) ->
