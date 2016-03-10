@@ -92,6 +92,8 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     appController?.set 'isLoading', isLoading
 
   actions:
+    invalidateSession: ->
+      @get('session').invalidate()
     sessionAuthenticated: ->
       @enableNotifications()
       @_super arguments...
