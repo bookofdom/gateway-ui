@@ -1,7 +1,6 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-RemoteEndpointEnvironmentDatumScratchPadsNewRoute = Ember.Route.extend AuthenticatedRouteMixin,
+RemoteEndpointEnvironmentDatumScratchPadsNewRoute = Ember.Route.extend
   actions:
     saved: ->
       @transitionTo 'remote-endpoint-environment-datum'

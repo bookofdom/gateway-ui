@@ -1,7 +1,6 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-RemoteEndpointEnvironmentDatumScratchPadRoute = Ember.Route.extend AuthenticatedRouteMixin,
+RemoteEndpointEnvironmentDatumScratchPadRoute = Ember.Route.extend
   model: (params) ->
     @modelFor('remote-endpoint-environment-datum-scratch-pads').findBy 'id', params.scratch_pad_id
   actions:

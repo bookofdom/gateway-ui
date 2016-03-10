@@ -1,8 +1,7 @@
 `import Ember from 'ember'`
 `import EditRoute from 'gateway/routes/edit'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-RemoteEndpointEnvironmentDatumScratchPadEditRoute = EditRoute.extend AuthenticatedRouteMixin,
+RemoteEndpointEnvironmentDatumScratchPadEditRoute = EditRoute.extend
   actions:
     didTransition: ->
       @controller.reset()
