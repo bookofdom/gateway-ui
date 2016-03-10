@@ -166,6 +166,8 @@
     "logic": "logic",
     "before": "before request logic",
     "after": "after request logic",
+    "session_type": "सत्र प्रकार",
+    "session_header": "सत्र हैडर",
     "session_name": "session name",
     "session_auth_key": "session auth key",
     "session_encryption_key": "session encryption key",
@@ -275,6 +277,10 @@
     "import": "__user__ आयातित एक __resource__"
   },
   "types": {
+    "session": {
+      "client": "ग्राहक",
+      "server": "सर्वर"
+    },
     "remote-endpoint": {
       "store": "दुकान",
       "script": "लिपि",

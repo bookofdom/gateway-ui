@@ -166,6 +166,8 @@
     "logic": "lógica",
     "before": "lógica antes da solicitação",
     "after": "lógica após a solicitação",
+    "session_type": "tipo de sessão",
+    "session_header": "cabeçalho sessão",
     "session_name": "nome da sessão",
     "session_auth_key": "chave ds sessão",
     "session_encryption_key": "chave da encriptação",
@@ -275,6 +277,10 @@
     "import": "__user__ importado um __resource__"
   },
   "types": {
+    "session": {
+      "client": "cliente",
+      "server": "servidor"
+    },
     "remote-endpoint": {
       "store": "armazenar",
       "script": "escrita",
