@@ -16,29 +16,23 @@ EnvironmentFormComponent = BaseFormComponent.extend
 
   savedAction: null
 
-  newFields: [
+  defaultFields: [
     name: 'name'
     required: true
   ,
     name: 'description'
     type: 'textarea'
+  ,
+    name: 'show_javascript_errors'
+    type: 'boolean'
+  ,
+    name: 'session_type'
+    type: 'select'
+  ,
+    name: 'session_name'
   ]
   sessionTypeFields:
     client: [
-      name: 'name'
-      required: true
-    ,
-      name: 'description'
-      type: 'textarea'
-    ,
-      name: 'show_javascript_errors'
-      type: 'boolean'
-    ,
-      name: 'session_type'
-      type: 'select'
-    ,
-      name: 'session_name'
-    ,
       name: 'session_auth_key'
     ,
       name: 'session_encryption_key'
@@ -50,20 +44,6 @@ EnvironmentFormComponent = BaseFormComponent.extend
       type: 'textarea'
     ]
     server: [
-      name: 'name'
-      required: true
-    ,
-      name: 'description'
-      type: 'textarea'
-    ,
-      name: 'show_javascript_errors'
-      type: 'boolean'
-    ,
-      name: 'session_type'
-      type: 'select'
-    ,
-      name: 'session_name'
-    ,
       name: 'session_header'
     ]
   editFields: Ember.computed 'model.session_type', ->
