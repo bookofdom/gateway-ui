@@ -7,19 +7,20 @@ module.exports = function(app) {
     password: 'password'
   }, {
     email: 'test@foo.com',
-    password: 'foobar'
+    password: 'foobar',
+    admin: true
   }];
 
   sessionsRouter.post('/', function(req, res) {
     var body = req.body;
-    var matched = false;
+    var match = {};
     credentials.forEach(function (credential) {
       if ((body.email == credential.email) && (body.password == credential.password)) {
-        matched = true;
+        match = credential;
       }
     });
-    if (matched) {
-      res.status(200).end();
+    if (match) {
+      res.status(200).send({user: match}).end();
     } else if (body.email != credentials.email) {
       res.status(400).send({error: 'No user with that email.'}).end();
     } else {
