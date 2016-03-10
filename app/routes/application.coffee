@@ -17,12 +17,14 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   checkSessionValidity: (transition) ->
     session = @get 'session'
     authenticator = session.get 'session.authenticated.authenticator'
-    if authenticator
-      isDevMode = @get 'isDevMode'
-      isDevAuth = authenticator is 'authenticator:dev-mode'
+    isDevMode = @get 'isDevMode'
+    isDevAuth = authenticator is 'authenticator:dev-mode'
+    if authenticator and (isDevMode != isDevAuth)
       # auto-invalidate if logged in with the wrong authenticator
-      if isDevMode != isDevAuth
-        transition.send 'invalidateSession'
+      transition.send 'invalidateSession'
+    else if !authenticator and isDevMode
+      # auto-login using dev-mode authenticator if dev mode is active
+      @get('session').authenticate 'authenticator:dev-mode', {}
 
   enableNotifications: ->
     session = @get 'session'
@@ -79,13 +81,6 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
           # mark as deleted
           resourceRecord.deleteRecord()
 
-  authenticate: ->
-    # auto-login using dev mode authenticator if in dev mode
-    if @get 'isDevMode'
-      @get('session').authenticate 'authenticator:dev-mode', {}
-    else
-      @transitionTo config['simple-auth'].routeAfterInvalidation
-
   loadingObserver: Ember.observer 'isLoading', ->
     isLoading = @get 'isLoading'
     appController = @controller
@@ -94,9 +89,6 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   actions:
     invalidateSession: ->
       @get('session').invalidate()
-    sessionAuthenticated: ->
-      @enableNotifications()
-      @_super arguments...
     reload: ->
       window.location.reload()
     localChange: (locale) ->
