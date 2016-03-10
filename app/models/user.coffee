@@ -12,7 +12,7 @@ User = Model.extend
   confirmed: DS.attr 'boolean'
 
   # Services
-  session: Ember.inject.service 'simple-auth-session:main'
+  session: Ember.inject.service()
 
   # Computed
   isAuthenticated: Ember.computed 'session.secure.email', ->

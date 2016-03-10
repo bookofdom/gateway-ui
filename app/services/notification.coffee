@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-NotificationService = Ember.Object.extend Ember.Evented,
+NotificationService = Ember.Service.extend Ember.Evented,
   adapter: null
   store: Ember.inject.service()
   init: ->

@@ -1,4 +1,4 @@
-`import BaseAuthenticator from 'simple-auth/authenticators/base'`
+`import BaseAuthenticator from 'ember-simple-auth/authenticators/base'`
 `import config from 'gateway/config/environment'`
 
 GatewayAuthenticator = BaseAuthenticator.extend
@@ -9,11 +9,11 @@ GatewayAuthenticator = BaseAuthenticator.extend
         resolve properties
       else
         reject()
-  authenticate: (credentials) ->
+  authenticate: (identification, password) ->
     new Ember.RSVP.Promise (resolve, reject) =>
       data =
-        email: credentials.identification
-        password: credentials.password
+        email: identification
+        password: password
       success = (response) ->
         #Ember.run -> resolve response.user
         resolve response.user or email: data.email

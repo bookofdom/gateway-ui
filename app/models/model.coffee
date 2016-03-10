@@ -16,6 +16,8 @@ Model = DS.Model.extend LifecycleHooksMixin,
   EmbeddedErrorsMixin,
   CleanEmbeddedChildrenMixin,
   DelegateEmbeddedOperationsMixin,
-  StainedByChildrenMixin
+  StainedByChildrenMixin,
+
+  session: Ember.inject.service()
 
 `export default Model`
