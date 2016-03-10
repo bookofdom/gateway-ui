@@ -10,7 +10,7 @@ PasswordResetConfirmationFormComponent = BaseFormComponent.extend
     @get('model.errors')?.errorsFor('new_password')?[0]?.message
 
   createNewModel: ->
-    model = @_super.apply @, arguments
+    model = @_super arguments...
     token = @get 'token'
     model.set 'token', token
     model

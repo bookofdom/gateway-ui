@@ -47,7 +47,7 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       when 'mongodb' then MongodbRemoteEndpointSerializer.normalize hash
       when 'ldap' then LdapRemoteEndpointSerializer.normalize hash
       when 'script' then ScriptRemoteEndpointSerializer.normalize hash
-    @_super.apply @, arguments
+    @_super arguments...
   normalizeEnvironmentData: (hash) ->
     hash.environment_data ?= []
     datum.type = hash.type for datum in hash.environment_data
@@ -58,7 +58,7 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
 
   # Serialization
   serialize: (snapshot) ->
-    serialized = @_super.apply @, arguments
+    serialized = @_super arguments...
     # serialize embedded records
     serialized.data ?= {}
     Ember.merge serialized.data,

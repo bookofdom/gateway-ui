@@ -212,14 +212,14 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
     fields
 
   fields: Ember.computed 'model.isNew', 'model.platform.slug', 'remote-endpoint.model.platform.slug', 'platformFields', ->
-    fields = @_super.apply @, arguments
+    fields = @_super arguments...
     platformSlug = @get('remote-endpoint.model.platform.slug') or @get('model.platform.slug')
     platformFields = @get "platformFields.#{platformSlug}"
     fields = Ember.copy(fields).pushObjects platformFields if platformFields
     fields
 
   addHostModel: Ember.observer 'model.isMongo', ->
-    @_super.apply @, arguments
+    @_super arguments...
     model = @get 'model'
     if model
       isHostsEmpty = !model.get 'hosts.length'

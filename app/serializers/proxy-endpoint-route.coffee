@@ -7,7 +7,7 @@ ProxyEndpointRouteSerializer = ApplicationSerializer.extend
       serialize: false
   normalize: (type, hash, property) ->
     @normalizeMethods hash
-    @_super.apply @, arguments
+    @_super arguments...
   normalizeMethods: (hash) ->
     hash.methods ?= []
     hash.methods = (method.toLowerCase() for method in hash.methods)
@@ -18,7 +18,7 @@ ProxyEndpointRouteSerializer = ApplicationSerializer.extend
     delete hash['methods']
     hash
   serialize: (snapshot) ->
-    serialized = @_super.apply @, arguments
+    serialized = @_super arguments...
     serialized.methods = @serializeMethods serialized
     serialized
   serializeMethods: (serialized) ->

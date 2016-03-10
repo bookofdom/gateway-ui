@@ -14,7 +14,7 @@ ApiRoute = Ember.Route.extend AuthenticatedRouteMixin,
   setupController: (controller) ->
     extraModels = @get 'extraModels'
     controller.setProperties extraModels
-    @_super.apply @, arguments
+    @_super arguments...
   actions:
     deleted: ->
       @transitionTo 'apis'

@@ -24,7 +24,7 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
     if firstPart
       url = "#{firstPart}/logs"
     else
-      url = @_super.apply @, arguments
+      url = @_super arguments...
     url
 
   buildSocketURL: (type, id, snapshot, query={}) ->

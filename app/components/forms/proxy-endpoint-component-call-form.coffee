@@ -45,6 +45,6 @@ ProxyEndpointComponentCallFormComponent = BaseForm.extend
         model.get('after').pushObject newAfter
       calls = @get 'indexModel'
       calls.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
 `export default ProxyEndpointComponentCallFormComponent`

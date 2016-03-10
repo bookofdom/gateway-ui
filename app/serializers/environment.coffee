@@ -11,7 +11,7 @@ EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   normalize: (type, hash, property) ->
     hash.variables = [] if !hash.variables
     @normalizeVariables hash
-    @_super.apply @, arguments
+    @_super arguments...
   normalizeVariables: (hash) ->
     # `data` is reserved in Ember, so transform into `variables`
     hash.data ?= {}
@@ -22,7 +22,7 @@ EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         value: value
     hash
   serialize: (snapshot) ->
-    serialized = @_super.apply @, arguments
+    serialized = @_super arguments...
     serialized.data = @serializeVariables snapshot
     serialized
   serializeVariables: (snapshot) ->
