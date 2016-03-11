@@ -9,10 +9,11 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
 
   isLoading: false
   isDevMode: config.devMode?.toString() is 'true'
+  notificationsEnabled: config.notifications
 
   afterModel: (first, transition) ->
     @checkSessionValidity transition
-    @enableNotifications()
+    @enableNotifications() if @get 'notificationsEnabled'
 
   checkSessionValidity: (transition) ->
     session = @get 'session'
