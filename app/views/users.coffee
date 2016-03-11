@@ -1,6 +1,5 @@
-`import Ember from 'ember'`
+`import PrimaryView from './primary'`
 
-UsersView = Ember.View.extend
-  layoutName: 'layouts/primary'
+UsersView = PrimaryView.extend()
 
 `export default UsersView`
