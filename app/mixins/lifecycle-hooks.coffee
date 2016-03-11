@@ -5,17 +5,17 @@ LifecycleHooksMixin = Ember.Mixin.create
     @trigger 'didSave'
 
   reload: ->
-    @_super.apply(@, arguments).then (value) =>
+    @_super(arguments...).then (value) =>
       @trigger 'didReload'
       value
 
   rollback: ->
-    @_super.apply @, arguments
+    @_super arguments...
     @rollbackAttributes()
     @trigger 'didRollback'
 
   rollbackAttributes: ->
-    @_super.apply @, arguments
+    @_super arguments...
     @trigger 'didRollbackAttributes'
 
 `export default LifecycleHooksMixin`

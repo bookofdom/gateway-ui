@@ -1,4 +1,4 @@
-`import BaseAuthenticator from 'simple-auth/authenticators/base'`
+`import BaseAuthenticator from 'ember-simple-auth/authenticators/base'`
 
 DevModeAuthenticator = BaseAuthenticator.extend
   restore: (properties) ->
@@ -7,7 +7,7 @@ DevModeAuthenticator = BaseAuthenticator.extend
         resolve properties
       else
         reject()
-  authenticate: (credentials) ->
+  authenticate: (identification, password) ->
     new Ember.RSVP.Promise (resolve, reject) =>
       resolve email: 'developer'
 

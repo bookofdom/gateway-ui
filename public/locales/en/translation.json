@@ -120,6 +120,8 @@
     "remote-endpoint-header_plural": "headers",
     "remote-endpoint-query-parameter": "query parameter",
     "remote-endpoint-query-parameter_plural": "query parameters",
+    "remote-endpoint-environment-datum-scratch-pad": "scratch pad",
+    "remote-endpoint-environment-datum-scratch-pad_plural": "scratch pads",
     "host": "host",
     "host_plural": "hosts",
     "library": "shared library",
@@ -137,6 +139,10 @@
     "javascript-logic": "logic"
   },
   "fields": {
+    "code": "code",
+    "error": "error",
+    "request": "request",
+    "response": "response",
     "admin": "admin",
     "email": "email",
     "password": "password",
@@ -166,6 +172,8 @@
     "logic": "logic",
     "before": "before request logic",
     "after": "after request logic",
+    "session_type": "session type",
+    "session_header": "session header",
     "session_name": "session name",
     "session_auth_key": "session auth key",
     "session_encryption_key": "session encryption key",
@@ -277,6 +285,10 @@
     "import": "__user__ imported one __resource__"
   },
   "types": {
+    "session": {
+      "client": "client",
+      "server": "server"
+    },
     "remote-endpoint": {
       "http": "HTTP",
       "soap": "SOAP",

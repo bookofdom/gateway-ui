@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-RemoteEndpointsRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+RemoteEndpointsRoute = Ember.Route.extend 
   queryParams:
     type:
       refreshModel: false

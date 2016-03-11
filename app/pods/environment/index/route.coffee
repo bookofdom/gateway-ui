@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-EnvironmentIndexRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+EnvironmentIndexRoute = Ember.Route.extend 
   afterModel: -> @transitionTo 'environment.edit'
 
 `export default EnvironmentIndexRoute`

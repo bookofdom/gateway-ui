@@ -120,6 +120,8 @@
     "remote-endpoint-header_plural": "cabeceras",
     "remote-endpoint-query-parameter": "parámetro de consulta",
     "remote-endpoint-query-parameter_plural": "parámetros de consulta",
+    "remote-endpoint-environment-datum-scratch-pad": "bloc para apuntes",
+    "remote-endpoint-environment-datum-scratch-pad_plural": "blocs de notas",
     "host": "servidor",
     "host_plural": "servidores",
     "library": "librería compartida",
@@ -137,6 +139,10 @@
     "javascript-logic": "lógica"
   },
   "fields": {
+    "code": "código",
+    "error": "error",
+    "request": "solicitud",
+    "response": "respuesta",
     "admin": "administración",
     "email": "correo electrónico",
     "password": "contraseña",
@@ -166,6 +172,8 @@
     "logic": "lógica",
     "before": "lógica previa a la solicitud",
     "after": "lógica posterior a la solicitud",
+    "session_type": "tipo de sesión",
+    "session_header": "encabezado sesión",
     "session_name": "nombre de sesión",
     "session_auth_key": "clave de sesión",
     "session_encryption_key": "clave de encriptación",
@@ -275,6 +283,10 @@
     "import": "__user__ importó un __resource__"
   },
   "types": {
+    "session": {
+      "client": "cliente",
+      "server": "servidor"
+    },
     "remote-endpoint": {
       "store": "almacenar",
       "script": "código",

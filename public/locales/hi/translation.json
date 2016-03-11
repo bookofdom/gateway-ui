@@ -120,6 +120,8 @@
     "remote-endpoint-header_plural": "headers",
     "remote-endpoint-query-parameter": "query parameter",
     "remote-endpoint-query-parameter_plural": "query parameters",
+    "remote-endpoint-environment-datum-scratch-pad": "नोटबुक",
+    "remote-endpoint-environment-datum-scratch-pad_plural": "स्क्रैच पैड",
     "host": "host",
     "host_plural": "hosts",
     "library": "shared library",
@@ -137,6 +139,10 @@
     "javascript-logic": "logic"
   },
   "fields": {
+    "code": "कोड",
+    "error": "त्रुटि",
+    "request": "निवेदन",
+    "response": "प्रतिक्रिया",
     "admin": "व्यवस्थापक",
     "email": "email",
     "password": "password",
@@ -166,6 +172,8 @@
     "logic": "logic",
     "before": "before request logic",
     "after": "after request logic",
+    "session_type": "सत्र प्रकार",
+    "session_header": "सत्र हैडर",
     "session_name": "session name",
     "session_auth_key": "session auth key",
     "session_encryption_key": "session encryption key",
@@ -275,6 +283,10 @@
     "import": "__user__ आयातित एक __resource__"
   },
   "types": {
+    "session": {
+      "client": "ग्राहक",
+      "server": "सर्वर"
+    },
     "remote-endpoint": {
       "store": "दुकान",
       "script": "लिपि",

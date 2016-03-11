@@ -1,4 +1,4 @@
-`import ProxyEndpointComponentTransformationFormComponent from './proxy-endpoint-component-transformation-form'`
+`import ProxyEndpointComponentTransformationFormComponent from 'gateway/components/forms/proxy-endpoint-component-transformation-form'`
 
 ProxyEndpointComponentTransformationInlineFormComponent = ProxyEndpointComponentTransformationFormComponent.extend
   'show-save': false

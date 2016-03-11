@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-UserRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+UserRoute = Ember.Route.extend 
   model: (params) -> @modelFor('users').findBy 'id', params.user_id
   actions:
     deleted: ->

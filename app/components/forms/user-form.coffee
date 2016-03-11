@@ -1,4 +1,4 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 
 UserFormComponent = BaseFormComponent.extend
   indexModel: null
@@ -29,6 +29,6 @@ UserFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       indexModel = @get 'indexModel'
       indexModel.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
 `export default UserFormComponent`

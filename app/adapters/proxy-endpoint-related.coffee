@@ -1,5 +1,5 @@
-`import ApplicationAdapter from './application'`
-`import config from  '../config/environment'`
+`import ApplicationAdapter from 'gateway/adapters/application'`
+`import config from  'gateway/config/environment'`
 
 ProxyEndpointRelatedAdapter = ApplicationAdapter.extend
   pathForType: (type) ->
