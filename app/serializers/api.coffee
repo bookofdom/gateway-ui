@@ -12,6 +12,5 @@ ApiSerializer = ApplicationSerializer.extend
       libraries: 'libraries'
       shared_components: 'shared_components'
     @_super arguments...
->>>>>>> develop
 
 `export default ApiSerializer`
