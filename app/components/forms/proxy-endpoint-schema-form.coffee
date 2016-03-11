@@ -1,4 +1,4 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 
 ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
   indexModel: null
@@ -36,6 +36,6 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       proxyEndpointSchemas = @get 'indexModel'
       proxyEndpointSchemas.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
 `export default ProxyEndpointSchemaFormComponent`

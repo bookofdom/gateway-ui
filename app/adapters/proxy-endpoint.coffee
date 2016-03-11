@@ -1,4 +1,4 @@
-`import ApiRelatedAdapter from './api-related'`
+`import ApiRelatedAdapter from 'gateway/adapters/api-related'`
 
 ProxyEndpointAdapter = ApiRelatedAdapter.extend()
 

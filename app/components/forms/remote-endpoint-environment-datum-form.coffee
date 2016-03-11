@@ -1,4 +1,4 @@
-`import BaseRemoteEndpointFormComponent from './base-remote-endpoint-form'`
+`import BaseRemoteEndpointFormComponent from 'gateway/components/forms/base-remote-endpoint-form'`
 
 RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.extend
   indexModel: null
@@ -6,8 +6,10 @@ RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.ex
   remoteEndpointType: null
   modelType: 'remote-endpoint-environment-datum'
 
+  newPadAction: 'new-remote-endpoint-environment-datum-scratch-pad'
+
   'option-groups': Ember.computed 'environments.@each.isNew', ->
-    Ember.merge @_super.apply(@, arguments),
+    Ember.merge @_super(arguments...),
       environment: @get('environments').filterBy 'isNew', false
 
   defaultFields: [
@@ -24,7 +26,7 @@ RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.ex
       remoteEndpointType = @get 'remoteEndpointType'
       model.set 'type', remoteEndpointType
       indexModel.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
   actions:
     saved: ->
@@ -32,5 +34,7 @@ RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.ex
       # resend this action
       # so that the router can handle it if necessary
       @sendAction 'savedAction'
+    'new-remote-endpoint-environment-datum-scratch-pad': ->
+      @sendAction 'newPadAction'
 
 `export default RemoteEndpointEnvironmentDatumFormComponent`

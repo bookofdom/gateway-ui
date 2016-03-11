@@ -1,4 +1,4 @@
-`import BaseNameValueFormComponent from './base-name-value-form'`
+`import BaseNameValueFormComponent from 'gateway/components/forms/base-name-value-form'`
 
 ProxyEndpointTestArgumentFormComponent = BaseNameValueFormComponent.extend()
 

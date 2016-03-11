@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 `import BsBaseComponent from 'gateway/components/bs-base'`
 `import t from 'gateway/helpers/i18n'`
-`import config from '../config/environment'`
+`import config from 'gateway/config/environment'`
 
 ApTableModelRowComponent = BsBaseComponent.extend
   tagName: 'tr'

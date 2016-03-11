@@ -1,4 +1,4 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 `import ProxyEndpointTest from 'gateway/models/proxy-endpoint-test'`
 `import t from 'gateway/helpers/i18n'`
 
@@ -71,7 +71,7 @@ ProxyEndpointTestFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       tests = @get 'indexModel'
       tests.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
   actions:
     'delete-proxy-endpoint-test-header': (record) -> record.deleteRecord()

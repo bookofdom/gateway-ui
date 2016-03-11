@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from './application'`
+`import ApplicationSerializer from 'gateway/serializers/application'`
 
 ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
@@ -19,12 +19,13 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
     @normalizeCalls hash
     # `data` is reserved in Ember, so transform to `body` attribute
     hash.body = hash.data
-    @_super.apply @, arguments
+    @_super arguments...
   normalizeIds: (hash) ->
     hash.id = hash.proxy_endpoint_component_reference_id
     hash.pass_through_id = hash.proxy_endpoint_component_id
     delete hash.proxy_endpoint_component_id
     hash
+    @_super arguments...
   normalizeCalls: (hash) ->
     if (hash.type is 'single') and hash.call
       hash.calls = [hash.call]
@@ -32,7 +33,7 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
     hash
 
   serialize: (snapshot) ->
-    serialized = @_super.apply @, arguments
+    serialized = @_super arguments...
     @serializeIds serialized
     @serializeCalls serialized
     # Serializes `body` back into `data`

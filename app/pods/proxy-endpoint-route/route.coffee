@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-ProxyEndpointRouteRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+ProxyEndpointRouteRoute = Ember.Route.extend 
   model: (params) ->
     @modelFor('proxy-endpoint-routes').findBy 'id', params.proxy_endpoint_route_id
 

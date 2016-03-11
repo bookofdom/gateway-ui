@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import Model from './model'`
-`import config from  '../config/environment'`
+`import Model from 'gateway/models/model'`
+`import config from  'gateway/config/environment'`
 
 Api = Model.extend
   name: DS.attr 'string'

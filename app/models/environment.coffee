@@ -1,9 +1,11 @@
 `import DS from 'ember-data'`
-`import Model from './model'`
+`import Model from 'gateway/models/model'`
 
 Environment = Model.extend
   name: DS.attr 'string'
   description: DS.attr 'string'
+  session_type: DS.attr 'string', defaultValue: 'client'
+  session_header: DS.attr 'string', defaultValue: 'X-Session-Id'
   session_name: DS.attr 'string'
   session_auth_key: DS.attr 'string'
   session_encryption_key: DS.attr 'string'

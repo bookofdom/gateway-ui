@@ -121,6 +121,8 @@
     "remote-endpoint-header_plural": "cabeçalhos",
     "remote-endpoint-query-parameter": "parametro de consulta",
     "remote-endpoint-query-parameter_plural": "parametros de consulta",
+    "remote-endpoint-environment-datum-scratch-pad": "bloco de rascunho",
+    "remote-endpoint-environment-datum-scratch-pad_plural": "almofadas de raspadinhas",
     "host": "servidor",
     "host_plural": "servidores",
     "library": "biblioteca compartilhada",
@@ -139,6 +141,10 @@
     "shared-component-transformation_plural": "$t(resources.proxy-endpoint-component-transformation_plural)"
   },
   "fields": {
+    "code": "código",
+    "error": "erro",
+    "request": "pedido",
+    "response": "resposta",
     "admin": "administrador",
     "email": "email",
     "password": "senha",
@@ -168,6 +174,8 @@
     "logic": "lógica",
     "before": "lógica antes da solicitação",
     "after": "lógica após a solicitação",
+    "session_type": "tipo de sessão",
+    "session_header": "cabeçalho sessão",
     "session_name": "nome da sessão",
     "session_auth_key": "chave ds sessão",
     "session_encryption_key": "chave da encriptação",
@@ -282,6 +290,10 @@
       "multi": "multi-chamada",
       "js": "lógica",
       "shared": "compartilhado"
+    },
+    "session": {
+      "client": "cliente",
+      "server": "servidor"
     },
     "remote-endpoint": {
       "store": "armazenar",

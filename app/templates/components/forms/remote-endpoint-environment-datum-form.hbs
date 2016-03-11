@@ -38,3 +38,17 @@
       action='new-remote-endpoint-host'}}
   {{/ap-panel-edit}}
 {{/if}}
+
+{{#unless model.isNew}}
+  {{#ap-panel-edit t='resources.remote-endpoint-environment-datum-scratch-pad_plural'}}
+    {{ap-table-index
+      models=model.scratch_pads
+      fields='name'
+      delete-action='delete-remote-endpoint-environment-datum-scratch-pad'
+      path='remote-endpoint-environment-datum-scratch-pad.edit'
+      edit-path='remote-endpoint-environment-datum-scratch-pad.edit'}}
+    {{ap-button-block-new
+      t='resources.remote-endpoint-environment-datum-scratch-pad'
+      action='new-remote-endpoint-environment-datum-scratch-pad'}}
+  {{/ap-panel-edit}}
+{{/unless}}
