@@ -9,8 +9,9 @@ I18nInitializer =
       fallbackLng: 'en'
     ,
       ->
-        locale = i18n.lng()
-        moment.locale locale
-        app.advanceReadiness()
+        Ember.run ->
+          locale = i18n.lng()
+          moment.locale locale
+          app.advanceReadiness()
 
 `export default I18nInitializer`
