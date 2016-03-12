@@ -136,7 +136,9 @@
     "api-documentation": "API documentation",
     "api-documentation_plural": "$t(resources.api-documentation)",
     "store-collection": "collection",
-    "store-collection_plural": "collections"
+    "store-collection_plural": "collections",
+    "store-object": "object",
+    "store-object_plural": "objects"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single call",
@@ -144,6 +146,7 @@
     "javascript-logic": "logic"
   },
   "fields": {
+    "id": "id",
     "code": "code",
     "error": "error",
     "request": "request",
@@ -259,6 +262,7 @@
   },
   "languages": {
     "javascript": "JavaScript",
+    "json": "JSON",
     "english": "English",
     "spanish": "Español",
     "brazilian-portuguese": "Português Brasileiro",

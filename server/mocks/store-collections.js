@@ -4,12 +4,10 @@ module.exports = function(app) {
   var storeCollections = [
     {
       id: 1,
-      account_id: 1,
       name: 'People'
     },
     {
       id: 2,
-      account_id: 1,
       name: 'Pets'
     }
   ];

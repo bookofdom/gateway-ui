@@ -71,5 +71,8 @@ Router.map ->
   @route 'store-collections', resetNamespace: true, path: 'collections', ->
     @route 'store-collection', resetNamespace: true, path: ':collection_id', ->
       @route 'edit'
+      @route 'store-objects', resetNamespace: true, path: 'objects', ->
+        @route 'store-object', resetNamespace: true, path: ':object_id', ->
+          @route 'edit'
 
 `export default Router`

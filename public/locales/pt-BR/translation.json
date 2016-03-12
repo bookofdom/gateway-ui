@@ -136,7 +136,9 @@
     "api-documentation": "documentação da API",
     "api-documentation_plural": "$t(resources.api-documentation)",
     "store-collection": "coleção",
-    "store-collection_plural": "colecções"
+    "store-collection_plural": "colecções",
+    "store-object": "objeto",
+    "store-object_plural": "objetos"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "chamada",

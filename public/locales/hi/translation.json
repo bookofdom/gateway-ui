@@ -136,7 +136,9 @@
     "api-documentation": "एपीआई प्रलेखन",
     "api-documentation_plural": "$t(resources.api-documentation)",
     "store-collection": "संग्रह",
-    "store-collection_plural": "संग्रह"
+    "store-collection_plural": "संग्रह",
+    "store-object": "वस्तु",
+    "store-object_plural": "वस्तुओं"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single call",
