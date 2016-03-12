@@ -47,12 +47,15 @@
     "define-api_plural": "defina las APIs",
     "manage-api": "administre la API",
     "manage-api_plural": "administre las APIs",
+    "manage-store": "manejar tienda",
+    "manage-store_plural": "manage stores",
     "build-app": "build de aplicación",
     "build-app_plural": "build de aplicaciones",
     "terms-and-conditions": "términos y condiciones",
     "descriptions": {
       "define-api": "define los endpoints de la API y el flujo de la lógica de negocio",
       "manage-api": "crea las claves y especifica las reglas de las APIs",
+      "manage-store": "gestionar los datos en un almacén de objetos",
       "build-app": "realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence (autenticación requerida)",
       "proxy-endpoints": "define o edita proxy endpoints y la correspondiente lógica",
       "environments": "especifica entornos, variables y otros atributos",
@@ -131,7 +134,9 @@
     "notificaiton": "notificación",
     "notification_plural": "notificaciones",
     "api-documentation": "documentación de la API",
-    "api-documentation_plural": "$t(resources.api-documentation)"
+    "api-documentation_plural": "$t(resources.api-documentation)",
+    "store-collection": "colección",
+    "store-collection_plural": "colecciones"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "llamada",
