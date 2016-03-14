@@ -9,7 +9,7 @@ StoreCollection = Model.extend
 
   # Computed
   common_keys: null
-  objectsObserver: Ember.observer 'store_objects.[]', ->
+  objectsObserver: Ember.observer 'store_objects.content.@each.jsonKeys', ->
     @get('store_objects').then (objects) =>
       allKeys = objects
         .map (obj) -> obj.get 'jsonKeys'
