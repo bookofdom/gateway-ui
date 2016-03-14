@@ -268,7 +268,8 @@
     "unknown": "ha ocurrido un error inesperado",
     "no-user-with-that-email": "no existe un usuario con ese correo electrónico",
     "invalid-password": "contraseña inválida",
-    "login": "nos ha sido imposible iniciar tu sesión"
+    "login": "nos ha sido imposible iniciar tu sesión",
+    "invalid-json": "JSON no válido"
   },
   "successes": {
     "saved-successfully": "grabado satisfactoriamente",

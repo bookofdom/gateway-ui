@@ -272,7 +272,8 @@
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
     "invalid-password": "invalid password",
-    "login": "we were unable to log you in"
+    "login": "we were unable to log you in",
+    "invalid-json": "invalid JSON"
   },
   "successes": {
     "saved-successfully": "saved successfully",

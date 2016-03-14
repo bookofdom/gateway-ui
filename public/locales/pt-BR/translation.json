@@ -268,7 +268,8 @@
     "unknown": "ocorreu um erro inesperado",
     "no-user-with-that-email": "não exite usuário com esse email",
     "invalid-password": "senha inválida",
-    "login": "não fomos capazes de fazer seu login"
+    "login": "não fomos capazes de fazer seu login",
+    "invalid-json": "inválido JSON"
   },
   "successes": {
     "saved-successfully": "salvo com sucesso",
