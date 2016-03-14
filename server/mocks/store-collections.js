@@ -9,6 +9,10 @@ module.exports = function(app) {
     {
       id: 2,
       name: 'Pets'
+    },
+    {
+      id: 3,
+      name: 'Empty'
     }
   ];
 
