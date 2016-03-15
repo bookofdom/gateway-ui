@@ -1,6 +1,5 @@
-`import Ember from 'ember'`
+`import PrimaryView from './primary'`
 
-ApisView = Ember.View.extend
-  layoutName: 'layouts/primary'
+ApisView = PrimaryView.extend()
 
 `export default ApisView`

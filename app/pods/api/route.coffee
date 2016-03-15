@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 
-ApiRoute = Ember.Route.extend 
+ApiRoute = Ember.Route.extend
   model: (params) -> @modelFor('apis').findBy 'id', params.api_id
   afterModel: ->
     Ember.RSVP.hash
@@ -15,6 +15,11 @@ ApiRoute = Ember.Route.extend
     extraModels = @get 'extraModels'
     controller.setProperties extraModels
     @_super arguments...
+  renderTemplate: ->
+    @_super arguments...
+    @render 'api/sidebar',
+      outlet: 'sidebar'
+      into: 'api'
   actions:
     deleted: ->
       @transitionTo 'apis'
