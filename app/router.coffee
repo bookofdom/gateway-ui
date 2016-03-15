@@ -43,6 +43,8 @@ Router.map ->
               @route 'edit'
           @route 'logs-proxy-endpoint', resetNamespace: true, path: 'logs', (->)
       @route 'shared-components', resetNamespace: true, path: 'components', ->
+        @route 'new', ->
+          @route 'type', path: ':shared_component_type'
         @route 'shared-component', resetNamespace: true, path: ':shared_component_id', ->
           @route 'edit'
           @route 'shared-component-calls', resetNamespace: true, path: 'calls', ->
