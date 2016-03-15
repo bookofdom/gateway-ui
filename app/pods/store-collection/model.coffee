@@ -11,9 +11,11 @@ StoreCollection = Model.extend
   common_keys: null
   objectsObserver: Ember.observer 'store_objects.content.@each.jsonKeys', ->
     @get('store_objects').then (objects) =>
-      allKeys = objects
-        .map (obj) -> obj.get 'jsonKeys'
-        .reduce (a, b) -> a.concat b
+      allKeys = []
+      if objects.get('length') > 0
+        allKeys = objects
+          .map (obj) -> obj.get 'jsonKeys'
+          .reduce (a, b) -> a.concat b
       uniqueKeys = allKeys.uniq()
       @set 'common_keys', uniqueKeys
 
