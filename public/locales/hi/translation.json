@@ -47,12 +47,15 @@
     "define-api_plural": "define APIs",
     "manage-api": "manage API",
     "manage-api_plural": "manage APIs",
+    "manage-store": "स्टोर का प्रबंधन",
+    "manage-store_plural": "दुकानों का प्रबंधन",
     "build-app": "build app",
     "build-app_plural": "build apps",
     "terms-and-conditions": "नियम और शर्तें",
     "descriptions": {
       "define-api": "define API endpoints and workflow business logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
+      "manage-store": "एक वस्तु की दुकान में डेटा प्रबंधन",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
@@ -131,7 +134,11 @@
     "notificaiton": "अधिसूचना",
     "notification_plural": "सूचनाएं",
     "api-documentation": "एपीआई प्रलेखन",
-    "api-documentation_plural": "$t(resources.api-documentation)"
+    "api-documentation_plural": "$t(resources.api-documentation)",
+    "store-collection": "संग्रह",
+    "store-collection_plural": "संग्रह",
+    "store-object": "वस्तु",
+    "store-object_plural": "वस्तुओं"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "single call",
@@ -261,7 +268,8 @@
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
     "invalid-password": "invalid password",
-    "login": "हम आपको लॉग इन करने में असमर्थ थे"
+    "login": "हम आपको लॉग इन करने में असमर्थ थे",
+    "invalid-json": "अवैध JSON"
   },
   "successes": {
     "saved-successfully": "saved successfully",

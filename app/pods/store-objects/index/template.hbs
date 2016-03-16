@@ -1,0 +1,12 @@
+{{#ap-page t='resources.store-object_plural' showNew=true}}
+  
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='store-object.edit'}}
+
+  {{#ap-panel-new t='resources.store-object' closed=(unbound model.length)}}
+    {{forms/store-object-form indexModel=model}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}
