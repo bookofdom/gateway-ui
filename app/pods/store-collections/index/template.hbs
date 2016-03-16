@@ -1,0 +1,13 @@
+{{#ap-page t='resources.store-collection_plural' showNew=true}}
+
+  {{ap-table-index
+      models=model
+      fields='name'
+      path='store-collection.index'
+      edit-path='store-collection.edit'}}
+
+  {{#ap-panel-new t='resources.store-collection' closed=(unbound model.length)}}
+    {{forms/store-collection-form}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}

@@ -8,7 +8,7 @@
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
     "eonasdan-bootstrap-datetimepicker": "~4.17.37",
-    "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#7ae1697c887d422036a9f8d2455b95e3487f744a",
+    "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#a1d6dc9ac45c2c39d642cd131027ae3c7b310a7c",
     "i18next": "~1.10.2",
     "moment": "~2.10.6",
     "node-uuid": "~1.4.3",
