@@ -15,6 +15,9 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
       embedded: 'always'
 
   normalize: (type, hash, property) ->
+    hash.calls ?= []
+    hash.before ?= []
+    hash.after ?= []
     @normalizeIds hash
     @normalizeCalls hash
     # `data` is reserved in Ember, so transform to `body` attribute
@@ -25,7 +28,6 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
     hash.pass_through_id = hash.proxy_endpoint_component_id
     delete hash.proxy_endpoint_component_id
     hash
-    @_super arguments...
   normalizeCalls: (hash) ->
     if (hash.type is 'single') and hash.call
       hash.calls = [hash.call]
@@ -44,8 +46,10 @@ ProxyEndpointComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecor
   serializeIds: (serialized) ->
     id = serialized.id
     passThroughId = serialized.pass_through_id
+    sharedComponentId = serialized.shared_component_id
     serialized.proxy_endpoint_component_reference_id = parseInt(id, 10) if id
     serialized.proxy_endpoint_component_id = parseInt(passThroughId, 10) if passThroughId
+    serialized.shared_component_id = parseInt(sharedComponentId, 10) if sharedComponentId
     delete serialized.id
     delete serialized.pass_through_id
   serializeCalls: (serialized) ->

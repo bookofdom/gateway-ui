@@ -13,6 +13,9 @@ SharedComponentSerializer = ApplicationSerializer.extend  DS.EmbeddedRecordsMixi
       embedded: 'always'
 
   normalize: (type, hash, property) ->
+    hash.calls ?= []
+    hash.before ?= []
+    hash.after ?= []
     @normalizeCalls hash
     # `data` is reserved in Ember, so transform to `body` attribute
     hash.body = hash.data
