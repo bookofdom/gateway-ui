@@ -47,12 +47,15 @@
     "define-api_plural": "definir as APIs",
     "manage-api": "gerenciar a API",
     "manage-api_plural": "gerenciar as APIs",
+    "manage-store": "gerenciar loja",
+    "manage-store_plural": "gerenciar lojas",
     "build-app": "construir o aplicativo",
     "build-app_plural": "construir os aplicativos",
     "terms-and-conditions": "termos e condições",
     "descriptions": {
       "define-api": "define os endpoints da API e o fluxo da lógica do negócio",
       "manage-api": "cria as chave e especifica as regras das suas APIs",
+      "manage-store": "gerenciar dados em um armazenamento de objetos",
       "build-app": "constrói aplicações de multi-canais com a plataforma AnyPresence (login necessário)",
       "proxy-endpoints": "define os endpoints da proxy e a lógica correspondente",
       "environments": "especifica ambiente, variáveis e outros atributos",
@@ -138,7 +141,11 @@
     "shared-component-call": "$t(resources.proxy-endpoint-component-call)",
     "shared-component-call_plural": "$t(resources.proxy-endpoint-component-call_plural)",
     "shared-component-transformation": "$t(resources.proxy-endpoint-component-transformation)",
-    "shared-component-transformation_plural": "$t(resources.proxy-endpoint-component-transformation_plural)"
+    "shared-component-transformation_plural": "$t(resources.proxy-endpoint-component-transformation_plural)",
+    "store-collection": "coleção",
+    "store-collection_plural": "colecções",
+    "store-object": "objeto",
+    "store-object_plural": "objetos"
   },
   "fields": {
     "code": "código",
@@ -263,7 +270,8 @@
     "unknown": "ocorreu um erro inesperado",
     "no-user-with-that-email": "não exite usuário com esse email",
     "invalid-password": "senha inválida",
-    "login": "não fomos capazes de fazer seu login"
+    "login": "não fomos capazes de fazer seu login",
+    "invalid-json": "inválido JSON"
   },
   "successes": {
     "saved-successfully": "salvo com sucesso",
