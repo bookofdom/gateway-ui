@@ -1,6 +1,7 @@
 `import SharedComponentCallFormComponent from './shared-component-call-form'`
 
 SharedComponentCallInlineFormComponent = SharedComponentCallFormComponent.extend
+  embedded: true
   showConditionalFields: false
 
   fields: Ember.computed 'showConditionalFields', ->
