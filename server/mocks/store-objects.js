@@ -5,12 +5,12 @@ module.exports = function(app) {
     {
         "id": 1,
         "store_collection_id": 1,
-        "data": {"name": "John", "age": 21}
+        "data": {"name": "John", "age": 21, "test": null, "foo": {"bar": true}, "baf": [1, 2, false, "test"]}
     },
     {
         "id": 2,
         "store_collection_id": 1,
-        "data": {"name": "Jane", "age": 22}
+        "data": {"name": "Jane", "age": 22, "foo": null}
     },
     {
         "id": 3,
