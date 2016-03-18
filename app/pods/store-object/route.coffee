@@ -5,6 +5,6 @@ StoreObjectRoute = Ember.Route.extend
     @modelFor('store-objects').findBy 'id', params.object_id
   actions:
     deleted: ->
-      @transitionTo 'store-objects'
+      @transitionTo 'store-collections'
 
 `export default StoreObjectRoute`
