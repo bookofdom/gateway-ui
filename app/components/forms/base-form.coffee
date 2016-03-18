@@ -71,9 +71,10 @@ BaseFormComponent = Ember.Component.extend
     @get('notify').success "#{t('successes.saved-successfully')}."
   submit: ->
     if !@get 'embedded'
-      @get('model').save().then((=>
+      model = @get 'model'
+      model.save().then((=>
         @notifySaveSuccess()
-        @sendAction 'savedAction'
+        @sendAction 'savedAction', model
       ), (->))
     false
   keyDown: (e) ->
