@@ -334,7 +334,7 @@ module.exports = function(app) {
     var body = req.body;
     body.remote_endpoint.id = req.params.id;
     if (body.remote_endpoint.name.toLowerCase() == 'error') {
-      res.status(422).send({errors: {name: 'This field is in error.'}})
+      res.status(422).send({errors: {name: ['This field is in error.']}})
     } else {
       res.send(body);
     }
