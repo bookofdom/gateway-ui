@@ -6,7 +6,7 @@ StoreObjectsIndexController = Ember.Controller.extend
     fields = @get('store_collection.common_keys')?.map (key) ->
       name: "json.#{key}"
       label: " #{key} " # to prevent i18n matches
-      type: 'string'
+      type: 'json'
     # always include ID column
     [{
       name: 'id'
