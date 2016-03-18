@@ -284,6 +284,21 @@ module.exports = function(app) {
           "private_key_password": null
         }
       }
+    },
+    {
+      "id": 14,
+      "name": "Test Store",
+      "api_id": 1,
+      "codename": "store",
+      "description": "A test store.",
+      "type": "store",
+      "data": {},
+      "environment_data": [
+        {
+          "environment_id": 1,
+          "data": {}
+        }
+      ]
     }
   ];
 

@@ -4,7 +4,7 @@
 StoreCollectionsRoute = Ember.Route.extend AuthenticatedRouteMixin,
   model: -> @store.findAll 'store-collection'
   actions:
-    saved: ->
-      @transitionTo 'store-collections'
+    saved: (collection) ->
+      @transitionTo 'store-objects', collection
 
 `export default StoreCollectionsRoute`

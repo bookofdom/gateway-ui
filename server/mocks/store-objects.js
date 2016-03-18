@@ -5,12 +5,12 @@ module.exports = function(app) {
     {
         "id": 1,
         "store_collection_id": 1,
-        "data": {"name": "John", "age": 21}
+        "data": {"name": "John", "age": 21, "test": null, "foo": {"bar": true}, "baf": [1, 2, false, "test"]}
     },
     {
         "id": 2,
         "store_collection_id": 1,
-        "data": {"name": "Jane", "age": 22}
+        "data": {"name": "Jane", "age": 22, "foo": null}
     },
     {
         "id": 3,
@@ -47,7 +47,11 @@ module.exports = function(app) {
     var body = req.body;
     var id = Math.round(Math.random() * 100) + 100;
     body.store_object.id = id;
-    res.status(201).send(body).end();
+    if (body.store_object.data.error) {
+      res.status(422).send({errors: {data: 'This field is in error.'}})
+    } else {
+      res.status(201).send(body).end();
+    }
   });
 
   storeObjectsRouter.get('/:store_collection_id/store_objects/:id', function(req, res) {
@@ -62,7 +66,11 @@ module.exports = function(app) {
   storeObjectsRouter.put('/:store_collection_id/store_objects/:id', function(req, res) {
     var body = req.body;
     body.store_object.id = req.params.id;
-    res.send(body);
+    if (body.store_object.data.error) {
+      res.status(422).send({errors: {data: 'This field is in error.'}})
+    } else {
+      res.send(body);
+    }
   });
 
   storeObjectsRouter.delete('/:store_collection_id/store_objects/:id', function(req, res) {
