@@ -96,6 +96,7 @@ ApplicationAdapter = DS.RESTAdapter.extend
         payload.errors[value] = payload.errors[key]
     formattedErrors = []
     for fieldName, message of payload.errors
+      message = message.join ' ' if Ember.isArray message
       if fieldName is 'base'
         formattedErrors.push
           status: status
