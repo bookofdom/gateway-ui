@@ -4,6 +4,15 @@
 
 ApplicationAdapter = DS.RESTAdapter.extend
   host: config.api.url
+
+  # errorMappings is an object whose keys represent the field names _from_
+  # and whose values represent the field names _to_ which to map errors.
+  # For instance, if the server responds with `{errors: {data: "error"}}` and
+  # the mapping is `{data: 'body'}`, the `data` errors are copied into the
+  # `body` attribute such that a response `{errors: {body: "error"}}`
+  # is equivalent.
+  errorMappings: null
+
   pathForType: (type) ->
     path = type
     path = Ember.Inflector.inflector.pluralize type if type != 'swagger'
@@ -81,6 +90,10 @@ ApplicationAdapter = DS.RESTAdapter.extend
   # http://jsonapi.org/examples/
   # https://github.com/emberjs/data/blob/v2.3.0/addon/adapters/rest.js#L20
   normalizeErrorResponse: (status, headers, payload) ->
+    errorMappings = @get('errorMappings') or {}
+    for key, value of errorMappings
+      if payload.errors[key]
+        payload.errors[value] = payload.errors[key]
     formattedErrors = []
     for fieldName, message of payload.errors
       if fieldName is 'base'

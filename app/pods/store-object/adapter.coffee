@@ -2,6 +2,9 @@
 `import t from 'gateway/helpers/i18n'`
 
 StoreObjectAdapter = ApplicationAdapter.extend
+  errorMappings:
+    data: 'body'
+
   buildURL: (type, id, snapshot) ->
     url = @_super arguments...
     host = @get 'host'
@@ -24,6 +27,5 @@ StoreObjectAdapter = ApplicationAdapter.extend
       ]
     else
       @_super arguments...
-
 
 `export default StoreObjectAdapter`
