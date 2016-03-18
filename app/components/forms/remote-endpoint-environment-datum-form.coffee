@@ -19,12 +19,18 @@ RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.ex
       required: true
     ]
 
+  createNewModel: ->
+    modelType = @get 'modelType'
+    newModel = @get('store')?.createRecord modelType
+    remoteEndpointType = @get 'remoteEndpointType'
+    newModel.set 'type', remoteEndpointType
+    @set 'model', newModel
+    newModel
+
   submit: ->
     model = @get 'model'
     if model.get 'isNew'
       indexModel = @get 'indexModel'
-      remoteEndpointType = @get 'remoteEndpointType'
-      model.set 'type', remoteEndpointType
       indexModel.pushObject model
     @_super arguments...
 
