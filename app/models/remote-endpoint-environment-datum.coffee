@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import RemoteEndpointLike from './remote-endpoint-like'`
+`import RemoteEndpointLike from 'gateway/models/remote-endpoint-like'`
 
 RemoteEndpointEnvironmentDatum = RemoteEndpointLike.extend
   # Relationships
@@ -7,5 +7,6 @@ RemoteEndpointEnvironmentDatum = RemoteEndpointLike.extend
   environment: DS.belongsTo 'environment',
     async: false
     stains: true
+  scratch_pads: DS.hasMany 'remote-endpoint-environment-datum-scratch-pad', async: true
 
 `export default RemoteEndpointEnvironmentDatum`

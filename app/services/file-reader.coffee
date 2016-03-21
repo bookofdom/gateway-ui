@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-FileReaderService = Ember.Object.extend
+FileReaderService = Ember.Service.extend
   # Returns a promise that reads a file, converts it to a data URI, and resolves
   # with the result.
   readToDataURI: (file) ->

@@ -1,4 +1,4 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 
 EndpointGroupFormComponent = BaseFormComponent.extend
   indexModel: null
@@ -20,6 +20,6 @@ EndpointGroupFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       endpointGroups = @get 'indexModel'
       endpointGroups.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
 `export default EndpointGroupFormComponent`

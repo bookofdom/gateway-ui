@@ -1,4 +1,4 @@
-`import ApplicationAdapter from './application'`
+`import ApplicationAdapter from 'gateway/adapters/application'`
 
 PasswordResetConfirmationAdapter = ApplicationAdapter.extend
   pathForType: (type) ->

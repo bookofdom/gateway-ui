@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from './model'`
+`import Model from 'gateway/models/model'`
 
 ProxyEndpointComponentCall = Model.extend
   endpoint_name_override: DS.attr 'string'

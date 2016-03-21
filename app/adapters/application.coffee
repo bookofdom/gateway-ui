@@ -1,9 +1,18 @@
 `import DS from 'ember-data'`
-`import config from  '../config/environment'`
+`import config from  'gateway/config/environment'`
 `import t from 'gateway/helpers/i18n'`
 
 ApplicationAdapter = DS.RESTAdapter.extend
   host: config.api.url
+
+  # errorMappings is an object whose keys represent the field names _from_
+  # and whose values represent the field names _to_ which to map errors.
+  # For instance, if the server responds with `{errors: {data: "error"}}` and
+  # the mapping is `{data: 'body'}`, the `data` errors are copied into the
+  # `body` attribute such that a response `{errors: {body: "error"}}`
+  # is equivalent.
+  errorMappings: null
+
   pathForType: (type) ->
     path = type
     path = Ember.Inflector.inflector.pluralize type if type != 'swagger'
@@ -25,8 +34,19 @@ ApplicationAdapter = DS.RESTAdapter.extend
       remaining = url.replace doubleSlashes, '/'
     url = "#{protocol}#{remaining}"
     url
+  generateURL: (snapshot, parent, path) ->
+    if snapshot
+      parent = snapshot.belongsTo parent
+      modelName = parent.modelName
+      adapter = @container.lookup "adapter:#{modelName}"
+      url = adapter.buildURL modelName, parent.id, parent
+      if snapshot.id
+        url = "#{url}/#{path}/#{snapshot.id}"
+      else
+        url = "#{url}/#{path}"
+      @cleanURL url
   buildURL: (type, id, snapshot) ->
-    url = @_super.apply @, arguments
+    url = @_super arguments...
     url = @cleanURL url
     url
   ajax: (url, method, hash={}) ->
@@ -70,8 +90,13 @@ ApplicationAdapter = DS.RESTAdapter.extend
   # http://jsonapi.org/examples/
   # https://github.com/emberjs/data/blob/v2.3.0/addon/adapters/rest.js#L20
   normalizeErrorResponse: (status, headers, payload) ->
+    errorMappings = @get('errorMappings') or {}
+    for key, value of errorMappings
+      if payload.errors[key]
+        payload.errors[value] = payload.errors[key]
     formattedErrors = []
     for fieldName, message of payload.errors
+      message = message.join ' ' if Ember.isArray message
       if fieldName is 'base'
         formattedErrors.push
           status: status

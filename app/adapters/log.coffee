@@ -1,5 +1,5 @@
-`import ApplicationAdapter from './application'`
-`import config from  '../config/environment'`
+`import ApplicationAdapter from 'gateway/adapters/application'`
+`import config from  'gateway/config/environment'`
 
 # Only one log socket allowed in app.  That socket is kept here.
 # Record updating is handled by the adapter, so the record is stored here.
@@ -24,7 +24,7 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
     if firstPart
       url = "#{firstPart}/logs"
     else
-      url = @_super.apply @, arguments
+      url = @_super arguments...
     url
 
   buildSocketURL: (type, id, snapshot, query={}) ->

@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import Model from './model'`
-`import t from '../helpers/i18n'`
+`import Model from 'gateway/models/model'`
+`import t from 'gateway/helpers/i18n'`
 
 Notification = DS.Model.extend
   resource: DS.attr 'string'
@@ -13,11 +13,12 @@ Notification = DS.Model.extend
 
   # Computed
   resourceType: Ember.computed 'resource', ->
-    @get('resource').dasherize()
+    @get('resource')?.dasherize()
   resourceIsLoaded: Ember.computed 'resourceType', 'resource_id', ->
     resourceType = @get 'resourceType'
     resourceId = @get 'resource_id'
-    @store.hasRecordForId resourceType, resourceId
+    if resourceType
+      @store.hasRecordForId resourceType, resourceId
   resourceRecord: Ember.computed 'resourceType', 'resource_id', 'resourceIsLoaded', ->
     resourceType = @get 'resourceType'
     resourceId = @get 'resource_id'

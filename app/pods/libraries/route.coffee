@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-LibrariesRoute = Ember.Route.extend AuthenticatedRouteMixin,
+
+LibrariesRoute = Ember.Route.extend 
   model: -> @modelFor('api').get 'libraries'
 
 `export default LibrariesRoute`

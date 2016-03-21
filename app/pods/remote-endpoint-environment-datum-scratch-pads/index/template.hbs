@@ -1,0 +1,13 @@
+{{#ap-page t='resources.remote-endpoint-environment-datum-scratch-pad_plural'}}
+
+  {{ap-table-index
+      models=model
+      fields='name'
+      path='remote-endpoint-environment-datum-scratch-pad.index'
+      edit-path='remote-endpoint-environment-datum-scratch-pad.edit'}}
+
+  {{#ap-panel-new t='resources.remote-endpoint-environment-datum-scratch-pad' closed=(unbound model.length)}}
+    {{forms/remote-endpoint-environment-datum-scratch-pad-form indexModel=indexModel}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}

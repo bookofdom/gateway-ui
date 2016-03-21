@@ -6,7 +6,11 @@ BaseFormComponent = Ember.Component.extend
   notify: Ember.inject.service()
   store: Ember.inject.service()
 
-  tagName: 'form'
+  tagName: Ember.computed 'embedded', ->
+    if @get 'embedded'
+      'div'
+    else
+      'form'
   classNames: ['ap-model-form']
   classNameBindings: ['inline:form-inline', 'horizontal:form-horizontal']
 
@@ -14,7 +18,8 @@ BaseFormComponent = Ember.Component.extend
   canceledAction: 'canceled'
   deletedAction: 'deleted'
 
-  inline: false
+  embedded: false # embedded in another form
+  inline: false # inline layout
   horizontal: true
   'show-placeholders': false
 
@@ -65,13 +70,15 @@ BaseFormComponent = Ember.Component.extend
   notifySaveSuccess: ->
     @get('notify').success "#{t('successes.saved-successfully')}."
   submit: ->
-    @get('model').save().then((=>
-      @notifySaveSuccess()
-      @sendAction 'savedAction'
-    ), (->))
+    if !@get 'embedded'
+      model = @get 'model'
+      model.save().then((=>
+        @notifySaveSuccess()
+        @sendAction 'savedAction', model
+      ), (->))
     false
   keyDown: (e) ->
-    if (e.metaKey or e.ctrlKey) and (e.keyCode is 83)
+    if !@get('embedded') and (e.metaKey or e.ctrlKey) and (e.keyCode is 83)
       e.preventDefault()
       # a hacky way to programmatically submit the form, since
       # all direct methods fail to trigger proper validation

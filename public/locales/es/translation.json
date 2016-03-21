@@ -47,12 +47,15 @@
     "define-api_plural": "defina las APIs",
     "manage-api": "administre la API",
     "manage-api_plural": "administre las APIs",
+    "manage-store": "manejar tienda",
+    "manage-store_plural": "manage stores",
     "build-app": "build de aplicación",
     "build-app_plural": "build de aplicaciones",
     "terms-and-conditions": "términos y condiciones",
     "descriptions": {
       "define-api": "define los endpoints de la API y el flujo de la lógica de negocio",
       "manage-api": "crea las claves y especifica las reglas de las APIs",
+      "manage-store": "gestionar los datos en un almacén de objetos",
       "build-app": "realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence (autenticación requerida)",
       "proxy-endpoints": "define o edita proxy endpoints y la correspondiente lógica",
       "environments": "especifica entornos, variables y otros atributos",
@@ -120,6 +123,8 @@
     "remote-endpoint-header_plural": "cabeceras",
     "remote-endpoint-query-parameter": "parámetro de consulta",
     "remote-endpoint-query-parameter_plural": "parámetros de consulta",
+    "remote-endpoint-environment-datum-scratch-pad": "bloc para apuntes",
+    "remote-endpoint-environment-datum-scratch-pad_plural": "blocs de notas",
     "host": "servidor",
     "host_plural": "servidores",
     "library": "librería compartida",
@@ -129,7 +134,11 @@
     "notificaiton": "notificación",
     "notification_plural": "notificaciones",
     "api-documentation": "documentación de la API",
-    "api-documentation_plural": "$t(resources.api-documentation)"
+    "api-documentation_plural": "$t(resources.api-documentation)",
+    "store-collection": "colección",
+    "store-collection_plural": "colecciones",
+    "store-object": "objeto",
+    "store-object_plural": "objetos"
   },
   "proxy-endpoint-component-types": {
     "single-proxy": "llamada",
@@ -137,6 +146,10 @@
     "javascript-logic": "lógica"
   },
   "fields": {
+    "code": "código",
+    "error": "error",
+    "request": "solicitud",
+    "response": "respuesta",
     "admin": "administración",
     "email": "correo electrónico",
     "password": "contraseña",
@@ -166,6 +179,8 @@
     "logic": "lógica",
     "before": "lógica previa a la solicitud",
     "after": "lógica posterior a la solicitud",
+    "session_type": "tipo de sesión",
+    "session_header": "encabezado sesión",
     "session_name": "nombre de sesión",
     "session_auth_key": "clave de sesión",
     "session_encryption_key": "clave de encriptación",
@@ -253,7 +268,8 @@
     "unknown": "ha ocurrido un error inesperado",
     "no-user-with-that-email": "no existe un usuario con ese correo electrónico",
     "invalid-password": "contraseña inválida",
-    "login": "nos ha sido imposible iniciar tu sesión"
+    "login": "nos ha sido imposible iniciar tu sesión",
+    "invalid-json": "JSON no válido"
   },
   "successes": {
     "saved-successfully": "grabado satisfactoriamente",
@@ -275,6 +291,10 @@
     "import": "__user__ importó un __resource__"
   },
   "types": {
+    "session": {
+      "client": "cliente",
+      "server": "servidor"
+    },
     "remote-endpoint": {
       "store": "almacenar",
       "script": "código",
