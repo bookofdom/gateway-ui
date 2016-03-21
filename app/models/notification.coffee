@@ -13,8 +13,7 @@ Notification = DS.Model.extend
 
   # Computed
   resourceType: Ember.computed 'resource', ->
-    resource = @get 'resource'
-    resource.dasherize() if resource
+    @get('resource')?.dasherize()
   resourceIsLoaded: Ember.computed 'resourceType', 'resource_id', ->
     resourceType = @get 'resourceType'
     resourceId = @get 'resource_id'
