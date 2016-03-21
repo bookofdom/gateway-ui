@@ -20,5 +20,8 @@ bower:
   command: ['--help']
 build_production:
   <<: *defaults
+  volumes:
+    - .:/ember-cli-app
+    - $GATEWAY_UI_DEST:/ember-cli-app/dist
   entrypoint: ['/bin/sh']
-  command: '-c "rm -rf node_modules bower_components && npm install && bower install --allow-root --config.interactive=false && ember build --environment production"'
+  command: '-c "npm install && bower install --allow-root --config.interactive=false && ember build --environment production"'

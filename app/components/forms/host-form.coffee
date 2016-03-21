@@ -1,11 +1,11 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
 
 HostFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'host'
 
   savedAction: null
-  
+
   fields: Ember.computed ->
     [
       name: 'name'
@@ -20,6 +20,6 @@ HostFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       hosts = @get 'indexModel'
       hosts.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
 `export default HostFormComponent`

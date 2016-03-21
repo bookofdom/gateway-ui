@@ -1,4 +1,4 @@
-`import ApplicationSerializer from './application'`
+`import ApplicationSerializer from 'gateway/serializers/application'`
 
 ApiSerializer = ApplicationSerializer.extend
   normalize: (type, hash, property) ->
@@ -10,6 +10,6 @@ ApiSerializer = ApplicationSerializer.extend
       remote_endpoints: "remote_endpoints"
       hosts: "hosts"
       libraries: "libraries"
-    @_super.apply @, arguments
+    @_super arguments...
 
 `export default ApiSerializer`

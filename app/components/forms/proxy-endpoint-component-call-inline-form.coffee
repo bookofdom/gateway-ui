@@ -1,6 +1,7 @@
-`import ProxyEndpointComponentCallFormComponent from './proxy-endpoint-component-call-form'`
+`import ProxyEndpointComponentCallFormComponent from 'gateway/components/forms/proxy-endpoint-component-call-form'`
 
 ProxyEndpointComponentCallInlineFormComponent = ProxyEndpointComponentCallFormComponent.extend
+  embedded: true
   showConditionalFields: false
 
   fields: Ember.computed 'showConditionalFields', ->

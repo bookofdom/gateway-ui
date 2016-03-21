@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin'`
+`import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin'`
 `import { slugify } from 'gateway/helpers/slugify'`
-`import config from  '../config/environment'`
+`import config from  'gateway/config/environment'`
 
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   notificationService: Ember.inject.service 'notification'
@@ -9,19 +9,23 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
 
   isLoading: false
   isDevMode: config.devMode?.toString() is 'true'
+  notificationsEnabled: config.notifications
 
   afterModel: (first, transition) ->
     @checkSessionValidity transition
-    @enableNotifications()
+    @enableNotifications() if @get 'notificationsEnabled'
 
   checkSessionValidity: (transition) ->
     session = @get 'session'
-    if session.authenticator
-      isDevMode = @get 'isDevMode'
-      isDevAuth = session.authenticator is 'authenticator:dev-mode'
+    authenticator = session.get 'session.authenticated.authenticator'
+    isDevMode = @get 'isDevMode'
+    isDevAuth = authenticator is 'authenticator:dev-mode'
+    if authenticator and (isDevMode != isDevAuth)
       # auto-invalidate if logged in with the wrong authenticator
-      if (isDevMode and !isDevAuth) or (!isDevMode and isDevAuth)
-        transition.send 'invalidateSession'
+      transition.send 'invalidateSession'
+    else if !authenticator and isDevMode
+      # auto-login using dev-mode authenticator if dev mode is active
+      @get('session').authenticate 'authenticator:dev-mode', {}
 
   enableNotifications: ->
     session = @get 'session'
@@ -78,43 +82,14 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
           # mark as deleted
           resourceRecord.deleteRecord()
 
-  authenticate: ->
-    # auto-login using dev mode authenticator if in dev mode
-    if @get 'isDevMode'
-      @get('session').authenticate 'authenticator:dev-mode', {}
-    else
-      @transitionTo config['simple-auth'].routeAfterInvalidation
-
   loadingObserver: Ember.observer 'isLoading', ->
     isLoading = @get 'isLoading'
     appController = @controller
     appController?.set 'isLoading', isLoading
 
   actions:
-    sessionRequiresAuthentication: ->
-      @authenticate()
-    authenticateSession: ->
-      # for older versions of simple-auth
-      @authenticate()
-    sessionAuthenticationSucceeded: ->
-      @enableNotifications()
-      @_super.apply @, arguments
-    sessionAuthenticationFailed: (error) ->
-      message = slugify error
-      loginController = @controllerFor('login')
-      loginController.set 'authenticationError', message
-    sessionInvalidationSucceeded: ->
-      isDevMode = @get 'isDevMode'
-      notificationService = @get 'notificationService'
-      # stop notifications
-      @disableNotifications()
-      # redirect
-      @transitionTo(config['simple-auth'].routeAfterInvalidation).then =>
-        if !isDevMode
-          # refresh page (except in dev mode)
-          @send 'reload'
-    reload: ->
-      window.location.reload()
+    invalidateSession: ->
+      @get('session').invalidate()
     localChange: (locale) ->
       window.location.search = "locale=#{locale}"
     loading: ->

@@ -1,8 +1,18 @@
-`import BaseFormComponent from './base-form'`
+`import BaseFormComponent from 'gateway/components/forms/base-form'`
+`import t from 'gateway/helpers/i18n'`
 
 EnvironmentFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'environment'
+
+  'option-groups': Ember.computed ->
+    session_type: [
+      name: t 'types.session.client'
+      value: 'client'
+    ,
+      name: t 'types.session.server'
+      value: 'server'
+    ]
 
   savedAction: null
 
@@ -20,21 +30,35 @@ EnvironmentFormComponent = BaseFormComponent.extend
     name: 'description'
     type: 'textarea'
   ,
-    name: 'session_name'
-  ,
-    name: 'session_auth_key'
-  ,
-    name: 'session_encryption_key'
-    type: 'textarea'
-  ,
-    name: 'session_auth_key_rotate'
-  ,
-    name: 'session_encryption_key_rotate'
-    type: 'textarea'
-  ,
     name: 'show_javascript_errors'
     type: 'boolean'
+  ,
+    name: 'session_type'
+    type: 'select'
+  ,
+    name: 'session_name'
   ]
+  sessionTypeFields:
+    client: [
+      name: 'session_auth_key'
+    ,
+      name: 'session_encryption_key'
+      type: 'textarea'
+    ,
+      name: 'session_auth_key_rotate'
+    ,
+      name: 'session_encryption_key_rotate'
+      type: 'textarea'
+    ]
+    server: [
+      name: 'session_header'
+    ]
+  fields: Ember.computed 'model.isNew', 'model.session_type', ->
+    fields = @_super arguments...
+    type = @get 'model.session_type'
+    sessionTypeFields = @get "sessionTypeFields.#{type}"
+    fields = Ember.copy(fields).pushObjects sessionTypeFields if sessionTypeFields
+    fields
 
   createNewVariableModel: ->
     model = @get 'model'
@@ -46,7 +70,7 @@ EnvironmentFormComponent = BaseFormComponent.extend
     if model.get 'isNew'
       environments = @get 'indexModel'
       environments.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
   actions:
     'delete-environment-variable': (record) -> record.deleteRecord()

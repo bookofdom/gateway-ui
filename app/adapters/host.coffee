@@ -1,5 +1,5 @@
-`import ApiRelatedAdapter from './api-related'`
-`import config from  '../config/environment'`
+`import ApiRelatedAdapter from 'gateway/adapters/api-related'`
+`import config from  'gateway/config/environment'`
 
 HostAdapter = ApiRelatedAdapter.extend
   buildSwaggerViewerUrl: (model) ->

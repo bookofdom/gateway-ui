@@ -1,0 +1,56 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{#if result.time}}
+      <span class="label label-default">{{result.time}} ms</span>
+    {{/if}}
+  </div>
+
+  <div class="panel-body">
+    {{#if result}}
+      {{#unless model.hasDirtyAttributes}}
+        {{#unless executing}}
+          <a class="btn btn-default" {{action 'execute'}}>
+            {{t 'actions.execute'}}
+            {{ap-icon icon='arrows-006'}}
+          </a>
+          <br>
+          <br>
+        {{/unless}}
+      {{/unless}}
+      {{#if result.error}}
+        <div class="form-group">
+          <label class="control-label col-sm-2">{{t 'fields.error'}}</label>
+          <div class="col-sm-10">
+            <pre class="form-control form-control-flexible">{{result.error}}</pre>
+          </div><!-- /.col -->
+        </div><!-- /.form-group -->
+      {{else}}
+        <div class="form-group">
+          <label class="control-label col-sm-2">{{t 'fields.request'}}</label>
+          <div class="col-sm-10">
+            <pre class="form-control form-control-flexible">{{formattedRequest}}</pre>
+          </div><!-- /.col -->
+        </div><!-- /.form-group -->
+        <div class="form-group">
+          <label class="control-label col-sm-2">{{t 'fields.response'}}</label>
+          <div class="col-sm-10">
+            <pre class="form-control form-control-flexible">{{formattedResponse}}</pre>
+          </div><!-- /.col -->
+        </div><!-- /.form-group -->
+      {{/if}}
+    {{/if}}
+    {{#unless model.hasDirtyAttributes}}
+      {{#unless executing}}
+        <a class="btn btn-default" {{action 'execute'}}>
+          {{t 'actions.execute'}}
+          {{ap-icon icon='arrows-006'}}
+        </a>
+      {{/unless}}
+    {{/unless}}
+    {{#if executing}}
+      <div style="position: relative; margin-bottom: 40px;">
+        {{spin-spinner lines=13 length=5 width=2 radius=5 color='#000' hwaccel=true}}
+      </div>
+    {{/if}}
+  </div><!-- /.panel-body -->
+</div>

@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import GooglePageviewMixin from './mixins/google-pageview'`
-`import config from './config/environment'`
+`import GooglePageviewMixin from 'gateway/mixins/google-pageview'`
+`import config from 'gateway/config/environment'`
 
 Router = Ember.Router.extend GooglePageviewMixin,
   location: config.locationType
@@ -55,6 +55,10 @@ Router.map ->
             @route 'new'
             @route 'remote-endpoint-environment-datum', resetNamespace: true, path: ':remote_endpoint_environment_datum_id', ->
               @route 'edit'
+              @route 'remote-endpoint-environment-datum-scratch-pads', resetNamespace: true, path: 'scratch-pads', ->
+                @route 'new'
+                @route 'remote-endpoint-environment-datum-scratch-pad', resetNamespace: true, path: ':scratch_pad_id', ->
+                  @route 'edit'
       @route 'hosts', resetNamespace: true, ->
         @route 'host', resetNamespace: true, path: ':host_id', ->
           @route 'edit'
@@ -64,5 +68,12 @@ Router.map ->
       @route 'logs-api', resetNamespace: true, path: 'logs', (->)
       @route 'api-documentation', resetNamespace: true, path: 'api', ->
         @route 'api-documentation-detail', resetNamespace: true, path: ':host_id', (->)
+  @route 'store-collections', resetNamespace: true, path: 'collections', ->
+    @route 'new'
+    @route 'store-collection', resetNamespace: true, path: ':collection_id', ->
+      @route 'edit'
+      @route 'store-objects', resetNamespace: true, path: 'objects', ->
+        @route 'store-object', resetNamespace: true, path: ':object_id', ->
+          @route 'edit'
 
 `export default Router`

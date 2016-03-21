@@ -1,5 +1,5 @@
-`import ApplicationAdapter from './application'`
-`import config from  '../config/environment'`
+`import ApplicationAdapter from 'gateway/adapters/application'`
+`import config from  'gateway/config/environment'`
 
 ApiAdapter = ApplicationAdapter.extend
   apRequestJavaScriptPath: 'ap-request.js'
@@ -14,7 +14,7 @@ ApiAdapter = ApplicationAdapter.extend
       apRequestJavaScriptURL = @get 'buildApRequestJavaScriptURL'
       Ember.RSVP.hash
         apRequest: Ember.$.get apRequestJavaScriptURL
-        libraries: @_super.apply @, arguments
+        libraries: @_super arguments...
       .then (results) =>
         results.libraries.libraries.push
           id: 'ap-request'
@@ -24,6 +24,6 @@ ApiAdapter = ApplicationAdapter.extend
           internal: true
         results.libraries
     else
-      @_super.apply @, arguments
+      @_super arguments...
 
 `export default ApiAdapter`

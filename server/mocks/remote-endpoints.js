@@ -23,6 +23,7 @@ module.exports = function(app) {
       },
       "environment_data":[
         {
+          "id":1,
           "environment_id":1,
           "data":{
             "url":"http://demo.ap.com",
@@ -35,6 +36,9 @@ module.exports = function(app) {
               "foo":"bar",
               "baz":"baf"
             }
+          },
+          "links":{
+            "scratch_pads": "/apis/1/remote_endpoints/1/environment_data/1/scratch_pads"
           }
         }
       ]
@@ -280,6 +284,21 @@ module.exports = function(app) {
           "private_key_password": null
         }
       }
+    },
+    {
+      "id": 14,
+      "name": "Test Store",
+      "api_id": 1,
+      "codename": "store",
+      "description": "A test store.",
+      "type": "store",
+      "data": {},
+      "environment_data": [
+        {
+          "environment_id": 1,
+          "data": {}
+        }
+      ]
     }
   ];
 
@@ -315,7 +334,7 @@ module.exports = function(app) {
     var body = req.body;
     body.remote_endpoint.id = req.params.id;
     if (body.remote_endpoint.name.toLowerCase() == 'error') {
-      res.status(422).send({errors: {name: 'This field is in error.'}})
+      res.status(422).send({errors: {name: ['This field is in error.']}})
     } else {
       res.send(body);
     }

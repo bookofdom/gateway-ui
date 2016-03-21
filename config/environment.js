@@ -8,10 +8,9 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     'simple-auth': {
+      authenticationRoute: 'login',
       routeAfterAuthentication: 'apis',
-      routeIfAlreadyAuthenticated: 'apis',
-      routeAfterInvalidation: 'login',
-      store: 'simple-auth-session-store:cookie'
+      routeIfAlreadyAuthenticated: 'apis'
     },
     EmberENV: {
       FEATURES: {
@@ -41,6 +40,7 @@ module.exports = function(environment) {
     devMode: false,
     goOs: null,
     remoteEndpointTypesEnabled: null,
+    notifications: true,
 
     api: {
       host: process.env.API_HOST || '',
@@ -63,9 +63,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    // uncomment for stand-alone gateway API
     ENV.api.swaggerViewerPath = '/swagger';
     ENV.api.swaggerJsonPath = '/swagger';
+    
+    // uncomment for stand-alone gateway API
     //ENV.api.host = 'http://localhost:5000'
   }
 
@@ -81,6 +82,7 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
 
     ENV.confirmDelete = false;
+    ENV.notifications = false;
   }
 
   if (environment === 'production') {

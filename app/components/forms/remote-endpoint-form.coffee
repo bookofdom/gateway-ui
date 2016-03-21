@@ -1,4 +1,4 @@
-`import BaseRemoteEndpointFormComponent from './base-remote-endpoint-form'`
+`import BaseRemoteEndpointFormComponent from 'gateway/components/forms/base-remote-endpoint-form'`
 
 RemoteEndpointFormComponent = BaseRemoteEndpointFormComponent.extend
   indexModel: null
@@ -29,7 +29,7 @@ RemoteEndpointFormComponent = BaseRemoteEndpointFormComponent.extend
     if model.get 'isNew'
       indexModel = @get 'indexModel'
       indexModel.pushObject model
-    @_super.apply @, arguments
+    @_super arguments...
 
   actions:
     'delete-remote-endpoint-environment-datum': (model) ->
