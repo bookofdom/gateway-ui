@@ -8,6 +8,8 @@ defaultScenario = (server) ->
 
   # server.createList 'post', 10
 
+  server.loadFixtures 'sessions'
+
   server.createList 'api', 5
   server.createList 'user', 5
 
