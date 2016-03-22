@@ -5,8 +5,10 @@ config = ->
   Note: these only affect routes defined *after* them!
   ###
 
+  @passthrough()
+  
   # @urlPrefix = '';    # make this `http://localhost:8080`, for example, if your API is on a different server
-  # @namespace = '';    # make this `api`, for example, if your API is namespaced
+  @namespace = 'admin';    # make this `api`, for example, if your API is namespaced
   # @timing = 400;      # delay for each request, automatically set to 0 during testing
 
   ###
@@ -19,12 +21,10 @@ config = ->
   @del('/posts/:id')
   ###
 
-  @get '/admin/apis'
-  @post '/admin/apis'
-  @get '/admin/apis/:id'
-  @put '/admin/apis/:id'
-  @del '/admin/apis/:id'
-
-  @passthrough()
+  @get '/apis'
+  @post '/apis'
+  @get '/apis/:id'
+  @put '/apis/:id'
+  @del '/apis/:id'
 
 `export default config`
