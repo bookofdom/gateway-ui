@@ -8,6 +8,7 @@ defaultScenario = (server) ->
 
   # server.createList 'post', 10
 
-  server.createList 'api', 10
+  server.createList 'api', 5
+  server.createList 'user', 5
 
 `export default defaultScenario`

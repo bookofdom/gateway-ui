@@ -29,4 +29,10 @@ config = ->
   @put '/apis/:id', makePutHandler 'api'
   @del '/apis/:id'
 
+  @get '/users'
+  @post '/users', makePostHandler 'user'
+  @get '/users/:id'
+  @put '/users/:id', makePutHandler 'user'
+  @del '/users/:id'
+
 `export default config`
