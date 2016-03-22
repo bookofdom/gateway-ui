@@ -1,7 +1,8 @@
-`import { Factory } from 'ember-cli-mirage'`
+`import { Factory, faker } from 'ember-cli-mirage'`
 
 ApiFactory = Factory.extend
-  name: (i) -> "API #{i}"
-  base_url: (i) -> "http://www.api-#{i}.com"
+  name: (i) -> faker.commerce.productName()
+  base_url: (i) -> "http://www.#{faker.internet.domainName()}"
+  description: (i) -> faker.lorem.paragraph()
 
 `export default ApiFactory`
