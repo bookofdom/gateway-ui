@@ -11,8 +11,6 @@
 
 RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
-    api:
-      serialize: false
     headers:
       serialize: false
       deserialize: 'records'
@@ -20,8 +18,6 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       serialize: false
       deserialize: 'records'
     hosts:
-      embedded: 'always'
-    environment_data:
       embedded: 'always'
 
   # Normalization
