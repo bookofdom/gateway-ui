@@ -1,7 +1,6 @@
 `import BaseFormComponent from 'gateway/components/forms/base-form'`
 
 UserFormComponent = BaseFormComponent.extend
-  indexModel: null
   modelType: 'user'
 
   savedAction: null
@@ -23,12 +22,5 @@ UserFormComponent = BaseFormComponent.extend
     name: 'password_confirmation'
     type: 'password'
   ]
-
-  submit: ->
-    model = @get 'model'
-    if model.get 'isNew'
-      indexModel = @get 'indexModel'
-      indexModel.pushObject model
-    @_super arguments...
 
 `export default UserFormComponent`
