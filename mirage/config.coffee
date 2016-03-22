@@ -20,6 +20,10 @@ config = ->
   ###
 
   @get '/admin/apis'
+  @post '/admin/apis'
+  @get '/admin/apis/:id'
+  @put '/admin/apis/:id'
+  @del '/admin/apis/:id'
 
   @passthrough()
 
