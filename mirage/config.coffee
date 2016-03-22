@@ -1,3 +1,5 @@
+`import { makePostHandler, makePutHandler } from './helpers/route-handlers'`
+
 config = ->
   ###
   Config (with defaults).
@@ -6,7 +8,7 @@ config = ->
   ###
 
   @passthrough()
-  
+
   # @urlPrefix = '';    # make this `http://localhost:8080`, for example, if your API is on a different server
   @namespace = 'admin';    # make this `api`, for example, if your API is namespaced
   # @timing = 400;      # delay for each request, automatically set to 0 during testing
@@ -22,9 +24,9 @@ config = ->
   ###
 
   @get '/apis'
-  @post '/apis'
+  @post '/apis', makePostHandler 'api'
   @get '/apis/:id'
-  @put '/apis/:id'
+  @put '/apis/:id', makePutHandler 'api'
   @del '/apis/:id'
 
 `export default config`
