@@ -47,4 +47,10 @@ config = ->
   @put '/users/:id', makePutHandler 'user'
   @del '/users/:id'
 
+  @get '/store_collections'
+  @post '/store_collections', makePostHandler 'store_collection'
+  @get '/store_collections/:id'
+  @put '/store_collections/:id', makePutHandler 'store_collection'
+  @del '/store_collections/:id'
+
 `export default config`

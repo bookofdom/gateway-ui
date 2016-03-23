@@ -12,5 +12,6 @@ defaultScenario = (server) ->
 
   server.createList 'api', 5
   server.createList 'user', 5
+  server.createList 'store_collection', 5
 
 `export default defaultScenario`
