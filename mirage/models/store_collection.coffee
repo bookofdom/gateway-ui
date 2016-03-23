@@ -1,5 +1,6 @@
-`import { Model } from 'ember-cli-mirage'`
+`import { Model, hasMany } from 'ember-cli-mirage'`
 
-StoreCollectionModel = Model.extend()
+StoreCollectionModel = Model.extend
+  store_objects: hasMany()
 
 `export default StoreCollectionModel`

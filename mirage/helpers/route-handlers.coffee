@@ -23,4 +23,11 @@ makePutHandler = (modelName) ->
     else
       updated = schema[modelName.camelize()].find(id).update payload
 
-`export { makePostHandler, makePutHandler }`
+getChildren = (schema, request, parentModelName, modelName) ->
+  parentId = request.params["#{parentModelName.camelize()}Id"]
+  schema[parentModelName.camelize()].find(parentId)[modelName.pluralize()]
+
+makeGetChildrenHandler = (parentModelName, modelName) ->
+  (schema, request) -> getChildren schema, request, parentModelName, modelName
+
+`export { makePostHandler, makePutHandler, makeGetChildrenHandler }`

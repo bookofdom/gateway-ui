@@ -1,5 +1,5 @@
 `import { Response } from 'ember-cli-mirage'`
-`import { makePostHandler, makePutHandler } from './helpers/route-handlers'`
+`import { makePostHandler, makePutHandler, makeGetChildrenHandler } from './helpers/route-handlers'`
 
 config = ->
   ###
@@ -52,5 +52,7 @@ config = ->
   @get '/store_collections/:id'
   @put '/store_collections/:id', makePutHandler 'store_collection'
   @del '/store_collections/:id'
+
+  @get '/store_collections/:storeCollectionId/store_objects', makeGetChildrenHandler('store_collection', 'store_object')
 
 `export default config`

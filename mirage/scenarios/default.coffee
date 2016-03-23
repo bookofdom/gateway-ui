@@ -12,6 +12,9 @@ defaultScenario = (server) ->
 
   server.createList 'api', 5
   server.createList 'user', 5
-  server.createList 'store_collection', 5
+  collections = server.createList 'store_collection', 5
+  collections.forEach (collection) ->
+    id = collection.id
+    server.createList 'store_object', 5, storeCollectionId: id
 
 `export default defaultScenario`
