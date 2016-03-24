@@ -21,6 +21,7 @@ Api = Model.extend
   remote_endpoints: DS.hasMany 'remote-endpoint', async: true
   hosts: DS.hasMany 'host', async: true
   libraries: DS.hasMany 'library', async: true
+  shared_components: DS.hasMany 'shared-component', async: true
 
   # Computed
   exportUrl: Ember.computed ->

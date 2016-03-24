@@ -7,8 +7,9 @@ ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend
     @removeNewComponents()
     # create the new component
     components = @modelFor('proxy-endpoint').get 'components'
+    type = params.proxy_endpoint_component_type
     model = @store.createRecord 'proxy-endpoint-component',
-      type: params.proxy_endpoint_component_type
+      type: type
     # populate relationships (if necessary)
     @populateRelationships model
     # add to the proxy endpoint
@@ -18,9 +19,10 @@ ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend
     @modelFor('proxy-endpoint').get('components').filterBy('isNew', true).forEach (component) ->
       component.deleteRecord()
   populateRelationships: (model) ->
-    @addNewCall model
-    @addNewBefore model
-    @addNewAfter model
+    if !model.get 'shared'
+      @addNewCall model
+      @addNewBefore model
+      @addNewAfter model
   addNewCall: (model) ->
     if model.get 'single'
       calls = model.get 'calls'

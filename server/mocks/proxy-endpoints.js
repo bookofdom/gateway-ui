@@ -22,6 +22,16 @@ module.exports = function(app) {
           "api_id": 1,
           "environment_id": 2,
           "endpoint_group_id": 1
+      },
+      {
+          "id": 3,
+          "name": "Test Endpoint",
+          "description": "This is a test endpoint with some shared components",
+          "active": false,
+          "cors_enabled": false,
+          "api_id": 1,
+          "environment_id": 1,
+          "endpoint_group_id": 1
       }
   ];
   var routes = [
@@ -108,7 +118,8 @@ module.exports = function(app) {
   ];
   var components = [
     {
-        "id": 1,
+        "proxy_endpoint_component_id": 4,
+        "proxy_endpoint_component_reference_id": 1,
         "conditional": "\
 var foo = function () {\n\
   var someCondition = true;\n\
@@ -148,7 +159,8 @@ var foo = function () {\n\
         }
     },
     {
-        "id": 2,
+        "proxy_endpoint_component_id": 5,
+        "proxy_endpoint_component_reference_id": 2,
         "conditional": "",
         "conditional_positive": true,
         "type": "multi",
@@ -212,11 +224,32 @@ var foo = function () {\n\
         ]
     },
     {
-        "id": 3,
+        "proxy_endpoint_component_id": 6,
+        "proxy_endpoint_component_reference_id": 3,
         "conditional": "var foo = function () {\n\n};",
         "conditional_positive": true,
         "type": "js",
         "data": "code string"
+    },
+    {
+        "proxy_endpoint_component_id": 1,
+        "proxy_endpoint_component_reference_id": 4,
+        "shared_component_id": 1
+    },
+    {
+        "proxy_endpoint_component_id": 2,
+        "proxy_endpoint_component_reference_id": 5,
+        "shared_component_id": 2
+    },
+    {
+        "proxy_endpoint_component_id": 3,
+        "proxy_endpoint_component_reference_id": 6,
+        "shared_component_id": 3
+    },
+    {
+        "proxy_endpoint_component_id": 3,
+        "proxy_endpoint_component_reference_id": 7,
+        "shared_component_id": 3
     }
   ];
 
@@ -255,7 +288,7 @@ var foo = function () {\n\
     body.proxy_endpoint.components = body.proxy_endpoint.components || [];
     body.proxy_endpoint.components.forEach(function (component) {
       var id = Math.round(Math.random() * 100) + 100;
-      component.id = component.id || id;
+      component.proxy_endpoint_component_reference_id = component.proxy_endpoint_component_reference_id || id;
       if (component.calls) {
         component.calls.forEach(function (call) {
           var id = Math.round(Math.random() * 100) + 100;

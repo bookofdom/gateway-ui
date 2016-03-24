@@ -6,11 +6,7 @@ BaseFormComponent = Ember.Component.extend
   notify: Ember.inject.service()
   store: Ember.inject.service()
 
-  tagName: Ember.computed 'embedded', ->
-    if @get 'embedded'
-      'div'
-    else
-      'form'
+  tagName: 'form'
   classNames: ['ap-model-form']
   classNameBindings: ['inline:form-inline', 'horizontal:form-horizontal']
 
@@ -30,13 +26,19 @@ BaseFormComponent = Ember.Component.extend
   newFields: null
   editFields: null
   defaultFields: []
-  fields: Ember.computed 'model.isNew', ->
+  fields: Ember.computed 'defaultFields', 'model.isNew', ->
     fields = if @get 'model.isNew' then @get 'newFields' else @get 'editFields'
     fields ?= []
     fields = Ember.copy(fields).pushObjects @get('defaultFields')
     fields
 
   'option-groups': null
+
+  tagNameOnInit: Ember.on 'init', ->
+    if @get 'embedded'
+      @set 'tagName', 'div'
+    else
+      @set 'tagName', 'form'
 
   dirty: Ember.computed.alias 'model.hasDirtyAttributes'
   'show-save': Ember.computed.alias 'dirty'
