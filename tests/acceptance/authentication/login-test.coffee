@@ -22,10 +22,9 @@ test 'user can login with correct credentials', (assert) ->
   server.loadFixtures 'sessions'
   session = currentSession @application
   visit '/login'
-  andThen ->
-    fillIn '[name=identification]', 'test@foo.com'
-    fillIn '[name=password]', 'foobar'
-    click '[type=submit]'
+  fillIn '[name=identification]', 'test@foo.com'
+  fillIn '[name=password]', 'foobar'
+  click '[type=submit]'
   andThen ->
     assert.equal session.get('isAuthenticated'), true
     assert.equal currentURL(), '/'
@@ -34,10 +33,9 @@ test 'user cannot login with incorrect credentials', (assert) ->
   server.loadFixtures 'sessions'
   session = currentSession @application
   visit '/login'
-  andThen ->
-    fillIn '[name=identification]', 'imposter@hacker.net'
-    fillIn '[name=password]', 'wrong-password'
-    click '[type=submit]'
+  fillIn '[name=identification]', 'imposter@hacker.net'
+  fillIn '[name=password]', 'wrong-password'
+  click '[type=submit]'
   andThen ->
     assert.equal session.get('isAuthenticated'), false
     assert.equal currentURL(), '/login'
@@ -46,10 +44,9 @@ test 'user can see error message when login fails', (assert) ->
   server.loadFixtures 'sessions'
   session = currentSession @application
   visit '/login'
-  andThen ->
-    fillIn '[name=identification]', 'imposter@hacker.net'
-    fillIn '[name=password]', 'wrong-password'
-    click '[type=submit]'
+  fillIn '[name=identification]', 'imposter@hacker.net'
+  fillIn '[name=password]', 'wrong-password'
+  click '[type=submit]'
   andThen ->
     assert.equal session.get('isAuthenticated'), false
     assert.equal currentURL(), '/login'
