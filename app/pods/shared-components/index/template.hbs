@@ -1,0 +1,28 @@
+{{#ap-page t='resources.shared-component_plural'}}
+
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='shared-component.edit'}}
+
+  {{#bs-panel t='actions.select-add-component-type'}}
+    {{#ap-list-nav-circle-icon}}
+      {{ap-list-link
+        t='types.proxy-endpoint-component.single'
+        icon='the-essentials-072'
+        path='shared-components.new.type'
+        arg1='single'}}
+      {{ap-list-link
+        t='types.proxy-endpoint-component.multi'
+        icon='multiproxy'
+        path='shared-components.new.type'
+        arg1='multi'}}
+      {{ap-list-link
+        t='types.proxy-endpoint-component.js'
+        icon='file-type-content-055'
+        path='shared-components.new.type'
+        arg1='js'}}
+    {{/ap-list-nav-circle-icon}}
+  {{/bs-panel}}
+
+{{/ap-page}}
