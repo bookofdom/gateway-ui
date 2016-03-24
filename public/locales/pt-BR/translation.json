@@ -65,6 +65,7 @@
       "libraries": "define bibliotecas compartilhadas para uso em blocos de código de JavaScript",
       "logs": "visualização, pesquisa e transmissão de registros",
       "api-documentation": "visualizar a documentação da API e chamadas de API de teste interativos",
+      "shared-components": "construir componentes reutilizáveis ​​para endpoints de proxy",
       "terms-and-conditions": "registrando-se para uma conta, você aceita os termos e condições JustAPIs",
       "formatted": {
         "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",
@@ -135,15 +136,16 @@
     "notification_plural": "notificações",
     "api-documentation": "documentação da API",
     "api-documentation_plural": "$t(resources.api-documentation)",
+    "shared-component": "$t(resources.proxy-endpoint-component)",
+    "shared-component_plural": "$t(resources.proxy-endpoint-component_plural)",
+    "shared-component-call": "$t(resources.proxy-endpoint-component-call)",
+    "shared-component-call_plural": "$t(resources.proxy-endpoint-component-call_plural)",
+    "shared-component-transformation": "$t(resources.proxy-endpoint-component-transformation)",
+    "shared-component-transformation_plural": "$t(resources.proxy-endpoint-component-transformation_plural)",
     "store-collection": "coleção",
     "store-collection_plural": "colecções",
     "store-object": "objeto",
     "store-object_plural": "objetos"
-  },
-  "proxy-endpoint-component-types": {
-    "single-proxy": "chamada",
-    "multi-proxy": "multi-chamada",
-    "javascript-logic": "lógica"
   },
   "fields": {
     "code": "código",
@@ -291,6 +293,12 @@
     "import": "__user__ importado um __resource__"
   },
   "types": {
+    "proxy-endpoint-component": {
+      "single": "chamada",
+      "multi": "multi-chamada",
+      "js": "lógica",
+      "shared": "compartilhado"
+    },
     "session": {
       "client": "cliente",
       "server": "servidor"

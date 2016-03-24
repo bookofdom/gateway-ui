@@ -65,6 +65,7 @@
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "देखें , खोज, और धारा के लॉग",
       "api-documentation": "इंटरैक्टिव एपीआई प्रलेखन और परीक्षण एपीआई कॉल देखने",
+      "shared-components": "प्रॉक्सी समापन के लिए पुन: प्रयोज्य घटकों का निर्माण",
       "terms-and-conditions": "एक खाते के लिए पंजीकरण करके आप JustAPIs नियमों और शर्तों को स्वीकार करते",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
@@ -135,15 +136,16 @@
     "notification_plural": "सूचनाएं",
     "api-documentation": "एपीआई प्रलेखन",
     "api-documentation_plural": "$t(resources.api-documentation)",
+    "shared-component": "$t(resources.proxy-endpoint-component)",
+    "shared-component_plural": "$t(resources.proxy-endpoint-component_plural)",
+    "shared-component-call": "$t(resources.proxy-endpoint-component-call)",
+    "shared-component-call_plural": "$t(resources.proxy-endpoint-component-call_plural)",
+    "shared-component-transformation": "$t(resources.proxy-endpoint-component-transformation)",
+    "shared-component-transformation_plural": "$t(resources.proxy-endpoint-component-transformation_plural)",
     "store-collection": "संग्रह",
     "store-collection_plural": "संग्रह",
     "store-object": "वस्तु",
     "store-object_plural": "वस्तुओं"
-  },
-  "proxy-endpoint-component-types": {
-    "single-proxy": "single call",
-    "multi-proxy": "multi-call",
-    "javascript-logic": "logic"
   },
   "fields": {
     "code": "कोड",
@@ -291,6 +293,12 @@
     "import": "__user__ आयातित एक __resource__"
   },
   "types": {
+    "proxy-endpoint-component": {
+      "single": "single call",
+      "multi": "multi-call",
+      "js": "logic",
+      "shared": "साझा"
+    },
     "session": {
       "client": "ग्राहक",
       "server": "सर्वर"
