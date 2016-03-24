@@ -3,7 +3,7 @@
 `import startApp from 'gateway/tests/helpers/start-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
 
-module 'Acceptance: Authentication',
+module 'Acceptance: Authentication Redirects',
   beforeEach: ->
     @application = startApp()
     ###
@@ -18,7 +18,7 @@ module 'Acceptance: Authentication',
     server.pretender.shutdown()
     Ember.run @application, 'destroy'
 
-test 'visiting /login', (assert) ->
+test 'visiting /login when unauthenticated does not redirect', (assert) ->
   visit '/login'
   andThen ->
     assert.equal currentURL(), '/login'
@@ -37,5 +37,3 @@ test 'visiting /login when authenticated redirects to /', (assert) ->
   andThen ->
     assert.equal session.get('isAuthenticated'), true
     assert.equal currentURL(), '/'
-
-# TODO:  interactive login tests for both correct and incorrect creds
