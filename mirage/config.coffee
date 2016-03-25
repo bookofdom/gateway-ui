@@ -22,6 +22,10 @@ config = ->
   # registrations is a dumb endpoint... it just returns the posted payload
   @post '/registrations', (schema, request) -> JSON.parse request.requestBody
 
+  # password resets are dumb endpoints
+  @post '/password_reset', -> new Response 200
+  @post '/password_reset_confirmation', -> new Response 200
+
   @get '/store_collections'
   @post '/store_collections', makePostHandler 'store_collection'
   @get '/store_collections/:id'
