@@ -1,5 +1,6 @@
-`import { Model } from 'ember-cli-mirage'`
+`import { Model, hasMany } from 'ember-cli-mirage'`
 
-ApiModel = Model.extend()
+ApiModel = Model.extend
+  libraries: hasMany()
 
 `export default ApiModel`
