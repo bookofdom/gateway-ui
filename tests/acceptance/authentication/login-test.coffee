@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
 `import { module, test } from 'qunit'`
 `import startApp from 'gateway/tests/helpers/start-app'`
+`import destroyApp from 'gateway/tests/helpers/destroy-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
 
 module 'Acceptance: Authentication Login',
@@ -12,11 +13,7 @@ module 'Acceptance: Authentication Login',
     ###
     return
 
-  afterEach: ->
-    # Manually shutdown pretender after each test or else tests will hang:
-    # https://github.com/samselikoff/ember-cli-mirage/issues/142
-    server.pretender.shutdown()
-    Ember.run @application, 'destroy'
+  afterEach: -> destroyApp @application
 
 test 'user can login with correct credentials', (assert) ->
   server.loadFixtures 'sessions'
