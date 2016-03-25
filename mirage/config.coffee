@@ -19,6 +19,9 @@ config = ->
     else
       session
 
+  # registrations is a dumb endpoint... it just returns the posted payload
+  @post '/registrations', (schema, request) -> JSON.parse request.requestBody
+
   @get '/store_collections'
   @post '/store_collections', makePostHandler 'store_collection'
   @get '/store_collections/:id'
