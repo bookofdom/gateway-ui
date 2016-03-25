@@ -37,3 +37,19 @@ test 'visiting /login when authenticated redirects to /', (assert) ->
   andThen ->
     assert.equal session.get('isAuthenticated'), true
     assert.equal currentURL(), '/'
+
+test 'visiting /registration when authenticated redirects to /', (assert) ->
+  session = currentSession @application
+  authenticateSession @application
+  visit '/registration'
+  andThen ->
+    assert.equal session.get('isAuthenticated'), true
+    assert.equal currentURL(), '/'
+
+test 'visiting /password/reset when authenticated redirects to /', (assert) ->
+  session = currentSession @application
+  authenticateSession @application
+  visit '/password/reset'
+  andThen ->
+    assert.equal session.get('isAuthenticated'), true
+    assert.equal currentURL(), '/'
