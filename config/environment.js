@@ -9,8 +9,7 @@ module.exports = function(environment) {
     locationType: 'auto',
     'simple-auth': {
       authenticationRoute: 'login',
-      routeAfterAuthentication: 'apis',
-      routeIfAlreadyAuthenticated: 'apis'
+      routeAfterAuthentication: 'index',
     },
     EmberENV: {
       FEATURES: {
@@ -65,7 +64,7 @@ module.exports = function(environment) {
 
     ENV.api.swaggerViewerPath = '/swagger';
     ENV.api.swaggerJsonPath = '/swagger';
-    
+
     // uncomment for stand-alone gateway API
     //ENV.api.host = 'http://localhost:5000'
   }
