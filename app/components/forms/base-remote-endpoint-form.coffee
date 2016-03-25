@@ -6,6 +6,8 @@
 BaseRemoteEndpointFormComponent = BaseFormComponent.extend
   types: null
 
+  newPushPlatformAction: 'new-remote-endpoint-push-platform'
+
   'option-groups': Ember.computed ->
     type: @get 'types'
     sslmode: RemoteEndpointLike.sslModes
@@ -248,5 +250,9 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
     'new-remote-endpoint-query-parameter': -> @createNewQueryParameterModel()
     'delete-remote-endpoint-host': (record) -> record.deleteRecord()
     'new-remote-endpoint-host': -> @createNewHostModel()
+    'delete-remote-endpoint-push-platform': (model) ->
+      model.deleteRecord()
+    'new-remote-endpoint-push-platform': ->
+      @sendAction 'newPushPlatformAction'
 
 `export default BaseRemoteEndpointFormComponent`

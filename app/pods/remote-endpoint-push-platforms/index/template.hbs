@@ -1,0 +1,13 @@
+{{#ap-page t='resources.remote-endpoint-push-platform_plural'}}
+
+  {{ap-table-index
+      models=model
+      fields='type,name'
+      path='remote-endpoint-push-platform.index'
+      edit-path='remote-endpoint-push-platform.edit'}}
+
+  {{#ap-panel-new t='resources.remote-endpoint-push-platform' closed=(unbound model.length)}}
+    {{forms/remote-endpoint-push-platform-form indexModel=model}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}

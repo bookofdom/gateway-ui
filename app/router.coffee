@@ -51,10 +51,18 @@ Router.map ->
       @route 'remote-endpoints', resetNamespace: true, ->
         @route 'remote-endpoint', resetNamespace: true, path: ':remote_endpoint_id', ->
           @route 'edit'
+          @route 'remote-endpoint-push-platforms', resetNamespace: true, path: 'push-platforms', ->
+            @route 'new'
+            @route 'remote-endpoint-push-platform', resetNamespace: true, path: ':push_platform_id', ->
+              @route 'edit'
           @route 'remote-endpoint-environment-data', resetNamespace: true, path: 'environment-data', ->
             @route 'new'
             @route 'remote-endpoint-environment-datum', resetNamespace: true, path: ':remote_endpoint_environment_datum_id', ->
               @route 'edit'
+              @route 'remote-endpoint-environment-datum-push-platforms', resetNamespace: true, path: 'push-platforms', ->
+                @route 'new'
+                @route 'remote-endpoint-environment-datum-push-platform', resetNamespace: true, path: ':push_platform_id', ->
+                  @route 'edit'
               @route 'remote-endpoint-environment-datum-scratch-pads', resetNamespace: true, path: 'scratch-pads', ->
                 @route 'new'
                 @route 'remote-endpoint-environment-datum-scratch-pad', resetNamespace: true, path: ':scratch_pad_id', ->
