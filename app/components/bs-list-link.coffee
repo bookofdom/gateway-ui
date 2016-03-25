@@ -7,7 +7,8 @@ BsListLinkComponent = BsTextComponent.extend
   path: null
   arg1: null
   url: null
-  click: ->
+  click: (e) ->
+    e.preventDefault() if !@get('path') and !@get('url')
     @sendAction 'action', @get('arg1') if !@get 'disabled'
 
 `export default BsListLinkComponent`
