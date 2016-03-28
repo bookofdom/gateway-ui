@@ -62,10 +62,10 @@ config = ->
   @put '/apis/:apiId/hosts/:id', makePutHandler 'host'
   @del '/apis/:apiId/hosts/:id'
 
-  @get '/apis/:apiId/endpoing_groups', makeGetChildrenHandler('api', 'endpoint_group')
-  @post '/apis/:apiId/endpoing_groups', makePostChildHandler('api', 'endpoint_group')
-  @get '/apis/:apiId/endpoing_groups/:id'
-  @put '/apis/:apiId/endpoing_groups/:id', makePutHandler 'endpoint_group'
-  @del '/apis/:apiId/endpoing_groups/:id'
+  @get '/apis/:apiId/endpoint_groups', makeGetChildrenHandler('api', 'endpoint_group')
+  @post '/apis/:apiId/endpoint_groups', makePostChildHandler('api', 'endpoint_group')
+  @get '/apis/:apiId/endpoint_groups/:id'
+  @put '/apis/:apiId/endpoint_groups/:id', makePutHandler 'endpoint_group'
+  @del '/apis/:apiId/endpoint_groups/:id'
 
 `export default config`
