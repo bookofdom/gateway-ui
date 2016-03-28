@@ -1,0 +1,13 @@
+{{partial 'components/forms/base-form'}}
+
+{{#unless model.isNew}}
+  {{#ap-panel-edit t='resources.environment-variable_plural'}}
+    {{ap-table-model
+      models=model.variables
+      delete-action='delete-environment-variable'
+      component-name='forms/environment-variable-inline-form'}}
+    {{ap-button-block-new
+      t='resources.environment-variable'
+      action='new-environment-variable'}}
+  {{/ap-panel-edit}}
+{{/unless}}

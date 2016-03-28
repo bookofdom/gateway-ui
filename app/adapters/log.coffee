@@ -1,11 +1,11 @@
-`import ApplicationAdapter from './application'`
-`import config from  '../config/environment'`
+`import ApplicationAdapter from 'gateway/adapters/application'`
+`import config from  'gateway/config/environment'`
 
 # Only one log socket allowed in app.  That socket is kept here.
 # Record updating is handled by the adapter, so the record is stored here.
 # These are kept outside of the adapter class since adapters are disposable.
 socket = null
-socketRecord = null
+socketModel = null
 
 LogAdapter = ApplicationAdapter.extend Ember.Evented,
   websockets: Ember.inject.service 'websockets'
@@ -24,7 +24,7 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
     if firstPart
       url = "#{firstPart}/logs"
     else
-      url = @_super.apply @, arguments
+      url = @_super arguments...
     url
 
   buildSocketURL: (type, id, snapshot, query={}) ->
@@ -40,20 +40,20 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
     url = @cleanURL url
     url
 
-  enableStreaming: (record) ->
-    snapshot = record._createSnapshot()
+  enableStreaming: (model) ->
+    snapshot = model._createSnapshot()
     query =
-      api: record.get 'api'
-      proxy_endpoint: record.get 'proxy_endpoint'
-    url = @buildSocketURL 'log', record.id, snapshot, query
-    @prepareRecordForStreaming record
+      api: model.get 'api'
+      proxy_endpoint: model.get 'proxy_endpoint'
+    url = @buildSocketURL 'log', model.id, snapshot, query
+    @prepareModelForStreaming model
     @openSocket url
 
   disableStreaming: -> @closeSocket()
 
-  prepareRecordForStreaming: (record) ->
-    record.set 'body', ''
-    socketRecord = record
+  prepareModelForStreaming: (model) ->
+    model.set 'body', ''
+    socketModel = model
 
   closeSocket: ->
     oldSocketUrl = socket?.socket?.url
@@ -67,7 +67,7 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
     socket = newSocket
 
   onSocketMessage: Ember.on 'socketMessage', (data) ->
-    record = socketRecord
-    record.pushLogLine data
+    model = socketModel
+    model.pushLogLine data
 
 `export default LogAdapter`

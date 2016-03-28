@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 `import t from 'gateway/helpers/i18n'`
-`import config from '../config/environment'`
+`import config from 'gateway/config/environment'`
 
 ApTableAutoIndexComponent = Ember.Component.extend
   notify: Ember.inject.service()
@@ -33,5 +33,11 @@ ApTableAutoIndexComponent = Ember.Component.extend
       confirmText = t('prompts.confirm-delete').capitalize()
       if config.confirmDelete and confirm(confirmText)
         @delete model
+
+    toggleBoolean: (model, fieldName, autoSave) ->
+      model.reload().then ->
+        value = model.get fieldName
+        model.set fieldName, !value
+        model.save() if autoSave
 
 `export default ApTableAutoIndexComponent`

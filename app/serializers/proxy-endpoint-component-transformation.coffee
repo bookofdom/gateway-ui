@@ -1,15 +1,20 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from './application'`
+`import ApplicationSerializer from 'gateway/serializers/application'`
 
 ProxyEndpointComponentTransformationSerializer = ApplicationSerializer.extend
+  attrs:
+    proxy_endpoint_component:
+      serialize: false
+    proxy_endpoint_component_call:
+      serialize: false
   normalize: (type, hash, property) ->
     # `data` is reserved in Ember, so transform to `body` attribute
     hash.body = hash.data
-    @_super.apply @, arguments
-  serialize: (model) ->
-    serialized = @_super.apply @, arguments
+    @_super arguments...
+  serialize: (snapshot) ->
+    serialized = @_super arguments...
     # Serializes `body` back into `data`
-    serialized.data = model.get 'body'
+    serialized.data = snapshot.attributes().body
     delete serialized['body']
     serialized
 

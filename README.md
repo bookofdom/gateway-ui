@@ -21,30 +21,12 @@ is available in the terminal:
 ## Installation
 * `git clone <repository-url>` this repository
 * `cd` into the new directory
-* `docker-compose run --rm npm install` or if using aliases:
-`npm install`
-* `docker-compose run --rm bower install` or if using aliases:
-`bower install`
-
-
-## Understanding Dependency Volumes
-Dependencies (`node_modules`, `bower_components`) and cached development build
-artifacts (`.sass-cache`, `tmp`) are stored within shared Docker volumes,
-thereby maintaining a clean host project folder.  You won't see these artifacts,
-although you may see empty folders appear within the project after installing
-dependencies or executing ember functions.
-
-The production build process (see below) does not use shared Docker volumes.
-
-
-## Setup Aliases (Optional)
-For convenience, you may alias `npm`, `bower`, and `ember` to their Docker
-counterparts.  Execute `source aliases.sh` at the command line.  To make these
-aliases permanent, copy the contents of `aliases.sh` to your `.bash_profile`.
+* `docker-compose run --rm npm install`
+* `docker-compose run --rm bower install`
 
 
 ## Running / Development
-* `docker-compose up server` or if using aliases:  `ember server`
+* `docker-compose up ember`
 * Determine your Docker container's IP:
   * On Mac OS X:  `docker-machine ls`
   * On Linux:  `docker inspect <container ID>`
@@ -55,19 +37,14 @@ aliases permanent, copy the contents of `aliases.sh` to your `.bash_profile`.
 ## Building
 To output production build artifacts into the project's `dist/` folder:
 
+    docker-compose run --rm npm install
+    docker-compose run --rm bower install
     GATEWAY_UI_DEST=./dist docker-compose run --rm build_production
 
 **Note**:  the `GATEWAY_UI_DEST` environment variable _must_ be set.
 
-The build service installs NPM and Bower dependencies automatically in the
-container's ephemeral filesystem before every build.  Dependencies and build
-artifacts are never stored in shared Docker volumes and never persist across
-builds.  This ensures clean, consistent, and repeatable production builds.
-
 To output production build artifacts to a another location, replace
-`/path/to/output` below with your desired destination folder.
-
-    GATEWAY_UI_DEST=/path/to/output docker-compose run --rm build_production
+`./dist` above with your desired destination folder.
 
 
 ## Further Reading / Useful Links

@@ -25,12 +25,13 @@
 {{#unless model.isDeleted}}
   {{yield}}
 
-  {{ap-form-actions
-    inline=inline
-    horizontal=horizontal
-    show-save=show-save
-    show-cancel=show-cancel
-    show-delete=deletable}}
+  {{#unless embedded}}
+    {{ap-form-actions
+      horizontal=horizontal
+      show-save=show-save
+      show-cancel=show-cancel
+      show-delete=deletable}}
+  {{/unless}}
 
   {{ap-model-form-group
     model=model
@@ -40,6 +41,6 @@
     horizontal=horizontal}}
 {{/unless}}
 
-{{#if model.isDeleted}}
+{{#if (and model.isDeleted model.notification.message)}}
   {{bs-text t=model.notification.message class='alert alert-danger'}}
 {{/if}}

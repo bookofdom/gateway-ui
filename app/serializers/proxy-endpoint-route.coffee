@@ -1,10 +1,13 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from './application'`
+`import ApplicationSerializer from 'gateway/serializers/application'`
 
 ProxyEndpointRouteSerializer = ApplicationSerializer.extend
+  attrs:
+    proxy_endpoint:
+      serialize: false
   normalize: (type, hash, property) ->
     @normalizeMethods hash
-    @_super.apply @, arguments
+    @_super arguments...
   normalizeMethods: (hash) ->
     hash.methods ?= []
     hash.methods = (method.toLowerCase() for method in hash.methods)
@@ -12,12 +15,15 @@ ProxyEndpointRouteSerializer = ApplicationSerializer.extend
     hash.post_method = hash.methods.contains 'post'
     hash.put_method = hash.methods.contains 'put'
     hash.delete_method = hash.methods.contains 'delete'
-    delete hash['method']
+    delete hash['methods']
     hash
-  serialize: (model) ->
-    serialized = @_super.apply @, arguments
-    serialized.methods = model.get 'methodsArray'
-    delete serialized['methodsArray']
+  serialize: (snapshot) ->
+    serialized = @_super arguments...
+    serialized.methods = @serializeMethods serialized
     serialized
+  serializeMethods: (serialized) ->
+    methods = for method in ['get', 'post', 'put', 'delete']
+      method.toUpperCase() if serialized["#{method}_method"]
+    methods.compact()
 
 `export default ProxyEndpointRouteSerializer`

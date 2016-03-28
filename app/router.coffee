@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import GooglePageviewMixin from './mixins/google-pageview'`
-`import config from './config/environment'`
+`import GooglePageviewMixin from 'gateway/mixins/google-pageview'`
+`import config from 'gateway/config/environment'`
 
 Router = Ember.Router.extend GooglePageviewMixin,
   location: config.locationType
@@ -14,55 +14,74 @@ Router.map ->
     @route 'reset-confirmation'
 
   # resources
-  @resource 'users', ->
-    @resource 'user', path: ':user_id', ->
+  @route 'users', resetNamespace: true, ->
+    @route 'user', resetNamespace: true, path: ':user_id', ->
       @route 'edit'
-  @resource 'logs', (->)
-  @resource 'apis', ->
-    @resource 'api', path: ':api_id', ->
+  @route 'logs', resetNamespace: true, (->)
+  @route 'apis', resetNamespace: true, ->
+    @route 'api', resetNamespace: true, path: ':api_id', ->
       @route 'edit'
-      @resource 'proxy-endpoints', ->
-        @resource 'proxy-endpoint', path: ':proxy_endpoint_id', ->
+      @route 'proxy-endpoints', resetNamespace: true, ->
+        @route 'proxy-endpoint', resetNamespace: true, path: ':proxy_endpoint_id', ->
           @route 'edit'
-          @resource 'proxy-endpoint-routes', path: 'routes', ->
-            @resource 'proxy-endpoint-route', path: ':proxy_endpoint_route_id', ->
+          @route 'proxy-endpoint-routes', resetNamespace: true, path: 'routes', ->
+            @route 'proxy-endpoint-route', resetNamespace: true, path: ':proxy_endpoint_route_id', ->
               @route 'edit'
-          @resource 'proxy-endpoint-components', path: 'components', ->
+          @route 'proxy-endpoint-components', resetNamespace: true, path: 'components', ->
             @route 'new', ->
               @route 'type', path: ':proxy_endpoint_component_type'
-            @resource 'proxy-endpoint-component', path: ':proxy_endpoint_component_id', ->
+            @route 'proxy-endpoint-component', resetNamespace: true, path: ':proxy_endpoint_component_id', ->
               @route 'edit'
-              @resource 'proxy-endpoint-component-calls', path: 'calls', ->
-                @resource 'proxy-endpoint-component-call', path: ':proxy_endpoint_component_call_id', ->
+              @route 'proxy-endpoint-component-calls', resetNamespace: true, path: 'calls', ->
+                @route 'proxy-endpoint-component-call', resetNamespace: true, path: ':proxy_endpoint_component_call_id', ->
                   @route 'edit'
-          @resource 'proxy-endpoint-tests', path: 'tests', ->
-            @resource 'proxy-endpoint-test', path: ':proxy_endpoint_test_id', ->
+          @route 'proxy-endpoint-tests', resetNamespace: true, path: 'tests', ->
+            @route 'proxy-endpoint-test', resetNamespace: true, path: ':proxy_endpoint_test_id', ->
               @route 'edit'
-          @resource 'proxy-endpoint-schemas', path: 'schemas', ->
-            @resource 'proxy-endpoint-schema', path: ':proxy_endpoint_schema_id', ->
+          @route 'proxy-endpoint-schemas', resetNamespace: true, path: 'schemas', ->
+            @route 'proxy-endpoint-schema', resetNamespace: true, path: ':proxy_endpoint_schema_id', ->
               @route 'edit'
-          @resource 'logs-proxy-endpoint', path: 'logs', (->)
-      @resource 'environments', ->
-        @resource 'environment', path: ':environment_id', ->
+          @route 'logs-proxy-endpoint', resetNamespace: true, path: 'logs', (->)
+      @route 'shared-components', resetNamespace: true, path: 'components', ->
+        @route 'new', ->
+          @route 'type', path: ':shared_component_type'
+        @route 'shared-component', resetNamespace: true, path: ':shared_component_id', ->
           @route 'edit'
-      @resource 'endpoint-groups', path: 'groups', ->
-        @resource 'endpoint-group', path: ':endpoint_group_id', ->
+          @route 'shared-component-calls', resetNamespace: true, path: 'calls', ->
+            @route 'shared-component-call', resetNamespace: true, path: ':shared_component_call_id', ->
+              @route 'edit'
+      @route 'environments', resetNamespace: true, ->
+        @route 'environment', resetNamespace: true, path: ':environment_id', ->
           @route 'edit'
-      @resource 'remote-endpoints', ->
-        @resource 'remote-endpoint', path: ':remote_endpoint_id', ->
+      @route 'endpoint-groups', resetNamespace: true, path: 'groups', ->
+        @route 'endpoint-group', resetNamespace: true, path: ':endpoint_group_id', ->
           @route 'edit'
-          @resource 'remote-endpoint-environment-data', path: 'environment-data', ->
+      @route 'remote-endpoints', resetNamespace: true, ->
+        @route 'remote-endpoint', resetNamespace: true, path: ':remote_endpoint_id', ->
+          @route 'edit'
+          @route 'remote-endpoint-environment-data', resetNamespace: true, path: 'environment-data', ->
             @route 'new'
-            @resource 'remote-endpoint-environment-datum', path: ':remote_endpoint_environment_datum_id', ->
+            @route 'remote-endpoint-environment-datum', resetNamespace: true, path: ':remote_endpoint_environment_datum_id', ->
               @route 'edit'
-      @resource 'hosts', ->
-        @resource 'host', path: ':host_id', ->
+              @route 'remote-endpoint-environment-datum-scratch-pads', resetNamespace: true, path: 'scratch-pads', ->
+                @route 'new'
+                @route 'remote-endpoint-environment-datum-scratch-pad', resetNamespace: true, path: ':scratch_pad_id', ->
+                  @route 'edit'
+      @route 'hosts', resetNamespace: true, ->
+        @route 'host', resetNamespace: true, path: ':host_id', ->
           @route 'edit'
-      @resource 'libraries', ->
-        @resource 'library', path: ':library_id', ->
+      @route 'libraries', resetNamespace: true, ->
+        @route 'library', resetNamespace: true, path: ':library_id', ->
           @route 'edit'
-      @resource 'logs-api', path: 'logs', (->)
-      @resource 'api-documentation', path: 'api', ->
-        @resource 'api-documentation-detail', path: ':host_id', (->)
+      @route 'logs-api', resetNamespace: true, path: 'logs', (->)
+      @route 'api-documentation', resetNamespace: true, path: 'api', ->
+        @route 'api-documentation-detail', resetNamespace: true, path: ':host_id', (->)
+  @route 'store-collections', resetNamespace: true, path: 'collections', ->
+    @route 'new'
+    @route 'store-collection', resetNamespace: true, path: ':collection_id', ->
+      @route 'edit'
+      @route 'store-objects', resetNamespace: true, path: 'objects', ->
+        @route 'store-object', resetNamespace: true, path: ':object_id', ->
+          @route 'edit'
 
 `export default Router`

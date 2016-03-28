@@ -47,12 +47,15 @@
     "define-api_plural": "define APIs",
     "manage-api": "manage API",
     "manage-api_plural": "manage APIs",
+    "manage-store": "स्टोर का प्रबंधन",
+    "manage-store_plural": "दुकानों का प्रबंधन",
     "build-app": "build app",
     "build-app_plural": "build apps",
     "terms-and-conditions": "नियम और शर्तें",
     "descriptions": {
       "define-api": "define API endpoints and workflow business logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
+      "manage-store": "एक वस्तु की दुकान में डेटा प्रबंधन",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
@@ -62,6 +65,7 @@
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "देखें , खोज, और धारा के लॉग",
       "api-documentation": "इंटरैक्टिव एपीआई प्रलेखन और परीक्षण एपीआई कॉल देखने",
+      "shared-components": "प्रॉक्सी समापन के लिए पुन: प्रयोज्य घटकों का निर्माण",
       "terms-and-conditions": "एक खाते के लिए पंजीकरण करके आप JustAPIs नियमों और शर्तों को स्वीकार करते",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
@@ -120,6 +124,8 @@
     "remote-endpoint-header_plural": "headers",
     "remote-endpoint-query-parameter": "query parameter",
     "remote-endpoint-query-parameter_plural": "query parameters",
+    "remote-endpoint-environment-datum-scratch-pad": "नोटबुक",
+    "remote-endpoint-environment-datum-scratch-pad_plural": "स्क्रैच पैड",
     "host": "host",
     "host_plural": "hosts",
     "library": "shared library",
@@ -129,14 +135,23 @@
     "notificaiton": "अधिसूचना",
     "notification_plural": "सूचनाएं",
     "api-documentation": "एपीआई प्रलेखन",
-    "api-documentation_plural": "$t(resources.api-documentation)"
-  },
-  "proxy-endpoint-component-types": {
-    "single-proxy": "single call",
-    "multi-proxy": "multi-call",
-    "javascript-logic": "logic"
+    "api-documentation_plural": "$t(resources.api-documentation)",
+    "shared-component": "$t(resources.proxy-endpoint-component)",
+    "shared-component_plural": "$t(resources.proxy-endpoint-component_plural)",
+    "shared-component-call": "$t(resources.proxy-endpoint-component-call)",
+    "shared-component-call_plural": "$t(resources.proxy-endpoint-component-call_plural)",
+    "shared-component-transformation": "$t(resources.proxy-endpoint-component-transformation)",
+    "shared-component-transformation_plural": "$t(resources.proxy-endpoint-component-transformation_plural)",
+    "store-collection": "संग्रह",
+    "store-collection_plural": "संग्रह",
+    "store-object": "वस्तु",
+    "store-object_plural": "वस्तुओं"
   },
   "fields": {
+    "code": "कोड",
+    "error": "त्रुटि",
+    "request": "निवेदन",
+    "response": "प्रतिक्रिया",
     "admin": "व्यवस्थापक",
     "email": "email",
     "password": "password",
@@ -166,6 +181,8 @@
     "logic": "logic",
     "before": "before request logic",
     "after": "after request logic",
+    "session_type": "सत्र प्रकार",
+    "session_header": "सत्र हैडर",
     "session_name": "session name",
     "session_auth_key": "session auth key",
     "session_encryption_key": "session encryption key",
@@ -204,18 +221,23 @@
     "import": "आयात",
     "show_javascript_errors": "$t(languages.javascript) त्रुटियों को दिखाने",
     "status": "स्थिति",
-    "help": {
-      "timeout": "सेकंड की संख्या।",
-      "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
-      "enable_swagger": "एपीआई प्रलेखन ब्राउज़ करें और `swagger.json` प्रकाशित करने के लिए अकड़ सक्षम करें।"
-    },
     "interpreter": "दुभाषिया",
     "filepath": "दस्तावेज पथ",
     "script": "लिपि",
     "request_schema": "अनुरोध स्कीमा",
     "response_same_as_request": "अनुरोध के रूप में एक ही प्रतिक्रिया",
     "response_schema": "प्रतिक्रिया स्कीमा",
-    "organization": "संगठन"
+    "organization": "संगठन",
+    "use_tls": "टीएलएस का उपयोग",
+    "encoded_certificate": "इनकोडिंग प्रमाण पत्र",
+    "encoded_private_key": "इनकोडिंग निजी कुंजी",
+    "server_name": "सर्वर का नाम",
+    "private_key_password": "निजी कुंजी पासवर्ड",
+    "help": {
+      "timeout": "सेकंड की संख्या।",
+      "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
+      "enable_swagger": "एपीआई प्रलेखन ब्राउज़ करें और `swagger.json` प्रकाशित करने के लिए अकड़ सक्षम करें।"
+    }
   },
   "prompts": {
     "generic": "choose one",
@@ -248,7 +270,8 @@
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
     "invalid-password": "invalid password",
-    "login": "हम आपको लॉग इन करने में असमर्थ थे"
+    "login": "हम आपको लॉग इन करने में असमर्थ थे",
+    "invalid-json": "अवैध JSON"
   },
   "successes": {
     "saved-successfully": "saved successfully",
@@ -270,7 +293,18 @@
     "import": "__user__ आयातित एक __resource__"
   },
   "types": {
+    "proxy-endpoint-component": {
+      "single": "single call",
+      "multi": "multi-call",
+      "js": "logic",
+      "shared": "साझा"
+    },
+    "session": {
+      "client": "ग्राहक",
+      "server": "सर्वर"
+    },
     "remote-endpoint": {
+      "store": "दुकान",
       "script": "लिपि",
       "status-types": {
         "success": "सफलता",

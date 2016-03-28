@@ -78,10 +78,9 @@ ApModelFieldComponent = BsBaseComponent.extend
         prompt = @get 'prompt'
         firstOption = @get 'options.firstObject'
         isSelect = @get 'isSelect'
-        isNew = @get 'model.isNew'
         # Selects with no value set AND no prompt should have the first
         # option automatically selected as the value.
-        if isSelect and !prompt and firstOption and (!value or isNew) # TODO remove isNew clause and refix for Ember 2 issue https://www.pivotaltracker.com/story/show/113188541
+        if isSelect and !prompt and firstOption and !value
           @set 'value', firstOption
         value
       set: (key, value) ->

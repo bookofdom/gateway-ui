@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import Model from './model'`
-`import config from  '../config/environment'`
+`import Model from 'gateway/models/model'`
+`import config from  'gateway/config/environment'`
 
 Api = Model.extend
   name: DS.attr 'string'
@@ -21,6 +21,7 @@ Api = Model.extend
   remote_endpoints: DS.hasMany 'remote-endpoint', async: true
   hosts: DS.hasMany 'host', async: true
   libraries: DS.hasMany 'library', async: true
+  shared_components: DS.hasMany 'shared-component', async: true
 
   # Computed
   exportUrl: Ember.computed ->

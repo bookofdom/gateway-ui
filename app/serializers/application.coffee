@@ -9,7 +9,7 @@ ApplicationSerializer = DS.RESTSerializer.extend
   # for client-side tracking purposes.
   normalize: (type, hash, property) ->
     hash.id = @generateId() if !hash.id
-    @_super.apply @, arguments
+    @_super arguments...
 
   payloadKeyFromModelName: (modelName) ->
     Ember.String.underscore modelName
@@ -22,7 +22,7 @@ ApplicationSerializer = DS.RESTSerializer.extend
       else key
 
   serialize: ->
-    serialized = @_super.apply @, arguments
+    serialized = @_super arguments...
     @serializeId serialized
     delete serialized['api_id']
     serialized
@@ -39,7 +39,7 @@ ApplicationSerializer = DS.RESTSerializer.extend
       belongsToId = snapshot.belongsTo key, id: true
       # if provided, use the mapping provided by `attrs` in
       # the serializer
-      payloadKey = @_getMappedKey key
+      payloadKey = @_getMappedKey key, snapshot.type
       if (payloadKey is key) and @keyForRelationship
         payloadKey = @keyForRelationship key, 'belongsTo', 'serialize'
       # Need to check whether the id is there for new&async records

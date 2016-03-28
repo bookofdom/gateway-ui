@@ -6,20 +6,20 @@ DelegateEmbeddedOperationsMixin = Ember.Mixin.create
     if embeddingParent
       embeddingParent.save()
     else
-      @_super.apply @, arguments
+      @_super arguments...
 
   reload: ->
     embeddingParent = @get 'embeddingParent'
     if embeddingParent
       embeddingParent.reload()
     else
-      @_super.apply @, arguments
+      @_super arguments...
 
   rollback: ->
     embeddingParent = @get 'embeddingParent'
     if embeddingParent
       embeddingParent.rollback()
     else
-      @_super.apply @, arguments
+      @_super arguments...
 
 `export default DelegateEmbeddedOperationsMixin`

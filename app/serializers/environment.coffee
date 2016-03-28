@@ -1,14 +1,17 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from './application'`
+`import ApplicationSerializer from 'gateway/serializers/application'`
 
 EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
+    api:
+      serialize: false
     variables:
       serialize: false
       deserialize: 'records'
   normalize: (type, hash, property) ->
+    hash.variables = [] if !hash.variables
     @normalizeVariables hash
-    @_super.apply @, arguments
+    @_super arguments...
   normalizeVariables: (hash) ->
     # `data` is reserved in Ember, so transform into `variables`
     hash.data ?= {}
@@ -18,14 +21,15 @@ EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
         name: key
         value: value
     hash
-  serialize: (model) ->
-    serialized = @_super.apply @, arguments
-    serialized.data = @serializeVariables model
+  serialize: (snapshot) ->
+    serialized = @_super arguments...
+    serialized.data = @serializeVariables snapshot
     serialized
-  serializeVariables: (model) ->
+  serializeVariables: (snapshot) ->
     hash = {}
-    model.get('variables').forEach (variable) ->
-      hash[variable.get 'name'] = variable.get 'value'
+    snapshot.hasMany('variables').forEach (variableSnapshot) ->
+      attributes = variableSnapshot.attributes()
+      hash[attributes.name] = attributes.value
     hash
 
 `export default EnvironmentSerializer`

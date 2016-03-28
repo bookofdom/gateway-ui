@@ -5,11 +5,14 @@ ApTableModelComponent = BsBaseComponent.extend
   notify: Ember.inject.service()
   classNames: ['ap-table-model']
   models: null # array of model instances
+  indexModel: null
+  'option-groups': null
   'delete-action': 'delete'
   'refresh-action': 'refresh'
   'auto-delete': true
   'edit-path': null
   'partial-path': null
+  'component-name': null
   'custom-primary-action': null
   'custom-primary-icon': null
   'custom-primary-t': null

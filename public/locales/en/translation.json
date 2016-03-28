@@ -47,12 +47,15 @@
     "define-api_plural": "define APIs",
     "manage-api": "manage API",
     "manage-api_plural": "manage APIs",
+    "manage-store": "manage store",
+    "manage-store_plural": "manage stores",
     "build-app": "build app",
     "build-app_plural": "build apps",
     "terms-and-conditions": "terms and conditions",
     "descriptions": {
       "define-api": "define API endpoints and workflow business logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
+      "manage-store": "manage data in an object store",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
@@ -62,6 +65,7 @@
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "view, search, and stream logs",
       "api-documentation": "view interactive API documentation and test API calls",
+      "shared-components": "build reusable components for proxy endpoints",
       "terms-and-conditions": "by registering for an account you accept the JustAPIs terms and conditions",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
@@ -120,6 +124,8 @@
     "remote-endpoint-header_plural": "headers",
     "remote-endpoint-query-parameter": "query parameter",
     "remote-endpoint-query-parameter_plural": "query parameters",
+    "remote-endpoint-environment-datum-scratch-pad": "scratch pad",
+    "remote-endpoint-environment-datum-scratch-pad_plural": "scratch pads",
     "host": "host",
     "host_plural": "hosts",
     "library": "shared library",
@@ -129,14 +135,24 @@
     "notificaiton": "notification",
     "notification_plural": "notifications",
     "api-documentation": "API documentation",
-    "api-documentation_plural": "$t(resources.api-documentation)"
-  },
-  "proxy-endpoint-component-types": {
-    "single-proxy": "single call",
-    "multi-proxy": "multi-call",
-    "javascript-logic": "logic"
+    "api-documentation_plural": "$t(resources.api-documentation)",
+    "shared-component": "$t(resources.proxy-endpoint-component)",
+    "shared-component_plural": "$t(resources.proxy-endpoint-component_plural)",
+    "shared-component-call": "$t(resources.proxy-endpoint-component-call)",
+    "shared-component-call_plural": "$t(resources.proxy-endpoint-component-call_plural)",
+    "shared-component-transformation": "$t(resources.proxy-endpoint-component-transformation)",
+    "shared-component-transformation_plural": "$t(resources.proxy-endpoint-component-transformation_plural)",
+    "store-collection": "collection",
+    "store-collection_plural": "collections",
+    "store-object": "object",
+    "store-object_plural": "objects"
   },
   "fields": {
+    "id": "id",
+    "code": "code",
+    "error": "error",
+    "request": "request",
+    "response": "response",
     "admin": "admin",
     "email": "email",
     "password": "password",
@@ -166,6 +182,8 @@
     "logic": "logic",
     "before": "before request logic",
     "after": "after request logic",
+    "session_type": "session type",
+    "session_header": "session header",
     "session_name": "session name",
     "session_auth_key": "session auth key",
     "session_encryption_key": "session encryption key",
@@ -206,18 +224,23 @@
     "show_javascript_errors": "show $t(languages.javascript) errors",
     "base_url": "base URL",
     "status": "status",
-    "help": {
-      "timeout": "Number of seconds.",
-      "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
-      "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`."
-    },
     "interpreter": "interpreter",
     "filepath": "file path",
     "script": "script",
     "request_schema": "request schema",
     "response_same_as_request": "response same as request",
     "response_schema": "response schema",
-    "organization": "organization"
+    "organization": "organization",
+    "use_tls": "use TLS",
+    "encoded_certificate": "encoded certificate",
+    "encoded_private_key": "encoded private key",
+    "server_name": "server name",
+    "private_key_password": "private key password",
+    "help": {
+      "timeout": "Number of seconds.",
+      "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
+      "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`."
+    }
   },
   "prompts": {
     "generic": "choose one",
@@ -241,6 +264,7 @@
   },
   "languages": {
     "javascript": "JavaScript",
+    "json": "JSON",
     "english": "English",
     "spanish": "Español",
     "brazilian-portuguese": "Português Brasileiro",
@@ -250,7 +274,8 @@
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
     "invalid-password": "invalid password",
-    "login": "we were unable to log you in"
+    "login": "we were unable to log you in",
+    "invalid-json": "invalid JSON"
   },
   "successes": {
     "saved-successfully": "saved successfully",
@@ -272,13 +297,25 @@
     "import": "__user__ imported one __resource__"
   },
   "types": {
+    "proxy-endpoint-component": {
+      "single": "single call",
+      "multi": "multi-call",
+      "js": "logic",
+      "shared": "shared"
+    },
+    "session": {
+      "client": "client",
+      "server": "server"
+    },
     "remote-endpoint": {
       "http": "HTTP",
       "soap": "SOAP",
+      "store": "store",
       "sqlserver": "SQL Server",
       "postgres": "PostgreSQL",
       "mysql": "MySQL",
       "mongodb": "MongoDB",
+      "ldap": "LDAP",
       "script": "Script",
       "status-types": {
         "success": "success",

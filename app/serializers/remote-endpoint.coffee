@@ -1,6 +1,11 @@
 `import DS from 'ember-data'`
-`import RemoteEndpointLikeSerializer from './remote-endpoint-like'`
+`import RemoteEndpointLikeSerializer from 'gateway/serializers/remote-endpoint-like'`
 
-RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend()
+RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend
+  attrs:
+    api:
+      serialize: false
+    environment_data:
+      embedded: 'always'
 
 `export default RemoteEndpointSerializer`

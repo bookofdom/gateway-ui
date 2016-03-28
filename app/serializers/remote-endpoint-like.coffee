@@ -1,12 +1,13 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from './application'`
-`import HttpRemoteEndpointSerializer from './remote-endpoint/http'`
-`import SoapRemoteEndpointSerializer from './remote-endpoint/soap'`
-`import SqlserverRemoteEndpointSerializer from './remote-endpoint/sqlserver'`
-`import PostgresRemoteEndpointSerializer from './remote-endpoint/postgres'`
-`import MysqlRemoteEndpointSerializer from './remote-endpoint/mysql'`
-`import MongodbRemoteEndpointSerializer from './remote-endpoint/mongodb'`
-`import ScriptRemoteEndpointSerializer from './remote-endpoint/script'`
+`import ApplicationSerializer from 'gateway/serializers/application'`
+`import HttpRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/http'`
+`import SoapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/soap'`
+`import SqlserverRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/sqlserver'`
+`import PostgresRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/postgres'`
+`import MysqlRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/mysql'`
+`import MongodbRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/mongodb'`
+`import LdapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/ldap'`
+`import ScriptRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/script'`
 
 RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
@@ -18,11 +19,13 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       deserialize: 'records'
     hosts:
       embedded: 'always'
-    environment_data:
-      embedded: 'always'
 
   # Normalization
   normalize: (type, hash, property) ->
+    hash.headers = [] if !hash.headers
+    hash.query = [] if !hash.query
+    hash.hosts = [] if !hash.hosts
+    hash.environment_data = [] if !hash.environment_data
     hash.data ?= {}
     # normalize embedded resources
     @normalizeEnvironmentData hash
@@ -38,8 +41,9 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       when 'postgres' then PostgresRemoteEndpointSerializer.normalize hash
       when 'mysql' then MysqlRemoteEndpointSerializer.normalize hash
       when 'mongodb' then MongodbRemoteEndpointSerializer.normalize hash
+      when 'ldap' then LdapRemoteEndpointSerializer.normalize hash
       when 'script' then ScriptRemoteEndpointSerializer.normalize hash
-    @_super.apply @, arguments
+    @_super arguments...
   normalizeEnvironmentData: (hash) ->
     hash.environment_data ?= []
     datum.type = hash.type for datum in hash.environment_data
@@ -49,13 +53,13 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       value: value
 
   # Serialization
-  serialize: (model) ->
-    serialized = @_super.apply @, arguments
+  serialize: (snapshot) ->
+    serialized = @_super arguments...
     # serialize embedded records
     serialized.data ?= {}
     Ember.merge serialized.data,
-      headers: @serializeHeaders model
-      query: @serializeQuery model
+      headers: @serializeHeaders snapshot
+      query: @serializeQuery snapshot
     # serialize attributes
     switch serialized.type
       when 'http' then HttpRemoteEndpointSerializer.serialize serialized
@@ -65,17 +69,20 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       when 'postgres' then PostgresRemoteEndpointSerializer.serialize serialized
       when 'mysql' then MysqlRemoteEndpointSerializer.serialize serialized
       when 'mongodb' then MongodbRemoteEndpointSerializer.serialize serialized
+      when 'ldap' then LdapRemoteEndpointSerializer.serialize serialized
       when 'script' then ScriptRemoteEndpointSerializer.serialize serialized
     serialized
-  serializeHeaders: (model) ->
+  serializeHeaders: (snapshot) ->
     headers = {}
-    model.get('headers').forEach (header) ->
-      headers[header.get 'name'] = header.get 'value'
+    snapshot.hasMany('headers')?.forEach (headerSnapshot) ->
+      attributes = headerSnapshot.attributes()
+      headers[attributes.name] = attributes.value
     headers
-  serializeQuery: (model) ->
+  serializeQuery: (snapshot) ->
     query = {}
-    model.get('query').forEach (param) ->
-      query[param.get 'name'] = param.get 'value'
+    snapshot.hasMany('query')?.forEach (querySnapshot) ->
+      attributes = querySnapshot.attributes()
+      query[attributes.name] = attributes.value
     query
 
 `export default RemoteEndpointLikeSerializer`
