@@ -9,7 +9,7 @@ defaultScenario = (server) ->
   collections = server.createList 'store_collection', 5
   collections.forEach (collection) ->
     id = collection.id
-    server.createList 'store_object', 5, storeCollectionId: id
+    server.createList 'store_object', 10, storeCollectionId: id
 
   # APIs and api-related
   apis = server.createList 'api', 5
@@ -17,5 +17,6 @@ defaultScenario = (server) ->
     id = api.id
     server.createList 'library', 5, apiId: id
     server.createList 'host', 5, apiId: id
+    server.createList 'endpoint_group', 5, apiId: id
 
 `export default defaultScenario`
