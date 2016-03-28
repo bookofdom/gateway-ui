@@ -21,7 +21,7 @@
     "broccoli-funnel": "^0.2.8",
     "broccoli-merge-trees": "^0.2.3",
     "ember-ajax": "0.7.1",
-    "ember-cli": "2.4.0",
+    "ember-cli": "2.4.3",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-babel": "^5.1.5",
     "ember-cli-coffeescript": "^1.13.2",
