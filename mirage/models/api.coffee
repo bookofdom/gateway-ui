@@ -2,5 +2,6 @@
 
 ApiModel = Model.extend
   libraries: hasMany()
+  hosts: hasMany()
 
 `export default ApiModel`

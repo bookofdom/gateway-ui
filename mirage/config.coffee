@@ -56,4 +56,10 @@ config = ->
   @put '/apis/:apiId/libraries/:id', makePutHandler 'library'
   @del '/apis/:apiId/libraries/:id'
 
+  @get '/apis/:apiId/hosts', makeGetChildrenHandler('api', 'host')
+  @post '/apis/:apiId/hosts', makePostChildHandler('api', 'host')
+  @get '/apis/:apiId/hosts/:id'
+  @put '/apis/:apiId/hosts/:id', makePutHandler 'host'
+  @del '/apis/:apiId/hosts/:id'
+
 `export default config`
