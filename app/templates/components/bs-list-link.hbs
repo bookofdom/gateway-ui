@@ -1,13 +1,20 @@
 {{#unless url}}
-  {{#if arg1}}
-    {{#link-to path arg1}}
-      {{partial 'components/bs-text'}}
-    {{/link-to}}
+  {{#if path}}
+    {{#if arg1}}
+      {{#link-to path arg1}}
+        {{partial 'components/bs-text'}}
+      {{/link-to}}
+    {{/if}}
+    {{#unless arg1}}
+      {{#link-to path}}
+        {{partial 'components/bs-text'}}
+      {{/link-to}}
+    {{/unless}}
   {{/if}}
-  {{#unless arg1}}
-    {{#link-to path}}
+  {{#unless path}}
+    <a href="#">
       {{partial 'components/bs-text'}}
-    {{/link-to}}
+    </a>
   {{/unless}}
 {{/unless}}
 
