@@ -2,6 +2,9 @@ defaultScenario = (server) ->
   # sessions
   server.loadFixtures 'sessions'
 
+  # logs
+  server.createList 'log', 1
+
   # users
   server.createList 'user', 5
 

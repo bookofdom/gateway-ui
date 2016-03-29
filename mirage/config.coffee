@@ -19,6 +19,11 @@ config = ->
     else
       session
 
+  # logs
+  @get '/logs', (schema, request) -> schema.log.all()[0]
+  @get '/apis/:apiId/logs', (schema, request) -> schema.log.all()[0]
+  @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/logs', (schema, request) -> schema.log.all()[0]
+
   # registrations is a dumb endpoint... it just returns the posted payload
   @post '/registrations', (schema, request) -> JSON.parse request.requestBody
 
