@@ -3,7 +3,12 @@
 
 RemoteEndpointPushPlatform = Model.extend
   name: DS.attr 'string'
+  codename: DS.attr 'string'
   type: DS.attr 'string', defaultValue: 'ios'
+  certificate: DS.attr 'string'
+  password: DS.attr 'string'
+  development: DS.attr 'boolean', defaultValue: false
+  api_key: DS.attr 'string'
 
   # Relationships
   remote_endpoint: DS.belongsTo 'remote-endpoint', async: false

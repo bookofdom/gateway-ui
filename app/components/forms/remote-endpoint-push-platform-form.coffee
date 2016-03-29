@@ -19,7 +19,7 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
       value: 'gcm'
     ]
 
-  fields:
+  defaultFields:
     [
       name: 'name'
       required: true
@@ -31,6 +31,39 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
       required: true
       type: 'select'
     ]
+
+  platformFields:
+    osx: [
+      name: 'certificate'
+      type: 'file'
+      required: true
+    ,
+      name: 'password'
+      type: 'password'
+    ,
+      name: 'development'
+    ]
+    ios: [
+      name: 'certificate'
+      type: 'file'
+      required: true
+    ,
+      name: 'password'
+      type: 'password'
+    ,
+      name: 'development'
+    ]
+    gcm: [
+      name: 'api_key'
+      required: true
+    ]
+
+  fields: Ember.computed 'model.type', ->
+    fields = @_super arguments...
+    type = @get 'model.type'
+    platformFields = @get "platformFields.#{type}"
+    fields = Ember.copy(fields).pushObjects platformFields if platformFields
+    fields
 
   submit: ->
     model = @get 'model'
