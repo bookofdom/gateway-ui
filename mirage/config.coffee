@@ -55,6 +55,12 @@ config = ->
   @put '/apis/:id', makePutHandler 'api'
   @del '/apis/:id'
 
+  @get '/apis/:apiId/environments', makeGetChildrenHandler('api', 'environment')
+  @post '/apis/:apiId/environments', makePostChildHandler('api', 'environment')
+  @get '/apis/:apiId/environments/:id'
+  @put '/apis/:apiId/environments/:id', makePutHandler 'environment'
+  @del '/apis/:apiId/environments/:id'
+
   @get '/apis/:apiId/libraries', makeGetChildrenHandler('api', 'library')
   @post '/apis/:apiId/libraries', makePostChildHandler('api', 'library')
   @get '/apis/:apiId/libraries/:id'

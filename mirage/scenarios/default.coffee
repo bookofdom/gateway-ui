@@ -18,6 +18,7 @@ defaultScenario = (server) ->
   apis = server.createList 'api', 5
   apis.forEach (api) ->
     id = api.id
+    server.createList 'environment', 5, apiId: id
     server.createList 'library', 5, apiId: id
     server.createList 'host', 5, apiId: id
     server.createList 'endpoint_group', 5, apiId: id
