@@ -19,6 +19,11 @@ config = ->
     else
       session
 
+  # logs
+  @get '/logs', (schema, request) -> schema.log.all()[0]
+  @get '/apis/:apiId/logs', (schema, request) -> schema.log.all()[0]
+  @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/logs', (schema, request) -> schema.log.all()[0]
+
   # registrations is a dumb endpoint... it just returns the posted payload
   @post '/registrations', (schema, request) -> JSON.parse request.requestBody
 
@@ -49,5 +54,35 @@ config = ->
   @get '/apis/:id'
   @put '/apis/:id', makePutHandler 'api'
   @del '/apis/:id'
+
+  @get '/apis/:apiId/environments', makeGetChildrenHandler('api', 'environment')
+  @post '/apis/:apiId/environments', makePostChildHandler('api', 'environment')
+  @get '/apis/:apiId/environments/:id'
+  @put '/apis/:apiId/environments/:id', makePutHandler 'environment'
+  @del '/apis/:apiId/environments/:id'
+
+  @get '/apis/:apiId/libraries', makeGetChildrenHandler('api', 'library')
+  @post '/apis/:apiId/libraries', makePostChildHandler('api', 'library')
+  @get '/apis/:apiId/libraries/:id'
+  @put '/apis/:apiId/libraries/:id', makePutHandler 'library'
+  @del '/apis/:apiId/libraries/:id'
+
+  @get '/apis/:apiId/hosts', makeGetChildrenHandler('api', 'host')
+  @post '/apis/:apiId/hosts', makePostChildHandler('api', 'host')
+  @get '/apis/:apiId/hosts/:id'
+  @put '/apis/:apiId/hosts/:id', makePutHandler 'host'
+  @del '/apis/:apiId/hosts/:id'
+
+  @get '/apis/:apiId/endpoint_groups', makeGetChildrenHandler('api', 'endpoint_group')
+  @post '/apis/:apiId/endpoint_groups', makePostChildHandler('api', 'endpoint_group')
+  @get '/apis/:apiId/endpoint_groups/:id'
+  @put '/apis/:apiId/endpoint_groups/:id', makePutHandler 'endpoint_group'
+  @del '/apis/:apiId/endpoint_groups/:id'
+
+  @get '/apis/:apiId/remote_endpoints', makeGetChildrenHandler('api', 'remote_endpoint')
+  @post '/apis/:apiId/remote_endpoints', makePostChildHandler('api', 'remote_endpoint')
+  @get '/apis/:apiId/remote_endpoints/:id'
+  @put '/apis/:apiId/remote_endpoints/:id', makePutHandler 'remote_endpoint'
+  @del '/apis/:apiId/remote_endpoints/:id'
 
 `export default config`
