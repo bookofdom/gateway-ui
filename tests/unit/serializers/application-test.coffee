@@ -1,8 +1,9 @@
-`import { moduleFor, test } from 'ember-qunit'`
+`import { moduleForModel, test } from 'ember-qunit'`
+`import Pretender from 'pretender'`
 
-moduleFor 'application', 'Unit | Serializer | application', {
+moduleForModel 'api', 'Unit | Serializer | application', {
   # Specify the other units that are required for this test.
-  # needs: ['serializer:application']
+  needs: ['serializer:api']
 }
 
 # Replace this with your real tests.
