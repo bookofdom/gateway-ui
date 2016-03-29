@@ -79,4 +79,10 @@ config = ->
   @put '/apis/:apiId/endpoint_groups/:id', makePutHandler 'endpoint_group'
   @del '/apis/:apiId/endpoint_groups/:id'
 
+  @get '/apis/:apiId/remote_endpoints', makeGetChildrenHandler('api', 'remote_endpoint')
+  @post '/apis/:apiId/remote_endpoints', makePostChildHandler('api', 'remote_endpoint')
+  @get '/apis/:apiId/remote_endpoints/:id'
+  @put '/apis/:apiId/remote_endpoints/:id', makePutHandler 'remote_endpoint'
+  @del '/apis/:apiId/remote_endpoints/:id'
+
 `export default config`
