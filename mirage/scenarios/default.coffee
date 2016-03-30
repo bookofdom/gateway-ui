@@ -22,6 +22,12 @@ defaultScenario = (server) ->
     server.createList 'library', 5, apiId: id
     server.createList 'host', 5, apiId: id
     server.createList 'endpoint_group', 5, apiId: id
-    server.createList 'remote_endpoint', 20, apiId: id
+    remoteEndpoints = server.createList 'remote_endpoint', 20, apiId: id
+    remoteEndpoints.forEach (remoteEndpoint) ->
+      id = remoteEndpoint.id
+      typeName = remoteEndpoint.type
+      server.createList 'remote_endpoint_environment_datum', 5,
+        remoteEndpointId: id
+        type: typeName
 
 `export default defaultScenario`
