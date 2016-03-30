@@ -1,15 +1,9 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 
-moduleForModel 'api', 'Unit | Model | api', {
+moduleForModel 'store-object', 'Unit | Model | store object', {
   # Specify the other units that are required for this test.
   needs: [
-    'model:endpoint-group'
-    'model:environment'
-    'model:host'
-    'model:library'
-    'model:proxy-endpoint'
-    'model:remote-endpoint'
-    'model:shared-component'
+    'model:store-collection'
   ]
 }
 

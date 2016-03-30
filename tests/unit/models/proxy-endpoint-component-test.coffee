@@ -6,6 +6,7 @@ moduleForModel 'proxy-endpoint-component', 'Unit | Model | proxy endpoint compon
     'model:proxy-endpoint'
     'model:proxy-endpoint-component-call'
     'model:proxy-endpoint-component-transformation'
+    'model:shared-component'
   ]
 }
 
