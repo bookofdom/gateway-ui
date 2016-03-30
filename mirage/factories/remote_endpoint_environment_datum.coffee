@@ -2,7 +2,7 @@
 `import { generateDataForType } from 'gateway/mirage/helpers/remote-endpoint-data'`
 
 RemoteEndpointEnvironmentDatumFactory = Factory.extend
-  environment_id: (i) -> faker.list.cycle(1, 2, 3, 4, 5)(i)
+  environment_id: (i) -> faker.list.cycle(1, 2, 3)(i)
   data: (i) -> generateDataForType(@type, i) if @type
 
 `export default RemoteEndpointEnvironmentDatumFactory`
