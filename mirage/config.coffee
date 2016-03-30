@@ -90,5 +90,9 @@ config = ->
   @get '/apis/:apiId/remote_endpoints/:remoteEndpointId/environment_data/:remoteEndpointEnvironmentDatumId/scratch_pads/:id'
   @put '/apis/:apiId/remote_endpoints/:remoteEndpointId/environment_data/:remoteEndpointEnvironmentDatumId/scratch_pads/:id', makePutHandler 'scratch_pad'
   @del '/apis/:apiId/remote_endpoints/:remoteEndpointId/environment_data/:remoteEndpointEnvironmentDatumId/scratch_pads/:id'
+  @get '/apis/:apiId/remote_endpoints/:remoteEndpointId/environment_data/:remoteEndpointEnvironmentDatumId/scratch_pads/:id/execute', ->
+    time: 100
+    request: '{"a": "request"}'
+    response: '{"a": "response"}'
 
 `export default config`
