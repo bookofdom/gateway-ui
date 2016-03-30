@@ -85,4 +85,10 @@ config = ->
   @put '/apis/:apiId/remote_endpoints/:id', makePutHandler 'remote_endpoint'
   @del '/apis/:apiId/remote_endpoints/:id'
 
+  @get '/apis/:apiId/remote_endpoints/:remoteEndpointId/environment_data/:remoteEndpointEnvironmentDatumId/scratch_pads', makeGetChildrenHandler('remote_endpoint_environment_datum', 'scratch_pad')
+  @post '/apis/:apiId/remote_endpoints/:remoteEndpointId/environment_data/:remoteEndpointEnvironmentDatumId/scratch_pads', makePostChildHandler('remote_endpoint_environment_datum', 'scratch_pad')
+  @get '/apis/:apiId/remote_endpoints/:remoteEndpointId/environment_data/:remoteEndpointEnvironmentDatumId/scratch_pads/:id'
+  @put '/apis/:apiId/remote_endpoints/:remoteEndpointId/environment_data/:remoteEndpointEnvironmentDatumId/scratch_pads/:id', makePutHandler 'scratch_pad'
+  @del '/apis/:apiId/remote_endpoints/:remoteEndpointId/environment_data/:remoteEndpointEnvironmentDatumId/scratch_pads/:id'
+
 `export default config`

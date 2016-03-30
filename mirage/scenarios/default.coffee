@@ -24,10 +24,11 @@ defaultScenario = (server) ->
     server.createList 'endpoint_group', 5, apiId: id
     remoteEndpoints = server.createList 'remote_endpoint', 20, apiId: id
     remoteEndpoints.forEach (remoteEndpoint) ->
-      id = remoteEndpoint.id
-      typeName = remoteEndpoint.type
-      server.createList 'remote_endpoint_environment_datum', 3,
-        remoteEndpointId: id
-        type: typeName
+      data = server.createList 'remote_endpoint_environment_datum', 3,
+        remoteEndpointId: remoteEndpoint.id
+        type: remoteEndpoint.type
+      data.forEach (datum) ->
+        server.createList 'scratch_pad', 2,
+          remoteEndpointEnvironmentDatumId: datum.id
 
 `export default defaultScenario`
