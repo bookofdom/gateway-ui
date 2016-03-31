@@ -29,6 +29,7 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
     hash.data ?= {}
     # normalize embedded resources
     @normalizeEnvironmentData hash
+    @normalizeScratchPadLinks hash
     Ember.merge hash,
       headers: @objectToArray hash.data.headers
       query: @objectToArray hash.data.query
@@ -47,6 +48,10 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
   normalizeEnvironmentData: (hash) ->
     hash.environment_data ?= []
     datum.type = hash.type for datum in hash.environment_data
+  normalizeScratchPadLinks: (hash) ->
+    hash.environment_data.forEach (datum) ->
+      datum.links =
+        scratch_pads: "/apis/#{hash.api_id}/remote_endpoints/#{hash.id}/environment_data/#{datum.id}/scratch_pads"
   objectToArray: (obj={}) ->
     for key, value of obj
       name: key

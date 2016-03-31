@@ -39,7 +39,7 @@ module.exports = function(environment) {
     devMode: false,
     goOs: null,
     remoteEndpointTypesEnabled: null,
-    notifications: true,
+    notifications: false,
 
     api: {
       host: process.env.API_HOST || '',
@@ -64,6 +64,8 @@ module.exports = function(environment) {
 
     ENV.api.swaggerViewerPath = '/swagger';
     ENV.api.swaggerJsonPath = '/swagger';
+
+    //ENV.notifications = true;
 
     // uncomment for stand-alone gateway API
     //ENV.api.host = 'http://localhost:5000'
@@ -94,6 +96,7 @@ module.exports = function(environment) {
     ENV.remoteEndpointTypesEnabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
     ENV.api.basePath = 'API_BASE_PATH_PLACEHOLDER';
     ENV.api.logs.host = 'BROKER_PLACEHOLDER';
+    ENV.notifications = true;
     ENV.googleAnalytics = {
       webPropertyId: 'GOOGLE_ANALYTICS_TRACKING_ID'
     };
