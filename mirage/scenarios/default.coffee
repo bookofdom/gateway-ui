@@ -31,5 +31,6 @@ defaultScenario = (server) ->
         server.createList 'scratch_pad', 2,
           remoteEndpointEnvironmentDatumId: datum.id
     server.createList 'shared_component', 10, apiId: id
+    server.createList 'proxy_endpoint', 50, apiId: id
 
 `export default defaultScenario`

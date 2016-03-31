@@ -101,4 +101,10 @@ config = ->
   @put '/apis/:apiId/shared_components/:id', makePutHandler 'shared_component'
   @del '/apis/:apiId/shared_components/:id'
 
+  @get '/apis/:apiId/proxy_endpoints', makeGetChildrenHandler('api', 'proxy_endpoint')
+  @post '/apis/:apiId/proxy_endpoints', makePostChildHandler('api', 'proxy_endpoint')
+  @get '/apis/:apiId/proxy_endpoints/:id'
+  @put '/apis/:apiId/proxy_endpoints/:id', makePutHandler 'proxy_endpoint'
+  @del '/apis/:apiId/proxy_endpoints/:id'
+
 `export default config`

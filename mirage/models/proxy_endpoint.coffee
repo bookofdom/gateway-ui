@@ -1,6 +1,6 @@
 `import { Model, belongsTo } from 'ember-cli-mirage'`
 
-SharedComponentModel = Model.extend
+ProxyEndpointModel = Model.extend
   api: belongsTo()
 
-`export default SharedComponentModel`
+`export default ProxyEndpointModel`
