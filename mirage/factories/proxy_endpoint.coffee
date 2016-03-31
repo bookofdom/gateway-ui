@@ -7,6 +7,7 @@ ProxyEndpointFactory = Factory.extend
   cors_enabled: -> faker.random.boolean()
   environment_id: -> (faker.random.number() % 3) + 1
   endpoint_group_id: -> (faker.random.number() % 5) + 1
+  components: null
   routes: ->
     [
       path: "/#{faker.lorem.words()[0]}/#{faker.lorem.words()[0]}/"

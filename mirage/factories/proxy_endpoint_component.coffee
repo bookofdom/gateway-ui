@@ -3,10 +3,11 @@
 callId = 1
 transformationId = 1
 
-types = 'single multi js'.split ' '
+types = 'single multi js shared'.split ' '
 typeCycle = faker.list.cycle types...
 
-SharedFactory = Factory.extend
+ProxyEndpointComponentFactory = Factory.extend
+  proxy_endpoint_component_id: -> faker.random.number() # passthrough ID
   name: -> "#{faker.company.catchPhraseAdjective().capitalize()} Component"
   description: -> faker.lorem.sentence()
   conditional_positive: -> faker.random.boolean()
@@ -27,7 +28,9 @@ var foo = function () {
 '''
   type: (i) ->
     typeSlug = typeCycle i
-    if typeSlug != 'js'
+    if typeSlug is 'shared'
+      @shared_component_id = (faker.random.number() % 10) + 1
+    if (typeSlug != 'shared') and (typeSlug != 'js')
       # single and multi have before/after transformations
       @before = [
         id: transformationId++
@@ -59,4 +62,4 @@ var foo = function () {
       @calls = [call] if typeSlug is 'multi'
     typeSlug
 
-`export default SharedFactory`
+`export default ProxyEndpointComponentFactory`
