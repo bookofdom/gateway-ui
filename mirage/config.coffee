@@ -95,4 +95,10 @@ config = ->
     request: '{"a": "request"}'
     response: '{"a": "response"}'
 
+  @get '/apis/:apiId/shared_components', makeGetChildrenHandler('api', 'shared_component')
+  @post '/apis/:apiId/shared_components', makePostChildHandler('api', 'shared_component')
+  @get '/apis/:apiId/shared_components/:id'
+  @put '/apis/:apiId/shared_components/:id', makePutHandler 'shared_component'
+  @del '/apis/:apiId/shared_components/:id'
+
 `export default config`

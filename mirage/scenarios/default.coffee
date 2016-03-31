@@ -30,5 +30,6 @@ defaultScenario = (server) ->
       data.forEach (datum) ->
         server.createList 'scratch_pad', 2,
           remoteEndpointEnvironmentDatumId: datum.id
+    server.createList 'shared_component', 10, apiId: id
 
 `export default defaultScenario`

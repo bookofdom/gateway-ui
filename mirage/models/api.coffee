@@ -6,5 +6,6 @@ ApiModel = Model.extend
   hosts: hasMany()
   endpoint_groups: hasMany()
   remote_endpoints: hasMany()
+  shared_components: hasMany()
 
 `export default ApiModel`
