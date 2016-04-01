@@ -95,4 +95,32 @@ config = ->
     request: '{"a": "request"}'
     response: '{"a": "response"}'
 
+  @get '/apis/:apiId/shared_components', makeGetChildrenHandler('api', 'shared_component')
+  @post '/apis/:apiId/shared_components', makePostChildHandler('api', 'shared_component')
+  @get '/apis/:apiId/shared_components/:id'
+  @put '/apis/:apiId/shared_components/:id', makePutHandler 'shared_component'
+  @del '/apis/:apiId/shared_components/:id'
+
+  @get '/apis/:apiId/proxy_endpoints', makeGetChildrenHandler('api', 'proxy_endpoint')
+  @post '/apis/:apiId/proxy_endpoints', makePostChildHandler('api', 'proxy_endpoint')
+  @get '/apis/:apiId/proxy_endpoints/:id'
+  @put '/apis/:apiId/proxy_endpoints/:id', makePutHandler 'proxy_endpoint'
+  @del '/apis/:apiId/proxy_endpoints/:id'
+  @get '/apis/:apiId/proxy_endpoints/:proxy_endpoint_id/tests/:id/test', ->
+    results: [
+      {
+        method: 'get',
+        status: '200',
+        headers: [
+          {name: 'Date', value: 'Tue, 04 Aug 2015 19:58:11 GMT'},
+          {name: 'Content-Length', value: '539'},
+          {name: 'Content-Type', value: 'application/json'},
+          {name: 'X-Gateway-Requestid', value: 'ed32998f-f857-4335-9f0f-288010ddb282'}
+        ],
+        body: '{"get-test": "this is a get test"}',
+        log: 'this is a log message for a get request',
+        time: 8
+      }
+    ]
+
 `export default config`
