@@ -5,7 +5,7 @@
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
 `import storeScenario from 'gateway/mirage/scenarios/store'`
 
-module 'Acceptance: Store Collection - Index',
+module 'Acceptance: Store Collection - Read',
   beforeEach: ->
     @application = startApp()
     ###
