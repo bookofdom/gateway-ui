@@ -24,7 +24,7 @@ test 'user can create new store collections', (assert) ->
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/collections/1/objects'
-  click '.ap-app-secondary-sidebar > .ap-list-nav > [data-t="actions.new"] a'
+  click '.ap-app-secondary-sidebar > .ap-list-nav li[data-t="actions.new"] a'
   fillIn '[name=name]', 'New Collection'
   click '[type=submit]'
   andThen ->
@@ -35,7 +35,6 @@ test 'new store collections are visible in UI', (assert) ->
   visit '/collections/new'
   andThen ->
     assert.equal find('.ap-app-secondary-sidebar > .ap-list-nav li:not([data-t="actions.new"])').length, 0
-  click '.ap-app-secondary-sidebar > .ap-list-nav li[data-t="actions.new"] a'
   fillIn '[name=name]', 'New Collection'
   click '[type=submit]'
   andThen ->
