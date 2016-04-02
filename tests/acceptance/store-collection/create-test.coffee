@@ -16,21 +16,27 @@ module 'Acceptance: Store Collection - Create',
 
   afterEach: -> destroyApp @application
 
-# find('.ap-app-secondary-sidebar > .ap-list-nav li:not([data-t="actions.new"])').length
-
-test 'user can create new collections', (assert) ->
+test 'user can create new store collections', (assert) ->
   storeScenario server
-  beforeCreateCount = server.db.storeCollections.length
-  afterCreateCount = null
   authenticateSession @application
-  visit '/collections'
+  beforeCreateCount = server.db.storeCollections.length
+  visit '/collections/1/objects'
   andThen ->
     assert.equal beforeCreateCount > 0, true
-  click '.ap-app-secondary-sidebar > .ap-list-nav li[data-t="actions.new"] a'
-  andThen ->
-    assert.equal currentURL(), '/collections/new'
+    assert.equal currentURL(), '/collections/1/objects'
+  click '.ap-app-secondary-sidebar > .ap-list-nav > [data-t="actions.new"] a'
   fillIn '[name=name]', 'New Collection'
   click '[type=submit]'
   andThen ->
-    afterCreateCount = server.db.storeCollections.length
-    assert.equal afterCreateCount, beforeCreateCount + 1
+    assert.equal server.db.storeCollections.length, beforeCreateCount + 1
+
+test 'new store collections are visible in UI', (assert) ->
+  authenticateSession @application
+  visit '/collections/new'
+  andThen ->
+    assert.equal find('.ap-app-secondary-sidebar > .ap-list-nav li:not([data-t="actions.new"])').length, 0
+  click '.ap-app-secondary-sidebar > .ap-list-nav li[data-t="actions.new"] a'
+  fillIn '[name=name]', 'New Collection'
+  click '[type=submit]'
+  andThen ->
+    assert.equal find('.ap-app-secondary-sidebar > .ap-list-nav li:not([data-t="actions.new"])').length, 1

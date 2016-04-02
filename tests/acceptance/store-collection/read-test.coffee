@@ -16,13 +16,13 @@ module 'Acceptance: Store Collection - Read',
 
   afterEach: -> destroyApp @application
 
-test 'collections index redirects to new collection when no collections exist yet', (assert) ->
+test 'store collections index redirects to new store collection when no store collections exist yet', (assert) ->
   authenticateSession @application
   visit '/collections/'
   andThen ->
     assert.equal currentURL(), '/collections/new'
 
-test 'collections index redirects to first collection\'s objects index', (assert) ->
+test 'store collections index redirects to first store collection\'s store objects index', (assert) ->
   storeScenario server
   authenticateSession @application
   visit '/collections/'
@@ -37,7 +37,7 @@ test 'user can navigate to store collections', (assert) ->
   andThen ->
     assert.equal currentURL(), '/collections/1/objects'
 
-test 'user can navigate among store collections\' objects index routes', (assert) ->
+test 'user can navigate among store collections\' store objects index routes', (assert) ->
   storeScenario server
   authenticateSession @application
   visit '/collections/1/objects'
