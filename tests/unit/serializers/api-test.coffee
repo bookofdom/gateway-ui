@@ -1,6 +1,8 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 `import Pretender from 'pretender'`
 
+server = null
+
 moduleForModel 'api', 'Unit | Serializer | api', {
   # Specify the other units that are required for this test.
   needs: [
@@ -15,7 +17,7 @@ moduleForModel 'api', 'Unit | Serializer | api', {
   ]
 
   beforeEach: ->
-    @server = new Pretender (->
+    server = new Pretender (->
       @get '/apis', ->
         response = {
           "apis": [
@@ -65,7 +67,7 @@ moduleForModel 'api', 'Unit | Serializer | api', {
     )
 
   afterEach: ->
-    @server.shutdown()
+    server.shutdown()
 
 }
 
@@ -73,13 +75,3 @@ test 'it serializes records', (assert) ->
   @store().findAll('api').then (apis) ->
     assert.equal apis.get('length'), 3
     return
-
-
-# Replace this with your real tests.
-#test 'it serializes records', (assert) ->
-
-  # record = @subject()
-  # serializedRecord = record.serialize()
-  # assert.ok serializedRecord
-
-  #
