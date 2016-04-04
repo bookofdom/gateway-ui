@@ -13,12 +13,25 @@ moduleForModel 'environment', 'Unit | Serializer | environment', {
 
   beforeEach: ->
     server = new Pretender (->
-      @get '/environments', ->
+
+      @get '/apis/1', ->
+        response = {
+          "apis": [
+            {
+              "id": 1
+              "name": "Samples"
+            }
+          ]
+        }
+        return [200, {"Content-Type": "application/json"}, JSON.stringify(response) ]
+
+
+      @get '/apis/1/environments', ->
         response = {
           "environments": [
             {
-                "api_id": 260,
-                "id": 269,
+                "api_id": 1,
+                "id": 1,
                 "name": "Dev",
                 "description": "dev",
                 "data": {
@@ -32,8 +45,8 @@ moduleForModel 'environment', 'Unit | Serializer | environment', {
                 "show_javascript_errors": false
             },
             {
-                "api_id": 260,
-                "id": 275,
+                "api_id": 1,
+                "id": 2,
                 "name": "Prod",
                 "description": "prod",
                 "data": {},
@@ -45,8 +58,8 @@ moduleForModel 'environment', 'Unit | Serializer | environment', {
                 "show_javascript_errors": false
             },
             {
-                "api_id": 260,
-                "id": 274,
+                "api_id": 1,
+                "id": 3,
                 "name": "Test",
                 "description": "test",
                 "data": {},
@@ -71,7 +84,10 @@ moduleForModel 'environment', 'Unit | Serializer | environment', {
 
 }
 
-test 'it serializes records', (assert) ->
-  @store().findAll('environment').then (environments) ->
-    assert.equal environments.get('length'), 3
-    return
+test 'it normalizes records', (assert) ->
+
+  Ember.run =>
+    @store().findRecord('api', 1).then (api) ->
+      environments = api.get 'environments'
+      assert.equal environments.get('length'), 3
+      return
