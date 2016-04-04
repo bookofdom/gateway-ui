@@ -20,6 +20,7 @@ EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
       hash.variables.push
         name: key
         value: value
+    console.log hash
     hash
   serialize: (snapshot) ->
     serialized = @_super arguments...
