@@ -44,7 +44,7 @@ moduleForModel 'environment', 'Unit | Serializer | environment', {
               "id": 260,
               "name": "Samples",
               "description": "",
-              "cors_allow_origin": "*",``
+              "cors_allow_origin": "*",
               "cors_allow_headers": "content-type, accept",
               "cors_allow_credentials": true,
               "cors_request_headers": "*",
