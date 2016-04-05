@@ -7,8 +7,15 @@ moduleForModel 'environment', 'Unit | Serializer | environment', {
   # Specify the other units that are required for this test.
   needs: [
     'serializer:environment'
-    'model:api'
-    'model:environment-variable'
+    'model:api' # env
+    'model:environment-variable' #env
+    'model:endpoint-group' #api
+    'model:environment' #api
+    'model:host' #api
+    'model:library' #api
+    'model:proxy-endpoint' #api
+    'model:remote-endpoint' #api
+    'model:shared-component' #api
   ]
 
   beforeEach: ->

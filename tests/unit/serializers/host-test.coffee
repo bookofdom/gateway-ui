@@ -47,7 +47,7 @@ moduleForModel 'host', 'Unit | Serializer | host', {
 
 }
 
-test 'it serializes records', (assert) ->
+test 'it normalizes records', (assert) ->
   @store().findAll('host').then (hosts) ->
     assert.equal hosts.get('length'), 3
     return

@@ -47,8 +47,7 @@ moduleForModel 'endpoint-group', 'Unit | Serializer | endpoint-group', {
 
 }
 
-# Replace this with your real tests.
-test 'it serializes records', (assert) ->
+test 'it normalizes records', (assert) ->
   @store().findAll('endpoint-group').then (endpoint_groups) ->
     assert.equal endpoint_groups.get('length'), 3
     return

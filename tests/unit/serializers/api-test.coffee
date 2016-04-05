@@ -71,7 +71,7 @@ moduleForModel 'api', 'Unit | Serializer | api', {
 
 }
 
-test 'it serializes records', (assert) ->
+test 'it normalizes records', (assert) ->
   @store().findAll('api').then (apis) ->
     assert.equal apis.get('length'), 3
     return
