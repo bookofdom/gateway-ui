@@ -1,7 +1,8 @@
 sessions = [
-  email: 'test@foo.com'
-  password: 'foobar'
-  admin: true
+  user:
+    email: 'test@foo.com'
+    password: 'foobar'
+    admin: true
 ]
 
 `export default sessions`

@@ -11,13 +11,14 @@ config = ->
   @post '/sessions', (schema, request) ->
     body = JSON.parse request.requestBody
     sessions = schema.session.where
-      email: body.email
-      password: body.password
+      user:
+        email: body.email
+        password: body.password
     session = sessions[0]
     if !session
       new Response 400, {}, error: 'Login failed.'
     else
-      session
+      user: session.user
 
   # logs
   @get '/logs', (schema, request) -> schema.log.all()[0]
