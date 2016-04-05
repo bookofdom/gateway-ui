@@ -11,17 +11,19 @@ makePostHandler = (modelName) ->
     else
       schema[modelName.camelize()].create payload
 
-makePutHandler = (modelName) ->
+makePutHandler = (modelName, callback) ->
   (schema, request) ->
     id = request.params.id
     body = JSON.parse request.requestBody
     payload = body[modelName]
     if body[modelName]?.name is 'error'
-      new Response 422, {},
+      response = new Response 422, {},
         errors:
           name: ['This field is in error']
     else
-      updated = schema[modelName.camelize()].find(id).update payload
+      response = schema[modelName.camelize()].find(id).update payload
+    callback(schema[modelName.camelize()].find(id), request, response) if callback
+    response
 
 getParent = (schema, request, parentModelName) ->
   parentId = request.params["#{parentModelName.camelize()}Id"]
