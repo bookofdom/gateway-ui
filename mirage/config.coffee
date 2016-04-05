@@ -10,11 +10,9 @@ config = ->
 
   @post '/sessions', (schema, request) ->
     body = JSON.parse request.requestBody
-    sessions = schema.session.where
-      user:
-        email: body.email
-        password: body.password
-    session = sessions[0]
+    session = schema.session.all().toArray().find (session) ->
+      (session.user.email == body.email) and
+        (session.user.password == body.password)
     if !session
       new Response 400, {}, error: 'Login failed.'
     else
