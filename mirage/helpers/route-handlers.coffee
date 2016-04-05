@@ -34,16 +34,20 @@ getChildren = (schema, request, parentModelName, modelName) ->
 makeGetChildrenHandler = (parentModelName, modelName) ->
   (schema, request) -> getChildren schema, request, parentModelName, modelName
 
-makePostChildHandler = (parentModelName, modelName) ->
+makePostChildHandler = (parentModelName, modelName, callback) ->
   (schema, request) ->
     parent = getParent schema, request, parentModelName
     body = JSON.parse request.requestBody
     payload = body[modelName]
     if payload?.name is 'error'
-      new Response 422, {},
+      response = new Response 422, {},
         errors:
           name: ['This field is in error']
     else
-      schema[modelName.camelize()].create payload, {"#{parentModelName.camelize()}Id": parent.id}
+      data = Ember.merge payload,
+        "#{parentModelName.camelize()}Id": parent.id
+      response = schema[modelName.camelize()].create data
+    callback(schema[modelName.camelize()], request, response) if callback
+    response
 
 `export { makePostHandler, makePutHandler, makeGetChildrenHandler, makePostChildHandler }`
