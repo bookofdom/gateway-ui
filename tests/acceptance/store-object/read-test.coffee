@@ -5,7 +5,7 @@
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
 `import storeScenario from 'gateway/mirage/scenarios/store'`
 
-module 'Acceptance: Store Collection - Read',
+module 'Acceptance: Store Object - Read',
   beforeEach: ->
     @application = startApp()
     ###
@@ -16,20 +16,7 @@ module 'Acceptance: Store Collection - Read',
 
   afterEach: -> destroyApp @application
 
-test 'store collections index redirects to new store collection when none exist yet', (assert) ->
-  authenticateSession @application
-  visit '/collections/'
-  andThen ->
-    assert.equal currentURL(), '/collections/new'
-
-test 'store collections index redirects to first store collection\'s store objects index', (assert) ->
-  storeScenario server
-  authenticateSession @application
-  visit '/collections/'
-  andThen ->
-    assert.equal currentURL(), '/collections/1/objects'
-
-test 'user can navigate to store collections', (assert) ->
+test 'user can navigate to store objects', (assert) ->
   storeScenario server
   authenticateSession @application
   visit '/'
