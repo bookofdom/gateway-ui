@@ -13,62 +13,44 @@ moduleForModel 'environment', 'Unit | Serializer | environment', {
 
   beforeEach: ->
     server = new Pretender (->
-
-      @get '/apis/1', ->
+      @get '/apis', ->
         response = {
           "apis": [
             {
-              "id": 1
-              "name": "Samples"
-            }
-          ]
-        }
-        return [200, {"Content-Type": "application/json"}, JSON.stringify(response) ]
-
-
-      @get '/apis/1/environments', ->
-        response = {
-          "environments": [
-            {
-                "api_id": 1,
-                "id": 1,
-                "name": "Dev",
-                "description": "dev",
-                "data": {
-                    "mockEventsUrl": "http://justapis-mock.herokuapp.com/v1/events/"
-                },
-                "session_name": "_dev_justapisamples",
-                "session_auth_key": "3442345345435w",
-                "session_encryption_key": "",
-                "session_auth_key_rotate": "",
-                "session_encryption_key_rotate": "",
-                "show_javascript_errors": false
+              "id": 261,
+              "name": "Apples",
+              "description": "",
+              "cors_allow_origin": "*",
+              "cors_allow_headers": "content-type, accept",
+              "cors_allow_credentials": true,
+              "cors_request_headers": "*",
+              "cors_max_age": 600,
+              "enable_swagger": true,
+              "base_url": "https://weary-pail-6089.justapis.io"
             },
             {
-                "api_id": 1,
-                "id": 2,
-                "name": "Prod",
-                "description": "prod",
-                "data": {},
-                "session_name": "",
-                "session_auth_key": "",
-                "session_encryption_key": "",
-                "session_auth_key_rotate": "",
-                "session_encryption_key_rotate": "",
-                "show_javascript_errors": false
+              "id": 262,
+              "name": "Oranges",
+              "description": "",
+              "cors_allow_origin": "*",
+              "cors_allow_headers": "content-type, accept",
+              "cors_allow_credentials": true,
+              "cors_request_headers": "*",
+              "cors_max_age": 600,
+              "enable_swagger": true,
+              "base_url": "https://cooing-yarn-2471.justapis.io"
             },
             {
-                "api_id": 1,
-                "id": 3,
-                "name": "Test",
-                "description": "test",
-                "data": {},
-                "session_name": "",
-                "session_auth_key": "",
-                "session_encryption_key": "",
-                "session_auth_key_rotate": "",
-                "session_encryption_key_rotate": "",
-                "show_javascript_errors": false
+              "id": 260,
+              "name": "Samples",
+              "description": "",
+              "cors_allow_origin": "*",
+              "cors_allow_headers": "content-type, accept",
+              "cors_allow_credentials": true,
+              "cors_request_headers": "*",
+              "cors_max_age": 600,
+              "enable_swagger": false,
+              "base_url": "https://miscreant-condition-9199.justapis.io"
             }
           ]
         }
@@ -86,8 +68,6 @@ moduleForModel 'environment', 'Unit | Serializer | environment', {
 
 test 'it normalizes records', (assert) ->
 
-  Ember.run =>
-    @store().findRecord('api', 1).then (api) ->
-      environments = api.get 'environments'
-      assert.equal environments.get('length'), 3
-      return
+  @store().findAll('api').then (apis) ->
+    assert.equal apis.get('length'), 3
+    return
