@@ -1,10 +1,7 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 `import Pretender from 'pretender'`
 
-server = null
-
-moduleForModel 'api', 'Unit | Serializer | api', {
-  # Specify the other units that are required for this test.
+moduleForModel 'api', 'Unit | Serializer | api',
   needs: [
     'serializer:api'
     'model:endpoint-group'
@@ -15,63 +12,29 @@ moduleForModel 'api', 'Unit | Serializer | api', {
     'model:remote-endpoint'
     'model:shared-component'
   ]
-
   beforeEach: ->
-    server = new Pretender (->
-      @get '/apis', ->
-        response = {
-          "apis": [
-            {
-              "id": 261,
-              "name": "Apples",
-              "description": "",
-              "cors_allow_origin": "*",
-              "cors_allow_headers": "content-type, accept",
-              "cors_allow_credentials": true,
-              "cors_request_headers": "*",
-              "cors_max_age": 600,
-              "enable_swagger": true,
-              "base_url": "https://weary-pail-6089.justapis.io"
-            },
-            {
-              "id": 262,
-              "name": "Oranges",
-              "description": "",
-              "cors_allow_origin": "*",
-              "cors_allow_headers": "content-type, accept",
-              "cors_allow_credentials": true,
-              "cors_request_headers": "*",
-              "cors_max_age": 600,
-              "enable_swagger": true,
-              "base_url": "https://cooing-yarn-2471.justapis.io"
-            },
-            {
-              "id": 260,
-              "name": "Samples",
-              "description": "",
-              "cors_allow_origin": "*",
-              "cors_allow_headers": "content-type, accept",
-              "cors_allow_credentials": true,
-              "cors_request_headers": "*",
-              "cors_max_age": 600,
-              "enable_swagger": false,
-              "base_url": "https://miscreant-condition-9199.justapis.io"
-            }
-          ]
-        }
-        return [
-          200
-          {"Content-Type": "application/json"}
-          JSON.stringify response
+    @server = new Pretender ->
+      @get '/apis', -> [
+        200
+        {'Content-Type': 'application/json'}
+        JSON.stringify apis: [
+          id: 1
+          name: 'Apples'
+          base_url: 'https://weary-pail-6089.justapis.io'
+        ,
+          id: 2
+          name: 'Oranges'
+          base_url: 'https://cooing-yarn-2471.justapis.io'
+        ,
+          id: 3
+          name: 'Bananas'
+          base_url: 'https://miscreant-condition-9199.justapis.io'
         ]
-    )
+      ]
 
   afterEach: ->
-    server.shutdown()
-
-}
+    @server.shutdown()
 
 test 'it normalizes records', (assert) ->
   @store().findAll('api').then (apis) ->
     assert.equal apis.get('length'), 3
-    return
