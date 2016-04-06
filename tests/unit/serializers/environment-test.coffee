@@ -5,15 +5,15 @@ moduleForModel 'environment', 'Unit | Serializer | environment',
   needs: [
     'serializer:api'
     'serializer:environment'
-    'model:api' # env
-    'model:environment-variable' #env
-    'model:endpoint-group' #api
-    'model:environment' #api
-    'model:host' #api
-    'model:library' #api
-    'model:proxy-endpoint' #api
-    'model:remote-endpoint' #api
-    'model:shared-component' #api
+    'model:api'
+    'model:environment-variable'
+    'model:endpoint-group'
+    'model:environment'
+    'model:host'
+    'model:library'
+    'model:proxy-endpoint'
+    'model:remote-endpoint'
+    'model:shared-component'
   ]
   beforeEach: ->
     @server = new Pretender ->
@@ -25,9 +25,25 @@ moduleForModel 'environment', 'Unit | Serializer | environment',
           name: 'Apples'
         ]
       ]
+      @get '/apis/1/environments', -> [
+        200
+        {'Content-Type': 'application/json'}
+        JSON.stringify environments: [
+          api_id: 1
+          id: 1
+          name: 'One'
+        ,
+          api_id: 1
+          id: 2
+          name: 'Two'
+        ]
+      ]
+
   afterEach: ->
     @server.shutdown()
 
 test 'it normalizes records', (assert) ->
   @store().findAll('api').then (apis) ->
-    assert.equal apis.get('length'), 1
+    api = apis.get('firstObject')
+    api.get('environments').then (environments) ->
+      assert.equal environments.get('length'), 2
