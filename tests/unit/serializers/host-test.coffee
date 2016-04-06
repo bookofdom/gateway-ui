@@ -37,11 +37,6 @@ moduleForModel 'host', 'Unit | Serializer | host',
           id: 2
           name: 'localhost development'
           hostname: 'localhost.dev'
-        ,
-          api_id: 1
-          id: 3
-          name: 'miscreant-condition-9199'
-          hostname: 'miscreant-condition-9199.justapis.io'
         ]
       ]
 
@@ -52,4 +47,4 @@ test 'it normalizes records', (assert) ->
   @store().findAll('api').then (apis) ->
     api = apis.get('firstObject')
     api.get('hosts').then (hosts) ->
-      assert.equal hosts.get('length'), 3
+      assert.equal hosts.get('length'), 2
