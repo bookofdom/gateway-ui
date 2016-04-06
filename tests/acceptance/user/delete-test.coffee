@@ -18,12 +18,15 @@ module 'Acceptance: User - Delete',
 
 test 'user can delete store objects', (assert) ->
   userScenario server
-  authenticateSession @application
+  authenticateSession @application,
+    email: 'admin@test.com'
+    admin: true
   count = server.schema.user.all().length
   visit '/users/1/edit'
   click 'a[data-t="actions.delete"]'
   andThen ->
     afterDeleteCount = server.schema.user.all().length
     assert.equal currentURL(), '/users'
+    assert.equal count > 0, true
     assert.equal afterDeleteCount, count - 1
     assert.equal find('.ap-table-index tbody tr').length, count - 1

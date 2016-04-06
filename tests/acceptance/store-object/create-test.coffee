@@ -22,7 +22,7 @@ test 'user can create new store objects on index', (assert) ->
   storeScenario server
   authenticateSession @application
   beforeCreateCount = server.schema.storeCollection.all()[0].store_objects.length
-  afterCreate = ->
+  after = ->
     wait()
     andThen ->
       afterCreateCount = server.schema.storeCollection.all()[0].store_objects.length
@@ -30,7 +30,7 @@ test 'user can create new store objects on index', (assert) ->
       assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/store_collections/:storeCollectionId/store_objects',
-    makePostChildHandler('store_collection', 'store_object', afterCreate)
+    makePostChildHandler('store_collection', 'store_object', after)
   visit '/collections/1/objects'
   andThen ->
     assert.equal beforeCreateCount > 0, true
