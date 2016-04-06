@@ -25,6 +25,7 @@ test 'admin user can navigate to users', (assert) ->
   click '.ap-navbar-header [data-t="resources.user_plural"] a'
   andThen ->
     assert.equal currentURL(), '/users'
+    assert.equal find('.ap-navbar-header [data-t="resources.user_plural"]').length, 1
 
 test 'non-admin user cannot navigate to users', (assert) ->
   userScenario server

@@ -17,7 +17,7 @@ module 'Acceptance: User - Update',
 
   afterEach: -> destroyApp @application
 
-test 'user can navigate to store objects edit route', (assert) ->
+test 'user can navigate to user edit route', (assert) ->
   userScenario server
   authenticateSession @application,
     email: 'admin@test.com'
@@ -27,7 +27,7 @@ test 'user can navigate to store objects edit route', (assert) ->
   andThen ->
     assert.equal currentURL(), '/users/1/edit'
 
-test 'user can edit store objects', (assert) ->
+test 'user can edit users', (assert) ->
   done = assert.async()
   userScenario server
   authenticateSession @application,

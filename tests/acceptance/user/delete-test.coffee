@@ -16,7 +16,7 @@ module 'Acceptance: User - Delete',
 
   afterEach: -> destroyApp @application
 
-test 'user can delete store objects', (assert) ->
+test 'user can delete users', (assert) ->
   userScenario server
   authenticateSession @application,
     email: 'admin@test.com'

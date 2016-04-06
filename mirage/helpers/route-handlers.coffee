@@ -1,15 +1,17 @@
 `import { Response } from 'ember-cli-mirage'`
 
-makePostHandler = (modelName) ->
+makePostHandler = (modelName, callback) ->
   (schema, request) ->
     body = JSON.parse request.requestBody
     payload = body[modelName]
     if payload?.name is 'error'
-      new Response 422, {},
+      response = new Response 422, {},
         errors:
           name: ['This field is in error']
     else
-      schema[modelName.camelize()].create payload
+      response = schema[modelName.camelize()].create payload
+    callback(schema[modelName.camelize()], request, response) if callback
+    response
 
 makePutHandler = (modelName, callback) ->
   (schema, request) ->
