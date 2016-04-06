@@ -31,17 +31,10 @@ moduleForModel 'endpoint-group', 'Unit | Serializer | endpoint-group',
           api_id: 1
           id: 1
           name: 'Event Calls'
-          description: ''
         ,
           api_id: 1
           id: 2
           name: 'Hello World'
-          description: 'Simple Hello World examples'
-        ,
-          api_id: 1
-          id: 3
-          name: 'JS Proxies'
-          description: ''
         ]
       ]
 
@@ -52,4 +45,4 @@ test 'it normalizes records', (assert) ->
   @store().findAll('api').then (apis) ->
     api = apis.get('firstObject')
     api.get('endpoint_groups').then (endpoint_groups) ->
-      assert.equal endpoint_groups.get('length'), 3
+      assert.equal endpoint_groups.get('length'), 2
