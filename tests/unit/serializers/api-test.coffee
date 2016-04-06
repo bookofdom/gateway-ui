@@ -25,10 +25,6 @@ moduleForModel 'api', 'Unit | Serializer | api',
           id: 2
           name: 'Oranges'
           base_url: 'https://cooing-yarn-2471.justapis.io'
-        ,
-          id: 3
-          name: 'Bananas'
-          base_url: 'https://miscreant-condition-9199.justapis.io'
         ]
       ]
 
@@ -37,4 +33,4 @@ moduleForModel 'api', 'Unit | Serializer | api',
 
 test 'it normalizes records', (assert) ->
   @store().findAll('api').then (apis) ->
-    assert.equal apis.get('length'), 3
+    assert.equal apis.get('length'), 2
