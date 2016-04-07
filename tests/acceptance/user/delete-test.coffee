@@ -3,11 +3,14 @@
 `import startApp from 'gateway/tests/helpers/start-app'`
 `import destroyApp from 'gateway/tests/helpers/destroy-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
-`import userScenario from 'gateway/mirage/scenarios/user'`
 
 module 'Acceptance: User - Delete',
   beforeEach: ->
     @application = startApp()
+    server.createList 'user', 3
+    authenticateSession @application,
+      email: 'admin@test.com'
+      admin: true
     ###
     Don't return anything, because QUnit looks for a .then
     that is present on Ember.Application, but is deprecated.
@@ -17,10 +20,6 @@ module 'Acceptance: User - Delete',
   afterEach: -> destroyApp @application
 
 test 'user can delete users', (assert) ->
-  userScenario server
-  authenticateSession @application,
-    email: 'admin@test.com'
-    admin: true
   count = server.schema.user.all().length
   visit '/users/1/edit'
   click 'a[data-t="actions.delete"]'

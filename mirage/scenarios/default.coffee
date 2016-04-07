@@ -1,6 +1,3 @@
-`import storeScenario from 'gateway/mirage/scenarios/store'`
-`import userScenario from 'gateway/mirage/scenarios/user'`
-
 defaultScenario = (server) ->
   # sessions
   server.loadFixtures 'sessions'
@@ -9,10 +6,13 @@ defaultScenario = (server) ->
   server.createList 'log', 1
 
   # users
-  userScenario server
+  server.createList 'user', 5
 
   # store collections and store objects
-  storeScenario server
+  collections = server.createList 'store_collection', 5
+  collections.forEach (collection) ->
+    id = collection.id
+    server.createList 'store_object', 10, storeCollectionId: id
 
   # APIs and api-related
   apis = server.createList 'api', 5

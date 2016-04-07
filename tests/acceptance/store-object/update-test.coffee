@@ -3,12 +3,16 @@
 `import startApp from 'gateway/tests/helpers/start-app'`
 `import destroyApp from 'gateway/tests/helpers/destroy-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
-`import storeScenario from 'gateway/mirage/scenarios/store'`
 `import { makePutHandler } from 'gateway/mirage/helpers/route-handlers'`
 
 module 'Acceptance: Store Object - Update',
   beforeEach: ->
     @application = startApp()
+    collections = server.createList 'store_collection', 3
+    collections.forEach (collection) ->
+      id = collection.id
+      server.createList 'store_object', 3, storeCollectionId: id
+    authenticateSession @application
     ###
     Don't return anything, because QUnit looks for a .then
     that is present on Ember.Application, but is deprecated.
@@ -18,8 +22,6 @@ module 'Acceptance: Store Object - Update',
   afterEach: -> destroyApp @application
 
 test 'user can navigate to store objects edit route', (assert) ->
-  storeScenario server
-  authenticateSession @application
   visit '/collections/1/objects'
   click '.ap-table-auto-index tbody tr:eq(0) td:eq(0) a'
   andThen ->
@@ -27,8 +29,6 @@ test 'user can navigate to store objects edit route', (assert) ->
 
 test 'user can edit store objects', (assert) ->
   done = assert.async()
-  storeScenario server
-  authenticateSession @application
   after = ->
     wait()
     andThen ->

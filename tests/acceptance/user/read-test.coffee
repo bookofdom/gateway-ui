@@ -3,11 +3,11 @@
 `import startApp from 'gateway/tests/helpers/start-app'`
 `import destroyApp from 'gateway/tests/helpers/destroy-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
-`import userScenario from 'gateway/mirage/scenarios/user'`
 
 module 'Acceptance: User - Read',
   beforeEach: ->
     @application = startApp()
+    server.createList 'user', 3
     ###
     Don't return anything, because QUnit looks for a .then
     that is present on Ember.Application, but is deprecated.
@@ -17,7 +17,6 @@ module 'Acceptance: User - Read',
   afterEach: -> destroyApp @application
 
 test 'admin user can navigate to users', (assert) ->
-  userScenario server
   authenticateSession @application,
     email: 'admin@test.com'
     admin: true
@@ -28,7 +27,6 @@ test 'admin user can navigate to users', (assert) ->
     assert.equal find('.ap-navbar-header [data-t="resources.user_plural"]').length, 1
 
 test 'non-admin user cannot navigate to users', (assert) ->
-  userScenario server
   authenticateSession @application,
     email: 'nonadmin@test.com'
   visit '/'
@@ -37,7 +35,6 @@ test 'non-admin user cannot navigate to users', (assert) ->
     assert.equal find('.ap-navbar-header [data-t="resources.user_plural"]').length, 0
 
 test 'admin user can view users', (assert) ->
-  userScenario server
   authenticateSession @application,
     email: 'admin@test.com'
     admin: true

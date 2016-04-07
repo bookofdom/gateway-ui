@@ -3,12 +3,13 @@
 `import startApp from 'gateway/tests/helpers/start-app'`
 `import destroyApp from 'gateway/tests/helpers/destroy-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
-`import userScenario from 'gateway/mirage/scenarios/user'`
 `import { makePostHandler } from 'gateway/mirage/helpers/route-handlers'`
 
 module 'Acceptance: User - Create',
   beforeEach: ->
     @application = startApp()
+    server.createList 'user', 3
+    authenticateSession @application
     ###
     Don't return anything, because QUnit looks for a .then
     that is present on Ember.Application, but is deprecated.
@@ -19,8 +20,6 @@ module 'Acceptance: User - Create',
 
 test 'user can create new users on index', (assert) ->
   done = assert.async()
-  userScenario server
-  authenticateSession @application
   beforeCreateCount = server.db.users.length
   after = ->
     wait()
