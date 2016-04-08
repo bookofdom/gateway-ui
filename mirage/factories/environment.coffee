@@ -1,7 +1,7 @@
 `import { Factory, faker } from 'ember-cli-mirage'`
 
 EnvironmentFactory = Factory.extend
-  name: -> faker.hacker.noun().capitalize()
+  name: (i) -> faker.list.cycle('development', 'staging', 'production')(i).capitalize()
   description: -> faker.lorem.sentence()
   data:
     foo: 'bar'
