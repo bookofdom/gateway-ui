@@ -6,7 +6,7 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
     'serializer:api'
     'serializer:environment'
     'serializer:remote-endpoint'
-    'serializer:remote-endpoint-like'
+    'serializer:remote-endpoint-environment-datum'
     'model:api'
     'model:endpoint-group'
     'model:environment'
@@ -82,7 +82,7 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
             query: {}
             method: 'DELETE'
             headers:
-              Authorization: 'Basic YW55cHJlc2VuY2U6cGFzc3dvcmQ='
+              {}#Authorization: 'Basic YW55cHJlc2VuY2U6cGFzc3dvcmQ='
           environment_data: null
         ]
       ]
@@ -93,5 +93,6 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
 test 'it normalizes records', (assert) ->
   @store().findAll('api').then (apis) ->
     api = apis.get('firstObject')
-    api.get('remote_endpoints').then (remote_endpoints) ->
-      assert.equal remote_endpoints.get('length'), 2
+    api.get('environments').then ->
+      api.get('remote_endpoints').then (remote_endpoints) ->
+        assert.equal remote_endpoints.get('length'), 2
