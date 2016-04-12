@@ -22,15 +22,7 @@ moduleForModel 'log', 'Unit | Serializer | log',
   ]
   beforeEach: ->
     @server = new Pretender ->
-      @get '/apis', -> [
-        200
-        {'Content-Type': 'application/json'}
-        JSON.stringify apis: [
-          id: 1
-          name: 'Apples'
-        ]
-      ]
-      @get '/apis/1/logs', -> [
+      @get '/logs', -> [
         200
         {'Content-Type': 'application/json'}
         JSON.stringify logs: "127.0.0.1 captain kirk"
@@ -40,7 +32,5 @@ moduleForModel 'log', 'Unit | Serializer | log',
     @server.shutdown()
 
 test 'it normalizes records', (assert) ->
-  params = {}
-  params.api = @store().modelFor('api')
-  @store().query('log', params).then (logs) ->
+  @store().query('log', {}).then (logs) ->
     assert.ok logs
