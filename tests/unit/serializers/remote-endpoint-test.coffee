@@ -170,9 +170,9 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
               password: '1RnK4wENvCDysv2'
               dbname: 'database'
             headers: {}
-              # 'aperiam': 'haptic'
+              # aperiam: 'haptic'
             query: {}
-              # 'sunt': 'neural'
+              # sunt: 'neural'
           type: 'mysql'
           environment_data: [
             type: 'mysql'
@@ -184,9 +184,9 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
                 password: 'wNtMt_XnJFefm2F'
                 dbname: 'database'
               headers: {}
-                # 'ipsam': 'haptic'
+                # ipsam: 'haptic'
               query: {}
-                # 'quisquam': 'haptic'
+                # quisquam: 'haptic'
             environment_id: 1
             id: '13'
           ]
@@ -195,6 +195,49 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
           codename: 'alarm'
           name: 'Practical Frozen Bacon'
           id: '5'
+          api_id: '1'
+        , # postgres
+          data:
+            transactions: true
+            maxOpenConn: 35744
+            maxIdleConn: 8553
+            config:
+              host: 'server.marcelo.net'
+              port: 73872
+              user: 'Kailey53'
+              password: 'PUGUAd68YRc0et3'
+              dbname: 'database'
+              sslmode: 'allow'
+            headers: {}
+              # asperiores: 'haptic',
+            query: {}
+              # sapiente: 'bluetooth'
+          type: 'postgres'
+          environment_data: [
+            type: 'postgres'
+            data:
+              transactions: true
+              maxOpenConn: 47985
+              maxIdleConn: 30802
+              config:
+                host: 'server.opal.com'
+                port: 97836
+                user: 'Wellington_Mraz17'
+                password: 'hYth35ZaNatRova'
+                dbname: 'database'
+                sslmode: 'require'
+              headers: {}
+                # a: 'online'
+              query: {}
+                # voluptatem: 'open-source'
+            environment_id: 1
+            id: '10'
+          ]
+          status: 'failed'
+          description: 'Qui nihil tempora saepe quo voluptas quam mollitia totam.'
+          codename: 'card'
+          name: 'Practical Metal Cheese'
+          id: '4'
           api_id: '1'
         ]
       ]
@@ -207,4 +250,4 @@ test 'it normalizes records', (assert) ->
     api = apis.get('firstObject')
     api.get('environments').then ->
       api.get('remote_endpoints').then (remote_endpoints) ->
-        assert.equal remote_endpoints.get('length'), 5
+        assert.equal remote_endpoints.get('length'), 6
