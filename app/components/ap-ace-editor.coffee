@@ -39,6 +39,7 @@ ApAceEditorComponent = Ember.Component.extend
     options = @get 'options'
     el = @$('.form-control').get 0
     editor = ace.edit el
+    @$().get(0).aceEditor = editor
     editor.getSession().setMode @get('aceMode')
     editor.setTheme @get('aceTheme')
     editor.getSession().setTabSize 2
