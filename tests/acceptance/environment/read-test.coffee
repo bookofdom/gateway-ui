@@ -19,7 +19,7 @@ module 'Acceptance: Environment - Read',
   afterEach: -> destroyApp @application
 
 test 'user can navigate to environments', (assert) ->
-  visit '/apis/1/environments'
+  visit '/apis/1/hosts'
   click '.ap-app-secondary-sidebar [data-t="resources.environment_plural"] a'
   andThen ->
     assert.equal currentURL(), '/apis/1/environments'

@@ -18,11 +18,6 @@ module 'Acceptance: Environment Variable - Read',
 
   afterEach: -> destroyApp @application
 
-test 'user can navigate to environment variables', (assert) ->
-  visit '/apis/1/environments/1/edit'
-  andThen ->
-    assert.equal currentURL(), '/apis/1/environments/1/edit'
-
 test 'user can view environment variables', (assert) ->
   visit '/apis/1/environments/1/edit'
   andThen ->
