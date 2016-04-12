@@ -161,6 +161,41 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
           name: 'Sleek Concrete Gloves'
           id: '6'
           api_id: '1'
+        , # mysql
+          data:
+            config:
+              server: 'server.marlen.org'
+              port: 91768
+              username: 'Clemmie_Ruecker63'
+              password: '1RnK4wENvCDysv2'
+              dbname: 'database'
+            headers: {}
+              # 'aperiam': 'haptic'
+            query: {}
+              # 'sunt': 'neural'
+          type: 'mysql'
+          environment_data: [
+            type: 'mysql'
+            data:
+              config:
+                server: 'server.christiana.biz'
+                port: 24327
+                username: 'Sally_Medhurst47'
+                password: 'wNtMt_XnJFefm2F'
+                dbname: 'database'
+              headers: {}
+                # 'ipsam': 'haptic'
+              query: {}
+                # 'quisquam': 'haptic'
+            environment_id: 1
+            id: '13'
+          ]
+          status: 'processing'
+          description: 'Qui ut quisquam beatae rem.'
+          codename: 'alarm'
+          name: 'Practical Frozen Bacon'
+          id: '5'
+          api_id: '1'
         ]
       ]
 
@@ -172,4 +207,4 @@ test 'it normalizes records', (assert) ->
     api = apis.get('firstObject')
     api.get('environments').then ->
       api.get('remote_endpoints').then (remote_endpoints) ->
-        assert.equal remote_endpoints.get('length'), 4
+        assert.equal remote_endpoints.get('length'), 5
