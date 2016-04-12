@@ -45,6 +45,7 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
         200
         {'Content-Type': 'application/json'}
         JSON.stringify remote_endpoints: [
+        # http
           api_id: 1
           id: 1
           name: 'Alerts - GET'
@@ -68,7 +69,7 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
               method: 'GET'
               headers: {}
           ]
-        ,
+        , # http
           api_id: 1
           id: 2
           name: 'Event - DELETE'
@@ -84,6 +85,82 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
             headers:
               {}#Authorization: 'Basic YW55cHJlc2VuY2U6cGFzc3dvcmQ='
           environment_data: null
+        , # ldap
+          data:
+            username: 'cn=barry.name, dc=sit, dc=com'
+            password: 'iZnt71pDiPfihJZ'
+            host: '32.203.82.167'
+            port: 59838
+            use_tls: false
+            tls:
+              server_name: 'zaria.net'
+            headers: {}
+              # quia: 'online'
+            query: {}
+              # cumque: 'online'
+          type: 'ldap'
+          environment_data: [
+            type: 'ldap',
+            data:
+              username: 'cn=einar.org, dc=rerum, dc=com'
+              password: 'xmyaSuQ8wFp1oqa'
+              host: '13.182.25.10'
+              port: 39485
+              use_tls: true
+              tls:
+                server_name: 'jazmyn.name'
+              headers: {}
+                # assumenda: 'back-end'
+              query: {}
+                # dolor: 'haptic'
+            environment_id: 1
+            id: '19'
+          ]
+          status: 'processing'
+          description: 'Sequi dolorum voluptates libero dolorem.'
+          codename: 'sensor'
+          name: 'Unbranded Plastic Hat'
+          id: '7'
+          api_id: '1'
+        , # mongodb
+          data:
+            limit: 68475
+            config:
+              database: 'database'
+              username: 'Karlee34'
+              password: 'RPHz7x3SHEJX0Ib'
+              hosts: []
+              #   host: 'www.vicenta.info'
+              #   port: 5112
+            headers: {}
+              # quod: 'redundant'
+            query: {}
+              # sit: 'haptic'
+          type: 'mongodb'
+          environment_data: [
+            type: 'mongodb'
+            data:
+              limit: 55150
+              config:
+                database: 'database'
+                username: 'Brannon20'
+                password: 'n_Qavujq0gXiyvR'
+                hosts: []
+                  # host: 'www.edyth.name'
+                  # port: 15178
+              headers: {}
+                # 'accusantium': 'auxiliary'
+              query: {}
+                # nobis: 'neural'
+            environment_id: 1
+            id: '16'
+          ]
+          status: 'pending'
+          description: 'Aut velit molestiae rerum animi saepe architecto asperiores.'
+          codename: 'matrix'
+          name: 'Sleek Concrete Gloves'
+          id: '6'
+          api_id: '1'
         ]
       ]
 
@@ -95,4 +172,4 @@ test 'it normalizes records', (assert) ->
     api = apis.get('firstObject')
     api.get('environments').then ->
       api.get('remote_endpoints').then (remote_endpoints) ->
-        assert.equal remote_endpoints.get('length'), 2
+        assert.equal remote_endpoints.get('length'), 4
