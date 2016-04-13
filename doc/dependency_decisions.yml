@@ -1,0 +1,97 @@
+---
+- - :whitelist
+  - MIT
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:22:48.962986000 Z
+- - :whitelist
+  - Apache 2.0
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:24:05.466782000 Z
+- - :whitelist
+  - MIT/X11
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:24:44.827465000 Z
+- - :whitelist
+  - BSD-3-Clause AND MIT
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:24:51.837406000 Z
+- - :whitelist
+  - "(MIT OR Apache-2.0)"
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:26:43.179586000 Z
+- - :whitelist
+  - "(MIT AND CC-BY-3.0)"
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:26:50.629931000 Z
+- - :whitelist
+  - "(BSD-2-Clause OR MIT)"
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:27:20.503472000 Z
+- - :whitelist
+  - WTFPL
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:27:56.463133000 Z
+- - :whitelist
+  - BSD
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:28:02.847023000 Z
+- - :whitelist
+  - New BSD
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:28:07.662543000 Z
+- - :whitelist
+  - Simplified BSD
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:28:20.050899000 Z
+- - :whitelist
+  - CC-BY-3.0
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:29:52.780000000 Z
+- - :whitelist
+  - "(MIT AND JSON)"
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:30:09.695182000 Z
+- - :whitelist
+  - Public Domain
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:30:15.848993000 Z
+- - :whitelist
+  - BSD*
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:37:16.159326000 Z
+- - :whitelist
+  - BSD-like
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2016-04-13 19:37:23.950900000 Z
