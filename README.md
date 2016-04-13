@@ -47,6 +47,11 @@ To output production build artifacts to a another location, replace
 `./dist` above with your desired destination folder.
 
 
+## License Reporting
+Depends on [license_finder](https://github.com/pivotal/LicenseFinder).
+Generate a report of licenses in need of review with `license_finder report`.
+
+
 ## Further Reading / Useful Links
 * [ember.js](http://emberjs.com/)
 * [ember-cli](http://www.ember-cli.com/)
