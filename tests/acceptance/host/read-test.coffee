@@ -19,7 +19,7 @@ module 'Acceptance: Host - Read',
   afterEach: -> destroyApp @application
 
 test 'user can navigate to hosts', (assert) ->
-  visit '/apis/1/hosts'
+  visit '/apis/1/environments'
   click '.ap-app-secondary-sidebar [data-t="resources.host_plural"] a'
   andThen ->
     assert.equal currentURL(), '/apis/1/hosts'

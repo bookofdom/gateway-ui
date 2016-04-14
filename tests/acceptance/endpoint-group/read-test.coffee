@@ -19,7 +19,7 @@ module 'Acceptance: Endpoint Group - Read',
   afterEach: -> destroyApp @application
 
 test 'user can navigate to endpoint groups', (assert) ->
-  visit '/apis/1/groups'
+  visit '/apis/1/environments'
   click '.ap-app-secondary-sidebar [data-t="resources.endpoint-group_plural"] a'
   andThen ->
     assert.equal currentURL(), '/apis/1/groups'
