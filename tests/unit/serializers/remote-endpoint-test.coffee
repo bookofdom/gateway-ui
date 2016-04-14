@@ -261,6 +261,29 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
               script: 'echo ~'
           id: '101'
           api_id: '1'
+        , # store
+          data:
+            headers: {}
+              # deleniti: 'solid state'
+            query: {}
+              # nostrum: 'virtual'
+          type: 'store'
+          environment_data: [
+            type: 'store'
+            data:
+              headers: {}
+                # deleniti: 'solid state'
+              query: {}
+                # nostrum: 'virtual'
+            environment_id: 1
+            id: '22'
+          ]
+          status: 'failed'
+          description: 'Consequatur non ullam quidem sed laborum aut.'
+          codename: 'card'
+          name: 'Sleek Steel Pizza'
+          id: '8'
+          api_id: '1'
         ]
       ]
 
@@ -272,4 +295,4 @@ test 'it normalizes records', (assert) ->
     api = apis.get('firstObject')
     api.get('environments').then ->
       api.get('remote_endpoints').then (remote_endpoints) ->
-        assert.equal remote_endpoints.get('length'), 7
+        assert.equal remote_endpoints.get('length'), 8
