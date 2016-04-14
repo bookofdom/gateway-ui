@@ -46,31 +46,7 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
         200
         {'Content-Type': 'application/json'}
         JSON.stringify remote_endpoints: [
-        # http
-          api_id: 1
-          id: 1
-          name: 'Alerts - GET'
-          codename: 'alerts'
-          description: ''
-          type: 'http'
-          status: null
-          status_message: null
-          data:
-            url: 'http://justapis-mock.herokuapp.com/v1/alerts'
-            query: {}
-            method: 'GET'
-            headers: {}
-          environment_data: [
-            remote_endpoint_id: 1
-            environment_id: 1
-            type: 'http'
-            data:
-              url: 'http://dev.test'
-              query: {}
-              method: 'GET'
-              headers: {}
-          ]
-        , # http
+          # http
           api_id: 1
           id: 2
           name: 'Event - DELETE'
@@ -318,6 +294,51 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
           name: 'Tasty Soft Shirt'
           id: 9
           api_id: 1
+        , # sqlserver
+          data:
+            transactions: false
+            maxOpenConn: 28460
+            maxIdleConn: 19879
+            config:
+              server: 'server.jaquan.com'
+              port: 91763
+              'user id': 'Hilda_Dooley'
+              password: 'W8SorC6vv0LatS8'
+              database: 'database'
+              schema: 'schema'
+              'connection timeout': 77921
+            headers: {}
+              # cumque: 'back-end'
+            query: {}
+              # inventore: 'bluetooth'
+          type: 'sqlserver'
+          environment_data: [
+            type: 'sqlserver'
+            data:
+              transactions: false
+              maxOpenConn: 31182
+              maxIdleConn: 24684
+              config:
+                server: 'server.ana.com'
+                port: 3427
+                'user id': 'Novella40'
+                password: 'UD3CxZeKTMcJ9xi'
+                database: 'database'
+                schema: 'schema'
+                'connection timeout': 49686
+              headers: {}
+                # sunt: 'mobile'
+              query: {}
+                # nesciunt: 'haptic'
+            environment_id: 1
+            id: '7'
+          ]
+          status: 'processing'
+          description: 'Accusamus rem aperiam perferendis.'
+          codename: 'feed'
+          name: 'Rustic Fresh Mouse'
+          id: 10
+          api_id: '1'
         ]
       ]
 
@@ -329,5 +350,4 @@ test 'it normalizes records', (assert) ->
     api = apis.get('firstObject')
     api.get('environments').then ->
       api.get('remote_endpoints').then (remote_endpoints) ->
-        console.log remote_endpoints
         assert.equal remote_endpoints.get('length'), 9
