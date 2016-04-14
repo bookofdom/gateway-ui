@@ -2,6 +2,6 @@
 
 ScratchPadFactory = Factory.extend
   name: (i) -> "Scratch Pad #{i}"
-  code: (i) -> "console.log('Test #{i}');"
+  code: (i) -> "foo('Test #{i}');"
 
 `export default ScratchPadFactory`

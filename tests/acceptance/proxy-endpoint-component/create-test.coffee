@@ -5,7 +5,7 @@
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
 `import { makePutHandler } from 'gateway/mirage/helpers/route-handlers'`
 
-module 'Acceptance: Proxy Endpoint Component - Update',
+module 'Acceptance: Proxy Endpoint Component - Create',
   beforeEach: ->
     @application = startApp()
     server.createList('api', 1).forEach (api) ->
@@ -24,22 +24,27 @@ module 'Acceptance: Proxy Endpoint Component - Update',
 
   afterEach: -> destroyApp @application
 
-test 'user can navigate to proxy endpoint componentss edit route', (assert) ->
-  visit '/apis/1/proxy-endpoints/1/edit'
-  click '.ap-app-tertiary-sidebar .ap-list-nav:eq(0) li:not(.ap-unsortable):eq(0) a'
-  andThen ->
-    assert.equal currentURL(), '/apis/1/proxy-endpoints/1/components/1/edit'
-
 test 'user can edit proxy endpoint components', (assert) ->
   done = assert.async()
+  beforeCount = server.schema.proxyEndpoint.all()[0].proxy_endpoint_components.length
   after = ->
     wait()
     andThen ->
-      assert.equal currentURL(), '/apis/1/proxy-endpoints/1/components/1/edit'
-      assert.equal server.db.proxyEndpoints[0].components[0].conditional, 'foo("test");'
+      count = server.schema.proxyEndpoint.all()[0].components.length
+      assert.equal !!currentURL().toString().match(/\/apis\/1\/proxy-endpoints\/1\/components\/.*\/edit/), true
+      assert.equal count, beforeCount + 1
+      assert.equal find('.ap-app-tertiary-sidebar .ap-list-nav:eq(0) li:not(.ap-unsortable)').length, beforeCount + 1
       done()
   server.put '/apis/:apiId/proxy_endpoints/:id', makePutHandler('proxy_endpoint', after)
-  visit '/apis/1/proxy-endpoints/1/components/1/edit'
+  visit '/apis/1/proxy-endpoints/1/edit'
   andThen ->
-    findWithAssert('[data-t="fields.conditional"] .ap-ace-editor')[0].aceEditor.getSession().setValue 'foo("test");'
-    click '[type=submit]'
+    assert.equal currentURL(), '/apis/1/proxy-endpoints/1/edit'
+    assert.equal find('.ap-app-tertiary-sidebar .ap-list-nav:eq(0) li:not(.ap-unsortable)').length, beforeCount
+
+  click '.ap-app-tertiary-sidebar .ap-list-nav:eq(0) [data-t="actions.new"] a'
+  andThen ->
+    assert.equal currentURL(), '/apis/1/proxy-endpoints/1/components/new'
+  click '[data-t="types.proxy-endpoint-component.js"] a'
+  andThen ->
+    assert.equal currentURL(), '/apis/1/proxy-endpoints/1/components/new/js'
+  click '[type=submit]'
