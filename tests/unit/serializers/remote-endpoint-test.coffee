@@ -239,6 +239,28 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
           name: 'Practical Metal Cheese'
           id: '4'
           api_id: '1'
+        , # script
+          type: 'script'
+          name: 'Practical Metal Cheese'
+          codename: 'pcm'
+          description: 'Practical Metal Cheese'
+          sslmode: 'prefer'
+          timeout: 30
+          use_tls: false
+          interpreter: 'sh'
+          filepath: '/~'
+          script: 'echo ~'
+          environment_data: []
+          data:
+            headers: {}
+            query: {}
+            config:
+              interpreter: 'sh'
+              timeout: 30
+              filepath: '/~'
+              script: 'echo ~'
+          id: '101'
+          api_id: '1'
         ]
       ]
 
@@ -250,4 +272,4 @@ test 'it normalizes records', (assert) ->
     api = apis.get('firstObject')
     api.get('environments').then ->
       api.get('remote_endpoints').then (remote_endpoints) ->
-        assert.equal remote_endpoints.get('length'), 6
+        assert.equal remote_endpoints.get('length'), 7
