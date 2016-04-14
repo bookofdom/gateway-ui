@@ -41,6 +41,7 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
           name: 'One'
         ]
       ]
+
       @get '/apis/1/remote_endpoints', -> [
         200
         {'Content-Type': 'application/json'}
@@ -120,8 +121,8 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
           description: 'Sequi dolorum voluptates libero dolorem.'
           codename: 'sensor'
           name: 'Unbranded Plastic Hat'
-          id: '7'
-          api_id: '1'
+          id: 3
+          api_id: 1
         , # mongodb
           data:
             limit: 68475
@@ -159,8 +160,8 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
           description: 'Aut velit molestiae rerum animi saepe architecto asperiores.'
           codename: 'matrix'
           name: 'Sleek Concrete Gloves'
-          id: '6'
-          api_id: '1'
+          id: 4
+          api_id: 1
         , # mysql
           data:
             config:
@@ -194,8 +195,8 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
           description: 'Qui ut quisquam beatae rem.'
           codename: 'alarm'
           name: 'Practical Frozen Bacon'
-          id: '5'
-          api_id: '1'
+          id: 5
+          api_id: 1
         , # postgres
           data:
             transactions: true
@@ -237,8 +238,8 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
           description: 'Qui nihil tempora saepe quo voluptas quam mollitia totam.'
           codename: 'card'
           name: 'Practical Metal Cheese'
-          id: '4'
-          api_id: '1'
+          id: 6
+          api_id: 1
         , # script
           type: 'script'
           name: 'Practical Metal Cheese'
@@ -259,8 +260,8 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
               timeout: 30
               filepath: '/~'
               script: 'echo ~'
-          id: '101'
-          api_id: '1'
+          id: 7
+          api_id: 1
         , # store
           data:
             headers: {}
@@ -282,8 +283,41 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
           description: 'Consequatur non ullam quidem sed laborum aut.'
           codename: 'card'
           name: 'Sleek Steel Pizza'
-          id: '8'
-          api_id: '1'
+          id: 8
+          api_id: 1
+        , # soap
+          data:
+            serviceName: 'laudantiumvoluptatesplaceat'
+            url: 'https://lincoln.org'
+            wssePasswordCredentials:
+              username: 'Destin.Moen'
+              password: 'NIJJC_avWSFiRIJ'
+            headers: {}
+              # tempore: 'optical'
+            query: {}
+              # sed: '1080p'
+          type: 'soap'
+          environment_data: [
+            type: 'soap'
+            data:
+              serviceName: 'iureesseet'
+              url: 'https://brandt.net'
+              wssePasswordCredentials:
+                username: 'Wilma89'
+                password: 'BRjC8ZmqEmDObji'
+              headers: {}
+                # neque: 'solid state'
+              query: {}
+                # maxime: 'cross-platform'
+            environment_id: 1
+            id: '4'
+          ]
+          status: 'failed'
+          description: 'Iste doloribus quia.'
+          codename: 'transmitter'
+          name: 'Tasty Soft Shirt'
+          id: 9
+          api_id: 1
         ]
       ]
 
@@ -295,4 +329,5 @@ test 'it normalizes records', (assert) ->
     api = apis.get('firstObject')
     api.get('environments').then ->
       api.get('remote_endpoints').then (remote_endpoints) ->
-        assert.equal remote_endpoints.get('length'), 8
+        console.log remote_endpoints
+        assert.equal remote_endpoints.get('length'), 9
