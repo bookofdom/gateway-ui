@@ -7,6 +7,7 @@ RemoteEndpointPushPlatform = Model.extend
   type: DS.attr 'string', defaultValue: 'ios'
   certificate: DS.attr 'string'
   password: DS.attr 'string'
+  topic: DS.attr 'string'
   development: DS.attr 'boolean', defaultValue: false
   api_key: DS.attr 'string'
 

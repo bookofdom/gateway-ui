@@ -41,6 +41,8 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
       name: 'password'
       type: 'password'
     ,
+      name: 'topic'
+    ,
       name: 'development'
     ]
     ios: [
@@ -50,6 +52,8 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
     ,
       name: 'password'
       type: 'password'
+    ,
+      name: 'topic'
     ,
       name: 'development'
     ]
