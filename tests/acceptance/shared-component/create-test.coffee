@@ -28,8 +28,7 @@ test 'user can create', (assert) ->
     andThen ->
       afterCreateCount = server.db.sharedComponents.length
       assert.equal afterCreateCount, beforeCreateCount + 1
-      console.log currentURL()
-      #assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
+      assert.equal currentURL(), '/apis/1/components/2/edit'
       done()
   server.post '/apis/:apiId/shared_components', makePostChildHandler('api', 'shared_component', after)
   visit '/apis/1/components'
