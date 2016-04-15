@@ -36,4 +36,5 @@ test 'user can create new host on index', (assert) ->
     assert.equal currentURL(), '/apis/1/hosts'
     assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New Host'
+  fillIn '[name=hostname]', 'Host'
   click '.ap-panel-new [type=submit]'
