@@ -24,7 +24,7 @@ module 'Acceptance: Proxy Endpoint Component - Create',
 
   afterEach: -> destroyApp @application
 
-test 'user can edit proxy endpoint components', (assert) ->
+test 'user can create proxy endpoint components', (assert) ->
   done = assert.async()
   beforeCount = server.schema.proxyEndpoint.all()[0].proxy_endpoint_components.length
   after = ->
