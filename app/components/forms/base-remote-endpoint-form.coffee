@@ -209,6 +209,9 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         name: 'script'
         type: 'editor-text'
       ]
+      push: [
+        name: 'publish_endpoint'
+      ]
     # environment datum may not set WSDL
     fields.soap.shift() if @get('modelType') is 'remote-endpoint-environment-datum'
     fields

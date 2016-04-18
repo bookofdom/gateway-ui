@@ -56,6 +56,8 @@ RemoteEndpointLike = Model.extend
   interpreter: DS.attr 'string'
   filepath: DS.attr 'string'
   script: DS.attr 'string'
+  # push
+  publish_endpoint: DS.attr 'boolean'
 
   # Relationships
   headers: DS.hasMany 'remote-endpoint-header',

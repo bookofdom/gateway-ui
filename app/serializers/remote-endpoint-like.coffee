@@ -8,6 +8,7 @@
 `import MongodbRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/mongodb'`
 `import LdapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/ldap'`
 `import ScriptRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/script'`
+`import PushRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/push'`
 
 RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
@@ -51,6 +52,7 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       when 'mongodb' then MongodbRemoteEndpointSerializer.normalize hash
       when 'ldap' then LdapRemoteEndpointSerializer.normalize hash
       when 'script' then ScriptRemoteEndpointSerializer.normalize hash
+      when 'push' then PushRemoteEndpointSerializer.normalize hash
     @_super arguments...
   normalizeEnvironmentData: (hash) ->
     hash.environment_data ?= []
@@ -80,6 +82,7 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       when 'mongodb' then MongodbRemoteEndpointSerializer.serialize serialized
       when 'ldap' then LdapRemoteEndpointSerializer.serialize serialized
       when 'script' then ScriptRemoteEndpointSerializer.serialize serialized
+      when 'push' then PushRemoteEndpointSerializer.serialize serialized
     serialized
   serializeHeaders: (snapshot) ->
     headers = {}
