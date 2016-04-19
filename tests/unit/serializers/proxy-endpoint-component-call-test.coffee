@@ -85,16 +85,8 @@ moduleForModel 'proxy-endpoint-component-call', 'Unit | Serializer | proxy endpo
           tests: []
           routes: []
           components: [
-            before: [
-              id: 1,
-              type: 'js',
-              data: 'before multi'
-            ]
-            after: [
-              id: 2,
-              type: 'js',
-              data: 'after multi'
-            ]
+            before: []
+            after: []
             calls: [
               remote_endpoint_id: 1
               endpoint_name_override: 'multiOverride'
