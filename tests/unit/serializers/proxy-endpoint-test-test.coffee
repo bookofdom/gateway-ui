@@ -8,6 +8,9 @@ moduleForModel 'proxy-endpoint-test', 'Unit | Serializer | proxy endpoint test',
     'serializer:environment'
     'serializer:proxy-endpoint'
     'serializer:proxy-endpoint-test'
+    'serializer:proxy-endpoint-test-argument'
+    'serializer:proxy-endpoint-test-header'
+    'serializer:proxy-endpoint-test-query-parameter'
     'model:api'
     'model:endpoint-group'
     'model:environment'
@@ -63,23 +66,13 @@ moduleForModel 'proxy-endpoint-test', 'Unit | Serializer | proxy endpoint test',
             name: 'Ducimus Test'
             methods: ['GET', 'POST', 'PUT', 'DELETE']
             route: '/laudantium/eius.json'
-            # pairs: [
-            #   id: 1,
-            #   type: 'get'
-            #   key: 'key'
-            #   value: 'value'
-            # ]
+            pairs: []
           ,
             id: 2,
             name: 'Voluptatem Test'
             methods: ['GET', 'POST', 'PUT', 'DELETE']
             route: '/unde/repudiandae.json'
-            # pairs: [
-            #   id: 895
-            #   type: 'get'
-            #   key: 'key'
-            #   value: 'value'
-            # ]
+            pairs: []
           ]
           routes: []
           components: []
