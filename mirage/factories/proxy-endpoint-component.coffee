@@ -11,7 +11,7 @@ ProxyEndpointComponentFactory = Factory.extend
   name: -> "#{faker.company.catchPhraseAdjective().capitalize()} Component"
   description: -> faker.lorem.sentence()
   conditional_positive: -> faker.random.boolean()
-  data: 'console.log("code string");'
+  data: 'foo("code string");'
   conditional: '''
 var foo = function () {
   var someCondition = true;
@@ -46,7 +46,7 @@ var foo = function () {
       call =
         remote_endpoint_id: (faker.random.number() % 20) + 1
         endpoint_name_override: "#{typeSlug}Override"
-        conditional: 'console.log("call conditional");'
+        conditional: 'foo("call conditional");'
         conditional_positive: faker.random.boolean()
         before: [
           id: transformationId++

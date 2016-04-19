@@ -8,16 +8,25 @@ config = ->
   @namespace = 'admin';    # make this `api`, for example, if your API is namespaced
   # @timing = 400;      # delay for each request, automatically set to 0 during testing
 
+  @get '/ap-request.js', ->
+    new Response 200, {'Content-Type': 'text/javascript'}, '''
+      /**
+      * Mock ap-request.js file.
+      * @param {string} ap - ap
+      * @param {string} request - request
+      */
+      function apRequestJs (name, doc) {};
+    '''
+
   @post '/sessions', (schema, request) ->
     body = JSON.parse request.requestBody
-    sessions = schema.session.where
-      email: body.email
-      password: body.password
-    session = sessions[0]
+    session = schema.session.all().toArray().find (session) ->
+      (session.user.email == body.email) and
+        (session.user.password == body.password)
     if !session
       new Response 400, {}, error: 'Login failed.'
     else
-      session
+      user: session.user
 
   # logs
   @get '/logs', (schema, request) -> schema.log.all()[0]
