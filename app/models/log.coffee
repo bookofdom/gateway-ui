@@ -10,13 +10,12 @@ Log = Model.extend
   api: DS.belongsTo 'api', async: false
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
 
-  # Get the buffer at least once, otherwise the buffer observer won't be called.
-  #startBuffer: Ember.on 'init', -> @get 'buffer.length'
+  bufferTimeout: 1000
 
   # Rate-limits log updates to once per second.
-  # TODO:  does this belong in the controller?
   bufferObserver: Ember.observer 'buffer.length', ->
-    Ember.run.throttle @, @handleBuffer, 1000, false
+    bufferTimeout = @get 'bufferTimeout'
+    Ember.run.throttle @, @handleBuffer, bufferTimeout, false
 
   handleBuffer: ->
     buffer = @get 'buffer'
