@@ -29,9 +29,13 @@ RemoteEndpointLike = Model.extend
   # mysql
   database: DS.attr 'string'
   transactions: DS.attr 'boolean'
-  timeout: DS.attr 'number'
   maxopen: DS.attr 'number'
   maxidle: DS.attr 'number'
+  # sqlserver
+  # postgres
+  # mysql
+  # script
+  timeout: DS.attr 'number'
   # sqlserver
   # postgres
   # mysql
