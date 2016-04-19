@@ -131,6 +131,9 @@ authSchemes = 'basic wsse'.split(' ').map (scheme) ->
   slug: scheme
   value: scheme
 
+# Interpreters are filtered in the UI depending on the GOOS
+# config passed by the binary.  Thus only the interpreter(s)
+# matching the selected OS are actually available.
 interpreters = [
   name: 'sh'
   os: 'darwin'

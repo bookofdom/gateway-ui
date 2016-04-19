@@ -65,6 +65,7 @@ module.exports = function(environment) {
     ENV.api.swaggerViewerPath = '/swagger';
     ENV.api.swaggerJsonPath = '/swagger';
 
+    ENV.goOs = 'darwin';
     //ENV.notifications = true;
 
     // uncomment for stand-alone gateway API
