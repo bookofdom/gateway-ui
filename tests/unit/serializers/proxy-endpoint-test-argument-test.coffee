@@ -66,22 +66,16 @@ moduleForModel 'proxy-endpoint-test-argument', 'Unit | Serializer | proxy endpoi
             name: 'Ducimus Test'
             methods: ['GET', 'POST', 'PUT', 'DELETE']
             route: '/laudantium/eius.json'
-            pairs: [ # proxy-endpoint-test-argument
-              id: 1,
-              type: 'get'
-              key: 'key'
-              value: 'value'
-            ]
-          ,
-            id: 2,
-            name: 'Voluptatem Test'
-            methods: ['GET', 'POST', 'PUT', 'DELETE']
-            route: '/unde/repudiandae.json'
-            pairs: [ # proxy-endpoint-test-argument
-              id: 1
-              type: 'get'
-              key: 'key'
-              value: 'value'
+            pairs: [
+              id: 1 # proxy-endpoint-test-argument
+              type: 'path'
+              key: 'key1'
+              value: 'value1'
+            ,
+              id: 2 # proxy-endpoint-test-argument
+              type: 'path'
+              key: 'key2'
+              value: 'value2'
             ]
           ]
           routes: []
@@ -106,4 +100,6 @@ test 'it normalizes records', (assert) ->
     api.get('proxy_endpoints').then (proxy_endpoints) ->
       proxy_endpoint = proxy_endpoints.get('firstObject')
       proxy_endpoint_tests = proxy_endpoint.get('tests')
-      assert.equal proxy_endpoint_tests.get('length'), 2
+      proxy_endpoint_test = proxy_endpoint_tests.get('firstObject')
+      proxy_endpoint_test_arguments = proxy_endpoint_test.get('arguments')
+      assert.equal proxy_endpoint_test_arguments.get('length'), 2
