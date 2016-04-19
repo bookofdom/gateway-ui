@@ -2,9 +2,7 @@
 
 enviromentDatumId = 1
 
-# TODO script type is missing from original mocks
-#types = 'http soap sqlserver postgres mysql mongodb ldap script store'.split ' '
-types = 'http soap sqlserver postgres mysql mongodb ldap store'.split ' '
+types = 'http soap sqlserver postgres mysql mongodb ldap script store'.split ' '
 typeCycle = faker.list.cycle types...
 
 statuses = 'success failed pending processing'.split ' '
@@ -87,6 +85,12 @@ generateDataForType = (typeSlug, i) ->
       use_tls: faker.random.boolean()
       tls:
         server_name: faker.internet.domainName()
+    when 'script'
+      config:
+        interpreter: 'sh'
+        timeout: 1 # seconds
+        filepath: '/foo/bar/script.sh'
+        script: 'echo "hello world"'
     when 'store'
       {}
   data.headers = generateKeyValues 3
