@@ -13,10 +13,6 @@ EmbeddedChildrenMixin = Ember.Mixin.create
       # (embedding inverses) only one at a time can resolve a parent.  Or stated
       # differently:  an embedded child may be embedded in only one parent at
       # a time.
-      # TODO:  this assumption is only true until it's not.  It is
-      # conceivable for a record to be embedded in multiple parents.
-      # Because of the difficulty in updating multiply embedded records,
-      # we would hope API designers never do this.
       parent ?= candidateParent
     parent
 
