@@ -62,7 +62,7 @@ moduleForModel 'shared-component-transformation', 'Unit | Serializer | shared co
           name: 'Robust Component 1'
           id: 1
           api_id: 1
-          before: [
+          before: [ # shared component transformations
             id: 1
             type: 'js'
             data: 'before multi call'
@@ -71,7 +71,7 @@ moduleForModel 'shared-component-transformation', 'Unit | Serializer | shared co
             type: 'js'
             data: 'before multi call'
           ]
-          after: [
+          after: [ # shared component transformations
             id: 1
             type: 'js'
             data: 'after multi call'
