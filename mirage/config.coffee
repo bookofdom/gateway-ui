@@ -132,4 +132,10 @@ config = ->
       }
     ]
 
+  @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makeGetChildrenHandler('proxy_endpoint', 'proxy_endpoint_schema')
+  @post '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makePostChildHandler('proxy_endpoint', 'proxy_endpoint_schema')
+  @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas/:id'
+  @put '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas/:id', makePutHandler 'proxy_endpoint_schema'
+  @del '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas/:id'
+
 `export default config`
