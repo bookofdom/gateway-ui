@@ -6,7 +6,6 @@ moduleForModel 'shared-component-call', 'Unit | Serializer | shared component ca
     'serializer:api'
     'serializer:shared-component'
     'serializer:shared-component-call'
-    'serializer:shared-component-transformation'
     'model:api'
     'model:environment-variable'
     'model:endpoint-group'
@@ -63,51 +62,27 @@ moduleForModel 'shared-component-call', 'Unit | Serializer | shared component ca
           name: 'Robust Component 1'
           id: 1
           api_id: 1
-          calls: [
+          calls: [ # shared component calls
             remote_endpoint_id: 1
             endpoint_name_override: 'multiOverride 1'
             conditional: '...'
             conditional_positive: false
-            before: [
-              id: 1
-              type: 'js'
-              data: 'before multi call'
-            ]
-            after: [
-              id: 2
-              type: 'js'
-              data: 'after multi call'
-            ]
+            before: []
+            after: []
           ,
             remote_endpoint_id: 1
             endpoint_name_override: 'multiOverride 2'
             conditional: '...'
             conditional_positive: false
-            before: [
-              id: 1
-              type: 'js'
-              data: 'before multi call'
-            ]
-            after: [
-              id: 2
-              type: 'js'
-              data: 'after multi call'
-            ]
+            before: []
+            after: []
           ,
             remote_endpoint_id: 1
             endpoint_name_override: 'multiOverride 3'
             conditional: '...'
             conditional_positive: false
-            before: [
-              id: 1
-              type: 'js'
-              data: 'before multi call'
-            ]
-            after: [
-              id: 2
-              type: 'js'
-              data: 'after multi call'
-            ]
+            before: []
+            after: []
           ]
         ]
       ]
