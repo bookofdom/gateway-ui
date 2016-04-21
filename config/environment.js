@@ -69,7 +69,8 @@ module.exports = function(environment) {
     //ENV.notifications = true;
 
     // uncomment for stand-alone gateway API
-    //ENV.api.host = 'http://localhost:5000'
+    //ENV.api.host = 'http://localhost:5000';
+    //ENV['ember-cli-mirage'] = {enabled: false};
   }
 
   if (environment === 'test') {
