@@ -56,7 +56,7 @@ EnvironmentFormComponent = BaseFormComponent.extend
   fields: Ember.computed 'model.isNew', 'model.session_type', ->
     fields = @_super arguments...
     type = @get 'model.session_type'
-    sessionTypeFields = @get "sessionTypeFields.#{type}"
+    sessionTypeFields = @get "sessionTypeFields.#{type}" if type
     fields = Ember.copy(fields).pushObjects sessionTypeFields if sessionTypeFields
     fields
 
