@@ -9,7 +9,7 @@ JsonSchemaNode = DS.Model.extend
   title: DS.attr 'string'
   # parent is object
   name: DS.attr 'string'
-  pattern: DS.attr 'boolean', defaultValue: false # is name a regex pattern?
+  patternName: DS.attr 'boolean', defaultValue: false # is name a regex pattern?
   required: DS.attr 'boolean', defaultValue: false
   # object
   maxProperties: DS.attr 'number'
