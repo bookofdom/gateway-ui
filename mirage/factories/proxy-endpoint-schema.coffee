@@ -18,6 +18,16 @@ ProxyEndpointSchemaFactory = Factory.extend
       		description: 'Age in years'
       		type: 'integer'
       		minimum: 0
-      required: ['firstName', 'lastName']
+        nickNames:
+          type: 'array'
+          minItems: 1
+          items:
+            type: 'string'
+          uniqueItems: true
+      required: [
+        'firstName'
+        'lastName'
+        'age'
+      ]
 
 `export default ProxyEndpointSchemaFactory`
