@@ -8,9 +8,10 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
 
   formTemplateName: Ember.computed 'model.type', ->
     type = @get 'model.type'
+    type = 'shared' if @get 'model.shared'
     "components/forms/proxy-endpoint-component/#{type}-form"
 
-  fields: Ember.computed 'model.js', 'model.single', 'model.multi', ->
+  fields: Ember.computed 'model.js', 'model.single', 'model.multi', 'model.shared', ->
     fields = [
       name: 'conditional_positive'
       type: 'conditional-positive'
@@ -23,6 +24,12 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
         name: 'body'
         label: 'fields.logic'
         type: 'javascript'
+    if @get 'model.shared'
+      fields = [
+        name: 'shared_component'
+        type: 'select-model-name'
+        label: 'resources.shared-component'
+      ]
     fields
 
   createNewCallModel: ->

@@ -1,0 +1,26 @@
+<br>
+{{#each model.before as |transform|}}
+  {{#unless transform.isDeleted}}
+    {{forms/shared-component-transformation-inline-form before=true model=transform option-groups=transformation-option-groups}}
+  {{/unless}}
+{{/each}}
+
+{{#unless model.isNew}}
+  {{#ap-panel-edit t='resources.shared-component-call_plural'}}
+    {{ap-table-model
+      models=model.calls
+      delete-action='delete-shared-component-call'
+      edit-path='shared-component-call.edit'
+      option-groups=calls-option-groups
+      component-name='forms/shared-component-call-inline-tabular-form'}}
+    {{ap-button-block-new
+      t='resources.shared-component-call'
+      action='new-shared-component-call'}}
+  {{/ap-panel-edit}}
+{{/unless}}
+
+{{#each model.after as |transform|}}
+  {{#unless transform.isDeleted}}
+    {{forms/shared-component-transformation-inline-form after=true model=transform option-groups=transformation-option-groups}}
+  {{/unless}}
+{{/each}}
