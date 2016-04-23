@@ -5,6 +5,8 @@
 JsonSchemaNode = DS.Model.extend
   type: DS.attr 'string', defaultValue: 'object'
   description: DS.attr 'string'
+  # root
+  root: DS.attr 'boolean', defaultValue: false
   # root, object
   title: DS.attr 'string'
   # parent is object
@@ -30,8 +32,12 @@ JsonSchemaNode = DS.Model.extend
   pattern: DS.attr 'string'
 
   # Relationships
-  parent: DS.belongsTo 'json-schema-node', inverse: 'children'
-  children: DS.hasMany 'json-schema-node', inverse: 'parent'
+  parent: DS.belongsTo 'json-schema-node',
+    inverse: 'children'
+    async: false
+  children: DS.hasMany 'json-schema-node',
+    inverse: 'parent'
+    async: false
 
   # Computed
   nodeType: Ember.computed 'type', ->
