@@ -5,8 +5,6 @@
 JsonSchemaNode = DS.Model.extend
   type: DS.attr 'string', defaultValue: 'object'
   description: DS.attr 'string'
-  # root
-  root: DS.attr 'boolean', defaultValue: false
   # root, object
   title: DS.attr 'string'
   # parent is object
@@ -40,6 +38,7 @@ JsonSchemaNode = DS.Model.extend
     async: false
 
   # Computed
+  isRoot: Ember.computed 'parent', -> !@get 'parent'
   nodeType: Ember.computed 'type', ->
     type = @get 'type'
     JsonSchemaNode.types.findBy 'value', type
