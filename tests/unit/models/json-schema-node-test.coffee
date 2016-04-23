@@ -28,6 +28,28 @@ test '`types` array includes `object array null boolean integer number string`',
   types = modelClass.types.map (type) -> type.value
   assert.deepEqual types, 'object array null boolean integer number string'.split(' ')
 
+test '`isRoot` returns true only for top-level nodes', (assert) ->
+  store = @store()
+  Ember.run ->
+    # only top-level
+    rootNode = store.createRecord 'json-schema-node',
+      type: 'object'
+      children: [
+        store.createRecord 'json-schema-node',
+          name: 'strField'
+          type: 'string'
+        store.createRecord 'json-schema-node',
+          name: 'arrField'
+          children: [
+            store.createRecord 'json-schema-node',
+              type: 'string'
+          ]
+      ]
+    assert.equal rootNode.get('isRoot'), true
+    assert.equal rootNode.get('children.firstObject.isRoot'), false
+    assert.equal rootNode.get('children.lastObject.isRoot'), false
+    assert.equal rootNode.get('children.lastObject.children.firstObject.isRoot'), false
+
 test 'it can represent a simple JSON schema', (assert) ->
   store = @store()
 
@@ -38,9 +60,8 @@ test 'it can represent a simple JSON schema', (assert) ->
     type: 'object'
     # `children` are serialized as `properties` for `object` type nodes.
     properties:
-      # Children of an object are serialized as key/value pairs in the
-      # serialization, where `name` is the key and the value is...
-      # the serialized child-sans-name.
+      # Children of an object are serialized as key/value pairs,
+      # where `name` is the key and the value is... the serialized child.
       name:
         type: 'string'
       age:
@@ -64,12 +85,10 @@ test 'it can represent a simple JSON schema', (assert) ->
       'age'
     ]
 
-  root = null
   Ember.run ->
     # model-based representation of above schema
-    root = store.createRecord 'json-schema-node',
+    rootNode = store.createRecord 'json-schema-node',
       title: 'Example Schema'
-      root: true
       type: 'object'
       children: [
         store.createRecord 'json-schema-node',
@@ -92,11 +111,10 @@ test 'it can represent a simple JSON schema', (assert) ->
               pattern: '[\w\s]*'
           ]
       ]
-    assert.equal root.get('title'), 'Example Schema'
-    assert.equal root.get('root'), true
-    assert.equal root.get('type'), 'object'
-    assert.equal root.get('children.length'), 3
-    assert.equal root.get('children.firstObject.name'), 'firstName'
-    assert.equal root.get('children').objectAt(1).get('name'), 'age'
-    assert.equal root.get('children.lastObject.name'), 'nickNames'
-    assert.equal root.get('children.lastObject.children.firstObject.pattern'), '[\w\s]*'
+    assert.equal rootNode.get('title'), 'Example Schema'
+    assert.equal rootNode.get('type'), 'object'
+    assert.equal rootNode.get('children.length'), 3
+    assert.equal rootNode.get('children.firstObject.name'), 'firstName'
+    assert.equal rootNode.get('children').objectAt(1).get('name'), 'age'
+    assert.equal rootNode.get('children.lastObject.name'), 'nickNames'
+    assert.equal rootNode.get('children.lastObject.children.firstObject.pattern'), '[\w\s]*'
