@@ -58,7 +58,10 @@ test 'it can represent a simple JSON schema', (assert) ->
   jsonSchema =
     title: 'Example Schema'
     type: 'object'
-    # `children` are serialized as `properties` for `object` type nodes.
+    # `children` are serialized as `properties` or `patternProperties` for `object` type nodes.
+    patternProperties:
+      'job|occupation':
+        type: 'string'
     properties:
       # Children of an object are serialized as key/value pairs,
       # where `name` is the key and the value is... the serialized child.
@@ -101,6 +104,10 @@ test 'it can represent a simple JSON schema', (assert) ->
           minimum: 0
           required: true
         store.createRecord 'json-schema-node',
+          name: 'job|occupation'
+          patternName: true
+          type: 'string'
+        store.createRecord 'json-schema-node',
           name: 'nickNames'
           type: 'array'
           minItems: 1
@@ -113,8 +120,9 @@ test 'it can represent a simple JSON schema', (assert) ->
       ]
     assert.equal rootNode.get('title'), 'Example Schema'
     assert.equal rootNode.get('type'), 'object'
-    assert.equal rootNode.get('children.length'), 3
+    assert.equal rootNode.get('children.length'), 4
     assert.equal rootNode.get('children.firstObject.name'), 'firstName'
     assert.equal rootNode.get('children').objectAt(1).get('name'), 'age'
+    assert.equal rootNode.get('children').objectAt(2).get('patternName'), true
     assert.equal rootNode.get('children.lastObject.name'), 'nickNames'
     assert.equal rootNode.get('children.lastObject.children.firstObject.pattern'), '[\w\s]*'
