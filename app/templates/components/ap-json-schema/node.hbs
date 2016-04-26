@@ -1,0 +1,14 @@
+<li class="{{if (eq selectedNode model) 'active'}}">
+
+  <div class="node-name {{unless model.title 'text-mono'}}" {{action 'select' model}}>
+    {{model.displayName}}
+  </div>
+
+  {{#if model.children.length}}
+    <ul>
+      {{#each model.children as |model|}}
+        {{partial 'components/ap-json-schema/node'}}
+      {{/each}}
+    </ul>
+  {{/if}}
+</li>
