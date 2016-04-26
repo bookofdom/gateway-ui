@@ -12,11 +12,11 @@ JsonSchemaNode = DS.Model.extend
   patternName: DS.attr 'boolean', defaultValue: false # is name a regex pattern?
   required: DS.attr 'boolean', defaultValue: false
   # object
-  maxProperties: DS.attr 'number'
   minProperties: DS.attr 'number'
+  maxProperties: DS.attr 'number'
   # array
-  maxItems: DS.attr 'number'
   minItems: DS.attr 'number'
+  maxItems: DS.attr 'number'
   uniqueItems: DS.attr 'boolean', defaultValue: false
   # number, integer
   multipleOf: DS.attr 'number'
@@ -25,9 +25,9 @@ JsonSchemaNode = DS.Model.extend
   exclusiveMinimum: DS.attr 'boolean', defaultValue: false
   exclusiveMaximum: DS.attr 'boolean', defaultValue: false
   # string
-  maxLength: DS.attr 'number'
-  minLength: DS.attr 'number'
   pattern: DS.attr 'string'
+  minLength: DS.attr 'number'
+  maxLength: DS.attr 'number'
 
   # Relationships
   parent: DS.belongsTo 'json-schema-node',
@@ -39,6 +39,8 @@ JsonSchemaNode = DS.Model.extend
 
   # Computed
   isRoot: Ember.computed 'parent', -> !@get 'parent'
+  parentIsObject: Ember.computed 'parent.type', ->
+    @get('parent.type') is 'object'
   displayName: Ember.computed 'title', 'name', 'type', ->
     @get('title') or @get('name') or @get('nodeType.name')
   nodeType: Ember.computed 'type', ->
