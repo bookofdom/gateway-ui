@@ -293,6 +293,14 @@
     "import": "__user__ importado um __resource__"
   },
   "types": {
+    "json-schema": {
+      "object": "objeto",
+      "array": "ordem",
+      "null": "nulo",
+      "boolean": "boolean",
+      "integer": "número inteiro",
+      "number": "número"
+    },
     "proxy-endpoint-component": {
       "single": "chamada",
       "multi": "multi-chamada",

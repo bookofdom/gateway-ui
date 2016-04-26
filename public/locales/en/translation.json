@@ -297,6 +297,15 @@
     "import": "__user__ imported one __resource__"
   },
   "types": {
+    "json-schema": {
+      "object": "object",
+      "array": "array",
+      "null": "null",
+      "boolean": "boolean",
+      "integer": "integer",
+      "number": "number",
+      "string": "string"
+    },
     "proxy-endpoint-component": {
       "single": "single call",
       "multi": "multi-call",

@@ -293,6 +293,14 @@
     "import": "__user__ importó un __resource__"
   },
   "types": {
+    "json-schema": {
+      "object": "objeto",
+      "array": "formación",
+      "null": "nulo",
+      "boolean": "booleano",
+      "integer": "entero",
+      "number": "número"
+    },
     "proxy-endpoint-component": {
       "single": "llamada",
       "multi": "multi-llamada",

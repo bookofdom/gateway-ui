@@ -293,6 +293,14 @@
     "import": "__user__ आयातित एक __resource__"
   },
   "types": {
+    "json-schema": {
+      "object": "वस्तु",
+      "array": "सरणी",
+      "null": "शून्य",
+      "boolean": "बूलियन",
+      "integer": "पूर्णांक",
+      "number": "संख्या"
+    },
     "proxy-endpoint-component": {
       "single": "single call",
       "multi": "multi-call",
