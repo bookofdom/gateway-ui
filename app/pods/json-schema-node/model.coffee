@@ -42,7 +42,7 @@ JsonSchemaNode = DS.Model.extend
   parentIsObject: Ember.computed 'parent.type', ->
     @get('parent.type') is 'object'
   displayName: Ember.computed 'title', 'name', 'type', ->
-    @get('title') or @get('name') or @get('nodeType.name')
+    @get('title') or @get('name') or @get('pattern') or @get('nodeType.name')
   nodeType: Ember.computed 'type', ->
     type = @get 'type'
     JsonSchemaNode.types.findBy 'value', type
