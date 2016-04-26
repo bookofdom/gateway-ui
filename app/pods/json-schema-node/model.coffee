@@ -39,12 +39,14 @@ JsonSchemaNode = DS.Model.extend
 
   # Computed
   isRoot: Ember.computed 'parent', -> !@get 'parent'
+  displayName: Ember.computed 'title', 'name', 'type', ->
+    @get('title') or @get('name') or @get('nodeType.name')
   nodeType: Ember.computed 'type', ->
     type = @get 'type'
     JsonSchemaNode.types.findBy 'value', type
 
 types = 'object array null boolean integer number string'.split(' ').map (typeName) ->
-  name: t "types.json-schema.#{typeName}"
+  name: t("types.json-schema.#{typeName}").toLowerCase()
   slug: typeName
   value: typeName
 
