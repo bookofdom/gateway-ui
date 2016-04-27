@@ -26,7 +26,7 @@ JsonSchemaNodeFormComponent = BaseFormComponent.extend
         name: 'name'
         requred: true
       ,
-        name: 'patternName'
+        name: 'pattern_name'
         type: 'boolean'
       ,
         name: 'required'
@@ -36,26 +36,26 @@ JsonSchemaNodeFormComponent = BaseFormComponent.extend
 
   nodeTypeFields:
     object: [
-      name: 'minProperties'
+      name: 'min_properties'
       type: 'integer'
     ,
-      name: 'maxProperties'
+      name: 'max_properties'
       type: 'integer'
     ]
     array: [
-      name: 'uniqueItems'
+      name: 'unique_items'
       type: 'boolean'
     ,
-      name: 'minItems'
+      name: 'min_items'
       type: 'integer'
     ,
-      name: 'maxItems'
+      name: 'max_items'
       type: 'integer'
     ]
     null: null
     boolean: null
     integer: [
-      name: 'multipleOf'
+      name: 'multiple_of'
       type: 'integer'
     ,
       name: 'minimum'
@@ -64,14 +64,14 @@ JsonSchemaNodeFormComponent = BaseFormComponent.extend
       name: 'maximum'
       type: 'integer'
     ,
-      name: 'exclusiveMinimum'
+      name: 'exclusive_minimum'
       type: 'boolean'
     ,
-      name: 'exclusiveMaximum'
+      name: 'exclusive_maximum'
       type: 'boolean'
     ]
     number: [
-      name: 'multipleOf'
+      name: 'multiple_of'
       type: 'number'
     ,
       name: 'minimum'
@@ -80,19 +80,19 @@ JsonSchemaNodeFormComponent = BaseFormComponent.extend
       name: 'maximum'
       type: 'number'
     ,
-      name: 'exclusiveMinimum'
+      name: 'exclusive_minimum'
       type: 'boolean'
     ,
-      name: 'exclusiveMaximum'
+      name: 'exclusive_maximum'
       type: 'boolean'
     ]
     string: [
       name: 'pattern'
     ,
-      name: 'minLength'
+      name: 'min_length'
       type: 'integer'
     ,
-      name: 'maxLength'
+      name: 'max_length'
       type: 'integer'
     ]
 

@@ -70,13 +70,13 @@ test 'it serializes a simple JSON schema node', (assert) ->
           required: true
         store.createRecord 'json-schema-node',
           name: 'job|occupation'
-          patternName: true
+          pattern_name: true
           type: 'string'
         store.createRecord 'json-schema-node',
           name: 'nickNames'
           type: 'array'
-          minItems: 1
-          uniqueItems: true
+          min_items: 1
+          unique_items: true
           children: [
             store.createRecord 'json-schema-node',
               type: 'string'
