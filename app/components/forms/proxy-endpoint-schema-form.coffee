@@ -4,6 +4,39 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'proxy-endpoint-schema'
 
+  store: Ember.inject.service()
+
+  schemaModel: Ember.computed ->
+    store = @get 'store'
+    store.createRecord 'json-schema-node',
+      title: 'Example Schema'
+      type: 'object'
+      children: [
+        store.createRecord 'json-schema-node',
+          name: 'firstName'
+          type: 'string'
+          required: true
+        store.createRecord 'json-schema-node',
+          name: 'age'
+          type: 'integer'
+          minimum: 0
+          required: true
+        store.createRecord 'json-schema-node',
+          name: 'job|occupation'
+          pattern_name: true
+          type: 'string'
+        store.createRecord 'json-schema-node',
+          name: 'nickNames'
+          type: 'array'
+          min_items: 1
+          unique_items: true
+          children: [
+            store.createRecord 'json-schema-node',
+              type: 'string'
+              pattern: '[\w\s]*'
+          ]
+      ]
+
   savedAction: null
 
   newFields: [
