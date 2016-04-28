@@ -6,11 +6,12 @@ jsonSchema =
   # `children` are serialized as `properties` or `patternProperties` for `object` type nodes.
   patternProperties:
     'job|occupation':
+      patternName: true
       type: 'string'
   properties:
     # Children of an object are serialized as key/value pairs,
     # where `name` is the key and the value is... the serialized child.
-    name:
+    firstName:
       type: 'string'
     age:
       description: 'Age in years'
@@ -19,6 +20,7 @@ jsonSchema =
     nickNames:
       type: 'array'
       uniqueItems: true
+      minItems: 1
       # `children` are serialized to `items` for `array` type nodes.
       # Unlike children of an object, there are no key/value pairs.
       # Only one child is expected.  And the (only) child's serialization is
@@ -33,7 +35,7 @@ jsonSchema =
     'age'
   ]
 
-moduleForModel 'json-schema-node', 'Unit | Model | JsonSchemaNode',
+moduleForModel 'json-schema-node', 'Unit | Serializer | JsonSchemaNode',
   # Specify the other units that are required for this test.
   needs: ['serializer:json-schema-node']
 
@@ -43,14 +45,14 @@ test 'it serializes records', (assert) ->
   assert.ok serializedRecord
 
 test 'it normalizes a simple JSON schema', (assert) ->
-  expect 0
+  # expect 0
   store = @store()
   serializer = store.serializerFor 'json-schema-node'
   # normalize method currently fails
-  #normalized = serializer.normalize 'json-schema-node', jsonSchema
+  # normalized = serializer.normalize 'json-schema-node', jsonSchema
 
 test 'it serializes a simple JSON schema node', (assert) ->
-  expect 0
+  # expect 0
   store = @store()
   serializer = store.serializerFor 'json-schema-node'
   Ember.run ->
@@ -65,6 +67,7 @@ test 'it serializes a simple JSON schema node', (assert) ->
           required: true
         store.createRecord 'json-schema-node',
           name: 'age'
+          description: 'Age in years'
           type: 'integer'
           minimum: 0
           required: true
@@ -83,4 +86,7 @@ test 'it serializes a simple JSON schema node', (assert) ->
               pattern: '[\w\s]*'
           ]
       ]
+
     serialized = record.serialize()
+
+    assert.deepEqual serialized, jsonSchema
