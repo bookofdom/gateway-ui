@@ -18,6 +18,14 @@ Router.map ->
     @route 'user', resetNamespace: true, path: ':user_id', ->
       @route 'edit'
   @route 'logs', resetNamespace: true, (->)
+  @route 'push-channels', resetNamespace: true, ->
+    @route 'push-channel', resetNamespace: true, path: ':push_channel_id', ->
+      @route 'edit'
+      @route 'push-channel-push-devices', resetNamespace: true, path: 'push-devices', ->
+        @route 'push-channel-push-device', resetNamespace: true, path: ':push_device_id', ->
+          @route 'edit'
+          @route 'push-channel-push-device-push-messages', resetNamespace: true, path: 'push-messages', ->
+            @route 'push-channel-push-device-push-message', resetNamespace: true, path: ':push_message_id', ->
   @route 'apis', resetNamespace: true, ->
     @route 'api', resetNamespace: true, path: ':api_id', ->
       @route 'edit'

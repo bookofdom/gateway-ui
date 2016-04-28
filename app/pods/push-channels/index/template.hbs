@@ -1,0 +1,13 @@
+{{#ap-page t='resources.push-channel_plural' help-url='http://devhub.justapis.com/v4.1.0/docs' showNew=true}}
+
+  {{ap-table-index
+      models=model
+      fields='name,expires,api.name,remote_endpoint.name'
+      path='push-channel-push-devices.index'
+      edit-path='push-channel.edit'}}
+
+  {{#ap-panel-new t='resources.push-channel' closed=(unbound model.length)}}
+    {{forms/push-channel-form api=api}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}

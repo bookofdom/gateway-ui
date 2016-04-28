@@ -24,7 +24,7 @@ ApplicationSerializer = DS.RESTSerializer.extend
   serialize: ->
     serialized = @_super arguments...
     @serializeId serialized
-    delete serialized['api_id']
+    delete serialized['api_id'] unless @keep_api_id
     serialized
   # Numericize the ID if possible
   serializeId: (serialized) ->
