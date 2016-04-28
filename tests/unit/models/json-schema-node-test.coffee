@@ -16,11 +16,11 @@ test '`type` field defaults to `object`', (assert) ->
 test 'boolean fields default to `false`', (assert) ->
   model = @subject()
   assert.notOk model.get('root')
-  assert.notOk model.get('patternName')
+  assert.notOk model.get('pattern_name')
   assert.notOk model.get('required')
-  assert.notOk model.get('uniqueItems')
-  assert.notOk model.get('exclusiveMinimum')
-  assert.notOk model.get('exclusiveMaximum')
+  assert.notOk model.get('unique_items')
+  assert.notOk model.get('exclusive_minimum')
+  assert.notOk model.get('exclusive_maximum')
 
 test '`types` array includes `object array null boolean integer number string`', (assert) ->
   model = @subject()
@@ -105,13 +105,13 @@ test 'it can represent a simple JSON schema', (assert) ->
           required: true
         store.createRecord 'json-schema-node',
           name: 'job|occupation'
-          patternName: true
+          pattern_name: true
           type: 'string'
         store.createRecord 'json-schema-node',
           name: 'nickNames'
           type: 'array'
-          minItems: 1
-          uniqueItems: true
+          min_items: 1
+          unique_items: true
           children: [
             store.createRecord 'json-schema-node',
               type: 'string'
@@ -123,6 +123,6 @@ test 'it can represent a simple JSON schema', (assert) ->
     assert.equal rootNode.get('children.length'), 4
     assert.equal rootNode.get('children.firstObject.name'), 'firstName'
     assert.equal rootNode.get('children').objectAt(1).get('name'), 'age'
-    assert.equal rootNode.get('children').objectAt(2).get('patternName'), true
+    assert.equal rootNode.get('children').objectAt(2).get('pattern_name'), true
     assert.equal rootNode.get('children.lastObject.name'), 'nickNames'
     assert.equal rootNode.get('children.lastObject.children.firstObject.pattern'), '[\w\s]*'

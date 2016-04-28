@@ -12,22 +12,22 @@ JsonSchemaNode = DS.Model.extend
   patternName: DS.attr 'boolean', defaultValue: false # is name a regex pattern?
   required: DS.attr 'boolean', defaultValue: false
   # object
-  maxProperties: DS.attr 'number'
-  minProperties: DS.attr 'number'
+  min_properties: DS.attr 'number'
+  max_properties: DS.attr 'number'
   # array
-  maxItems: DS.attr 'number'
-  minItems: DS.attr 'number'
-  uniqueItems: DS.attr 'boolean', defaultValue: false
+  min_items: DS.attr 'number'
+  max_items: DS.attr 'number'
+  unique_items: DS.attr 'boolean', defaultValue: false
   # number, integer
-  multipleOf: DS.attr 'number'
+  multiple_of: DS.attr 'number'
   minimum: DS.attr 'number'
   maximum: DS.attr 'number'
-  exclusiveMinimum: DS.attr 'boolean', defaultValue: false
-  exclusiveMaximum: DS.attr 'boolean', defaultValue: false
+  exclusive_minimum: DS.attr 'boolean', defaultValue: false
+  exclusive_maximum: DS.attr 'boolean', defaultValue: false
   # string
-  maxLength: DS.attr 'number'
-  minLength: DS.attr 'number'
   pattern: DS.attr 'string'
+  min_length: DS.attr 'number'
+  max_length: DS.attr 'number'
 
   # Relationships
   parent: DS.belongsTo 'json-schema-node',
@@ -39,12 +39,16 @@ JsonSchemaNode = DS.Model.extend
 
   # Computed
   isRoot: Ember.computed 'parent', -> !@get 'parent'
+  parentIsObject: Ember.computed 'parent.type', ->
+    @get('parent.type') is 'object'
+  displayName: Ember.computed 'title', 'name', 'pattern', 'type', ->
+    @get('title') or @get('name') or @get('pattern') or @get('nodeType.name')
   nodeType: Ember.computed 'type', ->
     type = @get 'type'
     JsonSchemaNode.types.findBy 'value', type
 
 types = 'object array null boolean integer number string'.split(' ').map (typeName) ->
-  name: t "types.json-schema.#{typeName}"
+  name: t("types.json-schema.#{typeName}").toLowerCase()
   slug: typeName
   value: typeName
 
