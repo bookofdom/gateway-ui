@@ -27,6 +27,9 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       # auto-login using dev-mode authenticator if dev mode is active
       @get('session').authenticate 'authenticator:dev-mode', {}
 
+  sessionInvalidated: ->
+    window?.location?.reload() if !Ember.testing
+
   enableNotifications: ->
     session = @get 'session'
     notificationService = @get 'notificationService'
