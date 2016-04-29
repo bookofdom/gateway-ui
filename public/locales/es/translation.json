@@ -57,10 +57,10 @@
     "app_plural": "aplicaciones",
     "terms-and-conditions": "términos y condiciones",
     "descriptions": {
-      "define-api": "define los endpoints de la API y el flujo de la lógica de negocio",
+      "define-api": "definir los puntos finales de API, servicios de integración remotos, y la lógica de negocio de flujo de trabajo",
       "manage-api": "crea las claves y especifica las reglas de las APIs",
       "manage-store": "gestionar los datos en un almacén de objetos",
-      "manage": "gestionar los datos y notificaciones",
+      "manage": "administrar colecciones de una tienda local y datos",
       "build-app": "realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence (autenticación requerida)",
       "proxy-endpoints": "define o edita proxy endpoints y la correspondiente lógica",
       "environments": "especifica entornos, variables y otros atributos",
@@ -73,7 +73,7 @@
       "shared-components": "crear componentes reutilizables para puntos finales de proxy",
       "terms-and-conditions": "mediante el registro de una cuenta que acepta los términos y condiciones JustAPIs",
       "formatted": {
-        "analyze": "<b>(próximamente)</b><br>Herramientas de análisis para aplicaciones",
+        "analyze": "<b>(próximamente)</b><br>Adquirir conocimientos sobre el uso del API",
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
         "build-app": "<b>(autenticación requerida)</b><br>Realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence"
       }
