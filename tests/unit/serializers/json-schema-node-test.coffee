@@ -1,6 +1,6 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 
-jsonSchema1 =
+jsonSchema =
   title: 'Example Schema'
   type: 'object'
   # `children` are serialized as `properties` or `patternProperties` for `object` type nodes.

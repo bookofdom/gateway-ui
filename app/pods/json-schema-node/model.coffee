@@ -4,12 +4,11 @@
 
 JsonSchemaNode = DS.Model.extend
   type: DS.attr 'string', defaultValue: 'object'
-  description: DS.attr 'string'
-  # root, object
   title: DS.attr 'string'
+  description: DS.attr 'string'
   # parent is object
   name: DS.attr 'string'
-  patternName: DS.attr 'boolean', defaultValue: false # is name a regex pattern?
+  pattern_name: DS.attr 'boolean', defaultValue: false # is name a regex pattern?
   required: DS.attr 'boolean', defaultValue: false
   # object
   min_properties: DS.attr 'number'
