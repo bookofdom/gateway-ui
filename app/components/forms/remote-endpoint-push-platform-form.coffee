@@ -5,8 +5,6 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'remote-endpoint-push-platform'
 
-  savedAction: null
-
   'option-groups':
     type: [
       name: t 'push-platforms.osx'
@@ -75,5 +73,10 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
       pushPlatforms = @get 'indexModel'
       pushPlatforms.pushObject model
     @_super arguments...
+
+  actions:
+    cancel: ->
+      @get('model').cancel().then =>
+        @sendAction 'canceledAction'
 
 `export default RemoteEndpointPushPlatformFormComponent`
