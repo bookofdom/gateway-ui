@@ -5,8 +5,7 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
   modelType: 'proxy-endpoint-schema'
 
   store: Ember.inject.service()
-
-  schemaModel: Ember.computed ->
+  requestSchemaModel: Ember.computed ->
     store = @get 'store'
     store.createRecord 'json-schema-node',
       title: 'Example Schema'
@@ -37,6 +36,10 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
           ]
       ]
 
+  editorType: 'code'
+  codeEditor: Ember.computed 'editorType', -> @get('editorType') is 'code'
+  designEditor: Ember.computed 'editorType', -> @get('editorType') is 'design'
+
   savedAction: null
 
   newFields: [
@@ -47,22 +50,8 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
     name: 'name'
     required: true
   ,
-    name: 'request_schema'
-    type: 'editor-json'
-  ,
     name: 'response_same_as_request'
-  ,
-    name: 'response_schema'
-    type: 'editor-json'
-    group: 'response'
   ]
-  fields: Ember.computed 'model.isNew', 'model.response_same_as_request', ->
-    if @get('model.isNew')
-      @get('newFields')
-    else if @get('model.response_same_as_request')
-      @get('editFields').filter (item) -> item.group isnt 'response'
-    else
-      @get('editFields')
 
   submit: ->
     model = @get 'model'
@@ -70,5 +59,11 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
       proxyEndpointSchemas = @get 'indexModel'
       proxyEndpointSchemas.pushObject model
     @_super arguments...
+
+  actions:
+    activateCodeEditor: ->
+      @set 'editorType', 'code'
+    activateDesignEditor: ->
+      @set 'editorType', 'design'
 
 `export default ProxyEndpointSchemaFormComponent`

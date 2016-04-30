@@ -6,7 +6,7 @@ ApJsonSchemaEditorComponent = BsBaseComponent.extend
   selectedNode: null
   model: null # should be root instance of json-schema-node
   defaultSelected: Ember.on 'init', ->
-    @trigger 'select', @get('model')
+    @send 'select', @get('model')
   actions:
     select: (model) ->
       @set 'selectedNode', model

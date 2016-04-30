@@ -1,7 +1,49 @@
 {{partial 'components/forms/base-form'}}
 
 {{#bs-panel}}
-  {{ap-json-schema-editor model=schemaModel}}
+  <div class="btn-group">
+    <a class="btn btn-default {{if codeEditor 'active'}}" {{action 'activateCodeEditor'}}>Code</a>
+    <a class="btn btn-default {{if designEditor 'active'}}" {{action 'activateDesignEditor'}}>Design</a>
+  </div>
+  <hr>
+  {{#if designEditor}}
+    request schema
+    {{ap-json-schema-editor model=requestSchemaModel}}
+    {{#unless model.response_same_as_request}}
+      <hr>
+      response schema
+      {{ap-json-schema-editor model=requestSchemaModel}}
+    {{/unless}}
+  {{/if}}
+  {{#if codeEditor}}
+    {{#ap-model-form-group
+      model=model
+      name='request_schema'
+      label='fields.request_schema'
+      help='fields.help.request_schema'
+      type='editor-json'
+      horizontal=true}}
+        {{ap-model-field
+          model=model
+          name='request_schema'
+          type='editor-json'}}
+    {{/ap-model-form-group}}
+    {{#unless model.response_same_as_request}}
+      {{#ap-model-form-group
+        model=model
+        name='response_schema'
+        label='fields.response_schema'
+        help='fields.help.response_schema'
+        type='editor-json'
+        horizontal=true}}
+          {{ap-model-field
+            model=model
+            name='response_schema'
+            label='fields.response_schema'
+            type='editor-json'}}
+      {{/ap-model-form-group}}
+    {{/unless}}
+  {{/if}}
 {{/bs-panel}}
 
 {{partial 'components/forms/base-form-actions'}}
