@@ -3,10 +3,10 @@
 PushChannelFormComponent = BaseFormComponent.extend
   savedAction: null
   modelType: 'push-channel'
-  api: null
+  apis: null
 
-  'option-groups': Ember.computed 'api.@each.isNew', 'model.api', 'model.api.remote_endpoints.@each.isNew', ->
-    api: @get('api')?.filterBy 'isNew', false
+  'option-groups': Ember.computed 'apis.[]', 'model.api', 'model.api.remote_endpoints.[]', ->
+    api: @get('apis')?.filterBy 'isNew', false
     'remote_endpoint': @get('model.api.remote_endpoints')?.filterBy('isNew', false).filterBy 'type', 'push'
 
   defaultFields: [

@@ -5,7 +5,6 @@ PushChannelSerializer = ApplicationSerializer.extend
   attrs:
     push_devices:
       serialize: false
-  keep_api_id: true
 
   normalize: (type, hash, property) ->
     expires = new Date(hash.expires * 1000)

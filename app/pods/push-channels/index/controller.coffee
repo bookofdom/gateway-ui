@@ -2,6 +2,6 @@
 
 PushChannelsIndexController = Ember.Controller.extend
   'push-channels': Ember.inject.controller()
-  'api': Ember.computed.alias 'push-channels.api'
+  'apis': Ember.computed.alias 'push-channels.apis'
 
 `export default PushChannelsIndexController`
