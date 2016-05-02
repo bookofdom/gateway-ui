@@ -5,54 +5,59 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
     parent:
       serialize: false
     children:
-      embedded: 'always'
+      serialize: false
+
+  # All serializable attributes by type.
+  attrsByType:
+    '*': ['type', 'title', 'description']
+    'object': ['properties', 'patternProperties', 'required', 'minProperties', 'maxProperties']
+    'array': ['items', 'minItems', 'maxItems', 'uniqueItems']
+    'number': ['multipleOf', 'minimum', 'maximum', 'exclusiveMinimum', 'exclusiveMaximum']
+    'integer': ['multipleOf', 'minimum', 'maximum', 'exclusiveMinimum', 'exclusiveMaximum']
+    'string': ['pattern', 'minLength', 'maxLength']
 
   normalize: (typeClass, hash) ->
     hash.parent ?= null
     hash.children ?= []
     @_super arguments...
 
+  # JSON Schema attribute keys are camel case.
+  keyForAttribute: (attr, method) ->
+    Ember.String.camelize attr
+
+  # Returns an object containing only attributes allowed for the type as
+  # specified in `attrsByType`.  Non-allowed attributes and attributes with
+  # values of `false`, `null`, or `undefined` are thrown out.
+  cleanAttributes: (serialized) ->
+    cleaned = {}
+    allowed = Ember.copy(@get('attrsByType.*')).concat @get("attrsByType.#{serialized.type}")
+    allowed.forEach (attrName) ->
+      value = serialized[attrName]
+      cleaned[attrName] = value if !Ember.isNone(value) and (value != false)
+    delete cleaned.required if !Ember.isArray cleaned.required
+    cleaned
+
   serialize: (snapshot, options) ->
     serialized =  @_super arguments...
-    console.log 'snapshot', snapshot
-    # switch serialized.type
-      # when ""
-    # console.log serialized
-
-  serializeNode: () ->
-
-
-
-
-
-  # serialize: (snapshot, options) ->
-  #   serialized =  @_super arguments...
-  #   if !snapshot.belongsTo('parent')
-  #     serialized.patternProperties = {}
-  #     serialized.properties = {}
-  #     serialized.required = []
-  #     snapshot.hasMany('children').forEach (child)  =>
-  #       hash = @serializeChild(child)
-  #       name = hash.name
-  #       delete hash.name
-  #       if hash.required then serialized.required.push(name) and delete hash.required
-  #       group = if hash.patternName then 'patternProperties'  else 'properties'
-  #       serialized[group][name] = hash
-  #   delete serialized.children
-  #   for key, value of serialized
-  #     delete serialized[key] if value is null or value is false
-  #   serialized
-  #
-  # serializeChild: (snapshot) ->
-  #   hash = {}
-  #   attrs = snapshot.attributes()
-  #   for key, value of attrs
-  #     hash[key] = value unless value is undefined or value is false
-  #   if attrs.type is 'array' && snapshot.hasMany('children')
-  #     items = snapshot.hasMany('children')[0].attributes()
-  #     hash.items = {}
-  #     for key, value of items
-  #       hash.items[key] = value unless value is undefined or value is false
-  #   hash
+    children = snapshot.hasMany 'children'
+    switch serialized.type
+      when 'array'
+        # An array node's children go into `items`.
+        serialized.items = children[0].serialize() if children.length
+      when 'object'
+        # An object node's children go into `properties` or `patternProperties`.
+        children.forEach (child) ->
+          name = child.attr 'name'
+          if child.attr 'pattern_name'
+            serialized.patternProperties ?= {}
+            serialized.patternProperties[name] = child.serialize()
+          else
+            serialized.properties ?= {}
+            serialized.properties[name] = child.serialize()
+        serialized.required = children
+          .map (child) -> child.attr('name') if child.attr 'required'
+          .compact()
+    @cleanAttributes serialized
+>>>>>>> d6b3f2fad5dbbe2d7d063c9fae5f74eb191a76da
 
 `export default JsonSchemaNodeSerializer`

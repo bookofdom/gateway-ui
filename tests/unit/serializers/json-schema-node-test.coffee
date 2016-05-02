@@ -6,7 +6,6 @@ jsonSchema =
   # `children` are serialized as `properties` or `patternProperties` for `object` type nodes.
   patternProperties:
     'job|occupation':
-      patternName: true
       type: 'string'
   properties:
     # Children of an object are serialized as key/value pairs,
