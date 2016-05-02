@@ -40,9 +40,9 @@ moduleForModel 'json-schema-node', 'Unit | Serializer | JsonSchemaNode',
   needs: ['serializer:json-schema-node']
 
 test 'it serializes records', (assert) ->
-  record = @subject()
-  serializedRecord = record.serialize()
-  assert.ok serializedRecord
+  # record = @subject()
+  # serializedRecord = record.serialize()
+  # assert.ok serializedRecord
 
 test 'it normalizes a simple JSON schema', (assert) ->
   # expect 0
