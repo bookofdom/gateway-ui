@@ -64,8 +64,6 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
     switch @get 'selectedSchema'
       when 'request' then @get 'requestSchemaModel'
       when 'response' then @get 'responseSchemaModel'
-  selectedSchemaFieldName: Ember.computed 'selectedSchema', ->
-    "#{@get 'selectedSchema'}_schema"
 
   savedAction: null
 
