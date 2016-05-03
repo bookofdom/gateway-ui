@@ -10,7 +10,6 @@ JsonSchemaNodeFormComponent = BaseFormComponent.extend
 
   savedAction: null
 
-  horizontal: false
   defaultFields: Ember.computed 'model.parentIsObject', 'model.isRoot', ->
     fields = [
       name: 'type'
