@@ -56,6 +56,16 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
   editorType: 'code'
   codeEditor: Ember.computed 'editorType', -> @get('editorType') is 'code'
   designEditor: Ember.computed 'editorType', -> @get('editorType') is 'design'
+  selectedSchema: 'request'
+  onSameSchemaChange: Ember.observer 'model.response_same_as_request', ->
+    if @get 'model.response_same_as_request'
+      @set 'selectedSchema', 'request'
+  selectedSchemaModel: Ember.computed 'selectedSchema', ->
+    switch @get 'selectedSchema'
+      when 'request' then @get 'requestSchemaModel'
+      when 'response' then @get 'responseSchemaModel'
+  selectedSchemaFieldName: Ember.computed 'selectedSchema', ->
+    "#{@get 'selectedSchema'}_schema"
 
   savedAction: null
 
@@ -82,5 +92,11 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
       @set 'editorType', 'code'
     activateDesignEditor: ->
       @set 'editorType', 'design'
+    toggleSchema: ->
+      switch @get 'selectedSchema'
+        when 'request'
+          @set 'selectedSchema', 'response'
+        when 'response'
+          @set 'selectedSchema', 'request'
 
 `export default ProxyEndpointSchemaFormComponent`
