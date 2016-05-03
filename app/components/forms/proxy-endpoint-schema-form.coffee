@@ -8,7 +8,7 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
   requestSchemaModel: Ember.computed ->
     store = @get 'store'
     store.createRecord 'json-schema-node',
-      title: 'Example Schema'
+      title: 'Request Schema'
       type: 'object'
       children: [
         store.createRecord 'json-schema-node',
@@ -24,6 +24,23 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
           name: 'job|occupation'
           pattern_name: true
           type: 'string'
+        store.createRecord 'json-schema-node',
+          name: 'nickNames'
+          type: 'array'
+          min_items: 1
+          unique_items: true
+          children: [
+            store.createRecord 'json-schema-node',
+              type: 'string'
+              pattern: '[\w\s]*'
+          ]
+      ]
+  responseSchemaModel: Ember.computed ->
+    store = @get 'store'
+    store.createRecord 'json-schema-node',
+      title: 'Response Schema'
+      type: 'object'
+      children: [
         store.createRecord 'json-schema-node',
           name: 'nickNames'
           type: 'array'

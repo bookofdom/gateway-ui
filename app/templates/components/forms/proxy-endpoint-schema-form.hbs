@@ -12,7 +12,7 @@
     {{#unless model.response_same_as_request}}
       <hr>
       response schema
-      {{ap-json-schema-editor model=requestSchemaModel}}
+      {{ap-json-schema-editor model=responseSchemaModel}}
     {{/unless}}
   {{/if}}
   {{#if codeEditor}}
