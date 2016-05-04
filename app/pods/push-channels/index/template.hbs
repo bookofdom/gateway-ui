@@ -4,7 +4,10 @@
       models=model
       fields='name,expires,api.name,remote_endpoint.name'
       path='push-channel-push-devices.index'
-      edit-path='push-channel.edit'}}
+      edit-path='push-channel.edit'
+      custom-primary-action='push-manual-message'
+      custom-primary-icon='beaker'
+      custom-primary-t='actions.push-manual-message'}}
 
   {{#ap-panel-new t='resources.push-channel' closed=(unbound model.length)}}
     {{forms/push-channel-form apis=apis}}
