@@ -50,6 +50,7 @@ ApplicationAdapter = DS.RESTAdapter.extend
     url = @cleanURL url
     url
   ajax: (url, method, hash={}) ->
+    hash.cache = false
     hash.crossDomain = true
     hash.xhrFields ?= {}
     hash.xhrFields.withCredentials = true
