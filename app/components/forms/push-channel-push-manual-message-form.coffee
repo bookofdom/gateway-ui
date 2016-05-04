@@ -13,6 +13,7 @@ PushChannelPushManualMessageFormComponent = BaseFormComponent.extend
   defaultFields: [
       name: 'environment'
       type: 'select'
+      label: 'resources.environment'
       required: true
     ,
       name: 'body'

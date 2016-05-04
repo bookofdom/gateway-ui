@@ -19,10 +19,12 @@ PushChannelFormComponent = BaseFormComponent.extend
     ,
       name: 'api'
       type: 'select-model-name'
+      label: 'resources.api'
       required: true
     ,
       name: 'remote_endpoint'
       type: 'select-model-name'
+      label: 'resources.remote-endpoint'
       required: true
   ]
 

@@ -110,6 +110,14 @@
     "proxy-endpoint-test-argument_plural": "argumentos",
     "proxy-endpoint-schema": "validación de esquema",
     "proxy-endpoint-schema_plural": "validaciones de esquema",
+    "push-channel": "canal de empuje",
+    "push-channel_plural": "empuje canales",
+    "push-channel-push-device": "dispositivo de empuje",
+    "push-channel-push-device_plural": "dispositivos de empuje",
+    "push-channel-push-device-push-message": "mensaje de inserción",
+    "push-channel-push-device-push-message_plural": "mensajes de inserción",
+    "push-channel-push-manual-message": "empuje manual mensaje",
+    "push-channel-push-manual-message_plural": "empujar mensajes manuales",
     "environment": "entorno",
     "environment_plural": "entornos",
     "environment-variable": "variable de entorno",
@@ -126,6 +134,8 @@
     "remote-endpoint-query-parameter_plural": "parámetros de consulta",
     "remote-endpoint-environment-datum-scratch-pad": "bloc para apuntes",
     "remote-endpoint-environment-datum-scratch-pad_plural": "blocs de notas",
+    "remote-endpoint-push-platform": "plataforma de empuje",
+    "remote-endpoint-push-platform_plural": "plataformas de empuje",
     "host": "servidor",
     "host_plural": "servidores",
     "library": "librería compartida",
@@ -148,6 +158,14 @@
     "store-object_plural": "objetos"
   },
   "fields": {
+    "stamp": "sello",
+    "token": "simbólico",
+    "expires": "expira",
+    "api_key": "clave de API",
+    "development": "desarrollo",
+    "topic": "tema",
+    "certificate": "certificado",
+    "publish_endpoint": "publicar punto final",
     "code": "código",
     "error": "error",
     "request": "solicitud",
@@ -237,6 +255,12 @@
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
       "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`."
+    },
+    "api": {
+      "name": "nombre del API"
+    },
+    "remote_endpoint": {
+      "name": "nombre del extremo remoto"
     }
   },
   "prompts": {
@@ -266,6 +290,11 @@
     "brazilian-portuguese": "Português Brasileiro",
     "hindi": "मानक हिन्दी"
   },
+  "push-platforms": {
+    "osx": "OSX",
+    "ios": "iOS",
+    "gcm": "GCM"
+  },
   "errors": {
     "unknown": "ha ocurrido un error inesperado",
     "no-user-with-that-email": "no existe un usuario con ese correo electrónico",
@@ -274,6 +303,7 @@
     "invalid-json": "JSON no válido"
   },
   "successes": {
+    "push-manual-message": "mensaje enviado con éxito",
     "saved-successfully": "grabado satisfactoriamente",
     "password-reset": "correo electrónico de confirmación de restablecimiento de contraseña enviada",
     "password-reset-confirmation": "restablecimiento de contraseñas con éxito",
@@ -304,6 +334,7 @@
       "server": "servidor"
     },
     "remote-endpoint": {
+      "push": "empujar",
       "store": "almacenar",
       "script": "código",
       "status-types": {
