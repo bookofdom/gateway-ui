@@ -5,6 +5,7 @@ ProxyEndpointSchemaFactory = Factory.extend
   request_schema_type: 'json_schema'
   response_schema_type: 'json_schema'
   response_same_as_request: true
+  response_schema: ''
   request_schema: ->
     JSON.stringify
       title: 'Example Schema'
