@@ -7,6 +7,7 @@ SqlserverRemoteEndpointSerializer =
     hash.schema = hash.data.config.schema
     hash.port = hash.data.config.port
     hash.password = hash.data.config.password
+    hash.encrypt = hash.data.config.encrypt
     hash.transactions = hash.data.transactions
     hash.maxopen = hash.data.maxOpenConn
     hash.maxidle = hash.data.maxIdleConn
@@ -20,6 +21,7 @@ SqlserverRemoteEndpointSerializer =
         password: serialized.password
         database: serialized.database
         schema: serialized.schema
+        encrypt: serialized.encrypt
         'connection timeout': serialized.timeout
       transactions: serialized.transactions
       maxIdleConn: serialized.maxidle
