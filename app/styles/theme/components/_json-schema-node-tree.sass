@@ -1,7 +1,16 @@
 .ap-json-schema-node-tree
-  .active
-    > .node-name
-      font-weight: bold
-      color: $brand-info
-  .node-name
+  $active-color: $brand-info
+  .node-title
     cursor: pointer
+    border-color: transparent
+    > .ap-list-nav
+      visibility: hidden
+      a
+        color: $brand-danger
+    &:hover > .ap-list-nav
+      visibility: visible
+  .active
+    > .node-title
+      border-color: $active-color
+      font-weight: bold
+      color: $active-color

@@ -1,6 +1,16 @@
 <li class="{{if (eq selectedNode model) 'active'}}">
 
-  <div class="node-name {{unless model.title 'text-mono'}}" {{action 'select' model}}>
+  <div class="node-title {{unless model.title 'text-mono'}}" {{action 'select' model}}>
+    {{#unless model.isRoot}}
+      {{#ap-list-nav-simple-icon class='pull-right'}}
+        {{ap-list-link
+          t='actions.delete'
+          icon='the-essentials-011'
+          action='delete'
+          arg1=model}}
+      {{/ap-list-nav-simple-icon}}
+    {{/unless}}
+
     {{model.displayName}}
   </div>
 
