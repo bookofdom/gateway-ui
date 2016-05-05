@@ -91,10 +91,11 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
     activateDesignEditor: ->
       @set 'editorType', 'design'
     toggleSchema: ->
-      switch @get 'selectedSchema'
-        when 'request'
-          @set 'selectedSchema', 'response'
-        when 'response'
-          @set 'selectedSchema', 'request'
+      if !@get 'model.response_same_as_request'
+        switch @get 'selectedSchema'
+          when 'request'
+            @set 'selectedSchema', 'response'
+          when 'response'
+            @set 'selectedSchema', 'request'
 
 `export default ProxyEndpointSchemaFormComponent`
