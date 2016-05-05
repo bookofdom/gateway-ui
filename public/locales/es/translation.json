@@ -239,6 +239,7 @@
     "encoded_private_key": "clave privada codificada",
     "server_name": "nombre del servidor",
     "private_key_password": "contraseña de clave privada",
+    "encrypt": "cifrar",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
@@ -317,6 +318,11 @@
         "failed": "ha fallado",
         "pending": "pendiente",
         "processing": "procesando"
+      },
+      "encrypt-modes": {
+        "disable": "inhabilitar",
+        "true": "cierto",
+        "false": "falso"
       },
       "ssl-modes": {
         "disable": "inhabilitar",

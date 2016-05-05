@@ -9,6 +9,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
   'option-groups': Ember.computed ->
     type: @get 'types'
     sslmode: RemoteEndpointLike.sslModes
+    encrypt: RemoteEndpointLike.encryptModes
     # TODO expose basic auth when available in backend
     auth_scheme: RemoteEndpointLike.authSchemes.filter (scheme) ->
       scheme.slug != 'basic'
@@ -76,6 +77,9 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         required: true
       ,
         name: 'schema'
+      ,
+        name: 'encrypt'
+        type: 'select'
       ,
         name: 'transactions'
       ,

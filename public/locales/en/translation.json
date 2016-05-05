@@ -242,6 +242,7 @@
     "encoded_private_key": "encoded private key",
     "server_name": "server name",
     "private_key_password": "private key password",
+    "encrypt": "encrypt",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -328,6 +329,11 @@
         "failed": "failed",
         "pending": "pending",
         "processing": "processing"
+      },
+      "encrypt-modes": {
+        "disable": "disable",
+        "true": "true",
+        "false": "false"
       },
       "ssl-modes": {
         "disable": "disable",
