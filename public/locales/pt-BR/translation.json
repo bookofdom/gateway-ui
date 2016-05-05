@@ -255,6 +255,7 @@
     "pattern": "padrão de expressão regular",
     "min_length": "comprimento mínimo",
     "max_length": "comprimento máximo",
+    "encrypt": "criptografar",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
@@ -341,6 +342,11 @@
         "failed": "fracassado",
         "pending": "pendente",
         "processing": "processamento"
+      },
+      "encrypt-modes": {
+        "disable": "incapacitar",
+        "true": "verdade",
+        "false": "falso"
       },
       "ssl-modes": {
         "disable": "incapacitar",

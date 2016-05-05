@@ -255,6 +255,7 @@
     "pattern": "patrón de expresión",
     "min_length": "longitud mínima",
     "max_length": "longitud máxima",
+    "encrypt": "cifrar",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
@@ -341,6 +342,11 @@
         "failed": "ha fallado",
         "pending": "pendiente",
         "processing": "procesando"
+      },
+      "encrypt-modes": {
+        "disable": "inhabilitar",
+        "true": "cierto",
+        "false": "falso"
       },
       "ssl-modes": {
         "disable": "inhabilitar",
