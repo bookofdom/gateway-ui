@@ -3726,7 +3726,8 @@ ace.define("ace/tern/tern_server",["require","exports","module","ace/range","ace
                 });
             }
             else if (data.type == "debug") {
-                console.log('(worker debug) ', data.message);
+                // disabled for quieter acceptance tests
+                //console.log('(worker debug) ', data.message);
             }
             else if (data.id && pending[data.id]) {
                 pending[data.id](data.err, data.body);

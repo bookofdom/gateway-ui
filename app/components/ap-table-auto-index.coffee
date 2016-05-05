@@ -28,10 +28,16 @@ ApTableAutoIndexComponent = Ember.Component.extend
       model.cancel()
       model.transitionTo 'loaded.saved'
 
+  confirm: (text) ->
+    if config.confirmDelete
+      confirm text
+    else
+      true
+
   actions:
     delete: (model) ->
       confirmText = t('prompts.confirm-delete').capitalize()
-      if config.confirmDelete and confirm(confirmText)
+      if @confirm confirmText
         @delete model
 
     toggleBoolean: (model, fieldName, autoSave) ->

@@ -9,8 +9,7 @@ module.exports = function(environment) {
     locationType: 'auto',
     'simple-auth': {
       authenticationRoute: 'login',
-      routeAfterAuthentication: 'apis',
-      routeIfAlreadyAuthenticated: 'apis'
+      routeAfterAuthentication: 'index',
     },
     EmberENV: {
       FEATURES: {
@@ -40,7 +39,7 @@ module.exports = function(environment) {
     devMode: false,
     goOs: null,
     remoteEndpointTypesEnabled: null,
-    notifications: true,
+    notifications: false,
 
     api: {
       host: process.env.API_HOST || '',
@@ -65,9 +64,13 @@ module.exports = function(environment) {
 
     ENV.api.swaggerViewerPath = '/swagger';
     ENV.api.swaggerJsonPath = '/swagger';
-    
+
+    ENV.goOs = 'darwin';
+    //ENV.notifications = true;
+
     // uncomment for stand-alone gateway API
-    //ENV.api.host = 'http://localhost:5000'
+    //ENV.api.host = 'http://localhost:5000';
+    //ENV['ember-cli-mirage'] = {enabled: false};
   }
 
   if (environment === 'test') {
@@ -95,6 +98,7 @@ module.exports = function(environment) {
     ENV.remoteEndpointTypesEnabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
     ENV.api.basePath = 'API_BASE_PATH_PLACEHOLDER';
     ENV.api.logs.host = 'BROKER_PLACEHOLDER';
+    ENV.notifications = true;
     ENV.googleAnalytics = {
       webPropertyId: 'GOOGLE_ANALYTICS_TRACKING_ID'
     };

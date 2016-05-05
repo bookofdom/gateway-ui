@@ -47,6 +47,15 @@ To output production build artifacts to a another location, replace
 `./dist` above with your desired destination folder.
 
 
+## Testing
+Follow the installation steps (see above) and then run `docker-compose run --rm ember test`
+
+
+## License Reporting
+Depends on [license_finder](https://github.com/pivotal/LicenseFinder).
+Generate a report of licenses in need of review with `license_finder report`.
+
+
 ## Further Reading / Useful Links
 * [ember.js](http://emberjs.com/)
 * [ember-cli](http://www.ember-cli.com/)

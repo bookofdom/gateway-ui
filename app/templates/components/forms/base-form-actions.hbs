@@ -1,0 +1,15 @@
+{{#unless model.isDeleted}}
+  {{#unless embedded}}
+    {{ap-form-actions
+      horizontal=horizontal
+      show-save=show-save
+      show-cancel=show-cancel
+      show-delete=deletable}}
+  {{/unless}}
+  {{ap-model-form-group
+    model=model
+    name='base'
+    label=false
+    inline=inline
+    horizontal=horizontal}}
+{{/unless}}

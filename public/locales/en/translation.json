@@ -43,19 +43,24 @@
   },
   "nav": {
     "home": "home",
+    "analyze": "analyze",
     "define-api": "define API",
     "define-api_plural": "define APIs",
+    "build": "build",
     "manage-api": "manage API",
     "manage-api_plural": "manage APIs",
     "manage-store": "manage store",
     "manage-store_plural": "manage stores",
+    "manage": "manage",
     "build-app": "build app",
     "build-app_plural": "build apps",
+    "app_plural": "apps",
     "terms-and-conditions": "terms and conditions",
     "descriptions": {
-      "define-api": "define API endpoints and workflow business logic",
+      "define-api": "define API endpoints, remote integration services, and workflow business logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
       "manage-store": "manage data in an object store",
+      "manage": "manage local store collections and data",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
@@ -68,6 +73,7 @@
       "shared-components": "build reusable components for proxy endpoints",
       "terms-and-conditions": "by registering for an account you accept the JustAPIs terms and conditions",
       "formatted": {
+        "analyze": "<b>(coming soon)</b><br>Gain insights into API usage",
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
       }
