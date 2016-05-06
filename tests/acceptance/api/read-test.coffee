@@ -19,7 +19,7 @@ module 'Acceptance: API - Read',
 
 test 'user can navigate to APIs', (assert) ->
   visit '/'
-  click '[data-t="nav.define-api_plural"] a'
+  click '[data-t="nav.build"] a'
   andThen ->
     assert.equal currentURL(), '/apis'
 
