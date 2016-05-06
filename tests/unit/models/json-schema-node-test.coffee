@@ -9,9 +9,9 @@ test 'it exists', (assert) ->
   store = @store()
   assert.ok !!model
 
-test '`type` field defaults to `object`', (assert) ->
+test '`type` field defaults to `string`', (assert) ->
   model = @subject()
-  assert.equal model.get('type'), 'object'
+  assert.equal model.get('type'), 'string'
 
 test 'boolean fields default to `false`', (assert) ->
   model = @subject()

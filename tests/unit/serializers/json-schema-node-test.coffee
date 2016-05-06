@@ -38,20 +38,14 @@ moduleForModel 'json-schema-node', 'Unit | Serializer | JsonSchemaNode',
   # Specify the other units that are required for this test.
   needs: ['serializer:json-schema-node']
 
-test 'it serializes records', (assert) ->
-  # record = @subject()
-  # serializedRecord = record.serialize()
-  # assert.ok serializedRecord
-
 test 'it normalizes a simple JSON schema', (assert) ->
-  # expect 0
+  expect 0
   store = @store()
   serializer = store.serializerFor 'json-schema-node'
   # normalize method currently fails
   # normalized = serializer.normalize 'json-schema-node', jsonSchema
 
 test 'it serializes a simple JSON schema node', (assert) ->
-  # expect 0
   store = @store()
   serializer = store.serializerFor 'json-schema-node'
   Ember.run ->
