@@ -21,5 +21,8 @@ ApJsonSchemaNodeTreeComponent = BsBaseComponent.extend
       selectedModel = @get 'selectedModel'
       @send 'select', null if model is selectedModel
       model.deleteRecord()
+    new: (model) ->
+      newChild = model.get('children').createRecord()
+      @send 'select', newChild
 
 `export default ApJsonSchemaNodeTreeComponent`

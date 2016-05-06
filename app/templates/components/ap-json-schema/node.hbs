@@ -19,6 +19,14 @@
       {{#each model.children as |model|}}
         {{partial 'components/ap-json-schema/node'}}
       {{/each}}
+      {{#if model.mayAddChildren}}
+        <li class="new-node" {{action 'new' model}}>
+          <div class="node-title">
+            {{ap-icon icon='the-essentials-010'}}
+            <span class="node-display-name">{{t 'actions.new'}}</span>
+          </div>
+        </li>
+      {{/if}}
     </ul>
   {{/if}}
 </li>
