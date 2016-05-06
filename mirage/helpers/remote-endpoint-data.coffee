@@ -11,6 +11,9 @@ statusCycle = faker.list.random statuses...
 methods = 'GET POST PUT DELETE'.split ' '
 methodCycle = faker.list.random methods...
 
+encryptModes = 'disable true false'.split ' '
+encryptModeCycle = faker.list.random encryptModes...
+
 sslModes = 'disable allow prefer require'.split ' '
 sslModeCycle = faker.list.random sslModes...
 
@@ -45,6 +48,7 @@ generateDataForType = (typeSlug, i) ->
         password: faker.internet.password()
         database: 'database'
         schema: 'schema'
+        encrypt: encryptModeCycle i
         'connection timeout': faker.random.number()
     when 'postgres'
       transactions: faker.random.boolean()

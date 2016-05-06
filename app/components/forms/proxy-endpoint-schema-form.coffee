@@ -8,7 +8,7 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
   requestSchemaModel: Ember.computed ->
     store = @get 'store'
     store.createRecord 'json-schema-node',
-      title: 'Example Schema'
+      title: 'Request Schema'
       type: 'object'
       children: [
         store.createRecord 'json-schema-node',
@@ -35,10 +35,35 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
               pattern: '[\w\s]*'
           ]
       ]
+  responseSchemaModel: Ember.computed ->
+    store = @get 'store'
+    store.createRecord 'json-schema-node',
+      title: 'Response Schema'
+      type: 'object'
+      children: [
+        store.createRecord 'json-schema-node',
+          name: 'nickNames'
+          type: 'array'
+          min_items: 1
+          unique_items: true
+          children: [
+            store.createRecord 'json-schema-node',
+              type: 'string'
+              pattern: '[\w\s]*'
+          ]
+      ]
 
   editorType: 'code'
   codeEditor: Ember.computed 'editorType', -> @get('editorType') is 'code'
   designEditor: Ember.computed 'editorType', -> @get('editorType') is 'design'
+  selectedSchema: 'request'
+  onSameSchemaChange: Ember.observer 'model.response_same_as_request', ->
+    if @get 'model.response_same_as_request'
+      @set 'selectedSchema', 'request'
+  selectedSchemaModel: Ember.computed 'selectedSchema', ->
+    switch @get 'selectedSchema'
+      when 'request' then @get 'requestSchemaModel'
+      when 'response' then @get 'responseSchemaModel'
 
   savedAction: null
 
@@ -65,5 +90,12 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
       @set 'editorType', 'code'
     activateDesignEditor: ->
       @set 'editorType', 'design'
+    toggleSchema: ->
+      if !@get 'model.response_same_as_request'
+        switch @get 'selectedSchema'
+          when 'request'
+            @set 'selectedSchema', 'response'
+          when 'response'
+            @set 'selectedSchema', 'request'
 
 `export default ProxyEndpointSchemaFormComponent`

@@ -1,7 +1,6 @@
-`import Ember from 'ember'`
+`import EditRoute from 'gateway/routes/edit'`
 
-
-ProxyEndpointTestEditRoute = Ember.Route.extend 
+ProxyEndpointTestEditRoute = EditRoute.extend 
   actions:
     didTransition: ->
       @controller.reset()

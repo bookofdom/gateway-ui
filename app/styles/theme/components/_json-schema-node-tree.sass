@@ -1,0 +1,24 @@
+.ap-json-schema-node-tree
+  $active-color: $brand-info
+  .node-header
+    font-weight: bold
+    text-transform: uppercase
+    letter-spacing: 0.05em
+    color: #CCC
+  .node-title
+    cursor: pointer
+    border-color: transparent
+    > .ap-icon
+      color: #C5C5C5
+    > .ap-list-nav
+      visibility: hidden
+      a
+        color: $brand-danger
+    &:hover > .ap-list-nav
+      visibility: visible
+  .active
+    > .node-title
+      border-color: $active-color
+      font-weight: bold
+      &, > .ap-icon
+        color: $active-color

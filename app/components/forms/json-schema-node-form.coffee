@@ -100,7 +100,7 @@ JsonSchemaNodeFormComponent = BaseFormComponent.extend
     fields = @_super arguments...
     type = @get 'model.type'
     nodeTypeFields = @get "nodeTypeFields.#{type}" if type
-    fields = Ember.copy(fields).pushObjects nodeTypeFields
+    fields = Ember.copy(fields).pushObjects(nodeTypeFields) if nodeTypeFields
     fields
 
 `export default JsonSchemaNodeFormComponent`

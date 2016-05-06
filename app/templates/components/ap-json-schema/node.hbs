@@ -1,10 +1,20 @@
 <li class="{{if (eq selectedNode model) 'active'}}">
 
-  <div class="node-name {{unless model.title 'text-mono'}}" {{action 'select' model}}>
-    {{model.displayName}}
+  <div class="node-title {{unless model.title 'text-mono'}}" {{action 'select' model}}>
+    {{ap-icon icon=(concat 'type-' model.type)}}
+    {{#unless model.isRoot}}
+      {{#ap-list-nav-simple-icon class='pull-right'}}
+        {{ap-list-link
+          t='actions.delete'
+          icon='the-essentials-011'
+          action='delete'
+          arg1=model}}
+      {{/ap-list-nav-simple-icon}}
+    {{/unless}}
+    <span class="node-display-name">{{model.displayName}}</span>
   </div>
 
-  {{#if model.children.length}}
+  {{#if model.canHaveChildren}}
     <ul>
       {{#each model.children as |model|}}
         {{partial 'components/ap-json-schema/node'}}
