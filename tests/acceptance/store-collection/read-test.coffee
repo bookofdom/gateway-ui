@@ -36,7 +36,7 @@ test 'store collections index redirects to first store collection\'s store objec
 test 'user can navigate to store collections', (assert) ->
   storeScenario server
   visit '/'
-  click '[data-t="nav.manage-store"] a'
+  click '[data-t="nav.manage"] a'
   andThen ->
     assert.equal currentURL(), '/collections/1/objects'
 
