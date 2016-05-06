@@ -17,6 +17,7 @@ RemoteEndpointLike = Model.extend
   auth_scheme: DS.attr 'string'
   # sqlserver
   schema: DS.attr 'string'
+  encrypt: DS.attr 'string'
   # postgres
   sslmode: DS.attr 'string', defaultValue: 'prefer'
   # mongodb
@@ -129,6 +130,11 @@ statusTypes = 'success failed pending processing'.split(' ').map (type) ->
   slug: type
   value: type.underscore()
 
+encryptModes = 'disable true false'.split(' ').map (mode) ->
+  name: t "types.remote-endpoint.encrypt-modes.#{mode}"
+  slug: mode
+  value: mode
+
 sslModes = 'disable allow prefer require'.split(' ').map (mode) ->
   name: t "types.remote-endpoint.ssl-modes.#{mode}"
   slug: mode
@@ -163,6 +169,7 @@ interpreters = [
 RemoteEndpointLike.reopenClass
   types: types
   statusTypes: statusTypes
+  encryptModes: encryptModes
   sslModes: sslModes
   authSchemes: authSchemes
   interpreters: interpreters

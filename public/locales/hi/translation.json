@@ -43,19 +43,24 @@
   },
   "nav": {
     "home": "home",
+    "analyze": "विश्लेषण",
     "define-api": "define API",
     "define-api_plural": "define APIs",
+    "build": "निर्माण",
     "manage-api": "manage API",
     "manage-api_plural": "manage APIs",
     "manage-store": "स्टोर का प्रबंधन",
     "manage-store_plural": "दुकानों का प्रबंधन",
+    "manage": "प्रबंधन",
     "build-app": "build app",
     "build-app_plural": "build apps",
+    "app_plural": "क्षुधा",
     "terms-and-conditions": "नियम और शर्तें",
     "descriptions": {
-      "define-api": "define API endpoints and workflow business logic",
+      "define-api": "एपीआई समापन, दूरदराज के एकीकरण सेवाओं, और कार्यप्रवाह व्यापार तर्क को परिभाषित",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
       "manage-store": "एक वस्तु की दुकान में डेटा प्रबंधन",
+      "manage": "स्थानीय दुकान संग्रह और डेटा प्रबंधन",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
@@ -68,6 +73,7 @@
       "shared-components": "प्रॉक्सी समापन के लिए पुन: प्रयोज्य घटकों का निर्माण",
       "terms-and-conditions": "एक खाते के लिए पंजीकरण करके आप JustAPIs नियमों और शर्तों को स्वीकार करते",
       "formatted": {
+        "analyze": "<b>(जल्द आ रहा है)</b><br>एपीआई उपयोग में अंतर्दृष्टि लाभ",
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
       }
@@ -251,6 +257,7 @@
     "encoded_private_key": "इनकोडिंग निजी कुंजी",
     "server_name": "सर्वर का नाम",
     "private_key_password": "निजी कुंजी पासवर्ड",
+    "encrypt": "एनक्रिप्ट",
     "help": {
       "timeout": "सेकंड की संख्या।",
       "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
@@ -342,6 +349,11 @@
         "failed": "अनुत्तीर्ण होना",
         "pending": "अपूर्ण",
         "processing": "प्रसंस्करण"
+      },
+      "encrypt-modes": {
+        "disable": "अक्षम करें",
+        "true": "सच",
+        "false": "असत्य"
       },
       "ssl-modes": {
         "disable": "अक्षम करें",

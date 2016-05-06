@@ -30,6 +30,7 @@ module.exports = function(defaults) {
       enabled: false
     },
     sassOptions: {
+      sourceMap: false,
       includePaths: [
         'bower_components/bootstrap-sass/assets/stylesheets'
       ]
