@@ -14,6 +14,7 @@ RemoteEndpointEnvironmentDatumScratchPad = Model.extend
     script: 'request = new AP.Script.Request();'
     soap: 'request = new AP.SOAP.Request();'
     store: 'request = new AP.Store.Request();'
+    push: 'request = new AP.Push.Request();'
 
   # Relationships
   environment_datum: DS.belongsTo 'remote-endpoint-environment-datum', async: true
