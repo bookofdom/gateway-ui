@@ -9,6 +9,7 @@
   <a class="btn btn-info {{if designEditor 'active'}}" {{action 'activateDesignEditor'}}>Design</a>
 </div>
 
+<br><br>
 {{#if designEditor}}
   {{ap-json-schema-editor model=selectedSchemaModel}}
 {{/if}}
@@ -27,4 +28,5 @@
   {{/if}}
 {{/if}}
 
+<br><br>
 {{partial 'components/forms/base-form-actions'}}
