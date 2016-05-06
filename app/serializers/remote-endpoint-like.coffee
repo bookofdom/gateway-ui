@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApiRelatedSerializer from 'gateway/serializers/api-related'`
 `import HttpRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/http'`
 `import SoapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/soap'`
 `import SqlserverRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/sqlserver'`
@@ -10,7 +10,7 @@
 `import ScriptRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/script'`
 `import PushRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/push'`
 
-RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
+RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     headers:
       serialize: false
