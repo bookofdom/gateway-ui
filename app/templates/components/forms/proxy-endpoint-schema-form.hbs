@@ -8,7 +8,7 @@
   <a class="btn btn-info {{if codeEditor 'active'}}" {{action 'activateCodeEditor'}}>Code</a>
   <a class="btn btn-info {{if designEditor 'active'}}" {{action 'activateDesignEditor'}}>Design</a>
 </div>
-<hr>
+
 {{#if designEditor}}
   {{ap-json-schema-editor model=selectedSchemaModel}}
 {{/if}}
