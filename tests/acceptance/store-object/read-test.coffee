@@ -22,7 +22,7 @@ module 'Acceptance: Store Object - Read',
 
 test 'user can navigate to store objects', (assert) ->
   visit '/'
-  click '[data-t="nav.manage-store"] a'
+  click '[data-t="nav.manage"] a'
   andThen ->
     assert.equal currentURL(), '/collections/1/objects'
 
