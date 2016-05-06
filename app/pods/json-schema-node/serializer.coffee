@@ -58,6 +58,5 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
           .map (child) -> child.attr('name') if child.attr 'required'
           .compact()
     @cleanAttributes serialized
->>>>>>> d6b3f2fad5dbbe2d7d063c9fae5f74eb191a76da
 
 `export default JsonSchemaNodeSerializer`

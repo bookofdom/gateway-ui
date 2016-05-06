@@ -1,6 +1,6 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 
-jsonSchema =
+testCase1 =
   title: 'Example Schema'
   type: 'object'
   # `children` are serialized as `properties` or `patternProperties` for `object` type nodes.
@@ -34,17 +34,49 @@ jsonSchema =
     'age'
   ]
 
+# Testing nested objects
+testCase2 =
+  title: 'Person'
+  type: 'object'
+  description: 'A person class'
+  properties:
+    firstName:
+      type: 'string'
+    lastName:
+      type: 'string'
+    address:
+      type: 'object'
+      title: 'Address'
+      description: "A person's address"
+      properties:
+        streetAddress:
+          type: 'string'
+        city:
+          type: 'string'
+        state:
+          type: 'string'
+        country:
+          type: 'string'
+        zip:
+          type: 'string'
+
+
+
+# Testing all serializable attributes by type.
+
+
+
 moduleForModel 'json-schema-node', 'Unit | Serializer | JsonSchemaNode',
   # Specify the other units that are required for this test.
   needs: ['serializer:json-schema-node']
 
 test 'it serializes records', (assert) ->
-  # record = @subject()
-  # serializedRecord = record.serialize()
-  # assert.ok serializedRecord
+  record = @subject()
+  serializedRecord = record.serialize()
+  assert.ok serializedRecord
 
 test 'it normalizes a simple JSON schema', (assert) ->
-  # expect 0
+  expect 0
   store = @store()
   serializer = store.serializerFor 'json-schema-node'
   # normalize method currently fails
@@ -88,4 +120,6 @@ test 'it serializes a simple JSON schema node', (assert) ->
 
     serialized = record.serialize()
 
-    assert.deepEqual serialized, jsonSchema
+    assert.deepEqual serialized, testCase1
+
+    assert.deepEqual serialized, testCase1
