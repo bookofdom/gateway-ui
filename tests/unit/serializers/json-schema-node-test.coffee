@@ -83,7 +83,6 @@ test 'it normalizes a simple JSON schema', (assert) ->
   # normalized = serializer.normalize 'json-schema-node', jsonSchema
 
 test 'it serializes a simple JSON schema node', (assert) ->
-  # expect 0
   store = @store()
   serializer = store.serializerFor 'json-schema-node'
   Ember.run ->
@@ -122,4 +121,4 @@ test 'it serializes a simple JSON schema node', (assert) ->
 
     assert.deepEqual serialized, testCase1
 
-    assert.deepEqual serialized, testCase1
+    assert.deepEqual serialized, testCase2

@@ -1,12 +1,8 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-5">
-      {{ap-json-schema-node-tree model=model}}
-    </div>
-    <div class="col-sm-7">
-      {{#if selectedNode}}
-        {{forms/json-schema-node-form model=selectedNode}}
-      {{/if}}
-    </div>
-  </div>
+<div class="box-aside">
+  {{ap-json-schema-node-tree model=model}}
+</div>
+<div class="box-content">
+  {{#if selectedNode}}
+    {{forms/json-schema-node-form model=selectedNode}}
+  {{/if}}
 </div>

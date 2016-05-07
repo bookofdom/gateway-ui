@@ -7,7 +7,6 @@
     color: #CCC
   .node-title
     cursor: pointer
-    border-color: transparent
     > .ap-icon
       color: #C5C5C5
     > .ap-list-nav
@@ -18,7 +17,10 @@
       visibility: visible
   .active
     > .node-title
-      border-color: $active-color
       font-weight: bold
       &, > .ap-icon
         color: $active-color
+  .new-node
+    .node-title
+      &, > .ap-icon
+        color: $brand-success
