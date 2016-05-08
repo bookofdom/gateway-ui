@@ -39,6 +39,7 @@ testCase2 =
   title: 'Person'
   type: 'object'
   description: 'A person class'
+  required: []
   properties:
     firstName:
       type: 'string'
@@ -48,6 +49,7 @@ testCase2 =
       type: 'object'
       title: 'Address'
       description: "A person's address"
+      required: []
       properties:
         streetAddress:
           type: 'string'
@@ -63,7 +65,6 @@ testCase2 =
 
 
 # Testing all serializable attributes by type.
-
 
 
 moduleForModel 'json-schema-node', 'Unit | Serializer | JsonSchemaNode',
@@ -120,5 +121,47 @@ test 'it serializes a simple JSON schema node', (assert) ->
     serialized = record.serialize()
 
     assert.deepEqual serialized, testCase1
+
+test 'it serializes a nested JSON schema node', (assert) ->
+  store = @store()
+  serializer = store.serializerFor 'json-schema-node'
+  Ember.run ->
+    # model-based representation of above schema
+    record = store.createRecord 'json-schema-node',
+      title: 'Person'
+      description: 'A person class'
+      type: 'object'
+      children: [
+        store.createRecord 'json-schema-node',
+          name: 'firstName'
+          type: 'string'
+        store.createRecord 'json-schema-node',
+          name: 'lastName'
+          type: 'string'
+        store.createRecord 'json-schema-node',
+          name: 'address'
+          description: "A person's address"
+          type: 'object'
+          title: 'Address'
+          children:[
+            store.createRecord 'json-schema-node',
+              name: 'streetAddress'
+              type: 'string'
+            store.createRecord 'json-schema-node',
+              name: 'city'
+              type: 'string'
+            store.createRecord 'json-schema-node',
+              name: 'state'
+              type: 'string'
+            store.createRecord 'json-schema-node',
+              name: 'country'
+              type: 'string'
+            store.createRecord 'json-schema-node',
+              name: 'zip'
+              type: 'string'
+          ]
+      ]
+
+    serialized = record.serialize()
 
     assert.deepEqual serialized, testCase2
