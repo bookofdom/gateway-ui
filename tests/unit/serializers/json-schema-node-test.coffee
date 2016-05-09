@@ -62,10 +62,81 @@ testCase2 =
         zip:
           type: 'string'
 
-
+{
+  "type": "object",
+  "patternProperties": {
+    "^S_": { "type": "string" },
+    "^I_": { "type": "integer" }
+  },
+  "additionalProperties": false
+}
 
 # Testing all serializable attributes by type.
-
+testCase3 =
+  title: 'Example Schema'
+  type: 'object'
+  description: 'An example schema'
+  patternProperties:
+    '^S_':
+      type: 'string'
+    '^I_':
+      type: 'integer'
+    '^N_':
+      type: 'number'
+    '^A_':
+      type: 'array'
+    '^O_':
+      type: 'object'
+      required: []
+  properties:
+    name:
+      type: 'string'
+      title: 'Name'
+      description: 'A name'
+      pattern: '^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$'
+      minLength: 1
+      maxLength: 10
+    age:
+      type: 'integer'
+      title: 'Age'
+      description: 'An age'
+      multipleOf: 1.0
+      minimum: 0
+      maximum: 100
+      exclusiveMinimum: true
+      exclusiveMaximum: true
+    size:
+      type: 'number'
+      title: 'Size'
+      description: 'A size'
+      multipleOf: 5.0
+      minimum: 5
+      maximum: 55
+      exclusiveMinimum: true
+      exclusiveMaximum: true
+    friends:
+      type: 'array'
+      title: 'Friends'
+      description: 'A list of friends'
+      minItems: 1
+      maxItems: 100
+      uniqueItems: true
+      items:
+        type: 'string'
+    phoneNumber:
+      type: 'object'
+      title: 'Phone Number'
+      description: 'A phone number'
+      minProperties: 1
+      maxProperties: 10
+      patternProperties:
+        '^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$':
+          type: 'string'
+      properties:
+        zip:
+          type: 'string'
+      required: []
+  required: []
 
 moduleForModel 'json-schema-node', 'Unit | Serializer | JsonSchemaNode',
   # Specify the other units that are required for this test.
@@ -165,3 +236,95 @@ test 'it serializes a nested JSON schema node', (assert) ->
     serialized = record.serialize()
 
     assert.deepEqual serialized, testCase2
+
+test 'it serializes a JSON schema node with attributes by type', (assert) ->
+  store = @store()
+  serializer = store.serializerFor 'json-schema-node'
+  Ember.run ->
+    # model-based representation of above schema
+    record = store.createRecord 'json-schema-node',
+      title: 'Example Schema'
+      description: 'An example schema'
+      type: 'object'
+      children: [
+        store.createRecord 'json-schema-node',
+          name: '^S_'
+          pattern_name: true
+          type: 'string'
+        store.createRecord 'json-schema-node',
+          name: '^I_'
+          pattern_name: true
+          type: 'integer'
+        store.createRecord 'json-schema-node',
+          name: '^N_'
+          pattern_name: true
+          type: 'number'
+        store.createRecord 'json-schema-node',
+          name: '^A_'
+          pattern_name: true
+          type: 'array'
+        store.createRecord 'json-schema-node',
+          name: '^O_'
+          pattern_name: true
+          type: 'object'
+        store.createRecord 'json-schema-node',
+          name: 'name'
+          type: 'string'
+          title: 'Name'
+          description: 'A name'
+          pattern: '^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$'
+          min_length: 1
+          max_length: 10
+        store.createRecord 'json-schema-node',
+          name: 'age'
+          title: 'Age'
+          description: 'An age'
+          type: 'integer'
+          minimum: 0
+          maximum: 100
+          multiple_of: 1.0
+          exclusive_minimum: true
+          exclusive_maximum: true
+        store.createRecord 'json-schema-node',
+          name: 'size'
+          title: 'Size'
+          description: 'A size'
+          type: 'number'
+          minimum: 5
+          maximum: 55
+          multiple_of: 5.0
+          exclusive_minimum: true
+          exclusive_maximum: true
+        store.createRecord 'json-schema-node',
+          name: 'friends'
+          type: 'array'
+          title: 'Friends'
+          description: 'A list of friends'
+          min_items: 1
+          max_items: 100
+          unique_items: true
+          children: [
+            store.createRecord 'json-schema-node',
+              type: 'string'
+          ]
+        store.createRecord 'json-schema-node',
+          name: 'phoneNumber'
+          type: 'object'
+          title: 'Phone Number'
+          description: 'A phone number'
+          min_properties: 1
+          max_properties: 10
+          children: [
+            store.createRecord 'json-schema-node',
+              name: 'zip'
+              type: 'string'
+            store.createRecord 'json-schema-node',
+              name: '^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$'
+              pattern_name: true
+              type: 'string'
+          ]
+      ]
+
+    serialized = record.serialize()
+
+    assert.deepEqual serialized, testCase3
