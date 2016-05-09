@@ -11,6 +11,7 @@ JsonSchemaNode = DS.Model.extend
   pattern_name: DS.attr 'boolean', defaultValue: false # is name a regex pattern?
   required: DS.attr 'boolean', defaultValue: false
   # object
+  additional_properties: DS.attr 'boolean', defaultValue: true
   min_properties: DS.attr 'number'
   max_properties: DS.attr 'number'
   # array

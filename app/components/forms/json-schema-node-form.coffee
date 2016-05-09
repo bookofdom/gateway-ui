@@ -36,6 +36,9 @@ JsonSchemaNodeFormComponent = BaseFormComponent.extend
 
   nodeTypeFields:
     object: [
+      name: 'additional_properties'
+      type: 'boolean'
+    ,
       name: 'min_properties'
       type: 'integer'
     ,

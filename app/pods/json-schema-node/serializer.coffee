@@ -10,7 +10,7 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
   # All serializable attributes by type.
   attrsByType:
     '*': ['type', 'title', 'description']
-    'object': ['properties', 'patternProperties', 'required', 'minProperties', 'maxProperties']
+    'object': ['properties', 'patternProperties', 'required', 'additionalProperties', 'minProperties', 'maxProperties']
     'array': ['items', 'minItems', 'maxItems', 'uniqueItems']
     'number': ['multipleOf', 'minimum', 'maximum', 'exclusiveMinimum', 'exclusiveMaximum']
     'integer': ['multipleOf', 'minimum', 'maximum', 'exclusiveMinimum', 'exclusiveMaximum']
