@@ -27,13 +27,17 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
 
   # Returns an object containing only attributes allowed for the type as
   # specified in `attrsByType`.  Non-allowed attributes and attributes with
-  # values of `false`, `null`, or `undefined` are thrown out.
+  # values of `false`, `null`, or `undefined` are thrown out, except
+  # `additionalProperties`, which is included only if it is `false`.
   cleanAttributes: (serialized) ->
     cleaned = {}
     allowed = Ember.copy(@get('attrsByType.*')).concat @get("attrsByType.#{serialized.type}")
     allowed.forEach (attrName) ->
       value = serialized[attrName]
-      cleaned[attrName] = value if !Ember.isNone(value) and (value != false)
+      cleaned[attrName] = value if !Ember.isNone(value) and (value != false) and (attrName != 'additionalProperties')
+      # Since additionalProperties defaults to `true`, we only include it if
+      # it is set to `false`.
+      cleaned[attrName] = value if (attrName is 'additionalProperties') and (value is false)
     delete cleaned.required if !Ember.isArray cleaned.required
     cleaned
 
@@ -43,7 +47,10 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
     switch serialized.type
       when 'array'
         # An array node's children go into `items`.
-        serialized.items = children[0].serialize() if children.length
+        if children.length == 1
+          serialized.items = children[0].serialize()
+        else if children.length > 1
+          serialized.items = children.map (child) -> child.serialize()
       when 'object'
         # An object node's children go into `properties` or `patternProperties`.
         children.forEach (child) ->

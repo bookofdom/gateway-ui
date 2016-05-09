@@ -62,20 +62,12 @@ testCase2 =
         zip:
           type: 'string'
 
-{
-  "type": "object",
-  "patternProperties": {
-    "^S_": { "type": "string" },
-    "^I_": { "type": "integer" }
-  },
-  "additionalProperties": false
-}
-
 # Testing all serializable attributes by type.
 testCase3 =
   title: 'Example Schema'
   type: 'object'
   description: 'An example schema'
+  additionalProperties: false
   patternProperties:
     '^S_':
       type: 'string'
@@ -121,8 +113,11 @@ testCase3 =
       minItems: 1
       maxItems: 100
       uniqueItems: true
-      items:
+      items: [
         type: 'string'
+      ,
+        type: 'integer'
+      ]
     phoneNumber:
       type: 'object'
       title: 'Phone Number'
@@ -246,6 +241,7 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
       title: 'Example Schema'
       description: 'An example schema'
       type: 'object'
+      additional_properties: false
       children: [
         store.createRecord 'json-schema-node',
           name: '^S_'
@@ -306,6 +302,9 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
           children: [
             store.createRecord 'json-schema-node',
               type: 'string'
+          ,
+            store.createRecord 'json-schema-node',
+              type: 'integer'
           ]
         store.createRecord 'json-schema-node',
           name: 'phoneNumber'
