@@ -42,9 +42,6 @@ JsonSchemaNode = DS.Model.extend
     @get('parent.type') is 'object'
   canHaveChildren: Ember.computed 'type', ->
     (@get('type') is 'object') or (@get('type') is 'array')
-  mayAddChildren: Ember.computed 'type', 'children.length', ->
-    (@get('type') is 'object') or ((@get('type') is 'array') and
-      (@get('children.length') is 0))
   displayName: Ember.computed 'title', 'name', 'pattern', 'type', ->
     @get('title') or @get('name') or @get('pattern') or @get('nodeType.name')
   nodeType: Ember.computed 'type', ->
