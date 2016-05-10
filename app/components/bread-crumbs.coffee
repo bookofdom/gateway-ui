@@ -18,7 +18,7 @@ BreadCrumbsComponent = Ember.Component.extend
   controllers: Ember.computed 'handlerInfos.[]', ->
     @get('handlerInfos').map (handlerInfo) ->
       handlerInfo.handler.controller
-  breadCrumbs: Ember.computed 'controllers.@each.breadCrumbs', 'controllers.@each.breadCrumb', 'controllers.@each.breadCrumbPath', 'controllers.@each.breadCrumbModel', 'pathNames.[]', ->
+  breadCrumbs: Ember.computed 'controllers.@each.breadCrumbs', 'controllers.@each.breadCrumb', 'controllers.@each.breadCrumbSecondary', 'controllers.@each.breadCrumbPath', 'controllers.@each.breadCrumbModel', 'pathNames.[]', ->
     controllers = @get 'controllers'
     defaultPaths = @get 'pathNames'
     breadCrumbs = Ember.A []
