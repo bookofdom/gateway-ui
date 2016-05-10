@@ -11,6 +11,7 @@ JsonSchemaNode = DS.Model.extend
   pattern_name: DS.attr 'boolean', defaultValue: false # is name a regex pattern?
   required: DS.attr 'boolean', defaultValue: false
   # object
+  additional_properties: DS.attr 'boolean', defaultValue: true
   min_properties: DS.attr 'number'
   max_properties: DS.attr 'number'
   # array
@@ -42,9 +43,6 @@ JsonSchemaNode = DS.Model.extend
     @get('parent.type') is 'object'
   canHaveChildren: Ember.computed 'type', ->
     (@get('type') is 'object') or (@get('type') is 'array')
-  mayAddChildren: Ember.computed 'type', 'children.length', ->
-    (@get('type') is 'object') or ((@get('type') is 'array') and
-      (@get('children.length') is 0))
   displayName: Ember.computed 'title', 'name', 'pattern', 'type', ->
     @get('title') or @get('name') or @get('pattern') or @get('nodeType.name')
   nodeType: Ember.computed 'type', ->

@@ -256,6 +256,7 @@
     "min_length": "comprimento mínimo",
     "max_length": "comprimento máximo",
     "encrypt": "criptografar",
+    "additional_properties": "propriedades adicionais",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",

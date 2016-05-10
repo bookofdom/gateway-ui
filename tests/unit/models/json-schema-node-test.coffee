@@ -13,7 +13,7 @@ test '`type` field defaults to `string`', (assert) ->
   model = @subject()
   assert.equal model.get('type'), 'string'
 
-test 'boolean fields default to `false`', (assert) ->
+test 'boolean fields default to `false`, except `additional_properties`, which defaults to `true`', (assert) ->
   model = @subject()
   assert.notOk model.get('root')
   assert.notOk model.get('pattern_name')
@@ -21,6 +21,7 @@ test 'boolean fields default to `false`', (assert) ->
   assert.notOk model.get('unique_items')
   assert.notOk model.get('exclusive_minimum')
   assert.notOk model.get('exclusive_maximum')
+  assert.ok model.get('additional_properties')
 
 test '`types` array includes `object array null boolean integer number string`', (assert) ->
   model = @subject()

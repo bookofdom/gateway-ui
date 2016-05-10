@@ -259,6 +259,7 @@
     "min_length": "min length",
     "max_length": "max length",
     "encrypt": "encrypt",
+    "additional_properties": "additional properties",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
