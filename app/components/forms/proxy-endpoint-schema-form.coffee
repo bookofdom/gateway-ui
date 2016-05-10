@@ -5,53 +5,6 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
   modelType: 'proxy-endpoint-schema'
 
   store: Ember.inject.service()
-  requestSchemaModel: Ember.computed ->
-    store = @get 'store'
-    store.createRecord 'json-schema-node',
-      title: 'Request Schema'
-      type: 'object'
-      children: [
-        store.createRecord 'json-schema-node',
-          name: 'firstName'
-          type: 'string'
-          required: true
-        store.createRecord 'json-schema-node',
-          name: 'age'
-          type: 'integer'
-          minimum: 0
-          required: true
-        store.createRecord 'json-schema-node',
-          name: 'job|occupation'
-          pattern_name: true
-          type: 'string'
-        store.createRecord 'json-schema-node',
-          name: 'nickNames'
-          type: 'array'
-          min_items: 1
-          unique_items: true
-          children: [
-            store.createRecord 'json-schema-node',
-              type: 'string'
-              pattern: '[\w\s]*'
-          ]
-      ]
-  responseSchemaModel: Ember.computed ->
-    store = @get 'store'
-    store.createRecord 'json-schema-node',
-      title: 'Response Schema'
-      type: 'object'
-      children: [
-        store.createRecord 'json-schema-node',
-          name: 'nickNames'
-          type: 'array'
-          min_items: 1
-          unique_items: true
-          children: [
-            store.createRecord 'json-schema-node',
-              type: 'string'
-              pattern: '[\w\s]*'
-          ]
-      ]
 
   editorType: 'code'
   codeEditor: Ember.computed 'editorType', -> @get('editorType') is 'code'
@@ -62,8 +15,8 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
       @set 'selectedSchema', 'request'
   selectedSchemaModel: Ember.computed 'selectedSchema', ->
     switch @get 'selectedSchema'
-      when 'request' then @get 'requestSchemaModel'
-      when 'response' then @get 'responseSchemaModel'
+      when 'request' then @get 'model.request_json_schema'
+      when 'response' then @get 'model.response_json_schema'
 
   savedAction: null
 
