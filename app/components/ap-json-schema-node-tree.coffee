@@ -12,6 +12,8 @@ ApJsonSchemaNodeTreeComponent = BsBaseComponent.extend
 
   defaultSelected: Ember.on 'init', ->
     @send 'select', @get('model')
+  onModelChange: Ember.observer 'model', ->
+    @send 'select', @get('model')
 
   actions:
     select: (model) ->
