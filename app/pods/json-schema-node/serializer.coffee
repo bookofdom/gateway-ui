@@ -32,7 +32,6 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
         if Array.isArray value.items
           for item in value.items
             value.children.push item
-          console.log 'its an array'
         else
           value.children.push value.items
         delete value.items
