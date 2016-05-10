@@ -19,6 +19,27 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
   normalize: (typeClass, hash) ->
     hash.parent ?= null
     hash.children ?= []
+    for key, value of hash.patternProperties
+      value.name = key
+      value.pattern_name = true
+      if key in hash.required then value.required = true
+      hash.children.push value
+    for key, value of hash.properties
+      value.name = key
+      if key in hash.required then value.required = true
+      if value.type is 'array'
+        value.children ?= []
+        if Array.isArray value.items
+          for item in value.items
+            value.children.push item
+          console.log 'its an array'
+        else
+          value.children.push value.items
+        delete value.items
+      hash.children.push value
+    delete hash.required
+    delete hash.properties
+    delete hash.patternProperties
     @_super arguments...
 
   # JSON Schema attribute keys are camel case.
