@@ -295,7 +295,8 @@
     "no-user-with-that-email": "não exite usuário com esse email",
     "invalid-password": "senha inválida",
     "login": "não fomos capazes de fazer seu login",
-    "invalid-json": "inválido JSON"
+    "invalid-json": "inválido JSON",
+    "invalid-json-schema": "esquema JSON inválido"
   },
   "successes": {
     "saved-successfully": "salvo com sucesso",

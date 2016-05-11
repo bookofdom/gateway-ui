@@ -299,7 +299,8 @@
     "no-user-with-that-email": "no user with that email",
     "invalid-password": "invalid password",
     "login": "we were unable to log you in",
-    "invalid-json": "invalid JSON"
+    "invalid-json": "invalid JSON",
+    "invalid-json-schema": "invalid JSON schema"
   },
   "successes": {
     "saved-successfully": "saved successfully",

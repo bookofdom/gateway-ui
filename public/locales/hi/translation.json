@@ -295,7 +295,8 @@
     "no-user-with-that-email": "no user with that email",
     "invalid-password": "invalid password",
     "login": "हम आपको लॉग इन करने में असमर्थ थे",
-    "invalid-json": "अवैध JSON"
+    "invalid-json": "अवैध JSON",
+    "invalid-json-schema": "अवैध JSON स्कीमा"
   },
   "successes": {
     "saved-successfully": "saved successfully",
