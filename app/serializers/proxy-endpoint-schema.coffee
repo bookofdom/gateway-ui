@@ -18,7 +18,7 @@ ProxyEndpointSchemaSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsM
     try
       hash.request_json_schema = JSON.parse hash.request_schema
     try
-      hash.response_schema = JSON.parse hash.response_schema
+      hash.response_json_schema = JSON.parse hash.response_schema
     @_super arguments...
 
 `export default ProxyEndpointSchemaSerializer`
