@@ -4,9 +4,8 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     parent:
       serialize: false
-    children:
-      serialize: false
-      deserialize: 'records'
+    #children:
+    #  serialize: false
 
   # All serializable attributes by type.
   attrsByType:
