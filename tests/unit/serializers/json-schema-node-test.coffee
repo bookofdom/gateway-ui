@@ -135,7 +135,7 @@ testCase3 =
 
 moduleForModel 'json-schema-node', 'Unit | Serializer | JsonSchemaNode',
   # Specify the other units that are required for this test.
-  needs: ['serializer:json-schema-node']
+  needs: ['model:proxy-endpoint-schema', 'serializer:json-schema-node']
 
 test 'it serializes records', (assert) ->
   record = @subject()

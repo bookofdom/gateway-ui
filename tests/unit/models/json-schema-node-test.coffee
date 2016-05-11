@@ -2,7 +2,7 @@
 
 moduleForModel 'json-schema-node', 'Unit | Model | JsonSchemaNode',
   # Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:proxy-endpoint-schema']
 
 test 'it exists', (assert) ->
   model = @subject()
