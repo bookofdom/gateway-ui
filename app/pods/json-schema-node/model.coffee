@@ -38,6 +38,7 @@ JsonSchemaNode = Model.extend
   children: DS.hasMany 'json-schema-node',
     inverse: 'parent'
     async: false
+    stains: true
     embedded: true
 
   # Computed
