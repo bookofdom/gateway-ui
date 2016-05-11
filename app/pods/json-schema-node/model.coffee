@@ -36,6 +36,7 @@ JsonSchemaNode = Model.extend
   children: DS.hasMany 'json-schema-node',
     inverse: 'parent'
     async: false
+    embedded: true
 
   # Computed
   isRoot: Ember.computed 'parent', -> !@get 'parent'
