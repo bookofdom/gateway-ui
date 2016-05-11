@@ -1,11 +1,14 @@
 `import DS from 'ember-data'`
 
+id = 0
+
 JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     parent:
       serialize: false
-    #children:
-    #  serialize: false
+    children:
+      serialize: false
+      deserialize: 'records'
 
   # All serializable attributes by type.
   attrsByType:
@@ -17,6 +20,7 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
     'string': ['pattern', 'minLength', 'maxLength']
 
   normalize: (typeClass, hash) ->
+    hash.id = ++id
     hash.parent ?= null
     hash.children ?= []
     for key, value of hash.patternProperties
