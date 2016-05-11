@@ -30,6 +30,8 @@ JsonSchemaNode = Model.extend
   max_length: DS.attr 'number'
 
   # Relationships
+  proxy_endpoint_schema_request_parent: DS.belongsTo 'proxy-endpoint-schema'
+  proxy_endpoint_schema_response_parent: DS.belongsTo 'proxy-endpoint-schema'
   parent: DS.belongsTo 'json-schema-node',
     inverse: 'children'
     async: false

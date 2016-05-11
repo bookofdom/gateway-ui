@@ -4,6 +4,10 @@ id = 0
 
 JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
+    proxy_endpoint_schema_request_parent:
+      serialize: false
+    proxy_endpoint_schema_response_parent:
+      serialize: false
     parent:
       serialize: false
     children:
