@@ -23,14 +23,16 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
     hash.id = ++id
     hash.parent ?= null
     hash.children ?= []
+    hash.requiredAttrs = hash.required
+    hash.required = hash.shouldBeRequired
     for key, value of hash.patternProperties
       value.name = key
-      value.pattern_name = true
-      if key in hash.required then value.required = true
+      value.patternName = true
+      if hash.requiredAttrs? and (key in hash.requiredAttrs) then value.shouldBeRequired = true
       hash.children.push value
     for key, value of hash.properties
       value.name = key
-      if key in hash.required then value.required = true
+      if hash.requiredAttrs? and (key in hash.requiredAttrs) then value.shouldBeRequired = true
       if value.type is 'array'
         value.children ?= []
         if Array.isArray value.items
@@ -40,7 +42,8 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
           value.children.push value.items
         delete value.items
       hash.children.push value
-    delete hash.required
+    delete hash.requiredAttrs
+    delete hash.shouldBeRequired
     delete hash.properties
     delete hash.patternProperties
     @_super arguments...
