@@ -148,41 +148,43 @@ test 'it normalizes a simple JSON schema', (assert) ->
   data = Ember.copy testCase1, true
   normalized = serializer.normalize store.modelFor('json-schema-node'), data
 
-  Ember.run ->
-    # model-based representation of above schema
-    record = store.createRecord 'json-schema-node',
-      title: 'Example Schema'
-      type: 'object'
-      children: [
-        store.createRecord 'json-schema-node',
-          name: 'firstName'
-          type: 'string'
-          required: true
-        store.createRecord 'json-schema-node',
-          name: 'age'
-          description: 'Age in years'
-          type: 'integer'
-          minimum: 0
-          required: true
-        store.createRecord 'json-schema-node',
-          name: 'job|occupation'
-          pattern_name: true
-          type: 'string'
-        store.createRecord 'json-schema-node',
-          name: 'nickNames'
-          type: 'array'
-          min_items: 1
-          unique_items: true
-          children: [
-            store.createRecord 'json-schema-node',
+  expected =
+    data:
+      attributes:
+        title: 'Example Schema'
+        type: 'object'
+      id: null
+      relationships:
+        children:
+          data: [
+            name: 'job|occupation'
+            pattern_name: true
+            type: 'string'
+          ,
+            name: 'firstName'
+            required: true
+            type: 'string'
+          ,
+            description: 'Age in years'
+            minimum: 0
+            name: 'age'
+            required: true
+            type: 'integer'
+          ,
+            minItems: 1
+            name: 'nickNames'
+            type: 'array'
+            uniqueItems: true
+            children: [
+              pattern: '[ws]*'
               type: 'string'
-              pattern: '[\w\s]*'
+            ]
           ]
-      ]
+        parent:
+          data: null
+      type: 'json-schema-node'
 
-    # normalized is a JS object and record is an instance of an Ember class
-    # am I missing something? or does it need to be tested a different way
-    assert.deepEqual normalized, record
+  assert.deepEqual normalized, expected
 
 test 'it serializes a simple JSON schema node', (assert) ->
   store = @store()
