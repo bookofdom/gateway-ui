@@ -5,8 +5,8 @@
   <a class="btn btn-default {{if (eq selectedSchema 'response') 'active'}} {{if model.response_same_as_request 'disabled'}}" {{action 'toggleSchema'}}>Response</a>
 </div>
 <div class="btn-group pull-right">
-  <a class="btn btn-info {{if codeEditor 'active'}}" {{action 'activateCodeEditor'}}>Code</a>
-  <a class="btn btn-info {{if designEditor 'active'}}" {{action 'activateDesignEditor'}}>Design</a>
+  <a class="btn btn-info {{if codeEditor 'active'}} {{if model.hasDirtyAttributes 'disabled'}}" {{action 'activateCodeEditor'}}>Code</a>
+  <a class="btn btn-info {{if designEditor 'active'}} {{if model.hasDirtyAttributes 'disabled'}}" {{action 'activateDesignEditor'}}>Design</a>
 </div>
 
 <br><br>
