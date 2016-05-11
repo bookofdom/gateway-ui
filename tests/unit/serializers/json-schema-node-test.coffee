@@ -145,7 +145,8 @@ test 'it serializes records', (assert) ->
 test 'it normalizes a simple JSON schema', (assert) ->
   store = @store()
   serializer = store.serializerFor 'json-schema-node'
-  normalized = serializer.normalize store.modelFor('json-schema-node'), testCase1
+  data = Ember.copy testCase1, true
+  normalized = serializer.normalize store.modelFor('json-schema-node'), data
 
   Ember.run ->
     # model-based representation of above schema
