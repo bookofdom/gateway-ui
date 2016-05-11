@@ -2,7 +2,7 @@
 `import Model from 'gateway/models/model'`
 `import t from 'gateway/helpers/i18n'`
 
-JsonSchemaNode = DS.Model.extend
+JsonSchemaNode = Model.extend
   type: DS.attr 'string', defaultValue: 'string'
   title: DS.attr 'string'
   description: DS.attr 'string'
