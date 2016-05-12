@@ -1,5 +1,6 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 
+# Testing simple object
 testCase1 =
   title: 'Example Schema'
   type: 'object'
@@ -131,7 +132,7 @@ testCase3 =
         zip:
           type: 'string'
       required: []
-  required: []
+  required: ['name', 'age', 'size', 'friends', 'phoneNumber']
 
 moduleForModel 'json-schema-node', 'Unit | Serializer | JsonSchemaNode',
   # Specify the other units that are required for this test.
@@ -153,36 +154,95 @@ test 'it normalizes a simple JSON schema', (assert) ->
       attributes:
         title: 'Example Schema'
         type: 'object'
-      id: null
+        required: false
+      id: '1'
       relationships:
         children:
           data: [
-            name: 'job|occupation'
-            pattern_name: true
-            type: 'string'
+            id: '2'
+            type: 'json-schema-node'
           ,
-            name: 'firstName'
-            required: true
-            type: 'string'
+            id: '3'
+            type: 'json-schema-node'
           ,
-            description: 'Age in years'
-            minimum: 0
-            name: 'age'
-            required: true
-            type: 'integer'
+            id: '4'
+            type: 'json-schema-node'
           ,
-            minItems: 1
-            name: 'nickNames'
-            type: 'array'
-            uniqueItems: true
-            children: [
-              pattern: '[ws]*'
-              type: 'string'
-            ]
+            id: '5'
+            type: 'json-schema-node'
           ]
         parent:
           data: null
       type: 'json-schema-node'
+    included: [
+      attributes:
+        name: 'job|occupation'
+        pattern_name: true
+        type: 'string'
+        required: false
+      id: '2'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+    ,
+      attributes:
+        name: 'firstName'
+        required: true
+        type: 'string'
+      id: '3'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+    ,
+      attributes:
+        description: 'Age in years'
+        minimum: 0
+        name: 'age'
+        required: true
+        type: 'integer'
+      id: '4'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+    ,
+      attributes:
+        min_items: 1
+        name: 'nickNames'
+        type: 'array'
+        unique_items: true
+        required: false
+      id: '5'
+      relationships:
+        children:
+          data: [
+            id: '6'
+            type: 'json-schema-node'
+          ]
+        parent:
+          data: null
+      type: 'json-schema-node'
+    ,
+      attributes:
+        pattern: '[ws]*'
+        type: 'string'
+        required: false
+      id: '6'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+    ]
 
   assert.deepEqual normalized, expected
 
@@ -308,6 +368,7 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
           pattern: '^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$'
           min_length: 1
           max_length: 10
+          required: true
         store.createRecord 'json-schema-node',
           name: 'age'
           title: 'Age'
@@ -318,6 +379,7 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
           multiple_of: 1.0
           exclusive_minimum: true
           exclusive_maximum: true
+          required: true
         store.createRecord 'json-schema-node',
           name: 'size'
           title: 'Size'
@@ -328,6 +390,7 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
           multiple_of: 5.0
           exclusive_minimum: true
           exclusive_maximum: true
+          required: true
         store.createRecord 'json-schema-node',
           name: 'friends'
           type: 'array'
@@ -336,6 +399,7 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
           min_items: 1
           max_items: 100
           unique_items: true
+          required: true
           children: [
             store.createRecord 'json-schema-node',
               type: 'string'
@@ -350,6 +414,7 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
           description: 'A phone number'
           min_properties: 1
           max_properties: 10
+          required: true
           children: [
             store.createRecord 'json-schema-node',
               name: 'zip'
