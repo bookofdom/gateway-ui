@@ -21,4 +21,19 @@ ProxyEndpointSchemaSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsM
       hash.response_json_schema = JSON.parse hash.response_schema
     @_super arguments...
 
+  serialize: (snapshot) ->
+    serialized = @_super arguments...
+    # Serialize JSON schema nodes into schema fields if they are flagged.
+    if serialized.serialize_request_json_schema
+      try
+        serialized.request_schema = JSON.stringify snapshot.belongsTo('request_json_schema').serialize()
+    if serialized.serialize_response_json_schema
+      try
+        serialized.response_schema = JSON.stringify snapshot.belongsTo('response_json_schema').serialize()
+    delete serialized.serialize_request_json_schema
+    delete serialized.serialize_response_json_schema
+    delete serialized.request_json_schema
+    delete serialized.response_json_schema
+    serialized
+
 `export default ProxyEndpointSchemaSerializer`
