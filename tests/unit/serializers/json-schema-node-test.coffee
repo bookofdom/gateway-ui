@@ -131,7 +131,7 @@ testCase3 =
         zip:
           type: 'string'
       required: []
-  required: []
+  required: ['name', 'age', 'size', 'friends', 'phoneNumber']
 
 moduleForModel 'json-schema-node', 'Unit | Serializer | JsonSchemaNode',
   # Specify the other units that are required for this test.
@@ -308,6 +308,7 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
           pattern: '^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$'
           min_length: 1
           max_length: 10
+          required: true
         store.createRecord 'json-schema-node',
           name: 'age'
           title: 'Age'
@@ -318,6 +319,7 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
           multiple_of: 1.0
           exclusive_minimum: true
           exclusive_maximum: true
+          required: true
         store.createRecord 'json-schema-node',
           name: 'size'
           title: 'Size'
@@ -328,6 +330,7 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
           multiple_of: 5.0
           exclusive_minimum: true
           exclusive_maximum: true
+          required: true
         store.createRecord 'json-schema-node',
           name: 'friends'
           type: 'array'
@@ -336,6 +339,7 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
           min_items: 1
           max_items: 100
           unique_items: true
+          required: true
           children: [
             store.createRecord 'json-schema-node',
               type: 'string'
@@ -350,6 +354,7 @@ test 'it serializes a JSON schema node with attributes by type', (assert) ->
           description: 'A phone number'
           min_properties: 1
           max_properties: 10
+          required: true
           children: [
             store.createRecord 'json-schema-node',
               name: 'zip'
