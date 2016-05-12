@@ -1,5 +1,6 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 
+# Testing simple object
 testCase1 =
   title: 'Example Schema'
   type: 'object'
@@ -153,36 +154,95 @@ test 'it normalizes a simple JSON schema', (assert) ->
       attributes:
         title: 'Example Schema'
         type: 'object'
-      id: null
+        required: false
+      id: '1'
       relationships:
         children:
           data: [
-            name: 'job|occupation'
-            pattern_name: true
-            type: 'string'
+            id: '2'
+            type: 'json-schema-node'
           ,
-            name: 'firstName'
-            required: true
-            type: 'string'
+            id: '3'
+            type: 'json-schema-node'
           ,
-            description: 'Age in years'
-            minimum: 0
-            name: 'age'
-            required: true
-            type: 'integer'
+            id: '4'
+            type: 'json-schema-node'
           ,
-            minItems: 1
-            name: 'nickNames'
-            type: 'array'
-            uniqueItems: true
-            children: [
-              pattern: '[ws]*'
-              type: 'string'
-            ]
+            id: '5'
+            type: 'json-schema-node'
           ]
         parent:
           data: null
       type: 'json-schema-node'
+    included: [
+      attributes:
+        name: 'job|occupation'
+        pattern_name: true
+        type: 'string'
+        required: false
+      id: '2'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+    ,
+      attributes:
+        name: 'firstName'
+        required: true
+        type: 'string'
+      id: '3'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+    ,
+      attributes:
+        description: 'Age in years'
+        minimum: 0
+        name: 'age'
+        required: true
+        type: 'integer'
+      id: '4'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+    ,
+      attributes:
+        min_items: 1
+        name: 'nickNames'
+        type: 'array'
+        unique_items: true
+        required: false
+      id: '5'
+      relationships:
+        children:
+          data: [
+            id: '6'
+            type: 'json-schema-node'
+          ]
+        parent:
+          data: null
+      type: 'json-schema-node'
+    ,
+      attributes:
+        pattern: '[ws]*'
+        type: 'string'
+        required: false
+      id: '6'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+    ]
 
   assert.deepEqual normalized, expected
 
