@@ -17,7 +17,9 @@
   {{#if model.canHaveChildren}}
     <ul>
       {{#each model.children as |model|}}
-        {{partial 'components/ap-json-schema/node'}}
+        {{#unless model.isDeleted}}
+          {{partial 'components/ap-json-schema/node'}}
+        {{/unless}}
       {{/each}}
       <li class="new-node" {{action 'new' model}}>
         <div class="node-title">

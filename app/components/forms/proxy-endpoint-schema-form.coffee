@@ -13,7 +13,7 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
   onSameSchemaChange: Ember.observer 'model.response_same_as_request', ->
     if @get 'model.response_same_as_request'
       @set 'selectedSchema', 'request'
-  selectedSchemaModel: Ember.computed 'selectedSchema', ->
+  selectedSchemaModel: Ember.computed 'selectedSchema', 'model.request_json_schema', 'model.response_json_schema', ->
     switch @get 'selectedSchema'
       when 'request' then @get 'model.request_json_schema'
       when 'response' then @get 'model.response_json_schema'
