@@ -18,7 +18,7 @@ Router.map ->
     @route 'user', resetNamespace: true, path: ':user_id', ->
       @route 'edit'
   @route 'logs', resetNamespace: true, (->)
-  @route 'push', resetNamespace: true, ->
+  @route 'manage', resetNamespace: true, ->
     @route 'push-channels', resetNamespace: true, ->
       @route 'push-channel', resetNamespace: true, path: ':push_channel_id', ->
         @route 'edit'
@@ -28,6 +28,13 @@ Router.map ->
             @route 'edit'
             @route 'push-channel-push-device-push-messages', resetNamespace: true, path: 'push-messages', ->
               @route 'push-channel-push-device-push-message', resetNamespace: true, path: ':push_message_id', ->
+    @route 'store-collections', resetNamespace: true, path: 'collections', ->
+      @route 'new'
+      @route 'store-collection', resetNamespace: true, path: ':collection_id', ->
+        @route 'edit'
+        @route 'store-objects', resetNamespace: true, path: 'objects', ->
+          @route 'store-object', resetNamespace: true, path: ':object_id', ->
+            @route 'edit'
   @route 'apis', resetNamespace: true, ->
     @route 'api', resetNamespace: true, path: ':api_id', ->
       @route 'edit'
@@ -94,12 +101,5 @@ Router.map ->
       @route 'logs-api', resetNamespace: true, path: 'logs', (->)
       @route 'api-documentation', resetNamespace: true, path: 'api', ->
         @route 'api-documentation-detail', resetNamespace: true, path: ':host_id', (->)
-  @route 'store-collections', resetNamespace: true, path: 'collections', ->
-    @route 'new'
-    @route 'store-collection', resetNamespace: true, path: ':collection_id', ->
-      @route 'edit'
-      @route 'store-objects', resetNamespace: true, path: 'objects', ->
-        @route 'store-object', resetNamespace: true, path: ':object_id', ->
-          @route 'edit'
 
 `export default Router`

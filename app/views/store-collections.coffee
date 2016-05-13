@@ -1,5 +1,5 @@
-`import PrimaryView from './primary'`
+`import ManageRelatedView from './manage-related'`
 
-StoreCollectionsView = PrimaryView.extend()
+StoreCollectionsView = ManageRelatedView.extend()
 
 `export default StoreCollectionsView`

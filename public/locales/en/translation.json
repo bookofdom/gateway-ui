@@ -49,6 +49,8 @@
     "build": "build",
     "manage-api": "manage API",
     "manage-api_plural": "manage APIs",
+    "manage-push-notification": "manage push notification",
+    "manage-push-notification_plural": "manage push notifications",
     "manage-store": "manage store",
     "manage-store_plural": "manage stores",
     "manage": "manage",
@@ -59,6 +61,7 @@
     "descriptions": {
       "define-api": "define API endpoints, remote integration services, and workflow business logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
+      "manage-push-notification": "create channels or devices, and send push notifications",
       "manage-store": "manage data in an object store",
       "manage": "manage local store collections and data",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",

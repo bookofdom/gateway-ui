@@ -49,6 +49,8 @@
     "build": "construir",
     "manage-api": "gerenciar a API",
     "manage-api_plural": "gerenciar as APIs",
+    "manage-push-notification": "gerenciar notificação push",
+    "manage-push-notification_plural": "gerenciar notificações push",
     "manage-store": "gerenciar loja",
     "manage-store_plural": "gerenciar lojas",
     "manage": "gerir",
@@ -59,6 +61,7 @@
     "descriptions": {
       "define-api": "definir terminais de API, serviços de integração remotos e lógica de negócios de fluxo de trabalho",
       "manage-api": "cria as chave e especifica as regras das suas APIs",
+      "manage-push-notification": "criar canais ou dispositivos e enviar notificações push",
       "manage-store": "gerenciar dados em um armazenamento de objetos",
       "manage": "gerenciar coleções de lojas locais e dados",
       "build-app": "constrói aplicações de multi-canais com a plataforma AnyPresence (login necessário)",
