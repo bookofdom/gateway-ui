@@ -134,6 +134,51 @@ testCase3 =
       required: []
   required: ['name', 'age', 'size', 'friends', 'phoneNumber']
 
+# Testing top level 'string'
+testCase4 =
+  title: 'Name'
+  type: 'string'
+  description: 'A name'
+  pattern: '^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$'
+  minLength: 1
+  maxLength: 10
+
+# Testing top level 'integer'
+testCase5 =
+  type: 'integer'
+  title: 'Age'
+  description: 'An age'
+  multipleOf: 1.0
+  minimum: 0
+  maximum: 100
+  exclusiveMinimum: true
+  exclusiveMaximum: true
+
+# Testing top level 'number'
+testCase6 =
+  type: 'number'
+  title: 'Size'
+  description: 'A size'
+  multipleOf: 5.0
+  minimum: 5
+  maximum: 55
+  exclusiveMinimum: true
+  exclusiveMaximum: true
+
+# Testing top level 'array'
+testCase7 =
+  type: 'array'
+  title: 'Friends'
+  description: 'A list of friends'
+  minItems: 1
+  maxItems: 100
+  uniqueItems: true
+  items: [
+    type: 'string'
+  ,
+    type: 'integer'
+  ]
+
 moduleForModel 'json-schema-node', 'Unit | Serializer | JsonSchemaNode',
   # Specify the other units that are required for this test.
   needs: ['model:proxy-endpoint-schema', 'serializer:json-schema-node']
@@ -246,6 +291,114 @@ test 'it normalizes a simple JSON schema', (assert) ->
 
   assert.deepEqual normalized, expected
 
+test "it normalizes top level 'string' type JSON schema node", (assert) ->
+  store = @store()
+  serializer = store.serializerFor 'json-schema-node'
+  data = Ember.copy testCase4, true
+  normalized = serializer.normalize store.modelFor('json-schema-node'), data
+
+  expected =
+    data:
+      attributes:
+        title: 'Name'
+        type: 'string'
+        description: 'A name'
+        pattern: '^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$'
+        min_length: 1
+        max_length: 10
+        required: false
+      id: '7'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+
+  assert.deepEqual normalized, expected
+
+test "it normalizes top level 'integer' type JSON schema node", (assert) ->
+  store = @store()
+  serializer = store.serializerFor 'json-schema-node'
+  data = Ember.copy testCase5, true
+  normalized = serializer.normalize store.modelFor('json-schema-node'), data
+
+  expected =
+    data:
+      attributes:
+        type: 'integer'
+        title: 'Age'
+        description: 'An age'
+        multiple_of: 1.0
+        minimum: 0
+        maximum: 100
+        exclusive_minimum: true
+        exclusive_maximum: true
+        required: false
+      id: '8'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+
+  assert.deepEqual normalized, expected
+
+test "it normalizes top level 'number' type JSON schema node", (assert) ->
+  store = @store()
+  serializer = store.serializerFor 'json-schema-node'
+  data = Ember.copy testCase6, true
+  normalized = serializer.normalize store.modelFor('json-schema-node'), data
+
+  expected =
+    data:
+      attributes:
+        type: 'number'
+        title: 'Size'
+        description: 'A size'
+        multiple_of: 5.0
+        minimum: 5
+        maximum: 55
+        exclusive_minimum: true
+        exclusive_maximum: true
+        required: false
+      id: '9'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+
+  assert.deepEqual normalized, expected
+
+test "it normalizes top level 'array' type JSON schema node", (assert) ->
+  store = @store()
+  serializer = store.serializerFor 'json-schema-node'
+  data = Ember.copy testCase7, true
+  normalized = serializer.normalize store.modelFor('json-schema-node'), data
+
+  expected =
+    data:
+      attributes:
+        type: 'array'
+        title: 'Friends'
+        description: 'A list of friends'
+        min_items: 1
+        max_items: 100
+        unique_items: true
+        required: false
+      id: '10'
+      relationships:
+        children:
+          data: []
+        parent:
+          data: null
+      type: 'json-schema-node'
+
+  assert.deepEqual normalized, expected
+
 test 'it serializes a simple JSON schema node', (assert) ->
   store = @store()
   serializer = store.serializerFor 'json-schema-node'
@@ -284,6 +437,87 @@ test 'it serializes a simple JSON schema node', (assert) ->
     serialized = record.serialize()
 
     assert.deepEqual serialized, testCase1
+
+test "it serializes a top level 'string' type JSON schema node", (assert) ->
+  store = @store()
+  serializer = store.serializerFor 'json-schema-node'
+  Ember.run ->
+    # model-based representation of above schema
+    record = store.createRecord 'json-schema-node',
+      title: 'Name'
+      type: 'string'
+      description: 'A name'
+      pattern: '^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$'
+      min_length: 1
+      max_length: 10
+
+    serialized = record.serialize()
+
+    assert.deepEqual serialized, testCase4
+
+test "it serializes a top level 'integer' type JSON schema node", (assert) ->
+  store = @store()
+  serializer = store.serializerFor 'json-schema-node'
+  Ember.run ->
+    # model-based representation of above schema
+    record = store.createRecord 'json-schema-node',
+      type: 'integer'
+      title: 'Age'
+      description: 'An age'
+      multiple_of: 1.0
+      minimum: 0
+      maximum: 100
+      exclusive_minimum: true
+      exclusive_maximum: true
+
+    serialized = record.serialize()
+
+    assert.deepEqual serialized, testCase5
+
+test "it serializes a top level 'number' type JSON schema node", (assert) ->
+  store = @store()
+  serializer = store.serializerFor 'json-schema-node'
+  Ember.run ->
+    # model-based representation of above schema
+    record = store.createRecord 'json-schema-node',
+      type: 'number'
+      title: 'Size'
+      description: 'A size'
+      multiple_of: 5.0
+      minimum: 5
+      maximum: 55
+      exclusive_minimum: true
+      exclusive_maximum: true
+
+    serialized = record.serialize()
+
+    assert.deepEqual serialized, testCase6
+
+test "it serializes a top level 'array' type JSON schema node", (assert) ->
+  store = @store()
+  serializer = store.serializerFor 'json-schema-node'
+  Ember.run ->
+    # model-based representation of above schema
+    record = store.createRecord 'json-schema-node',
+      name: 'friends'
+      type: 'array'
+      title: 'Friends'
+      description: 'A list of friends'
+      min_items: 1
+      max_items: 100
+      unique_items: true
+      required: true
+      children: [
+        store.createRecord 'json-schema-node',
+          type: 'string'
+      ,
+        store.createRecord 'json-schema-node',
+          type: 'integer'
+      ]
+
+    serialized = record.serialize()
+
+    assert.deepEqual serialized, testCase7
 
 test 'it serializes a nested JSON schema node', (assert) ->
   store = @store()
