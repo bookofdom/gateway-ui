@@ -18,6 +18,16 @@ ProxyEndpointSchemaFormComponent = BaseFormComponent.extend
       when 'request' then @get 'model.request_json_schema'
       when 'response' then @get 'model.response_json_schema'
 
+  # When view changes, flag the model so that the serializer knows from where to
+  # get serialized schema.
+  onViewChange: Ember.observer 'selectedSchema', 'editorType', ->
+    selectedSchema = @get 'selectedSchema'
+    editorType = @get 'editorType'
+    if editorType is 'code'
+      @set "model.serialize_#{selectedSchema}_json_schema", false
+    else
+      @set "model.serialize_#{selectedSchema}_json_schema", true
+
   savedAction: null
 
   newFields: [
