@@ -1,8 +1,8 @@
 `import DS from 'ember-data'`
 
-id = 0
-
 JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
+  normalizedIdCounter: 0
+
   attrs:
     proxy_endpoint_schema_request_parent:
       serialize: false
@@ -23,8 +23,12 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
     'integer': ['multipleOf', 'minimum', 'maximum', 'exclusiveMinimum', 'exclusiveMaximum']
     'string': ['pattern', 'minLength', 'maxLength']
 
+  getNormalizedId: ->
+    id = @get('normalizedIdCounter') + 1
+    @set 'normalizedIdCounter', id
+
   normalize: (typeClass, hash) ->
-    hash.id = ++id
+    hash.id = @getNormalizedId()
     hash.parent ?= null
     hash.children ?= []
     hash.requiredAttrs = hash.required
