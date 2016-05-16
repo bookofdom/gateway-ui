@@ -307,7 +307,7 @@ test "it normalizes top level 'string' type JSON schema node", (assert) ->
         min_length: 1
         max_length: 10
         required: false
-      id: '7'
+      id: '1'
       relationships:
         children:
           data: []
@@ -335,7 +335,7 @@ test "it normalizes top level 'integer' type JSON schema node", (assert) ->
         exclusive_minimum: true
         exclusive_maximum: true
         required: false
-      id: '8'
+      id: '1'
       relationships:
         children:
           data: []
@@ -363,7 +363,7 @@ test "it normalizes top level 'number' type JSON schema node", (assert) ->
         exclusive_minimum: true
         exclusive_maximum: true
         required: false
-      id: '9'
+      id: '1'
       relationships:
         children:
           data: []
@@ -389,7 +389,7 @@ test "it normalizes top level 'array' type JSON schema node", (assert) ->
         max_items: 100
         unique_items: true
         required: false
-      id: '10'
+      id: '1'
       relationships:
         children:
           data: []
