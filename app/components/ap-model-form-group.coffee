@@ -75,7 +75,7 @@ ApModelFormGroupComponent = BsFormGroupComponent.extend
   'error-messages': Ember.computed 'model.errors.[]', 'model.errors.length', 'name', ->
     name = @get 'name'
     errorsForField = @get('model.errors')?.errorsFor(name) or []
-    "#{error.message.capitalize()}" for error in errorsForField
+    (error.message or error.message.capitalize?()) for error in errorsForField
 
   hasErrors: Ember.computed 'error-messages.[]', 'error-messages.length', ->
     !!@get('error-messages.length')

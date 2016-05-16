@@ -1,6 +1,5 @@
-`import Ember from 'ember'`
+`import EditRoute from 'gateway/routes/edit'`
 
-
-ProxyEndpointSchemaEditRoute = Ember.Route.extend()
+ProxyEndpointSchemaEditRoute = EditRoute.extend()
 
 `export default ProxyEndpointSchemaEditRoute`
