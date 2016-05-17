@@ -260,7 +260,24 @@
     "encoded_private_key": "clave privada codificada",
     "server_name": "nombre del servidor",
     "private_key_password": "contraseña de clave privada",
+    "title": "título",
+    "required": "necesario",
+    "pattern_name": "nombre es expresión regular",
+    "min_properties": "propiedades mínimas",
+    "max_properties": "máximas propiedades",
+    "min_items": "elementos mínimos",
+    "max_items": "número máximo de elementos",
+    "unique_items": "elementos únicos",
+    "multiple_of": "múltiplo de",
+    "minimum": "mínimo",
+    "maximum": "máximo",
+    "exclusive_minimum": "mínimo exclusiva",
+    "exclusive_maximum": "máximo exclusiva",
+    "pattern": "patrón de expresión",
+    "min_length": "longitud mínima",
+    "max_length": "longitud máxima",
     "encrypt": "cifrar",
+    "additional_properties": "propiedades adicionales",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
@@ -310,7 +327,8 @@
     "no-user-with-that-email": "no existe un usuario con ese correo electrónico",
     "invalid-password": "contraseña inválida",
     "login": "nos ha sido imposible iniciar tu sesión",
-    "invalid-json": "JSON no válido"
+    "invalid-json": "JSON no válido",
+    "invalid-json-schema": "esquema JSON no válido"
   },
   "successes": {
     "push-manual-message": "mensaje enviado con éxito",
@@ -333,6 +351,14 @@
     "import": "__user__ importó un __resource__"
   },
   "types": {
+    "json-schema": {
+      "object": "objeto",
+      "array": "formación",
+      "null": "nulo",
+      "boolean": "booleano",
+      "integer": "entero",
+      "number": "número"
+    },
     "proxy-endpoint-component": {
       "single": "llamada",
       "multi": "multi-llamada",

@@ -263,7 +263,24 @@
     "encoded_private_key": "encoded private key",
     "server_name": "server name",
     "private_key_password": "private key password",
+    "title": "title",
+    "required": "required",
+    "pattern_name": "name is regex",
+    "min_properties": "min properties",
+    "max_properties": "max properties",
+    "min_items": "min items",
+    "max_items": "max items",
+    "unique_items": "unique items",
+    "multiple_of": "multiple of",
+    "minimum": "minimum",
+    "maximum": "maximum",
+    "exclusive_minimum": "exclusive minimum",
+    "exclusive_maximum": "exclusive maximum",
+    "pattern": "regex pattern",
+    "min_length": "min length",
+    "max_length": "max length",
     "encrypt": "encrypt",
+    "additional_properties": "additional properties",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -314,7 +331,8 @@
     "no-user-with-that-email": "no user with that email",
     "invalid-password": "invalid password",
     "login": "we were unable to log you in",
-    "invalid-json": "invalid JSON"
+    "invalid-json": "invalid JSON",
+    "invalid-json-schema": "invalid JSON schema"
   },
   "successes": {
     "push-manual-message": "message sent successfully",
@@ -337,6 +355,15 @@
     "import": "__user__ imported one __resource__"
   },
   "types": {
+    "json-schema": {
+      "object": "object",
+      "array": "array",
+      "null": "null",
+      "boolean": "boolean",
+      "integer": "integer",
+      "number": "number",
+      "string": "string"
+    },
     "proxy-endpoint-component": {
       "single": "single call",
       "multi": "multi-call",

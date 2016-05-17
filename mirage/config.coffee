@@ -153,4 +153,13 @@ config = ->
       }
     ]
 
+  @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makeGetChildrenHandler('proxy_endpoint', 'proxy_endpoint_schema')
+  @post '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makePostChildHandler('proxy_endpoint', 'proxy_endpoint_schema')
+  @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas/:id', (schema, request) ->
+    proxy_endpoint_schema: schema.db.proxyEndpointSchemas.find request.params.id
+  @put '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas/:id', makePutHandler 'proxy_endpoint_schema'
+  @del '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas/:id', (schema, request) ->
+    id = request.params.id
+    schema.db.proxyEndpointSchemas.remove id
+
 `export default config`
