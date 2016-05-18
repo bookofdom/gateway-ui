@@ -33,6 +33,8 @@ defaultScenario = (server) ->
     server.createList('proxy_endpoint', 50, apiId: id).forEach (proxyEndpoint) ->
       server.createList 'proxy_endpoint_component', 10,
         proxyEndpointId: proxyEndpoint.id
+      server.createList 'proxy_endpoint_schema', 5,
+        proxyEndpointId: proxyEndpoint.id
 
   # push
   channels = server.createList 'push_channel', 5
