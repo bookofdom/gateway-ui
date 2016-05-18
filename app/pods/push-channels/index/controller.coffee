@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
 
 PushChannelsIndexController = Ember.Controller.extend
-  'manage': Ember.inject.controller()
-  'apis': Ember.computed.alias 'manage.model.apis'
+  'push': Ember.inject.controller()
+  'apis': Ember.computed.alias 'push.model.apis'
 
   actions:
     'push-manual-message': (push_channel) ->
