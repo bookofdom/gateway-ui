@@ -61,6 +61,7 @@
       "manage-api": "crea las claves y especifica las reglas de las APIs",
       "manage-store": "gestionar los datos en un almacén de objetos",
       "manage": "administrar colecciones de una tienda local y datos",
+      "analyze": "adquirir conocimientos sobre el uso del API",
       "build-app": "realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence (autenticación requerida)",
       "proxy-endpoints": "define o edita proxy endpoints y la correspondiente lógica",
       "environments": "especifica entornos, variables y otros atributos",
@@ -73,7 +74,6 @@
       "shared-components": "crear componentes reutilizables para puntos finales de proxy",
       "terms-and-conditions": "mediante el registro de una cuenta que acepta los términos y condiciones JustAPIs",
       "formatted": {
-        "analyze": "<b>(próximamente)</b><br>Adquirir conocimientos sobre el uso del API",
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
         "build-app": "<b>(autenticación requerida)</b><br>Realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence"
       }
