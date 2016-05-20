@@ -13,7 +13,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
 
   afterModel: (first, transition) ->
     @checkSessionValidity transition
-    @enableNotifications() if @get 'notificationsEnabled'
+    @enableNotifications()
 
   checkSessionValidity: (transition) ->
     session = @get 'session'
@@ -29,15 +29,19 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
 
   sessionInvalidated: ->
     window?.location?.reload() if !Ember.testing
+  sessionAuthenticated: ->
+    @enableNotifications()
+    @_super arguments...
 
   enableNotifications: ->
-    session = @get 'session'
-    notificationService = @get 'notificationService'
-    # enable notifications for authenticated non-dev-mode sessions
-    if session.isAuthenticated
-      notificationService.on 'notification', (notification) =>
-        @trigger 'notification', notification
-      notificationService.enableNotifications()
+    if @get 'notificationsEnabled'
+      session = @get 'session'
+      notificationService = @get 'notificationService'
+      # enable notifications for authenticated non-dev-mode sessions
+      if session.get('isAuthenticated')
+        notificationService.on 'notification', (notification) =>
+          @trigger 'notification', notification
+        notificationService.enableNotifications()
   disableNotifications: ->
     notificationService = @get 'notificationService'
     notificationService.off 'notification'
