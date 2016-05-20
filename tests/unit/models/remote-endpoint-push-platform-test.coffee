@@ -1,14 +1,10 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 
-moduleForModel 'remote-endpoint', 'Unit | Model | remote endpoint', {
+moduleForModel 'remote-endpoint-push-platform', 'Unit | Model | remote endpoint push platform', {
   # Specify the other units that are required for this test.
   needs: [
-    'model:api'
+    'model:remote-endpoint'
     'model:remote-endpoint-environment-datum'
-    'model:remote-endpoint-header'
-    'model:remote-endpoint-host'
-    'model:remote-endpoint-push-platform'
-    'model:remote-endpoint-query-parameter'
   ]
 }
 
