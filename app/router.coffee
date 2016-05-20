@@ -94,11 +94,12 @@ Router.map ->
       @route 'logs-api', resetNamespace: true, path: 'logs', (->)
       @route 'api-documentation', resetNamespace: true, path: 'api', ->
         @route 'api-documentation-detail', resetNamespace: true, path: ':host_id', (->)
-  @route 'store-collections', resetNamespace: true, path: 'collections', ->
-    @route 'new'
-    @route 'store-collection', resetNamespace: true, path: ':collection_id', ->
-      @route 'edit'
-      @route 'store-objects', resetNamespace: true, path: 'objects', ->
-        @route 'store-object', resetNamespace: true, path: ':object_id', ->
-          @route 'edit'
+  @route 'manage', ->
+    @route 'store-collections', resetNamespace: true, path: 'collections', ->
+      @route 'new'
+      @route 'store-collection', resetNamespace: true, path: ':collection_id', ->
+        @route 'edit'
+        @route 'store-objects', resetNamespace: true, path: 'objects', ->
+          @route 'store-object', resetNamespace: true, path: ':object_id', ->
+            @route 'edit'
 `export default Router`
