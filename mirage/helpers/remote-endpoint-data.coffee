@@ -106,7 +106,7 @@ generateDataForType = (typeSlug, i) ->
   data.query = generateKeyValues 3
   data.push_platforms = [
     name: faker.commerce.productName().capitalize()
-    codename: faker.hacker.noun()
+    codename: platformCycle i
     type: platformCycle i
     password: faker.internet.password()
     topic: faker.lorem.words().join('.')
@@ -115,4 +115,4 @@ generateDataForType = (typeSlug, i) ->
   ]
   data
 
-`export { typeCycle, statusCycle, generateKeyValues, generateDataForType }`
+`export { typeCycle, statusCycle, platformCycle, generateKeyValues, generateDataForType }`
