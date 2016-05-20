@@ -61,6 +61,7 @@
       "manage-api": "set up keys and specify entitlement rules across your APIs",
       "manage-store": "एक वस्तु की दुकान में डेटा प्रबंधन",
       "manage": "स्थानीय दुकान संग्रह और डेटा प्रबंधन",
+      "store-collections": "स्थानीय दुकान संग्रह और डेटा प्रबंधन",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
