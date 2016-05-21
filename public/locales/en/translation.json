@@ -60,7 +60,7 @@
       "define-api": "define API endpoints, remote integration services, and workflow business logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
       "manage-store": "manage data in an object store",
-      "manage": "manage local store collections and data",
+      "manage": "manage local store data and push configuration",
       "store-collections": "manage local store collections and data",
       "push-channels": "manage push channels, devices, messages, and send manual messages",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",

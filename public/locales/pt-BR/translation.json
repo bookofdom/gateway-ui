@@ -60,7 +60,7 @@
       "define-api": "definir terminais de API, serviços de integração remotos e lógica de negócios de fluxo de trabalho",
       "manage-api": "cria as chave e especifica as regras das suas APIs",
       "manage-store": "gerenciar dados em um armazenamento de objetos",
-      "manage": "gerenciar coleções de lojas locais e dados",
+      "manage": "gerenciar armazenar dados locais e configuração de pressão",
       "store-collections": "gerenciar coleções de lojas locais e dados",
       "push-channels": "gerenciar os canais de pressão, dispositivos , mensagens e enviar mensagens de manuais",
       "build-app": "constrói aplicações de multi-canais com a plataforma AnyPresence (login necessário)",
