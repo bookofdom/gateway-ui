@@ -23,14 +23,14 @@ module 'Acceptance: Push Channel Push Device Push Message - Read',
   afterEach: -> destroyApp @application
 
 test 'user can view push channel push device push messages', (assert) ->
-  visit '/push/push-channels/1/push-devices/1/push-messages'
+  visit '/manage/push-channels/1/push-devices/1/push-messages'
   andThen ->
     count = server.db.pushMessages.length
-    assert.equal currentURL(), '/push/push-channels/1/push-devices/1/push-messages'
+    assert.equal currentURL(), '/manage/push-channels/1/push-devices/1/push-messages'
     assert.equal count > 0, true
     assert.equal find('.ap-table-model tbody tr').length, count
 
 test 'user can view push channel push device push message', (assert) ->
-  visit '/push/push-channels/1/push-devices/1/push-messages/1'
+  visit '/manage/push-channels/1/push-devices/1/push-messages/1'
   andThen ->
-    assert.equal currentURL(), '/push/push-channels/1/push-devices/1/push-messages/1'
+    assert.equal currentURL(), '/manage/push-channels/1/push-devices/1/push-messages/1'

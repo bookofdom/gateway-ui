@@ -24,10 +24,10 @@ module 'Acceptance: Push Channel Push Device - Create',
 
 test 'user can create new push channel push devices', (assert) ->
   beforeCreateCount = server.db.pushDevices.length
-  visit '/push/push-channels/1/push-devices'
+  visit '/manage/push-channels/1/push-devices'
   andThen ->
     assert.equal beforeCreateCount > 0, true
-    assert.equal currentURL(), '/push/push-channels/1/push-devices'
+    assert.equal currentURL(), '/manage/push-channels/1/push-devices'
     assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New push device'
   andThen ->

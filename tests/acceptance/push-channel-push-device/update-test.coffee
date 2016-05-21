@@ -24,15 +24,15 @@ module 'Acceptance: Push Channel Push Device - Update',
   afterEach: -> destroyApp @application
 
 test 'user can navigate to push channel push devices edit route', (assert) ->
-  visit '/push/push-channels/1/push-devices'
+  visit '/manage/push-channels/1/push-devices'
   click '.ap-table-model tbody tr:eq(0) [data-t="actions.edit"] a'
   andThen ->
-    assert.equal currentURL(), '/push/push-channels/1/push-devices/1/edit'
+    assert.equal currentURL(), '/manage/push-channels/1/push-devices/1/edit'
 
 test 'user can edit push channel push devices', (assert) ->
-  visit '/push/push-channels/1/push-devices/1/edit'
+  visit '/manage/push-channels/1/push-devices/1/edit'
   fillIn '[name=name]', 'Test'
   click '[type=submit]'
   andThen ->
-    assert.equal currentURL(), '/push/push-channels/1/push-devices/1/edit'
+    assert.equal currentURL(), '/manage/push-channels/1/push-devices/1/edit'
     assert.equal server.db.pushDevices[0].name, 'Test'

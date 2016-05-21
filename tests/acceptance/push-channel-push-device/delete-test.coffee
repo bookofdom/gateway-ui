@@ -23,24 +23,24 @@ module 'Acceptance: Push Channel Push Device- Delete',
   afterEach: -> destroyApp @application
 
 test 'user can delete push channel push devices from index route', (assert) ->
-  visit '/push/push-channels/1/push-devices'
+  visit '/manage/push-channels/1/push-devices'
   andThen ->
-    assert.equal currentURL(), '/push/push-channels/1/push-devices'
+    assert.equal currentURL(), '/manage/push-channels/1/push-devices'
     assert.equal server.db.pushDevices.length, 5
     assert.equal find('.ap-table-model tbody tr').length, 5
   click '.ap-table-model tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
-    assert.equal currentURL(), '/push/push-channels/1/push-devices'
+    assert.equal currentURL(), '/manage/push-channels/1/push-devices'
     assert.equal server.db.pushDevices.length, 4
     assert.equal find('.ap-table-model tbody tr').length, 4
 
 test 'user can delete push channel push devices from edit route', (assert) ->
-  visit '/push/push-channels/1/push-devices/1/edit'
+  visit '/manage/push-channels/1/push-devices/1/edit'
   andThen ->
-    assert.equal currentURL(), '/push/push-channels/1/push-devices/1/edit'
+    assert.equal currentURL(), '/manage/push-channels/1/push-devices/1/edit'
     assert.equal server.db.pushDevices.length, 5
   click 'a[data-t="actions.delete"]'
   andThen ->
-    assert.equal currentURL(), '/push/push-channels/1/push-devices'
+    assert.equal currentURL(), '/manage/push-channels/1/push-devices'
     assert.equal server.db.pushDevices.length, 4
     assert.equal find('.ap-table-model tbody tr').length, 4

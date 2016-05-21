@@ -23,9 +23,9 @@ module 'Acceptance: Push Channel Push Device - Read',
   afterEach: -> destroyApp @application
 
 test 'user can view push channel push devices', (assert) ->
-  visit '/push/push-channels/1/push-devices'
+  visit '/manage/push-channels/1/push-devices'
   andThen ->
     count = server.db.pushDevices.length
-    assert.equal currentURL(), '/push/push-channels/1/push-devices'
+    assert.equal currentURL(), '/manage/push-channels/1/push-devices'
     assert.equal count > 0, true
     assert.equal find('.ap-table-model tbody tr').length, count
