@@ -62,6 +62,7 @@
       "manage-store": "manage data in an object store",
       "manage": "manage local store collections and data",
       "store-collections": "manage local store collections and data",
+      "push-channels": "manage push channels, devices, messages, and send manual messages",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",

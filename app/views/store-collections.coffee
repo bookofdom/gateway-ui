@@ -2,4 +2,4 @@
 
 StoreCollectionsView = SecondaryView.extend()
 
-`export default SecondaryView`
+`export default StoreCollectionsView`
