@@ -2,7 +2,7 @@
 `import EditRoute from 'gateway/routes/edit'`
 
 
-RemoteEndpointEnvironmentDatumEditRoute = EditRoute.extend 
+RemoteEndpointEnvironmentDatumEditRoute = EditRoute.extend
   actions:
     # Disable the abandon confirm message for this resource.
     # TODO this can be fixed in the future when environment data are no
@@ -11,5 +11,7 @@ RemoteEndpointEnvironmentDatumEditRoute = EditRoute.extend
       if @currentModel.get 'hasDirtyAttributes'
         @currentModel.cancel()
         true
+    'new-remote-endpoint-push-platform': ->
+      @transitionTo 'remote-endpoint-environment-datum-push-platforms.new'
 
 `export default RemoteEndpointEnvironmentDatumEditRoute`

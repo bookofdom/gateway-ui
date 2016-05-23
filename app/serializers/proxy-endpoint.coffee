@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApiRelatedSerializer from 'gateway/serializers/api-related'`
 
-ProxyEndpointSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
+ProxyEndpointSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     api:
       serialize: false

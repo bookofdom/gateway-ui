@@ -7,6 +7,7 @@ moduleForModel 'remote-endpoint', 'Unit | Model | remote endpoint', {
     'model:remote-endpoint-environment-datum'
     'model:remote-endpoint-header'
     'model:remote-endpoint-host'
+    'model:remote-endpoint-push-platform'
     'model:remote-endpoint-query-parameter'
   ]
 }

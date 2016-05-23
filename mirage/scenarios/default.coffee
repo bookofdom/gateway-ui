@@ -36,4 +36,13 @@ defaultScenario = (server) ->
       server.createList 'proxy_endpoint_schema', 5,
         proxyEndpointId: proxyEndpoint.id
 
+  # push
+  channels = server.createList 'push_channel', 5
+  channels.forEach (channel) ->
+    id = channel.id
+    devices = server.createList 'push_device', 5, pushChannelId: id
+    devices.forEach (device) ->
+      id = device.id
+      server.createList 'push_message', 5, pushDeviceId: id
+
 `export default defaultScenario`

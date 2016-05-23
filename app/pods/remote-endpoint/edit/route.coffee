@@ -2,9 +2,11 @@
 `import EditRoute from 'gateway/routes/edit'`
 
 
-RemoteEndpointEditRoute = EditRoute.extend 
+RemoteEndpointEditRoute = EditRoute.extend
   actions:
     'new-remote-endpoint-environment-datum': ->
       @transitionTo 'remote-endpoint-environment-data.new'
+    'new-remote-endpoint-push-platform': ->
+      @transitionTo 'remote-endpoint-push-platforms.new'
 
 `export default RemoteEndpointEditRoute`

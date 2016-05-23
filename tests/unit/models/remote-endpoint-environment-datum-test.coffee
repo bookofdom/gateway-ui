@@ -7,6 +7,7 @@ moduleForModel 'remote-endpoint-environment-datum', 'Unit | Model | remote endpo
     'model:remote-endpoint'
     'model:remote-endpoint-header'
     'model:remote-endpoint-host'
+    'model:remote-endpoint-push-platform'
     'model:remote-endpoint-query-parameter',
     'model:remote-endpoint-environment-datum-scratch-pad'
   ]

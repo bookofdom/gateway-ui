@@ -26,6 +26,20 @@
     </div><!-- /.col -->
   </div><!-- /.row -->
 {{/if}}
+{{#unless model.isNew}}
+  {{#if model.isPush}}
+    {{#ap-panel-edit t='resources.remote-endpoint-push-platform_plural'}}
+      {{ap-table-index
+          models=model.push_platforms
+          fields='type,name'
+          path='remote-endpoint-environment-datum-push-platform.index'
+          edit-path='remote-endpoint-environment-datum-push-platform.edit'}}
+      {{ap-button-block-new
+        t='resources.remote-endpoint-push-platform'
+        action='new-remote-endpoint-push-platform'}}
+    {{/ap-panel-edit}}
+  {{/if}}
+{{/unless}}
 
 {{#if model.isMongo}}
   {{#ap-panel-edit t='resources.host_plural'}}
