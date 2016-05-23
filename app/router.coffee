@@ -14,7 +14,8 @@ Router.map ->
     @route 'reset-confirmation'
 
   # resources
-  @route 'analytics-queries', resetNamespace: true, path: 'analytics', (->)
+  @route 'analytics-queries', resetNamespace: true, path: 'analytics', ->
+    @route 'analytics-query', resetNamespace: true, path: ':analytics_query_type', (->)
   @route 'users', resetNamespace: true, ->
     @route 'user', resetNamespace: true, path: ':user_id', ->
       @route 'edit'

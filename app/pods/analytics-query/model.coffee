@@ -12,7 +12,7 @@ AnalyticsQuery = Model.extend
   name: Ember.computed.alias 'typeKind.name'
 
 # Declare available types and their human-readable names
-types = 'response-time'.split(' ').map (type) ->
+types = 'response-time placeholder-1 placeholder-2'.split(' ').map (type) ->
   name: t "types.analytics-query.#{type}"
   slug: type
   value: type
@@ -26,7 +26,10 @@ AnalyticsQuery.reopenClass
     type: 'response-time'
   ,
     id: 2
-    type: 'response-time'
+    type: 'placeholder-1'
+  ,
+    id: 3
+    type: 'placeholder-2'
   ]
 
 `export default AnalyticsQuery`
