@@ -22,9 +22,9 @@ module 'Acceptance: Store Collection - Delete',
 
 test 'user can delete store collections', (assert) ->
   beforeDeleteCount = server.db.storeCollections.length
-  visit '/collections/1/edit'
+  visit '/manage/collections/1/edit'
   click 'a[data-t="actions.delete"]'
   andThen ->
-    assert.equal currentURL(), '/collections/2/objects'
+    assert.equal currentURL(), '/manage/collections/2/objects'
     assert.equal server.db.storeCollections.length, beforeDeleteCount - 1
-    assert.equal find('.ap-app-secondary-sidebar > .ap-list-nav li:not([data-t="actions.new"])').length, beforeDeleteCount - 1
+    assert.equal find('.ap-app-secondary .ap-app-secondary .ap-app-secondary-sidebar > .ap-list-nav li:not([data-t="actions.new"])').length, beforeDeleteCount - 1

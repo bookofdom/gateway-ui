@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApiRelatedSerializer from 'gateway/serializers/api-related'`
 `import HttpRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/http'`
 `import SoapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/soap'`
 `import SqlserverRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/sqlserver'`
@@ -8,8 +8,9 @@
 `import MongodbRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/mongodb'`
 `import LdapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/ldap'`
 `import ScriptRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/script'`
+`import PushRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/push'`
 
-RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
+RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     headers:
       serialize: false
@@ -19,6 +20,9 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       deserialize: 'records'
     hosts:
       embedded: 'always'
+    push_platforms:
+      serialize: false
+      deserialize: 'records'
 
   # Normalization
   normalize: (type, hash, property) ->
@@ -34,6 +38,7 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       headers: @objectToArray hash.data.headers
       query: @objectToArray hash.data.query
       hosts: hash.data.config?.hosts or []
+      push_platforms: hash.data.push_platforms or []
     # normalize attributes
     switch hash.type
       when 'http' then HttpRemoteEndpointSerializer.normalize hash
@@ -44,6 +49,7 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       when 'mongodb' then MongodbRemoteEndpointSerializer.normalize hash
       when 'ldap' then LdapRemoteEndpointSerializer.normalize hash
       when 'script' then ScriptRemoteEndpointSerializer.normalize hash
+      when 'push' then PushRemoteEndpointSerializer.normalize hash
     @_super arguments...
   normalizeEnvironmentData: (hash) ->
     hash.environment_data ?= []
@@ -65,6 +71,7 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
     Ember.merge serialized.data,
       headers: @serializeHeaders snapshot
       query: @serializeQuery snapshot
+      push_platforms: @serializePushPlatforms snapshot
     # serialize attributes
     switch serialized.type
       when 'http' then HttpRemoteEndpointSerializer.serialize serialized
@@ -76,6 +83,7 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       when 'mongodb' then MongodbRemoteEndpointSerializer.serialize serialized
       when 'ldap' then LdapRemoteEndpointSerializer.serialize serialized
       when 'script' then ScriptRemoteEndpointSerializer.serialize serialized
+      when 'push' then PushRemoteEndpointSerializer.serialize serialized
     serialized
   serializeHeaders: (snapshot) ->
     headers = {}
@@ -89,5 +97,10 @@ RemoteEndpointLikeSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMi
       attributes = querySnapshot.attributes()
       query[attributes.name] = attributes.value
     query
+  serializePushPlatforms: (snapshot) ->
+    push_platforms = []
+    snapshot.hasMany('push_platforms')?.forEach (pushPlatform) ->
+      push_platforms.push pushPlatform.attributes()
+    push_platforms
 
 `export default RemoteEndpointLikeSerializer`

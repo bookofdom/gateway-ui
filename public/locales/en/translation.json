@@ -60,8 +60,10 @@
       "define-api": "define API endpoints, remote integration services, and workflow business logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
       "manage-store": "manage data in an object store",
-      "manage": "manage local store collections and data",
       "analyze": "gain insights into API usage",
+      "manage": "manage local store data and push configuration",
+      "store-collections": "manage local store collections and data",
+      "push-channels": "manage push channels, devices, messages, and send manual messages",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
@@ -116,6 +118,14 @@
     "proxy-endpoint-test-argument_plural": "arguments",
     "proxy-endpoint-schema": "schema validation",
     "proxy-endpoint-schema_plural": "schema validations",
+    "push-channel": "push channel",
+    "push-channel_plural": "push channels",
+    "push-channel-push-device": "push device",
+    "push-channel-push-device_plural": "push devices",
+    "push-channel-push-device-push-message": "push message",
+    "push-channel-push-device-push-message_plural": "push messages",
+    "push-channel-push-manual-message": "push manual message",
+    "push-channel-push-manual-message_plural": "push manual messages",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
@@ -132,6 +142,8 @@
     "remote-endpoint-query-parameter_plural": "query parameters",
     "remote-endpoint-environment-datum-scratch-pad": "scratch pad",
     "remote-endpoint-environment-datum-scratch-pad_plural": "scratch pads",
+    "remote-endpoint-push-platform": "push platform",
+    "remote-endpoint-push-platform_plural": "push platforms",
     "host": "host",
     "host_plural": "hosts",
     "library": "shared library",
@@ -156,6 +168,14 @@
     "analytics-query_plural": "queries"
   },
   "fields": {
+    "stamp": "stamp",
+    "token": "token",
+    "expires": "expires",
+    "api_key": "API key",
+    "development": "development",
+    "topic": "topic",
+    "certificate": "certificate",
+    "publish_endpoint": "publish endpoint",
     "id": "id",
     "code": "code",
     "error": "error",
@@ -266,6 +286,12 @@
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
       "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`."
+    },
+    "api": {
+      "name": "API name"
+    },
+    "remote_endpoint": {
+      "name": "remote endpoint name"
     }
   },
   "prompts": {
@@ -296,6 +322,11 @@
     "brazilian-portuguese": "Português Brasileiro",
     "hindi": "मानक हिन्दी"
   },
+  "push-platforms": {
+    "osx": "OSX",
+    "ios": "iOS",
+    "gcm": "GCM"
+  },
   "errors": {
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
@@ -305,6 +336,7 @@
     "invalid-json-schema": "invalid JSON schema"
   },
   "successes": {
+    "push-manual-message": "message sent successfully",
     "saved-successfully": "saved successfully",
     "password-reset": "password reset confirmation email sent",
     "password-reset-confirmation": "password successfully reset",
@@ -344,6 +376,7 @@
       "server": "server"
     },
     "remote-endpoint": {
+      "push": "push",
       "http": "HTTP",
       "soap": "SOAP",
       "store": "store",

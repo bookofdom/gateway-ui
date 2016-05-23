@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApiRelatedSerializer from 'gateway/serializers/api-related'`
 
-LibrarySerializer = ApplicationSerializer.extend
+LibrarySerializer = ApiRelatedSerializer.extend
   attrs:
     api:
       serialize: false

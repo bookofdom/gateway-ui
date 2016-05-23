@@ -61,6 +61,8 @@ RemoteEndpointLike = Model.extend
   interpreter: DS.attr 'string'
   filepath: DS.attr 'string'
   script: DS.attr 'string'
+  # push
+  publish_endpoint: DS.attr 'boolean'
 
   # Relationships
   headers: DS.hasMany 'remote-endpoint-header',
@@ -75,6 +77,10 @@ RemoteEndpointLike = Model.extend
     async: false
     stains: true
     embedded: true
+  push_platforms: DS.hasMany 'remote-endpoint-push-platform',
+    async: false
+    stains: true
+    embedded: true
 
   # Computed
   platform: Ember.computed 'type', ->
@@ -86,6 +92,8 @@ RemoteEndpointLike = Model.extend
     @get('platform.slug') == 'http'
   isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
+  isPush: Ember.computed 'platform.slug', ->
+    @get('platform.slug') == 'push'
   statusType: Ember.computed 'status', ->
     status = @get 'status'
     RemoteEndpointLike.statusTypes.findBy 'value', status?.underscore()
@@ -112,7 +120,7 @@ RemoteEndpointLike = Model.extend
     @get 'sslModeType.name'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb ldap script store'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb ldap script store push'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type

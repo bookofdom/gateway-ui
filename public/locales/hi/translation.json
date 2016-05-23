@@ -60,8 +60,10 @@
       "define-api": "एपीआई समापन, दूरदराज के एकीकरण सेवाओं, और कार्यप्रवाह व्यापार तर्क को परिभाषित",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
       "manage-store": "एक वस्तु की दुकान में डेटा प्रबंधन",
-      "manage": "स्थानीय दुकान संग्रह और डेटा प्रबंधन",
       "analyze": "एपीआई उपयोग में अंतर्दृष्टि लाभ",
+      "manage": "स्थानीय दुकान डेटा और धक्का विन्यास प्रबंधन",
+      "store-collections": "स्थानीय दुकान संग्रह और डेटा प्रबंधन",
+      "push-channels": "धक्का चैनलों , उपकरणों, संदेशों का प्रबंधन , और मैनुअल संदेश भेजने",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
@@ -116,6 +118,14 @@
     "proxy-endpoint-test-argument_plural": "तर्क",
     "proxy-endpoint-schema": "स्कीमा मान्यता",
     "proxy-endpoint-schema_plural": "स्कीमा सत्यापन",
+    "push-channel": "धक्का चैनल",
+    "push-channel_plural": "धक्का चैनलों",
+    "push-channel-push-device": "धक्का डिवाइस",
+    "push-channel-push-device_plural": "धक्का उपकरणों",
+    "push-channel-push-device-push-message": "पुश संदेश",
+    "push-channel-push-device-push-message_plural": "संदेशों को धक्का",
+    "push-channel-push-manual-message": "मैनुअल संदेश धक्का",
+    "push-channel-push-manual-message_plural": "मैनुअल संदेशों को धक्का",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
@@ -132,6 +142,8 @@
     "remote-endpoint-query-parameter_plural": "query parameters",
     "remote-endpoint-environment-datum-scratch-pad": "नोटबुक",
     "remote-endpoint-environment-datum-scratch-pad_plural": "स्क्रैच पैड",
+    "remote-endpoint-push-platform": "धक्का मंच",
+    "remote-endpoint-push-platform_plural": "धक्का प्लेटफार्मों",
     "host": "host",
     "host_plural": "hosts",
     "library": "shared library",
@@ -156,6 +168,14 @@
     "analytics-query_plural": "प्रश्नों"
   },
   "fields": {
+    "stamp": "डाक टिकट",
+    "token": "टोकन",
+    "expires": "समाप्त हो रहा है",
+    "api_key": "एपीआई कुंजी",
+    "development": "विकास",
+    "topic": "विषय",
+    "certificate": "प्रमाणपत्र",
+    "publish_endpoint": "समापन बिंदु प्रकाशित",
     "code": "कोड",
     "error": "त्रुटि",
     "request": "निवेदन",
@@ -263,6 +283,12 @@
       "timeout": "सेकंड की संख्या।",
       "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
       "enable_swagger": "एपीआई प्रलेखन ब्राउज़ करें और `swagger.json` प्रकाशित करने के लिए अकड़ सक्षम करें।"
+    },
+    "api": {
+      "name": "एपीआई नाम"
+    },
+    "remote_endpoint": {
+      "name": "दूरदराज के समापन बिंदु नाम"
     }
   },
   "prompts": {
@@ -292,6 +318,11 @@
     "brazilian-portuguese": "Português Brasileiro",
     "hindi": "मानक हिन्दी"
   },
+  "push-platforms": {
+    "osx": "OSX",
+    "ios": "iOS",
+    "gcm": "GCM"
+  },
   "errors": {
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
@@ -301,6 +332,7 @@
     "invalid-json-schema": "अवैध JSON स्कीमा"
   },
   "successes": {
+    "push-manual-message": "संदेश सफलतापूर्वक भेजा जा चुका है",
     "saved-successfully": "saved successfully",
     "password-reset": "पासवर्ड रीसेट पुष्टिकरण ईमेल भेजा",
     "password-reset-confirmation": "पासवर्ड सफलतापूर्वक रीसेट",
@@ -339,6 +371,7 @@
       "server": "सर्वर"
     },
     "remote-endpoint": {
+      "push": "धक्का दें",
       "store": "दुकान",
       "script": "लिपि",
       "status-types": {
