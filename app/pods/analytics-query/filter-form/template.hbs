@@ -5,7 +5,7 @@
         <span class="input-group-addon">
           {{ap-icon icon='analyze'}}
         </span><!-- /.input-group-addon -->
-        {{#x-select name='type' class='form-control'}}
+        {{#x-select name='type' class='form-control' action='selectQuery'}}
           {{#each queries as |query|}}
             {{#x-option value=query.type selected=(eq model.type query.type)}}{{query.name}}{{/x-option}}
           {{/each}}
