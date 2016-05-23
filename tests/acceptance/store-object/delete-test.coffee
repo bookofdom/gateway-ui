@@ -22,10 +22,10 @@ module 'Acceptance: Store Object - Delete',
 
 test 'user can delete store objects', (assert) ->
   beforeDeleteCount = server.schema.storeCollection.all()[0].store_objects.length
-  visit '/collections/1/objects/1/edit'
+  visit '/manage/collections/1/objects/1/edit'
   click 'a[data-t="actions.delete"]'
   andThen ->
     afterDeleteCount = server.schema.storeCollection.all()[0].store_objects.length
-    assert.equal currentURL(), '/collections/1/objects'
+    assert.equal currentURL(), '/manage/collections/1/objects'
     assert.equal afterDeleteCount, beforeDeleteCount - 1
     assert.equal find('.ap-table-auto-index tbody tr').length, beforeDeleteCount - 1
