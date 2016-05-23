@@ -151,7 +151,9 @@
     "store-collection": "collection",
     "store-collection_plural": "collections",
     "store-object": "object",
-    "store-object_plural": "objects"
+    "store-object_plural": "objects",
+    "analytics-query": "query",
+    "analytics-query_plural": "queries"
   },
   "fields": {
     "id": "id",
@@ -372,6 +374,9 @@
         "basic": "basic",
         "wsse": "WSSE"
       }
+    },
+    "analytics-query": {
+      "response-time": "response time"
     }
   }
 }

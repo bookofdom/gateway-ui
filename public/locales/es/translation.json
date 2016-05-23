@@ -151,7 +151,9 @@
     "store-collection": "colección",
     "store-collection_plural": "colecciones",
     "store-object": "objeto",
-    "store-object_plural": "objetos"
+    "store-object_plural": "objetos",
+    "analytics-query": "consulta",
+    "analytics-query_plural": "consultas"
   },
   "fields": {
     "code": "código",
@@ -360,6 +362,9 @@
         "basic": "básico",
         "wsse": "WSSE"
       }
+    },
+    "analytics-query": {
+      "response-time": "tiempo de respuesta"
     }
   }
 }
