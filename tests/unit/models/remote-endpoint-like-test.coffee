@@ -5,6 +5,7 @@ moduleForModel 'remote-endpoint-like', 'Unit | Model | remote endpoint like', {
   needs: [
     'model:remote-endpoint-header'
     'model:remote-endpoint-host'
+    'model:remote-endpoint-push-platform'
     'model:remote-endpoint-query-parameter'
   ]
 }

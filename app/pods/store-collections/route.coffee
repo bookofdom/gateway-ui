@@ -1,8 +1,12 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-StoreCollectionsRoute = Ember.Route.extend AuthenticatedRouteMixin,
+StoreCollectionsRoute = Ember.Route.extend
   model: -> @store.findAll 'store-collection'
+  renderTemplate: ->
+    @_super arguments...
+    @render 'manage/secondary-sidebar',
+      outlet: 'sidebar'
+      into: 'store-collections'
   actions:
     saved: (collection) ->
       @transitionTo 'store-objects', collection

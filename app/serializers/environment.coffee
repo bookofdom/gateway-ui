@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApiRelatedSerializer from 'gateway/serializers/api-related'`
 
-EnvironmentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
+EnvironmentSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     api:
       serialize: false

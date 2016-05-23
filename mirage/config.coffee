@@ -40,6 +40,25 @@ config = ->
   @post '/password_reset', -> new Response 200
   @post '/password_reset_confirmation', -> new Response 200
 
+  @get '/push_channels'
+  @post '/push_channels', makePostHandler 'push_channel'
+  @get '/push_channels/:id'
+  @put '/push_channels/:id', makePutHandler 'push_channel'
+  @del '/push_channels/:id'
+  @post '/push_channels/:id/push_manual_messages', -> new Response 200
+
+  @get '/push_channels/:pushChannelId/push_devices', makeGetChildrenHandler('push_channel', 'push_device')
+  @post '/push_channels/:pushChannelId/push_devices', makePostChildHandler('push_channel', 'push_device')
+  @get '/push_channels/:pushChannelId/push_devices/:id'
+  @put '/push_channels/:pushChannelId/push_devices/:id', makePutHandler 'push_device'
+  @del '/push_channels/:pushChannelId/push_devices/:id'
+
+  @get '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages', makeGetChildrenHandler('push_device', 'push_message')
+  @post '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages', makePostChildHandler('push_device', 'push_message')
+  @get '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages/:id'
+  @put '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages/:id', makePutHandler 'push_message'
+  @del '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages/:id'
+
   @get '/store_collections'
   @post '/store_collections', makePostHandler 'store_collection'
   @get '/store_collections/:id'
@@ -93,6 +112,8 @@ config = ->
   @get '/apis/:apiId/remote_endpoints/:id'
   @put '/apis/:apiId/remote_endpoints/:id', makePutHandler 'remote_endpoint'
   @del '/apis/:apiId/remote_endpoints/:id'
+
+  @get '/remote_endpoints'
 
   @get '/apis/:apiId/remote_endpoints/:remoteEndpointId/environment_data/:remoteEndpointEnvironmentDatumId/scratch_pads', makeGetChildrenHandler('remote_endpoint_environment_datum', 'scratch_pad')
   @post '/apis/:apiId/remote_endpoints/:remoteEndpointId/environment_data/:remoteEndpointEnvironmentDatumId/scratch_pads', makePostChildHandler('remote_endpoint_environment_datum', 'scratch_pad')
