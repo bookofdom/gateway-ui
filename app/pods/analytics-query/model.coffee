@@ -24,6 +24,9 @@ AnalyticsQuery.reopenClass
   FIXTURES: [
     id: 1
     type: 'response-time'
+  ,
+    id: 2
+    type: 'response-time'
   ]
 
 `export default AnalyticsQuery`
