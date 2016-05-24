@@ -165,7 +165,7 @@
     "store-object": "object",
     "store-object_plural": "objects",
     "analytics-query": "query",
-    "analytics-query_plural": "queries"
+    "analytics-query_plural": "analytics"
   },
   "fields": {
     "stamp": "stamp",
