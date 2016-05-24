@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
 ManageIndexRoute = Ember.Route.extend
-  afterModel: -> @transitionTo 'store-collections.index'
+  afterModel: -> @transitionTo 'store-collections'
 
 `export default ManageIndexRoute`
