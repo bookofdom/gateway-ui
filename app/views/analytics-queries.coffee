@@ -1,5 +1,5 @@
-`import PrimaryView from './primary'`
+`import SecondaryView from './secondary'`
 
-AnalyticsQueriesView = PrimaryView.extend()
+AnalyticsQueryView = SecondaryView.extend()
 
-`export default AnalyticsQueriesView`
+`export default AnalyticsQueryView`

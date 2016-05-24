@@ -1,0 +1,9 @@
+{{#ap-list-nav-vertical}}
+  {{#each model as |query|}}
+    {{ap-list-link
+      path='analytics-query'
+      arg1=query.type
+      t=query.name
+      classNames='text-capitalize'}}
+  {{/each}}
+{{/ap-list-nav-vertical}}

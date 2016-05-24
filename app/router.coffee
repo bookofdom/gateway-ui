@@ -14,8 +14,6 @@ Router.map ->
     @route 'reset-confirmation'
 
   # resources
-  @route 'analytics-queries', resetNamespace: true, path: 'analytics', ->
-    @route 'analytics-query', resetNamespace: true, path: ':analytics_query_type', (->)
   @route 'users', resetNamespace: true, ->
     @route 'user', resetNamespace: true, path: ':user_id', ->
       @route 'edit'
@@ -103,4 +101,8 @@ Router.map ->
             @route 'edit'
             @route 'push-channel-push-device-push-messages', resetNamespace: true, path: 'push-messages', ->
               @route 'push-channel-push-device-push-message', resetNamespace: true, path: ':push_message_id', ->
+  @route 'analyze', ->
+    @route 'analytics-queries', resetNamespace: true, path: 'analytics', ->
+      @route 'analytics-query', resetNamespace: true, path: ':analytics_query_type', (->)
+
 `export default Router`
