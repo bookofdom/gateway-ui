@@ -22,13 +22,13 @@ AnalyticsQuery.reopenClass
   # High-level analytics queries exist only client-side.
   # They are hardcoded here.
   FIXTURES: [
-    id: 1
+    id: 'response-time'
     type: 'response-time'
   ,
-    id: 2
+    id: 'placeholder-1'
     type: 'placeholder-1'
   ,
-    id: 3
+    id: 'placeholder-2'
     type: 'placeholder-2'
   ]
 

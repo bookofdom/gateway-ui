@@ -8,6 +8,6 @@ AnalyticsQueryRoute = Ember.Route.extend
     end:
       refreshModel: false
   model: (params) ->
-    @modelFor('analytics-queries').findBy 'type', params.analytics_query_type
+    @modelFor('analytics-queries').findBy 'id', params.analytics_query_id
 
 `export default AnalyticsQueryRoute`

@@ -8,9 +8,4 @@ AnalyticsQueriesRoute = Ember.Route.extend
       outlet: 'sidebar'
       into: 'analytics-queries'
 
-  actions:
-    selectQuery: (selection) ->
-      query = @modelFor('analytics-queries').findBy 'type', selection
-      @transitionTo 'analytics-query', query.get('type')
-
 `export default AnalyticsQueriesRoute`

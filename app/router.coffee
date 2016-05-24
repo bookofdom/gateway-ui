@@ -103,6 +103,6 @@ Router.map ->
               @route 'push-channel-push-device-push-message', resetNamespace: true, path: ':push_message_id', ->
   @route 'analyze', ->
     @route 'analytics-queries', resetNamespace: true, path: 'queries', ->
-      @route 'analytics-query', resetNamespace: true, path: ':analytics_query_type', (->)
+      @route 'analytics-query', resetNamespace: true, path: ':analytics_query_id', (->)
 
 `export default Router`
