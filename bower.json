@@ -6,6 +6,7 @@
     "ember": "~2.2.0",
     "ember-cli-shims": "0.1.0",
     "ember-cli-test-loader": "0.2.2",
+    "ember-parallel": "git+https://github.com/bengillies/ember-parallel.git",
     "ember-qunit-notifications": "0.1.0",
     "eonasdan-bootstrap-datetimepicker": "~4.17.37",
     "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#3b382a44fe929dcb471ee51b2a082293c29ee530",
@@ -19,6 +20,7 @@
     "pretender": "~0.12.0",
     "Faker": "~3.0.0",
     "jquery-ui": "^1.11.4",
-    "jjv": "^1.0.2"
+    "jjv": "^1.0.2",
+    "parallel.js": "git+https://github.com/adambom/parallel.js.git"
   }
 }

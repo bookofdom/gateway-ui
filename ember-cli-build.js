@@ -82,6 +82,10 @@ module.exports = function(defaults) {
   app.import('bower_components/node-uuid/uuid.js');
   // jjv
   app.import('bower_components/jjv/lib/jjv.js');
+  // parallel.js
+  app.import('bower_components/parallel.js/lib/parallel.js');
+  // ember parallel
+  app.import('bower_components/ember-parallel/dist/ember-parallel-0.1.0.js');
 
   // Gateway Icons
   var gatewayIcons = new Funnel('bower_components/gateway-icons/dist/fonts', {
@@ -112,5 +116,12 @@ module.exports = function(defaults) {
     destDir: '/'
   });
 
-  return mergeTrees([app.toTree(), gatewayIcons, swaggerAssets, aceAssets]);
+  // IE needs crutches for web workers.
+  var evalWebWorkerAsset = new Funnel('bower_components/parallel.js/lib', {
+    srcDir: '/',
+    include: ['eval.js'],
+    destDir: '/'
+  });
+
+  return mergeTrees([app.toTree(), gatewayIcons, swaggerAssets, aceAssets, evalWebWorkerAsset]);
 };
