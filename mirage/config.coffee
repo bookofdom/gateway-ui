@@ -8,6 +8,9 @@ config = ->
   @namespace = 'admin';    # make this `api`, for example, if your API is namespaced
   # @timing = 400;      # delay for each request, automatically set to 0 during testing
 
+  # time data
+  @get '/stats/:stat_type', (schema, request) -> schema.stat.all()
+
   @get '/ap-request.js', ->
     new Response 200, {'Content-Type': 'text/javascript'}, '''
       /**
