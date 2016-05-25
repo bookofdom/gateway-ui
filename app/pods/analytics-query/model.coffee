@@ -2,6 +2,7 @@
 `import Model from 'gateway/models/model'`
 `import t from 'gateway/helpers/i18n'`
 
+
 AnalyticsQuery = Model.extend
   type: DS.attr 'string', defaultValue: 'response-time'
   default_query: DS.attr()
@@ -25,6 +26,27 @@ AnalyticsQuery = Model.extend
     snapshot = @_createSnapshot()
     adapter.executeQuery snapshot
   ), ''
+  parallelDependencies:
+    maxSamples: 50
+    # Takes a string and parses it into JSON.
+    # Returns an array of data points with timestamp and value attributes.
+    normalize: (rawData) ->
+      JSON.parse(rawData)?.time_data?.map (datum) ->
+        timestamp: datum.timestamp
+        value: datum.values['response.time']
+    # Naively resample by dropping items.
+    resample: (data) ->
+      (data[i] for i in [0...data.length] by Math.round(data.length / maxSamples))
+    chartJsTransform: (data) ->
+      labels: data.map (datum) -> datum.timestamp
+      datasets: [
+        label: 'Dataset'
+        data: data.map (datum) -> datum.value
+      ]
+  chartData: Ember.computed.parallel.spawn 'rawData', ((rawData) ->
+    chartJsTransform resample normalize rawData
+  ), null
+
 
 # Declare available types and their human-readable names
 types = 'response-time placeholder-1 placeholder-2'.split(' ').map (type) ->
