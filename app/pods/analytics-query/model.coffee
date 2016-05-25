@@ -13,11 +13,18 @@ AnalyticsQuery = Model.extend
     type = @get 'type'
     AnalyticsQuery.types.findBy 'value', type
   name: Ember.computed.alias 'typeKind.name'
-  query: Ember.computed 'default_query', 'start', 'end', ->
+  queryParams: Ember.computed 'default_query', 'start', 'end', ->
     query =
       start: @get 'start'
       end: @get 'end'
     Ember.merge query, @get('default_query')
+
+  # Computed Query Results
+  rawData: Ember.computed.promise 'queryParams', (->
+    adapter = @container.lookup 'adapter:analytics-query'
+    snapshot = @_createSnapshot()
+    adapter.executeQuery snapshot
+  ), ''
 
 # Declare available types and their human-readable names
 types = 'response-time placeholder-1 placeholder-2'.split(' ').map (type) ->
