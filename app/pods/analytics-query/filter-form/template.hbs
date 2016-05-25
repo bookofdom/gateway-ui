@@ -6,7 +6,7 @@
         <span class="input-group-addon">
           {{ap-icon icon='the-essentials-120'}}
         </span><!-- /.input-group-addon -->
-        {{ap-datetime-field value=start placeholder=(t 'fields.start_date')}}
+        {{ap-datetime-field value=model.start placeholder=(t 'fields.start_date') action='startChange'}}
       </div><!-- /.input-group -->
     </div><!-- /.form-group -->
 
@@ -15,13 +15,13 @@
         <span class="input-group-addon">
           {{ap-icon icon='the-essentials-120'}}
         </span><!-- /.input-group-addon -->
-        {{ap-datetime-field value=end placeholder=(t 'fields.end_date')}}
+        {{ap-datetime-field value=model.end placeholder=(t 'fields.end_date') action='endChange'}}
       </div><!-- /.input-group -->
     </div><!-- /.form-group -->
 
     <div class="form-group">
-      {{#if (or start end)}}
-        {{#link-to (query-params start='' end='') class='pull-left'}}{{t 'actions.clear'}}{{/link-to}}
+      {{#if (or model.start model.end)}}
+        <a href class="pull-left" {{action 'clear'}}>{{t 'actions.clear'}}</a>
       {{/if}}
     </div><!-- /.form-group -->
 

@@ -4,12 +4,20 @@
 
 AnalyticsQuery = Model.extend
   type: DS.attr 'string', defaultValue: 'response-time'
+  default_query: DS.attr()
+  start: DS.attr 'string'
+  end: DS.attr 'string'
 
   # Computed
   typeKind: Ember.computed 'type', ->
     type = @get 'type'
     AnalyticsQuery.types.findBy 'value', type
   name: Ember.computed.alias 'typeKind.name'
+  query: Ember.computed 'default_query', 'start', 'end', ->
+    query =
+      start: @get 'start'
+      end: @get 'end'
+    Ember.merge query, @get('default_query')
 
 # Declare available types and their human-readable names
 types = 'response-time placeholder-1 placeholder-2'.split(' ').map (type) ->
@@ -23,13 +31,16 @@ AnalyticsQuery.reopenClass
   # They are hardcoded here.
   FIXTURES: [
     id: 'response-time'
-    type: 'response-time'
+    default_query:
+      variable: 'response.time'
   ,
     id: 'placeholder-1'
-    type: 'placeholder-1'
+    default_query:
+      variable: 'placeholder.variable.1'
   ,
     id: 'placeholder-2'
-    type: 'placeholder-2'
+    default_query:
+      variable: 'placeholder.variable.2'
   ]
 
 `export default AnalyticsQuery`
