@@ -27,11 +27,14 @@ AnalyticsQuery = Model.extend
     adapter.executeQuery snapshot
   ), ''
   parallelDependencies:
+    # rootKey is a string inside a string since parallel passes the literal
+    # contents of a string rather than a proper quoted string.
+    rootKey: '"stats"'
     maxSamples: 50
     # Takes a string and parses it into JSON.
     # Returns an array of data points with timestamp and value attributes.
     normalize: (rawData) ->
-      JSON.parse(rawData)?.time_data?.map (datum) ->
+      JSON.parse(rawData)?[rootKey]?.map (datum) ->
         timestamp: datum.timestamp
         value: datum.values['response.time']
     # Naively resample by dropping items.
