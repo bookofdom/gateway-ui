@@ -52,7 +52,9 @@ module.exports = function(environment) {
       authentication: {
         path: 'sessions'
       }
-    }
+    },
+
+    evalJsUrl: '/eval.js'
   };
 
   if (environment === 'development') {
@@ -102,6 +104,7 @@ module.exports = function(environment) {
     ENV.googleAnalytics = {
       webPropertyId: 'GOOGLE_ANALYTICS_TRACKING_ID'
     };
+    ENV.evalJsUrl = [ENV.api.host, ENV.api.basePath, 'eval.js'].join('/');
   }
 
   ENV.api.url = [ENV.api.host, ENV.api.basePath].join('/');

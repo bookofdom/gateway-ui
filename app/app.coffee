@@ -4,6 +4,8 @@
 `import config from 'gateway/config/environment'`
 
 Ember.MODEL_FACTORY_INJECTIONS = true
+Ember.parallelConfig =
+  evalPath: config.evalJsUrl
 
 App = Ember.Application.extend
   modulePrefix: config.modulePrefix
