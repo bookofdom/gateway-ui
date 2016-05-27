@@ -60,7 +60,7 @@
       "define-api": "एपीआई समापन, दूरदराज के एकीकरण सेवाओं, और कार्यप्रवाह व्यापार तर्क को परिभाषित",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
       "manage-store": "एक वस्तु की दुकान में डेटा प्रबंधन",
-      "manage": "स्थानीय दुकान डेटा और धक्का विन्यास प्रबंधन",
+      "manage": "स्थानीय दुकान डाटा का प्रबंधन और पुश सूचनाएं",
       "store-collections": "स्थानीय दुकान संग्रह और डेटा प्रबंधन",
       "push-channels": "धक्का चैनलों , उपकरणों, संदेशों का प्रबंधन , और मैनुअल संदेश भेजने",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
