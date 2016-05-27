@@ -61,7 +61,7 @@
       "manage-api": "cria as chave e especifica as regras das suas APIs",
       "manage-store": "gerenciar dados em um armazenamento de objetos",
       "analyze": "obter insights sobre o uso da API",
-      "manage": "gerenciar armazenar dados locais e configuração de pressão",
+      "manage": "gerenciar dados de loja local e notificações push",
       "store-collections": "gerenciar coleções de lojas locais e dados",
       "push-channels": "gerenciar os canais de pressão, dispositivos , mensagens e enviar mensagens de manuais",
       "build-app": "constrói aplicações de multi-canais com a plataforma AnyPresence (login necessário)",
