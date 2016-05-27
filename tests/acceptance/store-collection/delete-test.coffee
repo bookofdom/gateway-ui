@@ -27,4 +27,4 @@ test 'user can delete store collections', (assert) ->
   andThen ->
     assert.equal currentURL(), '/manage/collections/2/objects'
     assert.equal server.db.storeCollections.length, beforeDeleteCount - 1
-    assert.equal find('.ap-app-secondary .ap-app-secondary .ap-app-secondary-sidebar > .ap-list-nav li:not([data-t="actions.new"])').length, beforeDeleteCount - 1
+    assert.equal find('.ap-app-secondary:eq(1) .ap-app-secondary-sidebar li:not([data-t="actions.new"])').length, beforeDeleteCount - 1
