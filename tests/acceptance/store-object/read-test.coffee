@@ -28,9 +28,9 @@ test 'user can navigate to store objects', (assert) ->
 
 test 'user can navigate among store collections\' store objects index routes', (assert) ->
   visit '/manage/collections/1/objects'
-  click '.ap-app-secondary .ap-app-secondary .ap-app-secondary-sidebar > .ap-list-nav li:eq(1) a'
+  click '.ap-app-secondary:eq(1) .ap-app-secondary-sidebar li:eq(1) a'
   andThen ->
     assert.equal currentURL(), '/manage/collections/2/objects'
-  click '.ap-app-secondary .ap-app-secondary .ap-app-secondary-sidebar > .ap-list-nav li:eq(2) a'
+  click '.ap-app-secondary:eq(1) .ap-app-secondary-sidebar li:eq(2) a'
   andThen ->
     assert.equal currentURL(), '/manage/collections/3/objects'
