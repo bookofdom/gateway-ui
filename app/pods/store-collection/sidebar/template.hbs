@@ -1,11 +1,14 @@
 {{#ap-list-nav-vertical}}
   {{#each store_collections as |storeCollection|}}
     {{#unless storeCollection.isNew}}
-      {{ap-list-link
-        path='store-collection'
-        arg1=storeCollection
-        t=storeCollection.name
-        classNames='text-capitalize'}}
+      <li class="text-capitalize clearfix">
+        {{#link-to 'store-collection.edit' storeCollection class="text-secondary pull-right" title=(t 'actions.edit')}}
+          <span class="text">{{ap-icon icon='the-essentials-027'}}</span>
+        {{/link-to}}
+        {{#link-to 'store-collection' storeCollection}}
+          <span class="text">{{storeCollection.name}}</span>
+        {{/link-to}}
+      </li>
     {{/unless}}
   {{/each}}
   {{ap-list-link
