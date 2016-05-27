@@ -2,7 +2,7 @@
   {{#each store_collections as |storeCollection|}}
     {{#unless storeCollection.isNew}}
       {{ap-list-link
-        path='store-objects'
+        path='store-collection'
         arg1=storeCollection
         t=storeCollection.name
         classNames='text-capitalize'}}
