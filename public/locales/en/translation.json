@@ -384,6 +384,7 @@
       "mongodb": "MongoDB",
       "ldap": "LDAP",
       "script": "Script",
+      "hana": "HANA",
       "status-types": {
         "success": "success",
         "failed": "failed",
