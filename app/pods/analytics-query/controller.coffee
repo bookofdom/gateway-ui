@@ -1,5 +1,9 @@
 `import Ember from 'ember'`
 
+# TODO
+# Every map, min, and max call performed here is blocking.
+# See TODOs below.
+
 AnalyticsQueryController = Ember.Controller.extend
   breadCrumb: Ember.computed.alias 'model.name'
 
@@ -20,12 +24,20 @@ AnalyticsQueryController = Ember.Controller.extend
   labeledChartData: Ember.computed 'model.chartData', ->
     chartData = @get 'model.chartData'
     if chartData?
+      # TODO:  precompute integer values for dates in worker in a separate
+      # property.  `labelValues` perhaps?
       dates = chartData.labels.map (timestamp) -> new Date(timestamp)
+      # TODO:  precompute min, max, and range in worker.
       minDate = new Date(Math.min.apply(null, dates))
       maxDate = new Date(Math.max.apply(null, dates))
       dateRange = maxDate - minDate # in milliseconds
+      # TODO:  use helpers instead of calling moment directly.  This may require
+      # adding additional helpers.  It should be trivial to swap the underlaying
+      # date formatting library.
       @chartOptions.scales.xAxes[0].scaleLabel.labelString =
         "#{moment(minDate).format('lll')} - #{moment(maxDate).format('lll')}"
+      # TODO:  time definitions may make sense in a helper where they may be
+      # reused as needed.
       second = 1000
       minute = second * 60
       hour = minute * 60
@@ -41,6 +53,10 @@ AnalyticsQueryController = Ember.Controller.extend
         when (week * 2) <= dateRange < (month * 2) then tickUnit = 'weeks' # use weeks if you have < 2 months (2 - 8/9)
         when (month * 2) <= dateRange < (year * 2) then tickUnit = 'months' # use months if you have < 2 years (2 - 24)
         else tickUnit = 'years'
+      # TODO:  This map operation must occur outside of a worker because it
+      # relies on moment.  However, it is inefficient because each step has a
+      # conditional.  Since the conditional is not label-dependent, invert this
+      # so that the conditional happens first and only once, then the map step.
       labels = chartData?.labels?.map (label) ->
         switch tickUnit
           when 'seconds' then formattedLabel = moment(label).format('LTS')
