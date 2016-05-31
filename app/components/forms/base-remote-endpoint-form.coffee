@@ -228,6 +228,14 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         name: 'password'
         type: 'password'
         required: true
+      ,
+        name: 'transactions'
+      ,
+        name: 'maxidle'
+        type: 'integer'
+      ,
+        name: 'maxopen'
+        type: 'integer'
       ]
       push: [
         name: 'publish_endpoint'

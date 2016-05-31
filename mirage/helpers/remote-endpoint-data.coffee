@@ -99,6 +99,9 @@ generateDataForType = (typeSlug, i) ->
         filepath: '/foo/bar/script.sh'
         script: 'echo "hello world"'
     when 'hana'
+      transactions: faker.random.boolean()
+      maxOpenConn: faker.random.number()
+      maxIdleConn: faker.random.number()
       config:
         host: "server.#{faker.internet.domainName()}"
         port: faker.random.number()
