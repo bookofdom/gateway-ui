@@ -30,7 +30,7 @@ AnalyticsQuery = Model.extend
     # rootKey is a string inside a string since parallel passes the literal
     # contents of a string rather than a proper quoted string.
     rootKey: '"stats"'
-    maxSamples: 50
+    maxSamples: 100
     # Takes a string and parses it into JSON.
     # Returns an array of data points with timestamp and value attributes.
     normalize: (rawData) ->
