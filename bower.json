@@ -21,6 +21,7 @@
     "Faker": "~3.0.0",
     "jquery-ui": "^1.11.4",
     "jjv": "^1.0.2",
-    "parallel.js": "git+https://github.com/adambom/parallel.js.git"
+    "parallel.js": "git+https://github.com/adambom/parallel.js.git",
+    "Chart.js": "2.1.1"
   }
 }

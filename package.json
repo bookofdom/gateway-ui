@@ -24,6 +24,7 @@
     "ember-cli": "2.4.3",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-babel": "^5.1.5",
+    "ember-cli-chart": "git://github.com/serviceto/ember-cli-chart.git#c88e281310ad7f8ea0bc25eba57f2bb43740e026",
     "ember-cli-coffeescript": "^1.13.2",
     "ember-cli-dependency-checker": "^1.2.0",
     "ember-cli-deploy": "0.6.1",

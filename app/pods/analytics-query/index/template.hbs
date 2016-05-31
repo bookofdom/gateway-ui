@@ -2,4 +2,6 @@
 
 <br><br>
 
-{{model.chartData}}
+{{#if model.labeledChartData}}
+    {{ember-chart type='line' data=model.labeledChartData options=model.chartOptions}}
+{{/if}}
