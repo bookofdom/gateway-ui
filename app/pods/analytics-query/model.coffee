@@ -68,6 +68,9 @@ AnalyticsQuery = Model.extend
       xAxes: [
         ticks:
           fontSize: 14
+        scaleLabel:
+          display: true
+          fontSize: 14
       ]
       yAxes: [
         ticks:
@@ -81,6 +84,7 @@ AnalyticsQuery = Model.extend
       minDate = new Date(Math.min.apply(null, dates))
       maxDate = new Date(Math.max.apply(null, dates))
       dateRange = maxDate - minDate # in milliseconds
+      @chartOptions.scales.xAxes[0].scaleLabel.labelString = "#{moment(minDate).format('lll')} - #{moment(maxDate).format('lll')}"
       second = 1000
       minute = second * 60
       hour = minute * 60
