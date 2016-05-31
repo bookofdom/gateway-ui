@@ -29,6 +29,10 @@ RemoteEndpointLike = Model.extend
   # postgres
   # mysql
   database: DS.attr 'string'
+  # sqlserver
+  # postgres
+  # mysql
+  # hana
   transactions: DS.attr 'boolean'
   maxopen: DS.attr 'number'
   maxidle: DS.attr 'number'
