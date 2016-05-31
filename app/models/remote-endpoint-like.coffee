@@ -41,6 +41,7 @@ RemoteEndpointLike = Model.extend
   # postgres
   # mysql
   # ldap
+  # hana
   server: DS.attr 'string'
   port: DS.attr 'number'
   # soap
@@ -49,6 +50,7 @@ RemoteEndpointLike = Model.extend
   # mysql
   # mongodb
   # ldap
+  # hana
   username: DS.attr 'string'
   password: DS.attr 'string'
   # ldap
