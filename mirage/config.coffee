@@ -9,7 +9,8 @@ config = ->
   # @timing = 400;      # delay for each request, automatically set to 0 during testing
 
   # time data
-  @get '/stats/:stat_type', (schema, request) -> schema.stat.all()
+  @get '/stats/:stat_type', (schema, request) ->
+    schema.stat.where type: request.params.stat_type
 
   @get '/ap-request.js', ->
     new Response 200, {'Content-Type': 'text/javascript'}, '''
