@@ -41,6 +41,7 @@ RemoteEndpointLike = Model.extend
   # postgres
   # mysql
   # ldap
+  # hana
   server: DS.attr 'string'
   port: DS.attr 'number'
   # soap
@@ -49,6 +50,7 @@ RemoteEndpointLike = Model.extend
   # mysql
   # mongodb
   # ldap
+  # hana
   username: DS.attr 'string'
   password: DS.attr 'string'
   # ldap
@@ -120,7 +122,7 @@ RemoteEndpointLike = Model.extend
     @get 'sslModeType.name'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb ldap script store push'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type
