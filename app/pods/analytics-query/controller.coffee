@@ -7,6 +7,7 @@
 AnalyticsQueryController = Ember.Controller.extend
   breadCrumb: Ember.computed.alias 'model.name'
 
+  # TODO:  this should be computed and include the axis title(s)
   chartOptions:
     scales:
       xAxes: [
