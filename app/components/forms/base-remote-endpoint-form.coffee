@@ -213,6 +213,30 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         name: 'script'
         type: 'editor-text'
       ]
+      hana: [
+        name: 'server'
+        label: 'resources.host'
+        required: true
+      ,
+        name: 'port'
+        type: 'integer'
+        required: true
+      ,
+        name: 'username'
+        required: true
+      ,
+        name: 'password'
+        type: 'password'
+        required: true
+      ,
+        name: 'transactions'
+      ,
+        name: 'maxidle'
+        type: 'integer'
+      ,
+        name: 'maxopen'
+        type: 'integer'
+      ]
       push: [
         name: 'publish_endpoint'
       ]

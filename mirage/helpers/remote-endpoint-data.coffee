@@ -2,7 +2,7 @@
 
 enviromentDatumId = 1
 
-types = 'http soap sqlserver postgres mysql mongodb ldap script store push'.split ' '
+types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push'.split ' '
 typeCycle = faker.list.cycle types...
 
 statuses = 'success failed pending processing'.split ' '
@@ -98,6 +98,15 @@ generateDataForType = (typeSlug, i) ->
         timeout: 1 # seconds
         filepath: '/foo/bar/script.sh'
         script: 'echo "hello world"'
+    when 'hana'
+      transactions: faker.random.boolean()
+      maxOpenConn: faker.random.number()
+      maxIdleConn: faker.random.number()
+      config:
+        host: "server.#{faker.internet.domainName()}"
+        port: faker.random.number()
+        user: faker.internet.userName()
+        password: faker.internet.password()
     when 'store'
       {}
     when 'push'
