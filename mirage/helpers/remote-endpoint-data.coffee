@@ -100,10 +100,10 @@ generateDataForType = (typeSlug, i) ->
         script: 'echo "hello world"'
     when 'hana'
       config:
-        host: 'ec2-made-up.aws.amazon.com'
-        port: 30015
-        user: 'system'
-        password: 'fake'
+        host: "server.#{faker.internet.domainName()}"
+        port: faker.random.number()
+        user: faker.internet.userName()
+        password: faker.internet.password()
     when 'store'
       {}
     when 'push'
