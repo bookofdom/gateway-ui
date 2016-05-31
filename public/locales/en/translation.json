@@ -61,7 +61,7 @@
       "manage-api": "set up keys and specify entitlement rules across your APIs",
       "manage-store": "manage data in an object store",
       "analyze": "gain insights into API usage",
-      "manage": "manage local store data and push configuration",
+      "manage": "manage local store data and push notifications",
       "store-collections": "manage local store collections and data",
       "push-channels": "manage push channels, devices, messages, and send manual messages",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
