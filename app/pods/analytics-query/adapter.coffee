@@ -11,10 +11,15 @@ AnalyticsQueryAdapter = FixtureAdapter.extend DS.BuildURLMixin,
   executeQuery: (snapshot) ->
     url = @buildURL 'analytics-query', snapshot.id, snapshot
     query = snapshot.record.get 'queryParams'
-    Ember.$.ajax
-      url: url
-      method: 'GET'
-      dataType: 'text'
-      data: query
+    new Ember.RSVP.Promise (resolve, reject) ->
+      Ember.$.ajax
+        url: url
+        method: 'GET'
+        dataType: 'text'
+        data: query
+      .then (response) ->
+        resolve response
+      , (xhr, status, error) ->
+        reject xhr.responseJSON
 
 `export default AnalyticsQueryAdapter`

@@ -20,11 +20,12 @@ AnalyticsQuery = Model.extend
     Ember.merge query, @get('default_query')
 
   # Computed Query Results
-  rawData: Ember.computed.promise 'queryParams', (->
+  executeQuery: ->
     adapter = @container.lookup 'adapter:analytics-query'
     snapshot = @_createSnapshot()
-    adapter.executeQuery snapshot
-  ), ''
+    adapter.executeQuery(snapshot).then (response) =>
+      @set 'rawData', response
+  rawData: ''
   parallelDependencies:
     # rootKey is a string inside a string since parallel passes the literal
     # contents of a string rather than a proper quoted string.
