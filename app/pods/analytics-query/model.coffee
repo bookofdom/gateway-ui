@@ -40,7 +40,13 @@ AnalyticsQuery = Model.extend
     resample: (data) ->
       (data[i] for i in [0...data.length] by Math.round(data.length / maxSamples))
     chartJsTransform: (data) ->
+      labelValues = data.map (datum) -> new Date(datum.timestamp)
+      min = new Date(Math.min.apply(null, labelValues))
+      max = new Date(Math.max.apply(null, labelValues))
       labels: data.map (datum) -> datum.timestamp
+      min: min
+      max: max
+      range: max - min
       datasets: [
         label: 'Dataset'
         data: data.map (datum) -> datum.value
