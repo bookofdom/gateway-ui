@@ -1,9 +1,30 @@
 `import Ember from 'ember'`
+`import t from 'gateway/helpers/i18n'`
 `import { formatDatetime } from 'gateway/helpers/format-datetime'`
 `import { timeHelper } from 'gateway/helpers/time-helper'`
 
 AnalyticsQueryController = Ember.Controller.extend
   breadCrumb: Ember.computed.alias 'model.name'
+
+  groupBy: 'all'
+
+  availableGroupBy: Ember.String.w('all api proxy')
+
+  actions:
+    selectGroupBy: (groupBy) ->
+      console.log 'selecting groupBy', groupBy
+      labeledChartData = @get('labeledChartData')
+      test = labeledChartData.test
+      console.log 'labeledChartData', labeledChartData
+      console.log 'test', test
+      labeledChartData.datasets[0].data = test[0].data
+      labeledChartData.datasets[0].label = test[0].label
+      @set 'labeledChartData', labeledChartData
+
+  labels:
+    context: t 'prompts.choose-x', x: 'context'
+
+  contexts: ['all', 'api', 'proxy-endpoint']
 
   chartOptions: Ember.computed 'model.chartData', ->
     chartData = @get 'model.chartData'

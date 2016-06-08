@@ -31,6 +31,8 @@ typeCycle = faker.list.cycle types...
 StatFactory = Factory.extend
   values: ->
     'response.time': faker.random.number()
+    'api.id': faker.random.number(4) + 1
+    'proxy.id': faker.random.number(4) + 1
   type: (i) ->
     type = typeCycle i
     @time = type.timestamp i

@@ -19,6 +19,13 @@
       </div><!-- /.input-group -->
     </div><!-- /.form-group -->
 
+    <select onchange={{action "selectGroupBy" value="target.value"}}>
+      {{#each availableGroupBy as |groupByChoice|}}
+        <option value={{groupByChoice}} selected={{eq groupBy groupByChoice}}>{{groupByChoice}}</option>
+      {{/each}}
+    </select>
+
+
     <div class="form-group">
       {{#if (or model.start model.end)}}
         <a href class="pull-left" {{action 'clear'}}>{{t 'actions.clear'}}</a>

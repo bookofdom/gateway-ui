@@ -34,13 +34,36 @@ AnalyticsQuery = Model.extend
     # Takes a string and parses it into JSON.
     # Returns an array of data points with timestamp and value attributes.
     normalize: (rawData) ->
+      # console.log 'rawData', JSON.parse(rawData)?[rootKey][0]['values']
       JSON.parse(rawData)?[rootKey]?.map (datum) ->
         timestamp: datum.timestamp
         value: datum.values['response.time']
+        'api.id': datum.values['api.id']
+        'proxy.id': datum.values['proxy.id']
     # Naively resample by dropping items.
     resample: (data) ->
       (data[i] for i in [0...data.length] by Math.round(data.length / maxSamples))
     chartJsTransform: (data) ->
+
+      series =
+        'all': []
+        'api.id': {}
+        'proxy.id': {}
+
+      data.map (datum) ->
+        if datum['api.id']?
+          apiID = datum['api.id']
+          if !series['api.id'][apiID]? then series['api.id'][apiID] = []
+          series['api.id'][apiID].push datum.value
+        if datum['proxy.id']?
+          proxyID = datum['proxy.id']
+          if !series['proxy.id'][proxyID]? then series['proxy.id'][proxyID] = []
+          series['proxy.id'][proxyID].push datum.value
+        series.all.push datum
+
+      # Transform Series
+
+
       labelValues = data.map (datum) -> new Date(datum.timestamp)
       min = new Date(Math.min.apply(null, labelValues))
       max = new Date(Math.max.apply(null, labelValues))
@@ -48,6 +71,11 @@ AnalyticsQuery = Model.extend
       min: min
       max: max
       range: max - min
+      series: series
+      test: [
+        label: 'Data 2'
+        data: [65, 59, 80, 81, 56, 55, 40]
+      ]
       datasets: [
         label: 'Dataset'
         data: data.map (datum) -> datum.value
