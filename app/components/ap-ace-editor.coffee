@@ -14,7 +14,8 @@ ApAceEditorComponent = Ember.Component.extend
   size: null
   language: 'javascript'
   theme: 'slate'
-  options:
+  readOnly: false
+  options: Ember.computed 'readOnly', ->
     enableTern:
       # http://ternjs.net/doc/manual.html#option_defs
       defs: ['browser', 'ecma5']
@@ -24,6 +25,7 @@ ApAceEditorComponent = Ember.Component.extend
           fullDocs: true
     enableSnippets: true
     enableBasicAutocompletion: true
+    readOnly: @get 'readOnly'
   sizeClass: Ember.computed 'size', ->
     size = @get 'size'
     "ap-ace-editor-#{size}" if size
