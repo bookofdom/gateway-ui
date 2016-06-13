@@ -24,6 +24,7 @@ defaultScenario = (server) ->
     server.createList 'endpoint_group', 5, apiId: id
     server.createList('remote_endpoint', 20, apiId: id).forEach (remoteEndpoint) ->
       options =
+        apiId: id
         remoteEndpointId: remoteEndpoint.id
         type: remoteEndpoint.type
       server.createList('remote_endpoint_environment_datum', 3, options).forEach (datum) ->
