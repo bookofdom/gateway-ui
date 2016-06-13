@@ -113,10 +113,11 @@ generateDataForType = (typeSlug, i) ->
       publish_endpoint: faker.random.boolean()
   data.headers = generateKeyValues 3
   data.query = generateKeyValues 3
+  pushPlatformType = platformCycle i
   data.push_platforms = [
     name: faker.commerce.productName().capitalize()
-    codename: platformCycle i
-    type: platformCycle i
+    codename: "codename-for-#{pushPlatformType}-platform"
+    type: pushPlatformType
     password: faker.internet.password()
     topic: faker.lorem.words().join('.')
     development: faker.random.boolean()
