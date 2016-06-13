@@ -316,11 +316,6 @@
     "brazilian-portuguese": "Português Brasileiro",
     "hindi": "मानक हिन्दी"
   },
-  "push-platforms": {
-    "osx": "OSX",
-    "ios": "iOS",
-    "gcm": "GCM"
-  },
   "errors": {
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",

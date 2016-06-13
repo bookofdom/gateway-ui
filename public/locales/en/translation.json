@@ -320,11 +320,6 @@
     "brazilian-portuguese": "Português Brasileiro",
     "hindi": "मानक हिन्दी"
   },
-  "push-platforms": {
-    "osx": "OSX",
-    "ios": "iOS",
-    "gcm": "GCM"
-  },
   "errors": {
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
@@ -354,6 +349,11 @@
     "import": "__user__ imported one __resource__"
   },
   "types": {
+    "push-platform": {
+      "osx": "OS X",
+      "ios": "iOS",
+      "gcm": "GCM"
+    },
     "json-schema": {
       "object": "object",
       "array": "array",
