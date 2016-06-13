@@ -22,17 +22,17 @@ module 'Acceptance: Store Collection - Update',
 
 test 'user can edit store collections', (assert) ->
   firstCollectionText = null
-  visit '/collections/1/objects'
-  click '.breadcrumb li:not(.separator):eq(2) a'
+  visit '/manage/collections/1/objects'
+  click '.ap-app-secondary:eq(1) .ap-app-secondary-sidebar li:first-child a:eq(0)'
   andThen ->
-    firstCollectionText = find('.ap-app-secondary-sidebar > .ap-list-nav li:first').text().trim()
-    assert.equal currentURL(), '/collections/1/edit'
+    firstCollectionText = find('.ap-app-secondary:eq(1) .ap-app-secondary-sidebar li:first-child').text().trim()
+    assert.equal currentURL(), '/manage/collections/1/edit'
     assert.notEqual firstCollectionText, 'Updated Collection'
     assert.notEqual server.db.storeCollections[0].name, 'Updated Collection'
   fillIn '[name=name]', 'Updated Collection'
   click '[type=submit]'
   andThen ->
-    firstCollectionText = find('.ap-app-secondary-sidebar > .ap-list-nav li:first').text().trim()
-    assert.equal currentURL(), '/collections/1/objects'
+    firstCollectionText = find('.ap-app-secondary:eq(1) .ap-app-secondary-sidebar li:first-child').text().trim()
+    assert.equal currentURL(), '/manage/collections/1/objects'
     assert.equal firstCollectionText, 'Updated Collection'
     assert.equal server.db.storeCollections[0].name, 'Updated Collection'

@@ -24,6 +24,7 @@ defaultScenario = (server) ->
     server.createList 'endpoint_group', 5, apiId: id
     server.createList('remote_endpoint', 20, apiId: id).forEach (remoteEndpoint) ->
       options =
+        apiId: id
         remoteEndpointId: remoteEndpoint.id
         type: remoteEndpoint.type
       server.createList('remote_endpoint_environment_datum', 3, options).forEach (datum) ->
@@ -33,5 +34,16 @@ defaultScenario = (server) ->
     server.createList('proxy_endpoint', 50, apiId: id).forEach (proxyEndpoint) ->
       server.createList 'proxy_endpoint_component', 10,
         proxyEndpointId: proxyEndpoint.id
+      server.createList 'proxy_endpoint_schema', 5,
+        proxyEndpointId: proxyEndpoint.id
+
+  # push
+  channels = server.createList 'push_channel', 5
+  channels.forEach (channel) ->
+    id = channel.id
+    devices = server.createList 'push_device', 5, pushChannelId: id
+    devices.forEach (device) ->
+      id = device.id
+      server.createList 'push_message', 5, pushDeviceId: id
 
 `export default defaultScenario`

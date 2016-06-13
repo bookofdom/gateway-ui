@@ -22,14 +22,14 @@ module 'Acceptance: Store Collection - Create',
 
 test 'user can create new store collections', (assert) ->
   beforeCreateCount = server.db.storeCollections.length
-  visit '/collections/1/objects'
+  visit '/manage/collections/1/objects'
   andThen ->
     assert.equal beforeCreateCount > 0, true
-    assert.equal currentURL(), '/collections/1/objects'
-    assert.equal find('.ap-app-secondary-sidebar > .ap-list-nav li:not([data-t="actions.new"])').length, beforeCreateCount
-  click '.ap-app-secondary-sidebar > .ap-list-nav li[data-t="actions.new"] a'
+    assert.equal currentURL(), '/manage/collections/1/objects'
+    assert.equal find('.ap-app-secondary:eq(1) .ap-app-secondary-sidebar li:not([data-t="actions.new"])').length, beforeCreateCount
+  click '.ap-app-secondary:eq(1) .ap-app-secondary-sidebar li[data-t="actions.new"] a'
   fillIn '[name=name]', 'New Collection'
   click '[type=submit]'
   andThen ->
     assert.equal server.db.storeCollections.length, beforeCreateCount + 1
-    assert.equal find('.ap-app-secondary-sidebar > .ap-list-nav li:not([data-t="actions.new"])').length, beforeCreateCount + 1
+    assert.equal find('.ap-app-secondary:eq(1) .ap-app-secondary-sidebar li:not([data-t="actions.new"])').length, beforeCreateCount + 1

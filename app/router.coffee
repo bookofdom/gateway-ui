@@ -59,10 +59,18 @@ Router.map ->
       @route 'remote-endpoints', resetNamespace: true, ->
         @route 'remote-endpoint', resetNamespace: true, path: ':remote_endpoint_id', ->
           @route 'edit'
+          @route 'remote-endpoint-push-platforms', resetNamespace: true, path: 'push-platforms', ->
+            @route 'new'
+            @route 'remote-endpoint-push-platform', resetNamespace: true, path: ':push_platform_id', ->
+              @route 'edit'
           @route 'remote-endpoint-environment-data', resetNamespace: true, path: 'environment-data', ->
             @route 'new'
             @route 'remote-endpoint-environment-datum', resetNamespace: true, path: ':remote_endpoint_environment_datum_id', ->
               @route 'edit'
+              @route 'remote-endpoint-environment-datum-push-platforms', resetNamespace: true, path: 'push-platforms', ->
+                @route 'new'
+                @route 'remote-endpoint-environment-datum-push-platform', resetNamespace: true, path: ':push_platform_id', ->
+                  @route 'edit'
               @route 'remote-endpoint-environment-datum-scratch-pads', resetNamespace: true, path: 'scratch-pads', ->
                 @route 'new'
                 @route 'remote-endpoint-environment-datum-scratch-pad', resetNamespace: true, path: ':scratch_pad_id', ->
@@ -76,12 +84,21 @@ Router.map ->
       @route 'logs-api', resetNamespace: true, path: 'logs', (->)
       @route 'api-documentation', resetNamespace: true, path: 'api', ->
         @route 'api-documentation-detail', resetNamespace: true, path: ':host_id', (->)
-  @route 'store-collections', resetNamespace: true, path: 'collections', ->
-    @route 'new'
-    @route 'store-collection', resetNamespace: true, path: ':collection_id', ->
-      @route 'edit'
-      @route 'store-objects', resetNamespace: true, path: 'objects', ->
-        @route 'store-object', resetNamespace: true, path: ':object_id', ->
-          @route 'edit'
-
+  @route 'manage', ->
+    @route 'store-collections', resetNamespace: true, path: 'collections', ->
+      @route 'new'
+      @route 'store-collection', resetNamespace: true, path: ':collection_id', ->
+        @route 'edit'
+        @route 'store-objects', resetNamespace: true, path: 'objects', ->
+          @route 'store-object', resetNamespace: true, path: ':object_id', ->
+            @route 'edit'
+    @route 'push-channels', resetNamespace: true, ->
+      @route 'push-channel', resetNamespace: true, path: ':push_channel_id', ->
+        @route 'edit'
+        @route 'push-channel-push-manual-messages', resetNamespace: true, path: 'push-manual-messages', (->)
+        @route 'push-channel-push-devices', resetNamespace: true, path: 'push-devices', ->
+          @route 'push-channel-push-device', resetNamespace: true, path: ':push_device_id', ->
+            @route 'edit'
+            @route 'push-channel-push-device-push-messages', resetNamespace: true, path: 'push-messages', ->
+              @route 'push-channel-push-device-push-message', resetNamespace: true, path: ':push_message_id', ->
 `export default Router`

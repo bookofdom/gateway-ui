@@ -23,29 +23,29 @@ module 'Acceptance: Store Collection - Read',
   afterEach: -> destroyApp @application
 
 test 'store collections index redirects to new store collection when none exist yet', (assert) ->
-  visit '/collections/'
+  visit '/manage/collections/'
   andThen ->
-    assert.equal currentURL(), '/collections/new'
+    assert.equal currentURL(), '/manage/collections/new'
 
 test 'store collections index redirects to first store collection\'s store objects index', (assert) ->
   storeScenario server
-  visit '/collections/'
+  visit '/manage/collections/'
   andThen ->
-    assert.equal currentURL(), '/collections/1/objects'
+    assert.equal currentURL(), '/manage/collections/1/objects'
 
 test 'user can navigate to store collections', (assert) ->
   storeScenario server
   visit '/'
   click '[data-t="nav.manage"] a'
   andThen ->
-    assert.equal currentURL(), '/collections/1/objects'
+    assert.equal currentURL(), '/manage/collections/1/objects'
 
 test 'user can navigate among store collections\' store objects index routes', (assert) ->
   storeScenario server
-  visit '/collections/1/objects'
-  click '.ap-app-secondary-sidebar > .ap-list-nav li:eq(1) a'
+  visit '/manage/collections/1/objects'
+  click '.ap-app-secondary:eq(1) .ap-app-secondary-sidebar li:eq(1) a:eq(1)'
   andThen ->
-    assert.equal currentURL(), '/collections/2/objects'
-  click '.ap-app-secondary-sidebar > .ap-list-nav li:eq(2) a'
+    assert.equal currentURL(), '/manage/collections/2/objects'
+  click '.ap-app-secondary:eq(1) .ap-app-secondary-sidebar li:eq(2) a:eq(1)'
   andThen ->
-    assert.equal currentURL(), '/collections/3/objects'
+    assert.equal currentURL(), '/manage/collections/3/objects'

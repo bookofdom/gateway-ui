@@ -27,6 +27,18 @@
       </div><!-- /.col -->
     </div><!-- /.row -->
   {{/if}}
+  {{#if model.isPush}}
+    {{#ap-panel-edit t='resources.remote-endpoint-push-platform_plural'}}
+      {{ap-table-index
+          models=model.push_platforms
+          fields='platformName:fields.type,name'
+          path='remote-endpoint-push-platform.index'
+          edit-path='remote-endpoint-push-platform.edit'}}
+      {{ap-button-block-new
+        t='resources.remote-endpoint-push-platform'
+        action='new-remote-endpoint-push-platform'}}
+    {{/ap-panel-edit}}
+  {{/if}}
 {{/unless}}
 
 {{#if model.isMongo}}

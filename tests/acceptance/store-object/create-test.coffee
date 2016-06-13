@@ -33,9 +33,9 @@ test 'user can create new store objects on index', (assert) ->
       done()
   server.post '/store_collections/:storeCollectionId/store_objects',
     makePostChildHandler('store_collection', 'store_object', after)
-  visit '/collections/1/objects'
+  visit '/manage/collections/1/objects'
   andThen ->
     assert.equal beforeCreateCount > 0, true
-    assert.equal currentURL(), '/collections/1/objects'
+    assert.equal currentURL(), '/manage/collections/1/objects'
     assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   click '.ap-panel-new [type=submit]'

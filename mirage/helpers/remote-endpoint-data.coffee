@@ -2,7 +2,7 @@
 
 enviromentDatumId = 1
 
-types = 'http soap sqlserver postgres mysql mongodb ldap script store'.split ' '
+types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push'.split ' '
 typeCycle = faker.list.cycle types...
 
 statuses = 'success failed pending processing'.split ' '
@@ -16,6 +16,9 @@ encryptModeCycle = faker.list.random encryptModes...
 
 sslModes = 'disable allow prefer require'.split ' '
 sslModeCycle = faker.list.random sslModes...
+
+platforms = 'osx ios gcm'.split ' '
+platformCycle = faker.list.random platforms...
 
 generateKeyValues = (count) ->
   data = {}
@@ -95,10 +98,31 @@ generateDataForType = (typeSlug, i) ->
         timeout: 1 # seconds
         filepath: '/foo/bar/script.sh'
         script: 'echo "hello world"'
+    when 'hana'
+      transactions: faker.random.boolean()
+      maxOpenConn: faker.random.number()
+      maxIdleConn: faker.random.number()
+      config:
+        host: "server.#{faker.internet.domainName()}"
+        port: faker.random.number()
+        user: faker.internet.userName()
+        password: faker.internet.password()
     when 'store'
       {}
+    when 'push'
+      publish_endpoint: faker.random.boolean()
   data.headers = generateKeyValues 3
   data.query = generateKeyValues 3
+  pushPlatformType = platformCycle i
+  data.push_platforms = [
+    name: faker.commerce.productName().capitalize()
+    codename: "codename-for-#{pushPlatformType}-platform"
+    type: pushPlatformType
+    password: faker.internet.password()
+    topic: faker.lorem.words().join('.')
+    development: faker.random.boolean()
+    api_key: faker.random.uuid()
+  ]
   data
 
-`export { typeCycle, statusCycle, generateKeyValues, generateDataForType }`
+`export { typeCycle, statusCycle, platformCycle, generateKeyValues, generateDataForType }`

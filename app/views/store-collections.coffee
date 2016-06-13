@@ -1,5 +1,5 @@
-`import PrimaryView from './primary'`
+`import SecondaryView from './secondary'`
 
-StoreCollectionsView = PrimaryView.extend()
+StoreCollectionsView = SecondaryView.extend()
 
 `export default StoreCollectionsView`

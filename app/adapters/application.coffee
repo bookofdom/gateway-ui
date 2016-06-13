@@ -20,7 +20,7 @@ ApplicationAdapter = DS.RESTAdapter.extend
     path
   cleanURL: (url) ->
     leadingProtocol = /^(http|ws)s?\:\/{2}/
-    doubleSlashes = /\/{2}/g
+    multiSlashes = /\/{2,}/g
     # if this is a relative path (because no host was specified),
     # then add an initial slash to make the path absolute
     url = "/#{url}" if !url.match leadingProtocol
@@ -28,10 +28,10 @@ ApplicationAdapter = DS.RESTAdapter.extend
     hasProtocol = url.match leadingProtocol
     if hasProtocol
       protocol = hasProtocol[0]
-      remaining = url.replace(protocol, '').replace doubleSlashes, '/'
+      remaining = url.replace(protocol, '').replace multiSlashes, '/'
     else
       protocol = ''
-      remaining = url.replace doubleSlashes, '/'
+      remaining = url.replace multiSlashes, '/'
     url = "#{protocol}#{remaining}"
     url
   generateURL: (snapshot, parent, path) ->

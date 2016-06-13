@@ -60,7 +60,9 @@
       "define-api": "definir terminais de API, serviços de integração remotos e lógica de negócios de fluxo de trabalho",
       "manage-api": "cria as chave e especifica as regras das suas APIs",
       "manage-store": "gerenciar dados em um armazenamento de objetos",
-      "manage": "gerenciar coleções de lojas locais e dados",
+      "manage": "gerenciar dados de loja local e notificações push",
+      "store-collections": "gerenciar coleções de lojas locais e dados",
+      "push-channels": "gerenciar os canais de pressão, dispositivos , mensagens e enviar mensagens de manuais",
       "build-app": "constrói aplicações de multi-canais com a plataforma AnyPresence (login necessário)",
       "proxy-endpoints": "define os endpoints da proxy e a lógica correspondente",
       "environments": "especifica ambiente, variáveis e outros atributos",
@@ -116,6 +118,14 @@
     "proxy-endpoint-test-argument_plural": "argumento",
     "proxy-endpoint-schema": "validação de esquema",
     "proxy-endpoint-schema_plural": "validações de esquema",
+    "push-channel": "canal de impulso",
+    "push-channel_plural": "canais de pressão",
+    "push-channel-push-device": "dispositivo de impulso",
+    "push-channel-push-device_plural": "dispositivos de pressão",
+    "push-channel-push-device-push-message": "mensagem de envio",
+    "push-channel-push-device-push-message_plural": "empurrar mensagens",
+    "push-channel-push-manual-message": "empurrar mensagem Manual",
+    "push-channel-push-manual-message_plural": "empurrar mensagens manuais",
     "environment": "ambiente",
     "environment_plural": "ambientes",
     "environment-variable": "variável do ambiente",
@@ -132,6 +142,8 @@
     "remote-endpoint-query-parameter_plural": "parametros de consulta",
     "remote-endpoint-environment-datum-scratch-pad": "bloco de rascunho",
     "remote-endpoint-environment-datum-scratch-pad_plural": "almofadas de raspadinhas",
+    "remote-endpoint-push-platform": "plataforma de impulso",
+    "remote-endpoint-push-platform_plural": "plataformas de envio",
     "host": "servidor",
     "host_plural": "servidores",
     "library": "biblioteca compartilhada",
@@ -154,6 +166,14 @@
     "store-object_plural": "objetos"
   },
   "fields": {
+    "stamp": "carimbo",
+    "token": "símbolo",
+    "expires": "expira",
+    "api_key": "chave de API",
+    "development": "desenvolvimento",
+    "topic": "tema",
+    "certificate": "certificado",
+    "publish_endpoint": "publicar endpoint",
     "code": "código",
     "error": "erro",
     "request": "pedido",
@@ -239,11 +259,34 @@
     "encoded_private_key": "chave privada codificado",
     "server_name": "nome do servidor",
     "private_key_password": "senha da chave privada",
+    "title": "título",
+    "required": "requeridos",
+    "pattern_name": "nome é expressão regular",
+    "min_properties": "propriedades mínimas",
+    "max_properties": "propriedades máximas",
+    "min_items": "itens mínimos",
+    "max_items": "itens máximos",
+    "unique_items": "itens exclusivos",
+    "multiple_of": "múltiplo de",
+    "minimum": "mínimo",
+    "maximum": "máximo",
+    "exclusive_minimum": "mínimo exclusivo",
+    "exclusive_maximum": "máximo exclusivo",
+    "pattern": "padrão de expressão regular",
+    "min_length": "comprimento mínimo",
+    "max_length": "comprimento máximo",
     "encrypt": "criptografar",
+    "additional_properties": "propriedades adicionais",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
       "enable_swagger": "Ativar Swagger para procurar a documentação da API e publicar `swagger.json`."
+    },
+    "api": {
+      "name": "nome API"
+    },
+    "remote_endpoint": {
+      "name": "nome do terminal remoto"
     }
   },
   "prompts": {
@@ -278,9 +321,11 @@
     "no-user-with-that-email": "não exite usuário com esse email",
     "invalid-password": "senha inválida",
     "login": "não fomos capazes de fazer seu login",
-    "invalid-json": "inválido JSON"
+    "invalid-json": "inválido JSON",
+    "invalid-json-schema": "esquema JSON inválido"
   },
   "successes": {
+    "push-manual-message": "mensagem enviada com sucesso",
     "saved-successfully": "salvo com sucesso",
     "password-reset": "mail de confirmação de redefinição de senha enviada",
     "password-reset-confirmation": "redefinição de senha com sucesso",
@@ -300,6 +345,14 @@
     "import": "__user__ importado um __resource__"
   },
   "types": {
+    "json-schema": {
+      "object": "objeto",
+      "array": "ordem",
+      "null": "nulo",
+      "boolean": "boolean",
+      "integer": "número inteiro",
+      "number": "número"
+    },
     "proxy-endpoint-component": {
       "single": "chamada",
       "multi": "multi-chamada",
@@ -311,6 +364,7 @@
       "server": "servidor"
     },
     "remote-endpoint": {
+      "push": "empurrar",
       "store": "armazenar",
       "script": "escrita",
       "status-types": {

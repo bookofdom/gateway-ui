@@ -29,6 +29,10 @@ RemoteEndpointLike = Model.extend
   # postgres
   # mysql
   database: DS.attr 'string'
+  # sqlserver
+  # postgres
+  # mysql
+  # hana
   transactions: DS.attr 'boolean'
   maxopen: DS.attr 'number'
   maxidle: DS.attr 'number'
@@ -41,6 +45,7 @@ RemoteEndpointLike = Model.extend
   # postgres
   # mysql
   # ldap
+  # hana
   server: DS.attr 'string'
   port: DS.attr 'number'
   # soap
@@ -49,6 +54,7 @@ RemoteEndpointLike = Model.extend
   # mysql
   # mongodb
   # ldap
+  # hana
   username: DS.attr 'string'
   password: DS.attr 'string'
   # ldap
@@ -61,6 +67,8 @@ RemoteEndpointLike = Model.extend
   interpreter: DS.attr 'string'
   filepath: DS.attr 'string'
   script: DS.attr 'string'
+  # push
+  publish_endpoint: DS.attr 'boolean'
 
   # Relationships
   headers: DS.hasMany 'remote-endpoint-header',
@@ -75,6 +83,10 @@ RemoteEndpointLike = Model.extend
     async: false
     stains: true
     embedded: true
+  push_platforms: DS.hasMany 'remote-endpoint-push-platform',
+    async: false
+    stains: true
+    embedded: true
 
   # Computed
   platform: Ember.computed 'type', ->
@@ -86,6 +98,8 @@ RemoteEndpointLike = Model.extend
     @get('platform.slug') == 'http'
   isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
+  isPush: Ember.computed 'platform.slug', ->
+    @get('platform.slug') == 'push'
   statusType: Ember.computed 'status', ->
     status = @get 'status'
     RemoteEndpointLike.statusTypes.findBy 'value', status?.underscore()
@@ -110,9 +124,10 @@ RemoteEndpointLike = Model.extend
     RemoteEndpointLike.sslModes.findBy 'value', mode
   sslModeTypeName: Ember.computed 'sslModeType.name', ->
     @get 'sslModeType.name'
+  push_platform_codenames: Ember.computed.mapBy 'push_platforms', 'codename'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb ldap script store'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type

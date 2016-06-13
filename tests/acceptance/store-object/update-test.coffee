@@ -22,23 +22,23 @@ module 'Acceptance: Store Object - Update',
   afterEach: -> destroyApp @application
 
 test 'user can navigate to store objects edit route', (assert) ->
-  visit '/collections/1/objects'
+  visit '/manage/collections/1/objects'
   click '.ap-table-auto-index tbody tr:eq(0) td:eq(0) a'
   andThen ->
-    assert.equal currentURL(), '/collections/1/objects/1/edit'
+    assert.equal currentURL(), '/manage/collections/1/objects/1/edit'
 
 test 'user can edit store objects', (assert) ->
   done = assert.async()
   after = ->
     wait()
     andThen ->
-      assert.equal currentURL(), '/collections/1/objects/1/edit'
+      assert.equal currentURL(), '/manage/collections/1/objects/1/edit'
       assert.equal server.db.storeObjects[0].id, 1
       assert.equal server.db.storeObjects[0].data.name, 'Test'
       done()
   server.put '/store_collections/:storeCollectionId/store_objects/:id',
     makePutHandler('store_object', after)
-  visit '/collections/1/objects/1/edit'
+  visit '/manage/collections/1/objects/1/edit'
   andThen ->
     findWithAssert('.ap-ace-editor')[0].aceEditor.getSession().setValue '{"name": "Test"}'
     click '[type=submit]'
