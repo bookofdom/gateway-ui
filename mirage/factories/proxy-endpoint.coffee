@@ -3,13 +3,18 @@
 testId = 1
 testPairId = 1
 
+environmentsPerApi = 3
+endpointGroupsPerApi = 5
+
 ProxyEndpointFactory = Factory.extend
   name: -> "#{faker.lorem.words()[0].capitalize()}"
   description: -> faker.lorem.sentence()
   active: -> faker.random.boolean()
   cors_enabled: -> faker.random.boolean()
-  environment_id: -> (faker.random.number() % 3) + 1
-  endpoint_group_id: -> (faker.random.number() % 5) + 1
+  environment_id: ->
+    ((+@apiId - 1) * environmentsPerApi) + (faker.random.number() % 3) + 1
+  endpoint_group_id: ->
+    ((+@apiId - 1) * endpointGroupsPerApi) + (faker.random.number() % 5) + 1
   components: null
   routes: ->
     [
