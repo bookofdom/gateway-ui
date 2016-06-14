@@ -1,12 +1,12 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 
-moduleForModel 'push-message', 'Unit | Model | push channel push device push message', {
+moduleForModel 'push-device', 'Unit | Model | push device', {
   # Specify the other units that are required for this test.
   needs: [
     'model:api'
     'model:remote-endpoint'
     'model:push-channel'
-    'model:push-channel-push-device'
+    'model:push-message'
   ]
 }
 

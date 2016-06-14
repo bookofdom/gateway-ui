@@ -4,7 +4,7 @@
 `import destroyApp from 'gateway/tests/helpers/destroy-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
 
-module 'Acceptance: Push Channel Push Device- Delete',
+module 'Acceptance: Push Device- Delete',
   beforeEach: ->
     @application = startApp()
     server.createList('api', 5).forEach (api) ->
@@ -22,7 +22,7 @@ module 'Acceptance: Push Channel Push Device- Delete',
 
   afterEach: -> destroyApp @application
 
-test 'user can delete push channel push devices from index route', (assert) ->
+test 'user can delete push devices from index route', (assert) ->
   visit '/manage/push-channels/1/push-devices'
   andThen ->
     assert.equal currentURL(), '/manage/push-channels/1/push-devices'
@@ -34,7 +34,7 @@ test 'user can delete push channel push devices from index route', (assert) ->
     assert.equal server.db.pushDevices.length, 4
     assert.equal find('.ap-table-model tbody tr').length, 4
 
-test 'user can delete push channel push devices from edit route', (assert) ->
+test 'user can delete push devices from edit route', (assert) ->
   visit '/manage/push-channels/1/push-devices/1/edit'
   andThen ->
     assert.equal currentURL(), '/manage/push-channels/1/push-devices/1/edit'

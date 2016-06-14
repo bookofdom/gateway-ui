@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
 `import ApplicationSerializer from 'gateway/serializers/application'`
 
-PushChannelPushDeviceSerializer = ApplicationSerializer.extend
+PushDeviceSerializer = ApplicationSerializer.extend
   attrs:
     push_channel:
       serialize: false
@@ -9,7 +9,7 @@ PushChannelPushDeviceSerializer = ApplicationSerializer.extend
       serialize: false
 
   modelNameFromPayloadKey: (payloadKey) ->
-    'push-channel-push-device'
+    'push-device'
   payloadKeyFromModelName: (modelName) ->
     'push_device'
   normalize: (type, hash, property) ->
@@ -24,4 +24,4 @@ PushChannelPushDeviceSerializer = ApplicationSerializer.extend
     serialized.expires = Math.floor(expires.getTime() / 1000)
     serialized
 
-`export default PushChannelPushDeviceSerializer`
+`export default PushDeviceSerializer`

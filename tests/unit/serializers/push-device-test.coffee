@@ -1,7 +1,7 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 `import Pretender from 'pretender'`
 
-moduleForModel 'push-message', 'Unit | Serializer | push channel push device push message',
+moduleForModel 'push-device', 'Unit | Serializer | push device',
   needs: [
     'serializer:application'
     'serializer:api'
@@ -9,8 +9,7 @@ moduleForModel 'push-message', 'Unit | Serializer | push channel push device pus
     'serializer:remote-endpoint'
     'serializer:remote-endpoint-environment-datum'
     'serializer:push-channel'
-    'serializer:push-channel-push-device'
-    'serializer:push-message'
+    'serializer:push-device'
     'model:api'
     'model:endpoint-group'
     'model:environment'
@@ -27,7 +26,7 @@ moduleForModel 'push-message', 'Unit | Serializer | push channel push device pus
     'model:remote-endpoint-query-parameter'
     'model:shared-component'
     'model:push-channel'
-    'model:push-channel-push-device'
+    'model:push-device'
     'model:push-message'
   ]
   beforeEach: ->
@@ -136,26 +135,6 @@ moduleForModel 'push-message', 'Unit | Serializer | push channel push device pus
           expires: 1492805093
         ]
       ]
-      @get '/push_channels/1/push_devices/1/push_messages', -> [
-        200
-        {'Content-Type': 'application/json'}
-        JSON.stringify push_messages: [
-          id: 33
-          push_device_id: 1
-          stamp: 1463415460
-          data:
-            Error: 'Post https://api.push.apple.com/3/device/B9CE9E973D135E429338D733A4142E1E8DCCA829475565025214823AB12CCD3C: dial tcp: lookup api.push.apple.com on 127.0.1.1:53: read udp 127.0.0.1:55641-\u003e127.0.1.1:53: i/o timeout'
-        ,
-          id: 35
-          push_device_id: 1
-          stamp: 1463415592
-          data:
-            aps:
-              alert:
-                body: 'A test Message'
-              'url-args': []
-        ]
-      ]
 
     afterEach: ->
       @server.shutdown()
@@ -164,6 +143,4 @@ test 'it normalizes records', (assert) ->
   @store().findAll('push-channel').then (push_channels) ->
     push_channel = push_channels.get('firstObject')
     push_channel.get('push_devices').then (push_devices) ->
-      push_device = push_devices.get('firstObject')
-      push_device.get('push_messages').then (push_messages) ->
-        assert.equal push_messages.get('length'), 2
+      assert.equal push_devices.get('length'), 2
