@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 `import t from 'gateway/helpers/i18n'`
 
-PushChannelPushManualMessagesRoute = Ember.Route.extend
+PushManualMessagesRoute = Ember.Route.extend
   notify: Ember.inject.service()
   actions:
     saved: ->
@@ -9,4 +9,4 @@ PushChannelPushManualMessagesRoute = Ember.Route.extend
       @transitionTo 'push-channels'
       @get('notify').info successMessage
 
-`export default PushChannelPushManualMessagesRoute`
+`export default PushManualMessagesRoute`

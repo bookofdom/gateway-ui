@@ -1,7 +1,7 @@
 `import BaseFormComponent from 'gateway/components/forms/base-form'`
 
-PushChannelPushManualMessageFormComponent = BaseFormComponent.extend
-  modelType: 'push-channel-push-manual-message'
+PushManualMessageFormComponent = BaseFormComponent.extend
+  modelType: 'push-manual-message'
   'push-channel': null
 
   'option-groups': Ember.computed 'push-channel.api.environments.[]', ->
@@ -32,4 +32,4 @@ PushChannelPushManualMessageFormComponent = BaseFormComponent.extend
         @sendAction 'savedAction'
     false
 
-`export default PushChannelPushManualMessageFormComponent`
+`export default PushManualMessageFormComponent`

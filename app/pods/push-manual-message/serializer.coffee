@@ -1,12 +1,12 @@
 `import ApplicationSerializer from 'gateway/serializers/application'`
 
-PushChannelPushManualMessageSerializer = ApplicationSerializer.extend
+PushManualMessageSerializer = ApplicationSerializer.extend
   attrs:
     push_channel:
       serialize: false
 
   modelNameFromPayloadKey: (payloadKey) ->
-    'push-channel-push-manual-message'
+    'push-manual-message'
   payloadKeyFromModelName: (modelName) ->
     'push_manual_message'
   serialize: (snapshot) ->
@@ -21,4 +21,4 @@ PushChannelPushManualMessageSerializer = ApplicationSerializer.extend
     delete serialized['body']
     serialized
 
-`export default PushChannelPushManualMessageSerializer`
+`export default PushManualMessageSerializer`

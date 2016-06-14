@@ -95,7 +95,7 @@ Router.map ->
     @route 'push-channels', resetNamespace: true, ->
       @route 'push-channel', resetNamespace: true, path: ':push_channel_id', ->
         @route 'edit'
-        @route 'push-channel-push-manual-messages', resetNamespace: true, path: 'push-manual-messages', (->)
+        @route 'push-manual-messages', resetNamespace: true, path: 'push-manual-messages', (->)
         @route 'push-devices', resetNamespace: true, path: 'push-devices', ->
           @route 'push-device', resetNamespace: true, path: ':push_device_id', ->
             @route 'edit'
