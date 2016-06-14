@@ -9,6 +9,6 @@ PushChannelPushDevice = Model.extend
 
   # Relationships
   push_channel: DS.belongsTo 'push-channel', async: true
-  push_messages: DS.hasMany 'push-channel-push-device-push-message', async: true
+  push_messages: DS.hasMany 'push-message', async: true
 
 `export default PushChannelPushDevice`

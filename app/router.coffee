@@ -99,6 +99,6 @@ Router.map ->
         @route 'push-channel-push-devices', resetNamespace: true, path: 'push-devices', ->
           @route 'push-channel-push-device', resetNamespace: true, path: ':push_device_id', ->
             @route 'edit'
-            @route 'push-channel-push-device-push-messages', resetNamespace: true, path: 'push-messages', ->
-              @route 'push-channel-push-device-push-message', resetNamespace: true, path: ':push_message_id', ->
+            @route 'push-messages', resetNamespace: true, path: 'push-messages', ->
+              @route 'push-message', resetNamespace: true, path: ':push_message_id', ->
 `export default Router`

@@ -1,13 +1,13 @@
 `import DS from 'ember-data'`
 `import ApplicationSerializer from 'gateway/serializers/application'`
 
-PushChannelPushDevicePushMessageSerializer = ApplicationSerializer.extend
+PushMessageSerializer = ApplicationSerializer.extend
   attrs:
     push_device:
       serialize: false
 
   modelNameFromPayloadKey: (payloadKey) ->
-    'push-channel-push-device-push-message'
+    'push-message'
   payloadKeyFromModelName: (modelName) ->
     'push_message'
   normalize: (type, hash, property) ->
@@ -29,4 +29,4 @@ PushChannelPushDevicePushMessageSerializer = ApplicationSerializer.extend
     delete serialized['body']
     serialized
 
-`export default PushChannelPushDevicePushMessageSerializer`
+`export default PushMessageSerializer`
