@@ -6,6 +6,6 @@ PushChannelsIndexController = Ember.Controller.extend
 
   actions:
     'push-manual-message': (push_channel) ->
-      @transitionToRoute 'push-channel-push-manual-messages', push_channel
+      @transitionToRoute 'push-manual-messages', push_channel
 
 `export default PushChannelsIndexController`
