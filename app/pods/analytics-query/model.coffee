@@ -45,7 +45,10 @@ AnalyticsQuery = Model.extend
     chartJsTransform: (data) ->
 
       series =
-        'all': []
+        'all': [
+          label: 'All'
+          data: []
+        ]
         'api.id': {}
         'proxy.id': {}
 
@@ -63,7 +66,7 @@ AnalyticsQuery = Model.extend
             x: new Date(datum.timestamp)
             y: datum.value
 
-        series.all.push
+        series.all[0].data.push
           x: new Date(datum.timestamp)
           y: datum.value
 
@@ -88,10 +91,7 @@ AnalyticsQuery = Model.extend
       max: max
       range: max - min
       series: series
-      datasets: [
-        label: 'All'
-        data: series.all
-      ]
+      datasets: series.all
 
   chartData: Ember.computed.parallel.spawn 'rawData', ((rawData) ->
     chartJsTransform resample normalize rawData
