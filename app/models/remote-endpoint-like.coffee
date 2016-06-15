@@ -124,6 +124,7 @@ RemoteEndpointLike = Model.extend
     RemoteEndpointLike.sslModes.findBy 'value', mode
   sslModeTypeName: Ember.computed 'sslModeType.name', ->
     @get 'sslModeType.name'
+  push_platform_codenames: Ember.computed.mapBy 'push_platforms', 'codename'
 
 # Declare available types and their human-readable names
 types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push'.split(' ').map (type) ->
