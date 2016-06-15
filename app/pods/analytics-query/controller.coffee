@@ -67,6 +67,7 @@ AnalyticsQueryController = Ember.Controller.extend
         time:
           displayFormats:
             quarter: labelFormat
+          tooltipFormat: labelFormat
         ticks:
           fontSize: 14
         scaleLabel:
