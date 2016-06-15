@@ -118,14 +118,14 @@
     "proxy-endpoint-test-argument_plural": "arguments",
     "proxy-endpoint-schema": "schema validation",
     "proxy-endpoint-schema_plural": "schema validations",
-    "push-channel": "push channel",
-    "push-channel_plural": "push channels",
-    "push-channel-push-device": "push device",
-    "push-channel-push-device_plural": "push devices",
-    "push-channel-push-device-push-message": "push message",
-    "push-channel-push-device-push-message_plural": "push messages",
-    "push-channel-push-manual-message": "push manual message",
-    "push-channel-push-manual-message_plural": "push manual messages",
+    "push-channel": "push",
+    "push-channel_plural": "push",
+    "push-device": "push device",
+    "push-device_plural": "push devices",
+    "push-message": "push message",
+    "push-message_plural": "push messages",
+    "push-manual-message": "push manual message",
+    "push-manual-message_plural": "push manual messages",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
@@ -322,11 +322,6 @@
     "brazilian-portuguese": "Português Brasileiro",
     "hindi": "मानक हिन्दी"
   },
-  "push-platforms": {
-    "osx": "OSX",
-    "ios": "iOS",
-    "gcm": "GCM"
-  },
   "errors": {
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
@@ -356,6 +351,11 @@
     "import": "__user__ imported one __resource__"
   },
   "types": {
+    "push-platform": {
+      "osx": "OS X",
+      "ios": "iOS",
+      "gcm": "GCM"
+    },
     "json-schema": {
       "object": "object",
       "array": "array",
