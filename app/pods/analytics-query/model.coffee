@@ -34,7 +34,6 @@ AnalyticsQuery = Model.extend
     # Takes a string and parses it into JSON.
     # Returns an array of data points with timestamp and value attributes.
     normalize: (rawData) ->
-      # console.log 'rawData', JSON.parse(rawData)?[rootKey][0]['values']
       JSON.parse(rawData)?[rootKey]?.map (datum) ->
         timestamp: datum.timestamp
         value: datum.values['response.time']
@@ -54,31 +53,44 @@ AnalyticsQuery = Model.extend
         if datum['api.id']?
           apiID = datum['api.id']
           if !series['api.id'][apiID]? then series['api.id'][apiID] = []
-          series['api.id'][apiID].push datum.value
+          series['api.id'][apiID].push
+            x: new Date(datum.timestamp)
+            y: datum.value
         if datum['proxy.id']?
           proxyID = datum['proxy.id']
           if !series['proxy.id'][proxyID]? then series['proxy.id'][proxyID] = []
-          series['proxy.id'][proxyID].push datum.value
-        series.all.push datum
+          series['proxy.id'][proxyID].push
+            x: new Date(datum.timestamp)
+            y: datum.value
 
-      # Transform Series
+        series.all.push
+          x: new Date(datum.timestamp)
+          y: datum.value
 
+      apis = []
+      for key, value of series['api.id']
+        apis.push
+          label: "API #{key}"
+          data: value
+      series['api.id'] = apis
+
+      proxys = []
+      for key, value of series['proxy.id']
+        proxys.push
+          label: "Proxy Endpoint #{key}"
+          data: value
+      series['proxy.id'] = proxys
 
       labelValues = data.map (datum) -> new Date(datum.timestamp)
       min = new Date(Math.min.apply(null, labelValues))
       max = new Date(Math.max.apply(null, labelValues))
-      labels: data.map (datum) -> datum.timestamp
       min: min
       max: max
       range: max - min
       series: series
-      test: [
-        label: 'Data 2'
-        data: [65, 59, 80, 81, 56, 55, 40]
-      ]
       datasets: [
-        label: 'Dataset'
-        data: data.map (datum) -> datum.value
+        label: 'All'
+        data: series.all
       ]
 
   chartData: Ember.computed.parallel.spawn 'rawData', ((rawData) ->
