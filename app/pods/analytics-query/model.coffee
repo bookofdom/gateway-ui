@@ -36,7 +36,7 @@ AnalyticsQuery = Model.extend
     adapter.executeQuery(snapshot).then (response) =>
       parallel = new Parallel response,
         maxWorkers: 4
-    		evalPath: config.evalJsUrl
+        evalPath: config.evalJsUrl
       dependencies = @get 'parallelDependencies'
       parallel.require({name: name, fn: dep}) for name, dep of dependencies
       parallel
@@ -117,6 +117,13 @@ AnalyticsQuery = Model.extend
       series: series
       datasets: series.all
 
+<<<<<<< HEAD
+=======
+  #chartData: Ember.computed.parallel.spawn 'rawData', ((rawData) ->
+  #  chartJsTransform resample normalize rawData
+  #), null
+
+>>>>>>> chore-remove-ember-parallel
 # Declare available types and their human-readable names
 types = 'response-time placeholder-1 placeholder-2'.split(' ').map (type) ->
   name: t "types.analytics-query.#{type}"
