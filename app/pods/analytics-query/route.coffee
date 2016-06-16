@@ -16,10 +16,13 @@ AnalyticsQueryRoute = Ember.Route.extend
     endChange: (date) ->
       @modelFor('analytics-query').set 'end', date
       @executeQuery()
+    selectGroupBy: (value) ->
+      @modelFor('analytics-query').set 'group_by', value
     clear: ->
       @modelFor('analytics-query').setProperties
         start: null
         end: null
+        group_by: null
       @executeQuery()
 
 `export default AnalyticsQueryRoute`

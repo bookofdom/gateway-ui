@@ -6,30 +6,6 @@
 AnalyticsQueryController = Ember.Controller.extend
   breadCrumb: Ember.computed.alias 'model.name'
 
-  # TODO:  group_by should be a field on the model
-  groupBy: 'all'
-  # TODO:  available group by should be declared on the model and be separated
-  # by query type.  Different queries may have different group bys.
-  availableGroupBy: Ember.String.w('all api proxy')
-
-  actions:
-    # TODO:  too much going on in this action
-    # Data updating should occur passively as a result of computed properties,
-    # not directly in an action.
-    # TODO:  Computing the current series should occur in the model and then pass through
-    # a singular method in the controller (`labeledChartData`).  There is no need
-    # for multiple different calls to decorate.
-    selectGroupBy: (groupBy) ->
-      labeledChartData = @get('labeledChartData')
-      if groupBy is 'api'
-        labeledChartData.datasets = labeledChartData.series['api.id']
-      else if groupBy is 'proxy'
-        labeledChartData.datasets = labeledChartData.series['proxy.id']
-      else
-        labeledChartData.datasets = labeledChartData.series.all
-      labeledChartData = @decorateChartData(labeledChartData)
-      @set 'labeledChartData', labeledChartData
-
   decorateChartData: (chartData) ->
     chartData?.datasets.map (dataset) ->
       # TODO:  color generation should be delegated to a separate method,

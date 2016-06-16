@@ -39,7 +39,8 @@
     "reset": "reset",
     "reset-password": "reset password",
     "sign-up": "sign up",
-    "navigate": "navigate"
+    "navigate": "navigate",
+    "group-by": "group by"
   },
   "nav": {
     "home": "home",
@@ -351,6 +352,7 @@
     "import": "__user__ imported one __resource__"
   },
   "types": {
+    "all": "all",
     "push-platform": {
       "osx": "OS X",
       "ios": "iOS",

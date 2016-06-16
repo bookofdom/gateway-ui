@@ -39,7 +39,8 @@
     "reset": "रीसेट",
     "reset-password": "पासवर्ड रीसेट",
     "sign-up": "साइन अप करें",
-    "navigate": "नेविगेट"
+    "navigate": "नेविगेट",
+    "group-by": "समूह द्वारा"
   },
   "nav": {
     "home": "home",
@@ -347,6 +348,7 @@
     "import": "__user__ आयातित एक __resource__"
   },
   "types": {
+    "all": "सब",
     "json-schema": {
       "object": "वस्तु",
       "array": "सरणी",

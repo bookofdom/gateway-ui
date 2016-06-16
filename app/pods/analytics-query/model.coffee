@@ -24,6 +24,9 @@ AnalyticsQuery = Model.extend
       start: @get 'start'
       end: @get 'end'
     Ember.merge query, @get('default_query')
+  availableGroupByKinds: Ember.computed 'available_group_by', ->
+    @get('available_group_by').map (value) ->
+      AnalyticsQuery.groupBys.findBy 'value', value
 
   # Computed Query Results
   executeQuery: ->

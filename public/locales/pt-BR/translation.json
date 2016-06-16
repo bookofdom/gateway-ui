@@ -39,7 +39,8 @@
     "reset": "restabelecer",
     "reset-password": "trocar a senha",
     "sign-up": "inscrever-se",
-    "navigate": "navegar"
+    "navigate": "navegar",
+    "group-by": "agrupar por"
   },
   "nav": {
     "home": "início",
@@ -347,6 +348,7 @@
     "import": "__user__ importado um __resource__"
   },
   "types": {
+    "all": "todos",
     "json-schema": {
       "object": "objeto",
       "array": "ordem",
