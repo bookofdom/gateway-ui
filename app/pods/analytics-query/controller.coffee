@@ -6,11 +6,19 @@
 AnalyticsQueryController = Ember.Controller.extend
   breadCrumb: Ember.computed.alias 'model.name'
 
+  # TODO:  group_by should be a field on the model
   groupBy: 'all'
-
+  # TODO:  available group by should be declared on the model and be separated
+  # by query type.  Different queries may have different group bys.
   availableGroupBy: Ember.String.w('all api proxy')
 
   actions:
+    # TODO:  too much going on in this action
+    # Data updating should occur passively as a result of computed properties,
+    # not directly in an action.
+    # TODO:  Computing the current series should occur in the model and then pass through
+    # a singular method in the controller (`labeledChartData`).  There is no need
+    # for multiple different calls to decorate.
     selectGroupBy: (groupBy) ->
       labeledChartData = @get('labeledChartData')
       if groupBy is 'api'
@@ -24,6 +32,12 @@ AnalyticsQueryController = Ember.Controller.extend
 
   decorateChartData: (chartData) ->
     chartData?.datasets.map (dataset) ->
+      # TODO:  color generation should be delegated to a separate method,
+      # perhaps a helper.  And they should be based on a colorblind-safe
+      # scale like:
+      # https://github.com/politiken-journalism/scale-color-perceptual
+      # where colors are taken from equally-spaced increments based on the
+      # number of series
       hue = Math.floor(Math.random() * 360)
       foregroundColor = 'hsl(' + hue + ", 100%, 87.5%)";
       backgroundColor = 'hsla(' + hue + ", 100%, 87.5%, .5)";

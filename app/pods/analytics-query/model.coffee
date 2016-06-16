@@ -42,8 +42,15 @@ AnalyticsQuery = Model.extend
     # Naively resample by dropping items.
     resample: (data) ->
       (data[i] for i in [0...data.length] by Math.round(data.length / maxSamples))
-    chartJsTransform: (data) ->
 
+    # TODO:  almost always prefer map/reduce to `push` for generating arrays
+    # TODO:  the series are now hardcoded to api and proxy, but that won't work.
+    # Each query type may have different group by's.  Ideally only the selected
+    # group by series is computed anyway.  We don't know how many group by's may
+    # be avaialble, and thus cannot predict the cost of precomputing all of them.
+    # TODO:  don't precompute all series sets ahead of time.  Compute only for
+    # the currently selected group by.
+    chartJsTransform: (data) ->
       series =
         'all': [
           label: 'All'
