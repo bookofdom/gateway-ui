@@ -1,6 +1,5 @@
 <nav class="navbar navbar-default">
   <form class="navbar-form navbar-left" role="search">
-
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon">
@@ -19,31 +18,33 @@
       </div><!-- /.input-group -->
     </div><!-- /.form-group -->
 
-    <span class="text-muted pull-left">{{t 'actions.group-by'}}:</span>
-    <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
-    <div class="dropdown pull-left">
-      <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-        {{#if model.groupByName}}{{model.groupByName}}{{/if}}
-        {{#unless model.groupByName}}{{t 'types.all'}}{{/unless}}
-        <span class="caret"></span>
-      </a><!-- /.dropdown-toggle -->
-      <ul class="dropdown-menu">
-        <li>
-          <a href {{action 'selectGroupBy'}}>{{t 'types.all'}}</a>
-        </li>
-        {{#each model.availableGroupByKinds as |groupBy|}}
+    <div class="form-group">
+      <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
+      <span class="text-muted pull-left">{{t 'actions.group-by'}}:</span>
+      <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
+      <div class="dropdown pull-left">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+          {{#if model.groupByName}}{{model.groupByName}}{{/if}}
+          {{#unless model.groupByName}}{{t 'types.all'}}{{/unless}}
+          <span class="caret"></span>
+        </a><!-- /.dropdown-toggle -->
+        <ul class="dropdown-menu">
           <li>
-            <a href {{action 'selectGroupBy' groupBy.value}}>{{groupBy.name}}</a>
+            <a href {{action 'selectGroupBy'}}>{{t 'types.all'}}</a>
           </li>
-        {{/each}}
-      </ul><!-- /.dropdown-menu -->
-    </div><!-- /.dropdown -->
+          {{#each model.availableGroupByKinds as |groupBy|}}
+            <li>
+              <a href {{action 'selectGroupBy' groupBy.value}}>{{groupBy.name}}</a>
+            </li>
+          {{/each}}
+        </ul><!-- /.dropdown-menu -->
+      </div><!-- /.dropdown -->
+    </div>
 
     <div class="form-group">
       {{#if (or model.start model.end model.group_by)}}
-        <a href class="pull-left" {{action 'clear'}}>{{t 'actions.clear'}}</a>
+        <a href {{action 'clear'}}>{{t 'actions.clear'}}</a>
       {{/if}}
     </div><!-- /.form-group -->
-
   </form><!-- /.navbar-form -->
 </nav><!-- /.navbar -->
