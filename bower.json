@@ -20,7 +20,7 @@
     "Faker": "~3.0.0",
     "jquery-ui": "^1.11.4",
     "jjv": "^1.0.2",
-    "parallel.js": "paralleljs#*",
-    "Chart.js": "2.1.1"
+    "Chart.js": "2.1.1",
+    "paralleljs": "ee3661780edb8e9ab34136315c0b4a030328865f"
   }
 }
