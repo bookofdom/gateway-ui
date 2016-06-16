@@ -1,6 +1,7 @@
 `import DS from 'ember-data'`
 `import Model from 'gateway/models/model'`
 `import t from 'gateway/helpers/i18n'`
+`import config from 'gateway/config/environment'`
 
 AnalyticsQuery = Model.extend
   type: DS.attr 'string', defaultValue: 'response-time'
@@ -33,8 +34,15 @@ AnalyticsQuery = Model.extend
     adapter = @container.lookup 'adapter:analytics-query'
     snapshot = @_createSnapshot()
     adapter.executeQuery(snapshot).then (response) =>
-      @set 'rawData', response
-  rawData: ''
+      parallel = new Parallel response,
+        maxWorkers: 4
+        evalPath: config.evalJsUrl
+      dependencies = @get 'parallelDependencies'
+      parallel.require({name: name, fn: dep}) for name, dep of dependencies
+      parallel
+        .spawn (rawData) -> chartJsTransform resample normalize rawData
+        .then (result) => @set 'chartData', result
+  chartData: ''
   parallelDependencies:
     # rootKey is a string inside a string since parallel passes the literal
     # contents of a string rather than a proper quoted string.
@@ -109,9 +117,9 @@ AnalyticsQuery = Model.extend
       series: series
       datasets: series.all
 
-  chartData: Ember.computed.parallel.spawn 'rawData', ((rawData) ->
-    chartJsTransform resample normalize rawData
-  ), null
+  #chartData: Ember.computed.parallel.spawn 'rawData', ((rawData) ->
+  #  chartJsTransform resample normalize rawData
+  #), null
 
 # Declare available types and their human-readable names
 types = 'response-time placeholder-1 placeholder-2'.split(' ').map (type) ->
