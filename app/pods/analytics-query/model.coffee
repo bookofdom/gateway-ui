@@ -5,14 +5,20 @@
 AnalyticsQuery = Model.extend
   type: DS.attr 'string', defaultValue: 'response-time'
   default_query: DS.attr()
+  available_group_by: DS.attr()
   start: DS.attr 'string'
   end: DS.attr 'string'
+  group_by: DS.attr 'string'
 
   # Computed
   typeKind: Ember.computed 'type', ->
     type = @get 'type'
     AnalyticsQuery.types.findBy 'value', type
   name: Ember.computed.alias 'typeKind.name'
+  groupByKind: Ember.computed 'group_by', ->
+    groupBy = @get 'group_by'
+    AnalyticsQuery.groupBys.findBy 'value', groupBy
+  groupByName: Ember.computed.alias 'groupByKind.name'
   queryParams: Ember.computed 'default_query', 'start', 'end', ->
     query =
       start: @get 'start'
@@ -110,22 +116,41 @@ types = 'response-time placeholder-1 placeholder-2'.split(' ').map (type) ->
   slug: type
   value: type
 
+groupBys = 'api remote-endpoint proxy-endpoint'.split(' ').map (type) ->
+  name: t "resources.#{type}"
+  slug: type
+  value: "#{type.replace('-endpoint', '')}.id"
+
 AnalyticsQuery.reopenClass
   types: types
+  groupBys: groupBys
   # High-level analytics queries exist only client-side.
   # They are hardcoded here.
   FIXTURES: [
     id: 'response-time'
     default_query:
       variable: 'response.time'
+    available_group_by: [
+      'api.id'
+      'proxy.id'
+    ]
   ,
     id: 'placeholder-1'
     default_query:
       variable: 'placeholder.variable.1'
+    available_group_by: [
+      'remote.id'
+      'proxy.id'
+    ]
   ,
     id: 'placeholder-2'
     default_query:
       variable: 'placeholder.variable.2'
+    available_group_by: [
+      'api.id'
+      'remote.id'
+      'proxy.id'
+    ]
   ]
 
 `export default AnalyticsQuery`
