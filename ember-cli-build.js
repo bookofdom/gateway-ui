@@ -115,7 +115,7 @@ module.exports = function(defaults) {
   });
 
   // IE needs crutches for web workers.
-  var evalWebWorkerAsset = new Funnel('bower_components/paralleljs/lib', {
+  var evalWebWorkerAsset = new Funnel('bower_components/parallel.js/lib', {
     srcDir: '/',
     include: ['eval.js'],
     destDir: '/'
