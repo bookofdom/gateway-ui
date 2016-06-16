@@ -83,7 +83,7 @@ module.exports = function(defaults) {
   // jjv
   app.import('bower_components/jjv/lib/jjv.js');
   // parallel.js
-  app.import('bower_components/parallel.js/lib/parallel.js');
+  app.import('bower_components/paralleljs/lib/parallel.js');
 
   // Gateway Icons
   var gatewayIcons = new Funnel('bower_components/gateway-icons/dist/fonts', {
@@ -115,7 +115,7 @@ module.exports = function(defaults) {
   });
 
   // IE needs crutches for web workers.
-  var evalWebWorkerAsset = new Funnel('bower_components/parallel.js/lib', {
+  var evalWebWorkerAsset = new Funnel('bower_components/paralleljs/lib', {
     srcDir: '/',
     include: ['eval.js'],
     destDir: '/'
