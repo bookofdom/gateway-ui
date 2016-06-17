@@ -81,14 +81,14 @@ AnalyticsQuery = Model.extend
     chartJsTransform: (data) ->
       if data.groupBy
         series = for name, values of data.groups
-          label: name
-          data: values.map (value) ->
+          key: name
+          values: values.map (value) ->
             x: new Date(value.timestamp)
             y: value.value
       else
         series = [
-          label: 'All'
-          data: data.data.map (value) ->
+          key: 'All'
+          values: data.data.map (value) ->
             x: new Date(value.timestamp)
             y: value.value
         ]

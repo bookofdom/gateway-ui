@@ -6,36 +6,6 @@
 AnalyticsQueryController = Ember.Controller.extend
   breadCrumb: Ember.computed.alias 'model.name'
 
-  decorateChartData: (chartData) ->
-    chartData?.datasets.map (dataset) ->
-      # TODO:  color generation should be delegated to a separate method,
-      # perhaps a helper.  And they should be based on a colorblind-safe
-      # scale like:
-      # https://github.com/politiken-journalism/scale-color-perceptual
-      # where colors are taken from equally-spaced increments based on the
-      # number of series
-      hue = Math.floor(Math.random() * 360)
-      foregroundColor = 'hsl(' + hue + ", 100%, 87.5%)";
-      backgroundColor = 'hsla(' + hue + ", 100%, 87.5%, .5)";
-      Ember.merge dataset,
-        lineTension: 0.3
-        backgroundColor: backgroundColor
-        borderColor: foregroundColor
-        borderCapStyle: 'butt'
-        borderDash: []
-        borderDashOffset: 0.0
-        borderJoinStyle: 'miter'
-        pointBorderColor: foregroundColor
-        pointBackgroundColor: '#fff'
-        pointBorderWidth: 1
-        pointHoverRadius: 5
-        pointHoverBackgroundColor: foregroundColor
-        pointHoverBorderColor: 'rgba(220,220,220,1)'
-        pointHoverBorderWidth: 2
-        pointRadius: 1
-        pointHitRadius: 10
-    chartData
-
   chartOptions: Ember.computed 'model.chartData', ->
     chartData = @get 'model.chartData'
     range = chartData.range
@@ -48,33 +18,8 @@ AnalyticsQueryController = Ember.Controller.extend
       when timeHelper.months(2) <= range < timeHelper.years(2) then labelFormat = 'll' # months
       else labelFormat = 'lll' # years
 
-    # TODO: This only formats the label properly if using moment directly and not a helper
-    xAxisLabel = "#{moment(chartData.min).format('lll')} - #{moment(chartData.max).format('lll')}"
-
-    scales:
-      xAxes: [
-        type: 'time'
-        time:
-          displayFormats:
-            quarter: labelFormat
-          tooltipFormat: labelFormat
-        ticks:
-          fontSize: 14
-        scaleLabel:
-          display: true
-          fontSize: 14
-          labelString: xAxisLabel
-      ]
-      yAxes: [
-        ticks:
-          fontSize: 14
-      ]
-
   labeledChartData: Ember.computed 'model.chartData', ->
     chartData = @get 'model.chartData'
-    # adds presentational attributes
-    if chartData?
-      chartData = @decorateChartData(chartData)
-    chartData
+    chartData?.datasets
 
 `export default AnalyticsQueryController`
