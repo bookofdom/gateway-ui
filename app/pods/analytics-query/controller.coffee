@@ -18,8 +18,4 @@ AnalyticsQueryController = Ember.Controller.extend
       when timeHelper.months(2) <= range < timeHelper.years(2) then labelFormat = 'll' # months
       else labelFormat = 'lll' # years
 
-  labeledChartData: Ember.computed 'model.chartData', ->
-    chartData = @get 'model.chartData'
-    chartData?.datasets
-
 `export default AnalyticsQueryController`

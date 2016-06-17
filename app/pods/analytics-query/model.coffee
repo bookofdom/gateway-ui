@@ -36,7 +36,7 @@ AnalyticsQuery = Model.extend
     adapter.executeQuery(snapshot).then (response) =>
       @set 'rawData', response
   rawData: null
-  chartData: null
+  series: []
   dataObserver: Ember.observer 'rawData', 'group_by', ->
     data =
       data: @get 'rawData'
@@ -47,8 +47,8 @@ AnalyticsQuery = Model.extend
     dependencies = @get 'parallelDependencies'
     parallel.require({name: name, fn: dep}) for name, dep of dependencies
     parallel
-      .spawn (data) -> chartJsTransform groupBy resample normalize data
-      .then (result) => @set 'chartData', result
+      .spawn (data) -> seriesTransform groupBy resample normalize data
+      .then (result) => @set 'series', result
   parallelDependencies:
     # rootKey is a string inside a string since parallel passes the literal
     # contents of a string rather than a proper quoted string.
@@ -65,6 +65,8 @@ AnalyticsQuery = Model.extend
         value[data.groupBy] = datum.values[data.groupBy] if data.groupBy
         value
     # Naively resample by dropping items.
+    # TODO:  resample should happen after group-by and should occur within
+    # each series
     resample: (data) ->
       data.data = (data.data[i] for i in [0...data.data.length] by Math.round(data.data.length / maxSamples))
       data
@@ -78,28 +80,20 @@ AnalyticsQuery = Model.extend
             group = data.groups[value] ?= []
             group.push item
       data
-    chartJsTransform: (data) ->
+    seriesTransform: (data) ->
       if data.groupBy
-        series = for name, values of data.groups
+        for name, values of data.groups
           key: name
           values: values.map (value) ->
             x: new Date(value.timestamp)
             y: value.value
       else
-        series = [
+        [
           key: 'All'
           values: data.data.map (value) ->
             x: new Date(value.timestamp)
             y: value.value
         ]
-
-      labelValues = data.data.map (datum) -> new Date(datum.timestamp)
-      min = new Date(Math.min.apply(null, labelValues))
-      max = new Date(Math.max.apply(null, labelValues))
-      min: min
-      max: max
-      range: max - min
-      datasets: series
 
 # Declare available types and their human-readable names
 types = 'response-time placeholder-1 placeholder-2'.split(' ').map (type) ->
