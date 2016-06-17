@@ -4,6 +4,6 @@ AnalyticsQueryIndexController = Ember.Controller.extend
   'analytics-query': Ember.inject.controller()
 
   chartOptions: Ember.computed.alias 'analytics-query.chartOptions'
-  model: Ember.computed.alias 'analytics-query.model'
+  series: Ember.computed.alias 'analytics-query.series'
 
 `export default AnalyticsQueryIndexController`
