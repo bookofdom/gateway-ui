@@ -18,4 +18,7 @@ AnalyticsQueryController = Ember.Controller.extend
       when timeHelper.months(2) <= range < timeHelper.years(2) then labelFormat = 'll' # months
       else labelFormat = 'lll' # years
 
+  # TODO:  Use colorblind-safe colors
+  # https://github.com/politiken-journalism/scale-color-perceptual
+
 `export default AnalyticsQueryController`

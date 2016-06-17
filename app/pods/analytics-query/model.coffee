@@ -53,7 +53,7 @@ AnalyticsQuery = Model.extend
     # rootKey is a string inside a string since parallel passes the literal
     # contents of a string rather than a proper quoted string.
     rootKey: '"stats"'
-    maxSamples: 100
+    maxSamples: 500
     # Takes a string and parses it into JSON.
     # Returns an array of data points with timestamp and value attributes.
     normalize: (data) ->
@@ -68,7 +68,8 @@ AnalyticsQuery = Model.extend
     # TODO:  resample should happen after group-by and should occur within
     # each series
     resample: (data) ->
-      data.data = (data.data[i] for i in [0...data.data.length] by Math.round(data.data.length / maxSamples))
+      if data.data.length > maxSamples
+        data.data = (data.data[i] for i in [0...data.data.length] by Math.round(data.data.length / maxSamples))
       data
     # Group by selected value
     groupBy: (data) ->

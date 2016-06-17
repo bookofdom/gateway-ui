@@ -1,6 +1,6 @@
 defaultScenario = (server) ->
   # time data
-  server.createList 'stat', 300
+  server.createList 'stat', 500
 
   # sessions
   server.loadFixtures 'sessions'
