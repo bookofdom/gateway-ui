@@ -2,6 +2,8 @@
 `import t from 'gateway/helpers/i18n'`
 
 RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
+  apiModel: null
+  remoteEndpointModel: null
   indexModel: null
   modelType: 'remote-endpoint-push-platform'
 
@@ -15,6 +17,9 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
     ,
       name: t 'push-platforms.gcm'
       value: 'gcm'
+    ,
+      name: t 'push-platforms.mqtt'
+      value: 'mqtt'
     ]
 
   defaultFields:
@@ -59,6 +64,13 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
       name: 'api_key'
       required: true
     ]
+    mqtt: [
+      name: 'username'
+      readonly: true
+    ,
+      name: 'password'
+      type: 'password'
+    ]
 
   fields: Ember.computed 'model.type', ->
     fields = @_super arguments...
@@ -66,6 +78,16 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
     platformFields = @get "platformFields.#{type}"
     fields = Ember.copy(fields).pushObjects platformFields if platformFields
     fields
+
+  createNewModel: ->
+    modelType = @get 'modelType'
+    newModel = @get('store')?.createRecord modelType
+    apiName = @get 'apiModel.name'
+    remoteEndpointCodename = @get 'remoteEndpointModel.codename'
+    newModel.set 'apiName', apiName
+    newModel.set 'remoteEndpointCodename', remoteEndpointCodename
+    @set 'model', newModel
+    newModel
 
   submit: ->
     model = @get 'model'
