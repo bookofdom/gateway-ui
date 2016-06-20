@@ -111,6 +111,15 @@ generateDataForType = (typeSlug, i) ->
       {}
     when 'push'
       publish_endpoint: faker.random.boolean()
+    when 'redis'
+      maxOpen: faker.random.number()
+      maxIdle: faker.random.number()
+      config:
+        host: "server.#{faker.internet.domainName()}"
+        port: faker.random.number()
+        username: faker.internet.userName()
+        password: faker.internet.password()
+        database: '0'
   data.headers = generateKeyValues 3
   data.query = generateKeyValues 3
   pushPlatformType = platformCycle i

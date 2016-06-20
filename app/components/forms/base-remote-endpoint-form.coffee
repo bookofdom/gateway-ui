@@ -239,6 +239,27 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ]
       push: [
         name: 'publish_endpoint'
+      ],
+      redis: [
+        name: 'server'
+        label: 'resources.host'
+        required: true
+      ,
+        name: 'port'
+        type: 'integer'
+        required: true
+      ,
+        name: 'username'
+      ,
+        name: 'password'
+      ,
+        name: 'database'
+      ,
+        name: 'maxopen'
+        type: 'integer'
+      ,
+        name: 'maxidle'
+        type: 'integer'
       ]
     # environment datum may not set WSDL
     fields.soap.shift() if @get('modelType') is 'remote-endpoint-environment-datum'

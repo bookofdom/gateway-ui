@@ -46,6 +46,7 @@ RemoteEndpointLike = Model.extend
   # mysql
   # ldap
   # hana
+  # redis
   server: DS.attr 'string'
   port: DS.attr 'number'
   # soap
@@ -55,6 +56,7 @@ RemoteEndpointLike = Model.extend
   # mongodb
   # ldap
   # hana
+  # redis
   username: DS.attr 'string'
   password: DS.attr 'string'
   # ldap
