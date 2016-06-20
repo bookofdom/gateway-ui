@@ -6,19 +6,20 @@
 AnalyticsQueryController = Ember.Controller.extend
   breadCrumb: Ember.computed.alias 'model.name'
 
-  colorblindSafeQualitativeColors: [
-    'rgb(204,121,167)' # pink mauve
-    'rgb(213,94,0)' # bittersweet
-    'rgb(0,114,178)' # blue
-    'rgb(240,228,66)' # yellow
-    'rgb(0,158,115)' # dark seafoam green
-    'rgb(86,180,233)' # cyan
-    'rgb(230,159,0)' # orange
-    'rgb(0,0,0)' # black
-  ]
+  colorblindSafeQualitativePalettes:
+    retro: [
+      'rgb(204,121,167)'
+      'rgb(213,94,0)'
+      'rgb(0,114,178)'
+      'rgb(240,228,66)'
+      'rgb(0,158,115)'
+      'rgb(86,180,233)'
+      'rgb(230,159,0)'
+      'rgb(0,0,0)'
+    ]
 
   chartOptions: Ember.computed 'model.series', ->
-    # TODO: this
+    # TODO: smarter label formatting
     ###
     chartData = @get 'model.series'
     range = chartData.range
@@ -31,11 +32,20 @@ AnalyticsQueryController = Ember.Controller.extend
       when timeHelper.months(2) <= range < timeHelper.years(2) then labelFormat = 'll' # months
       else labelFormat = 'lll' # years
     ###
-    {}
+    labelFormat = 'll'
+    chart:
+      useInteractiveGuideline: true
+      margin:
+        left: 50
+        right: 50
+        bottom: 50
+    xAxis:
+      #rotateLabels: 25
+      tickFormat: (d) -> moment(d).format labelFormat
 
   series: Ember.computed 'model.series', ->
     series = @get 'model.series'
-    palette = @get 'colorblindSafeQualitativeColors'
+    palette = @get 'colorblindSafeQualitativePalettes.retro'
     series.map (series, i) ->
       series.color = palette[i % palette.length]
       series
