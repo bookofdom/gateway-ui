@@ -345,7 +345,11 @@
     "import": "__user__ आयातित एक __resource__"
   },
   "types": {
-    "json-schema": {
+    "editor": {
+      "code": "कोड",
+      "design": "डिज़ाइन"
+    },
+    "json-type": {
       "object": "वस्तु",
       "array": "सरणी",
       "null": "शून्य",

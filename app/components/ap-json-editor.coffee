@@ -9,6 +9,6 @@ ApJsonEditorComponent = Ember.Component.extend
   isDesignView: Ember.computed 'viewMode', -> @get('viewMode') is 'design'
 
   actions:
-    selectViewMode: (mode='code') -> @set 'viewMode', mode
+    selectViewMode: (mode) -> @set 'viewMode', mode
 
 `export default ApJsonEditorComponent`
