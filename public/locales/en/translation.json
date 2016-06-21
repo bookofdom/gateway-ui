@@ -354,6 +354,19 @@
       "ios": "iOS",
       "gcm": "GCM"
     },
+    "json-editor-view": {
+      "code": "code",
+      "design": "design"
+    },
+    "json-node": {
+      "object": "object",
+      "array": "array",
+      "null": "null",
+      "boolean": "boolean",
+      "integer": "integer",
+      "number": "number",
+      "string": "string"
+    },
     "json-schema": {
       "object": "object",
       "array": "array",

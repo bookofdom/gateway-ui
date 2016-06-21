@@ -1,0 +1,15 @@
+<ul class="nav nav-pills">
+  <li class="{{if isCodeView 'active'}}">
+    <a href {{action 'selectViewMode' 'code'}}>{{t 'types.json-editor-view.code'}}</a>
+  </li>
+  <li class="{{if isDesignView 'active'}}">
+    <a href {{action 'selectViewMode' 'design'}}>{{t 'types.json-editor-view.design'}}</a>
+  </li>
+</ul>
+
+{{#if isCodeView}}
+  {{ap-ace-editor name=name id=idName value=value required=required disabled=disabled size='lg' language='json'}}
+{{/if}}
+{{#if isDesignView}}
+  design!
+{{/if}}
