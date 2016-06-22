@@ -40,7 +40,23 @@ JsonNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
     val = @_super.apply @, [store, primaryModelClass, normalized, id, requestType]
     val
 
+  serializeNode: (nodeSnapshot) ->
+    type = nodeSnapshot.attr 'type'
+    value = nodeSnapshot.attr 'value'
+    children = nodeSnapshot.hasMany 'children'
+    switch type
+      when 'string' then value
+      when 'number' then parseFloat value
+      when 'boolean' then value is 'true'
+      when 'null' then null
+      when 'array' then children.map (child) => @serializeNode child
+      when 'object'
+        serialized = {}
+        children.forEach (child) =>
+          serialized[child.attr 'name'] = @serializeNode child
+        serialized
+
   serialize: (snapshot, options) ->
-    serialized =  @_super arguments...
+    @serializeNode snapshot
 
 `export default JsonNodeSerializer`

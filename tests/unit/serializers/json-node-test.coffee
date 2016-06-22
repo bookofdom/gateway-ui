@@ -26,11 +26,6 @@ moduleForModel 'json-node', 'Unit | Serializer | JsonNode',
   # Specify the other units that are required for this test.
   needs: ['serializer:json-node']
 
-test 'it serializes records', (assert) ->
-  record = @subject()
-  serializedRecord = record.serialize()
-  assert.ok serializedRecord
-
 test 'it normalizes JSON to an array response', (assert) ->
   store = @store()
   serializer = store.serializerFor 'json-node'
@@ -347,3 +342,82 @@ test 'it normalizes JSON to an array response', (assert) ->
     ]
 
   assert.deepEqual normalized, expected
+
+test 'it serializes a JSON node', (assert) ->
+  store = @store()
+  Ember.run ->
+    record = store.createRecord 'json-node',
+      type: 'object'
+      children: [
+        store.createRecord 'json-node',
+          type: 'boolean'
+          name: 'boolAttr'
+          value: 'true'
+        store.createRecord 'json-node',
+          type: 'number'
+          name: 'numAttr'
+          value: '42'
+        store.createRecord 'json-node',
+          type: 'string'
+          name: 'strAttr'
+          value: 'this is a string'
+        store.createRecord 'json-node',
+          type: 'null'
+          name: 'nullAttr'
+        store.createRecord 'json-node',
+          type: 'object'
+          name: 'objAttr'
+          children: [
+            store.createRecord 'json-node',
+              type: 'object'
+              name: 'nestedObj'
+              children: [
+                store.createRecord 'json-node',
+                  type: 'number'
+                  name: 'numAttr'
+                  value: '42'
+                store.createRecord 'json-node',
+                  type: 'array'
+                  name: 'nestedArr'
+                  children: [
+                    store.createRecord 'json-node',
+                      type: 'string'
+                      value: 'string'
+                  ]
+              ]
+          ]
+        store.createRecord 'json-node',
+          type: 'array'
+          name: 'arrAttr'
+          children: [
+            store.createRecord 'json-node',
+              type: 'boolean'
+              value: 'true'
+            store.createRecord 'json-node',
+              type: 'number'
+              value: '42'
+            store.createRecord 'json-node',
+              type: 'string'
+              value: 'string'
+            store.createRecord 'json-node',
+              type: 'null'
+            store.createRecord 'json-node',
+              type: 'object'
+              children: [
+                store.createRecord 'json-node',
+                  type: 'string'
+                  name: 'foo'
+                  value: 'bar'
+              ]
+            store.createRecord 'json-node',
+              type: 'array'
+              children: [
+                store.createRecord 'json-node',
+                  type: 'string'
+                  value: 'nested array!'
+              ]
+          ]
+      ]
+
+    serialized = record.serialize()
+    assert.deepEqual serialized, testObject1
