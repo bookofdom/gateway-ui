@@ -4,6 +4,7 @@ testObject1 =
   boolAttr: true
   numAttr: 42
   strAttr: 'this is a string'
+  nullAttr: null
   objAttr:
     nestedObj:
       numAttr: 42
@@ -14,6 +15,7 @@ testObject1 =
     true
     42
     'string'
+    null
     {foo: 'bar'}
     [
       'nested array!'
@@ -38,7 +40,7 @@ test 'it normalizes JSON to an array response', (assert) ->
   expected =
     "data":[
       {
-        "id":"17",
+        "id":"19",
         "type":"json-node",
         "attributes":{
           "type":"object"
@@ -59,11 +61,15 @@ test 'it normalizes JSON to an array response', (assert) ->
                 "type":"json-node"
               },
               {
-                "id":"8",
+                "id":"4",
                 "type":"json-node"
               },
               {
-                "id":"16",
+                "id":"9",
+                "type":"json-node"
+              },
+              {
+                "id":"18",
                 "type":"json-node"
               }
             ]
@@ -109,7 +115,18 @@ test 'it normalizes JSON to an array response', (assert) ->
         }
       },
       {
-        "id":"8",
+        "id":"4",
+        "type":"json-node",
+        "attributes":{
+          "type":"null",
+          "name":"nullAttr"
+        },
+        "relationships":{
+
+        }
+      },
+      {
+        "id":"9",
         "type":"json-node",
         "attributes":{
           "type":"object",
@@ -119,7 +136,7 @@ test 'it normalizes JSON to an array response', (assert) ->
           "children":{
             "data":[
               {
-                "id":"7",
+                "id":"8",
                 "type":"json-node"
               }
             ]
@@ -127,7 +144,7 @@ test 'it normalizes JSON to an array response', (assert) ->
         }
       },
       {
-        "id":"7",
+        "id":"8",
         "type":"json-node",
         "attributes":{
           "type":"object",
@@ -137,11 +154,11 @@ test 'it normalizes JSON to an array response', (assert) ->
           "children":{
             "data":[
               {
-                "id":"4",
+                "id":"5",
                 "type":"json-node"
               },
               {
-                "id":"6",
+                "id":"7",
                 "type":"json-node"
               }
             ]
@@ -149,7 +166,7 @@ test 'it normalizes JSON to an array response', (assert) ->
         }
       },
       {
-        "id":"4",
+        "id":"5",
         "type":"json-node",
         "attributes":{
           "type":"number",
@@ -161,17 +178,17 @@ test 'it normalizes JSON to an array response', (assert) ->
         }
       },
       {
-        "id":"6",
+        "id":"7",
         "type":"json-node",
         "attributes":{
-          "type":"object",
+          "type":"array",
           "name":"nestedArr"
         },
         "relationships":{
           "children":{
             "data":[
               {
-                "id":"5",
+                "id":"6",
                 "type":"json-node"
               }
             ]
@@ -179,7 +196,7 @@ test 'it normalizes JSON to an array response', (assert) ->
         }
       },
       {
-        "id":"5",
+        "id":"6",
         "type":"json-node",
         "attributes":{
           "type":"string",
@@ -190,19 +207,15 @@ test 'it normalizes JSON to an array response', (assert) ->
         }
       },
       {
-        "id":"16",
+        "id":"18",
         "type":"json-node",
         "attributes":{
-          "type":"object",
+          "type":"array",
           "name":"arrAttr"
         },
         "relationships":{
           "children":{
             "data":[
-              {
-                "id":"9",
-                "type":"json-node"
-              },
               {
                 "id":"10",
                 "type":"json-node"
@@ -212,11 +225,19 @@ test 'it normalizes JSON to an array response', (assert) ->
                 "type":"json-node"
               },
               {
+                "id":"12",
+                "type":"json-node"
+              },
+              {
                 "id":"13",
                 "type":"json-node"
               },
               {
                 "id":"15",
+                "type":"json-node"
+              },
+              {
+                "id":"17",
                 "type":"json-node"
               }
             ]
@@ -224,7 +245,7 @@ test 'it normalizes JSON to an array response', (assert) ->
         }
       },
       {
-        "id":"9",
+        "id":"10",
         "type":"json-node",
         "attributes":{
           "type":"boolean",
@@ -235,7 +256,7 @@ test 'it normalizes JSON to an array response', (assert) ->
         }
       },
       {
-        "id":"10",
+        "id":"11",
         "type":"json-node",
         "attributes":{
           "type":"number",
@@ -246,7 +267,7 @@ test 'it normalizes JSON to an array response', (assert) ->
         }
       },
       {
-        "id":"11",
+        "id":"12",
         "type":"json-node",
         "attributes":{
           "type":"string",
@@ -260,26 +281,7 @@ test 'it normalizes JSON to an array response', (assert) ->
         "id":"13",
         "type":"json-node",
         "attributes":{
-          "type":"object"
-        },
-        "relationships":{
-          "children":{
-            "data":[
-              {
-                "id":"12",
-                "type":"json-node"
-              }
-            ]
-          }
-        }
-      },
-      {
-        "id":"12",
-        "type":"json-node",
-        "attributes":{
-          "type":"string",
-          "name":"foo",
-          "value":"bar"
+          "type":"null"
         },
         "relationships":{
 
@@ -304,6 +306,35 @@ test 'it normalizes JSON to an array response', (assert) ->
       },
       {
         "id":"14",
+        "type":"json-node",
+        "attributes":{
+          "type":"string",
+          "name":"foo",
+          "value":"bar"
+        },
+        "relationships":{
+
+        }
+      },
+      {
+        "id":"17",
+        "type":"json-node",
+        "attributes":{
+          "type":"array"
+        },
+        "relationships":{
+          "children":{
+            "data":[
+              {
+                "id":"16",
+                "type":"json-node"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id":"16",
         "type":"json-node",
         "attributes":{
           "type":"string",

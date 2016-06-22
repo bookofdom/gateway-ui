@@ -18,20 +18,21 @@ JsonNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
     nodeType = typeof nodePayload
     hash = switch nodeType
       when 'string', 'number', 'boolean'
+        type: nodeType
         value: nodePayload
       when 'object'
         if Ember.isNone nodePayload
-          type = 'null'
+          type: 'null'
         else if Ember.isArray nodePayload
-          type = 'array'
+          type: 'array'
           children: (@normalizeNode(value) for value in nodePayload)
         else
+          type: 'object'
           children: for key, value of nodePayload
             Ember.merge @normalizeNode(value),
               name: key
     defaultHash =
       id: @getNormalizedId()
-      type: nodeType
     Ember.merge hash, defaultHash
 
   normalizeArrayResponse: (store, primaryModelClass, payload, id, requestType) ->
