@@ -22,7 +22,7 @@ ApJsonEditorComponent = Ember.Component.extend
     value = @get 'value'
     try JSON.parse value
 
-  isValueAndModelEquivalent: Ember.computed 'value', 'model', ->
+  areValueAndModelEquivalent: Ember.computed 'value', 'model', ->
     value = @get 'value'
     model = @get 'model'
     try parsedJson = JSON.parse value
@@ -33,6 +33,9 @@ ApJsonEditorComponent = Ember.Component.extend
     !@get('disabled') and @get 'isJsonValid'
   modeChangeDisabled: Ember.computed 'modeChangeEnabled', ->
     !@get 'modeChangeEnabled'
+
+  updateModelOnValueChange: Ember.observer 'value', ->
+    @setupModelForDesignView() if !@get 'areValueAndModelEquivalent'
 
   setupModelForDesignView: ->
     value = @get 'value'
@@ -45,6 +48,8 @@ ApJsonEditorComponent = Ember.Component.extend
   actions:
     selectViewMode: (mode) ->
       @set 'viewMode', mode if @get 'modeChangeEnabled'
-      @setupModelForDesignView() if @get 'isDesignView'
+      # If switching to design view and no model exists yet, create it.
+      # But only once, because then the observer takes over (see above).
+      @updateModelOnValueChange() if @get('isDesignView') and !@get('model')
 
 `export default ApJsonEditorComponent`
