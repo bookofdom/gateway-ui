@@ -12,7 +12,7 @@ ApJsonEditorComponent = Ember.Component.extend
   required: false
   disabled: false
 
-  model: null
+  jsonNodeModel: null
 
   viewMode: 'code'
   isCodeView: Ember.computed 'viewMode', -> @get('viewMode') is 'code'
@@ -22,34 +22,37 @@ ApJsonEditorComponent = Ember.Component.extend
     value = @get 'value'
     try JSON.parse value
 
-  areValueAndModelEquivalent: Ember.computed 'value', 'model', ->
+  areValueAndJsonNodeModelEquivalent: Ember.computed 'value', 'jsonNodeModel', ->
     value = @get 'value'
-    model = @get 'model'
+    jsonNodeModel = @get 'jsonNodeModel'
     try parsedJson = JSON.parse value
-    modelJson = model?.serialize()
-    deepEquals parsedJson, modelJson
+    jsonNodeModelJson = jsonNodeModel?.serialize()
+    deepEquals parsedJson, jsonNodeModelJson
 
   modeChangeEnabled: Ember.computed 'value', ->
     !@get('disabled') and @get 'isJsonValid'
   modeChangeDisabled: Ember.computed 'modeChangeEnabled', ->
     !@get 'modeChangeEnabled'
 
-  updateModelOnValueChange: Ember.observer 'value', ->
-    @setupModelForDesignView() if !@get 'areValueAndModelEquivalent'
+  updateJsonNodeModelOnValueChange: Ember.observer 'value', ->
+    if !@get 'areValueAndJsonNodeModelEquivalent'
+      @setupJsonNodeModelForDesignView()
 
-  setupModelForDesignView: ->
+  setupJsonNodeModelForDesignView: ->
     value = @get 'value'
+    jsonNodeModel = @get 'jsonNodeModel'
     @get('store')
       .query 'json-node', value
       .then (records) =>
         record = records.get 'firstObject'
-        @set 'model', record
+        @set 'jsonNodeModel', record
 
   actions:
     selectViewMode: (mode) ->
       @set 'viewMode', mode if @get 'modeChangeEnabled'
-      # If switching to design view and no model exists yet, create it.
-      # But only once, because then the observer takes over (see above).
-      @updateModelOnValueChange() if @get('isDesignView') and !@get('model')
+      # If switching to design view and no json-node model exists yet,
+      # create it. But only once, because then the observer takes over.
+      if @get('isDesignView') and !@get('jsonNodeModel')
+        @updateJsonNodeModelOnValueChange()
 
 `export default ApJsonEditorComponent`
