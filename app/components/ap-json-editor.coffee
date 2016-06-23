@@ -36,6 +36,10 @@ ApJsonEditorComponent = Ember.Component.extend
   modeChangeDisabled: Ember.computed 'modeChangeEnabled', ->
     !@get 'modeChangeEnabled'
 
+  updateModelOnValueChange: Ember.observer 'value', 'isDesignView', ->
+    if @get('isDesignView') and !@get('areValueAndJsonNodeModelEquivalent')
+      @setupJsonNodeModel()
+
   setupJsonNodeModel: ->
     value = @get 'value'
     jsonNodeModel = @get 'jsonNodeModel'
@@ -44,14 +48,17 @@ ApJsonEditorComponent = Ember.Component.extend
       .then (records) =>
         record = records.get 'firstObject'
         @set 'jsonNodeModel', record
+  setupValue: ->
+    jsonNodeModel = @get 'jsonNodeModel'
+    try
+      jsonString = vkbeautify.json JSON.stringify jsonNodeModel.serialize()
+    @set 'value', jsonString
 
   actions:
     selectViewMode: (mode) ->
       @set 'viewMode', mode if @get 'modeChangeEnabled'
-      # If switching to design view and no json-node model exists yet,
-      # create it. But only once, because then the observer takes over.
-      if @get('isDesignView') and !@get('areValueAndJsonNodeModelEquivalent')
-        @setupJsonNodeModel()
+      if @get('isCodeView') and !@get('areValueAndJsonNodeModelEquivalent')
+        @setupValue()
     select: (model) ->
       @set 'selectedNode', model
 
