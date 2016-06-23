@@ -40,6 +40,8 @@ ApJsonEditorComponent = Ember.Component.extend
     if @get('isDesignView') and !@get('areValueAndJsonNodeModelEquivalent')
       @setupJsonNodeModel()
 
+  # TODO: update value when model changes while in design view
+
   setupJsonNodeModel: ->
     value = @get 'value'
     jsonNodeModel = @get 'jsonNodeModel'
