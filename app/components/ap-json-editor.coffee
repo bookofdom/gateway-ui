@@ -54,5 +54,7 @@ ApJsonEditorComponent = Ember.Component.extend
       # create it. But only once, because then the observer takes over.
       if @get('isDesignView') and !@get('jsonNodeModel')
         @updateJsonNodeModelOnValueChange()
+    select: (node) ->
+      # no op
 
 `export default ApJsonEditorComponent`

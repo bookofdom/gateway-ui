@@ -11,5 +11,14 @@
   {{ap-ace-editor name=name id=idName value=value required=required disabled=disabled size='lg' language='json'}}
 {{/if}}
 {{#if isDesignView}}
-  {{jsonNodeModel}}
+  <div class="design-view">
+    <div class="box-aside">
+      {{ap-json-node-tree model=jsonNodeModel}}
+    </div>
+    <div class="box-content">
+      {{#if selectedNode}}
+        {{!--forms/json-node-form model=selectedNode--}}
+      {{/if}}
+    </div>
+  </div>
 {{/if}}
