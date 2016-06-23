@@ -13,6 +13,7 @@ ApJsonEditorComponent = Ember.Component.extend
   disabled: false
 
   jsonNodeModel: null
+  selectedNode: null
 
   viewMode: 'code'
   isCodeView: Ember.computed 'viewMode', -> @get('viewMode') is 'code'
@@ -54,7 +55,7 @@ ApJsonEditorComponent = Ember.Component.extend
       # create it. But only once, because then the observer takes over.
       if @get('isDesignView') and !@get('jsonNodeModel')
         @updateJsonNodeModelOnValueChange()
-    select: (node) ->
-      # no op
+    select: (model) ->
+      @set 'selectedNode', model
 
 `export default ApJsonEditorComponent`

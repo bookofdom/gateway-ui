@@ -42,22 +42,6 @@ test '`isRoot` returns true only for top-level nodes', (assert) ->
     assert.equal rootNode.get('children.lastObject.isRoot'), false
     assert.equal rootNode.get('children.lastObject.children.firstObject.isRoot'), false
 
-test '`isNeitherObjectNorArray` returns true only if node is both not an object and not an array', (assert) ->
-  model = @subject()
-  Ember.run ->
-    model.set 'type', 'string'
-    assert.ok model.get('isNeitherObjectNorArray')
-    model.set 'type', 'number'
-    assert.ok model.get('isNeitherObjectNorArray')
-    model.set 'type', 'boolean'
-    assert.ok model.get('isNeitherObjectNorArray')
-    model.set 'type', 'null'
-    assert.ok model.get('isNeitherObjectNorArray')
-    model.set 'type', 'array'
-    assert.notOk model.get('isNeitherObjectNorArray')
-    model.set 'type', 'object'
-    assert.notOk model.get('isNeitherObjectNorArray')
-
 test '`parentIsObject` returns true only if parent node is an object', (assert) ->
   store = @store()
   Ember.run ->
@@ -122,7 +106,7 @@ test '`canHaveValue` returns true only if node is both not an object and not an 
     model.set 'type', 'boolean'
     assert.ok model.get('canHaveValue')
     model.set 'type', 'null'
-    assert.ok model.get('canHaveValue')
+    assert.notOk model.get('canHaveValue')
     model.set 'type', 'array'
     assert.notOk model.get('canHaveValue')
     model.set 'type', 'object'

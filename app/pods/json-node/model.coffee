@@ -21,21 +21,25 @@ JsonNode = Model.extend
 
   # Computed
   isRoot: Ember.computed 'parent', -> !@get 'parent'
-  isNeitherObjectNorArray: Ember.computed 'type', ->
-    type = @get 'type'
-    (type != 'object') and (type != 'array')
   parentIsObject: Ember.computed 'parent.type', ->
     @get('parent.type') is 'object'
   canHaveChildren: Ember.computed 'type', ->
     type = @get 'type'
     (type is 'object') or (type is 'array')
   canHaveName: Ember.computed.alias 'parentIsObject'
-  canHaveValue: Ember.computed.alias 'isNeitherObjectNorArray'
+  canHaveValue: Ember.computed 'type', ->
+    type = @get 'type'
+    (type != 'object') and (type != 'array') and (type != 'null')
   nodeType: Ember.computed 'type', ->
     type = @get 'type'
     JsonNode.types.findBy 'value', type
-  displayName: Ember.computed 'title', 'name', 'pattern', 'type', ->
-    @get('value') or @get('nodeType.name')
+  displayName: Ember.computed 'type', 'name', 'value', ->
+    type = @get 'nodeType.name'
+    name = @get 'name'
+    value = @get 'value'
+    nameAndValue = "#{name}: #{value}" if name and value
+    nameOnly = "#{name}:" if name
+    nameAndValue or nameOnly or value or type
 
 types = 'object array null boolean number string'.split(' ').map (typeName) ->
   name: t("types.json-type.#{typeName}").toLowerCase()
