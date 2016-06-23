@@ -78,7 +78,7 @@ test '`canHaveChildren` returns true only if parent node is an object or an arra
     assert.ok rootNode.get('children.firstObject.canHaveChildren')
     assert.notOk rootNode.get('children.firstObject.children.firstObject.canHaveChildren')
 
-test '`canHaveName` returns true only if parent node is an object', (assert) ->
+test '`mustHaveName` returns true only if parent node is an object', (assert) ->
   store = @store()
   Ember.run ->
     rootNode = store.createRecord 'json-node',
@@ -92,9 +92,9 @@ test '`canHaveName` returns true only if parent node is an object', (assert) ->
               type: 'string'
           ]
       ]
-    assert.notOk rootNode.get('canHaveName')
-    assert.ok rootNode.get('children.firstObject.canHaveName')
-    assert.notOk rootNode.get('children.firstObject.children.firstObject.canHaveName')
+    assert.notOk rootNode.get('mustHaveName')
+    assert.ok rootNode.get('children.firstObject.mustHaveName')
+    assert.notOk rootNode.get('children.firstObject.children.firstObject.mustHaveName')
 
 test '`canHaveValue` returns true only if node is both not an object and not an array', (assert) ->
   model = @subject()

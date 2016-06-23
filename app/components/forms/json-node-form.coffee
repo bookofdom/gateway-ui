@@ -9,24 +9,19 @@ JsonNodeFormComponent = BaseFormComponent.extend
 
   savedAction: null
 
-  defaultFields: Ember.computed 'model.type', 'model.parentIsObject', 'model.isRoot', ->
+  defaultFields: Ember.computed 'model.type', 'model.mustHaveName', 'model.canHaveValue', 'model.isRoot', ->
     fields = [
       name: 'type'
       type: 'select'
       disabled: @get 'model.isRoot'
     ]
-    if @get 'model.canHaveName'
-      fields.pushObjects [
+    if @get 'model.mustHaveName'
+      fields.pushObject
         name: 'name'
-        requred: true
-        disabled: @get 'model.isRoot'
-      ]
+        required: true
     if @get 'model.canHaveValue'
-      fields.pushObjects [
+      fields.pushObject
         name: 'value'
-        requred: true
-        disabled: @get 'model.isRoot'
-      ]
     fields
 
 `export default JsonNodeFormComponent`

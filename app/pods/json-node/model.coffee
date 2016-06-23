@@ -26,7 +26,7 @@ JsonNode = Model.extend
   canHaveChildren: Ember.computed 'type', ->
     type = @get 'type'
     (type is 'object') or (type is 'array')
-  canHaveName: Ember.computed.alias 'parentIsObject'
+  mustHaveName: Ember.computed.alias 'parentIsObject'
   canHaveValue: Ember.computed 'type', ->
     type = @get 'type'
     (type != 'object') and (type != 'array') and (type != 'null')
