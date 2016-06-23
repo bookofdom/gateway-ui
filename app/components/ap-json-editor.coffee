@@ -23,23 +23,20 @@ ApJsonEditorComponent = Ember.Component.extend
     value = @get 'value'
     try JSON.parse value
 
-  areValueAndJsonNodeModelEquivalent: Ember.computed 'value', 'jsonNodeModel', ->
+  areValueAndJsonNodeModelEquivalent: Ember.computed(->
     value = @get 'value'
     jsonNodeModel = @get 'jsonNodeModel'
     try parsedJson = JSON.parse value
     jsonNodeModelJson = jsonNodeModel?.serialize()
     deepEquals parsedJson, jsonNodeModelJson
+  ).volatile() # don't cache the result
 
   modeChangeEnabled: Ember.computed 'value', ->
     !@get('disabled') and @get 'isJsonValid'
   modeChangeDisabled: Ember.computed 'modeChangeEnabled', ->
     !@get 'modeChangeEnabled'
 
-  updateJsonNodeModelOnValueChange: Ember.observer 'areValueAndJsonNodeModelEquivalent', ->
-    if !@get 'areValueAndJsonNodeModelEquivalent'
-      @setupJsonNodeModelForDesignView()
-
-  setupJsonNodeModelForDesignView: ->
+  setupJsonNodeModel: ->
     value = @get 'value'
     jsonNodeModel = @get 'jsonNodeModel'
     @get('store')
@@ -53,8 +50,8 @@ ApJsonEditorComponent = Ember.Component.extend
       @set 'viewMode', mode if @get 'modeChangeEnabled'
       # If switching to design view and no json-node model exists yet,
       # create it. But only once, because then the observer takes over.
-      if @get('isDesignView') and !@get('jsonNodeModel')
-        @updateJsonNodeModelOnValueChange()
+      if @get('isDesignView') and !@get('areValueAndJsonNodeModelEquivalent')
+        @setupJsonNodeModel()
     select: (model) ->
       @set 'selectedNode', model
 
