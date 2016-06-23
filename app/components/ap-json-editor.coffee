@@ -35,7 +35,7 @@ ApJsonEditorComponent = Ember.Component.extend
   modeChangeDisabled: Ember.computed 'modeChangeEnabled', ->
     !@get 'modeChangeEnabled'
 
-  updateJsonNodeModelOnValueChange: Ember.observer 'value', ->
+  updateJsonNodeModelOnValueChange: Ember.observer 'areValueAndJsonNodeModelEquivalent', ->
     if !@get 'areValueAndJsonNodeModelEquivalent'
       @setupJsonNodeModelForDesignView()
 
