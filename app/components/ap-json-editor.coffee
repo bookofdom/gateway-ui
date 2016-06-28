@@ -72,5 +72,7 @@ ApJsonEditorComponent = Ember.Component.extend
         @setupValue()
     select: (model) ->
       @set 'selectedNode', model
+    delete: ->
+      @setupValue()
 
 `export default ApJsonEditorComponent`

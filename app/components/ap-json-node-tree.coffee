@@ -6,8 +6,9 @@ ApJsonNodeTreeComponent = BsBaseComponent.extend
   classNames: ['ap-json-node-tree']
 
   selectAction: 'select'
-  selectedNode: null
+  deleteAction: 'delete'
 
+  selectedNode: null
   model: null # should be root instance of json-node
 
   defaultSelected: Ember.on 'init', -> @onModelChange()
@@ -21,6 +22,7 @@ ApJsonNodeTreeComponent = BsBaseComponent.extend
       selectedModel = @get 'selectedModel'
       @send 'select', null if model is selectedModel
       model.deleteRecord()
+      @sendAction 'deleteAction', model
     new: (model) ->
       newChild = model.get('children').createRecord()
       @send 'select', newChild
