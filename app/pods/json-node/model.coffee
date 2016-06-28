@@ -5,9 +5,9 @@
 JsonNode = Model.extend
   type: DS.attr 'string', defaultValue: 'string'
   # parent is object
-  name: DS.attr 'string'
+  name: DS.attr 'string', defaultValue: ''
   # type is non-object and non-array
-  value: DS.attr 'string'
+  value: DS.attr 'string', defaultValue: ''
 
   # Relationships
   parent: DS.belongsTo 'json-node',
