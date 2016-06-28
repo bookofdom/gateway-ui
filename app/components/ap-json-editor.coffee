@@ -14,6 +14,7 @@ ApJsonEditorComponent = Ember.Component.extend
 
   jsonNodeModel: null
   selectedNode: null
+  allowJsonNodeUpdate: true # may jsonNodeModel change now?
 
   viewMode: 'code'
   isCodeView: Ember.computed 'viewMode', -> @get('viewMode') is 'code'
@@ -36,30 +37,38 @@ ApJsonEditorComponent = Ember.Component.extend
   modeChangeDisabled: Ember.computed 'modeChangeEnabled', ->
     !@get 'modeChangeEnabled'
 
-  updateModelOnValueChange: Ember.observer 'value', 'isDesignView', ->
-    if @get('isDesignView') and !@get('areValueAndJsonNodeModelEquivalent')
-      @setupJsonNodeModel()
+  updateModelOnValueChange: Ember.observer 'value', -> @setupJsonNodeModel()
 
-  # TODO: update value when model changes while in design view
+  keyDown: ->
+    isDesignView = @get 'isDesignView'
+    @set 'allowJsonNodeUpdate', false
+    @setupValue() if isDesignView
+    Ember.run => @set 'allowJsonNodeUpdate', true
 
   setupJsonNodeModel: ->
+    allowJsonNodeUpdate = @get 'allowJsonNodeUpdate'
+    equivalent = @get 'areValueAndJsonNodeModelEquivalent'
     value = @get 'value'
-    jsonNodeModel = @get 'jsonNodeModel'
-    @get('store')
-      .query 'json-node', value
-      .then (records) =>
-        record = records.get 'firstObject'
-        @set 'jsonNodeModel', record
+    if allowJsonNodeUpdate and !equivalent
+      @get('store')
+        .query 'json-node', value
+        .then (records) =>
+          record = records.get 'firstObject'
+          @set 'jsonNodeModel', record
   setupValue: ->
-    jsonNodeModel = @get 'jsonNodeModel'
-    try
-      jsonString = vkbeautify.json JSON.stringify jsonNodeModel.serialize()
-    @set 'value', jsonString
+    equivalent = @get 'areValueAndJsonNodeModelEquivalent'
+    if !equivalent
+      jsonNodeModel = @get 'jsonNodeModel'
+      try
+        jsonString = vkbeautify.json JSON.stringify jsonNodeModel.serialize()
+      @set 'value', jsonString
 
   actions:
     selectViewMode: (mode) ->
       @set 'viewMode', mode if @get 'modeChangeEnabled'
-      if @get('isCodeView') and !@get('areValueAndJsonNodeModelEquivalent')
+      if @get 'isDesignView'
+        @setupJsonNodeModel()
+      if @get 'isCodeView'
         @setupValue()
     select: (model) ->
       @set 'selectedNode', model
