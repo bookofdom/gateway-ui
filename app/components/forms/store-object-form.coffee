@@ -4,10 +4,11 @@ StoreObjectFormComponent = BaseFormComponent.extend
   savedAction: null
   indexModel: null
   modelType: 'store-object'
+  horizontal: false
 
   defaultFields: [
     name: 'body'
-    label: 'languages.json'
+    label: false
     type: 'json'
   ]
 

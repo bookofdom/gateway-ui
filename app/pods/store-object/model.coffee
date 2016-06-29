@@ -2,7 +2,7 @@
 `import Model from 'gateway/models/model'`
 
 StoreObject = Model.extend
-  body: DS.attr 'string'
+  body: DS.attr 'string', defaultValue: '{}'
 
   # Relationships
   store_collection: DS.belongsTo 'store-collection', async: true

@@ -43,6 +43,7 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
       type: 'password'
     ,
       name: 'topic'
+      required: true
     ,
       name: 'development'
     ]
