@@ -37,7 +37,9 @@ ApJsonEditorComponent = Ember.Component.extend
   modeChangeDisabled: Ember.computed 'modeChangeEnabled', ->
     !@get 'modeChangeEnabled'
 
-  updateModelOnValueChange: Ember.observer 'value', -> @setupJsonNodeModel()
+  updateModelOnValueChange: Ember.observer 'value', ->
+    isDesignView = @get 'isDesignView'
+    @setupJsonNodeModel() if isDesignView
 
   keyUp: ->
     isDesignView = @get 'isDesignView'
