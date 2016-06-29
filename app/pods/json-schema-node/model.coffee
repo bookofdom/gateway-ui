@@ -54,7 +54,7 @@ JsonSchemaNode = Model.extend
     JsonSchemaNode.types.findBy 'value', type
 
 types = 'object array null boolean integer number string'.split(' ').map (typeName) ->
-  name: t("types.json-schema.#{typeName}").toLowerCase()
+  name: t("types.json-type.#{typeName}").toLowerCase()
   slug: typeName
   value: typeName
 

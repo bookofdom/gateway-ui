@@ -118,14 +118,14 @@
     "proxy-endpoint-test-argument_plural": "तर्क",
     "proxy-endpoint-schema": "स्कीमा मान्यता",
     "proxy-endpoint-schema_plural": "स्कीमा सत्यापन",
-    "push-channel": "धक्का चैनल",
-    "push-channel_plural": "धक्का चैनलों",
-    "push-channel-push-device": "धक्का डिवाइस",
-    "push-channel-push-device_plural": "धक्का उपकरणों",
-    "push-channel-push-device-push-message": "पुश संदेश",
-    "push-channel-push-device-push-message_plural": "संदेशों को धक्का",
-    "push-channel-push-manual-message": "मैनुअल संदेश धक्का",
-    "push-channel-push-manual-message_plural": "मैनुअल संदेशों को धक्का",
+    "push-channel": "धक्का दें",
+    "push-channel_plural": "धक्का दें",
+    "push-device": "धक्का डिवाइस",
+    "push-device_plural": "धक्का उपकरणों",
+    "push-message": "पुश संदेश",
+    "push-message_plural": "संदेशों को धक्का",
+    "push-manual-message": "मैनुअल संदेश धक्का",
+    "push-manual-message_plural": "मैनुअल संदेशों को धक्का",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
@@ -255,8 +255,8 @@
     "response_schema": "प्रतिक्रिया स्कीमा",
     "organization": "संगठन",
     "use_tls": "टीएलएस का उपयोग",
-    "encoded_certificate": "इनकोडिंग प्रमाण पत्र",
-    "encoded_private_key": "इनकोडिंग निजी कुंजी",
+    "encoded_certificate": "प्रमाणपत्र",
+    "encoded_private_key": "निजी चाबी",
     "server_name": "सर्वर का नाम",
     "private_key_password": "निजी कुंजी पासवर्ड",
     "title": "शीर्षक",
@@ -345,7 +345,11 @@
     "import": "__user__ आयातित एक __resource__"
   },
   "types": {
-    "json-schema": {
+    "editor": {
+      "code": "कोड",
+      "design": "डिज़ाइन"
+    },
+    "json-type": {
       "object": "वस्तु",
       "array": "सरणी",
       "null": "शून्य",
