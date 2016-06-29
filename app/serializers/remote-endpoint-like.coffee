@@ -53,6 +53,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'script' then ScriptRemoteEndpointSerializer.normalize hash
       when 'hana' then HanaRemoteEndpointSerializer.normalize hash
       when 'push' then PushRemoteEndpointSerializer.normalize hash
+      when 'redis' then PushRemoteEndpointSerializer.normalize hash
     @_super arguments...
   normalizeEnvironmentData: (hash) ->
     hash.environment_data ?= []
@@ -88,6 +89,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'script' then ScriptRemoteEndpointSerializer.serialize serialized
       when 'hana' then HanaRemoteEndpointSerializer.serialize serialized
       when 'push' then PushRemoteEndpointSerializer.serialize serialized
+      when 'redis' then PushRemoteEndpointSerializer.serialize serialized
     serialized
   serializeHeaders: (snapshot) ->
     headers = {}
