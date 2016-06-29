@@ -389,6 +389,7 @@
       "ldap": "LDAP",
       "script": "Script",
       "hana": "HANA",
+      "redis": "Redis",
       "status-types": {
         "success": "success",
         "failed": "failed",
