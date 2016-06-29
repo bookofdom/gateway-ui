@@ -354,7 +354,11 @@
       "ios": "iOS",
       "gcm": "GCM"
     },
-    "json-schema": {
+    "editor": {
+      "code": "code",
+      "design": "design"
+    },
+    "json-type": {
       "object": "object",
       "array": "array",
       "null": "null",
