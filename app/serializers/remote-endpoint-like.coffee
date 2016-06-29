@@ -10,6 +10,7 @@
 `import ScriptRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/script'`
 `import HanaRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/hana'`
 `import PushRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/push'`
+`import RedisRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/redis'`
 
 RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
