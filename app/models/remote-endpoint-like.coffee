@@ -46,6 +46,7 @@ RemoteEndpointLike = Model.extend
   # mysql
   # ldap
   # hana
+  # redis
   server: DS.attr 'string'
   port: DS.attr 'number'
   # soap
@@ -55,6 +56,7 @@ RemoteEndpointLike = Model.extend
   # mongodb
   # ldap
   # hana
+  # redis
   username: DS.attr 'string'
   password: DS.attr 'string'
   # ldap
@@ -127,7 +129,7 @@ RemoteEndpointLike = Model.extend
   push_platform_codenames: Ember.computed.mapBy 'push_platforms', 'codename'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type

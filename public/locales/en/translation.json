@@ -258,8 +258,8 @@
     "response_schema": "response schema",
     "organization": "organization",
     "use_tls": "use TLS",
-    "encoded_certificate": "encoded certificate",
-    "encoded_private_key": "encoded private key",
+    "encoded_certificate": "certificate",
+    "encoded_private_key": "private key",
     "server_name": "server name",
     "private_key_password": "private key password",
     "title": "title",
@@ -389,6 +389,7 @@
       "ldap": "LDAP",
       "script": "Script",
       "hana": "HANA",
+      "redis": "Redis",
       "status-types": {
         "success": "success",
         "failed": "failed",
