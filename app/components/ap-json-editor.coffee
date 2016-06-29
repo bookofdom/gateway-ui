@@ -65,11 +65,12 @@ ApJsonEditorComponent = Ember.Component.extend
 
   actions:
     selectViewMode: (mode) ->
-      @set 'viewMode', mode if @get 'modeChangeEnabled'
-      if @get 'isDesignView'
-        @setupJsonNodeModel()
-      if @get 'isCodeView'
-        @setupValue()
+      if @get 'modeChangeEnabled'
+        @set 'viewMode', mode
+        if @get 'isDesignView'
+          @setupJsonNodeModel()
+        if @get 'isCodeView'
+          @setupValue()
     select: (model) ->
       @set 'selectedNode', model
     delete: ->
