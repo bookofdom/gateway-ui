@@ -18,7 +18,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       serialize: false
       deserialize: 'records'
     query:
-      serialize: false]]
+      serialize: false
       deserialize: 'records'
     hosts:
       embedded: 'always'
