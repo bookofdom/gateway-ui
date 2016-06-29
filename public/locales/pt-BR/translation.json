@@ -345,7 +345,11 @@
     "import": "__user__ importado um __resource__"
   },
   "types": {
-    "json-schema": {
+    "editor": {
+      "code": "código",
+      "design": "projeto"
+    },
+    "json-type": {
       "object": "objeto",
       "array": "ordem",
       "null": "nulo",
