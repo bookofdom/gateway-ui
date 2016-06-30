@@ -10,6 +10,9 @@ RemoteEndpointPushPlatform = Model.extend
   topic: DS.attr 'string'
   development: DS.attr 'boolean', defaultValue: false
   api_key: DS.attr 'string'
+  connect_timeout: DS.attr 'number', defaultValue: 2
+  ack_timeout: DS.attr 'number', defaultValue: 20
+  timeout_retries: DS.attr 'number', defaultValue: 3
 
   # Services
   session: Ember.inject.service()

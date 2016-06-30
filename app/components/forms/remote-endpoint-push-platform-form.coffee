@@ -70,6 +70,18 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
     ,
       name: 'password'
       type: 'password'
+    ,
+      name: 'connect_timeout'
+      type: 'integer'
+      required: true
+    ,
+      name: 'ack_timeout'
+      type: 'integer'
+      required: true
+    ,
+      name: 'timeout_retries'
+      type: 'integer'
+      required: true
     ]
 
   fields: Ember.computed 'model.type', ->

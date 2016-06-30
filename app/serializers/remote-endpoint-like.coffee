@@ -103,7 +103,11 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
   serializePushPlatforms: (snapshot) ->
     push_platforms = []
     snapshot.hasMany('push_platforms')?.forEach (pushPlatform) ->
-      push_platforms.push pushPlatform.attributes()
+      attrs = pushPlatform.attributes()
+      attrs.connect_timeout = parseInt attrs.connect_timeout, 10
+      attrs.ack_timeout = parseInt attrs.ack_timeout, 10
+      attrs.timeout_retries = parseInt attrs.timeout_retries, 10
+      push_platforms.push attrs
     push_platforms
 
 `export default RemoteEndpointLikeSerializer`
