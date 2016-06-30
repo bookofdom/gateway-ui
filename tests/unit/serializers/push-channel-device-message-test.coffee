@@ -1,7 +1,7 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 `import Pretender from 'pretender'`
 
-moduleForModel 'push-message', 'Unit | Serializer | push message',
+moduleForModel 'push-channel-device-message', 'Unit | Serializer | push message',
   needs: [
     'serializer:application'
     'serializer:api'
@@ -10,7 +10,7 @@ moduleForModel 'push-message', 'Unit | Serializer | push message',
     'serializer:remote-endpoint-environment-datum'
     'serializer:push-channel'
     'serializer:push-channel-device'
-    'serializer:push-message'
+    'serializer:push-channel-device-message'
     'model:api'
     'model:endpoint-group'
     'model:environment'
@@ -28,7 +28,7 @@ moduleForModel 'push-message', 'Unit | Serializer | push message',
     'model:shared-component'
     'model:push-channel'
     'model:push-channel-device'
-    'model:push-message'
+    'model:push-channel-device-message'
   ]
   beforeEach: ->
     @server = new Pretender ->

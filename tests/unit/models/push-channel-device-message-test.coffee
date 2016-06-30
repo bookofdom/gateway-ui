@@ -1,6 +1,6 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 
-moduleForModel 'push-message', 'Unit | Model | push message', {
+moduleForModel 'push-channel-device-message', 'Unit | Model | push message', {
   # Specify the other units that are required for this test.
   needs: [
     'model:api'

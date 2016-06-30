@@ -27,7 +27,7 @@ moduleForModel 'push-channel-device', 'Unit | Serializer | push device',
     'model:shared-component'
     'model:push-channel'
     'model:push-channel-device'
-    'model:push-message'
+    'model:push-channel-device-message'
   ]
   beforeEach: ->
     @server = new Pretender ->

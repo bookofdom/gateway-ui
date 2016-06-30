@@ -1,6 +1,6 @@
 `import ApplicationAdapter from 'gateway/adapters/application'`
 
-PushMessageAdapter = ApplicationAdapter.extend
+PushChannelDeviceMessageAdapter = ApplicationAdapter.extend
   errorMappings:
     data: 'body'
 
@@ -18,4 +18,4 @@ PushMessageAdapter = ApplicationAdapter.extend
     else
       @_super arguments...
 
-`export default PushMessageAdapter`
+`export default PushChannelDeviceMessageAdapter`
