@@ -136,6 +136,7 @@ moduleForModel 'push-channel-device-message', 'Unit | Serializer | push message'
           expires: 1492805093
         ]
       ]
+      ###
       @get '/push_channels/1/push_devices/1/push_messages', -> [
         200
         {'Content-Type': 'application/json'}
@@ -156,6 +157,7 @@ moduleForModel 'push-channel-device-message', 'Unit | Serializer | push message'
               'url-args': []
         ]
       ]
+      ###
 
     afterEach: ->
       @server.shutdown()

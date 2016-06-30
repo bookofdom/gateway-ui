@@ -15,7 +15,7 @@ PushChannelsRoute = Ember.Route.extend AuthenticatedRouteMixin,
     @_super arguments...
   renderTemplate: ->
     @_super arguments...
-    @render 'manage/secondary-sidebar',
+    @render 'push/secondary-sidebar',
       outlet: 'sidebar'
       into: 'push-channels'
   actions:
