@@ -4,7 +4,7 @@
 `import destroyApp from 'gateway/tests/helpers/destroy-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
 
-module 'Acceptance: Push Device - Read',
+module 'Acceptance: Push Channel Push Device - Read',
   beforeEach: ->
     @application = startApp()
     server.createList('api', 5).forEach (api) ->
@@ -23,9 +23,9 @@ module 'Acceptance: Push Device - Read',
   afterEach: -> destroyApp @application
 
 test 'user can view push devices', (assert) ->
-  visit '/manage/push-channels/1/push-devices'
+  visit '/manage/push-channels/1/devices'
   andThen ->
     count = server.db.pushDevices.length
-    assert.equal currentURL(), '/manage/push-channels/1/push-devices'
+    assert.equal currentURL(), '/manage/push-channels/1/devices'
     assert.equal count > 0, true
     assert.equal find('.ap-table-model tbody tr').length, count

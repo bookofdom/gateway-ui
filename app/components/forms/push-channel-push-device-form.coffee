@@ -1,9 +1,9 @@
 `import BaseFormComponent from 'gateway/components/forms/base-form'`
 
-PushDeviceFormComponent = BaseFormComponent.extend
+PushChannelPushDeviceFormComponent = BaseFormComponent.extend
   savedAction: null
   indexModel: null
-  modelType: 'push-device'
+  modelType: 'push-channel-push-device'
 
   defaultFields: [
       name: 'name'
@@ -28,4 +28,4 @@ PushDeviceFormComponent = BaseFormComponent.extend
       pushDevices.pushObject model
     @_super arguments...
 
-`export default PushDeviceFormComponent`
+`export default PushChannelPushDeviceFormComponent`
