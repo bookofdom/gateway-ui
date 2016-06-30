@@ -9,7 +9,7 @@ moduleForModel 'push-message', 'Unit | Serializer | push message',
     'serializer:remote-endpoint'
     'serializer:remote-endpoint-environment-datum'
     'serializer:push-channel'
-    'serializer:push-channel-push-device'
+    'serializer:push-channel-device'
     'serializer:push-message'
     'model:api'
     'model:endpoint-group'
@@ -27,7 +27,7 @@ moduleForModel 'push-message', 'Unit | Serializer | push message',
     'model:remote-endpoint-query-parameter'
     'model:shared-component'
     'model:push-channel'
-    'model:push-channel-push-device'
+    'model:push-channel-device'
     'model:push-message'
   ]
   beforeEach: ->

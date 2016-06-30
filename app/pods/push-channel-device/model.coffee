@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
 `import Model from 'gateway/models/model'`
 
-PushChannelPushDevice = Model.extend
+PushChannelDevice = Model.extend
   name: DS.attr 'string'
   type: DS.attr 'string'
   token: DS.attr 'string'
@@ -11,4 +11,4 @@ PushChannelPushDevice = Model.extend
   push_channel: DS.belongsTo 'push-channel', async: true
   push_messages: DS.hasMany 'push-message', async: true
 
-`export default PushChannelPushDevice`
+`export default PushChannelDevice`

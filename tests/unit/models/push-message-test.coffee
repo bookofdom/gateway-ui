@@ -6,7 +6,7 @@ moduleForModel 'push-message', 'Unit | Model | push message', {
     'model:api'
     'model:remote-endpoint'
     'model:push-channel'
-    'model:push-channel-push-device'
+    'model:push-channel-device'
   ]
 }
 

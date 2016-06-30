@@ -5,7 +5,7 @@
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
 `import { makePutHandler } from 'gateway/mirage/helpers/route-handlers'`
 
-module 'Acceptance: Push Channel Push Device - Update',
+module 'Acceptance: Push Channel Device - Update',
   beforeEach: ->
     @application = startApp()
     server.createList('api', 5).forEach (api) ->

@@ -4,7 +4,7 @@
 `import destroyApp from 'gateway/tests/helpers/destroy-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
 
-module 'Acceptance: Push Channel Push Device - Create',
+module 'Acceptance: Push Channel Device - Create',
   beforeEach: ->
     @application = startApp()
     server.createList('api', 5).forEach (api) ->

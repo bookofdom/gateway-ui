@@ -6,6 +6,6 @@ PushMessage = Model.extend
   body: DS.attr 'string'
 
   # Relationships
-  push_device: DS.belongsTo 'push-channel-push-device', async: true
+  push_device: DS.belongsTo 'push-channel-device', async: true
 
 `export default PushMessage`

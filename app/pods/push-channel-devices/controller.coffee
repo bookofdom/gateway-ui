@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
-PushChannelPushDevicesController = Ember.Controller.extend
-  breadCrumb: 'resources.push-channel-push-device_plural'
+PushChannelDevicesController = Ember.Controller.extend
+  breadCrumb: 'resources.push-channel-device_plural'
 
   'push-channel': Ember.inject.controller()
   'remote-endpoint': Ember.computed.alias 'push-channel.model.remote_endpoint'
@@ -12,4 +12,4 @@ PushChannelPushDevicesController = Ember.Controller.extend
         name: codename
         value: codename
 
-`export default PushChannelPushDevicesController`
+`export default PushChannelDevicesController`
