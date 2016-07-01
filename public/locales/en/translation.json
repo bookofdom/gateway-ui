@@ -127,6 +127,8 @@
     "push-channel-device-message_plural": "$t(resources.push-message_plural)",
     "push-channel-message": "$t(resources.push-message)",
     "push-channel-message_plural": "$t(resources.push-message_plural)",
+    "push-device": "device",
+    "push-device_plural": "devices",
     "push-manual-message": "manual message",
     "push-manual-message_plural": "manual messages",
     "push-message": "message",
