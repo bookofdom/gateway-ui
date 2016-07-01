@@ -1,0 +1,13 @@
+{{#ap-page t='resources.push-device_plural' help-url='http://devhub.justapis.com/v5.0.0/docs' showNew=true}}
+
+  {{ap-table-index
+      models=model
+      fields='name,type,expires:fields.expires:datetime'
+      path='push-device.edit'
+      edit-path='push-device.edit'}}
+
+  {{#ap-panel-new t='resources.push-device' closed=(unbound model.length)}}
+    {{forms/push-device-form indexModel=model option-groups=option-groups}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}
