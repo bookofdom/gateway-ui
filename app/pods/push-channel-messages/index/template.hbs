@@ -1,0 +1,9 @@
+{{#ap-page t='resources.push-channel-message_plural' showNew=true}}
+
+  {{ap-table-index
+    models=model
+    fields='stamp:fields.stamp:datetime,body:fields.body:code'
+    path='push-channel-message.index'
+    show-delete=false}}
+
+{{/ap-page}}

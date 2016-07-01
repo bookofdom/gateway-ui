@@ -40,6 +40,9 @@ config = ->
   @post '/password_reset', -> new Response 200
   @post '/password_reset_confirmation', -> new Response 200
 
+  @get '/push_channel_messages'
+  @post '/push_channel_messages', makePostHandler 'push_channel_message'
+
   @get '/push_channels'
   @post '/push_channels', makePostHandler 'push_channel'
   @get '/push_channels/:id'
