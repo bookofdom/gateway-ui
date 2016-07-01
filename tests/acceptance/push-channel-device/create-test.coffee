@@ -4,13 +4,13 @@
 `import destroyApp from 'gateway/tests/helpers/destroy-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
 
-module 'Acceptance: Push Channel - Create',
+module 'Acceptance: Push Channel Device - Create',
   beforeEach: ->
     @application = startApp()
     server.createList('api', 5).forEach (api) ->
       server.createList 'environment', 3, apiId: api.id
       server.createList 'remote_endpoint', 20, apiId: api.id
-    server.createList('push_channel', 5).forEach (channel) ->
+    server.createList('push_channel', 1).forEach (channel) ->
       server.createList('push_device', 5, pushChannelId: channel.id).forEach (device) ->
         server.createList 'push_message', 5, pushDeviceId: device.id
     authenticateSession @application
@@ -22,20 +22,19 @@ module 'Acceptance: Push Channel - Create',
 
   afterEach: -> destroyApp @application
 
-test 'user can create new push channels', (assert) ->
-  beforeCreateCount = server.db.pushChannels.length
-  visit '/manage/push/channels'
+test 'user can create new push devices', (assert) ->
+  beforeCreateCount = server.db.pushDevices.length
+  visit '/manage/push/channels/1/devices'
   andThen ->
     assert.equal beforeCreateCount > 0, true
-    assert.equal currentURL(), '/manage/push/channels'
+    assert.equal currentURL(), '/manage/push/channels/1/devices'
     assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount
-  fillIn '[name=name]', 'New push channel'
+  fillIn '[name=name]', 'New push device'
+  andThen ->
+    fillIn '[name=type]', find("[name=type] option:nth-child(2)").val()
+  fillIn '[name=token]', 'abc123'
   fillIn '[name=expires]', '2016-05-31T00:00:00Z'
-  andThen ->
-    fillIn '[name=api]', find("[name=api] option:nth-child(2)").val()
-  andThen ->
-    fillIn '[name=remote_endpoint]', find("[name=remote_endpoint] option:nth-child(2)").val()
   click '.ap-panel-new [type=submit]'
   andThen ->
-    assert.equal server.db.pushChannels.length, beforeCreateCount + 1
+    assert.equal server.db.pushDevices.length, beforeCreateCount + 1
     assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount + 1

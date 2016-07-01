@@ -3,8 +3,9 @@
 `import startApp from 'gateway/tests/helpers/start-app'`
 `import destroyApp from 'gateway/tests/helpers/destroy-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
+`import { makePutHandler } from 'gateway/mirage/helpers/route-handlers'`
 
-module 'Acceptance: Push Channel - Create',
+module 'Acceptance: Push Channel Device - Update',
   beforeEach: ->
     @application = startApp()
     server.createList('api', 5).forEach (api) ->
@@ -22,20 +23,16 @@ module 'Acceptance: Push Channel - Create',
 
   afterEach: -> destroyApp @application
 
-test 'user can create new push channels', (assert) ->
-  beforeCreateCount = server.db.pushChannels.length
-  visit '/manage/push/channels'
+test 'user can navigate to push devices edit route', (assert) ->
+  visit '/manage/push/channels/1/devices'
+  click '.ap-table-model tbody tr:eq(0) [data-t="actions.edit"] a'
   andThen ->
-    assert.equal beforeCreateCount > 0, true
-    assert.equal currentURL(), '/manage/push/channels'
-    assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount
-  fillIn '[name=name]', 'New push channel'
-  fillIn '[name=expires]', '2016-05-31T00:00:00Z'
+    assert.equal currentURL(), '/manage/push/channels/1/devices/1/edit'
+
+test 'user can edit push devices', (assert) ->
+  visit '/manage/push/channels/1/devices/1/edit'
+  fillIn '[name=name]', 'Test'
+  click '[type=submit]'
   andThen ->
-    fillIn '[name=api]', find("[name=api] option:nth-child(2)").val()
-  andThen ->
-    fillIn '[name=remote_endpoint]', find("[name=remote_endpoint] option:nth-child(2)").val()
-  click '.ap-panel-new [type=submit]'
-  andThen ->
-    assert.equal server.db.pushChannels.length, beforeCreateCount + 1
-    assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount + 1
+    assert.equal currentURL(), '/manage/push/channels/1/devices/1/edit'
+    assert.equal server.db.pushDevices[0].name, 'Test'

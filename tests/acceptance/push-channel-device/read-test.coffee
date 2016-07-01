@@ -3,15 +3,14 @@
 `import startApp from 'gateway/tests/helpers/start-app'`
 `import destroyApp from 'gateway/tests/helpers/destroy-app'`
 `import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
-`import { makePutHandler } from 'gateway/mirage/helpers/route-handlers'`
 
-module 'Acceptance: Push Channel - Update',
+module 'Acceptance: Push Channel Device - Read',
   beforeEach: ->
     @application = startApp()
     server.createList('api', 5).forEach (api) ->
       server.createList 'environment', 3, apiId: api.id
       server.createList 'remote_endpoint', 20, apiId: api.id
-    server.createList('push_channel', 5).forEach (channel) ->
+    server.createList('push_channel', 1).forEach (channel) ->
       server.createList('push_device', 5, pushChannelId: channel.id).forEach (device) ->
         server.createList 'push_message', 5, pushDeviceId: device.id
     authenticateSession @application
@@ -23,16 +22,10 @@ module 'Acceptance: Push Channel - Update',
 
   afterEach: -> destroyApp @application
 
-test 'user can navigate to push channels edit route', (assert) ->
-  visit '/manage/push/channels'
-  click '.ap-table-model tbody tr:eq(0) [data-t="actions.edit"] a'
+test 'user can view push devices', (assert) ->
+  visit '/manage/push/channels/1/devices'
   andThen ->
-    assert.equal currentURL(), '/manage/push/channels/1/edit'
-
-test 'user can edit push channels', (assert) ->
-  visit '/manage/push/channels/1/edit'
-  fillIn '[name=name]', 'Test'
-  click '[type=submit]'
-  andThen ->
-    assert.equal currentURL(), '/manage/push/channels/1/edit'
-    assert.equal server.db.pushChannels[0].name, 'Test'
+    count = server.db.pushDevices.length
+    assert.equal currentURL(), '/manage/push/channels/1/devices'
+    assert.equal count > 0, true
+    assert.equal find('.ap-table-model tbody tr').length, count
