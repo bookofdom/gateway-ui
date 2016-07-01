@@ -1,4 +1,5 @@
 `import ApplicationAdapter from 'gateway/adapters/application'`
+`import t from 'gateway/helpers/i18n'`
 
 PushChannelMessageAdapter = ApplicationAdapter.extend
   errorMappings:

@@ -6,4 +6,8 @@
     path='push-channel-message.index'
     show-delete=false}}
 
+    {{#ap-panel-new t='resources.push-channel-message' closed=(unbound model.length)}}
+      {{forms/push-channel-message-form option-groups=option-groups}}
+    {{/ap-panel-new}}
+
 {{/ap-page}}
