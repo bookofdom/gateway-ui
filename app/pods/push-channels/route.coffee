@@ -3,16 +3,6 @@
 
 PushChannelsRoute = Ember.Route.extend AuthenticatedRouteMixin,
   model: -> @store.findAll 'push-channel'
-  afterModel: ->
-    Ember.RSVP.hash
-      apis: @store.findAll 'api'
-      remote_endpoints: @store.findAll 'remote-endpoint'
-    .then (results) =>
-      @set 'extraModels', results
-  setupController: (controller) ->
-    extraModels = @get 'extraModels'
-    controller.setProperties extraModels
-    @_super arguments...
   renderTemplate: ->
     @_super arguments...
     @render 'push/secondary-sidebar',
