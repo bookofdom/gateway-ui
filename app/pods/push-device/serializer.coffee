@@ -2,10 +2,6 @@
 `import ApplicationSerializer from 'gateway/serializers/application'`
 
 PushDeviceSerializer = ApplicationSerializer.extend
-  modelNameFromPayloadKey: (payloadKey) ->
-    'push-device'
-  payloadKeyFromModelName: (modelName) ->
-    'push_device'
   normalize: (type, hash, property) ->
     expires = new Date(hash.expires * 1000)
     hash.expires = expires.toISOString()
