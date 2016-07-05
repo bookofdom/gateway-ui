@@ -17,7 +17,7 @@ JsonNode = Model.extend
     inverse: 'parent'
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
 
   # Computed
   isRoot: Ember.computed 'parent', -> !@get 'parent'

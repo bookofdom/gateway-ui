@@ -6,7 +6,7 @@ RemoteEndpoint = RemoteEndpointLike.extend
   api: DS.belongsTo 'api', async: true
   environment_data: DS.hasMany 'remote-endpoint-environment-datum',
     async: false
-    embedded: true
+    embeddedModel: true
 
   # Computed
   push_platform_codenames: Ember.computed 'push_platforms.@each.codename', 'environment_data.@each.push_platform_codenames', ->

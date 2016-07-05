@@ -76,19 +76,19 @@ RemoteEndpointLike = Model.extend
   headers: DS.hasMany 'remote-endpoint-header',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   query: DS.hasMany 'remote-endpoint-query-parameter',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   hosts: DS.hasMany 'remote-endpoint-host',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   push_platforms: DS.hasMany 'remote-endpoint-push-platform',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
 
   # Computed
   platform: Ember.computed 'type', ->

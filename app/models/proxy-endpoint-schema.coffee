@@ -23,12 +23,12 @@ ProxyEndpointSchema = Model.extend
   request_json_schema: DS.belongsTo 'json-schema-node',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
     inverse: 'proxy_endpoint_schema_request_parent'
   response_json_schema: DS.belongsTo 'json-schema-node',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
     inverse: 'proxy_endpoint_schema_response_parent'
 
 `export default ProxyEndpointSchema`
