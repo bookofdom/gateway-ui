@@ -13,15 +13,15 @@ ProxyEndpointTest = Model.extend
   headers: DS.hasMany 'proxy-endpoint-test-header',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   query: DS.hasMany 'proxy-endpoint-test-query-parameter',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   arguments: DS.hasMany 'proxy-endpoint-test-argument',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
 
   # Computed
   methodType: Ember.computed 'method', ->

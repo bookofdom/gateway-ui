@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 EmbeddedChildrenMixin = Ember.Mixin.create
-  _embeddedChildOptionName: 'embedded'
+  _embeddedChildOptionName: 'embeddedModel'
 
   # Returns the parent instance that embeds this model instance.
   embeddingParent: Ember.computed ->
