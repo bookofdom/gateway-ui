@@ -25,7 +25,7 @@ moduleForModel 'push-channel', 'Unit | Serializer | push channel',
     'model:remote-endpoint-query-parameter'
     'model:shared-component'
     'model:push-channel'
-    'model:push-device'
+    'model:push-channel-device'
   ]
   beforeEach: ->
     @server = new Pretender ->

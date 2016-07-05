@@ -2,12 +2,7 @@
 
 moduleForModel 'push-device', 'Unit | Model | push device', {
   # Specify the other units that are required for this test.
-  needs: [
-    'model:api'
-    'model:remote-endpoint'
-    'model:push-channel'
-    'model:push-message'
-  ]
+  needs: []
 }
 
 test 'it exists', (assert) ->

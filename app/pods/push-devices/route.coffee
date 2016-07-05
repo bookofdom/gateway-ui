@@ -1,6 +1,11 @@
 `import Ember from 'ember'`
 
 PushDevicesRoute = Ember.Route.extend
-  model: -> @modelFor('push-channel').get 'push_devices'
+  model: -> @store.findAll 'push-device'
+  renderTemplate: ->
+    @_super arguments...
+    @render 'push/secondary-sidebar',
+      outlet: 'sidebar'
+      into: 'push-devices'
 
 `export default PushDevicesRoute`

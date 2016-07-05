@@ -41,6 +41,7 @@ defaultScenario = (server) ->
   channels = server.createList 'push_channel', 5
   channels.forEach (channel) ->
     id = channel.id
+    channelMessages = server.createList 'push_channel_message', 1, pushChannelId: id
     devices = server.createList 'push_device', 5, pushChannelId: id
     devices.forEach (device) ->
       id = device.id

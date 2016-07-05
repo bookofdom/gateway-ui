@@ -92,13 +92,19 @@ Router.map ->
         @route 'store-objects', resetNamespace: true, path: 'objects', ->
           @route 'store-object', resetNamespace: true, path: ':object_id', ->
             @route 'edit'
-    @route 'push-channels', resetNamespace: true, ->
-      @route 'push-channel', resetNamespace: true, path: ':push_channel_id', ->
-        @route 'edit'
-        @route 'push-manual-messages', resetNamespace: true, path: 'push-manual-messages', (->)
-        @route 'push-devices', resetNamespace: true, path: 'push-devices', ->
-          @route 'push-device', resetNamespace: true, path: ':push_device_id', ->
-            @route 'edit'
-            @route 'push-messages', resetNamespace: true, path: 'push-messages', ->
-              @route 'push-message', resetNamespace: true, path: ':push_message_id', ->
+    @route 'push', resetNamespace: true, path: 'push', ->
+      @route 'push-channels', resetNamespace: true, path: 'channels', ->
+        @route 'push-channel', resetNamespace: true, path: ':push_channel_id', ->
+          @route 'edit'
+          @route 'push-manual-messages', resetNamespace: true, path: 'push-manual-messages', (->)
+          @route 'push-channel-devices', resetNamespace: true, path: 'devices', ->
+            @route 'push-channel-device', resetNamespace: true, path: ':push_channel_device_id', ->
+              @route 'edit'
+              @route 'push-channel-device-messages', resetNamespace: true, path: 'messages', ->
+                @route 'push-channel-device-message', resetNamespace: true, path: ':push_channel_device_message_id', ->
+      @route 'push-devices', resetNamespace: true, path: 'devices', ->
+        @route 'push-device', resetNamespace: true, path: ':push_device_id', ->
+          @route 'edit'
+      @route 'push-channel-messages', resetNamespace: true, path: 'messages', ->
+        @route 'push-channel-message', resetNamespace: true, path: ':push_channel_message_id', (->)
 `export default Router`

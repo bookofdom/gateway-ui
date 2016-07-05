@@ -2,14 +2,15 @@
 
 PushDevicesController = Ember.Controller.extend
   breadCrumb: 'resources.push-device_plural'
+  push: Ember.inject.controller()
 
-  'push-channel': Ember.inject.controller()
-  'remote-endpoint': Ember.computed.alias 'push-channel.model.remote_endpoint'
-
-  'option-groups': Ember.computed 'remote-endpoint.push_platform_codenames.[]', ->
-    type:
-      @get('remote-endpoint.push_platform_codenames').map (codename) ->
-        name: codename
-        value: codename
+  'option-groups': Ember.computed 'push.remote_endpoints.[]', ->
+    push_platforms = []
+    @get('push.remote_endpoints').map (remote_endpoint) ->
+      remote_endpoint.get('push_platform_codenames').map (codename) ->
+        push_platforms.push codename if codename not in push_platforms
+    type: push_platforms.map (codename) ->
+      name: codename
+      value: codename
 
 `export default PushDevicesController`

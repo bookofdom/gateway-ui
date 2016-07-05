@@ -11,9 +11,7 @@ module 'Acceptance: Push Device - Update',
     server.createList('api', 5).forEach (api) ->
       server.createList 'environment', 3, apiId: api.id
       server.createList 'remote_endpoint', 20, apiId: api.id
-    server.createList('push_channel', 5).forEach (channel) ->
-      server.createList('push_device', 5, pushChannelId: channel.id).forEach (device) ->
-        server.createList 'push_message', 5, pushDeviceId: device.id
+    server.createList('push_device', 5)
     authenticateSession @application
     ###
     Don't return anything, because QUnit looks for a .then
@@ -24,15 +22,15 @@ module 'Acceptance: Push Device - Update',
   afterEach: -> destroyApp @application
 
 test 'user can navigate to push devices edit route', (assert) ->
-  visit '/manage/push-channels/1/push-devices'
+  visit '/manage/push/devices'
   click '.ap-table-model tbody tr:eq(0) [data-t="actions.edit"] a'
   andThen ->
-    assert.equal currentURL(), '/manage/push-channels/1/push-devices/1/edit'
+    assert.equal currentURL(), '/manage/push/devices/1/edit'
 
 test 'user can edit push devices', (assert) ->
-  visit '/manage/push-channels/1/push-devices/1/edit'
+  visit '/manage/push/devices/1/edit'
   fillIn '[name=name]', 'Test'
   click '[type=submit]'
   andThen ->
-    assert.equal currentURL(), '/manage/push-channels/1/push-devices/1/edit'
+    assert.equal currentURL(), '/manage/push/devices/1/edit'
     assert.equal server.db.pushDevices[0].name, 'Test'
