@@ -16,15 +16,15 @@ SharedComponent = Model.extend
   calls: DS.hasMany 'shared-component-call',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   before: DS.hasMany 'shared-component-transformation',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   after: DS.hasMany 'shared-component-transformation',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
 
   # computed
   typeKind: Ember.computed 'type', ->

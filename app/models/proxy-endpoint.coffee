@@ -19,13 +19,13 @@ ProxyEndpoint = Model.extend
   routes: DS.hasMany 'proxy-endpoint-route',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   components: DS.hasMany 'proxy-endpoint-component',
     async: false
-    embedded: true
+    embeddedModel: true
   tests: DS.hasMany 'proxy-endpoint-test',
     async: false
-    embedded: true
+    embeddedModel: true
   schemas: DS.hasMany 'proxy-endpoint-schema', async: true
 
   # given a list of component IDs,

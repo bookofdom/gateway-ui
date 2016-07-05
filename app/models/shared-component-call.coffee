@@ -13,11 +13,11 @@ SharedComponentCall = Model.extend
   before: DS.hasMany 'shared-component-transformation',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   after: DS.hasMany 'shared-component-transformation',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   shared_component: DS.belongsTo 'shared-component',
     async: false
 
