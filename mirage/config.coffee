@@ -43,6 +43,12 @@ config = ->
   @get '/push_channel_messages'
   @post '/push_channel_messages', makePostHandler 'push_channel_message'
 
+  @get '/push_devices'
+  @post '/push_devices', makePostHandler 'push_device'
+  @get '/push_devices/:id'
+  @put '/push_devices/:id', makePutHandler 'push_device'
+  @del '/push_devices/:id'
+
   @get '/push_channels'
   @post '/push_channels', makePostHandler 'push_channel'
   @get '/push_channels/:id'

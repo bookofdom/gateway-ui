@@ -1,13 +1,8 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 
-moduleForModel 'push-channel-device', 'Unit | Model | push channel device', {
+moduleForModel 'push-device', 'Unit | Model | push device', {
   # Specify the other units that are required for this test.
-  needs: [
-    'model:api'
-    'model:remote-endpoint'
-    'model:push-channel'
-    'model:push-channel-device-message'
-  ]
+  needs: []
 }
 
 test 'it exists', (assert) ->

@@ -1,7 +1,7 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 `import Pretender from 'pretender'`
 
-moduleForModel 'push-channel-device', 'Unit | Serializer | push device',
+moduleForModel 'push-channel-device', 'Unit | Serializer | push channel device',
   needs: [
     'serializer:application'
     'serializer:api'
