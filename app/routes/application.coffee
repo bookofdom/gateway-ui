@@ -8,7 +8,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   notify: Ember.inject.service()
 
   isLoading: false
-  isDevMode: config.devMode?.toString() is 'true'
+  isDevMode: config.dev_mode?.toString() is 'true'
   notificationsEnabled: config.notifications
 
   afterModel: (first, transition) ->
