@@ -29,8 +29,8 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       value: 'DELETE'
     ]
     interpreter: RemoteEndpointLike.interpreters.filter (interpreter) ->
-      if config.goOs
-        interpreter.os == config.goOs
+      if config.go_os
+        interpreter.os == config.go_os
       else
         true
 

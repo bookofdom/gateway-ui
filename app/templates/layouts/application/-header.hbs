@@ -42,7 +42,7 @@
               {{ap-icon icon='arrows-007'}}
             </a><!-- .btn -->
             <ul class="dropdown-menu">
-              {{#unless devMode}}
+              {{#unless dev_mode}}
                 {{#if session.session.authenticated.admin}}
                   {{ap-list-link
                     path='users'
