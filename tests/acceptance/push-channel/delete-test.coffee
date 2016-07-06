@@ -23,24 +23,24 @@ module 'Acceptance: Push Channel - Delete',
   afterEach: -> destroyApp @application
 
 test 'user can delete push channels from index route', (assert) ->
-  visit '/manage/push-channels'
+  visit '/manage/push/channels'
   andThen ->
-    assert.equal currentURL(), '/manage/push-channels'
+    assert.equal currentURL(), '/manage/push/channels'
     assert.equal server.db.pushChannels.length, 5
     assert.equal find('.ap-table-model tbody tr').length, 5
   click '.ap-table-model tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
-    assert.equal currentURL(), '/manage/push-channels'
+    assert.equal currentURL(), '/manage/push/channels'
     assert.equal server.db.pushChannels.length, 4
     assert.equal find('.ap-table-model tbody tr').length, 4
 
 test 'user can delete push channels from edit route', (assert) ->
-  visit '/manage/push-channels/1/edit'
+  visit '/manage/push/channels/1/edit'
   andThen ->
-    assert.equal currentURL(), '/manage/push-channels/1/edit'
+    assert.equal currentURL(), '/manage/push/channels/1/edit'
     assert.equal server.db.pushChannels.length, 5
   click 'a[data-t="actions.delete"]'
   andThen ->
-    assert.equal currentURL(), '/manage/push-channels'
+    assert.equal currentURL(), '/manage/push/channels'
     assert.equal server.db.pushChannels.length, 4
     assert.equal find('.ap-table-model tbody tr').length, 4

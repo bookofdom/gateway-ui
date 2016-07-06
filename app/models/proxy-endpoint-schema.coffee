@@ -15,20 +15,20 @@ ProxyEndpointSchema = Model.extend
   # either or both of the following booleans as `true` to serialize from the
   # JSON schema node relationships.
   # See serializer for more information.
-  serialize_request_json_schema: DS.attr 'boolean', defaultValue: false
-  serialize_response_json_schema: DS.attr 'boolean', defaultValue: false
+  serialize_request_json_schema: false
+  serialize_response_json_schema: false
 
   # Relationships
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: true
   request_json_schema: DS.belongsTo 'json-schema-node',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
     inverse: 'proxy_endpoint_schema_request_parent'
   response_json_schema: DS.belongsTo 'json-schema-node',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
     inverse: 'proxy_endpoint_schema_response_parent'
 
 `export default ProxyEndpointSchema`

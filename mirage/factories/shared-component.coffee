@@ -41,7 +41,7 @@ var foo = function () {
       ]
       # single and multi store calls differently
       call =
-        remote_endpoint_id: (faker.random.number() % 20) + 1
+        remote_endpoint_id: (faker.random.number() % 26) + 1
         endpoint_name_override: "#{typeSlug}Override"
         conditional: 'foo("call conditional");'
         conditional_positive: faker.random.boolean()

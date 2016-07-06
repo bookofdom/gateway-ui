@@ -28,6 +28,7 @@ RemoteEndpointLike = Model.extend
   # sqlserver
   # postgres
   # mysql
+  # oracle
   database: DS.attr 'string'
   # sqlserver
   # postgres
@@ -46,6 +47,8 @@ RemoteEndpointLike = Model.extend
   # mysql
   # ldap
   # hana
+  # redis
+  # oracle
   server: DS.attr 'string'
   port: DS.attr 'number'
   # soap
@@ -55,6 +58,8 @@ RemoteEndpointLike = Model.extend
   # mongodb
   # ldap
   # hana
+  # redis
+  # oracle
   username: DS.attr 'string'
   password: DS.attr 'string'
   # ldap
@@ -74,19 +79,19 @@ RemoteEndpointLike = Model.extend
   headers: DS.hasMany 'remote-endpoint-header',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   query: DS.hasMany 'remote-endpoint-query-parameter',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   hosts: DS.hasMany 'remote-endpoint-host',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   push_platforms: DS.hasMany 'remote-endpoint-push-platform',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
 
   # Computed
   platform: Ember.computed 'type', ->
@@ -124,9 +129,10 @@ RemoteEndpointLike = Model.extend
     RemoteEndpointLike.sslModes.findBy 'value', mode
   sslModeTypeName: Ember.computed 'sslModeType.name', ->
     @get 'sslModeType.name'
+  push_platform_codenames: Ember.computed.mapBy 'push_platforms', 'codename'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type

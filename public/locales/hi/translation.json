@@ -56,13 +56,14 @@
     "build-app_plural": "build apps",
     "app_plural": "क्षुधा",
     "terms-and-conditions": "नियम और शर्तें",
+    "push": "धक्का दें",
     "descriptions": {
       "define-api": "एपीआई समापन, दूरदराज के एकीकरण सेवाओं, और कार्यप्रवाह व्यापार तर्क को परिभाषित",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
       "manage-store": "एक वस्तु की दुकान में डेटा प्रबंधन",
       "manage": "स्थानीय दुकान डाटा का प्रबंधन और पुश सूचनाएं",
       "store-collections": "स्थानीय दुकान संग्रह और डेटा प्रबंधन",
-      "push-channels": "धक्का चैनलों , उपकरणों, संदेशों का प्रबंधन , और मैनुअल संदेश भेजने",
+      "push": "धक्का चैनलों, उपकरणों, और संदेशों का प्रबंधन",
       "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
@@ -118,14 +119,14 @@
     "proxy-endpoint-test-argument_plural": "तर्क",
     "proxy-endpoint-schema": "स्कीमा मान्यता",
     "proxy-endpoint-schema_plural": "स्कीमा सत्यापन",
-    "push-channel": "धक्का चैनल",
-    "push-channel_plural": "धक्का चैनलों",
-    "push-channel-push-device": "धक्का डिवाइस",
-    "push-channel-push-device_plural": "धक्का उपकरणों",
-    "push-channel-push-device-push-message": "पुश संदेश",
-    "push-channel-push-device-push-message_plural": "संदेशों को धक्का",
-    "push-channel-push-manual-message": "मैनुअल संदेश धक्का",
-    "push-channel-push-manual-message_plural": "मैनुअल संदेशों को धक्का",
+    "push-channel": "चैनल",
+    "push-channel_plural": "चैनलों",
+    "push-channel-device": "युक्ति",
+    "push-channel-device_plural": "उपकरण",
+    "push-manual-message": "मैनुअल संदेश धक्का",
+    "push-manual-message_plural": "मैनुअल संदेशों को धक्का",
+    "push-message": "संदेश",
+    "push-message_plural": "संदेशों",
     "environment": "environment",
     "environment_plural": "environments",
     "environment-variable": "environment variable",
@@ -255,8 +256,8 @@
     "response_schema": "प्रतिक्रिया स्कीमा",
     "organization": "संगठन",
     "use_tls": "टीएलएस का उपयोग",
-    "encoded_certificate": "इनकोडिंग प्रमाण पत्र",
-    "encoded_private_key": "इनकोडिंग निजी कुंजी",
+    "encoded_certificate": "प्रमाणपत्र",
+    "encoded_private_key": "निजी चाबी",
     "server_name": "सर्वर का नाम",
     "private_key_password": "निजी कुंजी पासवर्ड",
     "title": "शीर्षक",
@@ -316,11 +317,6 @@
     "brazilian-portuguese": "Português Brasileiro",
     "hindi": "मानक हिन्दी"
   },
-  "push-platforms": {
-    "osx": "OSX",
-    "ios": "iOS",
-    "gcm": "GCM"
-  },
   "errors": {
     "unknown": "an unknown error occurred",
     "no-user-with-that-email": "no user with that email",
@@ -350,7 +346,11 @@
     "import": "__user__ आयातित एक __resource__"
   },
   "types": {
-    "json-schema": {
+    "editor": {
+      "code": "कोड",
+      "design": "डिज़ाइन"
+    },
+    "json-type": {
       "object": "वस्तु",
       "array": "सरणी",
       "null": "शून्य",

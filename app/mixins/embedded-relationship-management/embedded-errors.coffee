@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 EmbeddedErrorsMixin = Ember.Mixin.create
-  _embeddedChildOptionName: 'embedded'
+  _embeddedChildOptionName: 'embeddedModel'
 
   onInit: Ember.on 'init', ->
     embeddedChildOptionName = @_embeddedChildOptionName
