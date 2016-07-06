@@ -397,6 +397,7 @@
       "script": "Script",
       "hana": "HANA",
       "redis": "Redis",
+      "oracle": "Oracle",
       "status-types": {
         "success": "success",
         "failed": "failed",
