@@ -7,7 +7,7 @@ RemoteEndpointsIndexController = Ember.Controller.extend
   'remote-endpoints': Ember.inject.controller()
 
   types: Ember.computed ->
-    enabledTypes = config.remoteEndpointTypesEnabled?.split ','
+    enabledTypes = config.remote_endpoint_types_enabled?.split ','
     types = RemoteEndpointLike.types
     if enabledTypes
       types = types.filter (type) -> type.value in enabledTypes
