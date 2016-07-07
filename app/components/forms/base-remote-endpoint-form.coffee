@@ -29,8 +29,8 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       value: 'DELETE'
     ]
     interpreter: RemoteEndpointLike.interpreters.filter (interpreter) ->
-      if config.goOs
-        interpreter.os == config.goOs
+      if config.go_os
+        interpreter.os == config.go_os
       else
         true
 
@@ -239,6 +239,54 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ]
       push: [
         name: 'publish_endpoint'
+      ]
+      redis: [
+        name: 'server'
+        label: 'resources.host'
+        required: true
+      ,
+        name: 'port'
+        type: 'integer'
+        required: true
+      ,
+        name: 'username'
+      ,
+        name: 'password'
+      ,
+        name: 'database'
+      ,
+        name: 'maxopen'
+        type: 'integer'
+      ,
+        name: 'maxidle'
+        type: 'integer'
+      ]
+      oracle: [
+        name: 'server'
+        label: 'resources.host'
+        required: true
+      ,
+        name: 'port'
+        type: 'integer'
+        required: true
+      ,
+        name: 'username'
+        required: true
+      ,
+        name: 'password'
+        type: 'password'
+        required: true
+      ,
+        name: 'database'
+        required: true
+      ,
+        name: 'transactions'
+      ,
+        name: 'maxidle'
+        type: 'integer'
+      ,
+        name: 'maxopen'
+        type: 'integer'
       ]
     # environment datum may not set WSDL
     fields.soap.shift() if @get('modelType') is 'remote-endpoint-environment-datum'

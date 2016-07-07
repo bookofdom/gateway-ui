@@ -20,15 +20,15 @@ ProxyEndpointComponent = Model.extend
   calls: DS.hasMany 'proxy-endpoint-component-call',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   before: DS.hasMany 'proxy-endpoint-component-transformation',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
   after: DS.hasMany 'proxy-endpoint-component-transformation',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
 
   # computed
   typeKind: Ember.computed 'type', 'shared_component.typeKind', ->

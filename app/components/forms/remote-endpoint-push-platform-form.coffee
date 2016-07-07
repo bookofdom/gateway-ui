@@ -1,5 +1,5 @@
 `import BaseFormComponent from 'gateway/components/forms/base-form'`
-`import t from 'gateway/helpers/i18n'`
+`import RemoteEndpointPushPlatform from 'gateway/pods/remote-endpoint-push-platform/model'`
 
 RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
   apiModel: null
@@ -8,19 +8,7 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
   modelType: 'remote-endpoint-push-platform'
 
   'option-groups':
-    type: [
-      name: t 'push-platforms.osx'
-      value: 'osx'
-    ,
-      name: t 'push-platforms.ios'
-      value: 'ios'
-    ,
-      name: t 'push-platforms.gcm'
-      value: 'gcm'
-    ,
-      name: t 'push-platforms.mqtt'
-      value: 'mqtt'
-    ]
+    type: RemoteEndpointPushPlatform.types
 
   defaultFields:
     [
@@ -57,6 +45,7 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
       type: 'password'
     ,
       name: 'topic'
+      required: true
     ,
       name: 'development'
     ]

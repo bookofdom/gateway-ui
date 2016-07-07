@@ -40,7 +40,7 @@ testCase2 =
   title: 'Person'
   type: 'object'
   description: 'A person class'
-  required: []
+  #required: []
   properties:
     firstName:
       type: 'string'
@@ -50,7 +50,7 @@ testCase2 =
       type: 'object'
       title: 'Address'
       description: "A person's address"
-      required: []
+      #required: []
       properties:
         streetAddress:
           type: 'string'
@@ -80,7 +80,7 @@ testCase3 =
       type: 'array'
     '^O_':
       type: 'object'
-      required: []
+      #required: []
   properties:
     name:
       type: 'string'
@@ -131,7 +131,7 @@ testCase3 =
       properties:
         zip:
           type: 'string'
-      required: []
+      #required: []
   required: ['name', 'age', 'size', 'friends', 'phoneNumber']
 
 # Testing top level 'string'

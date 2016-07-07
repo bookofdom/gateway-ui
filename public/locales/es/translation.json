@@ -56,13 +56,14 @@
     "build-app_plural": "build de aplicaciones",
     "app_plural": "aplicaciones",
     "terms-and-conditions": "términos y condiciones",
+    "push": "empujar",
     "descriptions": {
       "define-api": "definir los puntos finales de API, servicios de integración remotos, y la lógica de negocio de flujo de trabajo",
       "manage-api": "crea las claves y especifica las reglas de las APIs",
       "manage-store": "gestionar los datos en un almacén de objetos",
       "manage": "gestionar los datos de tienda local y notificaciones push",
       "store-collections": "administrar colecciones de una tienda local y datos",
-      "push-channels": "gestionar los canales de empuje , dispositivos , mensajes y enviar mensajes manuales",
+      "push": "administración de canales de empuje , dispositivos y mensajes",
       "build-app": "realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence (autenticación requerida)",
       "proxy-endpoints": "define o edita proxy endpoints y la correspondiente lógica",
       "environments": "especifica entornos, variables y otros atributos",
@@ -118,14 +119,14 @@
     "proxy-endpoint-test-argument_plural": "argumentos",
     "proxy-endpoint-schema": "validación de esquema",
     "proxy-endpoint-schema_plural": "validaciones de esquema",
-    "push-channel": "canal de empuje",
-    "push-channel_plural": "empuje canales",
-    "push-channel-push-device": "dispositivo de empuje",
-    "push-channel-push-device_plural": "dispositivos de empuje",
-    "push-channel-push-device-push-message": "mensaje de inserción",
-    "push-channel-push-device-push-message_plural": "mensajes de inserción",
-    "push-channel-push-manual-message": "empuje manual mensaje",
-    "push-channel-push-manual-message_plural": "empujar mensajes manuales",
+    "push-channel": "canal",
+    "push-channel_plural": "canales",
+    "push-channel-device": "dispositivo",
+    "push-channel-device_plural": "dispositivos",
+    "push-manual-message": "manual mensaje",
+    "push-manual-message_plural": "mensajes manuales",
+    "push-message": "mensaje",
+    "push-message_plural": "mensajes",
     "environment": "entorno",
     "environment_plural": "entornos",
     "environment-variable": "variable de entorno",
@@ -255,8 +256,8 @@
     "response_schema": "esquema de respuesta",
     "organization": "organización",
     "use_tls": "utilizar TLS",
-    "encoded_certificate": "certificado codificado",
-    "encoded_private_key": "clave privada codificada",
+    "encoded_certificate": "certificado",
+    "encoded_private_key": "clave privada",
     "server_name": "nombre del servidor",
     "private_key_password": "contraseña de clave privada",
     "title": "título",
@@ -316,11 +317,6 @@
     "brazilian-portuguese": "Português Brasileiro",
     "hindi": "मानक हिन्दी"
   },
-  "push-platforms": {
-    "osx": "OSX",
-    "ios": "iOS",
-    "gcm": "GCM"
-  },
   "errors": {
     "unknown": "ha ocurrido un error inesperado",
     "no-user-with-that-email": "no existe un usuario con ese correo electrónico",
@@ -350,7 +346,11 @@
     "import": "__user__ importó un __resource__"
   },
   "types": {
-    "json-schema": {
+    "editor": {
+      "code": "código",
+      "design": "diseño"
+    },
+    "json-type": {
       "object": "objeto",
       "array": "formación",
       "null": "nulo",

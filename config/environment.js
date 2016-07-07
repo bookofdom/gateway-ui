@@ -33,12 +33,12 @@ module.exports = function(environment) {
     },
 
     confirmDelete: true,
-    registrationEnabled: true, // expose the user registration UI?
+    registration_enabled: true, // expose the user registration UI?
 
     version: null,
-    devMode: false,
-    goOs: null,
-    remoteEndpointTypesEnabled: null,
+    dev_mode: false,
+    go_os: null,
+    remote_endpoint_types_enabled: null,
     notifications: false,
 
     api: {
@@ -65,7 +65,7 @@ module.exports = function(environment) {
     ENV.api.swaggerViewerPath = '/swagger';
     ENV.api.swaggerJsonPath = '/swagger';
 
-    ENV.goOs = 'darwin';
+    ENV.go_os = 'darwin';
     //ENV.notifications = true;
 
     // uncomment for stand-alone gateway API
@@ -89,19 +89,67 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    // Interpolated configuration variables are filled by the server.  The
+    // server replaces UPPERCASE_VARS with a value if one exists.  In some
+    // cases, variables with no value are left in-place.  Others are replaced
+    // with the empty string.  Each interpolated config variable with a value is
+    // copied to an ENV property, where config.key is the key and config.value
+    // is the value.
+    // For example, in {name: 'version', value: 'VERSION'} where the server
+    // replaces VERSION with 1.2, an ENV property is created:
+    // ENV.version = '1.2'.
+    var interpolatedConfig = [
+      {
+        key: 'registration_enabled',
+        value: 'REGISTRATION_ENABLED'
+      },
+      {
+        key: 'version',
+        value: 'VERSION'
+      },
+      {
+        key: 'dev_mode',
+        value: 'DEV_MODE'
+      },
+      {
+        key: 'go_os',
+        value: 'GO_OS'
+      },
+      {
+        key: 'remote_endpoint_types_enabled',
+        value: 'REMOTE_ENDPOINT_TYPES_ENABLED'
+      },
+      {
+        key: 'api_base_path_placeholder',
+        value: 'API_BASE_PATH_PLACEHOLDER'
+      },
+      {
+        key: 'broker_placeholder',
+        value: 'BROKER_PLACEHOLDER'
+      },
+      {
+        key: 'google_analytics_tracking_id',
+        value: 'GOOGLE_ANALYTICS_TRACKING_ID'
+      }
+    ];
+
+    interpolatedConfig.forEach(function (config) {
+      var uppercaseKey = config.key.toUpperCase();
+      if (uppercaseKey !== config.value) {
+        ENV[config.key] = config.value;
+      }
+    });
+
     ENV.baseURL = null;
     ENV.locationType = 'hash';
-    ENV.registrationEnabled = 'REGISTRATION_ENABLED';
-    ENV.version = 'VERSION';
-    ENV.devMode = 'DEV_MODE';
-    ENV.goOs = 'GO_OS';
-    ENV.remoteEndpointTypesEnabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
-    ENV.api.basePath = 'API_BASE_PATH_PLACEHOLDER';
-    ENV.api.logs.host = 'BROKER_PLACEHOLDER';
+    if (ENV.api_base_path_placeholder) ENV.api.basePath = ENV.api_base_path_placeholder;
+    if (ENV.broker_placeholder) ENV.api.logs.host = ENV.broker_placeholder;
     ENV.notifications = true;
-    ENV.googleAnalytics = {
-      webPropertyId: 'GOOGLE_ANALYTICS_TRACKING_ID'
-    };
+    if (ENV.google_analytics_tracking_id) {
+      ENV.googleAnalytics = {
+        webPropertyId: ENV.google_analytics_tracking_id
+      };
+    }
   }
 
   ENV.api.url = [ENV.api.host, ENV.api.basePath].join('/');

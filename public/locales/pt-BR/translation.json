@@ -56,13 +56,14 @@
     "build-app_plural": "construir os aplicativos",
     "app_plural": "aplicativos",
     "terms-and-conditions": "termos e condições",
+    "push": "empurrar",
     "descriptions": {
       "define-api": "definir terminais de API, serviços de integração remotos e lógica de negócios de fluxo de trabalho",
       "manage-api": "cria as chave e especifica as regras das suas APIs",
       "manage-store": "gerenciar dados em um armazenamento de objetos",
       "manage": "gerenciar dados de loja local e notificações push",
       "store-collections": "gerenciar coleções de lojas locais e dados",
-      "push-channels": "gerenciar os canais de pressão, dispositivos , mensagens e enviar mensagens de manuais",
+      "push": "gerenciar os canais de pressão , dispositivos e mensagens",
       "build-app": "constrói aplicações de multi-canais com a plataforma AnyPresence (login necessário)",
       "proxy-endpoints": "define os endpoints da proxy e a lógica correspondente",
       "environments": "especifica ambiente, variáveis e outros atributos",
@@ -118,14 +119,14 @@
     "proxy-endpoint-test-argument_plural": "argumento",
     "proxy-endpoint-schema": "validação de esquema",
     "proxy-endpoint-schema_plural": "validações de esquema",
-    "push-channel": "canal de impulso",
-    "push-channel_plural": "canais de pressão",
-    "push-channel-push-device": "dispositivo de impulso",
-    "push-channel-push-device_plural": "dispositivos de pressão",
-    "push-channel-push-device-push-message": "mensagem de envio",
-    "push-channel-push-device-push-message_plural": "empurrar mensagens",
-    "push-channel-push-manual-message": "empurrar mensagem Manual",
-    "push-channel-push-manual-message_plural": "empurrar mensagens manuais",
+    "push-channel": "canal",
+    "push-channel_plural": "canais",
+    "push-channel-device": "dispositivo",
+    "push-channel-device_plural": "dispositivos",
+    "push-manual-message": "empurrar mensagem Manual",
+    "push-manual-message_plural": "empurrar mensagens manuais",
+    "push-message": "mensagem",
+    "push-message_plural": "mensagens",
     "environment": "ambiente",
     "environment_plural": "ambientes",
     "environment-variable": "variável do ambiente",
@@ -255,8 +256,8 @@
     "response_schema": "esquema de resposta",
     "organization": "organização",
     "use_tls": "usar TLS",
-    "encoded_certificate": "certificado codificado",
-    "encoded_private_key": "chave privada codificado",
+    "encoded_certificate": "certificado",
+    "encoded_private_key": "chave privada",
     "server_name": "nome do servidor",
     "private_key_password": "senha da chave privada",
     "title": "título",
@@ -316,11 +317,6 @@
     "brazilian-portuguese": "Português Brasileiro",
     "hindi": "मानक हिन्दी"
   },
-  "push-platforms": {
-    "osx": "OSX",
-    "ios": "iOS",
-    "gcm": "GCM"
-  },
   "errors": {
     "unknown": "ocorreu um erro inesperado",
     "no-user-with-that-email": "não exite usuário com esse email",
@@ -350,7 +346,11 @@
     "import": "__user__ importado um __resource__"
   },
   "types": {
-    "json-schema": {
+    "editor": {
+      "code": "código",
+      "design": "projeto"
+    },
+    "json-type": {
       "object": "objeto",
       "array": "ordem",
       "null": "nulo",

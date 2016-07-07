@@ -15,8 +15,8 @@
       help=field.help
       type=field.type
       required=field.required
-      disabled=model.isDeleted
       readonly=field.readonly
+      disabled=(or field.disabled model.isDeleted)
       prompt=field.prompt
       option-groups=option-groups
       show-placeholder=show-placeholders}}

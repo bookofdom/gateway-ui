@@ -3,7 +3,7 @@
 
 ApplicationController = Ember.Controller.extend
   version: config.version
-  devMode: config.devMode?.toString() is 'true'
+  dev_mode: config.dev_mode?.toString() is 'true'
   session: Ember.inject.service()
 
 `export default ApplicationController`
