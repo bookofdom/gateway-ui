@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import SharedComponent from 'gateway/models/shared-component'`
+`import SharedComponent from 'gateway/pods/shared-component/model'`
 
 SharedComponentsIndexController = Ember.Controller.extend
   'api': Ember.inject.controller()
