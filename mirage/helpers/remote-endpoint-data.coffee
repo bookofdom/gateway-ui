@@ -2,7 +2,7 @@
 
 enviromentDatumId = 1
 
-types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push'.split ' '
+types = 'http soap sqlserver postgres mysql mongodb ldap redis oracle script hana store push'.split ' '
 typeCycle = faker.list.cycle types...
 
 statuses = 'success failed pending processing'.split ' '
@@ -111,6 +111,25 @@ generateDataForType = (typeSlug, i) ->
       {}
     when 'push'
       publish_endpoint: faker.random.boolean()
+    when 'redis'
+      maxOpen: faker.random.number()
+      maxIdle: faker.random.number()
+      config:
+        host: "server.#{faker.internet.domainName()}"
+        port: faker.random.number()
+        username: faker.internet.userName()
+        password: faker.internet.password()
+        database: '0'
+    when 'oracle'
+      transactions: faker.random.boolean()
+      maxOpenConn: faker.random.number()
+      maxIdleConn: faker.random.number()
+      config:
+        host: "server.#{faker.internet.domainName()}"
+        port: faker.random.number()
+        user: faker.internet.userName()
+        password: faker.internet.password()
+        dbname: 'database'
   data.headers = generateKeyValues 3
   data.query = generateKeyValues 3
   pushPlatformType = platformCycle i

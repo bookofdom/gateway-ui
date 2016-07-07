@@ -12,6 +12,6 @@ PushChannel = Model.extend
   remote_endpoint: DS.belongsTo 'remote-endpoint',
     async: false
     stains: true
-  push_devices: DS.hasMany 'push-device', async: true
+  push_devices: DS.hasMany 'push-channel-device', async: true
 
 `export default PushChannel`

@@ -5,7 +5,7 @@ moduleForModel 'push-channel', 'Unit | Model | push-channel', {
   needs: [
     'model:api'
     'model:remote-endpoint'
-    'model:push-device'
+    'model:push-channel-device'
   ]
 }
 

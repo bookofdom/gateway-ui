@@ -10,9 +10,7 @@ module 'Acceptance: Push Device - Read',
     server.createList('api', 5).forEach (api) ->
       server.createList 'environment', 3, apiId: api.id
       server.createList 'remote_endpoint', 20, apiId: api.id
-    server.createList('push_channel', 1).forEach (channel) ->
-      server.createList('push_device', 5, pushChannelId: channel.id).forEach (device) ->
-        server.createList 'push_message', 5, pushDeviceId: device.id
+    server.createList('push_device', 5)
     authenticateSession @application
     ###
     Don't return anything, because QUnit looks for a .then
@@ -23,9 +21,9 @@ module 'Acceptance: Push Device - Read',
   afterEach: -> destroyApp @application
 
 test 'user can view push devices', (assert) ->
-  visit '/manage/push-channels/1/push-devices'
+  visit '/manage/push/devices'
   andThen ->
     count = server.db.pushDevices.length
-    assert.equal currentURL(), '/manage/push-channels/1/push-devices'
+    assert.equal currentURL(), '/manage/push/devices'
     assert.equal count > 0, true
     assert.equal find('.ap-table-model tbody tr').length, count

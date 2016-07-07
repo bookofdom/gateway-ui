@@ -2,7 +2,6 @@
 
 PushDeviceFormComponent = BaseFormComponent.extend
   savedAction: null
-  indexModel: null
   modelType: 'push-device'
 
   defaultFields: [
@@ -20,12 +19,5 @@ PushDeviceFormComponent = BaseFormComponent.extend
       type: 'datetime'
       required: true
   ]
-
-  submit: ->
-    model = @get 'model'
-    if model.get 'isNew'
-      pushDevices = @get 'indexModel'
-      pushDevices.pushObject model
-    @_super arguments...
 
 `export default PushDeviceFormComponent`

@@ -18,6 +18,6 @@ Environment = Model.extend
   variables: DS.hasMany 'environment-variable',
     async: false
     stains: true
-    embedded: true
+    embeddedModel: true
 
 `export default Environment`

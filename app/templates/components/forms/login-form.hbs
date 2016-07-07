@@ -18,7 +18,7 @@
   {{#bs-form-group}}
     {{bs-submit t='actions.login' lg=true}}
     <br class="visible-xs">
-    {{#if registrationEnabled}}
+    {{#if registration_enabled}}
       {{link-to (t 'actions.sign-up') 'registration' class='btn btn-link'}}
     {{/if}}
     {{link-to (t 'actions.reset-password') 'password.reset' class='btn btn-link'}}

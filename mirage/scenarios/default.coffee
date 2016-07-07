@@ -25,7 +25,7 @@ defaultScenario = (server) ->
     server.createList 'library', 5, apiId: id
     server.createList 'host', 5, apiId: id
     server.createList 'endpoint_group', 5, apiId: id
-    server.createList('remote_endpoint', 20, apiId: id).forEach (remoteEndpoint) ->
+    server.createList('remote_endpoint', 26, apiId: id).forEach (remoteEndpoint) ->
       options =
         apiId: id
         remoteEndpointId: remoteEndpoint.id
@@ -44,6 +44,7 @@ defaultScenario = (server) ->
   channels = server.createList 'push_channel', 5
   channels.forEach (channel) ->
     id = channel.id
+    channelMessages = server.createList 'push_channel_message', 1, pushChannelId: id
     devices = server.createList 'push_device', 5, pushChannelId: id
     devices.forEach (device) ->
       id = device.id

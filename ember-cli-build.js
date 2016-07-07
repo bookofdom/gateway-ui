@@ -84,6 +84,8 @@ module.exports = function(defaults) {
   app.import('bower_components/jjv/lib/jjv.js');
   // parallel.js
   app.import('bower_components/paralleljs/lib/parallel.js');
+  // deep equals
+  app.import('bower_components/deep-equal/index.js');
 
   // Gateway Icons
   var gatewayIcons = new Funnel('bower_components/gateway-icons/dist/fonts', {

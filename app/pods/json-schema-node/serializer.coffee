@@ -73,7 +73,8 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
       # Since additionalProperties defaults to `true`, we only include it if
       # it is set to `false`.
       cleaned[attrName] = value if (attrName is 'additionalProperties') and (value is false)
-    delete cleaned.required if !Ember.isArray cleaned.required
+    if !Ember.isArray(cleaned.required) or !cleaned.required?.length
+      delete cleaned.required
     cleaned
 
   serialize: (snapshot, options) ->
