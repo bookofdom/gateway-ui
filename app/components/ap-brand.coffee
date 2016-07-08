@@ -7,7 +7,7 @@ ApBrandComponent = BsTextComponent.extend
   classNames: ['ap-brand']
   classNameBindings: ['styleClass', 'brandClass']
   attributeBindings: ['text:title']
-  brand: 'anypresence'
+  brand: 'just-apis'
   t: Ember.computed 'brand', -> @get 'brand'
   style: 'default'
   styleClass: Ember.computed 'style', ->
