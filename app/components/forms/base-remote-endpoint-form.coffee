@@ -275,6 +275,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         required: true
       ,
         name: 'password'
+        type: 'password'
         required: true
       ,
         name: 'sender'
