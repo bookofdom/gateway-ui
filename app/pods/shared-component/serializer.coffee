@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApiRelatedSerializer from './api-related'`
+`import ApiRelatedSerializer from 'gateway/serializers/api-related'`
 
 SharedComponentSerializer = ApiRelatedSerializer.extend  DS.EmbeddedRecordsMixin,
   attrs:

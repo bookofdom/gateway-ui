@@ -1,5 +1,5 @@
 `import BaseFormComponent from 'gateway/components/forms/base-form'`
-`import ProxyEndpointTest from 'gateway/models/proxy-endpoint-test'`
+`import ProxyEndpointTest from 'gateway/pods/proxy-endpoint-test/model'`
 `import t from 'gateway/helpers/i18n'`
 
 # Field Rules
