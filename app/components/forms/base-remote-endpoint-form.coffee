@@ -249,7 +249,8 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         type: 'integer'
         required: true
       ,
-        name: 'username'
+        name: 'user'
+        label: 'resources.username'
       ,
         name: 'password'
       ,
@@ -260,6 +261,24 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ,
         name: 'maxidle'
         type: 'integer'
+      ],
+      smtp: [
+        name: 'server'
+        label: 'resources.host'
+        required: true
+      ,
+        name: 'port'
+        type: 'integer'
+        required: true
+      ,
+        name: 'username'
+        required: true
+      ,
+        name: 'password'
+        required: true
+      ,
+        name: 'sender'
+        required: true
       ]
     # environment datum may not set WSDL
     fields.soap.shift() if @get('modelType') is 'remote-endpoint-environment-datum'

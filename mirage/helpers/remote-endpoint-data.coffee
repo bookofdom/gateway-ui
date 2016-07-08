@@ -2,7 +2,7 @@
 
 enviromentDatumId = 1
 
-types = 'http soap sqlserver postgres mysql mongodb ldap redis script hana store push'.split ' '
+types = 'http soap sqlserver postgres mysql mongodb ldap redis script hana store push smtp'.split ' '
 typeCycle = faker.list.cycle types...
 
 statuses = 'success failed pending processing'.split ' '
@@ -120,6 +120,13 @@ generateDataForType = (typeSlug, i) ->
         username: faker.internet.userName()
         password: faker.internet.password()
         database: '0'
+    when 'smtp'
+      config:
+        host: "server.#{faker.internet.domainName()}"
+        port: faker.random.number()
+        user: faker.internet.userName()
+        password: faker.internet.password()
+        sender: faker.internet.email()
   data.headers = generateKeyValues 3
   data.query = generateKeyValues 3
   pushPlatformType = platformCycle i
