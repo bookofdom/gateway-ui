@@ -8,34 +8,71 @@
     </tr>
   </thead>
   <tbody>
-    {{#each model as |model|}}
-      {{#unless model.isNew}}
-        <tr>
-          {{#each fields as |field i|}}
-            <td>
-              {{!-- first cell gets link --}}
-              {{#if (eq i 0)}}
-                {{#link-to route model}}
+    {{#if edit-path}}
+      {{#each model as |model|}}
+        {{#unless model.isNew}}
+          <tr>
+            {{#each fields as |field i|}}
+              <td>
+                {{!-- first cell gets link --}}
+                {{#if (eq i 0)}}
+                  {{#link-to route model}}
+                    {{partial (concat 'components/ap-table-auto-index-cell/' field.type)}}
+                  {{/link-to}}
+                {{/if}}
+                {{!-- subsequent cells do not get links --}}
+                {{#unless (eq i 0)}}
                   {{partial (concat 'components/ap-table-auto-index-cell/' field.type)}}
-                {{/link-to}}
-              {{/if}}
-              {{!-- subsequent cells do not get links --}}
-              {{#unless (eq i 0)}}
-                {{partial (concat 'components/ap-table-auto-index-cell/' field.type)}}
-              {{/unless}}
+                {{/unless}}
+              </td>
+            {{/each}}
+            <td>
+              {{#ap-list-nav-simple-icon class='pull-right'}}
+                {{ap-list-link
+                  t='actions.edit'
+                  icon='the-essentials-027'
+                  path=edit-path
+                  arg1=model}}
+                {{ap-list-link
+                  t='actions.delete'
+                  icon='the-essentials-011'
+                  action='delete'
+                  arg1=model}}
+              {{/ap-list-nav-simple-icon}}
             </td>
-          {{/each}}
-          <td>
-            {{#ap-list-nav-simple-icon class='pull-right'}}
-              {{ap-list-link
-                t='actions.delete'
-                icon='the-essentials-011'
-                action='delete'
-                arg1=model}}
-            {{/ap-list-nav-simple-icon}}
-          </td>
-        </tr>
-      {{/unless}}
-    {{/each}}
+          </tr>
+        {{/unless}}
+      {{/each}}
+    {{else}}
+      {{#each model as |model|}}
+        {{#unless model.isNew}}
+          <tr>
+            {{#each fields as |field i|}}
+              <td>
+                {{!-- first cell gets link --}}
+                {{#if (eq i 0)}}
+                  {{#link-to route model}}
+                    {{partial (concat 'components/ap-table-auto-index-cell/' field.type)}}
+                  {{/link-to}}
+                {{/if}}
+                {{!-- subsequent cells do not get links --}}
+                {{#unless (eq i 0)}}
+                  {{partial (concat 'components/ap-table-auto-index-cell/' field.type)}}
+                {{/unless}}
+              </td>
+            {{/each}}
+            <td>
+              {{#ap-list-nav-simple-icon class='pull-right'}}
+                {{ap-list-link
+                  t='actions.delete'
+                  icon='the-essentials-011'
+                  action='delete'
+                  arg1=model}}
+              {{/ap-list-nav-simple-icon}}
+            </td>
+          </tr>
+        {{/unless}}
+      {{/each}}
+    {{/if}}
   </tbody>
 </table><!-- /.table -->
