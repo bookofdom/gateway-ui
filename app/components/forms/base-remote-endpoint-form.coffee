@@ -239,6 +239,12 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ]
       push: [
         name: 'publish_endpoint'
+      ,
+        name: 'subscribe_endpoint'
+        type: 'boolean'
+      ,
+        name: 'unsubscribe_endpoint'
+        type: 'boolean'
       ]
       redis: [
         name: 'server'

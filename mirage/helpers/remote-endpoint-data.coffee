@@ -111,6 +111,8 @@ generateDataForType = (typeSlug, i) ->
       {}
     when 'push'
       publish_endpoint: faker.random.boolean()
+      subscribe_endpoint: faker.random.boolean()
+      unsubscribe_endpoint: faker.random.boolean()
     when 'redis'
       maxOpen: faker.random.number()
       maxIdle: faker.random.number()

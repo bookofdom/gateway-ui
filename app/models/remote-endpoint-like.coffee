@@ -74,6 +74,8 @@ RemoteEndpointLike = Model.extend
   script: DS.attr 'string'
   # push
   publish_endpoint: DS.attr 'boolean'
+  subscribe_endpoint: DS.attr 'boolean', defaultValue: true
+  unsubscribe_endpoint: DS.attr 'boolean', defaultValue: true
 
   # Relationships
   headers: DS.hasMany 'remote-endpoint-header',

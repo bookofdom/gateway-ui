@@ -278,6 +278,8 @@
     "max_length": "comprimento máximo",
     "encrypt": "criptografar",
     "additional_properties": "propriedades adicionais",
+    "subscribe_endpoint": "subscrever endpoint",
+    "unsubscribe_endpoint": "endpoint unsubscribe",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
