@@ -249,8 +249,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         type: 'integer'
         required: true
       ,
-        name: 'user'
-        label: 'resources.username'
+        name: 'username'
       ,
         name: 'password'
       ,
@@ -263,8 +262,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         type: 'integer'
       ],
       smtp: [
-        name: 'server'
-        label: 'resources.host'
+        name: 'host'
         required: true
       ,
         name: 'port'
