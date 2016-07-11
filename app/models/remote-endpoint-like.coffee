@@ -28,6 +28,7 @@ RemoteEndpointLike = Model.extend
   # sqlserver
   # postgres
   # mysql
+  # oracle
   database: DS.attr 'string'
   # sqlserver
   # postgres
@@ -47,7 +48,7 @@ RemoteEndpointLike = Model.extend
   # ldap
   # hana
   # redis
-  # smtp
+  # oracle
   server: DS.attr 'string'
   port: DS.attr 'number'
   # smtp
@@ -60,6 +61,7 @@ RemoteEndpointLike = Model.extend
   # ldap
   # hana
   # redis
+  # oracle
   # smtp
   username: DS.attr 'string'
   password: DS.attr 'string'
@@ -75,9 +77,10 @@ RemoteEndpointLike = Model.extend
   script: DS.attr 'string'
   # push
   publish_endpoint: DS.attr 'boolean'
+  subscribe_endpoint: DS.attr 'boolean', defaultValue: true
+  unsubscribe_endpoint: DS.attr 'boolean', defaultValue: true
   # smtp
   sender: DS.attr 'string'
-
   # Relationships
   headers: DS.hasMany 'remote-endpoint-header',
     async: false
@@ -135,7 +138,7 @@ RemoteEndpointLike = Model.extend
   push_platform_codenames: Ember.computed.mapBy 'push_platforms', 'codename'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis smtp'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle smtp'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type

@@ -11,6 +11,7 @@
 `import HanaRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/hana'`
 `import PushRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/push'`
 `import RedisRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/redis'`
+`import OracleRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/oracle'`
 `import SmtpRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/smtp'`
 
 RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
@@ -55,6 +56,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'hana' then HanaRemoteEndpointSerializer.normalize hash
       when 'push' then PushRemoteEndpointSerializer.normalize hash
       when 'redis' then RedisRemoteEndpointSerializer.normalize hash
+      when 'oracle' then OracleRemoteEndpointSerializer.normalize hash
       when 'smtp' then SmtpRemoteEndpointSerializer.normalize hash
     @_super arguments...
   normalizeEnvironmentData: (hash) ->
@@ -92,6 +94,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'hana' then HanaRemoteEndpointSerializer.serialize serialized
       when 'push' then PushRemoteEndpointSerializer.serialize serialized
       when 'redis' then RedisRemoteEndpointSerializer.serialize serialized
+      when 'oracle' then OracleRemoteEndpointSerializer.serialize serialized
       when 'smtp' then SmtpRemoteEndpointSerializer.serialize serialized
     serialized
   serializeHeaders: (snapshot) ->

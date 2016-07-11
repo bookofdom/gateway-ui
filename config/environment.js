@@ -33,12 +33,12 @@ module.exports = function(environment) {
     },
 
     confirmDelete: true,
-    registrationEnabled: true, // expose the user registration UI?
+    registration_enabled: true, // expose the user registration UI?
 
     version: null,
-    devMode: false,
-    goOs: null,
-    remoteEndpointTypesEnabled: null,
+    dev_mode: false,
+    go_os: null,
+    remote_endpoint_types_enabled: null,
     notifications: false,
 
     api: {
@@ -65,7 +65,7 @@ module.exports = function(environment) {
     ENV.api.swaggerViewerPath = '/swagger';
     ENV.api.swaggerJsonPath = '/swagger';
 
-    ENV.goOs = 'darwin';
+    ENV.go_os = 'darwin';
     //ENV.notifications = true;
 
     // uncomment for stand-alone gateway API
@@ -89,18 +89,23 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    // interpolated config
+    ENV.registration_enabled = 'REGISTRATION_ENABLED';
+    ENV.version = 'VERSION';
+    ENV.dev_mode = 'DEV_MODE';
+    ENV.go_os = 'GO_OS';
+    ENV.remote_endpoint_types_enabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
+    ENV.api_base_path_placeholder = 'API_BASE_PATH_PLACEHOLDER';
+    ENV.broker_placeholder = 'BROKER_PLACEHOLDER';
+    ENV.google_analytics_tracking_id = 'GOOGLE_ANALYTICS_TRACKING_ID';
+
     ENV.baseURL = null;
     ENV.locationType = 'hash';
-    ENV.registrationEnabled = 'REGISTRATION_ENABLED';
-    ENV.version = 'VERSION';
-    ENV.devMode = 'DEV_MODE';
-    ENV.goOs = 'GO_OS';
-    ENV.remoteEndpointTypesEnabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
-    ENV.api.basePath = 'API_BASE_PATH_PLACEHOLDER';
-    ENV.api.logs.host = 'BROKER_PLACEHOLDER';
+    ENV.api.basePath = ENV.api_base_path_placeholder;
+    ENV.api.logs.host = ENV.broker_placeholder;
     ENV.notifications = true;
     ENV.googleAnalytics = {
-      webPropertyId: 'GOOGLE_ANALYTICS_TRACKING_ID'
+      webPropertyId: ENV.google_analytics_tracking_id
     };
   }
 

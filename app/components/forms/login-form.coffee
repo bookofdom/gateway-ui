@@ -8,7 +8,7 @@ LoginFormComponent = Ember.Component.extend
   tagName: 'form'
   classNames: ['ap-form-login']
 
-  registrationEnabled: config.registrationEnabled?.toString() is 'true'
+  registration_enabled: config.registration_enabled?.toString() is 'true'
   authenticator: 'authenticator:gateway'
   authenticateAction: 'authenticate'
 
