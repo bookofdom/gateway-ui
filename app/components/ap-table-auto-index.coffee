@@ -6,6 +6,8 @@ ApTableAutoIndexComponent = Ember.Component.extend
   notify: Ember.inject.service()
   classNames: ['ap-table-auto-index', 'table-responsive']
 
+  classNameBindings: ['edit-route:table-edit', 'show-delete:table-delete']
+
   # Array of model instances.
   model: null
 
