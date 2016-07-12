@@ -1,4 +1,4 @@
-<table class="table table-hover {{if show-delete 'table-delete'}} {{if edit-path 'table-edit'}}">
+<table class="table table-hover {{if show-delete 'table-delete'}} {{if edit-route 'table-edit'}}">
   <thead>
     <tr>
       {{#each fields as |field|}}
@@ -31,7 +31,7 @@
                 class='ap-list-link-edit'
                 t='actions.edit'
                 icon='the-essentials-027'
-                path=edit-path
+                path=edit-route
                 arg1=model}}
               {{ap-list-link
                 class='ap-list-link-delete'

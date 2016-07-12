@@ -19,7 +19,7 @@ ApTableAutoIndexComponent = Ember.Component.extend
   # Route name for links.
   route: null
 
-  'edit-path': null
+  'edit-route': null
 
   'show-delete': false
 
