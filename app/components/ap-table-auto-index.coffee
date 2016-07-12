@@ -20,7 +20,9 @@ ApTableAutoIndexComponent = Ember.Component.extend
   route: null
 
   'edit-path': null
-  
+
+  'show-delete': false
+
   delete: (model) ->
     model.destroyRecord().catch =>
       # notify user of errors
