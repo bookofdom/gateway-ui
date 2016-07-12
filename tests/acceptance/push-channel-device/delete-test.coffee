@@ -27,12 +27,12 @@ test 'user can delete push devices from index route', (assert) ->
   andThen ->
     assert.equal currentURL(), '/manage/push/channels/1/devices'
     assert.equal server.db.pushDevices.length, 5
-    assert.equal find('.ap-table-model tbody tr').length, 5
-  click '.ap-table-model tbody tr:eq(0) [data-t="actions.delete"] a'
+    assert.equal find('.ap-table-auto-index tbody tr').length, 5
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
     assert.equal currentURL(), '/manage/push/channels/1/devices'
     assert.equal server.db.pushDevices.length, 4
-    assert.equal find('.ap-table-model tbody tr').length, 4
+    assert.equal find('.ap-table-auto-index tbody tr').length, 4
 
 test 'user can delete push devices from edit route', (assert) ->
   visit '/manage/push/channels/1/devices/1/edit'
@@ -43,4 +43,4 @@ test 'user can delete push devices from edit route', (assert) ->
   andThen ->
     assert.equal currentURL(), '/manage/push/channels/1/devices'
     assert.equal server.db.pushDevices.length, 4
-    assert.equal find('.ap-table-model tbody tr').length, 4
+    assert.equal find('.ap-table-auto-index tbody tr').length, 4
