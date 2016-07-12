@@ -8,7 +8,7 @@ module 'Acceptance: Shared Component - Delete',
   beforeEach: ->
     @application = startApp()
     server.createList('api', 1).forEach (api) ->
-      server.createList 'remote_endpoint', 26, apiId: api.id
+      server.createList 'remote_endpoint', 28, apiId: api.id
       server.createList 'shared_component', 3, apiId: api.id
     authenticateSession @application
     ###

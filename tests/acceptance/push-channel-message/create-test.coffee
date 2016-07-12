@@ -27,9 +27,9 @@ test 'user can create new push channel messages', (assert) ->
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/manage/push/messages'
-    assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=push_channel]', find('[name=push_channel] option:eq(1)').val()
   click '.ap-panel-new [type=submit]'
   andThen ->
     assert.equal server.db.pushChannelMessages.length, beforeCreateCount + 1
-    assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount + 1
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
