@@ -266,6 +266,24 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ,
         name: 'maxidle'
         type: 'integer'
+      ],
+      smtp: [
+        name: 'host'
+        required: true
+      ,
+        name: 'port'
+        type: 'integer'
+        required: true
+      ,
+        name: 'username'
+        required: true
+      ,
+        name: 'password'
+        type: 'password'
+        required: true
+      ,
+        name: 'sender'
+        required: true
       ]
       oracle: [
         name: 'server'
