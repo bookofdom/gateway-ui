@@ -6,4 +6,14 @@ PushChannelMessagesIndexController = Ember.Controller.extend
   'option-groups': Ember.computed 'push_channels.[]', ->
     'push_channel': @get('push_channels').filterBy 'isNew', false
 
+  fields: [
+    name: 'stamp'
+    label: 'fields.stamp'
+    type: 'datetime'
+  ,
+    name: 'body'
+    label: 'fields.body'
+    type: 'code'
+  ]
+
 `export default PushChannelMessagesIndexController`

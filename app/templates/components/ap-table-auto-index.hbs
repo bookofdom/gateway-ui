@@ -28,6 +28,13 @@
           <td>
             {{#ap-list-nav-simple-icon class='pull-right'}}
               {{ap-list-link
+                class='ap-list-link-edit'
+                t='actions.edit'
+                icon='the-essentials-027'
+                path=edit-route
+                arg1=model}}
+              {{ap-list-link
+                class='ap-list-link-delete'
                 t='actions.delete'
                 icon='the-essentials-011'
                 action='delete'

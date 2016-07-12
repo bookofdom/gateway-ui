@@ -28,7 +28,7 @@ test 'user can view push messages', (assert) ->
     count = server.db.pushMessages.length
     assert.equal currentURL(), '/manage/push/channels/1/devices/1/messages'
     assert.equal count > 0, true
-    assert.equal find('.ap-table-model tbody tr').length, count
+    assert.equal find('.ap-table-auto-index tbody tr').length, count
 
 test 'user can view push message', (assert) ->
   visit '/manage/push/channels/1/devices/1/messages/1'

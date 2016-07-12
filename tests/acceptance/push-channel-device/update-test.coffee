@@ -25,7 +25,7 @@ module 'Acceptance: Push Channel Device - Update',
 
 test 'user can navigate to push devices edit route', (assert) ->
   visit '/manage/push/channels/1/devices'
-  click '.ap-table-model tbody tr:eq(0) [data-t="actions.edit"] a'
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.edit"] a'
   andThen ->
     assert.equal currentURL(), '/manage/push/channels/1/devices/1/edit'
 
