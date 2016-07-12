@@ -287,6 +287,9 @@
     "max_length": "max length",
     "encrypt": "encrypt",
     "additional_properties": "additional properties",
+    "subscribe_endpoint": "subscribe endpoint",
+    "unsubscribe_endpoint": "unsubscribe endpoint",
+    "sender": "sender",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -398,6 +401,7 @@
       "hana": "HANA",
       "redis": "Redis",
       "oracle": "Oracle",
+      "smtp": "SMTP",
       "status-types": {
         "success": "success",
         "failed": "failed",

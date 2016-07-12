@@ -383,6 +383,40 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
               ]
               publish_endpoint: false
           ]
+          , # smtp
+            api_id: '1'
+            id: 12
+            name: 'Gmail smtp',
+            codename: 'gmail'
+            description: ''
+            type: 'smtp'
+            status: 'failed'
+            data:
+              config:
+                host: 'smtp.gmail.com'
+                port: 587
+                username: 'user'
+                password: 'password'
+                sender: 'user@gmail.com'
+            environment_data: null
+          , # redis
+            api_id: '1'
+            id: 13
+            name: 'redis',
+            codename: 'redis'
+            description: ''
+            type: 'redis'
+            status: 'failed'
+            data:
+              config:
+                host: 'localhost'
+                port: 6379
+                username: 'user'
+                password: 'password'
+                database: '0'
+              maxidle: 5
+              maxopen: 5
+            environment_data: null
         ]
       ]
 
@@ -394,4 +428,4 @@ test 'it normalizes records', (assert) ->
     api = apis.get('firstObject')
     api.get('environments').then ->
       api.get('remote_endpoints').then (remote_endpoints) ->
-        assert.equal remote_endpoints.get('length'), 10
+        assert.equal remote_endpoints.get('length'), 12

@@ -11,7 +11,7 @@ module 'Acceptance: Proxy Endpoint Component - Create',
     server.createList('api', 1).forEach (api) ->
       server.createList 'environment', 3, apiId: api.id
       server.createList 'endpoint_group', 5, apiId: api.id
-      server.createList 'remote_endpoint', 26, apiId: api.id
+      server.createList 'remote_endpoint', 28, apiId: api.id
       server.createList 'shared_component', 10, apiId: api.id
       server.createList('proxy_endpoint', 1, apiId: api.id).forEach (pe) ->
         server.createList 'proxy_endpoint_component', 10, proxyEndpointId: pe.id
