@@ -6,7 +6,7 @@ moduleForComponent 'bs-button', 'Integration | Component | bs button', {
 }
 
 test 'it renders', (assert) ->
-  #assert.expect 2
+  assert.expect 9
 
   @render hbs """{{bs-button}}"""
   assert.equal @$().find('[target]').size(), 0, 'has target only if url is set'
