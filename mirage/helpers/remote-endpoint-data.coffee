@@ -2,7 +2,7 @@
 
 enviromentDatumId = 1
 
-types = 'http soap sqlserver postgres mysql mongodb ldap redis oracle script hana store push smtp'.split ' '
+types = 'http soap sqlserver postgres mysql mongodb ldap redis oracle script hana store push smtp db2'.split ' '
 typeCycle = faker.list.cycle types...
 
 statuses = 'success failed pending processing'.split ' '
@@ -19,6 +19,9 @@ sslModeCycle = faker.list.random sslModes...
 
 platforms = 'osx ios gcm'.split ' '
 platformCycle = faker.list.random platforms...
+
+protocols = 'TCPIP SSL'.split ' '
+protocolCycle = faker.list.random protocols...
 
 generateKeyValues = (count) ->
   data = {}
@@ -139,6 +142,15 @@ generateDataForType = (typeSlug, i) ->
         user: faker.internet.userName()
         password: faker.internet.password()
         sender: faker.internet.email()
+    when 'db2'
+      transactions: faker.random.boolean()
+      config:
+        dbname: 'database'
+        host: "server.#{faker.internet.domainName()}"
+        port: faker.random.number()
+        protocol: protocolCycle i
+        user: faker.internet.userName()
+        password: faker.internet.password()
   data.headers = generateKeyValues 3
   data.query = generateKeyValues 3
   pushPlatformType = platformCycle i
