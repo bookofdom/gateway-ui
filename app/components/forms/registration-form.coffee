@@ -1,7 +1,12 @@
 `import BaseFormComponent from 'gateway/components/forms/base-form'`
+`import Registration from 'gateway/pods/registration/model'`
+`import config from 'gateway/config/environment'`
 
 RegistrationFormComponent = BaseFormComponent.extend
   modelType: 'registration'
+
+  isPlanSubscriptionEnabled: config.enablePlanSubscriptions?.toString() is 'true'
+  plans: Registration.plans
 
   'base-error': Ember.computed 'model.errors.[]', ->
     @get('model.errors')?.errorsFor('base')?[0]?.message

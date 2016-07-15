@@ -33,6 +33,26 @@
       class='form-control input-lg'}}
   {{/bs-form-group}}
 
+
+  {{#if isPlanSubscriptionEnabled}}
+    {{#bs-form-group}}
+      {{#x-select
+        name='plan'
+        value=model.plan
+        required=true
+        class='form-control'}}
+
+        {{#x-option}}
+          {{t '$t(prompts.choose-x, {"x": "fields.plan"})'}}
+        {{/x-option}}
+        {{#each plans as |option|}}
+          {{#x-option value=option.value}}{{option.name}}{{/x-option}}
+        {{/each}}
+      {{/x-select}}
+    {{/bs-form-group}}
+  {{/if}}
+
+
   <br>
   {{#bs-form-group}}
     <p>

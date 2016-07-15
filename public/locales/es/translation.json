@@ -281,6 +281,7 @@
     "subscribe_endpoint": "suscribirse punto final",
     "unsubscribe_endpoint": "punto final de darse de baja",
     "protocol": "protocolo",
+    "plan": "plan",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
@@ -370,6 +371,12 @@
     "session": {
       "client": "cliente",
       "server": "servidor"
+    },
+    "registration": {
+      "plans": {
+        "cloud-free-0": "gratis",
+        "cloud-hosted-0": "alojada"
+      }
     },
     "remote-endpoint": {
       "push": "empujar",

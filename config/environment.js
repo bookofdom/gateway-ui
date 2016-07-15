@@ -54,7 +54,7 @@ module.exports = function(environment) {
       }
     },
 
-    enablePlanSubscriptions: 'true',
+    enablePlanSubscriptions: true,
     stripe: {
       publishableKey: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh'
     }

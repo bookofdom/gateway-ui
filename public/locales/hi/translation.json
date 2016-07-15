@@ -281,6 +281,7 @@
     "subscribe_endpoint": "सदस्यता के समापन बिंदु",
     "unsubscribe_endpoint": "सदस्यता समाप्त समापन बिंदु",
     "protocol": "मसविदा बनाना",
+    "plan": "योजना",
     "help": {
       "timeout": "सेकंड की संख्या।",
       "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
@@ -370,6 +371,12 @@
     "session": {
       "client": "ग्राहक",
       "server": "सर्वर"
+    },
+    "registration": {
+      "plans": {
+        "cloud-free-0": "मुक्त",
+        "cloud-hosted-0": "की मेजबानी"
+      }
     },
     "remote-endpoint": {
       "push": "धक्का दें",

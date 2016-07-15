@@ -291,6 +291,7 @@
     "unsubscribe_endpoint": "unsubscribe endpoint",
     "sender": "sender",
     "protocol": "protocol",
+    "plan": "plan",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -387,6 +388,12 @@
     "session": {
       "client": "client",
       "server": "server"
+    },
+    "registration": {
+      "plans": {
+        "cloud-free-0": "free",
+        "cloud-hosted-0": "hosted"
+      }
     },
     "remote-endpoint": {
       "push": "push",
