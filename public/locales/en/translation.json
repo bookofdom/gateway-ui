@@ -290,6 +290,7 @@
     "subscribe_endpoint": "subscribe endpoint",
     "unsubscribe_endpoint": "unsubscribe endpoint",
     "sender": "sender",
+    "protocol": "protocol",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -402,6 +403,7 @@
       "redis": "Redis",
       "oracle": "Oracle",
       "smtp": "SMTP",
+      "db2": "DB2",
       "status-types": {
         "success": "success",
         "failed": "failed",
@@ -422,6 +424,10 @@
       "auth-schemes": {
         "basic": "basic",
         "wsse": "WSSE"
+      },
+      "protocols": {
+        "tcpip": "TCPIP",
+        "ssl": "SSL"
       }
     }
   }

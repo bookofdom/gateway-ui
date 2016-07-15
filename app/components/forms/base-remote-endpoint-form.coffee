@@ -28,6 +28,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       name: t 'http-methods.delete'
       value: 'DELETE'
     ]
+    protocol: RemoteEndpointLike.protocols
     interpreter: RemoteEndpointLike.interpreters.filter (interpreter) ->
       if config.go_os
         interpreter.os == config.go_os
@@ -266,7 +267,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ,
         name: 'maxidle'
         type: 'integer'
-      ],
+      ]
       smtp: [
         name: 'host'
         required: true
@@ -311,6 +312,31 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ,
         name: 'maxopen'
         type: 'integer'
+      ]
+      db2: [
+        name: 'server'
+        label: 'resources.host'
+        required: true
+      ,
+        name: 'port'
+        type: 'integer'
+        required: true
+      ,
+        name: 'database'
+        required: true
+      ,
+        name: 'username'
+        required: true
+      ,
+        name: 'password'
+        type: 'password'
+        required: true
+      ,
+        name: 'protocol'
+        type: 'select'
+        required: true
+      ,
+        name: 'transactions'
       ]
     # environment datum may not set WSDL
     fields.soap.shift() if @get('modelType') is 'remote-endpoint-environment-datum'
