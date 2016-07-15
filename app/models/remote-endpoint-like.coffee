@@ -29,12 +29,18 @@ RemoteEndpointLike = Model.extend
   # postgres
   # mysql
   # oracle
+  # db2
   database: DS.attr 'string'
   # sqlserver
   # postgres
   # mysql
   # hana
+  # db2
   transactions: DS.attr 'boolean'
+  # sqlserver
+  # postgres
+  # mysql
+  # hana
   maxopen: DS.attr 'number'
   maxidle: DS.attr 'number'
   # sqlserver
@@ -49,6 +55,7 @@ RemoteEndpointLike = Model.extend
   # hana
   # redis
   # oracle
+  # db2
   server: DS.attr 'string'
   port: DS.attr 'number'
   # soap
@@ -61,6 +68,7 @@ RemoteEndpointLike = Model.extend
   # redis
   # oracle
   # smtp
+  # db2
   username: DS.attr 'string'
   password: DS.attr 'string'
   # ldap
@@ -79,6 +87,9 @@ RemoteEndpointLike = Model.extend
   unsubscribe_endpoint: DS.attr 'boolean', defaultValue: true
   # smtp
   sender: DS.attr 'string'
+  # db2
+  protocol: DS.attr 'string', defaultValue: 'TCPIP'
+
   # Relationships
   headers: DS.hasMany 'remote-endpoint-header',
     async: false
@@ -131,12 +142,16 @@ RemoteEndpointLike = Model.extend
   sslModeType: Ember.computed 'sslmode', ->
     mode = @get 'sslmode'
     RemoteEndpointLike.sslModes.findBy 'value', mode
+  protocolType: Ember.computed 'protocol', ->
+    protocol = @get 'protocol'
+    RemoteEndpointLike.protocols.findBy 'slug', protocol.toLowerCase()
   sslModeTypeName: Ember.computed 'sslModeType.name', ->
     @get 'sslModeType.name'
+  protocolName: Ember.computed.alias 'protocolType.name'
   push_platform_codenames: Ember.computed.mapBy 'push_platforms', 'codename'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle smtp'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle smtp db2'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type
@@ -160,6 +175,11 @@ authSchemes = 'basic wsse'.split(' ').map (scheme) ->
   name: t "types.remote-endpoint.auth-schemes.#{scheme}"
   slug: scheme
   value: scheme
+
+protocols = 'tcpip ssl'.split(' ').map (protocol) ->
+  name: t "types.remote-endpoint.protocols.#{protocol}"
+  slug: protocol
+  value: protocol.toUpperCase()
 
 # Interpreters are filtered in the UI depending on the GOOS
 # config passed by the binary.  Thus only the interpreter(s)
@@ -188,6 +208,7 @@ RemoteEndpointLike.reopenClass
   encryptModes: encryptModes
   sslModes: sslModes
   authSchemes: authSchemes
+  protocols: protocols
   interpreters: interpreters
 
 `export default RemoteEndpointLike`
