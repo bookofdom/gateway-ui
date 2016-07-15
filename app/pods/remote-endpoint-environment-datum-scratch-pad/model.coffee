@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 `import DS from 'ember-data'`
-`import Model from './model'`
+`import Model from 'gateway/models/model'`
 
 RemoteEndpointEnvironmentDatumScratchPad = Model.extend
   name: DS.attr 'string'
