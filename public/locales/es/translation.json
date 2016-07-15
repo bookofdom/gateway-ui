@@ -280,6 +280,7 @@
     "additional_properties": "propiedades adicionales",
     "subscribe_endpoint": "suscribirse punto final",
     "unsubscribe_endpoint": "punto final de darse de baja",
+    "protocol": "protocolo",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
