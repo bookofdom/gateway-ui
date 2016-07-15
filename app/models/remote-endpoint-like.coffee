@@ -51,8 +51,6 @@ RemoteEndpointLike = Model.extend
   # oracle
   server: DS.attr 'string'
   port: DS.attr 'number'
-  # smtp
-  host: DS.attr 'string'
   # soap
   # sqlserver
   # postgres
