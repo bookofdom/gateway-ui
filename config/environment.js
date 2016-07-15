@@ -71,6 +71,10 @@ module.exports = function(environment) {
     // uncomment for stand-alone gateway API
     //ENV.api.host = 'http://localhost:5000';
     //ENV['ember-cli-mirage'] = {enabled: false};
+
+    ENV.stripe = {
+      publishableKey: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh'
+    };
   }
 
   if (environment === 'test') {
@@ -86,6 +90,10 @@ module.exports = function(environment) {
 
     ENV.confirmDelete = false;
     ENV.notifications = false;
+
+    ENV.stripe = {
+      publishableKey: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh'
+    };
   }
 
   if (environment === 'production') {
@@ -106,6 +114,9 @@ module.exports = function(environment) {
     ENV.notifications = true;
     ENV.googleAnalytics = {
       webPropertyId: ENV.google_analytics_tracking_id
+    };
+    ENV.stripe = {
+      publishableKey: 'STRIPE_PUBLISHABLE_KEY'
     };
   }
 
