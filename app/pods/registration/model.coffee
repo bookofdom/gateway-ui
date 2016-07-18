@@ -9,10 +9,11 @@ Registration = Model.extend
   organization: DS.attr 'string'
 
   plan: DS.attr 'string', defaultValue: 'cloud-free'
-  cc_number: DS.attr 'number'
-  cc_cvc: DS.attr 'number'
-  cc_exp_month: DS.attr 'number'
-  cc_exp_year: DS.attr 'number'
+  cc_number: DS.attr 'string'
+  cc_cvc: DS.attr 'string'
+  cc_exp_month: DS.attr 'string'
+  cc_exp_year: DS.attr 'string'
+  cc_billing_postal_code: DS.attr 'string'
 
   # Computed
   cardType: Ember.computed 'cc_number', ->
@@ -23,6 +24,8 @@ Registration = Model.extend
   planType: Ember.computed 'plan', ->
     plan = @get 'plan'
     Registration.plans.findBy 'value', plan
+  isBillable: Ember.computed 'planType', ->
+    @get('planType.amountPerMonth') > 0
 
 Registration.reopenClass
   plans: [

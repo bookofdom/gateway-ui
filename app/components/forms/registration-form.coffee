@@ -8,8 +8,8 @@ RegistrationFormComponent = BaseFormComponent.extend
   isPlanSubscriptionEnabled: config.enablePlanSubscriptions?.toString() is 'true'
   plans: Registration.plans
 
-  isNonZeroPlanAmount: Ember.computed 'isPlanSubscriptionEnabled', 'model.planType.amountPerMonth', ->
-    @get('isPlanSubscriptionEnabled') and (@get('model.planType.amountPerMonth') > 0)
+  isNonZeroPlanAmount: Ember.computed 'isPlanSubscriptionEnabled', 'model.isBillable', ->
+    @get('isPlanSubscriptionEnabled') and @get('model.isBillable')
 
   'base-error': Ember.computed 'model.errors.[]', ->
     @get('model.errors')?.errorsFor('base')?[0]?.message
