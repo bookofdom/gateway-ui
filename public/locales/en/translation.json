@@ -292,6 +292,11 @@
     "sender": "sender",
     "protocol": "protocol",
     "plan": "plan",
+    "cc_number": "credit card number",
+    "cc_exp_month": "exp. month",
+    "cc_exp_year": "exp. year",
+    "cc_cvc": "CVC",
+    "cc_billing_postal_code": "ZIP",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -391,8 +396,8 @@
     },
     "registration": {
       "plans": {
-        "cloud-free-0": "free",
-        "cloud-hosted-0": "hosted"
+        "cloud-free": "free",
+        "cloud-hosted": "hosted"
       }
     },
     "remote-endpoint": {

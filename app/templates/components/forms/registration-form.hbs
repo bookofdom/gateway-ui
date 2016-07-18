@@ -5,7 +5,7 @@
       value=model.email
       placeholder=(t 'fields.email')
       required=true
-      class='form-control input-lg'}}
+      class='form-control'}}
   {{/bs-form-group}}
   {{#bs-form-group error=password-error help=password-error}}
     {{input
@@ -14,7 +14,7 @@
       placeholder=(t 'fields.password')
       required=true
       type='password'
-      class='form-control input-lg'}}
+      class='form-control'}}
   {{/bs-form-group}}
   {{#bs-form-group error=password-confirmation-error help=password-confirmation-error}}
     {{input
@@ -23,14 +23,14 @@
       placeholder=(t 'fields.password_confirmation')
       required=true
       type='password'
-      class='form-control input-lg'}}
+      class='form-control'}}
   {{/bs-form-group}}
   {{#bs-form-group error=organization-error help=organization-error}}
     {{input
       name='organization'
       value=model.organization
       placeholder=(t '$t(prompts.optional-x, {"x": "fields.organization"})')
-      class='form-control input-lg'}}
+      class='form-control'}}
   {{/bs-form-group}}
 
 
@@ -50,6 +50,9 @@
         {{/each}}
       {{/x-select}}
     {{/bs-form-group}}
+    {{#if isNonZeroPlanAmount}}
+      {{partial 'registration/cc-form'}}
+    {{/if}}
   {{/if}}
 
 

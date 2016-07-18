@@ -374,8 +374,8 @@
     },
     "registration": {
       "plans": {
-        "cloud-free-0": "gratis",
-        "cloud-hosted-0": "alojada"
+        "cloud-free": "gratis",
+        "cloud-hosted": "alojada"
       }
     },
     "remote-endpoint": {
