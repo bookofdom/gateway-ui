@@ -1,4 +1,4 @@
-{{#bs-form-group}}
+{{#bs-form-group error=cc-number-error help=cc-number-error}}
   {{input
     name='cc_number'
     value=model.cc_number
@@ -12,7 +12,7 @@
   {{model.cardType.name}}
 {{/bs-form-group}}
 
-{{#bs-form-group}}
+{{#bs-form-group error=cc-expiry-error}}
   {{input
     name='cc_exp_month'
     value=model.cc_exp_month
@@ -21,7 +21,7 @@
     required='required'
     class='form-control'}}
 {{/bs-form-group}}
-{{#bs-form-group}}
+{{#bs-form-group error=cc-expiry-error help=cc-expiry-error}}
   {{input
     name='cc_exp_year'
     value=model.cc_exp_year
@@ -30,7 +30,7 @@
     required='required'
     class='form-control'}}
 {{/bs-form-group}}
-{{#bs-form-group}}
+{{#bs-form-group error=cc-cvc-error help=cc-cvc-error}}
   {{input
     name='cc_cvc'
     value=model.cc_cvc

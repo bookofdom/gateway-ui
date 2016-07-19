@@ -327,7 +327,10 @@
     "invalid-password": "invalid password",
     "login": "हम आपको लॉग इन करने में असमर्थ थे",
     "invalid-json": "अवैध JSON",
-    "invalid-json-schema": "अवैध JSON स्कीमा"
+    "invalid-json-schema": "अवैध JSON स्कीमा",
+    "invalid-cc-number": "अवैध कार्ड संख्या",
+    "invalid-cc-expiry": "अवैध समाप्ति",
+    "invalid-cc-cvc": "अवैध सीवीसी"
   },
   "successes": {
     "push-manual-message": "संदेश सफलतापूर्वक भेजा जा चुका है",

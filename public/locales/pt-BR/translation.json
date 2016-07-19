@@ -327,7 +327,10 @@
     "invalid-password": "senha inválida",
     "login": "não fomos capazes de fazer seu login",
     "invalid-json": "inválido JSON",
-    "invalid-json-schema": "esquema JSON inválido"
+    "invalid-json-schema": "esquema JSON inválido",
+    "invalid-cc-number": "número de cartão inválido",
+    "invalid-cc-expiry": "expiração inválida",
+    "invalid-cc-cvc": "inválida CVC"
   },
   "successes": {
     "push-manual-message": "mensagem enviada com sucesso",
