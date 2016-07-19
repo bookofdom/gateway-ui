@@ -2,12 +2,15 @@
 
 RegistrationAdapter = ApplicationAdapter.extend
   ajax: (url, type, options) ->
-    error = options?.data?.registration?.ccValidationError
-    if error
+    validationError = options?.data?.registration?.ccValidationError
+    if validationError
+      errorField = validationError.field
+      errorMessage = validationError.message
+    if errorField and errorMessage
       Ember.RSVP.reject new DS.InvalidError [
-        detail: error.message
+        detail: errorMessage
         source:
-          pointer: "/data/attributes/#{error.field}"
+          pointer: "/data/attributes/#{errorField}"
       ]
     else
       @_super arguments...
