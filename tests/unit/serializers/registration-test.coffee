@@ -24,3 +24,39 @@ test 'it does not serialize credit card fields', (assert) ->
     assert.notOk serialized.cc_exp_year
     assert.notOk serialized.cc_cvc
     assert.notOk serialized.cc_billing_postal_code
+
+test 'it reports an error for invalid credit card number', (assert) ->
+  model = @subject()
+  Ember.run ->
+    model.set 'plan', 'cloud-hosted'
+    model.set 'cc_number', '1234'
+    model.set 'cc_exp_month', '01'
+    model.set 'cc_exp_year', '2050'
+    model.set 'cc_cvc', '123'
+    serialized = model.serialize()
+    assert.ok serialized.ccValidationError
+    assert.equal serialized.ccValidationError.field, 'cc_number'
+
+test 'it reports an error for invalid credit card expiry', (assert) ->
+  model = @subject()
+  Ember.run ->
+    model.set 'plan', 'cloud-hosted'
+    model.set 'cc_number', '378282246310005'
+    model.set 'cc_exp_month', '01'
+    model.set 'cc_exp_year', '1999'
+    model.set 'cc_cvc', '123'
+    serialized = model.serialize()
+    assert.ok serialized.ccValidationError
+    assert.equal serialized.ccValidationError.field, 'cc_exp_year'
+
+test 'it reports an error for invalid credit card CVC', (assert) ->
+  model = @subject()
+  Ember.run ->
+    model.set 'plan', 'cloud-hosted'
+    model.set 'cc_number', '378282246310005'
+    model.set 'cc_exp_month', '01'
+    model.set 'cc_exp_year', '2050'
+    model.set 'cc_cvc', ''
+    serialized = model.serialize()
+    assert.ok serialized.ccValidationError
+    assert.equal serialized.ccValidationError.field, 'cc_cvc'

@@ -1,4 +1,5 @@
 `import ApplicationSerializer from 'gateway/serializers/application'`
+`import t from 'gateway/helpers/i18n'`
 
 RegistrationSerializer = ApplicationSerializer.extend
   attrs:
@@ -21,18 +22,20 @@ RegistrationSerializer = ApplicationSerializer.extend
         cc_number,
         cc_cvc,
         cc_exp_month,
-        cc_exp_year,
-        cc_billing_postal_code
+        cc_exp_year
       } = snapshot.attributes()
       if !Stripe.card.validateCardNumber cc_number
-        serialized.ccValidationError = true
-        serialized.ccValidationMessage = t 'errors.invalid-cc-number'
-      if !Stripe.card.Stripe.card.validateExpiry cc_exp_month, cc_exp_year
-        serialized.ccValidationError = true
-        serialized.ccValidationMessage = t 'errors.invalid-cc-expiry'
-      if !Stripe.card.Stripe.card.validateCVC cc_cvc
-        serialized.ccValidationError = true
-        serialized.ccValidationMessage = t 'errors.invalid-cc-cvc'
+        serialized.ccValidationError =
+          field: 'cc_number'
+          message: t 'errors.invalid-cc-number'
+      if !Stripe.card.validateExpiry cc_exp_month, cc_exp_year
+        serialized.ccValidationError =
+          field: 'cc_exp_year'
+          message: t 'errors.invalid-cc-expiry'
+      if !Stripe.card.validateCVC cc_cvc
+        serialized.ccValidationError =
+          field: 'cc_cvc'
+          message: t 'errors.invalid-cc-cvc'
     serialized
 
 `export default RegistrationSerializer`
