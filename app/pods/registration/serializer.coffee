@@ -2,11 +2,16 @@
 
 RegistrationSerializer = ApplicationSerializer.extend
   attrs:
-    cc_number: false
-    cc_cvc: false
-    cc_exp_month: false
-    cc_exp_year: false
-    cc_billing_postal_code: false
+    cc_number:
+      serialize: false
+    cc_cvc:
+      serialize: false
+    cc_exp_month:
+      serialize: false
+    cc_exp_year:
+      serialize: false
+    cc_billing_postal_code:
+      serialize: false
 
   serialize: (snapshot) ->
     serialized = @_super arguments...
