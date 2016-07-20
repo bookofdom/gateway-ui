@@ -16,10 +16,16 @@ Registration = Model.extend
   cc_billing_postal_code: DS.attr 'string'
 
   # Computed
+  cardData: Ember.computed 'cc_number', 'cc_cvc', 'cc_exp_month', 'cc_exp_year', 'cc_billing_postal_code', ->
+    number: @get 'cc_number'
+    cvc: @get 'cc_cvc'
+    exp_month: @get 'cc_exp_month'
+    exp_year: @get 'cc_exp_year'
+    address_zip: @get 'cc_billing_postal_code'
   cardType: Ember.computed 'cc_number', ->
-    ccNumber = @get 'cc_number'
-    if ccNumber
-      cardType = Stripe.card.cardType ccNumber
+    cardData = @get 'cardData'
+    if cardData.number
+      cardType = Stripe.card.cardType cardData.number
       Registration.cardTypes.findBy 'name', cardType
   planType: Ember.computed 'plan', ->
     plan = @get 'plan'
