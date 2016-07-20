@@ -4,6 +4,7 @@ StripeInitializer =
   name: 'stripe'
   initialize: (app) ->
     key = config.stripe?.publishableKey
-    Stripe.setPublishableKey key if key
+    window.Stripe?.setPublishableKey key if key
+    app.inject 'adapter', 'stripeService', 'service:stripe'
 
 `export default StripeInitializer`

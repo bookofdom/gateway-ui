@@ -3,13 +3,17 @@
 `import config from 'gateway/config/environment'`
 
 RegistrationFormComponent = BaseFormComponent.extend
+  stripeService: Ember.inject.service 'stripe'
+
   modelType: 'registration'
 
-  isPlanSubscriptionEnabled: config.enablePlanSubscriptions?.toString() is 'true'
+  isSubscriptionEnabled: Ember.computed 'stripeService.enabled', ->
+    @get('stripeService.enabled') and
+      (config.enablePlanSubscriptions?.toString() is 'true')
   plans: Registration.plans
 
-  isNonZeroPlanAmount: Ember.computed 'isPlanSubscriptionEnabled', 'model.isBillable', ->
-    @get('isPlanSubscriptionEnabled') and @get('model.isBillable')
+  isNonZeroPlanAmount: Ember.computed 'isSubscriptionEnabled', 'model.isBillable', ->
+    @get('isSubscriptionEnabled') and @get('model.isBillable')
 
   'base-error': Ember.computed 'model.errors.[]', ->
     @get('model.errors')?.errorsFor('base')?[0]?.message

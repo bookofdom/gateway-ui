@@ -1,10 +1,12 @@
 `import ApplicationAdapter from 'gateway/adapters/application'`
 
 RegistrationAdapter = ApplicationAdapter.extend
+  stripeService: Ember.inject.service 'stripe'
   ajax: (url, type, options) ->
     outerSuper = @_super
     outerSelf = @
     outerArgs = arguments
+    stripeService = @get 'stripeService'
     cardData = options?.data?.registration?.cardData
     delete options?.data?.registration?.cardData
     validationError = options?.data?.registration?.ccValidationError
@@ -16,7 +18,7 @@ RegistrationAdapter = ApplicationAdapter.extend
       ]
     else if cardData and !validationError
       new Ember.RSVP.Promise (resolve, reject) ->
-        Stripe.card.createToken cardData, (status, response) ->
+        stripeService.createCardToken cardData, (status, response) ->
           if response.error
             reject new DS.InvalidError [
               detail: response.error.message
