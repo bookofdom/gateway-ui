@@ -1,6 +1,9 @@
 `import Ember from 'ember'`
 
-isFunction = (arg1) ->
+# Encapsulates critical Stripe functionality.
+# Modules depending on Stripe should always use this service,
+# checking that enabled == true.  This ensures the app can
+# function even when Stripe is unavailable.
 
 StripeService = Ember.Service.extend Ember.Evented,
   _stripe: window.Stripe
@@ -9,16 +12,12 @@ StripeService = Ember.Service.extend Ember.Evented,
     @_super arguments...
     @set('enabled', true) if @get('_stripe')
   createCardToken: ->
-    enabled = @get 'enabled'
-    @get('_stripe.card').createToken arguments... if enabled
+    @get('_stripe.card').createToken arguments...
   validateCardNumber: ->
-    enabled = @get 'enabled'
-    @get('_stripe.card').validateCardNumber arguments... if enabled
+    @get('_stripe.card').validateCardNumber arguments...
   validateCardExpiry: ->
-    enabled = @get 'enabled'
-    @get('_stripe.card').validateExpiry arguments... if enabled
+    @get('_stripe.card').validateExpiry arguments...
   validateCVC: ->
-    enabled = @get 'enabled'
-    @get('_stripe.card').validateCVC arguments... if enabled
+    @get('_stripe.card').validateCVC arguments...
 
 `export default StripeService`
