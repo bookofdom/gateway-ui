@@ -9,13 +9,10 @@ RegistrationAdapter = ApplicationAdapter.extend
     delete options?.data?.registration?.cardData
     validationError = options?.data?.registration?.ccValidationError
     if validationError
-      errorField = validationError.field
-      errorMessage = validationError.message
-    if errorField and errorMessage
       Ember.RSVP.reject new DS.InvalidError [
-        detail: errorMessage
+        detail: validationError.field
         source:
-          pointer: "/data/attributes/#{errorField}"
+          pointer: "/data/attributes/#{validationError.message}"
       ]
     else if cardData and !validationError
       new Ember.RSVP.Promise (resolve, reject) ->
@@ -27,6 +24,7 @@ RegistrationAdapter = ApplicationAdapter.extend
                 pointer: "/data/attributes/cc_#{response.error.param}"
             ]
           else
+            options?.data?.registration?.stripe_card_token = response.id
             outerSuper.apply(outerSelf, outerArgs)
               .then (response) -> resolve response
               .catch (response) -> reject response
