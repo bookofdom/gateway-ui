@@ -2,7 +2,7 @@
 
 moduleForModel 'registration', 'Unit | Model | registration', {
   # Specify the other units that are required for this test.
-  needs: []
+  needs: ['service:stripe']
 }
 
 test 'it exists', (assert) ->

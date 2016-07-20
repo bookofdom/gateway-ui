@@ -2,7 +2,10 @@
 
 moduleForModel 'registration', 'Unit | Serializer | registration', {
   # Specify the other units that are required for this test.
-  needs: ['serializer:registration']
+  needs: [
+    'service:stripe'
+    'serializer:registration'
+  ]
 }
 
 test 'it serializes', (assert) ->
