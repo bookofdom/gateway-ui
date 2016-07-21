@@ -12,9 +12,9 @@ RegistrationAdapter = ApplicationAdapter.extend
     validationError = options?.data?.registration?.ccValidationError
     if validationError
       Ember.RSVP.reject new DS.InvalidError [
-        detail: validationError.field
+        detail: validationError.message
         source:
-          pointer: "/data/attributes/#{validationError.message}"
+          pointer: "/data/attributes/#{validationError.field}"
       ]
     else if cardData and !validationError
       new Ember.RSVP.Promise (resolve, reject) ->
