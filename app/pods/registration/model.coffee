@@ -59,7 +59,7 @@ Registration.reopenClass
     slug: 'discover'
   ,
     name: 'Diners Club'
-    slug: 'diners-club'
+    slug: 'diners'
   ,
     name: 'JCB'
     slug: 'jcb'

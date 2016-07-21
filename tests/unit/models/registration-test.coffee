@@ -48,6 +48,6 @@ test 'it correctly detects card type', (assert) ->
     model.set 'cc_number', '6011000400000000'
     assert.equal model.get('cardType.slug'), 'discover'
     model.set 'cc_number', '36148900647913'
-    assert.equal model.get('cardType.slug'), 'diners-club'
+    assert.equal model.get('cardType.slug'), 'diners'
     model.set 'cc_number', '3528000700000000'
     assert.equal model.get('cardType.slug'), 'jcb'
