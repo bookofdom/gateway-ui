@@ -1,16 +1,19 @@
-{{#bs-form-group error=cc-number-error help=cc-number-error}}
-  {{input
-    name='cc_number'
-    value=model.cc_number
-    placeholder=(t 'fields.cc_number')
-    pattern='[0-9]{13,16}'
-    required='required'
-    class='form-control'}}
-{{/bs-form-group}}
-
-{{#bs-form-group}}
-  {{ap-payment-icon provider=model.cardType.slug}}
-{{/bs-form-group}}
+<div class="row">
+  <div class="col-sm-8">
+    {{#bs-form-group error=cc-number-error help=cc-number-error}}
+      {{input
+        name='cc_number'
+        value=model.cc_number
+        placeholder=(t 'fields.cc_number')
+        pattern='[0-9]{13,16}'
+        required='required'
+        class='form-control'}}
+    {{/bs-form-group}}
+  </div><!-- /.col -->
+  <div class="col-sm-4 text-center">
+    {{ap-payment-icon provider=model.cardType.slug}}
+  </div><!-- /.col -->
+</div><!-- /.row -->
 
 {{#bs-form-group error=cc-expiry-error}}
   {{input

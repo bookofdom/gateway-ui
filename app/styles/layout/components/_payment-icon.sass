@@ -1,2 +1,10 @@
 .ap-payment-icon
-  font-size: 2em
+  display: inline-block
+  overflow: hidden
+  max-height: 34px
+  font-size: 3em
+  [class^="gateway-"],
+  [class*=" gateway-"]
+    &:before
+      line-height: 1.2
+      vertical-align: top
