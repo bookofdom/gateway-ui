@@ -3,6 +3,8 @@
 `import config from 'gateway/config/environment'`
 
 RegistrationFormComponent = BaseFormComponent.extend
+  classNames: ['ap-form-login']
+  horizontal: false
   stripeService: Ember.inject.service 'stripe'
 
   modelType: 'registration'
