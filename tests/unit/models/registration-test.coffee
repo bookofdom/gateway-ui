@@ -2,7 +2,10 @@
 
 moduleForModel 'registration', 'Unit | Model | registration', {
   # Specify the other units that are required for this test.
-  needs: ['service:stripe']
+  needs: [
+    'service:stripe'
+    'model:stripe-card'
+  ]
 }
 
 test 'it exists', (assert) ->
@@ -34,20 +37,3 @@ test 'isBillable returns `true` for non-zero plan amounts, otherwise `false`', (
     model.set 'plan', 'cloud-hosted'
     assert.equal model.get('planType.amountPerMonth'), 9
     assert.equal model.get('isBillable'), true
-
-test 'it correctly detects card type', (assert) ->
-  model = @subject()
-  Ember.run ->
-    assert.notOk model.get('cardType.slug'), 'no card type unless a valid card number is entered'
-    model.set 'cc_number', '4242-4242-4242-4242'
-    assert.equal model.get('cardType.slug'), 'visa'
-    model.set 'cc_number', '5123-4242-4242-4242'
-    assert.equal model.get('cardType.slug'), 'mastercard'
-    model.set 'cc_number', '378282246310005'
-    assert.equal model.get('cardType.slug'), 'amex'
-    model.set 'cc_number', '6011000400000000'
-    assert.equal model.get('cardType.slug'), 'discover'
-    model.set 'cc_number', '36148900647913'
-    assert.equal model.get('cardType.slug'), 'diners'
-    model.set 'cc_number', '3528000700000000'
-    assert.equal model.get('cardType.slug'), 'jcb'
