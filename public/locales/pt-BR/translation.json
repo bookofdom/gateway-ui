@@ -280,6 +280,7 @@
     "additional_properties": "propriedades adicionais",
     "subscribe_endpoint": "subscrever endpoint",
     "unsubscribe_endpoint": "endpoint unsubscribe",
+    "protocol": "protocolo",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",

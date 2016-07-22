@@ -1,18 +1,19 @@
 `import DS from 'ember-data'`
 `import ApiRelatedSerializer from 'gateway/serializers/api-related'`
-`import HttpRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/http'`
-`import SoapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/soap'`
-`import SqlserverRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/sqlserver'`
-`import PostgresRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/postgres'`
-`import MysqlRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/mysql'`
-`import MongodbRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/mongodb'`
-`import LdapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/ldap'`
-`import ScriptRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/script'`
-`import HanaRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/hana'`
-`import PushRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/push'`
-`import RedisRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/redis'`
-`import OracleRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/oracle'`
-`import SmtpRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/smtp'`
+`import HttpRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/http'`
+`import SoapRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/soap'`
+`import SqlserverRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/sqlserver'`
+`import PostgresRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/postgres'`
+`import MysqlRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/mysql'`
+`import MongodbRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/mongodb'`
+`import LdapRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/ldap'`
+`import ScriptRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/script'`
+`import HanaRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/hana'`
+`import PushRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/push'`
+`import RedisRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/redis'`
+`import OracleRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/oracle'`
+`import SmtpRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/smtp'`
+`import Db2EndpointSerializer from 'gateway/pods/remote-endpoint/serializers/db2'`
 
 RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
@@ -58,6 +59,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'redis' then RedisRemoteEndpointSerializer.normalize hash
       when 'oracle' then OracleRemoteEndpointSerializer.normalize hash
       when 'smtp' then SmtpRemoteEndpointSerializer.normalize hash
+      when 'db2' then Db2EndpointSerializer.normalize hash
     @_super arguments...
   normalizeEnvironmentData: (hash) ->
     hash.environment_data ?= []
@@ -96,6 +98,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'redis' then RedisRemoteEndpointSerializer.serialize serialized
       when 'oracle' then OracleRemoteEndpointSerializer.serialize serialized
       when 'smtp' then SmtpRemoteEndpointSerializer.serialize serialized
+      when 'db2' then Db2EndpointSerializer.serialize serialized
     serialized
   serializeHeaders: (snapshot) ->
     headers = {}
