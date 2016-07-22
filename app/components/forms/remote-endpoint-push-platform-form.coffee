@@ -2,8 +2,8 @@
 `import RemoteEndpointPushPlatform from 'gateway/pods/remote-endpoint-push-platform/model'`
 
 RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
-  apiModel: null
   remoteEndpointModel: null
+  environmentDatumModel: null
   indexModel: null
   modelType: 'remote-endpoint-push-platform'
 
@@ -83,10 +83,10 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
   createNewModel: ->
     modelType = @get 'modelType'
     newModel = @get('store')?.createRecord modelType
-    apiName = @get 'apiModel.name'
-    remoteEndpointCodename = @get 'remoteEndpointModel.codename'
-    newModel.set 'apiName', apiName
-    newModel.set 'remoteEndpointCodename', remoteEndpointCodename
+    remoteEndpointModel = @get 'remoteEndpointModel'
+    environmentDatumModel = @get 'environmentDatumModel'
+    newModel.set 'remoteEndpointModel', remoteEndpointModel
+    newModel.set 'environmentDatumModel', environmentDatumModel
     @set 'model', newModel
     newModel
 

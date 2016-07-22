@@ -19,17 +19,19 @@ RemoteEndpointPushPlatform = Model.extend
   session: Ember.inject.service()
 
   # Computed
-  username: Ember.computed 'session.session.authenticated.email', 'apiName',
-  'remoteEndpointCodename', 'codename', 'remote_endpoint', 'environment_datum', ->
+  username: Ember.computed 'session.session.authenticated.email',
+  'remoteEndpointModel', 'environmentDatumModel', 'codename', 'remote_endpoint',
+  'environment_datum', ->
     email = @get 'session.session.authenticated.email'
-    apiName = @get 'apiName'
-    remoteEndpointCodename = @get 'remoteEndpointCodename'
+    remoteEndpoint = @get('remote_endpoint') || @get('environment_datum.remote_endpoint') || @get('remoteEndpointModel')
+    apiName = remoteEndpoint.get 'api.name'
+    remoteEndpointCodename = remoteEndpoint.get 'codename'
     codename = @get('codename') || ""
-    remoteEndpoint = @get('remote_endpoint') || @get('environment_datum.remote_endpoint')
-    if remoteEndpoint?
-      apiName = remoteEndpoint.get 'api.name'
-      remoteEndpointCodename = remoteEndpoint.get 'codename'
-    "#{email},#{apiName},#{remoteEndpointCodename},#{codename}"
+    username = "#{email},#{apiName},#{remoteEndpointCodename},#{codename}"
+    environment = @get('environment_datum') || @get('environmentDatumModel')
+    environment_name = environment?.get('environment.name')
+    username = "#{username},#{environment_name}" if environment_name?
+    username
 
   # Relationships
   remote_endpoint: DS.belongsTo 'remote-endpoint', async: false
