@@ -93,6 +93,8 @@
     "brought-to-you-by-anypresence": "provisto por AnyPresence"
   },
   "resources": {
+    "account": "cuenta",
+    "account_plural": "cuentas",
     "user": "usuario",
     "user_plural": "usuarios",
     "api": "API",
