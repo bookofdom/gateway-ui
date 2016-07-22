@@ -6,9 +6,6 @@ AccountFormComponent = BaseFormComponent.extend
   stripeService: Ember.inject.service 'stripe'
   modelType: 'account'
 
-  classNames: ['ap-form-login']
-  horizontal: false
-
   isSubscriptionEnabled: Ember.computed 'stripeService.enabled', ->
     @get('stripeService.enabled') and
       (config.enablePlanSubscriptions?.toString() is 'true')
