@@ -7,23 +7,24 @@ RegistrationAdapter = ApplicationAdapter.extend
     outerSelf = @
     outerArgs = arguments
     stripeService = @get 'stripeService'
-    cardData = options?.data?.registration?.cardData
-    delete options?.data?.registration?.cardData
-    validationError = options?.data?.registration?.ccValidationError
-    if validationError
+    card = options?.data?.registration?.card
+    delete options?.data?.registration?.card
+    if card.validationError
       Ember.RSVP.reject new DS.InvalidError [
-        detail: validationError.message
+        detail: card.validationError.message
         source:
-          pointer: "/data/attributes/#{validationError.field}"
+          pointer: '/data'
+          #pointer: "/relationships/card/data/attributes/#{card.validationError.field}"
       ]
-    else if cardData and !validationError
+    else if card and !card.validationError
       new Ember.RSVP.Promise (resolve, reject) ->
-        stripeService.createCardToken cardData, (status, response) ->
+        stripeService.createCardToken card, (status, response) ->
           if response.error
             reject new DS.InvalidError [
               detail: response.error.message
               source:
-                pointer: "/data/attributes/cc_#{response.error.param}"
+                pointer: '/data'
+                #pointer: "/data/relationships/card/data/attributes/#{response.error.param}"
             ]
           else
             options?.data?.registration?.stripe_card_token = response.id

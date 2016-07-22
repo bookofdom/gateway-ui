@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-sm-9">
-    {{#bs-form-group error=cc-number-error help=cc-number-error}}
+    {{#bs-form-group error=number-error help=number-error}}
       {{input
         name='cc_number'
-        value=model.cc_number
+        value=model.card.number
         placeholder=(t 'fields.cc_number')
         pattern='[0-9]{13,16}'
         required='required'
@@ -11,16 +11,16 @@
     {{/bs-form-group}}
   </div><!-- /.col -->
   <div class="col-sm-3 text-center">
-    {{ap-payment-icon provider=model.cardType.slug}}
+    {{ap-payment-icon provider=model.card.cardType.slug}}
   </div><!-- /.col -->
 </div><!-- /.row -->
 
 <div class="row">
   <div class="col-sm-4">
-    {{#bs-form-group error=cc-expiry-error}}
+    {{#bs-form-group error=expiry-error}}
       {{input
         name='cc_exp_month'
-        value=model.cc_exp_month
+        value=model.card.exp_month
         placeholder=(t 'fields.cc_exp_month')
         pattern='[0-9]{2}'
         required='required'
@@ -28,10 +28,10 @@
     {{/bs-form-group}}
   </div><!-- /.col -->
   <div class="col-sm-5">
-  {{#bs-form-group error=cc-expiry-error help=cc-expiry-error}}
+  {{#bs-form-group error=expiry-error help=expiry-error}}
     {{input
       name='cc_exp_year'
-      value=model.cc_exp_year
+      value=model.card.exp_year
       placeholder=(t 'fields.cc_exp_year')
       pattern='[0-9]{4}'
       required='required'
@@ -41,10 +41,10 @@
 </div><!-- /.row -->
 <div class="row">
   <div class="col-sm-4">
-    {{#bs-form-group error=cc-cvc-error help=cc-cvc-error}}
+    {{#bs-form-group error=cvc-error help=cvc-error}}
       {{input
         name='cc_cvc'
-        value=model.cc_cvc
+        value=model.card.cvc
         placeholder=(t 'fields.cc_cvc')
         required='required'
         class='form-control'}}
@@ -53,9 +53,9 @@
   <div class="col-sm-5">
     {{#bs-form-group}}
       {{input
-        name='cc_billing_postal_code'
-        value=model.cc_billing_postal_code
-        placeholder=(t 'fields.cc_billing_postal_code')
+        name='cc_address_zip'
+        value=model.card.address_zip
+        placeholder=(t 'fields.cc_address_zip')
         required='required'
         class='form-control'}}
     {{/bs-form-group}}

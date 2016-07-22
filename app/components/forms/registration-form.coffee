@@ -28,12 +28,11 @@ RegistrationFormComponent = BaseFormComponent.extend
   'organization-error': Ember.computed 'model.errors.[]', ->
     @get('model.errors')?.errorsFor('organization')?[0]?.message
 
-  'cc-number-error': Ember.computed 'model.errors.[]', ->
-    @get('model.errors')?.errorsFor('cc_number')?[0]?.message
-  'cc-expiry-error': Ember.computed 'model.errors.[]', ->
-    @get('model.errors')?.errorsFor('cc_exp_year')?[0]?.message
-  'cc-cvc-error': Ember.computed 'model.errors.[]', ->
-    @get('model.errors')?.errorsFor('cc_cvc')?[0]?.message
+  createNewModel: ->
+    newModel = @_super arguments...
+    newStripeCard = @get('store')?.createRecord 'stripe-card'
+    newModel.set 'card', newStripeCard
+    newModel
 
   submit: ->
     model = @get 'model'
