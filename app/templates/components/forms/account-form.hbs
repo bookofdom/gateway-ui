@@ -1,2 +1,7 @@
 {{partial 'components/forms/base-form'}}
+
+{{#if (and isSubscriptionEnabled isNonZeroPlanAmount)}}
+  {{forms/stripe-card-inline-form ownerModel=model}}
+{{/if}}
+
 {{partial 'components/forms/base-form-actions'}}

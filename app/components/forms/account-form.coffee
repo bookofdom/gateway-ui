@@ -23,10 +23,4 @@ AccountFormComponent = BaseFormComponent.extend
     required: true
   ]
 
-  createNewModel: ->
-    newModel = @_super arguments...
-    newStripeCard = @get('store')?.createRecord 'stripe-card'
-    newModel.set 'card', newStripeCard
-    newModel
-
 `export default AccountFormComponent`
