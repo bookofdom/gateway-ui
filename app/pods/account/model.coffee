@@ -4,7 +4,7 @@
 `import t from 'gateway/helpers/i18n'`
 
 Account = Model.extend
-  organization: DS.attr 'string'
+  name: DS.attr 'string'
   plan: DS.attr 'string', defaultValue: 'cloud-free'
 
   # Relationships
@@ -19,6 +19,5 @@ Account = Model.extend
     Registration.plans.findBy 'value', plan
   isBillable: Ember.computed 'planType', ->
     @get('planType.amountPerMonth') > 0
-  displayName: Ember.computed.alias 'planType.name'
 
 `export default Account`

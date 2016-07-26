@@ -2,12 +2,9 @@
 
   {{ap-table-index
       models=model
-      fields='displayName:fields.name'
+      fields='name,planType.name:fields.plan'
       path='account.index'
-      edit-path='account.edit'}}
-
-  {{#ap-panel-new t='resources.account' closed=(unbound model.length)}}
-    {{forms/account-form}}
-  {{/ap-panel-new}}
+      edit-path='account.edit'
+      show-delete=false}}
 
 {{/ap-page}}

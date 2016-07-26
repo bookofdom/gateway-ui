@@ -13,6 +13,7 @@ AccountFormComponent = BaseFormComponent.extend
     @get('isSubscriptionEnabled') and @get('model.isBillable')
 
   #savedAction: null
+  'show-delete': false
 
   'option-groups': Ember.computed ->
     plan: Registration.plans
