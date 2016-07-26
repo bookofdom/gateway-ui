@@ -19,6 +19,7 @@ StripeCardSerializer = ApplicationSerializer.extend
       serialized.validationError =
         field: 'cvc'
         message: t 'errors.invalid-cc-cvc'
+    delete serialized.id # stripe won't accept unnecessary fields
     serialized
 
 `export default StripeCardSerializer`
