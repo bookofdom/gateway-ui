@@ -8,7 +8,10 @@ Account = Model.extend
   plan: DS.attr 'string', defaultValue: 'cloud-free'
 
   # Relationships
-  card: DS.belongsTo 'stripe-card', async: false
+  card: DS.belongsTo 'stripe-card',
+    async: false
+    stains: true
+    embeddedModel: true
 
   # Computed
   planType: Ember.computed 'plan', ->
