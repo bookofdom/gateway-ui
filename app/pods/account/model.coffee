@@ -6,6 +6,7 @@
 Account = Model.extend
   name: DS.attr 'string'
   plan: DS.attr 'string', defaultValue: 'cloud-free'
+  card_invalid: DS.attr 'boolean', defaultValue: false
 
   # Relationships
   card: DS.belongsTo 'stripe-card',
