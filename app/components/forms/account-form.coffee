@@ -7,10 +7,7 @@ AccountFormComponent = BaseFormComponent.extend
   modelType: 'account'
 
   isSubscriptionEnabled: Ember.computed 'stripeService.enabled', ->
-    @get('stripeService.enabled') and
-      (config.enablePlanSubscriptions?.toString() is 'true')
-  isNonZeroPlanAmount: Ember.computed 'isSubscriptionEnabled', 'model.isBillable', ->
-    @get('isSubscriptionEnabled') and @get('model.isBillable')
+    @get('stripeService.enabled') and (config.enablePlanSubscriptions?.toString() is 'true')
 
   savedAction: null
   'show-delete': false

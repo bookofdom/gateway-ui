@@ -1,6 +1,6 @@
 {{partial 'components/forms/base-form'}}
 
-{{#if (and isSubscriptionEnabled isNonZeroPlanAmount)}}
+{{#if (and isSubscriptionEnabled model.isBillable)}}
   {{forms/stripe-card-inline-form model=model.card ownerModel=model}}
 {{/if}}
 
