@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import EditRoute from 'gateway/routes/edit'`
 
-AccountIndexRoute = Ember.Route.extend
-  afterModel: -> @transitionTo 'account.edit'
+# Account index is actually an edit route.
+AccountIndexRoute = EditRoute.extend()
 
 `export default AccountIndexRoute`

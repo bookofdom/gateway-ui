@@ -12,7 +12,7 @@ AccountFormComponent = BaseFormComponent.extend
   isNonZeroPlanAmount: Ember.computed 'isSubscriptionEnabled', 'model.isBillable', ->
     @get('isSubscriptionEnabled') and @get('model.isBillable')
 
-  #savedAction: null
+  savedAction: null
   'show-delete': false
 
   'option-groups': Ember.computed ->

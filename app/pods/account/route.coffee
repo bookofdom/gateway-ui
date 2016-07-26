@@ -1,9 +1,10 @@
 `import Ember from 'ember'`
 
 AccountRoute = Ember.Route.extend
-  model: (params) -> @modelFor('accounts').findBy 'id', params.account_id
-  actions:
-    deleted: ->
-      @transitionTo 'accounts'
+  model: ->
+    store = @store
+    new Ember.RSVP.Promise (resolve, reject) ->
+      store.findAll('account').then (accounts) ->
+        resolve accounts.get('firstObject')
 
 `export default AccountRoute`
