@@ -19,10 +19,10 @@ AccountFormComponent = BaseFormComponent.extend
     name: 'name'
     label: 'fields.account_name'
     required: true
-  ,
-    name: 'plan'
-    type: 'select'
-    required: true
+  #,
+  #  name: 'plan'
+  #  type: 'select'
+  #  required: true
   ]
 
 `export default AccountFormComponent`
