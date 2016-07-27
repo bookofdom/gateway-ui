@@ -16,6 +16,10 @@ AccountFormComponent = BaseFormComponent.extend
     plan: Registration.plans
 
   fields: [
+    name: 'name'
+    label: 'fields.account_name'
+    required: true
+  ,
     name: 'plan'
     type: 'select'
     required: true

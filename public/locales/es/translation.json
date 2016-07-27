@@ -169,6 +169,7 @@
     "store-object_plural": "objetos"
   },
   "fields": {
+    "account_name": "nombre de la cuenta",
     "stamp": "sello",
     "token": "simbólico",
     "expires": "expira",

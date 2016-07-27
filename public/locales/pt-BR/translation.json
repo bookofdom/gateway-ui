@@ -169,6 +169,7 @@
     "store-object_plural": "objetos"
   },
   "fields": {
+    "account_name": "nome da conta",
     "stamp": "carimbo",
     "token": "símbolo",
     "expires": "expira",

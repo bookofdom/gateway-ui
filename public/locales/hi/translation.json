@@ -169,6 +169,7 @@
     "store-object_plural": "वस्तुओं"
   },
   "fields": {
+    "account_name": "खाते का नाम",
     "stamp": "डाक टिकट",
     "token": "टोकन",
     "expires": "समाप्त हो रहा है",

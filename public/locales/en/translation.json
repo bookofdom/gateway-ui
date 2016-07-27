@@ -175,6 +175,7 @@
     "store-object_plural": "objects"
   },
   "fields": {
+    "account_name": "account name",
     "stamp": "stamp",
     "token": "token",
     "expires": "expires",
