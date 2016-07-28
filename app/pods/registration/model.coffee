@@ -21,12 +21,14 @@ Registration = Model.extend
 
 Registration.reopenClass
   plans: [
-    name: t 'types.registration.plans.cloud-free'
+    name: t 'types.plans.cloud-free'
+    description: t 'types.plans.description.cloud-free'
     value: 'cloud-free'
     amountPerMonth: 0
     amountUnit: 'usd'
   ,
-    name: t 'types.registration.plans.cloud-hosted'
+    name: t 'types.plans.cloud-hosted'
+    description: t 'types.plans.descriptions.cloud-hosted'
     value: 'cloud-hosted'
     amountPerMonth: 9
     amountUnit: 'usd'

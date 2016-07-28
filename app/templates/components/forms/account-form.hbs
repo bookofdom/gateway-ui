@@ -19,9 +19,17 @@
       {{#each option-groups.plan as |plan|}}
         <li class="list-group-item">
           <p>
-            {{ap-radio value=plan.value checked=model.plan}}
+            &nbsp;&nbsp;{{ap-radio value=plan.value checked=model.plan}}
             <strong>{{plan.name}}</strong>
             ${{plan.amountPerMonth}} / mo.
+            <br>
+            <br>
+            <ul>
+              <li>{{t (concat 'types.plans.descriptions.' plan.value '.developers')}}</li>
+              <li>{{t (concat 'types.plans.descriptions.' plan.value '.endpoints')}}</li>
+              <li>{{t (concat 'types.plans.descriptions.' plan.value '.js-execution')}}</li>
+              <li>{{t (concat 'types.plans.descriptions.' plan.value '.support')}}</li>
+            </ul>
           </p>
         </li>
       {{/each}}

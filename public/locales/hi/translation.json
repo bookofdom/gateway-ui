@@ -285,6 +285,9 @@
     "unsubscribe_endpoint": "सदस्यता समाप्त समापन बिंदु",
     "protocol": "मसविदा बनाना",
     "plan": "योजना",
+    "cc_number": "क्रेडिट कार्ड नंबर",
+    "cc_exp_month": "अंतिम माह",
+    "cc_exp_year": "समाप्ति वर्ष",
     "help": {
       "timeout": "सेकंड की संख्या।",
       "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
@@ -378,12 +381,6 @@
       "client": "ग्राहक",
       "server": "सर्वर"
     },
-    "registration": {
-      "plans": {
-        "cloud-free": "मुक्त",
-        "cloud-hosted": "की मेजबानी"
-      }
-    },
     "remote-endpoint": {
       "push": "धक्का दें",
       "store": "दुकान",
@@ -408,6 +405,24 @@
       "auth-schemes": {
         "basic": "बुनियादी",
         "wsse": "WSSE"
+      }
+    },
+    "plans": {
+      "cloud-free": "मुक्त",
+      "cloud-hosted": "की मेजबानी",
+      "descriptions": {
+        "cloud-free": {
+          "developers": "असीमित मेजबानी डेवलपर्स",
+          "endpoints": "असीमित मेजबानी एपीआई समापन",
+          "js-execution": "5 एस जावास्क्रिप्ट निष्पादन सीमा नहीं",
+          "support": "समर्थन: कोई नहीं"
+        },
+        "cloud-hosted": {
+          "developers": "असीमित मेजबानी डेवलपर्स",
+          "endpoints": "असीमित मेजबानी एपीआई समापन",
+          "js-execution": "30 जावास्क्रिप्ट निष्पादन सीमा नहीं",
+          "support": "समर्थन: ईमेल, वेब , फोन"
+        }
       }
     }
   }

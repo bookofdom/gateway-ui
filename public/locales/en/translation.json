@@ -400,12 +400,6 @@
       "client": "client",
       "server": "server"
     },
-    "registration": {
-      "plans": {
-        "cloud-free": "free",
-        "cloud-hosted": "hosted"
-      }
-    },
     "remote-endpoint": {
       "push": "push",
       "http": "HTTP",
@@ -446,6 +440,24 @@
       "protocols": {
         "tcpip": "TCPIP",
         "ssl": "SSL"
+      }
+    },
+    "plans": {
+      "cloud-free": "free",
+      "cloud-hosted": "hosted",
+      "descriptions": {
+        "cloud-free": {
+          "developers": "unlimited hosted developers",
+          "endpoints": "unlimited hosted API endpoints",
+          "js-execution": "5s JavaScript execution limit",
+          "support": "support:  none"
+        },
+        "cloud-hosted": {
+          "developers": "unlimited hosted developers",
+          "endpoints": "unlimited hosted API endpoints",
+          "js-execution": "30s JavaScript execution limit",
+          "support": "support:  email, web, phone"
+        }
       }
     }
   }

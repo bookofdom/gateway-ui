@@ -285,6 +285,9 @@
     "unsubscribe_endpoint": "endpoint unsubscribe",
     "protocol": "protocolo",
     "plan": "plano",
+    "cc_number": "número do Cartão de Crédito",
+    "cc_exp_month": "mês de validade",
+    "cc_exp_year": "ano de validade",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
@@ -378,12 +381,6 @@
       "client": "cliente",
       "server": "servidor"
     },
-    "registration": {
-      "plans": {
-        "cloud-free": "livre",
-        "cloud-hosted": "hospedado"
-      }
-    },
     "remote-endpoint": {
       "push": "empurrar",
       "store": "armazenar",
@@ -408,6 +405,24 @@
       "auth-schemes": {
         "basic": "básico",
         "wsse": "WSSE"
+      }
+    },
+    "plans": {
+      "cloud-free": "livre",
+      "cloud-hosted": "hospedado",
+      "descriptions": {
+        "cloud-free": {
+          "developers": "desenvolvedores hospedados ilimitadas",
+          "endpoints": "terminais de API hospedados ilimitadas",
+          "js-execution": "limite de execução 5s JavaScript",
+          "support": "suporte: nenhum"
+        },
+        "cloud-hosted": {
+          "developers": "desenvolvedores hospedados ilimitadas",
+          "endpoints": "terminais de API hospedados ilimitadas",
+          "js-execution": "limite de execução 30s JavaScript",
+          "support": "suporte: e-mail , web, telefone"
+        }
       }
     }
   }
