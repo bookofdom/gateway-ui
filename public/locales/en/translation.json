@@ -174,7 +174,9 @@
     "store-object": "object",
     "store-object_plural": "objects",
     "stripe-card": "credit card",
-    "stripe-card_plural": "credit cards"
+    "stripe-card_plural": "credit cards",
+    "plan": "plan",
+    "plan_plural": "plans"
   },
   "fields": {
     "account_name": "account name",
