@@ -1,4 +1,7 @@
 <div class="row">
+  <div class="col-sm-2">
+    <p class="text-right">Edit Account</p>
+  </div>
   <div class="col-sm-5">
     {{#ap-model-form-group
       model=model
@@ -14,7 +17,12 @@
           class='form-control input-lg'}}
     {{/ap-model-form-group}}
   </div><!-- /.col -->
-  <div class="col-sm-5 col-sm-offset-1">
+</div><!-- /.row -->
+<div class="row">
+  <div class="col-sm-2">
+    <p class="text-right">Edit Subscription</p>
+  </div>
+  <div class="col-sm-5">
     <ul class="list-group">
       {{#each option-groups.plan as |plan|}}
         <li class="list-group-item">
@@ -35,10 +43,11 @@
       {{/each}}
     </ul>
   </div><!-- /.col -->
+  <div class="col-sm-5">
+    {{#if (and isSubscriptionEnabled model.isBillable)}}
+      {{forms/stripe-card-inline-form model=model.card ownerModel=model}}
+    {{/if}}
+  </div><!-- /.col -->
 </div><!-- /.row -->
-
-{{#if (and isSubscriptionEnabled model.isBillable)}}
-  {{forms/stripe-card-inline-form model=model.card ownerModel=model}}
-{{/if}}
 
 {{partial 'components/forms/base-form-actions'}}
