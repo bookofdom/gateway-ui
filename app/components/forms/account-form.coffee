@@ -18,7 +18,7 @@ AccountFormComponent = BaseFormComponent.extend
 
   fields: [
     name: 'name'
-    label: 'fields.account_name'
+    label: false
     required: true
   #,
   #  name: 'plan'

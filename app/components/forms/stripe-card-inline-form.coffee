@@ -7,7 +7,7 @@ StripeCardInlineFormComponent = BaseFormComponent.extend InlineFormMixin,
   ownerFieldName: 'card'
 
   inline: false
-  horizontal: true
+  horizontal: false
 
   defaultFields: [
     name: 'number'
