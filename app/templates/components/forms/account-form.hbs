@@ -2,12 +2,13 @@
   <div class="col-sm-2">
     <p class="text-right">Edit Account</p>
   </div>
-  <div class="col-sm-5">
+  <div class="col-sm-4">
     {{#ap-model-form-group
       model=model
       name='name'
       label='fields.account_name'
-      required=required}}
+      required=required
+      show-label=false}}
         {{input
           type='text'
           name='account_name'
@@ -45,7 +46,9 @@
   </div><!-- /.col -->
   <div class="col-sm-5">
     {{#if (and isSubscriptionEnabled model.isBillable)}}
-      {{forms/stripe-card-inline-form model=model.card ownerModel=model}}
+      {{#ap-panel-edit t='resources.stripe-card'}}
+        {{partial 'registration/cc-form'}}
+      {{/ap-panel-edit}}
     {{/if}}
   </div><!-- /.col -->
 </div><!-- /.row -->

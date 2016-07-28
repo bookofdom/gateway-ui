@@ -166,7 +166,9 @@
     "store-collection": "संग्रह",
     "store-collection_plural": "संग्रह",
     "store-object": "वस्तु",
-    "store-object_plural": "वस्तुओं"
+    "store-object_plural": "वस्तुओं",
+    "stripe-card": "क्रेडिट कार्ड",
+    "stripe-card_plural": "क्रेडिट कार्ड"
   },
   "fields": {
     "account_name": "खाते का नाम",

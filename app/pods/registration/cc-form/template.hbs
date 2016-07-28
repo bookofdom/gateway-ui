@@ -1,12 +1,10 @@
 <div class="row">
   <div class="col-sm-9">
-    {{#bs-form-group error=number-error help=number-error}}
+    {{#bs-form-group error=number-error help=number-error show-label=false}}
       {{input
         name='cc_number'
         value=model.card.number
         placeholder=(t 'fields.cc_number')
-        pattern='[0-9]{13,16}'
-        required='required'
         class='form-control'}}
     {{/bs-form-group}}
   </div><!-- /.col -->
@@ -17,46 +15,40 @@
 
 <div class="row">
   <div class="col-sm-4">
-    {{#bs-form-group error=expiry-error}}
+    {{#bs-form-group error=expiry-error show-label=false}}
       {{input
         name='cc_exp_month'
         value=model.card.exp_month
         placeholder=(t 'fields.cc_exp_month')
-        pattern='[0-9]{2}'
-        required='required'
         class='form-control'}}
     {{/bs-form-group}}
   </div><!-- /.col -->
   <div class="col-sm-5">
-  {{#bs-form-group error=expiry-error help=expiry-error}}
+  {{#bs-form-group error=expiry-error help=expiry-error show-label=false}}
     {{input
       name='cc_exp_year'
       value=model.card.exp_year
       placeholder=(t 'fields.cc_exp_year')
-      pattern='[0-9]{4}'
-      required='required'
       class='form-control'}}
   {{/bs-form-group}}
   </div><!-- /.col -->
 </div><!-- /.row -->
 <div class="row">
   <div class="col-sm-4">
-    {{#bs-form-group error=cvc-error help=cvc-error}}
+    {{#bs-form-group error=cvc-error help=cvc-error show-label=false}}
       {{input
         name='cc_cvc'
         value=model.card.cvc
         placeholder=(t 'fields.cc_cvc')
-        required='required'
         class='form-control'}}
     {{/bs-form-group}}
   </div><!-- /.col -->
   <div class="col-sm-5">
-    {{#bs-form-group}}
+    {{#bs-form-group show-label=false}}
       {{input
         name='cc_address_zip'
         value=model.card.address_zip
         placeholder=(t 'fields.cc_address_zip')
-        required='required'
         class='form-control'}}
     {{/bs-form-group}}
   </div><!-- /.col -->

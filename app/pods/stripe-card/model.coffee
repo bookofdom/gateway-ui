@@ -3,11 +3,11 @@
 `import t from 'gateway/helpers/i18n'`
 
 StripeCard = Model.extend
-  number: DS.attr 'string'
-  cvc: DS.attr 'string'
-  exp_month: DS.attr 'string'
-  exp_year: DS.attr 'string'
-  address_zip: DS.attr 'string'
+  number: DS.attr 'string', defaultValue: ''
+  cvc: DS.attr 'string', defaultValue: ''
+  exp_month: DS.attr 'string', defaultValue: ''
+  exp_year: DS.attr 'string', defaultValue: ''
+  address_zip: DS.attr 'string', defaultValue: ''
 
   # Computed
   cardType: Ember.computed 'number', ->

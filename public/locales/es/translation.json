@@ -166,7 +166,9 @@
     "store-collection": "colección",
     "store-collection_plural": "colecciones",
     "store-object": "objeto",
-    "store-object_plural": "objetos"
+    "store-object_plural": "objetos",
+    "stripe-card": "tarjeta de crédito",
+    "stripe-card_plural": "tarjetas de crédito"
   },
   "fields": {
     "account_name": "nombre de la cuenta",
