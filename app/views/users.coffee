@@ -1,5 +1,5 @@
-`import PrimaryView from './primary'`
+`import SecondaryView from './secondary'`
 
-UsersView = PrimaryView.extend()
+UsersView = SecondaryView.extend()
 
 `export default UsersView`

@@ -1,7 +1,6 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
-UsersRoute = Ember.Route.extend AuthenticatedRouteMixin,
+UsersRoute = Ember.Route.extend
   model: -> @store.findAll 'user'
   actions:
     refresh: -> @refresh()
