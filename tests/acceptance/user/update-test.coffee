@@ -21,21 +21,21 @@ module 'Acceptance: User - Update',
   afterEach: -> destroyApp @application
 
 test 'user can navigate to user edit route', (assert) ->
-  visit '/users'
+  visit '/account/users'
   click '.ap-table-index tbody tr:eq(0) td:eq(0) a'
   andThen ->
-    assert.equal currentURL(), '/users/1/edit'
+    assert.equal currentURL(), '/account/users/1/edit'
 
 test 'user can edit users', (assert) ->
   done = assert.async()
   after = ->
     wait()
     andThen ->
-      assert.equal currentURL(), '/users/1/edit'
+      assert.equal currentURL(), '/account/users/1/edit'
       assert.equal server.db.users[0].name, 'Test User'
       done()
   server.put '/users/:id',
     makePutHandler('user', after)
-  visit '/users/1/edit'
+  visit '/account/users/1/edit'
   fillIn '[name=name]', 'Test User'
   click '[type=submit]'
