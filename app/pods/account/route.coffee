@@ -6,5 +6,10 @@ AccountRoute = Ember.Route.extend
     new Ember.RSVP.Promise (resolve, reject) ->
       store.findAll('account').then (accounts) ->
         resolve accounts.get('firstObject')
+  renderTemplate: ->
+    @_super arguments...
+    @render 'admin/secondary-sidebar',
+      outlet: 'sidebar'
+      into: 'account'
 
 `export default AccountRoute`

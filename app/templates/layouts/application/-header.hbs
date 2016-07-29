@@ -44,11 +44,8 @@
               {{#unless dev_mode}}
                 {{#if session.session.authenticated.admin}}
                   {{ap-list-link
-                    path='account'
+                    path='admin'
                     t='resources.account'}}
-                  {{ap-list-link
-                    path='users'
-                    t='resources.user_plural'}}
                 {{/if}}
                 {{ap-list-link
                   action='invalidateSession'
