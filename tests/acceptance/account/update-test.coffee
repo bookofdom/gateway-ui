@@ -38,3 +38,25 @@ test 'user can edit account', (assert) ->
   visit '/account/edit'
   fillIn '[name=account_name]', 'Test Account'
   click '[type=submit]'
+
+test 'user can see credit card brand', (assert) ->
+  visit '/account/edit'
+  click '.ap-radio:eq(1)'
+  fillIn '[name=cc_number]', '4242424242424242'
+  $('[name=cc_number]').change()
+  andThen -> assert.equal find('.gateway-payment-visa').length, 1
+  fillIn '[name=cc_number]', '5123424242424242'
+  $('[name=cc_number]').change()
+  andThen -> assert.equal find('.gateway-payment-mastercard').length, 1
+  fillIn '[name=cc_number]', '378282246310005'
+  $('[name=cc_number]').change()
+  andThen -> assert.equal find('.gateway-payment-amex').length, 1
+  fillIn '[name=cc_number]', '6011000400000000'
+  $('[name=cc_number]').change()
+  andThen -> assert.equal find('.gateway-payment-discover').length, 1
+  fillIn '[name=cc_number]', '36148900647913'
+  $('[name=cc_number]').change()
+  andThen -> assert.equal find('.gateway-payment-diners').length, 1
+  fillIn '[name=cc_number]', '3528000700000000'
+  $('[name=cc_number]').change()
+  andThen -> assert.equal find('.gateway-payment-jcb').length, 1
