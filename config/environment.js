@@ -41,6 +41,8 @@ module.exports = function(environment) {
     remote_endpoint_types_enabled: null,
     notifications: false,
 
+    docsBaseUrl: 'http://devhub.justapis.com/v5.0.0/docs',
+
     api: {
       host: process.env.API_HOST || '',
       basePath: 'admin',
