@@ -14,6 +14,7 @@
 `import OracleRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/oracle'`
 `import SmtpRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/smtp'`
 `import Db2EndpointSerializer from 'gateway/pods/remote-endpoint/serializers/db2'`
+`import DockerEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/docker'`
 
 RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
@@ -60,6 +61,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'oracle' then OracleRemoteEndpointSerializer.normalize hash
       when 'smtp' then SmtpRemoteEndpointSerializer.normalize hash
       when 'db2' then Db2EndpointSerializer.normalize hash
+      when 'docker' then DockerEndpointSerializer.normalize hash
     @_super arguments...
   normalizeEnvironmentData: (hash) ->
     hash.environment_data ?= []
@@ -99,6 +101,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'oracle' then OracleRemoteEndpointSerializer.serialize serialized
       when 'smtp' then SmtpRemoteEndpointSerializer.serialize serialized
       when 'db2' then Db2EndpointSerializer.serialize serialized
+      when 'docker' then DockerEndpointSerializer.serialize serialized
     serialized
   serializeHeaders: (snapshot) ->
     headers = {}

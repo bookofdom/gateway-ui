@@ -404,6 +404,7 @@
       "oracle": "Oracle",
       "smtp": "SMTP",
       "db2": "DB2",
+      "docker": "Docker",
       "status-types": {
         "success": "success",
         "failed": "failed",

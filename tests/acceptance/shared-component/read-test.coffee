@@ -8,7 +8,7 @@ module 'Acceptance: Shared Component - Read',
   beforeEach: ->
     @application = startApp()
     server.createList('api', 1).forEach (api) ->
-      server.createList 'remote_endpoint', 30, apiId: api.id
+      server.createList 'remote_endpoint', 32, apiId: api.id
       server.createList 'shared_component', 1, apiId: api.id
     authenticateSession @application
     ###
