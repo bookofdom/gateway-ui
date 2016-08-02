@@ -15,24 +15,6 @@ RemoteEndpointPushPlatform = Model.extend
   ack_timeout: DS.attr 'number', defaultValue: 20
   timeout_retries: DS.attr 'number', defaultValue: 3
 
-  # Services
-  session: Ember.inject.service()
-
-  # Computed
-  username: Ember.computed 'session.session.authenticated.email',
-  'remoteEndpointModel', 'environmentDatumModel', 'codename', 'remote_endpoint',
-  'environment_datum', ->
-    email = @get 'session.session.authenticated.email'
-    remoteEndpoint = @get('remote_endpoint') || @get('environment_datum.remote_endpoint') || @get('remoteEndpointModel')
-    apiName = remoteEndpoint.get 'api.name'
-    remoteEndpointCodename = remoteEndpoint.get 'codename'
-    codename = @get('codename') || ""
-    username = "#{email},#{apiName},#{remoteEndpointCodename},#{codename}"
-    environment = @get('environment_datum') || @get('environmentDatumModel')
-    environment_name = environment?.get('environment.name')
-    username = "#{username},#{environment_name}" if environment_name?
-    username
-
   # Relationships
   remote_endpoint: DS.belongsTo 'remote-endpoint', async: false
   environment_datum: DS.belongsTo 'remote-endpoint-environment-datum', async: false

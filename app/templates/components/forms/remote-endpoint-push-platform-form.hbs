@@ -1,2 +1,12 @@
 {{partial 'components/forms/base-form'}}
+{{#if isMQTT}}
+  <div data-t="fields.username" class="ember-view form-group ap-model-form-group">
+    <label class="control-label col-sm-2">{{t 'fields.username'}}</label>
+    <div class="col-sm-10">
+      <span class="ember-view ap-field">
+        <input value={{username}} readonly="true" name="username" type="text" class="form-control ember-view ember-text-field">
+      </span>
+    </div>
+  </div>
+{{/if}}
 {{partial 'components/forms/base-form-actions'}}

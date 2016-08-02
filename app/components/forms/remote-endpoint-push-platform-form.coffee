@@ -2,8 +2,7 @@
 `import RemoteEndpointPushPlatform from 'gateway/pods/remote-endpoint-push-platform/model'`
 
 RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
-  remoteEndpointModel: null
-  environmentDatumModel: null
+  parentModel: null
   indexModel: null
   modelType: 'remote-endpoint-push-platform'
 
@@ -54,9 +53,6 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
       required: true
     ]
     mqtt: [
-      name: 'username'
-      readonly: true
-    ,
       name: 'password'
       type: 'password'
     ,
@@ -73,22 +69,36 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
       required: true
     ]
 
+  # Services
+  session: Ember.inject.service()
+
+  # Computed
+  username: Ember.computed 'session.session.authenticated.email', 'model.codename',
+  'model.remote_endpoint', 'model.environment_datum', 'model.environment_datum.remote_endpoint',
+  'parentModel', 'parentModel.remote_endpoint', ->
+    email = @get 'session.session.authenticated.email'
+    remoteEndpoint = @get('model.remote_endpoint') ||
+      @get('model.environment_datum.remote_endpoint') ||
+      @get('parentModel.remote_endpoint') ||
+      @get('parentModel')
+    apiName = remoteEndpoint.get 'api.name'
+    remoteEndpointCodename = remoteEndpoint.get 'codename'
+    codename = @get('model.codename') || ""
+    username = "#{email},#{apiName},#{remoteEndpointCodename},#{codename}"
+    environment = @get('model.environment_datum') || @get('parentModel')
+    environment_name = environment?.get('environment.name')
+    username = "#{username},#{environment_name}" if environment_name?
+    username
+
+  isMQTT: Ember.computed 'model.type', ->
+    @get('model.type') == 'mqtt'
+
   fields: Ember.computed 'model.type', ->
     fields = @_super arguments...
     type = @get 'model.type'
     platformFields = @get "platformFields.#{type}"
     fields = Ember.copy(fields).pushObjects platformFields if platformFields
     fields
-
-  createNewModel: ->
-    modelType = @get 'modelType'
-    newModel = @get('store')?.createRecord modelType
-    remoteEndpointModel = @get 'remoteEndpointModel'
-    environmentDatumModel = @get 'environmentDatumModel'
-    newModel.set 'remoteEndpointModel', remoteEndpointModel
-    newModel.set 'environmentDatumModel', environmentDatumModel
-    @set 'model', newModel
-    newModel
 
   submit: ->
     model = @get 'model'

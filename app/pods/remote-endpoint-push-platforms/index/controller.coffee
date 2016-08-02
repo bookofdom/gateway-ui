@@ -4,6 +4,6 @@ RemoteEndpointPushPlatformsIndexController = Ember.Controller.extend
 
   'remote-endpoint': Ember.inject.controller()
 
-  remoteEndpointModel: Ember.computed.alias 'remote-endpoint.model'
+  parentModel: Ember.computed.alias 'remote-endpoint.model'
 
 `export default RemoteEndpointPushPlatformsIndexController`
