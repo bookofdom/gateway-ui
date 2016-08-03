@@ -1,21 +1,20 @@
 `import Ember from 'ember'`
-`import BsTextComponent from 'gateway/components/bs-text'`
-`import t from 'gateway/helpers/i18n'`
+`import BsBaseComponent from 'gateway/components/bs-base'`
+`import { brandName } from 'gateway/helpers/brand-name'`
 
-ApBrandComponent = BsTextComponent.extend
+ApBrandComponent = BsBaseComponent.extend
   tagName: 'span'
   classNames: ['ap-brand']
   classNameBindings: ['styleClass', 'brandClass']
   attributeBindings: ['text:title']
   brand: 'primary'
-  t: Ember.computed 'brand', -> @get 'brand'
   style: 'default'
   styleClass: Ember.computed 'style', ->
     "ap-brand-#{@get 'style'}"
   brandClass: Ember.computed 'brand', ->
     "ap-brand-#{@get 'brand'}"
-  text: Ember.computed 't', ->
-    translationKey = @get 't'
-    t("brands.#{translationKey}") if translationKey
+  text: Ember.computed 'brand', ->
+    brand = @get 'brand'
+    brandName [brand]
 
 `export default ApBrandComponent`
