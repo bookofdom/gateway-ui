@@ -64,7 +64,7 @@
       "manage": "manage local store data and push notifications",
       "store-collections": "manage local store collections and data",
       "push": "manage push channels, devices, and messages",
-      "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
+      "build-app": "build multi-channel apps with the designer platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
@@ -78,7 +78,7 @@
       "formatted": {
         "analyze": "<b>(coming soon)</b><br>Gain insights into API usage",
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
-        "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
+        "build-app": "<b>(login required)</b><br>Build multi-channel apps with the designer platform"
       }
     },
     "support": "support",

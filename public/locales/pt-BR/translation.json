@@ -64,7 +64,7 @@
       "manage": "gerenciar dados de loja local e notificações push",
       "store-collections": "gerenciar coleções de lojas locais e dados",
       "push": "gerenciar os canais de pressão , dispositivos e mensagens",
-      "build-app": "constrói aplicações de multi-canais com a plataforma AnyPresence (login necessário)",
+      "build-app": "constrói aplicações de multi-canais com a plataforma (login necessário)",
       "proxy-endpoints": "define os endpoints da proxy e a lógica correspondente",
       "environments": "especifica ambiente, variáveis e outros atributos",
       "endpoint-groups": "os grupos mencionados agrupam os endpoints da proxy por conveniência",
@@ -78,7 +78,7 @@
       "formatted": {
         "analyze": "<b>(em breve)</b><br>Obter insights sobre o uso da API",
         "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",
-        "build-app": "<b>(login necessário)</b><br>Constrói aplicações de multi-canais com a plataforma AnyPresence"
+        "build-app": "<b>(login necessário)</b><br>Constrói aplicações de multi-canais com a plataforma"
       }
     },
     "support": "suporte",

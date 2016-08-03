@@ -64,7 +64,7 @@
       "manage": "स्थानीय दुकान डाटा का प्रबंधन और पुश सूचनाएं",
       "store-collections": "स्थानीय दुकान संग्रह और डेटा प्रबंधन",
       "push": "धक्का चैनलों, उपकरणों, और संदेशों का प्रबंधन",
-      "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
+      "build-app": "build multi-channel apps with the designer platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
@@ -78,7 +78,7 @@
       "formatted": {
         "analyze": "<b>(जल्द आ रहा है)</b><br>एपीआई उपयोग में अंतर्दृष्टि लाभ",
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
-        "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
+        "build-app": "<b>(login required)</b><br>Build multi-channel apps with the designer platform"
       }
     },
     "support": "support",

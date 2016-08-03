@@ -64,7 +64,7 @@
       "manage": "gestionar los datos de tienda local y notificaciones push",
       "store-collections": "administrar colecciones de una tienda local y datos",
       "push": "administración de canales de empuje , dispositivos y mensajes",
-      "build-app": "realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence (autenticación requerida)",
+      "build-app": "realiza un build de aplicaciones de múltiples canales con la plataforma (autenticación requerida)",
       "proxy-endpoints": "define o edita proxy endpoints y la correspondiente lógica",
       "environments": "especifica entornos, variables y otros atributos",
       "endpoint-groups": "los grupos mencionados agrupan proxy endpoints segun conveniencia",
@@ -78,7 +78,7 @@
       "formatted": {
         "analyze": "<b>(próximamente)</b><br>Adquirir conocimientos sobre el uso del API",
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
-        "build-app": "<b>(autenticación requerida)</b><br>Realiza un build de aplicaciones de múltiples canales con la plataforma de AnyPresence"
+        "build-app": "<b>(autenticación requerida)</b><br>Realiza un build de aplicaciones de múltiples canales con la plataforma"
       }
     },
     "support": "soporte",
