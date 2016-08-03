@@ -86,12 +86,6 @@
     "help": "ajuda",
     "account": "conta"
   },
-  "brands": {
-    "anypresence": "AnyPresence",
-    "gateway": "Gateway",
-    "just-apis": "Just APIs",
-    "brought-to-you-by-anypresence": "trazido a você por AnyPresence"
-  },
   "resources": {
     "user": "usuário",
     "user_plural": "usuários",
