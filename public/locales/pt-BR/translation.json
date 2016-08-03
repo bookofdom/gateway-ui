@@ -74,7 +74,7 @@
       "logs": "visualização, pesquisa e transmissão de registros",
       "api-documentation": "visualizar a documentação da API e chamadas de API de teste interativos",
       "shared-components": "construir componentes reutilizáveis ​​para endpoints de proxy",
-      "terms-and-conditions": "registrando-se para uma conta, você aceita os termos e condições JustAPIs",
+      "terms-and-conditions": "registrando-se para uma conta, você aceita os termos e condições",
       "formatted": {
         "analyze": "<b>(em breve)</b><br>Obter insights sobre o uso da API",
         "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",
