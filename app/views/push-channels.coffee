@@ -1,5 +1,6 @@
 `import SecondaryView from './secondary'`
 
-PushChannelsView = SecondaryView.extend()
+PushChannelsView = SecondaryView.extend
+  showBreadCrumbs: true
 
 `export default PushChannelsView`
