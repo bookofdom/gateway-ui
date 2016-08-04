@@ -1,8 +1,9 @@
 .ap-app-secondary
-  background-color: $ap-slate-lighter
+  $sidebar-bg: $ap-app-secondary-bg-color
+  background-color: $sidebar-bg
   .ap-app-secondary-sidebar
-    border-color: $ap-slate-lighter
-    background: $ap-slate-lighter
+    border-color: lighten($sidebar-bg, 10%)
+    background: $sidebar-bg
     @media (max-width: $screen-sm-max)
       ul
         opacity: 0
