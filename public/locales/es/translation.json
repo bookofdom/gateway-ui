@@ -167,6 +167,10 @@
     "store-object_plural": "objetos"
   },
   "fields": {
+    "connect_timeout": "conecte tiempo de espera",
+    "ack_timeout": "tiempo de espera de ACK",
+    "timeout_retries": "reintentos de tiempo de espera",
+    "qos": "QOS",
     "stamp": "sello",
     "token": "simbólico",
     "expires": "expira",
