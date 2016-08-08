@@ -27,8 +27,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
     hosts:
       embedded: 'always'
     push_platforms:
-      serialize: false
-      deserialize: 'records'
+      embedded: 'always'
 
   # Normalization
   normalize: (type, hash, property) ->
@@ -83,7 +82,6 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
     Ember.merge serialized.data,
       headers: @serializeHeaders snapshot
       query: @serializeQuery snapshot
-      push_platforms: @serializePushPlatforms snapshot
     # serialize attributes
     switch serialized.type
       when 'http' then HttpRemoteEndpointSerializer.serialize serialized
@@ -115,10 +113,5 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       attributes = querySnapshot.attributes()
       query[attributes.name] = attributes.value
     query
-  serializePushPlatforms: (snapshot) ->
-    push_platforms = []
-    snapshot.hasMany('push_platforms')?.forEach (pushPlatform) ->
-      push_platforms.push pushPlatform.attributes()
-    push_platforms
 
 `export default RemoteEndpointLikeSerializer`
