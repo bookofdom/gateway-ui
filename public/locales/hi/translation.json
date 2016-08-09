@@ -167,6 +167,10 @@
     "store-object_plural": "वस्तुओं"
   },
   "fields": {
+    "connect_timeout": "मध्यांतर कनेक्ट",
+    "ack_timeout": "एसीके मध्यांतर",
+    "timeout_retries": "मध्यांतर पुनर्प्रयास",
+    "qos": "QOS",
     "stamp": "डाक टिकट",
     "token": "टोकन",
     "expires": "समाप्त हो रहा है",

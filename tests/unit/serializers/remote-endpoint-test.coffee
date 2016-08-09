@@ -365,8 +365,18 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
               platform_type: 'gcm'
               development: false
               api_key: 'AIzaSyCPc6PN7PkKT7BGj-b60XAmEpp6f9N1oNY'
+            ,
+              name: 'test-mqtt'
+              codename: 'test-mqtt'
+              platform_type: 'mqtt'
+              password: 'abc123'
+              connect_timeout: 2
+              ack_timeout: 20
+              timeout_retries: 3
             ]
             publish_endpoint: true
+            subscribe_endpoint: true
+            unsubscribe_endpoint: true
           environment_data: [
             id: 8
             environment_id: 1
