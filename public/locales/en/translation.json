@@ -167,6 +167,10 @@
     "store-object_plural": "objects"
   },
   "fields": {
+    "connect_timeout": "connect timeout",
+    "ack_timeout": "ack timeout",
+    "timeout_retries": "timeout retries",
+    "qos": "QOS",
     "stamp": "stamp",
     "token": "token",
     "expires": "expires",
@@ -366,7 +370,8 @@
     "push-platform": {
       "osx": "OS X",
       "ios": "iOS",
-      "gcm": "GCM"
+      "gcm": "GCM",
+      "mqtt": "MQTT"
     },
     "editor": {
       "code": "code",

@@ -12,10 +12,6 @@ PushDevicesIndexController = Ember.Controller.extend
     name: 'type'
     label: 'fields.type'
     type:  'string'
-  ,
-    name: 'expires'
-    label: 'fields.expires'
-    type: 'datetime'
   ]
 
 `export default PushDevicesIndexController`

@@ -161,6 +161,10 @@
     "store-object_plural": "objetos"
   },
   "fields": {
+    "connect_timeout": "connect timeout",
+    "ack_timeout": "ACK timeout",
+    "timeout_retries": "tentativas de tempo limite",
+    "qos": "QOS",
     "stamp": "carimbo",
     "token": "símbolo",
     "expires": "expira",
