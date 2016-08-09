@@ -8,5 +8,6 @@ PushDeviceFactory = Factory.extend
     "codename-for-#{pushPlatformType}-platform"
   token: -> faker.random.uuid()
   expires: -> Date.now() / 1000 + faker.random.number()
+  qos: -> faker.random.number() % 3
 
 `export default PushDeviceFactory`

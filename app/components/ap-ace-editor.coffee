@@ -75,6 +75,9 @@ ApAceEditorComponent = Ember.Component.extend
     editorValue = editor.getSession().getValue()
     if editorValue != value
       editor.getSession().setValue value
+  willDestroy: ->
+    @get('editor').destroy()
+    @_super arguments...
   actions:
     fullscreen: ->
       editor = @get 'editor'
