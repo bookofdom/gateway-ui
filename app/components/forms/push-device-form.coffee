@@ -14,10 +14,6 @@ PushDeviceFormComponent = BaseFormComponent.extend
     ,
       name: 'token'
       required: true
-    ,
-      name: 'expires'
-      type: 'datetime'
-      required: true
   ]
 
 `export default PushDeviceFormComponent`

@@ -6,6 +6,7 @@ PushChannelDevice = Model.extend
   type: DS.attr 'string'
   token: DS.attr 'string'
   expires: DS.attr 'string'
+  qos: DS.attr 'number', defaultValue: 0
 
   # Relationships
   push_channel: DS.belongsTo 'push-channel', async: true

@@ -19,6 +19,10 @@ PushChannelDeviceFormComponent = BaseFormComponent.extend
       name: 'expires'
       type: 'datetime'
       required: true
+    ,
+      name: 'qos'
+      type: 'integer'
+      required: true
   ]
 
   submit: ->

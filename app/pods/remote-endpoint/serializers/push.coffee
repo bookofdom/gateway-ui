@@ -9,5 +9,7 @@ PushRemoteEndpointSerializer =
       publish_endpoint: serialized.publish_endpoint
       subscribe_endpoint: serialized.subscribe_endpoint
       unsubscribe_endpoint: serialized.unsubscribe_endpoint
+      push_platforms: serialized.push_platforms
+    delete serialized.push_platforms
 
 `export default PushRemoteEndpointSerializer`
