@@ -41,9 +41,11 @@
       required=true
       class='form-control'}}
 
+      {{!--
       {{#x-option}}
         {{t '$t(prompts.choose-x, {"x": "fields.plan"})'}}
       {{/x-option}}
+      --}}
       {{#each plans as |option|}}
         {{#x-option value=option}}
           {{option.name}}
