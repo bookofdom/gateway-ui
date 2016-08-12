@@ -45,7 +45,7 @@
         {{t '$t(prompts.choose-x, {"x": "fields.plan"})'}}
       {{/x-option}}
       {{#each plans as |option|}}
-        {{#x-option value=option.id}}
+        {{#x-option value=option}}
           {{option.name}}
           {{#if option.isBillable}}
             - ${{option.price}}
