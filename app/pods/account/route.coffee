@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import SubscriptionPlansRouteMixin from 'gateway/mixins/subscription-plans-route'`
 
-AccountRoute = Ember.Route.extend
+AccountRoute = Ember.Route.extend SubscriptionPlansRouteMixin,
   model: ->
     store = @store
     new Ember.RSVP.Promise (resolve, reject) ->
