@@ -4,7 +4,10 @@ defaultScenario = (server) ->
 
   # accounts
   server.createList 'account', 1
-  
+
+  # subscription plans
+  server.createList 'subscription_plan', 3
+
   # logs
   server.createList 'log', 1
 

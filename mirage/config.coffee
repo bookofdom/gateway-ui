@@ -28,6 +28,9 @@ config = ->
     else
       user: session.user
 
+  # subscription plans
+  @get '/subscription_plans'
+
   # logs
   @get '/logs', (schema, request) -> schema.log.all()[0]
   @get '/apis/:apiId/logs', (schema, request) -> schema.log.all()[0]
