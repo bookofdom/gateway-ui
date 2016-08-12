@@ -5,7 +5,6 @@
 
 Account = Model.extend
   name: DS.attr 'string'
-  plan: DS.attr 'string', defaultValue: 'cloud-free'
   card_invalid: DS.attr 'boolean', defaultValue: false
 
   # Relationships
@@ -13,12 +12,6 @@ Account = Model.extend
     async: false
     stains: true
     embeddedModel: true
-
-  # Computed
-  planType: Ember.computed 'plan', ->
-    plan = @get 'plan'
-    Registration.plans.findBy 'value', plan
-  isBillable: Ember.computed 'planType', ->
-    @get('planType.amountPerMonth') > 0
+  plan: DS.belongsTo 'subscription-plan', async: false
 
 `export default Account`

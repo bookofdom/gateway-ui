@@ -2,11 +2,11 @@ defaultScenario = (server) ->
   # sessions
   server.loadFixtures 'sessions'
 
-  # accounts
-  server.createList 'account', 1
-
   # subscription plans
   server.createList 'subscription_plan', 3
+
+  # accounts
+  server.createList 'account', 1, planId: Math.round(Math.random() * 3)
 
   # logs
   server.createList 'log', 1
