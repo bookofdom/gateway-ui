@@ -10,4 +10,7 @@ SubscriptionPlan = Model.extend
   javascript_timeout: DS.attr 'string'
   price: DS.attr 'number'
 
+  # Computed
+  isBillable: Ember.computed 'price', -> @get('price') > 0
+
 `export default SubscriptionPlan`

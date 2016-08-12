@@ -7,12 +7,14 @@ SubscriptionPlansRouteMixin = Ember.Mixin.create
   isSubscriptionEnabled: Ember.computed 'stripeService.enabled', ->
     @get('stripeService.enabled') and (config.enablePlanSubscriptions?.toString() is 'true')
   afterModel: ->
+    previous = @_super arguments...
     if @get 'isSubscriptionEnabled'
       Ember.RSVP.hash
         plans: @store.findAll 'subscription-plan'
       .then (results) =>
         @setProperties results
-    @_super arguments...
+    else
+      previous
   setupController: (controller) ->
     plans = @get 'plans'
     controller.set 'subscription_plans', plans if plans
