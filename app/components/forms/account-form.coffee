@@ -1,15 +1,12 @@
+`import Ember from 'ember'`
 `import BaseFormComponent from 'gateway/components/forms/base-form'`
 `import Registration from 'gateway/pods/registration/model'`
-`import config from 'gateway/config/environment'`
 
 AccountFormComponent = BaseFormComponent.extend
-  stripeService: Ember.inject.service 'stripe'
+  subscription: Ember.inject.service()
+
   modelType: 'account'
   plans: null
-
-  isSubscriptionEnabled: Ember.computed 'stripeService.enabled', ->
-    @get('stripeService.enabled') and
-      (config.enablePlanSubscriptions?.toString() is 'true')
 
   horizontal: false
   savedAction: null

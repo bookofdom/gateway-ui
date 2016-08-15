@@ -5,17 +5,13 @@
 RegistrationFormComponent = BaseFormComponent.extend
   classNames: ['ap-form-login']
   horizontal: false
-  stripeService: Ember.inject.service 'stripe'
+  subscription: Ember.inject.service()
 
   modelType: 'registration'
   plans: null
 
-  isSubscriptionEnabled: Ember.computed 'stripeService.enabled', ->
-    @get('stripeService.enabled') and
-      (config.enablePlanSubscriptions?.toString() is 'true')
-
-  isNonZeroPlanAmount: Ember.computed 'isSubscriptionEnabled', 'model.plan.isBillable', ->
-    @get('isSubscriptionEnabled') and @get('model.plan.isBillable')
+  isNonZeroPlanAmount: Ember.computed 'subscription.enabled', 'model.plan.isBillable', ->
+    @get('subscription.enabled') and @get('model.plan.isBillable')
 
   'base-error': Ember.computed 'model.errors.[]', ->
     @get('model.errors')?.errorsFor('base')?[0]?.message

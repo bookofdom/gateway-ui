@@ -20,29 +20,33 @@
   </div><!-- /.col -->
 </div><!-- /.row -->
 <div class="row">
-  <div class="col-sm-2">
-    <p class="text-right">{{t '$t(actions.edit-x, {"x": "resources.plan"})'}}</p>
-  </div>
-  <div class="col-sm-5">
-    <ul class="list-group">
-      {{#each plans as |plan|}}
-        <li class="list-group-item">
-          <p>
-            &nbsp;&nbsp;{{ap-radio value=plan checked=model.plan}}
-            <strong>{{plan.name}}</strong>
-            ${{plan.price}} / mo.
-          </p>
-        </li>
-      {{/each}}
-    </ul>
-  </div><!-- /.col -->
-  <div class="col-sm-5">
-    {{#if (and isSubscriptionEnabled model.plan.isBillable)}}
-      {{#ap-panel-edit t='resources.stripe-card'}}
-        {{partial 'registration/cc-form'}}
-      {{/ap-panel-edit}}
-    {{/if}}
-  </div><!-- /.col -->
+
+  {{#if subscription.enabled}}
+    <div class="col-sm-2">
+      <p class="text-right">{{t '$t(actions.edit-x, {"x": "resources.plan"})'}}</p>
+    </div>
+    <div class="col-sm-5">
+      <ul class="list-group">
+        {{#each plans as |plan|}}
+          <li class="list-group-item">
+            <p>
+              &nbsp;&nbsp;{{ap-radio value=plan checked=model.plan}}
+              <strong>{{plan.name}}</strong>
+              ${{plan.price}} / mo.
+            </p>
+          </li>
+        {{/each}}
+      </ul>
+    </div><!-- /.col -->
+    <div class="col-sm-5">
+      {{#if (and subscription.enabled model.plan.isBillable)}}
+        {{#ap-panel-edit t='resources.stripe-card'}}
+          {{partial 'registration/cc-form'}}
+        {{/ap-panel-edit}}
+      {{/if}}
+    </div><!-- /.col -->
+  {{/if}}
+
   <div class="col-sm-5 col-sm-offset-2">
     {{partial 'components/forms/base-form-actions'}}
   </div><!-- /.col -->

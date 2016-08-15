@@ -3,12 +3,10 @@
 
 # Loads subscription plans into the controller associated with this route.
 PlansRouteMixin = Ember.Mixin.create
-  stripeService: Ember.inject.service 'stripe'
-  isSubscriptionEnabled: Ember.computed 'stripeService.enabled', ->
-    @get('stripeService.enabled') and (config.enablePlanSubscriptions?.toString() is 'true')
+  subscription: Ember.inject.service()
   beforeModel: ->
     previous = @_super arguments...
-    if @get 'isSubscriptionEnabled'
+    if @get 'subscription.enabled'
       Ember.RSVP.hash
         plans: @store.findAll 'plan'
       .then (results) =>
