@@ -25,27 +25,19 @@
   </div>
   <div class="col-sm-5">
     <ul class="list-group">
-      {{#each option-groups.plan as |plan|}}
+      {{#each plans as |plan|}}
         <li class="list-group-item">
           <p>
-            &nbsp;&nbsp;{{ap-radio value=plan.value checked=model.plan}}
+            &nbsp;&nbsp;{{ap-radio value=plan checked=model.plan}}
             <strong>{{plan.name}}</strong>
-            ${{plan.amountPerMonth}} / mo.
-            <br>
-            <br>
-            <ul>
-              <li>{{t (concat 'types.plans.descriptions.' plan.value '.developers')}}</li>
-              <li>{{t (concat 'types.plans.descriptions.' plan.value '.endpoints')}}</li>
-              <li>{{t (concat 'types.plans.descriptions.' plan.value '.js-execution')}}</li>
-              <li>{{t (concat 'types.plans.descriptions.' plan.value '.support')}}</li>
-            </ul>
+            ${{plan.price}} / mo.
           </p>
         </li>
       {{/each}}
     </ul>
   </div><!-- /.col -->
   <div class="col-sm-5">
-    {{#if (and isSubscriptionEnabled model.isBillable)}}
+    {{#if (and isSubscriptionEnabled model.plan.isBillable)}}
       {{#ap-panel-edit t='resources.stripe-card'}}
         {{partial 'registration/cc-form'}}
       {{/ap-panel-edit}}

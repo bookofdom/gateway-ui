@@ -6,7 +6,7 @@ SubscriptionPlansRouteMixin = Ember.Mixin.create
   stripeService: Ember.inject.service 'stripe'
   isSubscriptionEnabled: Ember.computed 'stripeService.enabled', ->
     @get('stripeService.enabled') and (config.enablePlanSubscriptions?.toString() is 'true')
-  afterModel: ->
+  beforeModel: ->
     previous = @_super arguments...
     if @get 'isSubscriptionEnabled'
       Ember.RSVP.hash
