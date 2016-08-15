@@ -6,7 +6,7 @@ defaultScenario = (server) ->
   server.createList 'subscription_plan', 3
 
   # accounts
-  server.createList 'account', 1, planId: Math.round(Math.random() * 3)
+  server.createList 'account', 1, planId: Math.round(Math.random() * 2) + 1
 
   # logs
   server.createList 'log', 1
