@@ -1,6 +1,6 @@
 `import { Model, belongsTo } from 'ember-cli-mirage'`
 
 AccountModel = Model.extend
-  subscription_plan: belongsTo()
+  plan: belongsTo()
 
 `export default AccountModel`

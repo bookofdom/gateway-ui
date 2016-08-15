@@ -1,6 +1,6 @@
 `import { Factory, faker } from 'ember-cli-mirage'`
 
-SubscriptionPlanFactory = Factory.extend
+PlanFactory = Factory.extend
   name: (i) ->
     if !i
       'Free'
@@ -11,4 +11,4 @@ SubscriptionPlanFactory = Factory.extend
   javascript_timeout: -> faker.random.number()
   price: (i) -> i * 20
 
-`export default SubscriptionPlanFactory`
+`export default PlanFactory`

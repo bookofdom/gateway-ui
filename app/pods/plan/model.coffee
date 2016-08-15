@@ -3,7 +3,7 @@
 `import Model from 'gateway/models/model'`
 `import t from 'gateway/helpers/i18n'`
 
-SubscriptionPlan = Model.extend
+Plan = Model.extend
   name: DS.attr 'string'
   stripe_name: DS.attr 'string'
   max_users: DS.attr 'number'
@@ -13,4 +13,4 @@ SubscriptionPlan = Model.extend
   # Computed
   isBillable: Ember.computed 'price', -> @get('price') > 0
 
-`export default SubscriptionPlan`
+`export default Plan`

@@ -5,6 +5,6 @@
 AccountIndexController = EditController.extend
   breadCrumb: null
   account: Ember.inject.controller()
-  subscription_plans: Ember.computed.alias 'account.subscription_plans'
+  plans: Ember.computed.alias 'account.plans'
 
 `export default AccountIndexController`

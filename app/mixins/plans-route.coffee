@@ -2,7 +2,7 @@
 `import config from  'gateway/config/environment'`
 
 # Loads subscription plans into the controller associated with this route.
-SubscriptionPlansRouteMixin = Ember.Mixin.create
+PlansRouteMixin = Ember.Mixin.create
   stripeService: Ember.inject.service 'stripe'
   isSubscriptionEnabled: Ember.computed 'stripeService.enabled', ->
     @get('stripeService.enabled') and (config.enablePlanSubscriptions?.toString() is 'true')
@@ -10,14 +10,14 @@ SubscriptionPlansRouteMixin = Ember.Mixin.create
     previous = @_super arguments...
     if @get 'isSubscriptionEnabled'
       Ember.RSVP.hash
-        plans: @store.findAll 'subscription-plan'
+        plans: @store.findAll 'plan'
       .then (results) =>
         @setProperties results
     else
       previous
   setupController: (controller) ->
     plans = @get 'plans'
-    controller.set 'subscription_plans', plans if plans
+    controller.set 'plans', plans if plans
     @_super arguments...
 
-`export default SubscriptionPlansRouteMixin`
+`export default PlansRouteMixin`

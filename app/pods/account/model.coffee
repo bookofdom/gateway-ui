@@ -12,6 +12,6 @@ Account = Model.extend
     async: false
     stains: true
     embeddedModel: true
-  plan: DS.belongsTo 'subscription-plan', async: false
+  plan: DS.belongsTo 'plan', async: false
 
 `export default Account`

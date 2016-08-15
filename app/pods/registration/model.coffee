@@ -10,6 +10,6 @@ Registration = Model.extend
 
   # Relationships
   card: DS.belongsTo 'stripe-card', async: false
-  plan: DS.belongsTo 'subscription-plan', async: false
+  plan: DS.belongsTo 'plan', async: false
 
 `export default Registration`

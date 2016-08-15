@@ -1,9 +1,9 @@
 `import Ember from 'ember'`
 `import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin'`
-`import SubscriptionPlansRouteMixin from 'gateway/mixins/subscription-plans-route'`
+`import PlansRouteMixin from 'gateway/mixins/plans-route'`
 `import t from 'gateway/helpers/i18n'`
 
-RegistrationRoute = Ember.Route.extend UnauthenticatedRouteMixin, SubscriptionPlansRouteMixin,
+RegistrationRoute = Ember.Route.extend UnauthenticatedRouteMixin, PlansRouteMixin,
   notify: Ember.inject.service()
   actions:
     saved: ->
