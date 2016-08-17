@@ -304,6 +304,7 @@
     "cc_exp_year": "exp. year",
     "cc_cvc": "CVC",
     "cc_address_zip": "ZIP",
+    "javascript_timeout": "JavaScript timeout",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -444,24 +445,6 @@
       "protocols": {
         "tcpip": "TCPIP",
         "ssl": "SSL"
-      }
-    },
-    "plans": {
-      "cloud-free": "free",
-      "cloud-hosted": "hosted",
-      "descriptions": {
-        "cloud-free": {
-          "developers": "unlimited hosted developers",
-          "endpoints": "unlimited hosted API endpoints",
-          "js-execution": "5s JavaScript execution limit",
-          "support": "support:  none"
-        },
-        "cloud-hosted": {
-          "developers": "unlimited hosted developers",
-          "endpoints": "unlimited hosted API endpoints",
-          "js-execution": "30s JavaScript execution limit",
-          "support": "support:  email, web, phone"
-        }
       }
     }
   }

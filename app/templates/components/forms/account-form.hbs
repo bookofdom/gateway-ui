@@ -32,7 +32,7 @@
             <p>
               &nbsp;&nbsp;{{ap-radio value=plan checked=model.plan}}
               <strong>{{plan.name}}</strong>
-              ${{plan.price}} / mo.
+              ${{plan.dollars}} / mo. ({{plan.javascript_timeout}}s {{t 'fields.javascript_timeout'}})
             </p>
           </li>
         {{/each}}

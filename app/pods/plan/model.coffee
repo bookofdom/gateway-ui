@@ -12,5 +12,6 @@ Plan = Model.extend
 
   # Computed
   isBillable: Ember.computed 'price', -> @get('price') > 0
+  dollars: Ember.computed 'price', -> @get('price') / 100 # price is in cents
 
 `export default Plan`
