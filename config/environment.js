@@ -52,6 +52,11 @@ module.exports = function(environment) {
       authentication: {
         path: 'sessions'
       }
+    },
+
+    enablePlanSubscriptions: true,
+    stripe: {
+      publishableKey: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh'
     }
   };
 
@@ -106,6 +111,10 @@ module.exports = function(environment) {
     ENV.notifications = true;
     ENV.googleAnalytics = {
       webPropertyId: ENV.google_analytics_tracking_id
+    };
+    ENV.enablePlanSubscriptions = 'ENABLE_PLAN_SUBSCRIPTIONS';
+    ENV.stripe = {
+      publishableKey: 'STRIPE_PUBLISHABLE_KEY'
     };
   }
 

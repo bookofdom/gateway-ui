@@ -1,6 +1,9 @@
 `import BaseFormComponent from 'gateway/components/forms/base-form'`
 
 PasswordResetConfirmationFormComponent = BaseFormComponent.extend
+  classNames: ['ap-form-login']
+  horizontal: false
+  
   modelType: 'password-reset-confirmation'
   token: null
 

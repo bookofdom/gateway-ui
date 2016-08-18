@@ -93,6 +93,8 @@
     "brought-to-you-by-anypresence": "brought to you by AnyPresence"
   },
   "resources": {
+    "account": "account",
+    "account_plural": "accounts",
     "user": "user",
     "user_plural": "users",
     "api": "API",
@@ -170,9 +172,14 @@
     "store-collection": "collection",
     "store-collection_plural": "collections",
     "store-object": "object",
-    "store-object_plural": "objects"
+    "store-object_plural": "objects",
+    "stripe-card": "credit card",
+    "stripe-card_plural": "credit cards",
+    "plan": "plan",
+    "plan_plural": "plans"
   },
   "fields": {
+    "account_name": "account name",
     "connect_timeout": "connect timeout",
     "ack_timeout": "ack timeout",
     "timeout_retries": "timeout retries",
@@ -295,6 +302,13 @@
     "unsubscribe_endpoint": "unsubscribe endpoint",
     "sender": "sender",
     "protocol": "protocol",
+    "plan": "plan",
+    "cc_number": "credit card number",
+    "cc_exp_month": "exp. month",
+    "cc_exp_year": "exp. year",
+    "cc_cvc": "CVC",
+    "cc_address_zip": "ZIP",
+    "javascript_timeout": "JavaScript timeout",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -341,7 +355,10 @@
     "invalid-password": "invalid password",
     "login": "we were unable to log you in",
     "invalid-json": "invalid JSON",
-    "invalid-json-schema": "invalid JSON schema"
+    "invalid-json-schema": "invalid JSON schema",
+    "invalid-cc-number": "invalid card number",
+    "invalid-cc-expiry": "invalid expiry",
+    "invalid-cc-cvc": "invalid CVC"
   },
   "successes": {
     "push-manual-message": "message sent successfully",

@@ -1,54 +1,82 @@
-<div class="ap-form-login">
-  {{#bs-form-group error=email-error help=email-error}}
-    {{input
-      name='email'
-      value=model.email
-      placeholder=(t 'fields.email')
-      required=true
-      class='form-control input-lg'}}
-  {{/bs-form-group}}
-  {{#bs-form-group error=password-error help=password-error}}
-    {{input
-      name='password'
-      value=model.password
-      placeholder=(t 'fields.password')
-      required=true
-      type='password'
-      class='form-control input-lg'}}
-  {{/bs-form-group}}
-  {{#bs-form-group error=password-confirmation-error help=password-confirmation-error}}
-    {{input
-      name='password_confirmation'
-      value=model.password_confirmation
-      placeholder=(t 'fields.password_confirmation')
-      required=true
-      type='password'
-      class='form-control input-lg'}}
-  {{/bs-form-group}}
-  {{#bs-form-group error=organization-error help=organization-error}}
-    {{input
-      name='organization'
-      value=model.organization
-      placeholder=(t '$t(prompts.optional-x, {"x": "fields.organization"})')
-      class='form-control input-lg'}}
-  {{/bs-form-group}}
+{{#bs-form-group error=email-error help=email-error}}
+  {{input
+    name='email'
+    value=model.email
+    placeholder=(t 'fields.email')
+    required=true
+    class='form-control'}}
+{{/bs-form-group}}
+{{#bs-form-group error=password-error help=password-error}}
+  {{input
+    name='password'
+    value=model.password
+    placeholder=(t 'fields.password')
+    required=true
+    type='password'
+    class='form-control'}}
+{{/bs-form-group}}
+{{#bs-form-group error=password-confirmation-error help=password-confirmation-error}}
+  {{input
+    name='password_confirmation'
+    value=model.password_confirmation
+    placeholder=(t 'fields.password_confirmation')
+    required=true
+    type='password'
+    class='form-control'}}
+{{/bs-form-group}}
+{{#bs-form-group error=organization-error help=organization-error}}
+  {{input
+    name='organization'
+    value=model.organization
+    placeholder=(t '$t(prompts.optional-x, {"x": "fields.organization"})')
+    class='form-control'}}
+{{/bs-form-group}}
 
-  <br>
+
+{{#if subscription.enabled}}
   {{#bs-form-group}}
-    <p>
-      <a class="text-light" href="http://www.anypresence.com/terms/#justapis" target="_blank">
-        {{t 'nav.descriptions.terms-and-conditions'}}.
-      </a>
-    </p>
-  {{/bs-form-group}}
+    {{#x-select
+      name='plan'
+      value=model.plan
+      required=true
+      class='form-control'}}
 
-  <div class="form-actions">
-    {{#bs-form-group}}
-      {{bs-submit t='actions.sign-up' lg=true}}
-      {{link-to (t 'actions.login') 'login' class='btn btn-link'}}
-    {{/bs-form-group}}
-    {{#if base-error}}
-      <p class="text-danger">{{base-error}}</p>
-    {{/if}}
-  </div>
+      {{!--
+      {{#x-option}}
+        {{t '$t(prompts.choose-x, {"x": "fields.plan"})'}}
+      {{/x-option}}
+      --}}
+      {{#each plans as |option|}}
+        {{#x-option value=option}}
+          {{option.name}}
+          {{#if option.isBillable}}
+            - ${{option.price}}
+          {{/if}}
+        {{/x-option}}
+      {{/each}}
+    {{/x-select}}
+  {{/bs-form-group}}
+  {{#if isNonZeroPlanAmount}}
+    {{partial 'registration/cc-form'}}
+  {{/if}}
+{{/if}}
+
+
+<br>
+{{#bs-form-group}}
+  {{#if base-error}}
+    <p class="text-danger">{{base-error}}</p>
+  {{/if}}
+  <p>
+    <a class="text-light" href="http://www.anypresence.com/terms/#justapis" target="_blank">
+      {{t 'nav.descriptions.terms-and-conditions'}}.
+    </a>
+  </p>
+{{/bs-form-group}}
+
+<div class="form-actions">
+  {{#bs-form-group}}
+    {{bs-submit t='actions.sign-up' lg=true}}
+    {{link-to (t 'actions.login') 'login' class='btn btn-link'}}
+  {{/bs-form-group}}
 </div>
