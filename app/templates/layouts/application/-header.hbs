@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
       </button><!-- /.navbar-toggle -->
       {{#link-to 'application' class='navbar-brand'}}
-        {{ap-brand brand='just-apis'}}
+        {{ap-brand}}
         {{#if version}}
           <span class="ap-brand ap-brand-version hidden-xs hidden-sm">{{version}}</span>
         {{/if}}
@@ -28,11 +28,11 @@
         {{ap-list-link
           t='nav.documentation_plural'
           icon='the-essentials-087'
-          url='http://devhub.justapis.com/v5.0.0'}}
+          url=(docsUrl)}}
         {{ap-list-link
           t='nav.support'
           icon='the-essentials-097'
-          url='http://support.anypresence.com'}}
+          url=(supportUrl)}}
         <li class="separator hidden-xs"></li>
         {{#if session.isAuthenticated}}
           <li class="dropdown">

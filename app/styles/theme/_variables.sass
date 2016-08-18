@@ -1,26 +1,30 @@
-// AnyPresence Theme Variables
+// Theme Variables
 
 // Colors
-$ap-accent: #f7922d
+$ap-accent: darken(#fdb55c, 15%)
+$ap-active: #338396
 
 $ap-slate-dark: #1c2125
-$ap-slate-medium: #4f6781
+$ap-slate-medium: lighten($ap-slate-dark, 40%)
 $ap-slate-light: #5f6870
 $ap-slate-lighter: #e2e2e1
 
-$ap-primary: #5b842d
-$ap-success: #669959
-$ap-info: #4882c0
+$ap-primary: #5cc42c
+$ap-success: #5cc42c
+$ap-info: #1fb5ad
 $ap-warning: $ap-accent
-$ap-danger: #9c0813
+$ap-danger: #f95d5d
 
 $ap-app-toolbar-bg-color: $ap-slate-light
 
-$ap-app-primary-bg-color: darken($ap-slate-medium, 10%)
-$ap-app-secondary-bg-color: $ap-slate-lighter
+$ap-app-primary-bg-color: $ap-slate-dark
+$ap-app-primary-active-bg-color: $ap-active
+$ap-app-secondary-bg-color: #EEE
+
+$ap-page-bg: #F9F9F9
 
 // Type
-$ap-letter-spacing: 0.02em
+$ap-letter-spacing: 0.01em
 
 
 // Bootstrap Theme Variable Overrides
@@ -39,7 +43,7 @@ $brand-info: $ap-info
 $brand-warning: $ap-warning
 $brand-danger: $ap-danger
 
-$text-color: $ap-slate-light
+$text-color: #444
 $link-color: $ap-info
 
 $navbar-inverse-color: rgba(#fff, 0.75)
@@ -47,3 +51,11 @@ $navbar-inverse-bg: lighten($ap-slate-dark, 5%)
 $navbar-inverse-link-color: $navbar-inverse-color
 
 $breadcrumb-color: #fff
+
+// Type
+$font-size-base: 16px
+$font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif
+
+// Borders
+$border-radius-base: 2px
+$border-radius-large: 2px

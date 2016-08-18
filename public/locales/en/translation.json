@@ -64,7 +64,7 @@
       "manage": "manage local store data and push notifications",
       "store-collections": "manage local store collections and data",
       "push": "manage push channels, devices, and messages",
-      "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
+      "build-app": "build multi-channel apps with the designer platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
@@ -74,23 +74,17 @@
       "logs": "view, search, and stream logs",
       "api-documentation": "view interactive API documentation and test API calls",
       "shared-components": "build reusable components for proxy endpoints",
-      "terms-and-conditions": "by registering for an account you accept the JustAPIs terms and conditions",
+      "terms-and-conditions": "by registering for an account you accept the terms and conditions",
       "formatted": {
         "analyze": "<b>(coming soon)</b><br>Gain insights into API usage",
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
-        "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
+        "build-app": "<b>(login required)</b><br>Build multi-channel apps with the designer platform"
       }
     },
     "support": "support",
     "documentation_plural": "docs",
     "help": "help",
     "account": "account"
-  },
-  "brands": {
-    "anypresence": "AnyPresence",
-    "gateway": "Gateway",
-    "just-apis": "Just APIs",
-    "brought-to-you-by-anypresence": "brought to you by AnyPresence"
   },
   "resources": {
     "account": "account",

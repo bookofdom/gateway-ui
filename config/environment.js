@@ -41,6 +41,13 @@ module.exports = function(environment) {
     remote_endpoint_types_enabled: null,
     notifications: false,
 
+    docsBaseUrl: 'http://devhub.justapis.com/v5.0.0/docs',
+    supportUrl: 'http://support.anypresence.com',
+    termsUrl: 'http://www.anypresence.com/terms/#justapis',
+    brandNames: {
+      primary: 'JustAPIs'
+    },
+
     api: {
       host: process.env.API_HOST || '',
       basePath: 'admin',

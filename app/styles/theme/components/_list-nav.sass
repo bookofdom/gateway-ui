@@ -14,15 +14,14 @@
 
 .ap-list-nav-vertical
   li
-    border-color: darken($ap-slate-lighter, 10%)
+    border-color: lighten($ap-app-secondary-bg-color, 5%)
     a
-      color: $ap-slate-light
+      color: darken($ap-app-secondary-bg-color, 60%)
       .text
-        color: darken($text-color, 15%)
         font-weight: 500
         letter-spacing: 0.01em
-        text-transform: uppercase
       &.active
+        background-color: $ap-page-bg
         .text
           font-weight: 600
           color: $ap-accent
