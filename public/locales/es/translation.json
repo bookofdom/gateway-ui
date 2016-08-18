@@ -87,6 +87,8 @@
     "account": "cuenta"
   },
   "resources": {
+    "account": "cuenta",
+    "account_plural": "cuentas",
     "user": "usuario",
     "user_plural": "usuarios",
     "api": "API",
@@ -158,13 +160,17 @@
     "store-collection": "colección",
     "store-collection_plural": "colecciones",
     "store-object": "objeto",
-    "store-object_plural": "objetos"
+    "store-object_plural": "objetos",
+    "stripe-card": "tarjeta de crédito",
+    "stripe-card_plural": "tarjetas de crédito",
+    "plan": "plan",
+    "plan_plural": "planes"
   },
   "fields": {
+    "account_name": "nombre de la cuenta",
     "connect_timeout": "conecte tiempo de espera",
     "ack_timeout": "tiempo de espera de ACK",
     "timeout_retries": "reintentos de tiempo de espera",
-    "qos": "QOS",
     "stamp": "sello",
     "token": "simbólico",
     "expires": "expira",
@@ -280,6 +286,10 @@
     "unsubscribe_endpoint": "punto final de darse de baja",
     "protocol": "protocolo",
     "plan": "plan",
+    "cc_number": "número de tarjeta de crédito",
+    "cc_exp_month": "mes de expiración",
+    "cc_exp_year": "año de caducidad",
+    "javascript_timeout": "tiempo de espera de JavaScript",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
@@ -372,12 +382,6 @@
     "session": {
       "client": "cliente",
       "server": "servidor"
-    },
-    "registration": {
-      "plans": {
-        "cloud-free": "gratis",
-        "cloud-hosted": "alojada"
-      }
     },
     "remote-endpoint": {
       "push": "empujar",

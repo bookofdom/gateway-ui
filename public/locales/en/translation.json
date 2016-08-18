@@ -87,6 +87,8 @@
     "account": "account"
   },
   "resources": {
+    "account": "account",
+    "account_plural": "accounts",
     "user": "user",
     "user_plural": "users",
     "api": "API",
@@ -164,9 +166,14 @@
     "store-collection": "collection",
     "store-collection_plural": "collections",
     "store-object": "object",
-    "store-object_plural": "objects"
+    "store-object_plural": "objects",
+    "stripe-card": "credit card",
+    "stripe-card_plural": "credit cards",
+    "plan": "plan",
+    "plan_plural": "plans"
   },
   "fields": {
+    "account_name": "account name",
     "connect_timeout": "connect timeout",
     "ack_timeout": "ack timeout",
     "timeout_retries": "timeout retries",
@@ -295,6 +302,7 @@
     "cc_exp_year": "exp. year",
     "cc_cvc": "CVC",
     "cc_address_zip": "ZIP",
+    "javascript_timeout": "JavaScript timeout",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -395,12 +403,6 @@
     "session": {
       "client": "client",
       "server": "server"
-    },
-    "registration": {
-      "plans": {
-        "cloud-free": "free",
-        "cloud-hosted": "hosted"
-      }
     },
     "remote-endpoint": {
       "push": "push",
