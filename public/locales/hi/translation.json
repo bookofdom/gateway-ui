@@ -87,6 +87,8 @@
     "account": "account"
   },
   "resources": {
+    "account": "लेखा",
+    "account_plural": "हिसाब किताब",
     "user": "user",
     "user_plural": "users",
     "api": "API",
@@ -158,13 +160,17 @@
     "store-collection": "संग्रह",
     "store-collection_plural": "संग्रह",
     "store-object": "वस्तु",
-    "store-object_plural": "वस्तुओं"
+    "store-object_plural": "वस्तुओं",
+    "stripe-card": "क्रेडिट कार्ड",
+    "stripe-card_plural": "क्रेडिट कार्ड",
+    "plan": "योजना",
+    "plan_plural": "योजनाओं"
   },
   "fields": {
+    "account_name": "खाते का नाम",
     "connect_timeout": "मध्यांतर कनेक्ट",
     "ack_timeout": "एसीके मध्यांतर",
     "timeout_retries": "मध्यांतर पुनर्प्रयास",
-    "qos": "QOS",
     "stamp": "डाक टिकट",
     "token": "टोकन",
     "expires": "समाप्त हो रहा है",
@@ -280,6 +286,10 @@
     "unsubscribe_endpoint": "सदस्यता समाप्त समापन बिंदु",
     "protocol": "मसविदा बनाना",
     "plan": "योजना",
+    "cc_number": "क्रेडिट कार्ड नंबर",
+    "cc_exp_month": "अंतिम माह",
+    "cc_exp_year": "समाप्ति वर्ष",
+    "javascript_timeout": "जावास्क्रिप्ट मध्यांतर",
     "help": {
       "timeout": "सेकंड की संख्या।",
       "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
@@ -372,12 +382,6 @@
     "session": {
       "client": "ग्राहक",
       "server": "सर्वर"
-    },
-    "registration": {
-      "plans": {
-        "cloud-free": "मुक्त",
-        "cloud-hosted": "की मेजबानी"
-      }
     },
     "remote-endpoint": {
       "push": "धक्का दें",

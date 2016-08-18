@@ -28,7 +28,7 @@ RegistrationAdapter = ApplicationAdapter.extend
                 #pointer: "/data/relationships/card/data/attributes/#{response.error.param}"
             ]
           else
-            options?.data?.registration?.stripe_card_token = response.id
+            options?.data?.registration?.stripe_token = response.id
             outerSuper.apply(outerSelf, outerArgs)
               .then (response) -> resolve response
               .catch (response) -> reject response
