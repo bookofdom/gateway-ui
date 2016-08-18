@@ -5,13 +5,14 @@
 
 Account = Model.extend
   name: DS.attr 'string'
-  card_invalid: DS.attr 'boolean', defaultValue: false
 
   # Relationships
   card: DS.belongsTo 'stripe-card',
     async: false
     stains: true
     embeddedModel: true
-  plan: DS.belongsTo 'plan', async: false
+  plan: DS.belongsTo 'plan',
+    async: false
+    stains: true
 
 `export default Account`
