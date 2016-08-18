@@ -10,6 +10,11 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   isLoading: false
   isDevMode: config.dev_mode?.toString() is 'true'
   notificationsEnabled: config.notifications
+  topLevelResourceNames: [
+    'api'
+    'push-device'
+    'push-channel-message'
+  ]
 
   afterModel: (first, transition) ->
     @checkSessionValidity transition
@@ -76,8 +81,8 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     resourceIsLoaded = notification.get 'resourceIsLoaded'
     indexIsLoaded = index?
     if indexIsLoaded and !resourceIsLoaded
-      if type is 'api'
-        Ember.run.later (=> @store.findAll 'api'), 1000
+      if @topLevelResourceNames.contains type
+        Ember.run.later (=> @store.findAll type), 1000
       else
         index.reload()
     else if resourceIsLoaded

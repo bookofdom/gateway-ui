@@ -17,7 +17,7 @@ encryptModeCycle = faker.list.random encryptModes...
 sslModes = 'disable allow prefer require'.split ' '
 sslModeCycle = faker.list.random sslModes...
 
-platforms = 'osx ios gcm'.split ' '
+platforms = 'osx ios gcm mqtt'.split ' '
 platformCycle = faker.list.random platforms...
 
 protocols = 'TCPIP SSL'.split ' '
@@ -162,6 +162,9 @@ generateDataForType = (typeSlug, i) ->
     topic: faker.lorem.words().join('.')
     development: faker.random.boolean()
     api_key: faker.random.uuid()
+    connect_timeout: faker.random.number() % 100
+    ack_timeout: faker.random.number() % 100
+    timeout_retries: faker.random.number() % 3
   ]
   data
 
