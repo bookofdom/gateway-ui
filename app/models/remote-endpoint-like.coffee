@@ -96,8 +96,6 @@ RemoteEndpointLike = Model.extend
   command: DS.attr 'string'
   arguments: DS.attr 'string'
   environment_variables: DS.attr 'string'
-  username: DS.attr 'string'
-  password: DS.attr 'string'
   registry: DS.attr 'string'
 
   # Relationships
