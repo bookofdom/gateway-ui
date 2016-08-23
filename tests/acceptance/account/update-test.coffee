@@ -8,7 +8,10 @@
 module 'Acceptance: Account - Update',
   beforeEach: ->
     @application = startApp()
-    server.createList 'account', 1
+    # plans
+    server.createList 'plan', 3
+    # accounts
+    server.createList 'account', 1, planId: Math.round(Math.random() * 2) + 1
     authenticateSession @application,
       email: 'admin@test.com'
       admin: true
@@ -41,7 +44,8 @@ test 'user can edit account', (assert) ->
 
 test 'user can see credit card brand', (assert) ->
   visit '/account/edit'
-  click '.ap-radio:eq(1)'
+  andThen ->
+    click '.ap-radio:eq(1)'
   fillIn '[name=cc_number]', '4242424242424242'
   $('[name=cc_number]').change()
   andThen -> assert.equal find('.gateway-payment-visa').length, 1
