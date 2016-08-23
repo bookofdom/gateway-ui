@@ -89,6 +89,16 @@ RemoteEndpointLike = Model.extend
   sender: DS.attr 'string'
   # db2
   protocol: DS.attr 'string', defaultValue: 'TCPIP'
+  # docker
+  repository: DS.attr 'string'
+  tag: DS.attr 'string', defaultValue: 'latest'
+  pull_newest: DS.attr 'boolean', defaultValue: false
+  command: DS.attr 'string'
+  arguments: DS.attr 'string'
+  environment_variables: DS.attr 'string'
+  username: DS.attr 'string'
+  password: DS.attr 'string'
+  registry: DS.attr 'string'
 
   # Relationships
   headers: DS.hasMany 'remote-endpoint-header',

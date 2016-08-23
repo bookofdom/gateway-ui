@@ -290,6 +290,13 @@
     "cc_exp_month": "mes de expiración",
     "cc_exp_year": "año de caducidad",
     "javascript_timeout": "tiempo de espera de JavaScript",
+    "repository": "repositorio",
+    "tag": "etiqueta",
+    "pull_newest": "tire más reciente",
+    "command": "mando",
+    "arguments": "argumentos",
+    "environment_variables": "variables de entorno",
+    "registry": "registro",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",

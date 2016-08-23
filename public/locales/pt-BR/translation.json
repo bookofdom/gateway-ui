@@ -290,6 +290,13 @@
     "cc_exp_month": "mês de validade",
     "cc_exp_year": "ano de validade",
     "javascript_timeout": "tempo limite de JavaScript",
+    "repository": "repositório",
+    "tag": "etiqueta",
+    "pull_newest": "puxar mais novo",
+    "command": "comando",
+    "arguments": "argumentos",
+    "environment_variables": "variáveis ​​ambientais",
+    "registry": "registro",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",

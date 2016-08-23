@@ -152,7 +152,15 @@ generateDataForType = (typeSlug, i) ->
         user: faker.internet.userName()
         password: faker.internet.password()
     when 'docker'
-      {} # TODO docker
+      repository: faker.commerce.productName().toLowerCase().underscore()
+      tag: faker.random.number()
+      pull_newest: faker.random.boolean()
+      command: 'my-command'
+      arguments: ['arg1', 'arg2']
+      environment: ['FOO=bar,EXAMPLE=10']
+      username: faker.internet.userName()
+      password: faker.internet.password()
+      registry: faker.internet.domainName()
   data.headers = generateKeyValues 3
   data.query = generateKeyValues 3
   pushPlatformType = platformCycle i

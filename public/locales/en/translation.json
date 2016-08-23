@@ -303,6 +303,13 @@
     "cc_cvc": "CVC",
     "cc_address_zip": "ZIP",
     "javascript_timeout": "JavaScript timeout",
+    "repository": "repository",
+    "tag": "tag",
+    "pull_newest": "pull newest",
+    "command": "command",
+    "arguments": "arguments",
+    "environment_variables": "environment variables",
+    "registry": "registry",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",

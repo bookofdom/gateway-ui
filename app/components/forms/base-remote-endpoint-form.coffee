@@ -338,7 +338,32 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ,
         name: 'transactions'
       ]
-      docker: [] # TODO docker
+      docker: [
+        name: 'repository'
+        required: true
+      ,
+        name: 'tag'
+        required: true
+      ,
+        name: 'pull_newest'
+        type: 'boolean'
+      ,
+        name: 'command'
+        required: true
+      ,
+        name: 'arguments'
+        required: true
+      ,
+        name: 'environment_variables'
+        required: true
+      ,
+        name: 'username'
+      ,
+        name: 'password'
+        type: 'password'
+      ,
+        name: 'registry'
+      ]
     # environment datum may not set WSDL
     fields.soap.shift() if @get('modelType') is 'remote-endpoint-environment-datum'
     fields
