@@ -21,10 +21,11 @@ test 'admin user can navigate to users', (assert) ->
     email: 'admin@test.com'
     admin: true
   visit '/'
-  click '.ap-navbar-header [data-t="resources.user_plural"] a'
+  click '.ap-navbar-header [data-t="resources.account"] a'
   andThen ->
-    assert.equal currentURL(), '/users'
-    assert.equal find('.ap-navbar-header [data-t="resources.user_plural"]').length, 1
+    click '.ap-app-secondary-sidebar [data-t="resources.user_plural"] a'
+  andThen ->
+    assert.equal currentURL(), '/account/users'
 
 test 'non-admin user cannot navigate to users', (assert) ->
   authenticateSession @application,
@@ -32,15 +33,15 @@ test 'non-admin user cannot navigate to users', (assert) ->
   visit '/'
   andThen ->
     assert.equal currentURL(), '/'
-    assert.equal find('.ap-navbar-header [data-t="resources.user_plural"]').length, 0
+    assert.equal find('.ap-navbar-header [data-t="resources.account"]').length, 0
 
 test 'admin user can view users', (assert) ->
   authenticateSession @application,
     email: 'admin@test.com'
     admin: true
   count = server.schema.user.all().length
-  visit '/users'
+  visit '/account/users'
   andThen ->
-    assert.equal currentURL(), '/users'
+    assert.equal currentURL(), '/account/users'
     assert.equal count > 0, true
     assert.equal find('.ap-table-index tbody tr').length, count

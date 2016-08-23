@@ -28,6 +28,9 @@ config = ->
     else
       user: session.user
 
+  # plans
+  @get '/plans'
+
   # logs
   @get '/logs', (schema, request) -> schema.log.all()[0]
   @get '/apis/:apiId/logs', (schema, request) -> schema.log.all()[0]
@@ -79,6 +82,12 @@ config = ->
   @get '/store_collections/:storeCollectionId/store_objects/:id'
   @put '/store_collections/:storeCollectionId/store_objects/:id', makePutHandler 'store_object'
   @del '/store_collections/:storeCollectionId/store_objects/:id'
+
+  @get '/accounts'
+  @post '/accounts', makePostHandler 'account'
+  @get '/accounts/:id'
+  @put '/accounts/:id', makePutHandler 'account'
+  @del '/accounts/:id'
 
   @get '/users'
   @post '/users', makePostHandler 'user'

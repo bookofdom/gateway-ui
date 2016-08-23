@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 
-ProxyEndpointRoute = Ember.Route.extend 
+ProxyEndpointRoute = Ember.Route.extend
   model: (params) ->
     @modelFor('proxy-endpoints').findBy 'id', params.proxy_endpoint_id
   afterModel: ->
@@ -12,7 +12,6 @@ ProxyEndpointRoute = Ember.Route.extend
   actions:
     'proxy-endpoint-component-edit': (model) ->
       # no op
-      # https://github.com/AnyPresence/gateway-ui/pull/158
     deleted: ->
       @transitionTo 'proxy-endpoints'
 

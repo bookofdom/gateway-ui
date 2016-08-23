@@ -64,7 +64,7 @@
       "manage": "manage local store data and push notifications",
       "store-collections": "manage local store collections and data",
       "push": "manage push channels, devices, and messages",
-      "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
+      "build-app": "build multi-channel apps with the designer platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
@@ -74,11 +74,11 @@
       "logs": "view, search, and stream logs",
       "api-documentation": "view interactive API documentation and test API calls",
       "shared-components": "build reusable components for proxy endpoints",
-      "terms-and-conditions": "by registering for an account you accept the JustAPIs terms and conditions",
+      "terms-and-conditions": "by registering for an account you accept the terms and conditions",
       "formatted": {
         "analyze": "<b>(coming soon)</b><br>Gain insights into API usage",
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
-        "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
+        "build-app": "<b>(login required)</b><br>Build multi-channel apps with the designer platform"
       }
     },
     "support": "support",
@@ -86,13 +86,9 @@
     "help": "help",
     "account": "account"
   },
-  "brands": {
-    "anypresence": "AnyPresence",
-    "gateway": "Gateway",
-    "just-apis": "Just APIs",
-    "brought-to-you-by-anypresence": "brought to you by AnyPresence"
-  },
   "resources": {
+    "account": "account",
+    "account_plural": "accounts",
     "user": "user",
     "user_plural": "users",
     "api": "API",
@@ -170,9 +166,14 @@
     "store-collection": "collection",
     "store-collection_plural": "collections",
     "store-object": "object",
-    "store-object_plural": "objects"
+    "store-object_plural": "objects",
+    "stripe-card": "credit card",
+    "stripe-card_plural": "credit cards",
+    "plan": "plan",
+    "plan_plural": "plans"
   },
   "fields": {
+    "account_name": "account name",
     "connect_timeout": "connect timeout",
     "ack_timeout": "ack timeout",
     "timeout_retries": "timeout retries",
@@ -295,6 +296,13 @@
     "unsubscribe_endpoint": "unsubscribe endpoint",
     "sender": "sender",
     "protocol": "protocol",
+    "plan": "plan",
+    "cc_number": "credit card number",
+    "cc_exp_month": "exp. month",
+    "cc_exp_year": "exp. year",
+    "cc_cvc": "CVC",
+    "cc_address_zip": "ZIP",
+    "javascript_timeout": "JavaScript timeout",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -341,7 +349,10 @@
     "invalid-password": "invalid password",
     "login": "we were unable to log you in",
     "invalid-json": "invalid JSON",
-    "invalid-json-schema": "invalid JSON schema"
+    "invalid-json-schema": "invalid JSON schema",
+    "invalid-cc-number": "invalid card number",
+    "invalid-cc-expiry": "invalid expiry",
+    "invalid-cc-cvc": "invalid CVC"
   },
   "successes": {
     "push-manual-message": "message sent successfully",

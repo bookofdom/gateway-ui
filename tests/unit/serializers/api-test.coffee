@@ -20,11 +20,11 @@ moduleForModel 'api', 'Unit | Serializer | api',
         JSON.stringify apis: [
           id: 1
           name: 'Apples'
-          base_url: 'https://weary-pail-6089.justapis.io'
+          base_url: 'https://weary-pail-6089.example.net'
         ,
           id: 2
           name: 'Oranges'
-          base_url: 'https://cooing-yarn-2471.justapis.io'
+          base_url: 'https://cooing-yarn-2471.example.net'
         ]
       ]
 

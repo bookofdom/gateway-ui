@@ -1,6 +1,9 @@
 `import BaseFormComponent from 'gateway/components/forms/base-form'`
 
 PasswordResetFormComponent = BaseFormComponent.extend
+  classNames: ['ap-form-login']
+  horizontal: false
+  
   modelType: 'password-reset'
 
   'base-error': Ember.computed 'model.errors.[]', ->
