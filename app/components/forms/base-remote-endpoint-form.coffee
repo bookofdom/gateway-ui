@@ -347,8 +347,6 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ,
         name: 'command'
       ,
-        name: 'arguments'
-      ,
         name: 'environment_variables'
       ,
         name: 'username'

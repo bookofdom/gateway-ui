@@ -93,7 +93,6 @@ RemoteEndpointLike = Model.extend
   repository: DS.attr 'string'
   tag: DS.attr 'string', defaultValue: 'latest'
   command: DS.attr 'string'
-  arguments: DS.attr 'string'
   environment_variables: DS.attr 'string'
   registry: DS.attr 'string'
 
