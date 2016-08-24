@@ -292,7 +292,6 @@
     "javascript_timeout": "tiempo de espera de JavaScript",
     "repository": "repositorio",
     "tag": "etiqueta",
-    "pull_newest": "tire más reciente",
     "command": "mando",
     "arguments": "argumentos",
     "environment_variables": "variables de entorno",

@@ -292,7 +292,6 @@
     "javascript_timeout": "tempo limite de JavaScript",
     "repository": "repositório",
     "tag": "etiqueta",
-    "pull_newest": "puxar mais novo",
     "command": "comando",
     "arguments": "argumentos",
     "environment_variables": "variáveis ​​ambientais",

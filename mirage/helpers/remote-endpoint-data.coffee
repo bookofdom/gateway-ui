@@ -154,7 +154,6 @@ generateDataForType = (typeSlug, i) ->
     when 'docker'
       repository: faker.commerce.productName().toLowerCase().underscore()
       tag: faker.random.number()
-      pull_newest: faker.random.boolean()
       command: 'my-command'
       arguments: ['arg1', 'arg2']
       environment: ['FOO=bar,EXAMPLE=10']

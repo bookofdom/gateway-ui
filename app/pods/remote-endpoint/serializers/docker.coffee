@@ -2,7 +2,6 @@ DockerEndpointSerializer =
   normalize: (hash) ->
     hash.repository = hash.data.repository
     hash.tag = hash.data.tag
-    hash.pull_newest = hash.data.pull_newest
     hash.command = hash.data.command
     hash.arguments = hash.data.arguments?.join?(',')
     hash.environment_variables = hash.data.environment?.join?(',')
@@ -14,7 +13,6 @@ DockerEndpointSerializer =
     serialized.data = Ember.merge serialized.data,
       repository: serialized.repository
       tag: serialized.tag
-      pull_newest: serialized.pull_newest
       command: serialized.command
       arguments: serialized.arguments?.split(',')
       environment: serialized.environment_variables?.split(',')

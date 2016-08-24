@@ -345,9 +345,6 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         name: 'tag'
         required: true
       ,
-        name: 'pull_newest'
-        type: 'boolean'
-      ,
         name: 'command'
       ,
         name: 'arguments'

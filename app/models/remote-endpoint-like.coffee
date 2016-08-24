@@ -92,7 +92,6 @@ RemoteEndpointLike = Model.extend
   # docker
   repository: DS.attr 'string'
   tag: DS.attr 'string', defaultValue: 'latest'
-  pull_newest: DS.attr 'boolean', defaultValue: false
   command: DS.attr 'string'
   arguments: DS.attr 'string'
   environment_variables: DS.attr 'string'

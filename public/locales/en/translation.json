@@ -305,7 +305,6 @@
     "javascript_timeout": "JavaScript timeout",
     "repository": "repository",
     "tag": "tag",
-    "pull_newest": "pull newest",
     "command": "command",
     "arguments": "arguments",
     "environment_variables": "environment variables",
