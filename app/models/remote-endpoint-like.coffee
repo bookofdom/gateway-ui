@@ -113,6 +113,10 @@ RemoteEndpointLike = Model.extend
     async: false
     stains: true
     embeddedModel: true
+  arguments: DS.hasMany 'remote-endpoint-argument',
+    async: false
+    stains: true
+    embeddedModel: true
 
   # Computed
   platform: Ember.computed 'type', ->

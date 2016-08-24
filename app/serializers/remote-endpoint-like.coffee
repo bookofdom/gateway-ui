@@ -28,15 +28,19 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       embedded: 'always'
     push_platforms:
       embedded: 'always'
+    arguments:
+      embedded: 'always'
 
   # Normalization
   normalize: (type, hash, property) ->
     hash.headers = [] if !hash.headers
     hash.query = [] if !hash.query
     hash.hosts = [] if !hash.hosts
+    hash.arguments = [] if !hash.arguments
     hash.environment_data = [] if !hash.environment_data
     hash.data ?= {}
     # normalize embedded resources
+    @normalizeArguments hash
     @normalizeEnvironmentData hash
     @normalizeScratchPadLinks hash
     Ember.merge hash,
@@ -62,6 +66,9 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'db2' then Db2EndpointSerializer.normalize hash
       when 'docker' then DockerEndpointSerializer.normalize hash
     @_super arguments...
+  normalizeArguments: (hash) ->
+    if hash.data.arguments
+      hash.arguments = (value: value for value in hash.data.arguments)
   normalizeEnvironmentData: (hash) ->
     hash.environment_data ?= []
     datum.type = hash.type for datum in hash.environment_data
@@ -82,6 +89,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
     Ember.merge serialized.data,
       headers: @serializeHeaders snapshot
       query: @serializeQuery snapshot
+      arguments: @serializeArguments snapshot
     # serialize attributes
     switch serialized.type
       when 'http' then HttpRemoteEndpointSerializer.serialize serialized
@@ -113,5 +121,11 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       attributes = querySnapshot.attributes()
       query[attributes.name] = attributes.value
     query
+  serializeArguments: (snapshot) ->
+    args = snapshot.hasMany 'arguments'
+    if args
+      args?.map (arg) -> arg.attributes().value
+    else
+      []
 
 `export default RemoteEndpointLikeSerializer`
