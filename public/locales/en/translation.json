@@ -139,6 +139,8 @@
     "remote-endpoint_plural": "remote endpoints",
     "remote-endpoint-environment-datum": "environment datum",
     "remote-endpoint-environment-datum_plural": "environment data",
+    "remote-endpoint-argument": "argument",
+    "remote-endpoint-argument_plural": "arguments",
     "remote-endpoint-header": "header",
     "remote-endpoint-header_plural": "headers",
     "remote-endpoint-query-parameter": "query parameter",
@@ -306,7 +308,6 @@
     "repository": "repository",
     "tag": "tag",
     "command": "command",
-    "arguments": "arguments",
     "environment_variables": "environment variables",
     "registry": "registry",
     "help": {

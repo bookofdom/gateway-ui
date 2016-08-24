@@ -128,6 +128,8 @@ RemoteEndpointLike = Model.extend
     @get('platform.slug') == 'http'
   isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
+  isDocker: Ember.computed 'platform.slug', ->
+    @get('platform.slug') == 'docker'
   isPush: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'push'
   statusType: Ember.computed 'status', ->

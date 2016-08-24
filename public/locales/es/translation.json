@@ -133,6 +133,8 @@
     "remote-endpoint_plural": "endpoint remotos",
     "remote-endpoint-environment-datum": "entorno datum",
     "remote-endpoint-environment-datum_plural": "datos de entorno",
+    "remote-endpoint-argument": "argumento",
+    "remote-endpoint-argument_plural": "argumentos",
     "remote-endpoint-header": "cabecera",
     "remote-endpoint-header_plural": "cabeceras",
     "remote-endpoint-query-parameter": "parámetro de consulta",

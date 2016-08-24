@@ -389,6 +389,10 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
     model = @get 'model'
     newModel = @get('store').createRecord 'remote-endpoint-host'
     model.get('hosts').pushObject newModel
+  createNewArgumentModel: ->
+    model = @get 'model'
+    newModel = @get('store').createRecord 'remote-endpoint-argument'
+    model.get('arguments').pushObject newModel
 
   actions:
     'delete-remote-endpoint-header': (record) -> record.deleteRecord()
@@ -397,6 +401,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
     'new-remote-endpoint-query-parameter': -> @createNewQueryParameterModel()
     'delete-remote-endpoint-host': (record) -> record.deleteRecord()
     'new-remote-endpoint-host': -> @createNewHostModel()
+    'new-remote-endpoint-argument': -> @createNewArgumentModel()
     'delete-remote-endpoint-push-platform': (model) ->
       model.deleteRecord()
     'new-remote-endpoint-push-platform': ->

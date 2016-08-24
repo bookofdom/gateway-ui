@@ -131,6 +131,8 @@
     "endpoint-group_plural": "grupos",
     "remote-endpoint": "endpoint remoto",
     "remote-endpoint_plural": "endpoints remotos",
+    "remote-endpoint-argument": "argumento",
+    "remote-endpoint-argument_plural": "argumentos",
     "remote-endpoint-environment-datum": "dado do ambiente",
     "remote-endpoint-environment-datum_plural": "dados do ambiente",
     "remote-endpoint-header": "cabeçalho",
@@ -293,7 +295,6 @@
     "repository": "repositório",
     "tag": "etiqueta",
     "command": "comando",
-    "arguments": "argumentos",
     "environment_variables": "variáveis ​​ambientais",
     "registry": "registro",
     "help": {
