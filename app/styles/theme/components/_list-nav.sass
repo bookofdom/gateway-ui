@@ -20,11 +20,19 @@
       .text
         font-weight: 500
         letter-spacing: 0.01em
+      &:hover
+        .text
+          color: $ap-action-hover
       &.active
         background-color: $ap-page-bg
         .text
           font-weight: 600
           color: $ap-accent
+
+.ap-list-nav-vertical-icon
+  a:hover
+    .ap-icon
+      color: #FFF
 
 .ap-list-nav-vertical-circle-icon
   position: relative
