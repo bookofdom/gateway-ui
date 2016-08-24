@@ -61,7 +61,6 @@
           position: relative
           z-index: 10
           border-color: $active-color
-          color: $active-color
         // active arrow
         &:after
           $size: 25px
@@ -74,7 +73,7 @@
           height: 0
           border-top: $size solid transparent
           border-bottom: $size solid transparent
-          border-left: $size solid $ap-accent
+          border-left: $size solid $active-color
   .ap-inverse
     .ap-icon
       color: $default-color
