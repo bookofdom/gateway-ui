@@ -16,7 +16,7 @@ Api = Model.extend
 
   # Relationships
   proxy_endpoints: DS.hasMany 'proxy-endpoint', async: true
-  jobs: DS.hasMany 'jobs', async: true
+  jobs: DS.hasMany 'job', async: true
   environments: DS.hasMany 'environment', async: true
   endpoint_groups: DS.hasMany 'endpoint-group', async: true
   remote_endpoints: DS.hasMany 'remote-endpoint', async: true
