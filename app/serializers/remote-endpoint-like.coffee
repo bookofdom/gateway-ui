@@ -43,7 +43,6 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
     hash.environment_data = [] if !hash.environment_data
     hash.environment_variables = [] if !hash.environment_variables
     hash.data ?= {}
-    console.log @objectToArray hash.data.environment
     # normalize embedded resources
     @normalizeArguments hash
     @normalizeEnvironmentData hash
