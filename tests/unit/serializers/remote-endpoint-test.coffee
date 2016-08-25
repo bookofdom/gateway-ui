@@ -13,6 +13,7 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
     'model:environment'
     'model:environment-variable'
     'model:host'
+    'model:job'
     'model:library'
     'model:proxy-endpoint'
     'model:remote-endpoint'

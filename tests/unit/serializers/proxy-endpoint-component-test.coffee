@@ -13,6 +13,7 @@ moduleForModel 'proxy-endpoint-component', 'Unit | Serializer | proxy endpoint c
     'model:environment'
     'model:environment-variable'
     'model:host'
+    'model:job'
     'model:library'
     'model:proxy-endpoint'
     'model:proxy-endpoint-component'

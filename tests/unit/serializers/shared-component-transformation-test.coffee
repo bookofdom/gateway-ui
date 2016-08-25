@@ -11,6 +11,7 @@ moduleForModel 'shared-component-transformation', 'Unit | Serializer | shared co
     'model:endpoint-group'
     'model:environment'
     'model:host'
+    'model:job'
     'model:library'
     'model:proxy-endpoint'
     'model:remote-endpoint'
