@@ -14,20 +14,29 @@
 
 .ap-list-nav-vertical
   li
-    border-color: darken($ap-slate-lighter, 10%)
+    border-color: lighten($ap-app-secondary-bg-color, 5%)
     a
-      color: $ap-slate-light
+      color: darken($ap-app-secondary-bg-color, 60%)
       .text
-        color: darken($text-color, 15%)
         font-weight: 500
         letter-spacing: 0.01em
-        text-transform: uppercase
+      &:hover
+        .text
+          color: $ap-action-hover
       &.active
+        background-color: $ap-page-bg
         .text
           font-weight: 600
           color: $ap-accent
 
+.ap-list-nav-vertical-icon
+  a:hover
+    .ap-icon
+      color: #FFF
+
 .ap-list-nav-vertical-circle-icon
+  $default-color: $ap-active
+  $active-color: $ap-accent
   position: relative
   // center background line
   &:after
@@ -37,22 +46,21 @@
     top: 0
     bottom: 0
     left: 33px
-    border-left: 5px solid $ap-slate-medium
+    border-left: 5px solid $default-color
   li
     position: relative
     z-index: 10
     a
       .ap-icon
-        border-color: $ap-slate-medium
+        border-color: $default-color
         color: #fff
-        background-color: $ap-slate-medium
+        background-color: $default-color
       &.active
         position: relative
         .ap-icon
           position: relative
           z-index: 10
-          border-color: $ap-accent
-          color: $ap-accent
+          border-color: $active-color
         // active arrow
         &:after
           $size: 25px
@@ -65,10 +73,10 @@
           height: 0
           border-top: $size solid transparent
           border-bottom: $size solid transparent
-          border-left: $size solid $ap-accent
+          border-left: $size solid $active-color
   .ap-inverse
     .ap-icon
-      color: $ap-slate-medium
+      color: $default-color
       background-color: #fff
 
 .ap-list-nav-circle-icon
@@ -87,6 +95,8 @@
 .ap-list-nav-xl-circle-icon
   li
     vertical-align: top
+    .ap-icon
+      color: $link-color
     &.disabled
       .ap-icon
         color: lighten($ap-slate-light, 10%)

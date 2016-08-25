@@ -8,6 +8,9 @@
     {{outlet 'sidebar'}}
   </div><!-- /.ap-app-secondary-sidebar -->
   <div class="ap-app-secondary-content">
+    {{#if view.showBreadCrumbs}}
+      {{bread-crumbs tagName='ol' classNames='breadcrumb'}}
+    {{/if}}
     {{outlet}}
   </div><!-- /.ap-app-secondary-content -->
 </div><!-- /.ap-app-secondary -->

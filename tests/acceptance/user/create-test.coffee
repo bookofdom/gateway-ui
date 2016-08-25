@@ -29,10 +29,10 @@ test 'user can create new users on index', (assert) ->
       assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/users', makePostHandler('user', after)
-  visit '/users'
+  visit '/account/users'
   andThen ->
     assert.equal beforeCreateCount > 0, true
-    assert.equal currentURL(), '/users'
+    assert.equal currentURL(), '/account/users'
     assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New User'
   fillIn '[name=email]', 'user@example.net'

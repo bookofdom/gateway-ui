@@ -9,6 +9,6 @@ DevModeAuthenticator = BaseAuthenticator.extend
         reject()
   authenticate: (identification, password) ->
     new Ember.RSVP.Promise (resolve, reject) =>
-      resolve email: 'developer@justapis.com'
+      resolve email: 'developer@example.net'
 
 `export default DevModeAuthenticator`

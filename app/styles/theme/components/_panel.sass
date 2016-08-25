@@ -1,15 +1,17 @@
 .panel
-  +border-radius(8px)
+  +border-radius(2px)
   > .panel-heading
     font-weight: 500
     background: none
     & a:hover
       text-decoration: none
+      color: $ap-action-hover
 
 .panel-default
   $color: $text-color
-  border-color: $color
+  border-color: transparent
   > .panel-heading
+    font-weight: bold
     &, & a
       color: $color
 
@@ -23,13 +25,11 @@
 
 .panel-drop
   cursor: pointer
-  border-color: $gray-lighter
+  //border-color: $gray-lighter
   &.active
     border-color: $brand-success
     color: $brand-success
     background-color: lighten($brand-success, 50%)
 
 .panel-bold
-  border-color: #fff
-  +border-radius(35px)
-  +gradient-bg(rgba($ap-slate-dark, 0.75), rgba($ap-slate-dark, 0.25))
+  background: $ap-slate-dark

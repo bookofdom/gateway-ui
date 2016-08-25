@@ -41,8 +41,15 @@ module.exports = function(environment) {
     remote_endpoint_types_enabled: null,
     notifications: false,
 
+    docsBaseUrl: 'http://devhub.justapis.com/v5.0.0/docs',
+    supportUrl: 'http://support.anypresence.com',
+    termsUrl: 'http://www.anypresence.com/terms/#justapis',
+    brandNames: {
+      primary: 'JustAPIs'
+    },
+
     api: {
-      host: process.env.API_HOST || '',
+      host: '',
       basePath: 'admin',
       swaggerViewerPath: null,
       swaggerJsonPath: null,
@@ -52,6 +59,11 @@ module.exports = function(environment) {
       authentication: {
         path: 'sessions'
       }
+    },
+
+    enablePlanSubscriptions: true,
+    stripe: {
+      publishableKey: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh'
     }
   };
 
@@ -90,6 +102,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // interpolated config
+    ENV.api.host = 'ADMIN_API_HOST';
     ENV.registration_enabled = 'REGISTRATION_ENABLED';
     ENV.version = 'VERSION';
     ENV.dev_mode = 'DEV_MODE';
@@ -106,6 +119,10 @@ module.exports = function(environment) {
     ENV.notifications = true;
     ENV.googleAnalytics = {
       webPropertyId: ENV.google_analytics_tracking_id
+    };
+    ENV.enablePlanSubscriptions = 'ENABLE_PLAN_SUBSCRIPTIONS';
+    ENV.stripe = {
+      publishableKey: 'STRIPE_PUBLISHABLE_KEY'
     };
   }
 

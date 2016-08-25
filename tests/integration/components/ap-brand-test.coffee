@@ -13,7 +13,7 @@ test 'it renders', (assert) ->
 
   @render hbs """{{ap-brand}}"""
 
-  assert.ok @$().find('.ap-brand-just-apis').size()
+  assert.ok @$().find('.ap-brand-primary').size()
 
   # Template block usage:
   @render hbs """
