@@ -1,0 +1,14 @@
+{{#ap-page t='resources.job_plural' help-url=(docsUrl 'jobs') showNew=true}}
+
+  {{partial 'jobs/filter-form'}}
+
+  {{ap-table-auto-index
+      model=filtered
+      fields=fields
+      route='job.edit'}}
+
+  {{#ap-panel-new t='resources.job' closed=(unbound filtered.length)}}
+    {{forms/job-form indexModel=model option-groups=option-groups}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}

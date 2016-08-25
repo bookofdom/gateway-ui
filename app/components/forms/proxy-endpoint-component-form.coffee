@@ -2,6 +2,7 @@
 
 ProxyEndpointComponentFormComponent = BaseFormComponent.extend
   callsIndexModel: null
+  prefix: 'proxy-endpoint'
   'calls-option-groups': null
   'transformation-option-groups': null
   'option-groups': null
@@ -34,9 +35,10 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
 
   createNewCallModel: ->
     model = @get 'model'
-    newModel = @get('store').createRecord 'proxy-endpoint-component-call'
-    newBefore = @get('store').createRecord 'proxy-endpoint-component-transformation'
-    newAfter = @get('store').createRecord 'proxy-endpoint-component-transformation'
+    prefix = @get 'prefix'
+    newModel = @get('store').createRecord "#{prefix}-component-call"
+    newBefore = @get('store').createRecord "#{prefix}-component-transformation"
+    newAfter = @get('store').createRecord "#{prefix}-component-transformation"
     newModel.get('before').pushObject newBefore
     newModel.get('after').pushObject newAfter
     model.get('calls').pushObject newModel

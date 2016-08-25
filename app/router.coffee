@@ -44,6 +44,17 @@ Router.map ->
             @route 'proxy-endpoint-schema', resetNamespace: true, path: ':proxy_endpoint_schema_id', ->
               @route 'edit'
           @route 'logs-proxy-endpoint', resetNamespace: true, path: 'logs', (->)
+      @route 'jobs', resetNamespace: true, ->
+        @route 'job', resetNamespace: true, path: ':job_id', ->
+          @route 'edit'
+          @route 'job-components', resetNamespace: true, path: 'components', ->
+            @route 'new', ->
+              @route 'type', path: ':proxy_endpoint_component_type'
+            @route 'job-component', resetNamespace: true, path: ':proxy_endpoint_component_id', ->
+              @route 'edit'
+              @route 'job-component-calls', resetNamespace: true, path: 'calls', ->
+                @route 'job-component-call', resetNamespace: true, path: ':proxy_endpoint_component_call_id', ->
+                  @route 'edit'
       @route 'shared-components', resetNamespace: true, path: 'components', ->
         @route 'new', ->
           @route 'type', path: ':shared_component_type'

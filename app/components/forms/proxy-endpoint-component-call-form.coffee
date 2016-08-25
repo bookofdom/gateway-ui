@@ -2,10 +2,13 @@
 
 ProxyEndpointComponentCallFormComponent = BaseForm.extend
   indexModel: null
+  prefix: 'proxy-endpoint'
   'option-groups': null # passed in by controllers
   'transformation-option-groups': null
 
-  modelType: 'proxy-endpoint-component-call'
+  modelType: Ember.computed 'prefix', ->
+    prefix = @get 'prefix'
+    "#{prefix}-component-call"
 
   fields: Ember.computed 'model.isNew', ->
     newFields = [
@@ -36,12 +39,13 @@ ProxyEndpointComponentCallFormComponent = BaseForm.extend
   submit: ->
     model = @get 'model'
     store = @get 'store'
+    prefix = @get 'prefix'
     if model.get 'isNew'
       if model.get('before.length') == 0
-        newBefore = store.createRecord 'proxy-endpoint-component-transformation'
+        newBefore = store.createRecord "#{prefix}-component-transformation"
         model.get('before').pushObject newBefore
       if model.get('after.length') == 0
-        newAfter = store.createRecord 'proxy-endpoint-component-transformation'
+        newAfter = store.createRecord "#{prefix}-component-transformation"
         model.get('after').pushObject newAfter
       calls = @get 'indexModel'
       calls.pushObject model

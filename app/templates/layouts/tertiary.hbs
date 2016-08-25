@@ -6,9 +6,11 @@
         {{#ap-list-nav-vertical-circle-icon}}
           {{partial 'layouts/tertiary/nav-items'}}
         {{/ap-list-nav-vertical-circle-icon}}
-        {{#ap-list-nav-vertical-circle-icon}}
-          {{partial 'layouts/tertiary/nav-items-secondary'}}
-        {{/ap-list-nav-vertical-circle-icon}}
+        {{#if view.http}}
+          {{#ap-list-nav-vertical-circle-icon}}
+            {{partial 'layouts/tertiary/nav-items-secondary'}}
+          {{/ap-list-nav-vertical-circle-icon}}
+        {{/if}}
       </div><!-- /.hidden-xs -->
 
       <div class="visible-xs">
@@ -19,8 +21,10 @@
           </a><!-- /.dropdown-toggle -->
           <ul class="dropdown-menu">
             {{partial 'layouts/tertiary/nav-items'}}
-            <li class="divider"></li>
-            {{partial 'layouts/tertiary/nav-items-secondary'}}
+            {{#if view.http}}
+              <li class="divider"></li>
+              {{partial 'layouts/tertiary/nav-items-secondary'}}
+            {{/if}}
           </ul><!-- /.dropdown-menu -->
         </div><!-- /.dropdown -->
         <br>
