@@ -49,7 +49,7 @@ module.exports = function(environment) {
     },
 
     api: {
-      host: process.env.API_HOST || '',
+      host: '',
       basePath: 'admin',
       swaggerViewerPath: null,
       swaggerJsonPath: null,
@@ -102,6 +102,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // interpolated config
+    ENV.api.host = 'ADMIN_API_HOST';
     ENV.registration_enabled = 'REGISTRATION_ENABLED';
     ENV.version = 'VERSION';
     ENV.dev_mode = 'DEV_MODE';
