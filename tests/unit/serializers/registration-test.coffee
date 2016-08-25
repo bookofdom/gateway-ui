@@ -4,6 +4,7 @@ moduleForModel 'registration', 'Unit | Serializer | registration', {
   # Specify the other units that are required for this test.
   needs: [
     'service:stripe'
+    'model:plan'
     'model:stripe-card'
     'serializer:registration'
   ]

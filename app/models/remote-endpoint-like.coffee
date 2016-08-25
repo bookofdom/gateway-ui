@@ -89,6 +89,11 @@ RemoteEndpointLike = Model.extend
   sender: DS.attr 'string'
   # db2
   protocol: DS.attr 'string', defaultValue: 'TCPIP'
+  # docker
+  repository: DS.attr 'string'
+  tag: DS.attr 'string', defaultValue: 'latest'
+  command: DS.attr 'string'
+  registry: DS.attr 'string'
 
   # Relationships
   headers: DS.hasMany 'remote-endpoint-header',
@@ -107,6 +112,14 @@ RemoteEndpointLike = Model.extend
     async: false
     stains: true
     embeddedModel: true
+  arguments: DS.hasMany 'remote-endpoint-argument',
+    async: false
+    stains: true
+    embeddedModel: true
+  environment_variables: DS.hasMany 'remote-endpoint-environment-variable',
+    async: false
+    stains: true
+    embeddedModel: true
 
   # Computed
   platform: Ember.computed 'type', ->
@@ -118,6 +131,8 @@ RemoteEndpointLike = Model.extend
     @get('platform.slug') == 'http'
   isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
+  isDocker: Ember.computed 'platform.slug', ->
+    @get('platform.slug') == 'docker'
   isPush: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'push'
   statusType: Ember.computed 'status', ->
@@ -151,7 +166,7 @@ RemoteEndpointLike = Model.extend
   push_platform_codenames: Ember.computed.mapBy 'push_platforms', 'codename'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle smtp db2'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle smtp db2 docker'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type

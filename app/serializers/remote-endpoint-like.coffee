@@ -14,6 +14,7 @@
 `import OracleRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/oracle'`
 `import SmtpRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/smtp'`
 `import Db2EndpointSerializer from 'gateway/pods/remote-endpoint/serializers/db2'`
+`import DockerEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/docker'`
 
 RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
@@ -27,21 +28,30 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       embedded: 'always'
     push_platforms:
       embedded: 'always'
+    arguments:
+      embedded: 'always'
+    environment_variables:
+      serialize: false
+      deserialize: 'records'
 
   # Normalization
   normalize: (type, hash, property) ->
     hash.headers = [] if !hash.headers
     hash.query = [] if !hash.query
     hash.hosts = [] if !hash.hosts
+    hash.arguments = [] if !hash.arguments
     hash.environment_data = [] if !hash.environment_data
+    hash.environment_variables = [] if !hash.environment_variables
     hash.data ?= {}
     # normalize embedded resources
+    @normalizeArguments hash
     @normalizeEnvironmentData hash
     @normalizeScratchPadLinks hash
     Ember.merge hash,
       headers: @objectToArray hash.data.headers
       query: @objectToArray hash.data.query
       hosts: hash.data.config?.hosts or []
+      environment_variables: @objectToArray hash.data.environment
       push_platforms: hash.data.push_platforms or []
     # normalize attributes
     switch hash.type
@@ -59,7 +69,11 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'oracle' then OracleRemoteEndpointSerializer.normalize hash
       when 'smtp' then SmtpRemoteEndpointSerializer.normalize hash
       when 'db2' then Db2EndpointSerializer.normalize hash
+      when 'docker' then DockerEndpointSerializer.normalize hash
     @_super arguments...
+  normalizeArguments: (hash) ->
+    if hash.data.arguments
+      hash.arguments = (value: value for value in hash.data.arguments)
   normalizeEnvironmentData: (hash) ->
     hash.environment_data ?= []
     datum.type = hash.type for datum in hash.environment_data
@@ -80,6 +94,8 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
     Ember.merge serialized.data,
       headers: @serializeHeaders snapshot
       query: @serializeQuery snapshot
+      arguments: @serializeArguments snapshot
+      environment: @serializeEnvironmentVariables snapshot
     # serialize attributes
     switch serialized.type
       when 'http' then HttpRemoteEndpointSerializer.serialize serialized
@@ -97,6 +113,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'oracle' then OracleRemoteEndpointSerializer.serialize serialized
       when 'smtp' then SmtpRemoteEndpointSerializer.serialize serialized
       when 'db2' then Db2EndpointSerializer.serialize serialized
+      when 'docker' then DockerEndpointSerializer.serialize serialized
     serialized
   serializeHeaders: (snapshot) ->
     headers = {}
@@ -110,5 +127,17 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       attributes = querySnapshot.attributes()
       query[attributes.name] = attributes.value
     query
+  serializeArguments: (snapshot) ->
+    args = snapshot.hasMany 'arguments'
+    if args
+      args?.map (arg) -> arg.attributes().value
+    else
+      []
+  serializeEnvironmentVariables: (snapshot) ->
+    envVars = {}
+    snapshot.hasMany('environment_variables')?.forEach (envVarSnapshot) ->
+      attributes = envVarSnapshot.attributes()
+      envVars[attributes.name] = attributes.value
+    envVars
 
 `export default RemoteEndpointLikeSerializer`

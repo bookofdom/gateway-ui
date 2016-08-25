@@ -53,6 +53,31 @@
   {{/ap-panel-edit}}
 {{/if}}
 
+{{#if model.isDocker}}
+  <div class="row">
+    <div class="col-md-6">
+      {{#ap-panel-edit t='resources.remote-endpoint-argument_plural'}}
+        {{ap-table-model
+          models=model.arguments
+          component-name='forms/remote-endpoint-argument-inline-form'}}
+        {{ap-button-block-new
+          t='resources.remote-endpoint-argument'
+          action='new-remote-endpoint-argument'}}
+      {{/ap-panel-edit}}
+    </div><!-- /.col -->
+    <div class="col-md-6">
+      {{#ap-panel-edit t='resources.remote-endpoint-environment-variable_plural'}}
+        {{ap-table-model
+          models=model.environment_variables
+          component-name='forms/remote-endpoint-environment-variable-inline-form'}}
+        {{ap-button-block-new
+          t='resources.remote-endpoint-environment-variable'
+          action='new-remote-endpoint-environment-variable'}}
+      {{/ap-panel-edit}}
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+{{/if}}
+
 {{#unless model.isNew}}
   {{#ap-panel-edit t='resources.remote-endpoint-environment-datum-scratch-pad_plural'}}
     {{ap-table-index
