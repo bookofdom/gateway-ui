@@ -93,7 +93,6 @@ RemoteEndpointLike = Model.extend
   repository: DS.attr 'string'
   tag: DS.attr 'string', defaultValue: 'latest'
   command: DS.attr 'string'
-  environment_variables: DS.attr 'string'
   registry: DS.attr 'string'
 
   # Relationships
@@ -114,6 +113,10 @@ RemoteEndpointLike = Model.extend
     stains: true
     embeddedModel: true
   arguments: DS.hasMany 'remote-endpoint-argument',
+    async: false
+    stains: true
+    embeddedModel: true
+  environment_variables: DS.hasMany 'remote-endpoint-environment-variable',
     async: false
     stains: true
     embeddedModel: true

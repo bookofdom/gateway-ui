@@ -30,6 +30,9 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       embedded: 'always'
     arguments:
       embedded: 'always'
+    environment_variables:
+      serialize: false
+      deserialize: 'records'
 
   # Normalization
   normalize: (type, hash, property) ->
@@ -38,7 +41,9 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
     hash.hosts = [] if !hash.hosts
     hash.arguments = [] if !hash.arguments
     hash.environment_data = [] if !hash.environment_data
+    hash.environment_variables = [] if !hash.environment_variables
     hash.data ?= {}
+    console.log @objectToArray hash.data.environment
     # normalize embedded resources
     @normalizeArguments hash
     @normalizeEnvironmentData hash
@@ -47,6 +52,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       headers: @objectToArray hash.data.headers
       query: @objectToArray hash.data.query
       hosts: hash.data.config?.hosts or []
+      environment_variables: @objectToArray hash.data.environment
       push_platforms: hash.data.push_platforms or []
     # normalize attributes
     switch hash.type
@@ -90,6 +96,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       headers: @serializeHeaders snapshot
       query: @serializeQuery snapshot
       arguments: @serializeArguments snapshot
+      environment: @serializeEnvironmentVariables snapshot
     # serialize attributes
     switch serialized.type
       when 'http' then HttpRemoteEndpointSerializer.serialize serialized
@@ -127,5 +134,11 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       args?.map (arg) -> arg.attributes().value
     else
       []
+  serializeEnvironmentVariables: (snapshot) ->
+    envVars = {}
+    snapshot.hasMany('environment_variables')?.forEach (envVarSnapshot) ->
+      attributes = envVarSnapshot.attributes()
+      envVars[attributes.name] = attributes.value
+    envVars
 
 `export default RemoteEndpointLikeSerializer`

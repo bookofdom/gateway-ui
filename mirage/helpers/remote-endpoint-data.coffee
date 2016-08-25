@@ -155,8 +155,13 @@ generateDataForType = (typeSlug, i) ->
       repository: faker.commerce.productName().toLowerCase().underscore()
       tag: faker.random.number()
       command: 'my-command'
-      arguments: ['arg1', 'arg2']
-      environment: ['FOO=bar,EXAMPLE=10']
+      arguments: [
+        'arg1'
+        'arg2'
+      ]
+      environment:
+        FOO: 'bar'
+        EXAMPLE_VAR: '42'
       username: faker.internet.userName()
       password: faker.internet.password()
       registry: faker.internet.domainName()

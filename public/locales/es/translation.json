@@ -135,6 +135,8 @@
     "remote-endpoint-environment-datum_plural": "datos de entorno",
     "remote-endpoint-argument": "argumento",
     "remote-endpoint-argument_plural": "argumentos",
+    "remote-endpoint-environment-variable": "variable de entorno",
+    "remote-endpoint-environment-variable_plural": "variables de entorno",
     "remote-endpoint-header": "cabecera",
     "remote-endpoint-header_plural": "cabeceras",
     "remote-endpoint-query-parameter": "parámetro de consulta",
@@ -296,7 +298,6 @@
     "tag": "etiqueta",
     "command": "mando",
     "arguments": "argumentos",
-    "environment_variables": "variables de entorno",
     "registry": "registro",
     "help": {
       "timeout": "Número de segundos.",
