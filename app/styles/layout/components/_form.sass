@@ -11,9 +11,13 @@ form
 
 .table
   .form-inline
+    display: flex
     .form-group
+      flex: 1 100%
       margin-left: 0
       margin-right: 0
+      .form-control
+        width: 95%
       > label
         display: none
       .checkbox-inline, .radio-inline
@@ -22,5 +26,3 @@ form
         input
           position: static
           margin-left: 0
-    .form-control
-      width: 275px
