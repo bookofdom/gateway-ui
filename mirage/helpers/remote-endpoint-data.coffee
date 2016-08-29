@@ -2,7 +2,7 @@
 
 enviromentDatumId = 1
 
-types = 'http soap sqlserver postgres mysql mongodb ldap redis oracle script hana store push smtp db2'.split ' '
+types = 'http soap sqlserver postgres mysql mongodb ldap redis oracle script hana store push smtp db2 docker'.split ' '
 typeCycle = faker.list.cycle types...
 
 statuses = 'success failed pending processing'.split ' '
@@ -151,6 +151,20 @@ generateDataForType = (typeSlug, i) ->
         protocol: protocolCycle i
         user: faker.internet.userName()
         password: faker.internet.password()
+    when 'docker'
+      repository: faker.commerce.productName().toLowerCase().underscore()
+      tag: faker.random.number()
+      command: 'my-command'
+      arguments: [
+        'arg1'
+        'arg2'
+      ]
+      environment:
+        FOO: 'bar'
+        EXAMPLE_VAR: '42'
+      username: faker.internet.userName()
+      password: faker.internet.password()
+      registry: faker.internet.domainName()
   data.headers = generateKeyValues 3
   data.query = generateKeyValues 3
   pushPlatformType = platformCycle i

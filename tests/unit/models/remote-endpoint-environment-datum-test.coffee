@@ -5,6 +5,8 @@ moduleForModel 'remote-endpoint-environment-datum', 'Unit | Model | remote endpo
   needs: [
     'model:environment'
     'model:remote-endpoint'
+    'model:remote-endpoint-argument'
+    'model:remote-endpoint-environment-variable'
     'model:remote-endpoint-header'
     'model:remote-endpoint-host'
     'model:remote-endpoint-push-platform'
