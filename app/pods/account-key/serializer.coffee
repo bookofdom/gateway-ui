@@ -2,6 +2,8 @@
 
 AccountKeySerializer = ApplicationSerializer.extend
   modelNameFromPayloadKey: (payloadKey) ->
-    payloadKey.replace /^keys$/, 'account-key'
+    payloadKey.singularize().replace /^key$/, 'account-key'
+  payloadKeyFromModelName: (modelName) ->
+    modelName.replace /^account-key$/, 'key'
 
 `export default AccountKeySerializer`
