@@ -174,7 +174,9 @@
     "stripe-card": "credit card",
     "stripe-card_plural": "credit cards",
     "plan": "plan",
-    "plan_plural": "plans"
+    "plan_plural": "plans",
+    "account-key": "key",
+    "account-key_plural": "keys"
   },
   "fields": {
     "account_name": "account name",
@@ -321,7 +323,8 @@
     },
     "remote_endpoint": {
       "name": "remote endpoint name"
-    }
+    },
+    key: "PEM encoded key file"
   },
   "prompts": {
     "generic": "choose one",
