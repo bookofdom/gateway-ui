@@ -10,7 +10,7 @@ defaultScenario = (server) ->
 
   # account keys
   accounts.forEach (account) ->
-    ip = account.id
+    id = account.id
     server.createList 'key', accountId: id
 
   # logs
