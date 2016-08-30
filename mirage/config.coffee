@@ -89,6 +89,10 @@ config = ->
   @put '/accounts/:id', makePutHandler 'account'
   @del '/accounts/:id'
 
+  @get '/keys'
+  @post'/keys', makePostHandler 'key'
+  @del '/keys/:id'
+
   @get '/users'
   @post '/users', makePostHandler 'user'
   @get '/users/:id'
