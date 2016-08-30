@@ -47,6 +47,24 @@
     </div><!-- /.col -->
   {{/if}}
 
+  <div class="clearfix"></div>
+
+  <div class="col-sm-12">
+    {{#unless model.isNew}}
+      {{#ap-panel-edit t='resources.account-key_plural'}}
+        {{ap-table-index
+          models=model.keys
+          fields='name'
+          delete-action='delete-account-key'}}
+        {{ap-button-block-new
+          t='resources.account-key'
+          action='new-account-key'}}
+      {{/ap-panel-edit}}
+    {{/unless}}
+  </div><!-- /.col -->
+
+  <div class="clearfix"></div>
+
   <div class="col-sm-5 col-sm-offset-2">
     {{partial 'components/forms/base-form-actions'}}
   </div><!-- /.col -->
