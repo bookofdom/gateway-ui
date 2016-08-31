@@ -90,7 +90,7 @@ config = ->
   @del '/accounts/:id'
 
   @get '/keys'
-  @post'/keys', makePostHandler 'key'
+  @post '/keys', makePostHandler 'key'
   @del '/keys/:id'
 
   @get '/users'
