@@ -4,7 +4,7 @@
 # Account index is actually an edit route.
 AccountIndexRoute = EditRoute.extend
   actions:
-    'new-account-key': ->
-      @transitionTo 'account-keys.new'
+    'new-key': ->
+      @transitionTo 'keys.new'
 
 `export default AccountIndexRoute`

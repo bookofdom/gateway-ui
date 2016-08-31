@@ -1,6 +1,5 @@
 `import { Model, belongsTo } from 'ember-cli-mirage'`
 
-KeyModel = Model.extend
-  account: belongsTo()
+KeyModel = Model.extend()
 
 `export default KeyModel`

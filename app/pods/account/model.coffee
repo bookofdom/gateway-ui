@@ -14,6 +14,5 @@ Account = Model.extend
   plan: DS.belongsTo 'plan',
     async: false
     stains: true
-  keys: DS.hasMany 'account-key', async: true
 
 `export default Account`

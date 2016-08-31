@@ -175,8 +175,8 @@
     "stripe-card_plural": "credit cards",
     "plan": "plan",
     "plan_plural": "plans",
-    "account-key": "key",
-    "account-key_plural": "keys"
+    "key": "key",
+    "key_plural": "keys"
   },
   "fields": {
     "account_name": "account name",
@@ -313,18 +313,19 @@
     "tag": "tag",
     "command": "command",
     "registry": "registry",
+    "key": "key file",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
-      "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`."
+      "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`.",
+      "key": "PEM-encoded"
     },
     "api": {
       "name": "API name"
     },
     "remote_endpoint": {
       "name": "remote endpoint name"
-    },
-    key: "PEM encoded key file"
+    }
   },
   "prompts": {
     "generic": "choose one",

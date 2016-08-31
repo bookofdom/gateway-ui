@@ -6,12 +6,10 @@ defaultScenario = (server) ->
   server.createList 'plan', 3
 
   # accounts
-  accounts = server.createList 'account', 1, planId: Math.round(Math.random() * 2) + 1
+  server.createList 'account', 1, planId: Math.round(Math.random() * 2) + 1
 
   # account keys
-  accounts.forEach (account) ->
-    id = account.id
-    server.createList 'key', accountId: id
+  server.createList 'key', 5
 
   # logs
   server.createList 'log', 1

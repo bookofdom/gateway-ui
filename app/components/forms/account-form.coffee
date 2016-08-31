@@ -21,10 +21,4 @@ AccountFormComponent = BaseFormComponent.extend
     required: true
   ]
 
-  newKeyAction: 'new-account-key'
-
-  actions:
-    'new-account-key': ->
-      @sendAction 'newKeyAction'
-
 `export default AccountFormComponent`
