@@ -36,8 +36,17 @@ test 'user can edit account', (assert) ->
       assert.equal currentURL(), '/account/edit'
       assert.equal server.db.accounts[0].name, 'Test Account'
       done()
-  server.put '/accounts/:id',
-    makePutHandler('account', after)
+  server.put '/account', (schema, request) ->
+    body = JSON.parse request.requestBody
+    payload = body.account
+    if body.account?.name is 'error'
+      response = new Response 422, {},
+        errors:
+          name: ['This field is in error']
+    else
+      response = schema.account.all()[0].update payload
+    after()
+    response
   visit '/account/edit'
   fillIn '[name=account_name]', 'Test Account'
   click '[type=submit]'
