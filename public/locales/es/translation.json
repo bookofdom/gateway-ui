@@ -168,7 +168,9 @@
     "stripe-card": "tarjeta de crédito",
     "stripe-card_plural": "tarjetas de crédito",
     "plan": "plan",
-    "plan_plural": "planes"
+    "plan_plural": "planes",
+    "key": "llave",
+    "key_plural": "llaves"
   },
   "fields": {
     "account_name": "nombre de la cuenta",
@@ -299,10 +301,12 @@
     "command": "mando",
     "arguments": "argumentos",
     "registry": "registro",
+    "key": "archivo de claves",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
-      "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`."
+      "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`.",
+      "key": "PEM-codificado"
     },
     "api": {
       "name": "nombre del API"

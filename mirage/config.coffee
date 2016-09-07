@@ -95,6 +95,10 @@ config = ->
       response = schema.account.all()[0].update payload
     response
 
+  @get '/keys'
+  @post '/keys', makePostHandler 'key'
+  @del '/keys/:id'
+
   @get '/users'
   @post '/users', makePostHandler 'user'
   @get '/users/:id'

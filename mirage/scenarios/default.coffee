@@ -8,6 +8,9 @@ defaultScenario = (server) ->
   # accounts
   server.createList 'account', 1, planId: Math.round(Math.random() * 2) + 1
 
+  # account keys
+  server.createList 'key', 5
+
   # logs
   server.createList 'log', 1
 
