@@ -42,7 +42,7 @@ module.exports = function(environment) {
     notifications: false,
 
     docsBaseUrl: 'http://devhub.justapis.com/v5.0.0/docs',
-    supportUrl: 'http://support.anypresence.com',
+    supportUrl: 'mailto:support@nanoscale.io',
     termsUrl: 'http://www.anypresence.com/terms/#justapis',
     brandNames: {
       primary: 'JustAPIs'
