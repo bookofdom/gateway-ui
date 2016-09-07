@@ -14,6 +14,19 @@ module 'Acceptance: Key - Create',
 
   afterEach: -> destroyApp @application
 
+addFile = () ->
+  blob = new Blob(["---TEST KEY---"], {type: 'text/plain'})
+  blob.name = 'foobar.txt'
+
+  fileInput = $('input[type=file]')
+
+  fileInput.triggerHandler type:'change',
+    target:
+      files:
+        0: blob,
+        length: 1,
+        item: -> return blob
+
 test 'admin can create new keys', (assert) ->
   done = assert.async()
   beforeCreateCount = server.db.keys.length
@@ -31,6 +44,5 @@ test 'admin can create new keys', (assert) ->
     assert.equal currentURL(), '/account/keys'
     assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'Foobar'
-  //TODO: Not sure how to mock this file handler.
-  fillIn '[name=key]', 'data:text/plain;charset=utf-8;base64,aGV5YQ=='
+  addFile()
   click '.ap-panel-new [type=submit]'
