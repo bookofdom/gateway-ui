@@ -47,7 +47,13 @@
     </div><!-- /.col -->
   {{/if}}
 
+
   <div class="col-sm-5 col-sm-offset-2">
+    {{#bs-form-group}}
+      {{#if model.errors.base}}
+        <p class="text-danger">{{model.errors.base.firstObject.message}}</p>
+      {{/if}}
+    {{/bs-form-group}}
     {{partial 'components/forms/base-form-actions'}}
   </div><!-- /.col -->
 </div><!-- /.row -->
