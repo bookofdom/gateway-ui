@@ -47,7 +47,7 @@
       {{/x-option}}
       --}}
       {{#each plans as |option|}}
-        {{#x-option value=option}}
+        {{#x-option value=option selected=(eq planName option.name)}}
           {{option.name}}
           {{#if option.isBillable}}
             - ${{option.dollars}}
