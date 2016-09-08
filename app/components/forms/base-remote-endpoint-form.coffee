@@ -28,6 +28,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       name: t 'http-methods.delete'
       value: 'DELETE'
     ]
+    protocol: RemoteEndpointLike.protocols
     interpreter: RemoteEndpointLike.interpreters.filter (interpreter) ->
       if config.go_os
         interpreter.os == config.go_os
@@ -239,6 +240,12 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ]
       push: [
         name: 'publish_endpoint'
+      ,
+        name: 'subscribe_endpoint'
+        type: 'boolean'
+      ,
+        name: 'unsubscribe_endpoint'
+        type: 'boolean'
       ]
       redis: [
         name: 'server'
@@ -260,6 +267,24 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ,
         name: 'maxidle'
         type: 'integer'
+      ]
+      smtp: [
+        name: 'host'
+        required: true
+      ,
+        name: 'port'
+        type: 'integer'
+        required: true
+      ,
+        name: 'username'
+        required: true
+      ,
+        name: 'password'
+        type: 'password'
+        required: true
+      ,
+        name: 'sender'
+        required: true
       ]
       oracle: [
         name: 'server'
@@ -287,6 +312,47 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ,
         name: 'maxopen'
         type: 'integer'
+      ]
+      db2: [
+        name: 'server'
+        label: 'resources.host'
+        required: true
+      ,
+        name: 'port'
+        type: 'integer'
+        required: true
+      ,
+        name: 'database'
+        required: true
+      ,
+        name: 'username'
+        required: true
+      ,
+        name: 'password'
+        type: 'password'
+        required: true
+      ,
+        name: 'protocol'
+        type: 'select'
+        required: true
+      ,
+        name: 'transactions'
+      ]
+      docker: [
+        name: 'repository'
+        required: true
+      ,
+        name: 'tag'
+        required: true
+      ,
+        name: 'command'
+      ,
+        name: 'username'
+      ,
+        name: 'password'
+        type: 'password'
+      ,
+        name: 'registry'
       ]
     # environment datum may not set WSDL
     fields.soap.shift() if @get('modelType') is 'remote-endpoint-environment-datum'
@@ -321,6 +387,14 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
     model = @get 'model'
     newModel = @get('store').createRecord 'remote-endpoint-host'
     model.get('hosts').pushObject newModel
+  createNewArgumentModel: ->
+    model = @get 'model'
+    newModel = @get('store').createRecord 'remote-endpoint-argument'
+    model.get('arguments').pushObject newModel
+  createNewEnvironmentVariableModel: ->
+    model = @get 'model'
+    newModel = @get('store').createRecord 'remote-endpoint-environment-variable'
+    model.get('environment_variables').pushObject newModel
 
   actions:
     'delete-remote-endpoint-header': (record) -> record.deleteRecord()
@@ -329,6 +403,8 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
     'new-remote-endpoint-query-parameter': -> @createNewQueryParameterModel()
     'delete-remote-endpoint-host': (record) -> record.deleteRecord()
     'new-remote-endpoint-host': -> @createNewHostModel()
+    'new-remote-endpoint-argument': -> @createNewArgumentModel()
+    'new-remote-endpoint-environment-variable': -> @createNewEnvironmentVariableModel()
     'delete-remote-endpoint-push-platform': (model) ->
       model.deleteRecord()
     'new-remote-endpoint-push-platform': ->

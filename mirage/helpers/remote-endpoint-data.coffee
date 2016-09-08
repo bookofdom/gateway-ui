@@ -2,7 +2,7 @@
 
 enviromentDatumId = 1
 
-types = 'http soap sqlserver postgres mysql mongodb ldap redis oracle script hana store push'.split ' '
+types = 'http soap sqlserver postgres mysql mongodb ldap redis oracle script hana store push smtp db2 docker'.split ' '
 typeCycle = faker.list.cycle types...
 
 statuses = 'success failed pending processing'.split ' '
@@ -17,8 +17,11 @@ encryptModeCycle = faker.list.random encryptModes...
 sslModes = 'disable allow prefer require'.split ' '
 sslModeCycle = faker.list.random sslModes...
 
-platforms = 'osx ios gcm'.split ' '
+platforms = 'osx ios gcm mqtt'.split ' '
 platformCycle = faker.list.random platforms...
+
+protocols = 'TCPIP SSL'.split ' '
+protocolCycle = faker.list.random protocols...
 
 generateKeyValues = (count) ->
   data = {}
@@ -111,6 +114,8 @@ generateDataForType = (typeSlug, i) ->
       {}
     when 'push'
       publish_endpoint: faker.random.boolean()
+      subscribe_endpoint: faker.random.boolean()
+      unsubscribe_endpoint: faker.random.boolean()
     when 'redis'
       maxOpen: faker.random.number()
       maxIdle: faker.random.number()
@@ -130,6 +135,36 @@ generateDataForType = (typeSlug, i) ->
         user: faker.internet.userName()
         password: faker.internet.password()
         dbname: 'database'
+    when 'smtp'
+      config:
+        host: "server.#{faker.internet.domainName()}"
+        port: faker.random.number()
+        user: faker.internet.userName()
+        password: faker.internet.password()
+        sender: faker.internet.email()
+    when 'db2'
+      transactions: faker.random.boolean()
+      config:
+        dbname: 'database'
+        host: "server.#{faker.internet.domainName()}"
+        port: faker.random.number()
+        protocol: protocolCycle i
+        user: faker.internet.userName()
+        password: faker.internet.password()
+    when 'docker'
+      repository: faker.commerce.productName().toLowerCase().underscore()
+      tag: faker.random.number()
+      command: 'my-command'
+      arguments: [
+        'arg1'
+        'arg2'
+      ]
+      environment:
+        FOO: 'bar'
+        EXAMPLE_VAR: '42'
+      username: faker.internet.userName()
+      password: faker.internet.password()
+      registry: faker.internet.domainName()
   data.headers = generateKeyValues 3
   data.query = generateKeyValues 3
   pushPlatformType = platformCycle i
@@ -141,6 +176,9 @@ generateDataForType = (typeSlug, i) ->
     topic: faker.lorem.words().join('.')
     development: faker.random.boolean()
     api_key: faker.random.uuid()
+    connect_timeout: faker.random.number() % 100
+    ack_timeout: faker.random.number() % 100
+    timeout_retries: faker.random.number() % 3
   ]
   data
 

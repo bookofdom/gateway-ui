@@ -1,10 +1,11 @@
-{{#ap-page t='resources.push-channel-device_plural' help-url='http://devhub.justapis.com/v5.0.0/docs' showNew=true}}
+{{#ap-page t='resources.push-channel-device_plural' help-url=(docsUrl) showNew=true}}
 
-  {{ap-table-index
-      models=model
-      fields='name,type,expires:fields.expires:datetime'
-      path='push-channel-device-messages.index'
-      edit-path='push-channel-device.edit'}}
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='push-channel-device-messages.index'
+      edit-route='push-channel-device.edit'
+      show-delete=true}}
 
   {{#ap-panel-new t='resources.push-channel-device' closed=(unbound model.length)}}
     {{forms/push-channel-device-form indexModel=model option-groups=option-groups}}

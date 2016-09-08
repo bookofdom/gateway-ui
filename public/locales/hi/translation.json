@@ -66,7 +66,7 @@
       "manage": "स्थानीय दुकान डाटा का प्रबंधन और पुश सूचनाएं",
       "store-collections": "स्थानीय दुकान संग्रह और डेटा प्रबंधन",
       "push": "धक्का चैनलों, उपकरणों, और संदेशों का प्रबंधन",
-      "build-app": "build multi-channel apps with the AnyPresence platform (login required)",
+      "build-app": "build multi-channel apps with the designer platform (login required)",
       "proxy-endpoints": "define or edit proxy endpoints and corresponding logic",
       "environments": "specify environments, variables, and other attributes",
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
@@ -76,10 +76,10 @@
       "logs": "देखें , खोज, और धारा के लॉग",
       "api-documentation": "इंटरैक्टिव एपीआई प्रलेखन और परीक्षण एपीआई कॉल देखने",
       "shared-components": "प्रॉक्सी समापन के लिए पुन: प्रयोज्य घटकों का निर्माण",
-      "terms-and-conditions": "एक खाते के लिए पंजीकरण करके आप JustAPIs नियमों और शर्तों को स्वीकार करते",
+      "terms-and-conditions": "एक खाते के लिए पंजीकरण करके आप नियमों और शर्तों को स्वीकार करते",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
-        "build-app": "<b>(login required)</b><br>Build multi-channel apps with the AnyPresence platform"
+        "build-app": "<b>(login required)</b><br>Build multi-channel apps with the designer platform"
       }
     },
     "support": "support",
@@ -87,13 +87,9 @@
     "help": "help",
     "account": "account"
   },
-  "brands": {
-    "anypresence": "AnyPresence",
-    "gateway": "Gateway",
-    "just-apis": "Just APIs",
-    "brought-to-you-by-anypresence": "brought to you by AnyPresence"
-  },
   "resources": {
+    "account": "लेखा",
+    "account_plural": "हिसाब किताब",
     "user": "user",
     "user_plural": "users",
     "api": "API",
@@ -167,9 +163,17 @@
     "store-object": "वस्तु",
     "store-object_plural": "वस्तुओं",
     "analytics-query": "सवाल",
-    "analytics-query_plural": "एनालिटिक्स"
+    "analytics-query_plural": "एनालिटिक्स",
+    "stripe-card": "क्रेडिट कार्ड",
+    "stripe-card_plural": "क्रेडिट कार्ड",
+    "plan": "योजना",
+    "plan_plural": "योजनाओं"
   },
   "fields": {
+    "account_name": "खाते का नाम",
+    "connect_timeout": "मध्यांतर कनेक्ट",
+    "ack_timeout": "एसीके मध्यांतर",
+    "timeout_retries": "मध्यांतर पुनर्प्रयास",
     "stamp": "डाक टिकट",
     "token": "टोकन",
     "expires": "समाप्त हो रहा है",
@@ -281,6 +285,14 @@
     "max_length": "ज्यादा से ज्यादा लंबाई",
     "encrypt": "एनक्रिप्ट",
     "additional_properties": "अतिरिक्त गुण",
+    "subscribe_endpoint": "सदस्यता के समापन बिंदु",
+    "unsubscribe_endpoint": "सदस्यता समाप्त समापन बिंदु",
+    "protocol": "मसविदा बनाना",
+    "plan": "योजना",
+    "cc_number": "क्रेडिट कार्ड नंबर",
+    "cc_exp_month": "अंतिम माह",
+    "cc_exp_year": "समाप्ति वर्ष",
+    "javascript_timeout": "जावास्क्रिप्ट मध्यांतर",
     "help": {
       "timeout": "सेकंड की संख्या।",
       "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
@@ -326,7 +338,10 @@
     "invalid-password": "invalid password",
     "login": "हम आपको लॉग इन करने में असमर्थ थे",
     "invalid-json": "अवैध JSON",
-    "invalid-json-schema": "अवैध JSON स्कीमा"
+    "invalid-json-schema": "अवैध JSON स्कीमा",
+    "invalid-cc-number": "अवैध कार्ड संख्या",
+    "invalid-cc-expiry": "अवैध समाप्ति",
+    "invalid-cc-cvc": "अवैध सीवीसी"
   },
   "successes": {
     "push-manual-message": "संदेश सफलतापूर्वक भेजा जा चुका है",

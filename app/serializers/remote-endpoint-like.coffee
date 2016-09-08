@@ -1,17 +1,20 @@
 `import DS from 'ember-data'`
 `import ApiRelatedSerializer from 'gateway/serializers/api-related'`
-`import HttpRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/http'`
-`import SoapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/soap'`
-`import SqlserverRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/sqlserver'`
-`import PostgresRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/postgres'`
-`import MysqlRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/mysql'`
-`import MongodbRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/mongodb'`
-`import LdapRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/ldap'`
-`import ScriptRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/script'`
-`import HanaRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/hana'`
-`import PushRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/push'`
-`import RedisRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/redis'`
-`import OracleRemoteEndpointSerializer from 'gateway/serializers/remote-endpoint/oracle'`
+`import HttpRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/http'`
+`import SoapRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/soap'`
+`import SqlserverRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/sqlserver'`
+`import PostgresRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/postgres'`
+`import MysqlRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/mysql'`
+`import MongodbRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/mongodb'`
+`import LdapRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/ldap'`
+`import ScriptRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/script'`
+`import HanaRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/hana'`
+`import PushRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/push'`
+`import RedisRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/redis'`
+`import OracleRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/oracle'`
+`import SmtpRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/smtp'`
+`import Db2EndpointSerializer from 'gateway/pods/remote-endpoint/serializers/db2'`
+`import DockerEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/docker'`
 
 RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
@@ -24,6 +27,10 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
     hosts:
       embedded: 'always'
     push_platforms:
+      embedded: 'always'
+    arguments:
+      embedded: 'always'
+    environment_variables:
       serialize: false
       deserialize: 'records'
 
@@ -32,15 +39,19 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
     hash.headers = [] if !hash.headers
     hash.query = [] if !hash.query
     hash.hosts = [] if !hash.hosts
+    hash.arguments = [] if !hash.arguments
     hash.environment_data = [] if !hash.environment_data
+    hash.environment_variables = [] if !hash.environment_variables
     hash.data ?= {}
     # normalize embedded resources
+    @normalizeArguments hash
     @normalizeEnvironmentData hash
     @normalizeScratchPadLinks hash
     Ember.merge hash,
       headers: @objectToArray hash.data.headers
       query: @objectToArray hash.data.query
       hosts: hash.data.config?.hosts or []
+      environment_variables: @objectToArray hash.data.environment
       push_platforms: hash.data.push_platforms or []
     # normalize attributes
     switch hash.type
@@ -56,7 +67,13 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'push' then PushRemoteEndpointSerializer.normalize hash
       when 'redis' then RedisRemoteEndpointSerializer.normalize hash
       when 'oracle' then OracleRemoteEndpointSerializer.normalize hash
+      when 'smtp' then SmtpRemoteEndpointSerializer.normalize hash
+      when 'db2' then Db2EndpointSerializer.normalize hash
+      when 'docker' then DockerEndpointSerializer.normalize hash
     @_super arguments...
+  normalizeArguments: (hash) ->
+    if hash.data.arguments
+      hash.arguments = (value: value for value in hash.data.arguments)
   normalizeEnvironmentData: (hash) ->
     hash.environment_data ?= []
     datum.type = hash.type for datum in hash.environment_data
@@ -77,7 +94,8 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
     Ember.merge serialized.data,
       headers: @serializeHeaders snapshot
       query: @serializeQuery snapshot
-      push_platforms: @serializePushPlatforms snapshot
+      arguments: @serializeArguments snapshot
+      environment: @serializeEnvironmentVariables snapshot
     # serialize attributes
     switch serialized.type
       when 'http' then HttpRemoteEndpointSerializer.serialize serialized
@@ -93,6 +111,9 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'push' then PushRemoteEndpointSerializer.serialize serialized
       when 'redis' then RedisRemoteEndpointSerializer.serialize serialized
       when 'oracle' then OracleRemoteEndpointSerializer.serialize serialized
+      when 'smtp' then SmtpRemoteEndpointSerializer.serialize serialized
+      when 'db2' then Db2EndpointSerializer.serialize serialized
+      when 'docker' then DockerEndpointSerializer.serialize serialized
     serialized
   serializeHeaders: (snapshot) ->
     headers = {}
@@ -106,10 +127,17 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       attributes = querySnapshot.attributes()
       query[attributes.name] = attributes.value
     query
-  serializePushPlatforms: (snapshot) ->
-    push_platforms = []
-    snapshot.hasMany('push_platforms')?.forEach (pushPlatform) ->
-      push_platforms.push pushPlatform.attributes()
-    push_platforms
+  serializeArguments: (snapshot) ->
+    args = snapshot.hasMany 'arguments'
+    if args
+      args?.map (arg) -> arg.attributes().value
+    else
+      []
+  serializeEnvironmentVariables: (snapshot) ->
+    envVars = {}
+    snapshot.hasMany('environment_variables')?.forEach (envVarSnapshot) ->
+      attributes = envVarSnapshot.attributes()
+      envVars[attributes.name] = attributes.value
+    envVars
 
 `export default RemoteEndpointLikeSerializer`

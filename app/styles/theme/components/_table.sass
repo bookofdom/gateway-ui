@@ -18,12 +18,26 @@
           color: $link-color
       .ap-list-nav-simple-icon
         visibility: hidden
+      .ap-list-link-edit
+        display: none
+      .ap-list-link-delete
+        display: none
     &:hover
       border-left-color: $ap-accent
       > td
         background-color: desaturate(lighten($ap-accent, 37%), 7%)
         .ap-list-nav-simple-icon
           visibility: visible
+
+.table-edit
+  table > tbody > tr > td
+    .ap-list-link-edit
+      display: inline-block
+
+.table-delete
+  table > tbody > tr > td
+    .ap-list-link-delete
+      display: inline-block
 
 //form .table
 //  > tbody > tr > td

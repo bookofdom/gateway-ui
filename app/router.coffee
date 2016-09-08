@@ -14,9 +14,14 @@ Router.map ->
     @route 'reset-confirmation'
 
   # resources
-  @route 'users', resetNamespace: true, ->
-    @route 'user', resetNamespace: true, path: ':user_id', ->
-      @route 'edit'
+  @route 'admin', path: 'account', ->
+    @route 'account', path: 'edit', resetNamespace: true, (->)
+    @route 'keys', resetNamespace: true, ->
+      @route 'key', resetNamespace: true, path: ':key_id', ->
+        @route 'edit'
+    @route 'users', resetNamespace: true, ->
+      @route 'user', resetNamespace: true, path: ':user_id', ->
+        @route 'edit'
   @route 'logs', resetNamespace: true, (->)
   @route 'apis', resetNamespace: true, ->
     @route 'api', resetNamespace: true, path: ':api_id', ->

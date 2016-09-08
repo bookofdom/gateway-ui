@@ -5,6 +5,15 @@ defaultScenario = (server) ->
   # sessions
   server.loadFixtures 'sessions'
 
+  # plans
+  server.createList 'plan', 3
+
+  # accounts
+  server.createList 'account', 1, planId: Math.round(Math.random() * 2) + 1
+
+  # account keys
+  server.createList 'key', 5
+
   # logs
   server.createList 'log', 1
 
@@ -25,7 +34,7 @@ defaultScenario = (server) ->
     server.createList 'library', 5, apiId: id
     server.createList 'host', 5, apiId: id
     server.createList 'endpoint_group', 5, apiId: id
-    server.createList('remote_endpoint', 26, apiId: id).forEach (remoteEndpoint) ->
+    server.createList('remote_endpoint', 32, apiId: id).forEach (remoteEndpoint) ->
       options =
         apiId: id
         remoteEndpointId: remoteEndpoint.id

@@ -2,10 +2,13 @@
 
 moduleForModel 'registration', 'Unit | Model | registration', {
   # Specify the other units that are required for this test.
-  needs: []
+  needs: [
+    'service:stripe'
+    'model:plan'
+    'model:stripe-card'
+  ]
 }
 
 test 'it exists', (assert) ->
   model = @subject()
-  # store = @store()
   assert.ok !!model

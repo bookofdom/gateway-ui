@@ -224,7 +224,7 @@
                 "parameters": [],
                 "responses": {
                     "200": {
-                        "description:": "A simple hello world endpoint to test whether your JustAPIs instance running correctly."
+                        "description:": "A simple hello world endpoint to test whether your instance is running correctly."
                     },
                     "default": {
                         "description": "error"
@@ -304,7 +304,7 @@
                 "parameters": [],
                 "responses": {
                     "200": {
-                        "description:": "Show JustAPIs JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
+                        "description:": "Show custom JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
                     },
                     "default": {
                         "description": "error"
@@ -318,7 +318,7 @@
                 "parameters": [],
                 "responses": {
                     "200": {
-                        "description:": "Show JustAPIs JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
+                        "description:": "Show custom JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
                     },
                     "default": {
                         "description": "error"
@@ -341,7 +341,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description:": "Show JustAPIs JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
+                        "description:": "Show custom JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
                     },
                     "default": {
                         "description": "error"
@@ -362,7 +362,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description:": "Show JustAPIs JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
+                        "description:": "Show custom JavaScript objects like proxy request, proxy response, remote request, remote response, log, env and session."
                     },
                     "default": {
                         "description": "error"

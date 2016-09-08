@@ -29,12 +29,18 @@ RemoteEndpointLike = Model.extend
   # postgres
   # mysql
   # oracle
+  # db2
   database: DS.attr 'string'
   # sqlserver
   # postgres
   # mysql
   # hana
+  # db2
   transactions: DS.attr 'boolean'
+  # sqlserver
+  # postgres
+  # mysql
+  # hana
   maxopen: DS.attr 'number'
   maxidle: DS.attr 'number'
   # sqlserver
@@ -49,6 +55,7 @@ RemoteEndpointLike = Model.extend
   # hana
   # redis
   # oracle
+  # db2
   server: DS.attr 'string'
   port: DS.attr 'number'
   # soap
@@ -60,6 +67,8 @@ RemoteEndpointLike = Model.extend
   # hana
   # redis
   # oracle
+  # smtp
+  # db2
   username: DS.attr 'string'
   password: DS.attr 'string'
   # ldap
@@ -74,6 +83,17 @@ RemoteEndpointLike = Model.extend
   script: DS.attr 'string'
   # push
   publish_endpoint: DS.attr 'boolean'
+  subscribe_endpoint: DS.attr 'boolean', defaultValue: true
+  unsubscribe_endpoint: DS.attr 'boolean', defaultValue: true
+  # smtp
+  sender: DS.attr 'string'
+  # db2
+  protocol: DS.attr 'string', defaultValue: 'TCPIP'
+  # docker
+  repository: DS.attr 'string'
+  tag: DS.attr 'string', defaultValue: 'latest'
+  command: DS.attr 'string'
+  registry: DS.attr 'string'
 
   # Relationships
   headers: DS.hasMany 'remote-endpoint-header',
@@ -92,6 +112,14 @@ RemoteEndpointLike = Model.extend
     async: false
     stains: true
     embeddedModel: true
+  arguments: DS.hasMany 'remote-endpoint-argument',
+    async: false
+    stains: true
+    embeddedModel: true
+  environment_variables: DS.hasMany 'remote-endpoint-environment-variable',
+    async: false
+    stains: true
+    embeddedModel: true
 
   # Computed
   platform: Ember.computed 'type', ->
@@ -103,6 +131,8 @@ RemoteEndpointLike = Model.extend
     @get('platform.slug') == 'http'
   isMongo: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'mongodb'
+  isDocker: Ember.computed 'platform.slug', ->
+    @get('platform.slug') == 'docker'
   isPush: Ember.computed 'platform.slug', ->
     @get('platform.slug') == 'push'
   statusType: Ember.computed 'status', ->
@@ -123,16 +153,26 @@ RemoteEndpointLike = Model.extend
   location: Ember.computed 'url', 'server', 'hosts.[]', ->
     location = @get('url') or @get('server')
     location = @get('hosts').map((host) -> host.get 'host')?.join(' / ') if @get 'isMongo'
+    if @get 'isDocker'
+      registry = @get 'registry'
+      repo = @get 'repository'
+      tag = @get 'tag'
+      location = "#{repo}:#{tag}"
+      location = "#{registry}/#{location}" if registry
     location
   sslModeType: Ember.computed 'sslmode', ->
     mode = @get 'sslmode'
     RemoteEndpointLike.sslModes.findBy 'value', mode
+  protocolType: Ember.computed 'protocol', ->
+    protocol = @get 'protocol'
+    RemoteEndpointLike.protocols.findBy 'slug', protocol.toLowerCase()
   sslModeTypeName: Ember.computed 'sslModeType.name', ->
     @get 'sslModeType.name'
+  protocolName: Ember.computed.alias 'protocolType.name'
   push_platform_codenames: Ember.computed.mapBy 'push_platforms', 'codename'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle smtp db2 docker'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   slug: type
   value: type
@@ -156,6 +196,11 @@ authSchemes = 'basic wsse'.split(' ').map (scheme) ->
   name: t "types.remote-endpoint.auth-schemes.#{scheme}"
   slug: scheme
   value: scheme
+
+protocols = 'tcpip ssl'.split(' ').map (protocol) ->
+  name: t "types.remote-endpoint.protocols.#{protocol}"
+  slug: protocol
+  value: protocol.toUpperCase()
 
 # Interpreters are filtered in the UI depending on the GOOS
 # config passed by the binary.  Thus only the interpreter(s)
@@ -184,6 +229,7 @@ RemoteEndpointLike.reopenClass
   encryptModes: encryptModes
   sslModes: sslModes
   authSchemes: authSchemes
+  protocols: protocols
   interpreters: interpreters
 
 `export default RemoteEndpointLike`

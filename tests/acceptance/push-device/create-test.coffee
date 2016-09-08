@@ -26,13 +26,12 @@ test 'user can create new push devices', (assert) ->
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/manage/push/devices'
-    assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New push device'
   andThen ->
     fillIn '[name=type]', find("[name=type] option:nth-child(2)").val()
   fillIn '[name=token]', 'abc123'
-  fillIn '[name=expires]', '2016-05-31T00:00:00Z'
   click '.ap-panel-new [type=submit]'
   andThen ->
     assert.equal server.db.pushDevices.length, beforeCreateCount + 1
-    assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount + 1
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1

@@ -66,7 +66,7 @@
       "manage": "gerenciar dados de loja local e notificações push",
       "store-collections": "gerenciar coleções de lojas locais e dados",
       "push": "gerenciar os canais de pressão , dispositivos e mensagens",
-      "build-app": "constrói aplicações de multi-canais com a plataforma AnyPresence (login necessário)",
+      "build-app": "constrói aplicações de multi-canais com a plataforma (login necessário)",
       "proxy-endpoints": "define os endpoints da proxy e a lógica correspondente",
       "environments": "especifica ambiente, variáveis e outros atributos",
       "endpoint-groups": "os grupos mencionados agrupam os endpoints da proxy por conveniência",
@@ -76,10 +76,10 @@
       "logs": "visualização, pesquisa e transmissão de registros",
       "api-documentation": "visualizar a documentação da API e chamadas de API de teste interativos",
       "shared-components": "construir componentes reutilizáveis ​​para endpoints de proxy",
-      "terms-and-conditions": "registrando-se para uma conta, você aceita os termos e condições JustAPIs",
+      "terms-and-conditions": "registrando-se para uma conta, você aceita os termos e condições",
       "formatted": {
         "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",
-        "build-app": "<b>(login necessário)</b><br>Constrói aplicações de multi-canais com a plataforma AnyPresence"
+        "build-app": "<b>(login necessário)</b><br>Constrói aplicações de multi-canais com a plataforma"
       }
     },
     "support": "suporte",
@@ -87,13 +87,9 @@
     "help": "ajuda",
     "account": "conta"
   },
-  "brands": {
-    "anypresence": "AnyPresence",
-    "gateway": "Gateway",
-    "just-apis": "Just APIs",
-    "brought-to-you-by-anypresence": "trazido a você por AnyPresence"
-  },
   "resources": {
+    "account": "conta",
+    "account_plural": "contas",
     "user": "usuário",
     "user_plural": "usuários",
     "api": "API",
@@ -138,6 +134,10 @@
     "remote-endpoint_plural": "endpoints remotos",
     "remote-endpoint-environment-datum": "dado do ambiente",
     "remote-endpoint-environment-datum_plural": "dados do ambiente",
+    "remote-endpoint-argument": "argumento",
+    "remote-endpoint-argument_plural": "argumentos",
+    "remote-endpoint-environment-variable": "variável de ambiente",
+    "remote-endpoint-environment-variable_plural": "variáveis ​​ambientais",
     "remote-endpoint-header": "cabeçalho",
     "remote-endpoint-header_plural": "cabeçalhos",
     "remote-endpoint-query-parameter": "parametro de consulta",
@@ -167,9 +167,19 @@
     "store-object": "objeto",
     "store-object_plural": "objetos",
     "analytics-query": "consulta",
-    "analytics-query_plural": "analítica"
+    "analytics-query_plural": "analítica",
+    "stripe-card": "cartão de crédito",
+    "stripe-card_plural": "cartões de crédito",
+    "plan": "plano",
+    "plan_plural": "planos",
+    "key": "chave",
+    "key_plural": "chaves"
   },
   "fields": {
+    "account_name": "nome da conta",
+    "connect_timeout": "connect timeout",
+    "ack_timeout": "ACK timeout",
+    "timeout_retries": "tentativas de tempo limite",
     "stamp": "carimbo",
     "token": "símbolo",
     "expires": "expira",
@@ -281,10 +291,24 @@
     "max_length": "comprimento máximo",
     "encrypt": "criptografar",
     "additional_properties": "propriedades adicionais",
+    "subscribe_endpoint": "subscrever endpoint",
+    "unsubscribe_endpoint": "endpoint unsubscribe",
+    "protocol": "protocolo",
+    "plan": "plano",
+    "cc_number": "número do Cartão de Crédito",
+    "cc_exp_month": "mês de validade",
+    "cc_exp_year": "ano de validade",
+    "javascript_timeout": "tempo limite de JavaScript",
+    "repository": "repositório",
+    "tag": "etiqueta",
+    "command": "comando",
+    "registry": "registro",
+    "key": "arquivo de chave",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
-      "enable_swagger": "Ativar Swagger para procurar a documentação da API e publicar `swagger.json`."
+      "enable_swagger": "Ativar Swagger para procurar a documentação da API e publicar `swagger.json`.",
+      "key": "PEM-codificado"
     },
     "api": {
       "name": "nome API"
@@ -326,7 +350,10 @@
     "invalid-password": "senha inválida",
     "login": "não fomos capazes de fazer seu login",
     "invalid-json": "inválido JSON",
-    "invalid-json-schema": "esquema JSON inválido"
+    "invalid-json-schema": "esquema JSON inválido",
+    "invalid-cc-number": "número de cartão inválido",
+    "invalid-cc-expiry": "expiração inválida",
+    "invalid-cc-cvc": "inválida CVC"
   },
   "successes": {
     "push-manual-message": "mensagem enviada com sucesso",

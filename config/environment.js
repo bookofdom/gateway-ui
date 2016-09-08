@@ -41,8 +41,15 @@ module.exports = function(environment) {
     remote_endpoint_types_enabled: null,
     notifications: false,
 
+    docsBaseUrl: 'http://devhub.justapis.com/v5.0.0/docs',
+    supportUrl: 'mailto:support@nanoscale.io',
+    termsUrl: 'http://www.nanoscale.io/terms/',
+    brandNames: {
+      primary: 'JustAPIs'
+    },
+
     api: {
-      host: process.env.API_HOST || '',
+      host: '',
       basePath: 'admin',
       swaggerViewerPath: null,
       swaggerJsonPath: null,
@@ -54,7 +61,12 @@ module.exports = function(environment) {
       }
     },
 
-    evalJsUrl: '/eval.js'
+    evalJsUrl: '/eval.js',
+
+    enablePlanSubscriptions: true,
+    stripe: {
+      publishableKey: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh'
+    }
   };
 
   if (environment === 'development') {
@@ -91,68 +103,38 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    // Interpolated configuration variables are filled by the server.  The
-    // server replaces UPPERCASE_VARS with a value if one exists.  In some
-    // cases, variables with no value are left in-place.  Others are replaced
-    // with the empty string.  Each interpolated config variable with a value is
-    // copied to an ENV property, where config.key is the key and config.value
-    // is the value.
-    // For example, in {name: 'version', value: 'VERSION'} where the server
-    // replaces VERSION with 1.2, an ENV property is created:
-    // ENV.version = '1.2'.
-    var interpolatedConfig = [
-      {
-        key: 'registration_enabled',
-        value: 'REGISTRATION_ENABLED'
-      },
-      {
-        key: 'version',
-        value: 'VERSION'
-      },
-      {
-        key: 'dev_mode',
-        value: 'DEV_MODE'
-      },
-      {
-        key: 'go_os',
-        value: 'GO_OS'
-      },
-      {
-        key: 'remote_endpoint_types_enabled',
-        value: 'REMOTE_ENDPOINT_TYPES_ENABLED'
-      },
-      {
-        key: 'api_base_path_placeholder',
-        value: 'API_BASE_PATH_PLACEHOLDER'
-      },
-      {
-        key: 'broker_placeholder',
-        value: 'BROKER_PLACEHOLDER'
-      },
-      {
-        key: 'google_analytics_tracking_id',
-        value: 'GOOGLE_ANALYTICS_TRACKING_ID'
-      }
-    ];
-
-    interpolatedConfig.forEach(function (config) {
-      var uppercaseKey = config.key.toUpperCase();
-      if (uppercaseKey !== config.value) {
-        ENV[config.key] = config.value;
-      }
-    });
+    // interpolated config
+    ENV.api.host = 'ADMIN_API_HOST';
+    ENV.registration_enabled = 'REGISTRATION_ENABLED';
+    ENV.version = 'VERSION';
+    ENV.dev_mode = 'DEV_MODE';
+    ENV.go_os = 'GO_OS';
+    ENV.remote_endpoint_types_enabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
+    ENV.api_base_path_placeholder = 'API_BASE_PATH_PLACEHOLDER';
+    ENV.broker_placeholder = 'BROKER_PLACEHOLDER';
+    ENV.google_analytics_tracking_id = 'GOOGLE_ANALYTICS_TRACKING_ID';
 
     ENV.baseURL = null;
     ENV.locationType = 'hash';
-    if (ENV.api_base_path_placeholder) ENV.api.basePath = ENV.api_base_path_placeholder;
-    if (ENV.broker_placeholder) ENV.api.logs.host = ENV.broker_placeholder;
+    ENV.api.basePath = ENV.api_base_path_placeholder;
+    ENV.api.logs.host = ENV.broker_placeholder;
     ENV.notifications = true;
+<<<<<<< HEAD
     if (ENV.google_analytics_tracking_id) {
       ENV.googleAnalytics = {
         webPropertyId: ENV.google_analytics_tracking_id
       };
     }
     ENV.evalJsUrl = [ENV.api.host, ENV.api.basePath, 'eval.js'].join('/');
+=======
+    ENV.googleAnalytics = {
+      webPropertyId: ENV.google_analytics_tracking_id
+    };
+    ENV.enablePlanSubscriptions = 'ENABLE_PLAN_SUBSCRIPTIONS';
+    ENV.stripe = {
+      publishableKey: 'STRIPE_PUBLISHABLE_KEY'
+    };
+>>>>>>> develop
   }
 
   ENV.api.url = [ENV.api.host, ENV.api.basePath].join('/');

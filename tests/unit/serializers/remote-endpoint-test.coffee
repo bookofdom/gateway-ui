@@ -16,6 +16,8 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
     'model:library'
     'model:proxy-endpoint'
     'model:remote-endpoint'
+    'model:remote-endpoint-argument'
+    'model:remote-endpoint-environment-variable'
     'model:remote-endpoint-environment-datum'
     'model:remote-endpoint-environment-datum-scratch-pad'
     'model:remote-endpoint-header'
@@ -365,8 +367,18 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
               platform_type: 'gcm'
               development: false
               api_key: 'AIzaSyCPc6PN7PkKT7BGj-b60XAmEpp6f9N1oNY'
+            ,
+              name: 'test-mqtt'
+              codename: 'test-mqtt'
+              platform_type: 'mqtt'
+              password: 'abc123'
+              connect_timeout: 2
+              ack_timeout: 20
+              timeout_retries: 3
             ]
             publish_endpoint: true
+            subscribe_endpoint: true
+            unsubscribe_endpoint: true
           environment_data: [
             id: 8
             environment_id: 1
@@ -383,6 +395,40 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
               ]
               publish_endpoint: false
           ]
+          , # smtp
+            api_id: '1'
+            id: 12
+            name: 'Gmail smtp',
+            codename: 'gmail'
+            description: ''
+            type: 'smtp'
+            status: 'failed'
+            data:
+              config:
+                host: 'smtp.gmail.com'
+                port: 587
+                username: 'user'
+                password: 'password'
+                sender: 'user@gmail.com'
+            environment_data: null
+          , # redis
+            api_id: '1'
+            id: 13
+            name: 'redis',
+            codename: 'redis'
+            description: ''
+            type: 'redis'
+            status: 'failed'
+            data:
+              config:
+                host: 'localhost'
+                port: 6379
+                username: 'user'
+                password: 'password'
+                database: '0'
+              maxidle: 5
+              maxopen: 5
+            environment_data: null
         ]
       ]
 
@@ -394,4 +440,4 @@ test 'it normalizes records', (assert) ->
     api = apis.get('firstObject')
     api.get('environments').then ->
       api.get('remote_endpoints').then (remote_endpoints) ->
-        assert.equal remote_endpoints.get('length'), 10
+        assert.equal remote_endpoints.get('length'), 12
