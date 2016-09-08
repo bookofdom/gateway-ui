@@ -5,6 +5,9 @@
 
 RegistrationRoute = Ember.Route.extend UnauthenticatedRouteMixin, PlansRouteMixin,
   notify: Ember.inject.service()
+  queryParams:
+    plan:
+      refreshModel: true
   actions:
     saved: ->
       successMessage = t 'successes.sign-up'
