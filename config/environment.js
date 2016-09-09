@@ -119,22 +119,18 @@ module.exports = function(environment) {
     ENV.api.basePath = ENV.api_base_path_placeholder;
     ENV.api.logs.host = ENV.broker_placeholder;
     ENV.notifications = true;
-<<<<<<< HEAD
+    
     if (ENV.google_analytics_tracking_id) {
       ENV.googleAnalytics = {
         webPropertyId: ENV.google_analytics_tracking_id
       };
     }
     ENV.evalJsUrl = [ENV.api.host, ENV.api.basePath, 'eval.js'].join('/');
-=======
-    ENV.googleAnalytics = {
-      webPropertyId: ENV.google_analytics_tracking_id
-    };
+
     ENV.enablePlanSubscriptions = 'ENABLE_PLAN_SUBSCRIPTIONS';
     ENV.stripe = {
       publishableKey: 'STRIPE_PUBLISHABLE_KEY'
     };
->>>>>>> develop
   }
 
   ENV.api.url = [ENV.api.host, ENV.api.basePath].join('/');
