@@ -269,7 +269,8 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         type: 'integer'
       ]
       smtp: [
-        name: 'host'
+        name: 'server'
+        label: 'fields.host'
         required: true
       ,
         name: 'port'
