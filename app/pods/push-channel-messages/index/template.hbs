@@ -1,12 +1,8 @@
-{{#ap-page t='resources.push-channel-message_plural' showNew=true}}
+{{#ap-page t='resources.push-channel-message_plural'}}
 
   {{ap-table-auto-index
       model=model
       fields=fields
-      route='push-channel-message.index'}}
-
-  {{#ap-panel-new t='resources.push-channel-message' closed=(unbound model.length)}}
-    {{forms/push-channel-message-form option-groups=option-groups}}
-  {{/ap-panel-new}}
+      route='push-channel-message'}}
 
 {{/ap-page}}
