@@ -42,14 +42,6 @@
           <pre class="form-control form-control-flexible">{{formattedResponseBody}}</pre>
         </div><!-- /.col -->
       </div><!-- /.form-group -->
-      {{#if responseBodyParseError}}
-        <div class="form-group">
-          <label class="control-label col-sm-2">{{t 'fields.body_parse_error'}}</label>
-          <div class="col-sm-10">
-            <pre style="color: red;" class="form-control form-control-flexible">{{responseBodyParseError}}</pre>
-          </div><!-- /.col -->
-        </div><!-- /.form-group -->
-      {{/if}}
       <div class="form-group">
         <label class="control-label col-sm-2">{{t 'fields.log'}}</label>
         <div class="col-sm-10">
