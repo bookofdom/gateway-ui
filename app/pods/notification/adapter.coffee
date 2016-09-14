@@ -9,13 +9,11 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
   autoReconnect: true
   enabled: false
 
-  isSecure: Ember.computed -> location.protocol is 'https:'
-
   buildSocketURL: (type) ->
     url = @urlForFindAll type
-    url = url.replace 'http://', ''
+    isSecure = (location.protocol is 'https:') or (url.match /^https:\/\//)
+    url = url.replace /^[a-z]*:\/\//, '' # remove protocol
     url = "#{location.host}#{url}" if !config.api.host
-    isSecure = @get 'isSecure'
     protocol = if isSecure then 'wss:' else 'ws:'
     url = "#{protocol}//#{url}"
     # replace double leading slash with single

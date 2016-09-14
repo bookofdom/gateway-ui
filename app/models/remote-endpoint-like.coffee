@@ -55,6 +55,7 @@ RemoteEndpointLike = Model.extend
   # hana
   # redis
   # oracle
+  # smtp
   # db2
   server: DS.attr 'string'
   port: DS.attr 'number'
@@ -153,6 +154,12 @@ RemoteEndpointLike = Model.extend
   location: Ember.computed 'url', 'server', 'hosts.[]', ->
     location = @get('url') or @get('server')
     location = @get('hosts').map((host) -> host.get 'host')?.join(' / ') if @get 'isMongo'
+    if @get 'isDocker'
+      registry = @get 'registry'
+      repo = @get 'repository'
+      tag = @get 'tag'
+      location = "#{repo}:#{tag}"
+      location = "#{registry}/#{location}" if registry
     location
   sslModeType: Ember.computed 'sslmode', ->
     mode = @get 'sslmode'

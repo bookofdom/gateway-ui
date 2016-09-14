@@ -42,8 +42,8 @@ module.exports = function(environment) {
     notifications: false,
 
     docsBaseUrl: 'http://devhub.justapis.com/v5.0.0/docs',
-    supportUrl: 'http://support.anypresence.com',
-    termsUrl: 'http://www.anypresence.com/terms/#justapis',
+    supportUrl: 'mailto:support@nanoscale.io',
+    termsUrl: 'http://www.nanoscale.io/terms/',
     brandNames: {
       primary: 'JustAPIs'
     },

@@ -9,6 +9,8 @@ AccountSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
       deserialize: 'records'
 
   normalize: (type, hash, property) ->
+    hash.links =
+      keys: 'keys'
     hash.card = {}
     delete hash.plan_id if !@get 'subscription.enabled'
     @_super arguments...

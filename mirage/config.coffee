@@ -83,11 +83,21 @@ config = ->
   @put '/store_collections/:storeCollectionId/store_objects/:id', makePutHandler 'store_object'
   @del '/store_collections/:storeCollectionId/store_objects/:id'
 
-  @get '/accounts'
-  @post '/accounts', makePostHandler 'account'
-  @get '/accounts/:id'
-  @put '/accounts/:id', makePutHandler 'account'
-  @del '/accounts/:id'
+  @get '/account', (schema, request) -> schema.account.all()[0]
+  @put '/account', (schema, request) ->
+    body = JSON.parse request.requestBody
+    payload = body.account
+    if body.account?.name is 'error'
+      response = new Response 422, {},
+        errors:
+          name: ['This field is in error']
+    else
+      response = schema.account.all()[0].update payload
+    response
+
+  @get '/keys'
+  @post '/keys', makePostHandler 'key'
+  @del '/keys/:id'
 
   @get '/users'
   @post '/users', makePostHandler 'user'

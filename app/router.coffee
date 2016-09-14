@@ -16,6 +16,9 @@ Router.map ->
   # resources
   @route 'admin', path: 'account', ->
     @route 'account', path: 'edit', resetNamespace: true, (->)
+    @route 'keys', resetNamespace: true, ->
+      @route 'key', resetNamespace: true, path: ':key_id', ->
+        @route 'edit'
     @route 'users', resetNamespace: true, ->
       @route 'user', resetNamespace: true, path: ':user_id', ->
         @route 'edit'

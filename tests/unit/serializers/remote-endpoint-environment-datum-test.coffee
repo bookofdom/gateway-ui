@@ -16,6 +16,8 @@ moduleForModel 'remote-endpoint-environment-datum', 'Unit | Serializer | remote 
     'model:library'
     'model:proxy-endpoint'
     'model:remote-endpoint'
+    'model:remote-endpoint-argument'
+    'model:remote-endpoint-environment-variable'
     'model:remote-endpoint-environment-datum'
     'model:remote-endpoint-environment-datum-scratch-pad'
     'model:remote-endpoint-header'
