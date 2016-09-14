@@ -160,7 +160,7 @@ config = ->
   @get '/apis/:apiId/proxy_endpoints/:id'
   @put '/apis/:apiId/proxy_endpoints/:id', makePutHandler 'proxy_endpoint'
   @del '/apis/:apiId/proxy_endpoints/:id'
-  @get '/apis/:apiId/proxy_endpoints/:proxy_endpoint_id/tests/:id/test', ->
+  @get '/apis/:apiId/proxy_endpoints/:proxy_endpoint_id/tests/:id/test', (->
     results: [
       {
         method: 'get',
@@ -172,10 +172,11 @@ config = ->
           {name: 'X-Gateway-Requestid', value: 'ed32998f-f857-4335-9f0f-288010ddb282'}
         ],
         body: '{"get-test": "this is a get test"}',
-        log: 'this is a log message for a get request',
+        log: "this is a log message for a get request #{Math.random()}",
         time: 8
       }
     ]
+  ), {timing: 2000}
 
   @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makeGetChildrenHandler('proxy_endpoint', 'proxy_endpoint_schema')
   @post '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makePostChildHandler('proxy_endpoint', 'proxy_endpoint_schema')
