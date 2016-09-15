@@ -3,15 +3,15 @@
 
 Timer = Model.extend
   name: DS.attr 'string'
-  once: DS.attr 'boolean'
-  time_zone: DS.attr 'number'
-  minute: DS.attr 'string'
-  hour: DS.attr 'string'
-  day_of_month: DS.attr 'string'
-  month: DS.attr 'string'
-  day_of_week: DS.attr 'string'
+  once: DS.attr 'boolean', defaultValue: false
+  time_zone: DS.attr 'number', defaultValue: 0
+  minute: DS.attr 'string', defaultValue: '*'
+  hour: DS.attr 'string', defaultValue: '*'
+  day_of_month: DS.attr 'string', defaultValue: '*'
+  month: DS.attr 'string', defaultValue: '*'
+  day_of_week: DS.attr 'string', defaultValue: '*'
   next: DS.attr 'string'
-  attributes: DS.attr 'string'
+  attributes: DS.attr 'string', defaultValue: '{}'
 
   # Relationships
   api: DS.belongsTo 'api',

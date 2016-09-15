@@ -123,4 +123,7 @@ Router.map ->
           @route 'edit'
       @route 'push-channel-messages', resetNamespace: true, path: 'messages', ->
         @route 'push-channel-message', resetNamespace: true, path: ':push_channel_message_id', (->)
+    @route 'timers', resetNamespace: true, path: 'timers', ->
+      @route 'timer', resetNamespace: true, path: ':timer_id', ->
+        @route 'edit'
 `export default Router`
