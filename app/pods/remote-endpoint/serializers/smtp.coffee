@@ -1,6 +1,6 @@
 SmtpRemoteEndpointSerializer =
   normalize: (hash) ->
-    hash.username = hash.data.config.user
+    hash.username = hash.data.config.username
     hash.password = hash.data.config.password
     hash.server = hash.data.config.host
     hash.port = hash.data.config.port
@@ -8,7 +8,7 @@ SmtpRemoteEndpointSerializer =
   serialize: (serialized) ->
     serialized.data = Ember.merge serialized.data,
       config:
-        user: serialized.username
+        username: serialized.username
         password: serialized.password
         host: serialized.server
         port: serialized.port
