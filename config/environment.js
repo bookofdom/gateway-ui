@@ -45,7 +45,7 @@ module.exports = function(environment) {
     supportUrl: 'mailto:support@nanoscale.io',
     termsUrl: 'http://www.nanoscale.io/terms/',
     brandNames: {
-      primary: 'JustAPIs'
+      primary: 'nanoscale.io'
     },
 
     api: {
