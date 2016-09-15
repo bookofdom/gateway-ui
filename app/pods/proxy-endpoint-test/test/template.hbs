@@ -42,14 +42,6 @@
           <pre class="form-control form-control-flexible">{{formattedResponseBody}}</pre>
         </div><!-- /.col -->
       </div><!-- /.form-group -->
-      {{#if responseBodyParseError}}
-        <div class="form-group">
-          <label class="control-label col-sm-2">{{t 'fields.body_parse_error'}}</label>
-          <div class="col-sm-10">
-            <pre style="color: red;" class="form-control form-control-flexible">{{responseBodyParseError}}</pre>
-          </div><!-- /.col -->
-        </div><!-- /.form-group -->
-      {{/if}}
       <div class="form-group">
         <label class="control-label col-sm-2">{{t 'fields.log'}}</label>
         <div class="col-sm-10">
@@ -58,12 +50,15 @@
       </div><!-- /.form-group -->
     {{/if}}
     {{#unless model.hasDirtyAttributes}}
-      {{#unless executing}}
-        <a class="btn btn-default" {{action 'executeTest'}}>
-          {{t 'actions.execute'}}
-          {{ap-icon icon='arrows-006'}}
-        </a>
-      {{/unless}}
+      {{#if executing}}
+        <div class="spinner-container">
+          {{spin-spinner lines=13 length=5 width=2 radius=5 color='#000' hwaccel=true}}
+        </div><!-- /.spinner-container -->
+      {{/if}}
+      <a class="btn btn-default" {{action 'executeTest'}}>
+        {{t 'actions.execute'}}
+        {{ap-icon icon='arrows-006'}}
+      </a>
     {{/unless}}
   </div><!-- /.panel-body -->
 </div>
