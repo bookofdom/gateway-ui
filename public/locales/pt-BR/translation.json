@@ -58,10 +58,10 @@
     "terms-and-conditions": "termos e condições",
     "push": "empurrar",
     "descriptions": {
-      "define-api": "definir terminais de API, serviços de integração remotos e lógica de negócios de fluxo de trabalho",
+      "define-api": "definir terminais de API e lógica de fluxo de trabalho Microservice",
       "manage-api": "cria as chave e especifica as regras das suas APIs",
       "manage-store": "gerenciar dados em um armazenamento de objetos",
-      "manage": "gerenciar dados de loja local e notificações push",
+      "manage": "gerenciar armazenamento de dados objeto e empurrar serviços de notificação",
       "store-collections": "gerenciar coleções de lojas locais e dados",
       "push": "gerenciar os canais de pressão , dispositivos e mensagens",
       "build-app": "constrói aplicações de multi-canais com a plataforma (login necessário)",
@@ -76,7 +76,7 @@
       "shared-components": "construir componentes reutilizáveis ​​para endpoints de proxy",
       "terms-and-conditions": "registrando-se para uma conta, você aceita os termos e condições",
       "formatted": {
-        "analyze": "<b>(em breve)</b><br>Obter insights sobre o uso da API",
+        "analyze": "<b>(em breve)</b><br>Uso da API vista e dados de desempenho",
         "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",
         "build-app": "<b>(login necessário)</b><br>Constrói aplicações de multi-canais com a plataforma"
       }
