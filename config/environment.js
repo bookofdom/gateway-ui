@@ -42,7 +42,7 @@ module.exports = function(environment) {
     notifications: false,
 
     docsBaseUrl: 'http://devhub.nanoscale.io',
-    supportUrl: 'mailto:support@nanoscale.io',
+    supportUrl: 'http://support.nanoscale.io',
     termsUrl: 'http://www.nanoscale.io/terms/',
     brandNames: {
       primary: 'nanoscale.io'
