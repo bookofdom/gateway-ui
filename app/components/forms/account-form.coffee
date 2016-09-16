@@ -12,6 +12,9 @@ AccountFormComponent = BaseFormComponent.extend
   savedAction: null
   'show-delete': false
 
+  cc_required: Ember.computed 'model.hasChangedBelongsTo', 'model.plan.isBillable', ->
+    @get('model.hasChangedBelongsTo') and @get('model.plan.isBillable')
+
   'option-groups': Ember.computed ->
     plan: Registration.plans
 
