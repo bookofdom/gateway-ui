@@ -41,7 +41,7 @@ module.exports = function(environment) {
     remote_endpoint_types_enabled: null,
     notifications: false,
 
-    docsBaseUrl: 'http://devhub.justapis.com/v5.0.0/docs',
+    docsBaseUrl: 'http://devhub.nanoscale.io',
     supportUrl: 'mailto:support@nanoscale.io',
     termsUrl: 'http://www.nanoscale.io/terms/',
     brandNames: {
