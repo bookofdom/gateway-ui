@@ -4,9 +4,13 @@
 ApFormActionsComponent = BsBaseComponent.extend
   classNames: ['ap-form-actions']
   classNameBindings: ['inline:form-group']
+
   inline: false
   horizontal: true
   offset: true
+
+  isSaving: false
+
   'show-save': true
   'show-cancel': false
   'show-delete': false

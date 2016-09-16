@@ -73,7 +73,15 @@
 
 <div class="form-actions">
   {{#bs-form-group}}
-    {{bs-submit t='actions.sign-up' lg=true}}
-    {{link-to (t 'actions.login') 'login' class='btn btn-link'}}
+    {{#if model.isSaving}}
+      <div class="spinner-container pull-left">
+        {{spin-spinner lines=13 length=5 width=2 radius=5 color='#999' hwaccel=true}}
+      </div><!-- /.spinner-container -->
+    {{/if}}
+
+    {{#unless model.isSaving}}
+      {{bs-submit t='actions.sign-up' lg=true}}
+      {{link-to (t 'actions.login') 'login' class='btn btn-link'}}
+    {{/unless}}
   {{/bs-form-group}}
 </div>
