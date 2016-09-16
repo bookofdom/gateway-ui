@@ -27,9 +27,9 @@ test 'user can create new proxy endpoints on index', (assert) ->
   after = ->
     wait()
     andThen ->
+      assert.equal currentURL(), '/apis/1/proxy-endpoints/2/edit'
       afterCreateCount = server.db.proxyEndpoints.length
       assert.equal afterCreateCount, beforeCreateCount + 1
-      assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/apis/:apiId/proxy_endpoints', makePostChildHandler('api', 'proxy_endpoint', after)
   visit '/apis/1/proxy-endpoints'
