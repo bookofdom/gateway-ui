@@ -11,7 +11,8 @@ Router.map ->
   @route 'registration', resetNamespace: true, ->
     @route 'confirmation'
   @route 'password', ->
-    @route 'reset'
+    @route 'reset', ->
+      @route 'confirmation'
     @route 'reset-confirmation'
 
   # resources
