@@ -23,4 +23,4 @@ test 'user can reset password', (assert) ->
   fillIn '[name=email]', 'test@foo.com'
   click '[type=submit]'
   andThen ->
-    assert.equal currentURL(), '/login'
+    assert.equal currentURL(), '/password/reset/confirmation'

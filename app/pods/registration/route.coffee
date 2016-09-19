@@ -1,17 +1,13 @@
 `import Ember from 'ember'`
 `import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin'`
-`import PlansRouteMixin from 'gateway/mixins/plans-route'`
 `import t from 'gateway/helpers/i18n'`
 
-RegistrationRoute = Ember.Route.extend UnauthenticatedRouteMixin, PlansRouteMixin,
+RegistrationRoute = Ember.Route.extend UnauthenticatedRouteMixin,
   notify: Ember.inject.service()
-  queryParams:
-    plan:
-      refreshModel: true
   actions:
     saved: ->
       successMessage = t 'successes.sign-up'
-      @transitionTo 'login'
+      @transitionTo 'registration.confirmation'
       @get('notify').info successMessage
 
 `export default RegistrationRoute`

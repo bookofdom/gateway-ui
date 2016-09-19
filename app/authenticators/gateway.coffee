@@ -22,10 +22,13 @@ GatewayAuthenticator = BaseAuthenticator.extend
         json = JSON.parse xhr.responseText if xhr.responseText
         reject (xhr.responseJSON || json)?.error
       @makeRequest(data).then success, failure
-  makeRequest: (data) ->
+  invalidate: ->
+    new Ember.RSVP.Promise (resolve, reject) =>
+      @makeRequest({}, 'DELETE').then resolve, reject
+  makeRequest: (data, method='POST') ->
     Ember.$.ajax
       url: @get 'url'
-      type: 'POST'
+      type: method
       contentType: 'application/json'
       data: JSON.stringify data
       crossDomain: true

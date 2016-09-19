@@ -25,4 +25,4 @@ test 'user can register for an account', (assert) ->
   fillIn '[name=password_confirmation]', 'foobar'
   click '[type=submit]'
   andThen ->
-    assert.equal currentURL(), '/login'
+    assert.equal currentURL(), '/registration/confirmation'
