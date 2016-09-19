@@ -7,7 +7,7 @@ RegistrationRoute = Ember.Route.extend UnauthenticatedRouteMixin,
   actions:
     saved: ->
       successMessage = t 'successes.sign-up'
-      @transitionTo 'login'
+      @transitionTo 'registration.confirmation'
       @get('notify').info successMessage
 
 `export default RegistrationRoute`

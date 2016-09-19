@@ -8,7 +8,8 @@ Router = Ember.Router.extend GooglePageviewMixin,
 Router.map ->
   # auth
   @route 'login'
-  @route 'registration', resetNamespace: true, (->)
+  @route 'registration', resetNamespace: true, ->
+    @route 'confirmation'
   @route 'password', ->
     @route 'reset'
     @route 'reset-confirmation'
