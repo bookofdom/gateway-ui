@@ -31,6 +31,7 @@ config = ->
       new Response 400, {}, error: 'Login failed.'
     else
       user: session.user
+  @delete '/sessions', -> new Response 200
 
   # plans
   @get '/plans'

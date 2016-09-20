@@ -6,7 +6,7 @@ PasswordResetRoute = Ember.Route.extend
   actions:
     saved: ->
       successMessage = t 'successes.password-reset'
-      @transitionTo 'login'
+      @transitionTo 'password.reset.confirmation'
       @get('notify').info successMessage
 
 `export default PasswordResetRoute`

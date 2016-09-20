@@ -2,7 +2,7 @@
 
 moduleForModel 'json-node', 'Unit | Adapter | JsonNode',
   # Specify the other units that are required for this test.
-  needs: ['adapter:json-node', 'serializer:json-node']
+  needs: ['adapter:json-node', 'serializer:json-node', 'service:session']
 
 test 'it returns json-node instances from object-based query', (assert) ->
   store = @store()

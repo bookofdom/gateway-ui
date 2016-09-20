@@ -3,6 +3,8 @@
 `import t from 'gateway/helpers/i18n'`
 
 ApplicationAdapter = DS.RESTAdapter.extend
+  session: Ember.inject.service()
+
   host: config.api.url
 
   # errorMappings is an object whose keys represent the field names _from_
@@ -63,7 +65,9 @@ ApplicationAdapter = DS.RESTAdapter.extend
   # InvalidError needs a normalized errors array, not the raw payload errors.
   # InvalidError does not properly extract errors as suggested in the comments.
   handleResponse: (status, headers, payload, requestData) ->
-    if @isSuccess status, headers, payload
+    if @isAuthenticationError status
+      @get('session').invalidate()
+    else if @isSuccess status, headers, payload
       payload
     else if @isServerError status, headers, payload
       errors = @normalizeServerErrorResponse status, headers, payload
@@ -71,6 +75,9 @@ ApplicationAdapter = DS.RESTAdapter.extend
     else
       errors = @normalizeErrorResponse status, headers, payload
       new DS.InvalidError errors
+
+  isAuthenticationError: (status) ->
+    (status is 401) or (status is 403)
 
   isServerError: (status, headers, payload) ->
     status >= 500
