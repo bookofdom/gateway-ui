@@ -60,6 +60,7 @@ Router.map ->
               @route 'job-component-calls', resetNamespace: true, path: 'calls', ->
                 @route 'job-component-call', resetNamespace: true, path: ':proxy_endpoint_component_call_id', ->
                   @route 'edit'
+          @route 'logs-job', resetNamespace: true, path: 'logs', (->)
       @route 'shared-components', resetNamespace: true, path: 'components', ->
         @route 'new', ->
           @route 'type', path: ':shared_component_type'

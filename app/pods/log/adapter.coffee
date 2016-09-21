@@ -13,15 +13,19 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
   urlForQuery: (query, modelName) ->
     api = query.api
     proxyEndpoint = query.proxy_endpoint
+    job = query.job
     timer = query.timer
     apiAdapter = @container.lookup 'adapter:application'
     proxyEndpointAdapter = @container.lookup 'adapter:proxy-endpoint'
+    jobAdapter = @container.lookup 'adapter:job'
     timerAdapter = @container.lookup 'adapter:timer'
     firstPart = apiAdapter.buildURL(api.constructor.modelName, api.id, api._createSnapshot()) if api
     firstPart = proxyEndpointAdapter.buildURL(proxyEndpoint.constructor.modelName, proxyEndpoint.id, proxyEndpoint._createSnapshot()) if proxyEndpoint
+    firstPart = jobAdapter.buildURL(job.constructor.modelName, job.id, job._createSnapshot()) if job
     firstPart = timerAdapter.buildURL(timer.constructor.modelName, timer.id, timer._createSnapshot()) if timer
     delete query.api
     delete query.proxy_endpoint
+    delete query.job
     delete query.timer
     if firstPart
       url = "#{firstPart}/logs"
@@ -48,6 +52,7 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
     query =
       api: model.get 'api'
       proxy_endpoint: model.get 'proxy_endpoint'
+      job: model.get 'job'
       timer: model.get 'timer'
     url = @buildSocketURL 'log', model.id, snapshot, query
     @prepareModelForStreaming model
