@@ -1,17 +1,27 @@
 {{#bs-form-group inline=inline horizontal=horizontal offset=offset}}
-  {{bs-submit
-      t=save-text
-      classNameBindings='show-save::invisible'}}
-  {{bs-button
-      t=cancel-text
-      style='default'
-      action='cancel'
-      classNameBindings='show-cancel::invisible'}}
-  {{bs-button
-      t=delete-text
-      style='danger'
-      action='delete'
-      class='pull-right'
-      classNameBindings='show-delete::invisible'}}
-  {{yield}}
+
+  {{#if isSaving}}
+    <div class="spinner-container pull-left">
+      {{spin-spinner lines=13 length=5 width=2 radius=5 color='#999' hwaccel=true}}
+    </div><!-- /.spinner-container -->
+  {{/if}}
+
+  {{#unless isSaving}}
+    {{bs-submit
+        t=save-text
+        classNameBindings='show-save::invisible'}}
+    {{bs-button
+        t=cancel-text
+        style='default'
+        action='cancel'
+        classNameBindings='show-cancel::invisible'}}
+    {{bs-button
+        t=delete-text
+        style='danger'
+        action='delete'
+        class='pull-right'
+        classNameBindings='show-delete::invisible'}}
+    {{yield}}
+  {{/unless}}
+
 {{/bs-form-group}}

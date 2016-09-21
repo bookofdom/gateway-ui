@@ -10,8 +10,9 @@
     icon='the-essentials-102'
     t='resources.proxy-endpoint-schema_plural'}}
 
-  {{#each model.components as |component|}}
-    {{#unless component.isNew}}
+{{#each model.components as |component|}}
+  {{#unless component.isNew}}
+    {{#unless component.shared}}
       {{#if component.single}}
         {{ap-list-link
           path='proxy-endpoint-component.edit'
@@ -40,7 +41,17 @@
           index=component.id}}
       {{/if}}
     {{/unless}}
-  {{/each}}
+    {{#if component.shared}}
+      {{ap-list-link
+        path='proxy-endpoint-component.edit'
+        action='proxy-endpoint-component-edit'
+        arg1=component
+        icon='shared-component'
+        t=component.name
+        index=component.id}}
+    {{/if}}
+  {{/unless}}
+{{/each}}
 
   {{ap-list-link
     class='ap-inverse ap-unsortable'

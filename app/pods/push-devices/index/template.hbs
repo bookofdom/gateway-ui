@@ -1,14 +1,8 @@
-{{#ap-page t='resources.push-device_plural' help-url=(docsUrl) showNew=true}}
+{{#ap-page t='resources.push-device_plural' help-url=(docsUrl)}}
 
   {{ap-table-auto-index
       model=model
       fields=fields
-      route='push-device.edit'
-      edit-route='push-device.edit'
-      show-delete=true}}
-
-  {{#ap-panel-new t='resources.push-device' closed=(unbound model.length)}}
-    {{forms/push-device-form option-groups=option-groups}}
-  {{/ap-panel-new}}
+      route='push-device'}}
 
 {{/ap-page}}
