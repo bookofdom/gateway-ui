@@ -2,7 +2,6 @@
 
 ProxyEndpointLikeView = Ember.View.extend
   layoutName: 'layouts/tertiary'
-  http: false
   didInsertElement: ->
     view = @
     @$('.ap-list-nav-vertical-circle-icon').sortable

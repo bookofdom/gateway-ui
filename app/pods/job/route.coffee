@@ -8,6 +8,11 @@ JobRoute = Ember.Route.extend
     # loading individual proxy endpoints
     job = @modelFor 'job'
     job.cancel()
+  renderTemplate: ->
+    @_super arguments...
+    @render 'jobs/nav-items',
+      outlet: 'nav-items'
+      into: 'job'
   actions:
     'proxy-endpoint-component-edit': (model) ->
       # no op
