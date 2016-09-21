@@ -4,7 +4,10 @@
       models=model
       fields='name,next:fields.next:datetime,api.name,job.name'
       path='timer.edit'
-      edit-path='timer.edit'}}
+      edit-path='timer.edit'
+      custom-primary-action='logs-timer'
+      custom-primary-icon='document-000'
+      custom-primary-t='actions.logs-timer'}}
 
   {{#ap-panel-new t='resources.timer' closed=(unbound model.length)}}
     {{forms/timer-form apis=apis}}

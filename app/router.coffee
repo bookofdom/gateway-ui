@@ -126,4 +126,5 @@ Router.map ->
     @route 'timers', resetNamespace: true, path: 'timers', ->
       @route 'timer', resetNamespace: true, path: ':timer_id', ->
         @route 'edit'
+        @route 'logs-timer', resetNamespace: true, path: 'logs', (->)
 `export default Router`
