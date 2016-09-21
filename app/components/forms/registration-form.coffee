@@ -14,6 +14,8 @@ RegistrationFormComponent = BaseFormComponent.extend
   isNonZeroPlanAmount: Ember.computed 'subscription.enabled', 'model.plan.isBillable', ->
     @get('subscription.enabled') and @get('model.plan.isBillable')
 
+  cc_required: Ember.computed.alias 'isNonZeroPlanAmount'
+
   'base-error': Ember.computed 'model.errors.[]', ->
     @get('model.errors')?.errorsFor('base')?[0]?.message
   'email-error': Ember.computed 'model.errors.[]', ->

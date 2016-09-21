@@ -1,8 +1,13 @@
 .breadcrumb
+  $color: $ap-app-primary-bg-color
   background-color: transparent
   &, a
-    color: lighten($text-color, 30%)
+    color: $color
   .separator
     .ap-icon
       i:before
         font-weight: 600 !important
+  .label-info
+    border-color: $ap-app-primary-active-bg-color
+    color: $ap-app-primary-active-bg-color
+    background: none
