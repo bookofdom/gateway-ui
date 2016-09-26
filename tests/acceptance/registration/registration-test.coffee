@@ -7,6 +7,8 @@
 module 'Acceptance: Registration',
   beforeEach: ->
     @application = startApp()
+    # plans
+    server.createList 'plan', 3
     ###
     Don't return anything, because QUnit looks for a .then
     that is present on Ember.Application, but is deprecated.
