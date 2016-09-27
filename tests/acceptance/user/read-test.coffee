@@ -7,6 +7,7 @@
 module 'Acceptance: User - Read',
   beforeEach: ->
     @application = startApp()
+    server.createList 'account', 1
     server.createList 'user', 3
     ###
     Don't return anything, because QUnit looks for a .then
