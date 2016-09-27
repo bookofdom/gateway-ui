@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 LayoutsSecondaryLayoutComponent = Ember.Component.extend
-  sidebar: 'sidebars/secondary-sidebar'
+  nav: 'navigations/secondary-nav'
   expanded: false
   showBreadCrumbs: true
   actions:

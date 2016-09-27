@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
 LayoutsPrimaryLayoutComponent = Ember.Component.extend
-  sidebar: 'sidebars/primary-sidebar'
+  nav: 'navigations/primary-nav'
 
 `export default LayoutsPrimaryLayoutComponent`

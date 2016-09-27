@@ -6,8 +6,10 @@
       <span class="icon-bar"></span>
     </a><!-- /.btn -->
 
-    {{#if sidebar}}
-      {{component sidebar}}
+    {{#if nav}}
+      {{#ap-list-nav-vertical}}
+        {{component nav}}
+      {{/ap-list-nav-vertical}}
     {{/if}}
 
   </div><!-- /.ap-app-secondary-sidebar -->
