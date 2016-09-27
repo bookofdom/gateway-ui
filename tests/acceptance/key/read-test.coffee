@@ -7,6 +7,7 @@
 module 'Acceptance: Key - Read',
   beforeEach: ->
     @application = startApp()
+    server.createList 'account', 1
     server.createList 'key', 5
     return
 
