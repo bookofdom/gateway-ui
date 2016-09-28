@@ -13,8 +13,16 @@ test 'it correctly detects card type', (assert) ->
   model = @subject()
   Ember.run ->
     assert.notOk model.get('cardType.slug'), 'no card type unless a valid card number is entered'
+    model.set 'number', '42'
+    assert.equal model.get('cardType.slug'), 'visa'
+    model.set 'number', '4242424242424242'
+    assert.equal model.get('cardType.slug'), 'visa'
     model.set 'number', '4242-4242-4242-4242'
     assert.equal model.get('cardType.slug'), 'visa'
+    model.set 'number', '51'
+    assert.equal model.get('cardType.slug'), 'mastercard'
+    model.set 'number', '5123424242424242'
+    assert.equal model.get('cardType.slug'), 'mastercard'
     model.set 'number', '5123-4242-4242-4242'
     assert.equal model.get('cardType.slug'), 'mastercard'
     model.set 'number', '378282246310005'
