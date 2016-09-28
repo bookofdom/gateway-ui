@@ -2,6 +2,7 @@
 
 LayoutsSecondaryLayoutComponent = Ember.Component.extend
   nav: 'navigations/secondary-nav'
+  data: null
   expanded: false
   showBreadCrumbs: true
   actions:
