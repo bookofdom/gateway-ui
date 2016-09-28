@@ -1,6 +1,6 @@
 <div class="ap-app-secondary">
-  <div class="ap-app-secondary-sidebar {{if view.expanded 'expanded'}}">
-    <a class="btn btn-default ap-toggle-nav visible-xs visible-sm" href="#" {{action 'toggleNav' target=view}}>
+  <div class="ap-app-secondary-sidebar {{if expanded 'expanded'}}">
+    <a class="btn btn-default ap-toggle-nav visible-xs visible-sm" href="#" {{action 'toggleNav'}}>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -14,7 +14,7 @@
 
   </div><!-- /.ap-app-secondary-sidebar -->
   <div class="ap-app-secondary-content">
-    {{#if view.showBreadCrumbs}}
+    {{#if showBreadCrumbs}}
       {{bread-crumbs tagName='ol' classNames='breadcrumb'}}
     {{/if}}
     {{yield}}
