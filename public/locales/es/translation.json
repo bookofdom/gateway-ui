@@ -70,11 +70,13 @@
       "endpoint-groups": "los grupos mencionados agrupan proxy endpoints segun conveniencia",
       "remote-endpoints": "define los endpoints remotos que proveen servicios a los proxy endpoints",
       "hosts": "define los servidores asociados con esta API",
+      "jobs": "definir o editar trabajos y la lógica que corresponde",
       "libraries": "define librerías compartidas para utilizar en bloques de código JavaScript",
       "logs": "ver los registros, búsqueda y arroyos",
       "api-documentation": "ver la documentación y prueba las llamadas de la API",
       "shared-components": "crear componentes reutilizables para puntos finales de proxy",
       "terms-and-conditions": "mediante el registro de una cuenta que acepta los términos y condiciones",
+      "timers": "gestionar temporizadores",
       "formatted": {
         "analyze": "<b>(próximamente)</b><br>Vista de uso de la API y los datos de rendimiento",
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
@@ -147,6 +149,8 @@
     "remote-endpoint-push-platform_plural": "plataformas de empuje",
     "host": "servidor",
     "host_plural": "servidores",
+    "job": "trabajo",
+    "job_plural": "trabajos",
     "library": "librería compartida",
     "library_plural": "librerías compartidas",
     "log": "registro",
@@ -167,6 +171,8 @@
     "store-object_plural": "objetos",
     "stripe-card": "tarjeta de crédito",
     "stripe-card_plural": "tarjetas de crédito",
+    "timer": "minutero",
+    "timer_plural": "temporizadores",
     "plan": "plan",
     "plan_plural": "planes",
     "key": "llave",
@@ -302,6 +308,15 @@
     "arguments": "argumentos",
     "registry": "registro",
     "key": "archivo de claves",
+    "next": "siguiente",
+    "once": "una vez",
+    "time_zone": "fuso horário",
+    "minute": "minuto",
+    "hour": "hora",
+    "day_of_month": "dia del mes",
+    "month": "mes",
+    "day_of_week": "día de la semana",
+    "attributes": "atributos",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
@@ -310,6 +325,9 @@
     },
     "api": {
       "name": "nombre del API"
+    },
+    "job": {
+      "name": "nome do trabalho"
     },
     "remote_endpoint": {
       "name": "nombre del extremo remoto"
@@ -400,6 +418,7 @@
       "push": "empujar",
       "store": "almacenar",
       "script": "código",
+      "job": "trabajo",
       "status-types": {
         "success": "éxito",
         "failed": "ha fallado",
