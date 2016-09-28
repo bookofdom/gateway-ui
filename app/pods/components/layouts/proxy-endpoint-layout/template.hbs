@@ -4,10 +4,10 @@
 
       <div class="hidden-xs">
         {{#ap-list-nav-vertical-circle-icon}}
-          {{partial 'layouts/tertiary/nav-items'}}
+          {{component nav model=model}}
         {{/ap-list-nav-vertical-circle-icon}}
         {{#ap-list-nav-vertical-circle-icon}}
-          {{partial 'layouts/tertiary/nav-items-secondary'}}
+          {{component secondary-nav model=model}}
         {{/ap-list-nav-vertical-circle-icon}}
       </div><!-- /.hidden-xs -->
 
@@ -18,9 +18,9 @@
             <span class="caret"></span>
           </a><!-- /.dropdown-toggle -->
           <ul class="dropdown-menu">
-            {{partial 'layouts/tertiary/nav-items'}}
+            {{component nav model=model}}
             <li class="divider"></li>
-            {{partial 'layouts/tertiary/nav-items-secondary'}}
+            {{component secondary-nav model=model}}
           </ul><!-- /.dropdown-menu -->
         </div><!-- /.dropdown -->
         <br>

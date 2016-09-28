@@ -1,7 +1,8 @@
 `import Ember from 'ember'`
 
 LayoutsProxyEndpointLayoutComponent = Ember.Component.extend
-  nav: ''
+  nav: 'navigations/proxy-endpoint/primary-nav'
+  'secondary-nav': 'navigations/proxy-endpoint/secondary-nav'
   model: null
 
   componentMovedAction: 'componentMoved'
