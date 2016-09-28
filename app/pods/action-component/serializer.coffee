@@ -2,18 +2,6 @@
 `import ApplicationSerializer from 'gateway/serializers/application'`
 
 ActionComponentSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
-  attrs:
-    job:
-      serialize: false
-    shared_component:
-      serialize: 'id'
-    calls:
-      embedded: 'always'
-    before:
-      embedded: 'always'
-    after:
-      embedded: 'always'
-
   normalize: (type, hash, property) ->
     hash.calls ?= []
     hash.before ?= []
