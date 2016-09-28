@@ -11,10 +11,5 @@ PushRoute = Ember.Route.extend
     extraModels = @get 'extraModels'
     controller.setProperties extraModels
     @_super arguments...
-  renderTemplate: ->
-    @_super arguments...
-    @render 'manage/secondary-sidebar',
-      outlet: 'sidebar'
-      into: 'push'
 
 `export default PushRoute`
