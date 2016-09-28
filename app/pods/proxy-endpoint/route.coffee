@@ -14,5 +14,7 @@ ProxyEndpointRoute = Ember.Route.extend
       # no op
     deleted: ->
       @transitionTo 'proxy-endpoints'
+    componentMoved: (id, position) ->
+      @modelFor('proxy-endpoint').moveComponentByIdTo id, position
 
 `export default ProxyEndpointRoute`

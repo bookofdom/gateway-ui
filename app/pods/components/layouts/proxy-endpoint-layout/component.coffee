@@ -1,7 +1,11 @@
 `import Ember from 'ember'`
 
-ProxyEndpointView = Ember.View.extend
-  layoutName: 'layouts/tertiary'
+LayoutsProxyEndpointLayoutComponent = Ember.Component.extend
+  nav: ''
+  model: null
+
+  componentMovedAction: 'componentMoved'
+
   didInsertElement: ->
     view = @
     @$('.ap-list-nav-vertical-circle-icon').sortable
@@ -16,6 +20,6 @@ ProxyEndpointView = Ember.View.extend
         Ember.run -> view.send 'componentMoved', id, position
   actions:
     componentMoved: (id, position) ->
-      @get('controller').send 'componentMoved', id, position
+      @sendAction 'componentMovedAction', id, position
 
-`export default ProxyEndpointView`
+`export default LayoutsProxyEndpointLayoutComponent`
