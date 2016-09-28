@@ -1,7 +1,5 @@
-`import Ember from 'ember'`
+`import ActionComponentCallsRoute from 'gateway/pods/action-component-calls/route'`
 
-
-ProxyEndpointComponentCallsRoute = Ember.Route.extend 
-  model: -> @modelFor('proxy-endpoint-component').get 'calls'
+ProxyEndpointComponentCallsRoute = ActionComponentCallsRoute.extend()
 
 `export default ProxyEndpointComponentCallsRoute`

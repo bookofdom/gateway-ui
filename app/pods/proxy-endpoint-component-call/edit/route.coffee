@@ -1,7 +1,5 @@
-`import Ember from 'ember'`
-`import EditRoute from 'gateway/routes/edit'`
+`import ActionComponentCallEditRoute from 'gateway/pods/action-component-call/edit/route'`
 
-
-ProxyEndpointComponentCallEditRoute = EditRoute.extend()
+ProxyEndpointComponentCallEditRoute = ActionComponentCallEditRoute.extend()
 
 `export default ProxyEndpointComponentCallEditRoute`

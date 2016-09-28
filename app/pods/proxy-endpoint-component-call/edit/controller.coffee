@@ -1,6 +1,8 @@
-`import EditController from 'gateway/controllers/edit'`
+`import ActionComponentCallEditController from 'gateway/pods/action-component-call/edit/controller'`
 
-ProxyEndpointComponentCallEditController = EditController.extend
+ProxyEndpointComponentCallEditController = ActionComponentCallEditController.extend
+  prefix: 'proxy-endpoint'
+
   'proxy-endpoint-component-calls': Ember.inject.controller()
 
   indexModel: Ember.computed.alias 'proxy-endpoint-component-calls.indexModel'

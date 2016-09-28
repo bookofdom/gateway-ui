@@ -1,7 +1,5 @@
-`import Ember from 'ember'`
+`import ActionComponentCallRoute from 'gateway/pods/action-component-call/route'`
 
-JobComponentCallRoute = Ember.Route.extend
-  model: (params) ->
-    @modelFor('job-component-calls').findBy 'id', params.proxy_endpoint_component_call_id
+JobComponentCallRoute = ActionComponentCallRoute.extend()
 
 `export default JobComponentCallRoute`

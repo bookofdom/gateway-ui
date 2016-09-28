@@ -1,10 +1,7 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
+`import ActionComponentTransformation from 'gateway/pods/action-component-transformation/model'`
 
-ProxyEndpointComponentTransformation = Model.extend
-  type: DS.attr 'string', defaultValue: 'js'
-  body: DS.attr 'string', defaultValue: ''
-
+ProxyEndpointComponentTransformation = ActionComponentTransformation.extend
   # Relationships
   proxy_endpoint_component: DS.belongsTo 'proxy-endpoint-component',
     inverse: null

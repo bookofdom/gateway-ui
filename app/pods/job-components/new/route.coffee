@@ -1,5 +1,5 @@
-`import Ember from 'ember'`
+`import ActionComponentsNewRoute from 'gateway/pods/action-components/new/route'`
 
-JobComponentsNewRoute = Ember.Route.extend()
+JobComponentsNewRoute = ActionComponentsNewRoute.extend()
 
 `export default JobComponentsNewRoute`

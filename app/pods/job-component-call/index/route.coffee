@@ -1,6 +1,5 @@
-`import Ember from 'ember'`
+`import ActionComponentCallIndexRoute from 'gateway/pods/action-component-call/index/route'`
 
-JobComponentCallIndexRoute = Ember.Route.extend
-  afterModel: -> @transitionTo 'job-component-call.edit'
+JobComponentCallIndexRoute = ActionComponentCallIndexRoute.extend()
 
 `export default JobComponentCallIndexRoute`

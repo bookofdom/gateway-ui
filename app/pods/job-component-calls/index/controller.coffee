@@ -1,10 +1,10 @@
-`import Ember from 'ember'`
-`import t from 'gateway/helpers/i18n'`
+`import ActionComponentCallsIndexController from 'gateway/pods/action-component-calls/index/controller'`
 
-ProxyEndpointComponentCallsController = Ember.Controller.extend
+JobComponentCallsIndexController = ActionComponentCallsIndexController.extend
+  prefix: 'job'
   'job-component-calls': Ember.inject.controller()
 
   indexModel: Ember.computed.alias 'job-component-calls.indexModel'
   'option-groups': Ember.computed.alias 'job-component-calls.option-groups'
 
-`export default ProxyEndpointComponentCallsController`
+`export default JobComponentCallsIndexController`

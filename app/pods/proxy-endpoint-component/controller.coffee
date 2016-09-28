@@ -1,6 +1,5 @@
-`import Ember from 'ember'`
+`import ActionComponentController from 'gateway/pods/action-component/controller'`
 
-ProxyEndpointComponentController = Ember.Controller.extend
-  breadCrumb: Ember.computed 'model.name', -> @get 'model.name'
+ProxyEndpointComponentController = ActionComponentController.extend()
 
 `export default ProxyEndpointComponentController`

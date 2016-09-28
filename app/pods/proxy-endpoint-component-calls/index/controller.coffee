@@ -1,7 +1,7 @@
-`import Ember from 'ember'`
-`import t from 'gateway/helpers/i18n'`
+`import ActionComponentCallsIndexController from 'gateway/pods/action-component-calls/index/controller'`
 
-ProxyEndpointComponentCallsController = Ember.Controller.extend
+ProxyEndpointComponentCallsController = ActionComponentCallsIndexController.extend
+  prefix: 'proxy-endpoint'
   'proxy-endpoint-component-calls': Ember.inject.controller()
 
   indexModel: Ember.computed.alias 'proxy-endpoint-component-calls.indexModel'

@@ -1,6 +1,8 @@
-`import EditController from 'gateway/controllers/edit'`
+`import ActionComponentCallEditController from 'gateway/pods/action-component-call/edit/controller'`
 
-JobComponentCallEditController = EditController.extend
+JobComponentCallEditController = ActionComponentCallEditController.extend
+  prefix: 'job'
+
   'job-component-calls': Ember.inject.controller()
 
   indexModel: Ember.computed.alias 'job-component-calls.indexModel'

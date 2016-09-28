@@ -1,6 +1,5 @@
-`import Ember from 'ember'`
-`import EditRoute from 'gateway/routes/edit'`
+`import ActionComponentEditRoute from 'gateway/pods/action-component/edit/route'`
 
-JobComponentEditRoute = EditRoute.extend()
+JobComponentEditRoute = ActionComponentEditRoute.extend()
 
 `export default JobComponentEditRoute`

@@ -1,6 +1,5 @@
-`import Ember from 'ember'`
+`import ActionComponentsNewRoute from 'gateway/pods/action-components/new/route'`
 
-
-ProxyEndpointComponentsNewRoute = Ember.Route.extend()
+ProxyEndpointComponentsNewRoute = ActionComponentsNewRoute.extend()
 
 `export default ProxyEndpointComponentsNewRoute`

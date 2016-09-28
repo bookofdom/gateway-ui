@@ -1,10 +1,5 @@
-`import Ember from 'ember'`
+`import ActionComponentRoute from 'gateway/pods/action-component/route'`
 
-JobComponentRoute = Ember.Route.extend
-  model: (params) ->
-    @modelFor('proxy-endpoint-components').findBy 'id', params.proxy_endpoint_component_id
-  actions:
-    deleted: ->
-      @transitionTo 'job'
+JobComponentRoute = ActionComponentRoute.extend()
 
 `export default JobComponentRoute`
