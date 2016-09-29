@@ -26,7 +26,7 @@ RemoteEndpointEnvironmentDatumScratchPad = Model.extend
       @set 'code', defaultCode
 
   execute: ->
-    adapter = @container.lookup 'adapter:remote-endpoint-environment-datum-scratch-pad'
+    adapter = Ember.getOwner(@).lookup 'adapter:remote-endpoint-environment-datum-scratch-pad'
     adapter.execute @
 
 `export default RemoteEndpointEnvironmentDatumScratchPad`

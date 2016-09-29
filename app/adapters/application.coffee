@@ -40,7 +40,7 @@ ApplicationAdapter = DS.RESTAdapter.extend
     if snapshot
       parent = snapshot.belongsTo parent
       modelName = parent.modelName
-      adapter = @container.lookup "adapter:#{modelName}"
+      adapter = Ember.getOwner(@).lookup "adapter:#{modelName}"
       url = adapter.buildURL modelName, parent.id, parent
       if snapshot.id
         url = "#{url}/#{path}/#{snapshot.id}"

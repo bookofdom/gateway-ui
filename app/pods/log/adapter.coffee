@@ -13,8 +13,8 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
   urlForQuery: (query, modelName) ->
     api = query.api
     proxyEndpoint = query.proxy_endpoint
-    apiAdapter = @container.lookup 'adapter:application'
-    proxyEndpointAdapter = @container.lookup 'adapter:proxy-endpoint'
+    apiAdapter = Ember.getOwner(@).lookup 'adapter:application'
+    proxyEndpointAdapter = Ember.getOwner(@).lookup 'adapter:proxy-endpoint'
     firstPart = apiAdapter.buildURL(api.constructor.modelName, api.id, api._createSnapshot()) if api
     firstPart = proxyEndpointAdapter.buildURL(proxyEndpoint.constructor.modelName, proxyEndpoint.id, proxyEndpoint._createSnapshot()) if proxyEndpoint
     delete query.api
