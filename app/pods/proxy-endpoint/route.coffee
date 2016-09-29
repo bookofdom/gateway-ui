@@ -9,18 +9,10 @@ ProxyEndpointRoute = Ember.Route.extend
     # loading individual proxy endpoints
     proxyEndpoint = @modelFor 'proxy-endpoint'
     proxyEndpoint.cancel()
-  renderTemplate: ->
-    @_super arguments...
-    @render 'proxy-endpoints/nav-items',
-      outlet: 'nav-items'
-      into: 'proxy-endpoint'
-    @render 'proxy-endpoints/nav-items-secondary',
-      outlet: 'nav-items-secondary'
-      into: 'proxy-endpoint'
   actions:
-    'proxy-endpoint-component-edit': (model) ->
-      # no op
     deleted: ->
       @transitionTo 'proxy-endpoints'
+    componentMoved: (id, position) ->
+      @modelFor('proxy-endpoint').moveComponentByIdTo id, position
 
 `export default ProxyEndpointRoute`

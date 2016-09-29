@@ -29,7 +29,7 @@ ProxyEndpointTest = Model.extend
     ProxyEndpointTest.methods.findBy 'value', method
 
   executeTest: ->
-    adapter = @container.lookup 'adapter:proxy-endpoint-test'
+    adapter = Ember.getOwner(@).lookup 'adapter:proxy-endpoint-test'
     adapter.executeTest @
 
 # Declare available methods and their human-readable names

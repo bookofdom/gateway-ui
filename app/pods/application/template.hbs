@@ -1,0 +1,10 @@
+<div class="ap-app">
+  {{#if session.isAuthenticated}}
+    {{partial 'application/header'}}
+    {{!--partial 'application/toolbar'--}}
+  {{/if}}
+
+  {{outlet}}
+</div>
+
+{{ember-notify messageStyle='bootstrap' closeAfter=5000}}

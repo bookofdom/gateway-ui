@@ -6,11 +6,6 @@ StoreCollectionRoute = Ember.Route.extend
   setupController: (controller) ->
     controller.set 'store_collections', @modelFor('store-collections')
     @_super arguments...
-  renderTemplate: ->
-    @_super arguments...
-    @render 'store-collection/sidebar',
-      outlet: 'sidebar'
-      into: 'store-collection'
   actions:
     deleted: ->
       @transitionTo 'store-collections'

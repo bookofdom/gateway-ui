@@ -1,0 +1,14 @@
+<div class="ap-app-primary">
+  <div class="ap-app-primary-sidebar hidden-xs hidden-sm">
+
+    {{#if nav}}
+      {{#ap-list-nav-vertical-icon}}
+        {{component nav}}
+      {{/ap-list-nav-vertical-icon}}
+    {{/if}}
+
+  </div><!-- /.ap-app-primary-sidebar -->
+  <div class="ap-app-primary-content">
+    {{yield}}
+  </div><!-- /.ap-app-primary-content -->
+</div><!-- /.ap-app-primary -->

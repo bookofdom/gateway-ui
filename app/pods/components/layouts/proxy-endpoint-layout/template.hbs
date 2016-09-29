@@ -1,0 +1,32 @@
+{{#ap-page t=tertiary-layout-header help-url=(docsUrl 'proxy-endpoints')}}
+  <div class="ap-app-tertiary">
+    <div class="ap-app-tertiary-sidebar">
+      <div class="hidden-xs">
+        {{#ap-list-nav-vertical-circle-icon}}
+          {{component nav model=model}}
+        {{/ap-list-nav-vertical-circle-icon}}
+        {{#ap-list-nav-vertical-circle-icon}}
+          {{component secondary-nav model=model}}
+        {{/ap-list-nav-vertical-circle-icon}}
+      </div><!-- /.hidden-xs -->
+
+      <div class="visible-xs">
+        <div class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            {{t 'actions.navigate'}}
+            <span class="caret"></span>
+          </a><!-- /.dropdown-toggle -->
+          <ul class="dropdown-menu">
+            {{component nav model=model}}
+            <li class="divider"></li>
+            {{component secondary-nav model=model}}
+          </ul><!-- /.dropdown-menu -->
+        </div><!-- /.dropdown -->
+        <br>
+      </div><!-- /.visible-xs -->
+    </div><!-- /.ap-app-tertiary-sidebar -->
+    <div class="ap-app-tertiary-content">
+      {{yield}}
+    </div><!-- /.ap-app-tertiary-content -->
+  </div><!-- /.ap-app-tertiary -->
+{{/ap-page}}
