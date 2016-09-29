@@ -21,4 +21,4 @@ test 'it renders', (assert) ->
 
   # ACE editor palces this random string into the DOM.  It isn't displayed, but
   # it does indicate that the editor rendered.
-  assert.equal @$().find('.ace_editor').size(), 1
+  assert.equal @$().find('.ace_editor').length, 1

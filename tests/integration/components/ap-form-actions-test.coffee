@@ -9,8 +9,8 @@ test 'it renders', (assert) ->
   assert.expect 8
 
   @render hbs """{{ap-form-actions}}"""
-  assert.equal @$().find('button').size(), 1
-  assert.equal @$().find('a').size(), 2
+  assert.equal @$().find('button').length, 1
+  assert.equal @$().find('a').length, 2
   assert.ok @$().find('button').is ':not(.invisible)'
   assert.ok @$().find('a:eq(0)').is '.invisible'
   assert.ok @$().find('a:eq(1)').is '.invisible'

@@ -12,4 +12,4 @@ test 'it renders', (assert) ->
     {{ap-radio value=value checked=true}}
     {{ap-radio value=value checked=false}}
   """
-  assert.equal @$().find('.ap-radio').size(), 2
+  assert.equal @$().find('.ap-radio').length, 2

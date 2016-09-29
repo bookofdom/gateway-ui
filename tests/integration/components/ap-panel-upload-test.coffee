@@ -8,4 +8,4 @@ moduleForComponent 'ap-panel-upload', 'Integration | Component | ap panel upload
 test 'it renders', (assert) ->
   assert.expect 1
   @render hbs """{{ap-panel-upload}}"""
-  assert.equal @$().find('.ap-panel-upload').size(), 1
+  assert.equal @$().find('.ap-panel-upload').length, 1

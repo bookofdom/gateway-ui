@@ -8,4 +8,4 @@ moduleForComponent 'ap-iframe', 'Integration | Component | ap iframe', {
 test 'it renders', (assert) ->
   assert.expect 1
   @render hbs """{{ap-iframe src='/'}}"""
-  assert.equal @$().find('iframe').size(), 1
+  assert.equal @$().find('iframe').length, 1

@@ -11,5 +11,5 @@ test 'it renders', (assert) ->
     {{#ap-list-nav-vertical-icon}}
     {{/ap-list-nav-vertical-icon}}
   """
-  assert.equal @$().find('.ap-list-nav').size(), 1
-  assert.equal @$().find('.ap-list-nav-vertical-icon').size(), 1
+  assert.equal @$().find('.ap-list-nav').length, 1
+  assert.equal @$().find('.ap-list-nav-vertical-icon').length, 1

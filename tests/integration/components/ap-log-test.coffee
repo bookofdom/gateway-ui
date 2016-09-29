@@ -8,4 +8,4 @@ moduleForComponent 'ap-log', 'Integration | Component | ap log', {
 test 'it renders', (assert) ->
   assert.expect 1
   @render hbs """{{ap-log value='test log'}}"""
-  assert.equal @$().find('.ap-log').size(), 1
+  assert.equal @$().find('.ap-log').length, 1
