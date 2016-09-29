@@ -7,7 +7,7 @@ Host = Model.extend
 
   # Computed
   swaggerViewerUrl: Ember.computed 'hostname', ->
-    adapter = @container.lookup 'adapter:host'
+    adapter = Ember.getOwner(@).lookup 'adapter:host'
     adapter.buildSwaggerViewerUrl @
 
   # Relationships

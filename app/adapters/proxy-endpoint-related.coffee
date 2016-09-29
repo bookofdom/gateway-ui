@@ -9,7 +9,7 @@ ProxyEndpointRelatedAdapter = ApplicationAdapter.extend
       # snapshots
       proxyEndpointSnapshot = snapshot.belongsTo 'proxy_endpoint'
       # adapters
-      proxyEndpointAdapter = @container.lookup 'adapter:proxy-endpoint'
+      proxyEndpointAdapter = Ember.getOwner(@).lookup 'adapter:proxy-endpoint'
       # IDs
       snapshotId = snapshot.id
       proxyEndpointId = proxyEndpointSnapshot.id
