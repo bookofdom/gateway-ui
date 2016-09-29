@@ -6,6 +6,8 @@ TimersRoute = Ember.Route.extend AuthenticatedRouteMixin,
   afterModel: ->
     Ember.RSVP.hash
       apis: @store.findAll 'api'
+      environments: @store.findAll 'environment'
+      endpoint_groups: @store.findAll 'endpoint_group'
       jobs: @store.findAll 'job'
     .then (results) =>
       @set 'extraModels', results
