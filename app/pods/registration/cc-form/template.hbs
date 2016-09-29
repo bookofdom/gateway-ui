@@ -5,6 +5,7 @@
         name='cc_number'
         value=model.card.number
         placeholder=(t 'fields.cc_number')
+        required=cc_required
         class='form-control'}}
     {{/bs-form-group}}
   </div><!-- /.col -->
@@ -20,6 +21,7 @@
         name='cc_exp_month'
         value=model.card.exp_month
         placeholder=(t 'fields.cc_exp_month')
+        required=cc_required
         class='form-control'}}
     {{/bs-form-group}}
   </div><!-- /.col -->
@@ -29,6 +31,7 @@
       name='cc_exp_year'
       value=model.card.exp_year
       placeholder=(t 'fields.cc_exp_year')
+      required=cc_required
       class='form-control'}}
   {{/bs-form-group}}
   </div><!-- /.col -->
@@ -40,6 +43,7 @@
         name='cc_cvc'
         value=model.card.cvc
         placeholder=(t 'fields.cc_cvc')
+        required=cc_required
         class='form-control'}}
     {{/bs-form-group}}
   </div><!-- /.col -->
@@ -49,6 +53,7 @@
         name='cc_address_zip'
         value=model.card.address_zip
         placeholder=(t 'fields.cc_address_zip')
+        required=cc_required
         class='form-control'}}
     {{/bs-form-group}}
   </div><!-- /.col -->

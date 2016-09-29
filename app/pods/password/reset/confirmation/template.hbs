@@ -3,7 +3,10 @@
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       {{#bs-panel style='bold'}}
         {{ap-brand brand='primary-stacked' style='full'}}
-        {{forms/registration-form plans=plans}}
+        <p class="alert alert-info">
+          {{t 'successes.password-reset'}}
+        </p>
+        {{link-to (t 'actions.login') 'login' class='btn btn-link'}}
       {{/bs-panel}}
     </div><!-- /.col -->
   </div><!-- /.row -->

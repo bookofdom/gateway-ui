@@ -55,6 +55,7 @@ RemoteEndpointLike = Model.extend
   # hana
   # redis
   # oracle
+  # smtp
   # db2
   server: DS.attr 'string'
   port: DS.attr 'number'

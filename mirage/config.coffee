@@ -27,6 +27,7 @@ config = ->
       new Response 400, {}, error: 'Login failed.'
     else
       user: session.user
+  @delete '/sessions', -> new Response 200
 
   # plans
   @get '/plans'
@@ -83,11 +84,17 @@ config = ->
   @put '/store_collections/:storeCollectionId/store_objects/:id', makePutHandler 'store_object'
   @del '/store_collections/:storeCollectionId/store_objects/:id'
 
-  @get '/accounts'
-  @post '/accounts', makePostHandler 'account'
-  @get '/accounts/:id'
-  @put '/accounts/:id', makePutHandler 'account'
-  @del '/accounts/:id'
+  @get '/account', (schema, request) -> schema.account.all()[0]
+  @put '/account', (schema, request) ->
+    body = JSON.parse request.requestBody
+    payload = body.account
+    if body.account?.name is 'error'
+      response = new Response 422, {},
+        errors:
+          name: ['This field is in error']
+    else
+      response = schema.account.all()[0].update payload
+    response
 
   @get '/users'
   @post '/users', makePostHandler 'user'
@@ -154,7 +161,7 @@ config = ->
   @get '/apis/:apiId/proxy_endpoints/:id'
   @put '/apis/:apiId/proxy_endpoints/:id', makePutHandler 'proxy_endpoint'
   @del '/apis/:apiId/proxy_endpoints/:id'
-  @get '/apis/:apiId/proxy_endpoints/:proxy_endpoint_id/tests/:id/test', ->
+  @get '/apis/:apiId/proxy_endpoints/:proxy_endpoint_id/tests/:id/test', (->
     results: [
       {
         method: 'get',
@@ -166,10 +173,11 @@ config = ->
           {name: 'X-Gateway-Requestid', value: 'ed32998f-f857-4335-9f0f-288010ddb282'}
         ],
         body: '{"get-test": "this is a get test"}',
-        log: 'this is a log message for a get request',
+        log: "this is a log message for a get request #{Math.random()}",
         time: 8
       }
     ]
+  ), {timing: 2000}
 
   @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makeGetChildrenHandler('proxy_endpoint', 'proxy_endpoint_schema')
   @post '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makePostChildHandler('proxy_endpoint', 'proxy_endpoint_schema')
