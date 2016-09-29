@@ -1,3 +1,4 @@
+`import DS from 'ember-data'`
 `import ProxyEndpointRelatedAdapter from 'gateway/adapters/proxy-endpoint-related'`
 `import config from  'gateway/config/environment'`
 `import t from 'gateway/helpers/i18n'`

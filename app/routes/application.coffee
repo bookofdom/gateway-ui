@@ -81,7 +81,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     resourceIsLoaded = notification.get 'resourceIsLoaded'
     indexIsLoaded = index?
     if indexIsLoaded and !resourceIsLoaded
-      if @topLevelResourceNames.contains type
+      if @topLevelResourceNames.includes type
         Ember.run.later (=> @store.findAll type), 1000
       else
         index.reload()
