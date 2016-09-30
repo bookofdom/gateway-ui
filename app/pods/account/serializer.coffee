@@ -1,3 +1,4 @@
+`import DS from 'ember-data'`
 `import ApplicationSerializer from 'gateway/serializers/application'`
 
 AccountSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,

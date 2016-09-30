@@ -1,3 +1,4 @@
+`import DS from 'ember-data'`
 `import ApplicationAdapter from 'gateway/adapters/application'`
 
 RegistrationAdapter = ApplicationAdapter.extend

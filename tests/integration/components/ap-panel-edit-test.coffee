@@ -8,7 +8,7 @@ moduleForComponent 'ap-panel-edit', 'Integration | Component | ap panel edit', {
 test 'it renders', (assert) ->
   assert.expect 3
   @render hbs """{{ap-panel-edit}}"""
-  assert.equal @$().find('.ap-panel-edit').size(), 1
-  assert.equal @$().find('.panel-heading').size(), 0
+  assert.equal @$().find('.ap-panel-edit').length, 1
+  assert.equal @$().find('.panel-heading').length, 0
   @render hbs """{{ap-panel-edit t='foo'}}"""
-  assert.equal @$().find('.panel-heading').size(), 1
+  assert.equal @$().find('.panel-heading').length, 1

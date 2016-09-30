@@ -9,7 +9,7 @@ ApiRelatedAdapter = ApplicationAdapter.extend
     url = @_super arguments...
     host = @get 'host'
     url = url.replace host, ''
-    apiId = snapshot?.belongsTo('api').id
+    apiId = snapshot?.belongsTo?('api').id
     if apiId
       url = "#{@pathForType('api')}/#{apiId}/#{url}"
     url = "#{host}/#{url}"

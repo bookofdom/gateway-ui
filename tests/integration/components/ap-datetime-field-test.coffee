@@ -11,4 +11,4 @@ test 'it renders', (assert) ->
   @render hbs """
     {{ap-datetime-field value='2016-01-01'}}
   """
-  assert.equal @$().find('input').size(), 1
+  assert.equal @$().find('input').length, 1

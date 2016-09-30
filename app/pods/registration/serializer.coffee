@@ -1,3 +1,4 @@
+`import DS from 'ember-data'`
 `import ApplicationSerializer from 'gateway/serializers/application'`
 `import t from 'gateway/helpers/i18n'`
 

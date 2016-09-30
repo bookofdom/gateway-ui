@@ -9,9 +9,9 @@ test 'it renders', (assert) ->
   #assert.expect 1
 
   @render hbs """{{#bs-form-group}}{{/bs-form-group}}"""
-  assert.equal @$().find('.form-group').size(), 1
-  assert.equal @$().find('.form-group.has-error').size(), 0
+  assert.equal @$().find('.form-group').length, 1
+  assert.equal @$().find('.form-group.has-error').length, 0
 
   @render hbs """{{#bs-form-group error=true}}{{/bs-form-group}}"""
-  assert.equal @$().find('.form-group').size(), 1
-  assert.equal @$().find('.form-group.has-error').size(), 1
+  assert.equal @$().find('.form-group').length, 1
+  assert.equal @$().find('.form-group.has-error').length, 1
