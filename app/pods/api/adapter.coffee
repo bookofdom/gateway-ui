@@ -1,4 +1,4 @@
-`import ApplicationAdapter from 'gateway/adapters/application'`
+`import ApplicationAdapter from 'gateway/pods/application/adapter'`
 `import config from  'gateway/config/environment'`
 
 ApiAdapter = ApplicationAdapter.extend
