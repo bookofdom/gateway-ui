@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import ApButtonBlockComponent from 'gateway/components/ap-button-block'`
+`import ApButtonBlockComponent from 'gateway/pods/components/ap-button-block/component'`
 `import t from 'gateway/helpers/i18n'`
 
 ApButtonBlockNewComponent = ApButtonBlockComponent.extend
