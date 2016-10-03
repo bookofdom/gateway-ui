@@ -9,4 +9,9 @@ JobsRoute = Ember.Route.extend
 
   model: -> @modelFor('api').get 'jobs'
 
+  actions:
+    saved: (model) ->
+      console.log("here")
+      @transitionTo 'job', model
+
 `export default JobsRoute`
