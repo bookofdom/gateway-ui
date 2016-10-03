@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import BsBaseComponent from 'gateway/components/bs-base'`
+`import BsBaseComponent from 'gateway/pods/components/bs-base/component'`
 `import { brandName } from 'gateway/helpers/brand-name'`
 
 ApBrandComponent = BsBaseComponent.extend
