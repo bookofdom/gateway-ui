@@ -1,4 +1,4 @@
-`import ApiRelatedAdapter from 'gateway/adapters/api-related'`
+`import ApiRelatedAdapter from 'gateway/pods/api-related/adapter'`
 `import config from  'gateway/config/environment'`
 
 HostAdapter = ApiRelatedAdapter.extend

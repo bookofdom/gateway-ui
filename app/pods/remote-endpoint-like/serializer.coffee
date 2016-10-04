@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApiRelatedSerializer from 'gateway/serializers/api-related'`
+`import ApiRelatedSerializer from 'gateway/pods/api-related/serializer'`
 `import HttpRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/http'`
 `import SoapRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/soap'`
 `import SqlserverRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/sqlserver'`

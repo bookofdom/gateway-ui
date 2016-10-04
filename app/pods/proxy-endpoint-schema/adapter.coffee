@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ProxyEndpointRelatedAdapter from 'gateway/adapters/proxy-endpoint-related'`
+`import ProxyEndpointRelatedAdapter from 'gateway/pods/proxy-endpoint-related/adapter'`
 `import config from  'gateway/config/environment'`
 `import t from 'gateway/helpers/i18n'`
 `import jsonSchemaValidatorHelper from 'gateway/helpers/json-schema-validator'`
