@@ -18,9 +18,6 @@ Router.map ->
   # resources
   @route 'admin', path: 'account', ->
     @route 'account', path: 'edit', resetNamespace: true, (->)
-    @route 'keys', resetNamespace: true, ->
-      @route 'key', resetNamespace: true, path: ':key_id', ->
-        @route 'edit'
     @route 'users', resetNamespace: true, ->
       @route 'user', resetNamespace: true, path: ':user_id', ->
         @route 'edit'
@@ -114,4 +111,5 @@ Router.map ->
           @route 'edit'
       @route 'push-channel-messages', resetNamespace: true, path: 'messages', ->
         @route 'push-channel-message', resetNamespace: true, path: ':push_channel_message_id', (->)
+    @route 'keys', resetNamespace: true, (->)
 `export default Router`
