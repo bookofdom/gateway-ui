@@ -1,4 +1,4 @@
-`import EditController from 'gateway/controllers/edit'`
+`import EditController from 'gateway/pods/edit/controller'`
 
 RemoteEndpointEditController = EditController.extend
   'remote-endpoints/index': Ember.inject.controller()

@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationAdapter from 'gateway/adapters/application'`
+`import ApplicationAdapter from 'gateway/pods/application/adapter'`
 
 RegistrationAdapter = ApplicationAdapter.extend
   stripeService: Ember.inject.service 'stripe'

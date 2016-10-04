@@ -1,4 +1,4 @@
-`import EditRoute from 'gateway/routes/edit'`
+`import EditRoute from 'gateway/pods/edit/route'`
 
 StoreObjectEditRoute = EditRoute.extend()
 
