@@ -11,7 +11,6 @@ JobsRoute = Ember.Route.extend
 
   actions:
     saved: (model) ->
-      console.log("here")
       @transitionTo 'job', model
 
 `export default JobsRoute`
