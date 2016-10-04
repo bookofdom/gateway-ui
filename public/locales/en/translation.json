@@ -75,7 +75,7 @@
       "api-documentation": "view interactive API documentation and test API calls",
       "shared-components": "build reusable components for proxy endpoints",
       "terms-and-conditions": "by registering for an account you accept the terms and conditions",
-      "keys": "manage API access keys",
+      "keys": "manage certificates and private keys",
       "formatted": {
         "analyze": "<b>(coming soon)</b><br>View API usage and performance data",
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
