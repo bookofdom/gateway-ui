@@ -75,6 +75,7 @@
       "api-documentation": "ver la documentación y prueba las llamadas de la API",
       "shared-components": "crear componentes reutilizables para puntos finales de proxy",
       "terms-and-conditions": "mediante el registro de una cuenta que acepta los términos y condiciones",
+      "keys": "gestionar las claves de acceso a la API",
       "formatted": {
         "analyze": "<b>(próximamente)</b><br>Vista de uso de la API y los datos de rendimiento",
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
