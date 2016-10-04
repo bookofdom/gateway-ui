@@ -1,5 +1,5 @@
 `import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
-`import RemoteEndpointLike from 'gateway/models/remote-endpoint-like'`
+`import RemoteEndpointLike from 'gateway/pods/remote-endpoint-like/model'`
 `import t from 'gateway/helpers/i18n'`
 `import config from  'gateway/config/environment'`
 

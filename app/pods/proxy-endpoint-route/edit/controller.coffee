@@ -1,4 +1,4 @@
-`import EditController from 'gateway/controllers/edit'`
+`import EditController from 'gateway/pods/edit/controller'`
 
 ProxyEndpointRouteEditController = EditController.extend
   'proxy-endpoint-routes': Ember.inject.controller()

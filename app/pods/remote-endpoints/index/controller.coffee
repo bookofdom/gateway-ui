@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import RemoteEndpointLike from 'gateway/models/remote-endpoint-like'`
+`import RemoteEndpointLike from 'gateway/pods/remote-endpoint-like/model'`
 `import t from 'gateway/helpers/i18n'`
 `import config from  'gateway/config/environment'`
 

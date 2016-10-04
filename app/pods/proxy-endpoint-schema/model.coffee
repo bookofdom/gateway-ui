@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
+`import Model from 'gateway/pods/model/model'`
 
 ProxyEndpointSchema = Model.extend
   name: DS.attr 'string'

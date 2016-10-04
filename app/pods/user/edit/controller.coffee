@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import EditController from 'gateway/controllers/edit'`
+`import EditController from 'gateway/pods/edit/controller'`
 
 UserEditController = EditController.extend()
 
