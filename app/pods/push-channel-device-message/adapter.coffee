@@ -1,4 +1,5 @@
-`import ApplicationAdapter from 'gateway/adapters/application'`
+`import DS from 'ember-data'`
+`import ApplicationAdapter from 'gateway/pods/application/adapter'`
 `import t from 'gateway/helpers/i18n'`
 
 PushChannelDeviceMessageAdapter = ApplicationAdapter.extend

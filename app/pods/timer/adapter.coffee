@@ -1,4 +1,4 @@
-`import ApplicationAdapter from 'gateway/adapters/application'`
+`import ApplicationAdapter from 'gateway/pods/application/adapter'`
 `import t from 'gateway/helpers/i18n'`
 
 TimerAdapter = ApplicationAdapter.extend

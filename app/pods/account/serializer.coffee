@@ -1,4 +1,5 @@
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import DS from 'ember-data'`
+`import ApplicationSerializer from 'gateway/pods/application/serializer'`
 
 AccountSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   subscription: Ember.inject.service()

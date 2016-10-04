@@ -1,4 +1,4 @@
-`import ApiRelatedAdapter from 'gateway/adapters/api-related'`
+`import ApiRelatedAdapter from 'gateway/pods/api-related/adapter'`
 
 SharedComponentAdapter = ApiRelatedAdapter.extend()
 

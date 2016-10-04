@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
+`import Model from 'gateway/pods/model/model'`
 
 ActionComponentCall = Model.extend
   endpoint_name_override: DS.attr 'string'

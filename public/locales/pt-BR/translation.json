@@ -77,6 +77,7 @@
       "shared-components": "construir componentes reutilizáveis ​​para endpoints de proxy",
       "terms-and-conditions": "registrando-se para uma conta, você aceita os termos e condições",
       "timers": "gerenciar temporizadores",
+      "keys": "gerir os certificados e chaves privadas",
       "formatted": {
         "analyze": "<b>(em breve)</b><br>Uso da API vista e dados de desempenho",
         "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",
@@ -175,8 +176,8 @@
     "timer_plural": "temporizadores",
     "plan": "plano",
     "plan_plural": "planos",
-    "key": "chave",
-    "key_plural": "chaves"
+    "key": "certificado ou chave",
+    "key_plural": "certificados e chaves"
   },
   "fields": {
     "account_name": "nome da conta",

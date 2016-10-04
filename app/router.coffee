@@ -18,9 +18,6 @@ Router.map ->
   # resources
   @route 'admin', path: 'account', ->
     @route 'account', path: 'edit', resetNamespace: true, (->)
-    @route 'keys', resetNamespace: true, ->
-      @route 'key', resetNamespace: true, path: ':key_id', ->
-        @route 'edit'
     @route 'users', resetNamespace: true, ->
       @route 'user', resetNamespace: true, path: ':user_id', ->
         @route 'edit'
@@ -130,4 +127,6 @@ Router.map ->
       @route 'timer', resetNamespace: true, path: ':timer_id', ->
         @route 'edit'
         @route 'logs-timer', resetNamespace: true, path: 'logs', (->)
+    @route 'keys', resetNamespace: true, (->)
+
 `export default Router`

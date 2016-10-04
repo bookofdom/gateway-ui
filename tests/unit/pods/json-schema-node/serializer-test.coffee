@@ -199,7 +199,6 @@ test 'it normalizes a simple JSON schema', (assert) ->
       attributes:
         title: 'Example Schema'
         type: 'object'
-        required: false
       id: '1'
       relationships:
         children:
@@ -224,7 +223,6 @@ test 'it normalizes a simple JSON schema', (assert) ->
         name: 'job|occupation'
         pattern_name: true
         type: 'string'
-        required: false
       id: '2'
       relationships:
         children:
@@ -264,7 +262,6 @@ test 'it normalizes a simple JSON schema', (assert) ->
         name: 'nickNames'
         type: 'array'
         unique_items: true
-        required: false
       id: '5'
       relationships:
         children:
@@ -279,7 +276,6 @@ test 'it normalizes a simple JSON schema', (assert) ->
       attributes:
         pattern: '[ws]*'
         type: 'string'
-        required: false
       id: '6'
       relationships:
         children:
@@ -306,7 +302,6 @@ test "it normalizes top level 'string' type JSON schema node", (assert) ->
         pattern: '^(\\([0-9]{3}\\))?[0-9]{3}-[0-9]{4}$'
         min_length: 1
         max_length: 10
-        required: false
       id: '1'
       relationships:
         children:
@@ -334,7 +329,6 @@ test "it normalizes top level 'integer' type JSON schema node", (assert) ->
         maximum: 100
         exclusive_minimum: true
         exclusive_maximum: true
-        required: false
       id: '1'
       relationships:
         children:
@@ -362,7 +356,6 @@ test "it normalizes top level 'number' type JSON schema node", (assert) ->
         maximum: 55
         exclusive_minimum: true
         exclusive_maximum: true
-        required: false
       id: '1'
       relationships:
         children:
@@ -388,7 +381,6 @@ test "it normalizes top level 'array' type JSON schema node", (assert) ->
         min_items: 1
         max_items: 100
         unique_items: true
-        required: false
       id: '1'
       relationships:
         children:

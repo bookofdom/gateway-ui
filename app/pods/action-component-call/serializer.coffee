@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApplicationSerializer from 'gateway/pods/application/serializer'`
 
 ActionComponentCallSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:

@@ -77,6 +77,7 @@
       "shared-components": "crear componentes reutilizables para puntos finales de proxy",
       "terms-and-conditions": "mediante el registro de una cuenta que acepta los términos y condiciones",
       "timers": "gestionar temporizadores",
+      "keys": "gestionar certificados y claves privadas",
       "formatted": {
         "analyze": "<b>(próximamente)</b><br>Vista de uso de la API y los datos de rendimiento",
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
@@ -175,8 +176,8 @@
     "timer_plural": "temporizadores",
     "plan": "plan",
     "plan_plural": "planes",
-    "key": "llave",
-    "key_plural": "llaves"
+    "key": "certificado o clave",
+    "key_plural": "certificados y claves"
   },
   "fields": {
     "account_name": "nombre de la cuenta",
