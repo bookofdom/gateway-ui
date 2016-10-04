@@ -17,13 +17,13 @@ test 'admin user can destroy a key', (assert) ->
   authenticateSession @application,
     email: 'admin@test.com'
     admin: true
-  visit '/account/keys'
+  visit '/manage/keys'
   andThen ->
-    assert.equal currentURL(), '/account/keys'
+    assert.equal currentURL(), '/manage/keys'
     assert.equal server.db.keys.length, 1
     assert.equal find('.ap-table-index tbody tr').length, 1
   click '.ap-table-index tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
-    assert.equal currentURL(), '/account/keys'
+    assert.equal currentURL(), '/manage/keys'
     assert.equal server.db.keys.length, 0
     assert.equal find('.ap-table-index tbody tr').length, 0
