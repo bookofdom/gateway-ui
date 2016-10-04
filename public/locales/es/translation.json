@@ -170,8 +170,8 @@
     "stripe-card_plural": "tarjetas de crédito",
     "plan": "plan",
     "plan_plural": "planes",
-    "key": "llave",
-    "key_plural": "llaves"
+    "key": "certificado o clave",
+    "key_plural": "certificados y claves"
   },
   "fields": {
     "account_name": "nombre de la cuenta",
