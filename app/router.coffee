@@ -16,12 +16,17 @@ Router.map ->
     @route 'reset-confirmation'
 
   # resources
+  # Admin
   @route 'admin', path: 'account', ->
     @route 'account', path: 'edit', resetNamespace: true, (->)
     @route 'users', resetNamespace: true, ->
       @route 'user', resetNamespace: true, path: ':user_id', ->
         @route 'edit'
+
+  # Logs
   @route 'logs', resetNamespace: true, (->)
+
+  # APIs
   @route 'apis', resetNamespace: true, ->
     @route 'api', resetNamespace: true, path: ':api_id', ->
       @route 'edit'
@@ -88,6 +93,8 @@ Router.map ->
       @route 'logs-api', resetNamespace: true, path: 'logs', (->)
       @route 'api-documentation', resetNamespace: true, path: 'api', ->
         @route 'api-documentation-detail', resetNamespace: true, path: ':host_id', (->)
+
+  # Manage
   @route 'manage', ->
     @route 'store-collections', resetNamespace: true, path: 'collections', ->
       @route 'new'
@@ -112,4 +119,10 @@ Router.map ->
       @route 'push-channel-messages', resetNamespace: true, path: 'messages', ->
         @route 'push-channel-message', resetNamespace: true, path: ':push_channel_message_id', (->)
     @route 'keys', resetNamespace: true, (->)
+
+  # Analyze
+  @route 'analyze', ->
+    @route 'stats-queries', resetNamespace: true, path: 'stats', ->
+      @route 'stats-query', resetNamespace: true, path: ':stats_query_id', (->)
+
 `export default Router`

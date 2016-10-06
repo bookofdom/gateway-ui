@@ -1,0 +1,7 @@
+{{#each stats_queries as |statsQuery|}}
+  <li class="text-capitalize clearfix">
+    {{#link-to 'stats-query' statsQuery}}
+      <span class="text">{{statsQuery.name}}</span>
+    {{/link-to}}
+  </li>
+{{/each}}
