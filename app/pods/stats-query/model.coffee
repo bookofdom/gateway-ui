@@ -7,10 +7,8 @@
 StatsQuery = Model.extend
   type: DS.attr 'string', defaultValue: 'response-time'
   default_query: DS.attr()
-  available_group_by: DS.attr()
   start: DS.attr 'string'
   end: DS.attr 'string'
-  group_by: DS.attr 'string'
 
   # Computed
   typeKind: Ember.computed 'type', ->
@@ -26,7 +24,7 @@ StatsQuery = Model.extend
       @set 'rawData', response
   rawData: null
   series: []
-  dataObserver: Ember.observer 'rawData', 'group_by', ->
+  dataObserver: Ember.observer 'rawData', ->
     data = data: @get 'rawData'
     series = @seriesTransform @normalize data
     @set 'series', series
@@ -45,7 +43,7 @@ StatsQuery = Model.extend
     ]
 
 # Declare available types and their human-readable names
-types = 'response-time placeholder-1 placeholder-2'.split(' ').map (type) ->
+types = 'response-time average-speed '.split(' ').map (type) ->
   name: t "types.stats-query.#{type}"
   slug: type
   value: type
@@ -59,9 +57,9 @@ StatsQuery.reopenClass
     default_query:
       variable: 'response.time'
   ,
-    id: 'placeholder-1'
+    id: 'average-speed'
     default_query:
-      variable: 'placeholder.variable.1'
+      variable: 'average-speed'
   ,
     id: 'placeholder-2'
     default_query:
