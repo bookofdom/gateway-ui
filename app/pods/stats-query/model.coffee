@@ -29,10 +29,11 @@ StatsQuery = Model.extend
     series = @seriesTransform @normalize data
     @set 'series', series
   normalize: (data) ->
+    variable = @get 'default_query.variable'
     data: JSON.parse(data.data)?.stats?.map (datum) ->
       value =
         timestamp: datum.timestamp
-        value: datum.values['response.time']
+        value: datum.values[variable]
       value
   seriesTransform: (data) ->
     [
@@ -60,10 +61,6 @@ StatsQuery.reopenClass
     id: 'average-speed'
     default_query:
       variable: 'average-speed'
-  ,
-    id: 'placeholder-2'
-    default_query:
-      variable: 'placeholder.variable.2'
   ]
 
 `export default StatsQuery`
