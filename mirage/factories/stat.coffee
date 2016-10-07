@@ -26,6 +26,7 @@ StatFactory = Factory.extend
     'average.speed': faker.random.number(2) + 1
   type: (i) ->
     type = typeCycle i
+    @timestamp = type.timestamp i
     type.name
 
 `export default StatFactory`
