@@ -1,1 +1,3 @@
-{{model.series}}
+{{#if series}}
+  {{nvd3-chart type='lineChart' datum=series options=chartOptions}}
+{{/if}}
