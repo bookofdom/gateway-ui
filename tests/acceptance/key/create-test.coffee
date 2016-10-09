@@ -38,10 +38,10 @@ test 'admin can create new keys', (assert) ->
       assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/keys', makePostHandler('key', after)
-  visit '/account/keys'
+  visit '/manage/keys'
   andThen ->
     assert.equal beforeCreateCount > 0, true
-    assert.equal currentURL(), '/account/keys'
+    assert.equal currentURL(), '/manage/keys'
     assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'Foobar'
   addFile()
