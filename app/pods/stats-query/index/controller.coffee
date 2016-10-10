@@ -42,7 +42,7 @@ StatsQueryIndexController = Ember.Controller.extend
         right: 50
         bottom: 50
     xAxis:
-      #rotateLabels: 25
+      rotateLabels: 25
       tickFormat: (d) -> moment(d).format labelFormat
 
 `export default StatsQueryIndexController`
