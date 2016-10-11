@@ -1,5 +1,5 @@
-`import ActionComponentsController from 'gateway/pods/action-components/controller'`
+`import Ember from 'ember'`
 
-JobComponentsController = ActionComponentsController.extend()
+JobComponentsController = Ember.Controller.extend()
 
 `export default JobComponentsController`

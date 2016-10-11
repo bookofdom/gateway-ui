@@ -1,6 +1,5 @@
-`import ActionComponentsIndexController from 'gateway/pods/action-components/index/controller'`
+`import Ember from 'ember'`
 
-ProxyEndpointComponentsIndexController = ActionComponentsIndexController.extend
-  prefix: 'proxy-endpoint'
+ProxyEndpointComponentsIndexController = Ember.Controller.extend()
 
 `export default ProxyEndpointComponentsIndexController`

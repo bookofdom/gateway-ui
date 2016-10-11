@@ -1,5 +1,6 @@
-`import ActionComponentCallController from 'gateway/pods/action-component-call/controller'`
+`import Ember from 'ember'`
 
-ProxyEndpointComponentCallController = ActionComponentCallController.extend()
+ProxyEndpointComponentCallController = Ember.Controller.extend
+  breadCrumb: 'resources.proxy-endpoint-component-call'
 
 `export default ProxyEndpointComponentCallController`

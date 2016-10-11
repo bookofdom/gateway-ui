@@ -1,5 +1,6 @@
-`import ActionComponentCallsRoute from 'gateway/pods/action-component-calls/route'`
+`import Ember from 'ember'`
 
-JobComponentCallsRoute = ActionComponentCallsRoute.extend()
+JobComponentCallsRoute = Ember.Route.extend
+  model: -> @modelFor('job-component').get 'calls'
 
 `export default JobComponentCallsRoute`

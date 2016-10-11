@@ -34,10 +34,10 @@ Router.map ->
           @route 'proxy-endpoint-components', resetNamespace: true, path: 'components', ->
             @route 'new', ->
               @route 'type', path: ':action_component_type'
-            @route 'proxy-endpoint-component', resetNamespace: true, path: ':action_component_id', ->
+            @route 'proxy-endpoint-component', resetNamespace: true, path: ':proxy_endpoint_component_id', ->
               @route 'edit'
               @route 'proxy-endpoint-component-calls', resetNamespace: true, path: 'calls', ->
-                @route 'proxy-endpoint-component-call', resetNamespace: true, path: ':action_component_call_id', ->
+                @route 'proxy-endpoint-component-call', resetNamespace: true, path: ':proxy_endpoint_component_call_id', ->
                   @route 'edit'
           @route 'proxy-endpoint-tests', resetNamespace: true, path: 'tests', ->
             @route 'proxy-endpoint-test', resetNamespace: true, path: ':proxy_endpoint_test_id', ->
@@ -52,10 +52,10 @@ Router.map ->
           @route 'job-components', resetNamespace: true, path: 'components', ->
             @route 'new', ->
               @route 'type', path: ':action_component_type'
-            @route 'job-component', resetNamespace: true, path: ':action_component_id', ->
+            @route 'job-component', resetNamespace: true, path: ':job_component_id', ->
               @route 'edit'
               @route 'job-component-calls', resetNamespace: true, path: 'calls', ->
-                @route 'job-component-call', resetNamespace: true, path: ':action_component_call_id', ->
+                @route 'job-component-call', resetNamespace: true, path: ':job_component_call_id', ->
                   @route 'edit'
           @route 'logs-job', resetNamespace: true, path: 'logs', (->)
       @route 'shared-components', resetNamespace: true, path: 'components', ->

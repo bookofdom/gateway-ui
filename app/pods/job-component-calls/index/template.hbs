@@ -1,1 +1,10 @@
-{{partial 'action-component-calls/index'}}
+{{ap-table-index
+  models=model
+  fields='remote_endpoint:resources.remote-endpoint:object-name,endpoint_name_override'
+  path='job-component-call.index'
+  edit-path='job-component-call.edit'}}
+
+{{#ap-panel-new t='resources.proxy-endpoint-component-call' closed=(unbound model.length)}}
+  {{forms/proxy-endpoint-component-call-form indexModel=indexModel option-groups=option-groups transformation-option-group=transformation-option-groups
+    prefix='job'}}
+{{/ap-panel-new}}

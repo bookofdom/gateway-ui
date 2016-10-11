@@ -1,8 +1,15 @@
 `import DS from 'ember-data'`
-`import ActionComponentCall from 'gateway/pods/action-component-call/model'`
+`import Model from 'gateway/pods/model/model'`
 
-ProxyEndpointComponentCall = ActionComponentCall.extend
+ProxyEndpointComponentCall = Model.extend
+  endpoint_name_override: DS.attr 'string'
+  conditional: DS.attr 'string', defaultValue: ''
+  conditional_positive: DS.attr 'boolean', defaultValue: true
+
   # Relationships
+  remote_endpoint: DS.belongsTo 'remote-endpoint',
+    async: false
+    stains: true
   before: DS.hasMany 'proxy-endpoint-component-transformation', async: false
   after: DS.hasMany 'proxy-endpoint-component-transformation', async: false
   proxy_endpoint_component: DS.belongsTo 'proxy-endpoint-component',

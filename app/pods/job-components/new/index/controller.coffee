@@ -1,6 +1,5 @@
-`import ActionComponentsNewIndexController from 'gateway/pods/action-components/new/index/controller'`
+`import Ember from 'ember'`
 
-JobComponentsNewIndexController = ActionComponentsNewIndexController.extend
-  prefix: 'job'
+JobComponentsNewIndexController = Ember.Controller.extend()
 
 `export default JobComponentsNewIndexController`

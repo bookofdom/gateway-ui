@@ -1,5 +1,6 @@
-`import ActionComponentController from 'gateway/pods/action-component/controller'`
+`import Ember from 'ember'`
 
-JobComponentController = ActionComponentController.extend()
+JobComponentController = Ember.Controller.extend
+  breadCrumb: Ember.computed 'model.name', -> @get 'model.name'
 
 `export default JobComponentController`

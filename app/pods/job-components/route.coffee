@@ -1,5 +1,9 @@
-`import ActionComponentsRoute from 'gateway/pods/action-components/route'`
+`import Ember from 'ember'`
 
-JobComponentsRoute = ActionComponentsRoute.extend()
+JobComponentsRoute = Ember.Route.extend
+  model: -> @modelFor('job').get 'components'
+  actions:
+    saved: ->
+      # no op (this event is for use by the new type component route)
 
 `export default JobComponentsRoute`

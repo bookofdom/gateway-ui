@@ -5,7 +5,7 @@ JobRoute = Ember.Route.extend
     @modelFor('jobs').findBy 'id', params.job_id
   afterModel: ->
     # routes and components embedded records appear only when
-    # loading individual proxy endpoints
+    # loading individual jobs
     job = @modelFor 'job'
     job.cancel()
   actions:

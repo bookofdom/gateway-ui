@@ -1,5 +1,18 @@
-`import ActionComponentCallSerializer from 'gateway/pods/action-component-call/serializer'`
+`import DS from 'ember-data'`
+`import ApplicationSerializer from 'gateway/pods/application/serializer'`
 
-JobComponentCallSerializer = ActionComponentCallSerializer.extend()
+JobComponentCallSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
+  attrs:
+    proxy_endpoint_component:
+      serialize: false
+    before:
+      embedded: 'always'
+    after:
+      embedded: 'always'
+
+  normalize: (type, hash, property) ->
+    hash.before = [] if !hash.before
+    hash.after = [] if !hash.after
+    @_super arguments...
 
 `export default JobComponentCallSerializer`

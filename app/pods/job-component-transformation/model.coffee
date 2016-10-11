@@ -1,7 +1,10 @@
 `import DS from 'ember-data'`
-`import ActionComponentTransformation from 'gateway/pods/action-component-transformation/model'`
+`import Model from 'gateway/pods/model/model'`
 
-JobComponentTransformation = ActionComponentTransformation.extend
+JobComponentTransformation = Model.extend
+  type: DS.attr 'string', defaultValue: 'js'
+  body: DS.attr 'string', defaultValue: ''
+
   # Relationships
   proxy_endpoint_component: DS.belongsTo 'job-component',
     inverse: null

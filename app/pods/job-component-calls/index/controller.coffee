@@ -1,7 +1,7 @@
-`import ActionComponentCallsIndexController from 'gateway/pods/action-component-calls/index/controller'`
+`import Ember from 'ember'`
+`import t from 'gateway/helpers/i18n'`
 
-JobComponentCallsIndexController = ActionComponentCallsIndexController.extend
-  prefix: 'job'
+JobComponentCallsIndexController = Ember.Controller.extend
   'job-component-calls': Ember.inject.controller()
 
   indexModel: Ember.computed.alias 'job-component-calls.indexModel'
