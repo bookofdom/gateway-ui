@@ -446,7 +446,7 @@
       "mongodb": "MongoDB",
       "ldap": "LDAP",
       "script": "Script",
-      "hana": "HANA",
+      "hana": "SAP HANA",
       "redis": "Redis",
       "oracle": "Oracle",
       "smtp": "SMTP",
