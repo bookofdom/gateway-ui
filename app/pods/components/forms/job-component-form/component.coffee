@@ -1,6 +1,6 @@
 `import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
 
-ProxyEndpointComponentFormComponent = BaseFormComponent.extend
+JobComponentFormComponent = BaseFormComponent.extend
   callsIndexModel: null
   'calls-option-groups': null
   'transformation-option-groups': null
@@ -9,7 +9,7 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
   formTemplateName: Ember.computed 'model.type', ->
     type = @get 'model.type'
     type = 'shared' if @get 'model.shared'
-    "components/forms/proxy-endpoint-component/#{type}-form"
+    "components/forms/job-component/#{type}-form"
 
   fields: Ember.computed 'model.js', 'model.single', 'model.multi', 'model.shared', ->
     fields = [
@@ -34,20 +34,20 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
 
   createNewCallModel: ->
     model = @get 'model'
-    newModel = @get('store').createRecord 'proxy-endpoint-component-call'
-    newBefore = @get('store').createRecord 'proxy-endpoint-component-transformation'
-    newAfter = @get('store').createRecord 'proxy-endpoint-component-transformation'
+    newModel = @get('store').createRecord 'job-component-call'
+    newBefore = @get('store').createRecord 'job-component-transformation'
+    newAfter = @get('store').createRecord 'job-component-transformation'
     newModel.get('before').pushObject newBefore
     newModel.get('after').pushObject newAfter
     model.get('calls').pushObject newModel
 
   actions:
-    'new-proxy-endpoint-component-call': (record) -> @createNewCallModel()
-    'delete-proxy-endpoint-component-call': (record) -> record.deleteRecord()
+    'new-job-component-call': (record) -> @createNewCallModel()
+    'delete-job-component-call': (record) -> record.deleteRecord()
     saved: ->
       @notifySaveSuccess()
       # resend this action (using a different name)
       # so that the router can handle it if necessary
       @send 'saved'
 
-`export default ProxyEndpointComponentFormComponent`
+`export default JobComponentFormComponent`

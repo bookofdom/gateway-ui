@@ -1,0 +1,12 @@
+<br>
+{{#each model.before as |transform|}}
+  {{forms/job-component-transformation-inline-form before=true model=transform option-groups=transformation-option-groups}}
+{{/each}}
+
+{{#each model.calls as |call|}}
+  {{forms/job-component-call-inline-form model=call indexModel=callsIndexModel option-groups=calls-option-groups}}
+{{/each}}
+
+{{#each model.after as |transform|}}
+  {{forms/job-component-transformation-inline-form after=true model=transform option-groups=transformation-option-groups}}
+{{/each}}

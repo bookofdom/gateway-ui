@@ -1,0 +1,22 @@
+<br>
+{{#each model.before as |transform|}}
+  {{forms/job-component-transformation-inline-form before=true model=transform option-groups=transformation-option-groups}}
+{{/each}}
+
+{{#unless model.isNew}}
+  {{#ap-panel-edit t='resources.proxy-endpoint-component-call_plural'}}
+    {{ap-table-model
+      models=model.calls
+      delete-action='delete-job-component-call'
+      edit-path='job-component-call.edit'
+      option-groups=calls-option-groups
+      component-name='forms/job-component-call-inline-tabular-form'}}
+    {{ap-button-block-new
+      t='resources.proxy-endpoint-component-call'
+      action='new-job-component-call'}}
+  {{/ap-panel-edit}}
+{{/unless}}
+
+{{#each model.after as |transform|}}
+  {{forms/job-component-transformation-inline-form after=true model=transform option-groups=transformation-option-groups}}
+{{/each}}

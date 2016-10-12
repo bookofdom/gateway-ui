@@ -1,11 +1,11 @@
 `import BaseForm from 'gateway/pods/components/forms/base-form/component'`
 
-ProxyEndpointComponentCallFormComponent = BaseForm.extend
+JobComponentCallFormComponent = BaseForm.extend
   indexModel: null
   'option-groups': null # passed in by controllers
   'transformation-option-groups': null
 
-  modelType: 'proxy-endpoint-component-call'
+  modelType: 'job-component-call'
 
   fields: Ember.computed 'model.isNew', ->
     newFields = [
@@ -38,13 +38,13 @@ ProxyEndpointComponentCallFormComponent = BaseForm.extend
     store = @get 'store'
     if model.get 'isNew'
       if model.get('before.length') == 0
-        newBefore = store.createRecord 'proxy-endpoint-component-transformation'
+        newBefore = store.createRecord 'job-component-transformation'
         model.get('before').pushObject newBefore
       if model.get('after.length') == 0
-        newAfter = store.createRecord 'proxy-endpoint-component-transformation'
+        newAfter = store.createRecord 'job-component-transformation'
         model.get('after').pushObject newAfter
       calls = @get 'indexModel'
       calls.pushObject model
     @_super arguments...
 
-`export default ProxyEndpointComponentCallFormComponent`
+`export default JobComponentCallFormComponent`
