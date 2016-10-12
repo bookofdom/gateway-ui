@@ -316,7 +316,7 @@
     "day_of_month": "dia do mês",
     "month": "mês",
     "day_of_week": "dia da semana",
-    "attributes": "atributos",
+    "parameters": "parâmetros",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",

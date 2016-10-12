@@ -7,19 +7,19 @@ TimerSerializer = ApplicationSerializer.extend
     hash.next = next.toISOString()
 
     try
-      hash.attributes = vkbeautify.json JSON.stringify(hash.attributes)
+      hash.parameters = vkbeautify.json JSON.stringify(hash.parameters)
     @_super arguments...
   serialize: (snapshot) ->
     serialized = @_super arguments...
     next = new Date(snapshot.attributes().next)
     serialized.next = Math.floor(next.getTime() / 1000)
 
-    attributes = snapshot.attributes().attributes
+    parameters = snapshot.attributes().parameters
     try
-      attributes = JSON.parse attributes if attributes
+      parameters = JSON.parse parameters if parameters
     catch e
       serialized.dataError = true
-    serialized.attributes = attributes
+    serialized.parameters = parameters
     serialized
 
 `export default TimerSerializer`

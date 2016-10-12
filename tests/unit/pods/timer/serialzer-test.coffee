@@ -76,7 +76,7 @@ moduleForModel 'timer', 'Unit | Serializer | timer',
           month: '*'
           day_of_week: '*'
           next: 123
-          attributes: {}
+          parameters: {}
         ]
       ]
 

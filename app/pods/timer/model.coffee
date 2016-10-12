@@ -11,7 +11,7 @@ Timer = Model.extend
   month: DS.attr 'string', defaultValue: '*'
   day_of_week: DS.attr 'string', defaultValue: '*'
   next: DS.attr 'string'
-  attributes: DS.attr 'string', defaultValue: '{}'
+  parameters: DS.attr 'string', defaultValue: '{}'
 
   # Relationships
   api: DS.belongsTo 'api',

@@ -71,7 +71,7 @@ TimerFormComponent = BaseFormComponent.extend
         required: true
       ]
     fields.pushObjects [
-      name: 'attributes'
+      name: 'parameters'
       type: 'json'
       required: true
     ]

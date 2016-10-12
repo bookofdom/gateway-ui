@@ -329,7 +329,7 @@
     "day_of_month": "day of month",
     "month": "month",
     "day_of_week": "day of week",
-    "attributes": "attributes",
+    "parameters": "parameters",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
