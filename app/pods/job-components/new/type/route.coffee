@@ -6,7 +6,7 @@ JobComponentsNewTypeRoute = Ember.Route.extend
     @removeNewComponents()
     # create the new component
     components = @modelFor('job').get 'components'
-    type = params.action_component_type
+    type = params.job_component_type
     model = @store.createRecord 'job-component',
       type: type
     # populate relationships (if necessary)

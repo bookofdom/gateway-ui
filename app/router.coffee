@@ -33,7 +33,7 @@ Router.map ->
               @route 'edit'
           @route 'proxy-endpoint-components', resetNamespace: true, path: 'components', ->
             @route 'new', ->
-              @route 'type', path: ':action_component_type'
+              @route 'type', path: ':proxy_endpoint_component_type'
             @route 'proxy-endpoint-component', resetNamespace: true, path: ':proxy_endpoint_component_id', ->
               @route 'edit'
               @route 'proxy-endpoint-component-calls', resetNamespace: true, path: 'calls', ->
@@ -51,7 +51,7 @@ Router.map ->
           @route 'edit'
           @route 'job-components', resetNamespace: true, path: 'components', ->
             @route 'new', ->
-              @route 'type', path: ':action_component_type'
+              @route 'type', path: ':job_component_type'
             @route 'job-component', resetNamespace: true, path: ':job_component_id', ->
               @route 'edit'
               @route 'job-component-calls', resetNamespace: true, path: 'calls', ->

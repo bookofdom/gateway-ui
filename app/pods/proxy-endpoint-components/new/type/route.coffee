@@ -6,7 +6,7 @@ ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend
     @removeNewComponents()
     # create the new component
     components = @modelFor('proxy-endpoint').get 'components'
-    type = params.action_component_type
+    type = params.proxy_endpoint_component_type
     model = @store.createRecord 'proxy-endpoint-component',
       type: type
     # populate relationships (if necessary)
