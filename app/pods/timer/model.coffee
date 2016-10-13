@@ -4,7 +4,7 @@
 Timer = Model.extend
   name: DS.attr 'string'
   once: DS.attr 'boolean', defaultValue: false
-  time_zone: DS.attr 'number', defaultValue: 0
+  time_zone: DS.attr 'number', defaultValue: -5
   minute: DS.attr 'string', defaultValue: '0'
   hour: DS.attr 'string', defaultValue: '*'
   day_of_month: DS.attr 'string', defaultValue: '*'
