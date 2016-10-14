@@ -1,4 +1,5 @@
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import DS from 'ember-data'`
+`import ApplicationSerializer from 'gateway/pods/application/serializer'`
 
 AccountSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   subscription: Ember.inject.service()
@@ -9,6 +10,8 @@ AccountSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
       deserialize: 'records'
 
   normalize: (type, hash, property) ->
+    hash.links =
+      keys: 'keys'
     hash.card = {}
     delete hash.plan_id if !@get 'subscription.enabled'
     @_super arguments...

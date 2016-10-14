@@ -8,4 +8,4 @@ moduleForComponent 'bs-base', 'Integration | Component | bs base', {
 test 'it renders', (assert) ->
   assert.expect 1
   @render hbs """{{bs-base classNames='base'}}"""
-  assert.equal @$().find('.base').size(), 1
+  assert.equal @$().find('.base').length, 1

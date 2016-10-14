@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApplicationSerializer from 'gateway/pods/application/serializer'`
 
 LogSerializer = ApplicationSerializer.extend
   normalizeResponse: (store, primaryModelClass, payload, id, requestType) ->

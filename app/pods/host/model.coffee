@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
+`import Model from 'gateway/pods/model/model'`
 
 Host = Model.extend
   name: DS.attr 'string'
@@ -7,7 +7,7 @@ Host = Model.extend
 
   # Computed
   swaggerViewerUrl: Ember.computed 'hostname', ->
-    adapter = @container.lookup 'adapter:host'
+    adapter = Ember.getOwner(@).lookup 'adapter:host'
     adapter.buildSwaggerViewerUrl @
 
   # Relationships

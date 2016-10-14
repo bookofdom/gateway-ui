@@ -8,4 +8,4 @@ moduleForComponent 'ap-page', 'Integration | Component | ap page', {
 test 'it renders', (assert) ->
   assert.expect 1
   @render hbs """{{ap-page}}"""
-  assert.equal @$().find('.ap-page').size(), 1
+  assert.equal @$().find('.ap-page').length, 1

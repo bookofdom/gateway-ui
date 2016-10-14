@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
+`import Model from 'gateway/pods/model/model'`
 
 EndpointGroup = Model.extend
   name: DS.attr 'string'

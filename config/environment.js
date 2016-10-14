@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'gateway',
     podModulePrefix: 'gateway/pods',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     'simple-auth': {
       authenticationRoute: 'login',
@@ -87,7 +87,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
+    ENV.rootURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
@@ -112,7 +112,7 @@ module.exports = function(environment) {
     ENV.broker_placeholder = 'BROKER_PLACEHOLDER';
     ENV.google_analytics_tracking_id = 'GOOGLE_ANALYTICS_TRACKING_ID';
 
-    ENV.baseURL = null;
+    ENV.rootURL = null;
     ENV.locationType = 'hash';
     ENV.api.basePath = ENV.api_base_path_placeholder;
     ENV.api.logs.host = ENV.broker_placeholder;

@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
+`import Model from 'gateway/pods/model/model'`
 `import t from 'gateway/helpers/i18n'`
 
 Notification = DS.Model.extend

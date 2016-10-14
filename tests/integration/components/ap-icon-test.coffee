@@ -9,4 +9,4 @@ test 'it renders', (assert) ->
   assert.expect 1
 
   @render hbs """{{ap-icon icon='the-essentials-007'}}"""
-  assert.equal @$().find('.gateway-the-essentials-007').size(), 1
+  assert.equal @$().find('.gateway-the-essentials-007').length, 1

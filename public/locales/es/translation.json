@@ -75,6 +75,7 @@
       "api-documentation": "ver la documentación y prueba las llamadas de la API",
       "shared-components": "crear componentes reutilizables para puntos finales de proxy",
       "terms-and-conditions": "mediante el registro de una cuenta que acepta los términos y condiciones",
+      "keys": "gestionar certificados y claves privadas",
       "formatted": {
         "analyze": "<b>(próximamente)</b><br>Vista de uso de la API y los datos de rendimiento",
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
@@ -168,7 +169,9 @@
     "stripe-card": "tarjeta de crédito",
     "stripe-card_plural": "tarjetas de crédito",
     "plan": "plan",
-    "plan_plural": "planes"
+    "plan_plural": "planes",
+    "key": "certificado o clave",
+    "key_plural": "certificados y claves"
   },
   "fields": {
     "account_name": "nombre de la cuenta",
@@ -299,10 +302,12 @@
     "command": "mando",
     "arguments": "argumentos",
     "registry": "registro",
+    "key": "archivo de claves",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
-      "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`."
+      "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`.",
+      "key": "PEM-codificado"
     },
     "api": {
       "name": "nombre del API"

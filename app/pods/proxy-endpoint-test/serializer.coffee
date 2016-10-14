@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApplicationSerializer from 'gateway/pods/application/serializer'`
 `import ProxyEndpointTest from 'gateway/pods/proxy-endpoint-test/model'`
 
 ProxyEndpointTestSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,

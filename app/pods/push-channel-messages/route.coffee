@@ -11,10 +11,5 @@ PushChannelMessagesRoute = Ember.Route.extend
     extraModels = @get 'extraModels'
     controller.setProperties extraModels
     @_super arguments...
-  renderTemplate: ->
-    @_super arguments...
-    @render 'push/secondary-sidebar',
-      outlet: 'sidebar'
-      into: 'push-channel-messages'
 
 `export default PushChannelMessagesRoute`

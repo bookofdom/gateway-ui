@@ -75,6 +75,7 @@
       "api-documentation": "view interactive API documentation and test API calls",
       "shared-components": "build reusable components for proxy endpoints",
       "terms-and-conditions": "by registering for an account you accept the terms and conditions",
+      "keys": "manage certificates and private keys",
       "formatted": {
         "analyze": "<b>(coming soon)</b><br>View API usage and performance data",
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
@@ -174,7 +175,9 @@
     "stripe-card": "credit card",
     "stripe-card_plural": "credit cards",
     "plan": "plan",
-    "plan_plural": "plans"
+    "plan_plural": "plans",
+    "key": "certificate or key",
+    "key_plural": "certs and keys"
   },
   "fields": {
     "account_name": "account name",
@@ -311,10 +314,12 @@
     "tag": "tag",
     "command": "command",
     "registry": "registry",
+    "key": "key file",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
-      "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`."
+      "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`.",
+      "key": "PEM-encoded"
     },
     "api": {
       "name": "API name"
@@ -423,7 +428,7 @@
       "mongodb": "MongoDB",
       "ldap": "LDAP",
       "script": "Script",
-      "hana": "HANA",
+      "hana": "SAP HANA",
       "redis": "Redis",
       "oracle": "Oracle",
       "smtp": "SMTP",

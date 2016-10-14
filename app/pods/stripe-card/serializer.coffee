@@ -1,4 +1,4 @@
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApplicationSerializer from 'gateway/pods/application/serializer'`
 `import t from 'gateway/helpers/i18n'`
 
 StripeCardSerializer = ApplicationSerializer.extend

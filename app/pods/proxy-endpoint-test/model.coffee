@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
+`import Model from 'gateway/pods/model/model'`
 `import t from 'gateway/helpers/i18n'`
 
 ProxyEndpointTest = Model.extend
@@ -29,7 +29,7 @@ ProxyEndpointTest = Model.extend
     ProxyEndpointTest.methods.findBy 'value', method
 
   executeTest: ->
-    adapter = @container.lookup 'adapter:proxy-endpoint-test'
+    adapter = Ember.getOwner(@).lookup 'adapter:proxy-endpoint-test'
     adapter.executeTest @
 
 # Declare available methods and their human-readable names

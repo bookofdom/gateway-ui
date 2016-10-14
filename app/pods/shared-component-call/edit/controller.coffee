@@ -1,4 +1,4 @@
-`import EditController from 'gateway/controllers/edit'`
+`import EditController from 'gateway/pods/edit/controller'`
 
 SharedComponentCallEditController = EditController.extend
   'shared-component-calls': Ember.inject.controller()
