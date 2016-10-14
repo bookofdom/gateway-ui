@@ -70,11 +70,13 @@
       "endpoint-groups": "os grupos mencionados agrupam os endpoints da proxy por conveniência",
       "remote-endpoints": "define os endpoints remotos da API que proporcionam servicios aos endpoints da proxy",
       "hosts": "define os servidores associados com a API",
+      "jobs": "definir ou editar empregos e correspondente lógica",
       "libraries": "define bibliotecas compartilhadas para uso em blocos de código de JavaScript",
       "logs": "visualização, pesquisa e transmissão de registros",
       "api-documentation": "visualizar a documentação da API e chamadas de API de teste interativos",
       "shared-components": "construir componentes reutilizáveis ​​para endpoints de proxy",
       "terms-and-conditions": "registrando-se para uma conta, você aceita os termos e condições",
+      "timers": "gerenciar temporizadores",
       "keys": "gerir os certificados e chaves privadas",
       "analyze": "uso da API vista e dados de desempenho",
       "formatted": {
@@ -149,6 +151,8 @@
     "remote-endpoint-push-platform_plural": "plataformas de envio",
     "host": "servidor",
     "host_plural": "servidores",
+    "job": "trabalho",
+    "job_plural": "empregos",
     "library": "biblioteca compartilhada",
     "library_plural": "bibliotecas compartilhadas",
     "log": "registro",
@@ -169,6 +173,8 @@
     "store-object_plural": "objetos",
     "stripe-card": "cartão de crédito",
     "stripe-card_plural": "cartões de crédito",
+    "timer": "cronômetro",
+    "timer_plural": "temporizadores",
     "plan": "plano",
     "plan_plural": "planos",
     "key": "certificado ou chave",
@@ -303,6 +309,15 @@
     "command": "comando",
     "registry": "registro",
     "key": "arquivo de chave",
+    "next": "próximo",
+    "once": "uma vez",
+    "time_zone": "fuso horário",
+    "minute": "minuto",
+    "hour": "hora",
+    "day_of_month": "dia do mês",
+    "month": "mês",
+    "day_of_week": "dia da semana",
+    "parameters": "parâmetros",
     "help": {
       "timeout": "O número de segundos.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
@@ -311,6 +326,9 @@
     },
     "api": {
       "name": "nome API"
+    },
+    "job": {
+      "name": "nome do trabalho"
     },
     "remote_endpoint": {
       "name": "nome do terminal remoto"
@@ -401,6 +419,7 @@
       "push": "empurrar",
       "store": "armazenar",
       "script": "escrita",
+      "job": "trabalho",
       "status-types": {
         "success": "sucesso",
         "failed": "fracassado",

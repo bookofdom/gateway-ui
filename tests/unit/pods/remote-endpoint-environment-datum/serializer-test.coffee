@@ -12,6 +12,7 @@ moduleForModel 'remote-endpoint-environment-datum', 'Unit | Serializer | remote 
     'model:endpoint-group'
     'model:environment'
     'model:host'
+    'model:job'
     'model:library'
     'model:proxy-endpoint'
     'model:remote-endpoint'

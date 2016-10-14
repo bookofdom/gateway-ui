@@ -8,6 +8,7 @@ moduleForModel 'api', 'Unit | Model | api', {
     'model:host'
     'model:library'
     'model:proxy-endpoint'
+    'model:job'
     'model:remote-endpoint'
     'model:shared-component'
   ]

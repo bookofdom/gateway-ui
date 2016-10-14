@@ -5,6 +5,8 @@ moduleForModel 'log', 'Unit | Model | log', {
   needs: [
     'model:api',
     'model:proxy-endpoint'
+    'model:job'
+    'model:timer'
   ]
 }
 

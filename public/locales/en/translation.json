@@ -70,11 +70,13 @@
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
       "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints",
       "hosts": "define named hosts associated with this API",
+      "jobs": "define or edit jobs and corresponding logic",
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "view, search, and stream logs",
       "api-documentation": "view interactive API documentation and test API calls",
       "shared-components": "build reusable components for proxy endpoints",
       "terms-and-conditions": "by registering for an account you accept the terms and conditions",
+      "timers": "manage timers",
       "keys": "manage certificates and private keys",
       "analyze": "view API usage and performance data",
       "formatted": {
@@ -155,6 +157,8 @@
     "remote-endpoint-push-platform_plural": "push platforms",
     "host": "host",
     "host_plural": "hosts",
+    "job": "job",
+    "job_plural": "jobs",
     "library": "shared library",
     "library_plural": "shared libraries",
     "log": "log",
@@ -175,6 +179,8 @@
     "store-object_plural": "objects",
     "stripe-card": "credit card",
     "stripe-card_plural": "credit cards",
+    "timer": "timer",
+    "timer_plural": "timers",
     "plan": "plan",
     "plan_plural": "plans",
     "key": "certificate or key",
@@ -318,6 +324,15 @@
     "command": "command",
     "registry": "registry",
     "key": "key file",
+    "next": "next",
+    "once": "once",
+    "time_zone": "time zone",
+    "minute": "minute",
+    "hour": "hour",
+    "day_of_month": "day of month",
+    "month": "month",
+    "day_of_week": "day of week",
+    "parameters": "parameters",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
@@ -326,6 +341,9 @@
     },
     "api": {
       "name": "API name"
+    },
+    "job": {
+      "name": "job name"
     },
     "remote_endpoint": {
       "name": "remote endpoint name"
@@ -437,6 +455,7 @@
       "smtp": "SMTP",
       "db2": "DB2",
       "docker": "Docker",
+      "job": "job",
       "status-types": {
         "success": "success",
         "failed": "failed",

@@ -122,6 +122,8 @@ config = ->
   @put '/apis/:apiId/environments/:id', makePutHandler 'environment'
   @del '/apis/:apiId/environments/:id'
 
+  @get '/environments'
+
   @get '/apis/:apiId/libraries', makeGetChildrenHandler('api', 'library')
   @post '/apis/:apiId/libraries', makePostChildHandler('api', 'library')
   @get '/apis/:apiId/libraries/:id'
@@ -139,6 +141,8 @@ config = ->
   @get '/apis/:apiId/endpoint_groups/:id'
   @put '/apis/:apiId/endpoint_groups/:id', makePutHandler 'endpoint_group'
   @del '/apis/:apiId/endpoint_groups/:id'
+
+  @get '/endpoint_groups'
 
   @get '/apis/:apiId/remote_endpoints', makeGetChildrenHandler('api', 'remote_endpoint')
   @post '/apis/:apiId/remote_endpoints', makePostChildHandler('api', 'remote_endpoint')
@@ -195,5 +199,19 @@ config = ->
   @del '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas/:id', (schema, request) ->
     id = request.params.id
     schema.db.proxyEndpointSchemas.remove id
+
+  @get '/apis/:apiId/jobs', makeGetChildrenHandler('api', 'job')
+  @post '/apis/:apiId/jobs', makePostChildHandler('api', 'job')
+  @get '/apis/:apiId/jobs/:id'
+  @put '/apis/:apiId/jobs/:id', makePutHandler 'job'
+  @del '/apis/:apiId/jobs/:id'
+
+  @get '/jobs'
+
+  @get '/timers'
+  @post '/timers', makePostHandler 'timer'
+  @get '/timers/:id'
+  @put '/timers/:id', makePutHandler 'timer'
+  @del '/timers/:id'
 
 `export default config`

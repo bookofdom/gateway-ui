@@ -9,7 +9,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
 
   isLoading: false
   isDevMode: config.dev_mode?.toString() is 'true'
-  notificationsEnabled: config.notifications
+
   topLevelResourceNames: [
     'api'
     'push-device'
@@ -18,7 +18,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
 
   afterModel: (first, transition) ->
     @checkSessionValidity transition
-    @enableNotifications()
+    @setupNotifications()
 
   checkSessionValidity: (transition) ->
     session = @get 'session'
@@ -35,18 +35,17 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   sessionInvalidated: ->
     window?.location?.reload() if !Ember.testing
   sessionAuthenticated: ->
-    @enableNotifications()
+    @setupNotifications()
     @_super arguments...
 
-  enableNotifications: ->
-    if @get 'notificationsEnabled'
-      session = @get 'session'
-      notificationService = @get 'notificationService'
-      # enable notifications for authenticated non-dev-mode sessions
-      if session.get('isAuthenticated')
-        notificationService.on 'notification', (notification) =>
-          @trigger 'notification', notification
-        notificationService.enableNotifications()
+  setupNotifications: ->
+    session = @get 'session'
+    notificationService = @get 'notificationService'
+    # enable notifications for authenticated non-dev-mode sessions
+    if session.get('isAuthenticated')
+      notificationService.on 'notification', (notification) =>
+        @trigger 'notification', notification
+      notificationService.enableNotifications()
   disableNotifications: ->
     notificationService = @get 'notificationService'
     notificationService.off 'notification'
