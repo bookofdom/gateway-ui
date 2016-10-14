@@ -9,6 +9,8 @@ Log = Model.extend
   # Relationships
   api: DS.belongsTo 'api', async: false
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
+  job: DS.belongsTo 'job', async: false
+  timer: DS.belongsTo 'timer', async: false
 
   bufferTimeout: 1000
 

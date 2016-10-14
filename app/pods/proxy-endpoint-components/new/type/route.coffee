@@ -1,7 +1,6 @@
 `import Ember from 'ember'`
 
-
-ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend 
+ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend
   model: (params) ->
     # first, remove any lingering new unsaved components
     @removeNewComponents()

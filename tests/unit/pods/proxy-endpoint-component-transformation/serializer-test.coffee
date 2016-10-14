@@ -16,6 +16,7 @@ moduleForModel 'proxy-endpoint-component-transformation', 'Unit | Serializer | p
     'model:environment'
     'model:environment-variable'
     'model:host'
+    'model:job'
     'model:library'
     'model:proxy-endpoint'
     'model:proxy-endpoint-component'

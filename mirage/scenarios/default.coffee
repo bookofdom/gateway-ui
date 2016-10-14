@@ -14,6 +14,9 @@ defaultScenario = (server) ->
   # logs
   server.createList 'log', 1
 
+  # timers
+  server.createList 'timer', 5
+
   # users
   server.createList 'user', 5
 
@@ -45,6 +48,9 @@ defaultScenario = (server) ->
         proxyEndpointId: proxyEndpoint.id
       server.createList 'proxy_endpoint_schema', 5,
         proxyEndpointId: proxyEndpoint.id
+    server.createList('job', 50, apiId: id).forEach (job) ->
+      server.createList 'job_component', 10,
+        jobId: job.id
 
   # push
   channels = server.createList 'push_channel', 5

@@ -70,11 +70,13 @@
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
       "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints",
       "hosts": "define named hosts associated with this API",
+      "jobs": "परिभाषित या नौकरी और इसी तर्क को संपादित",
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "देखें , खोज, और धारा के लॉग",
       "api-documentation": "इंटरैक्टिव एपीआई प्रलेखन और परीक्षण एपीआई कॉल देखने",
       "shared-components": "प्रॉक्सी समापन के लिए पुन: प्रयोज्य घटकों का निर्माण",
       "terms-and-conditions": "एक खाते के लिए पंजीकरण करके आप नियमों और शर्तों को स्वीकार करते",
+      "timers": "टाइमर का प्रबंधन",
       "formatted": {
         "analyze": "<b>(जल्द आ रहा है)</b><br>एपीआई उपयोग में अंतर्दृष्टि लाभ",
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
@@ -143,6 +145,8 @@
     "remote-endpoint-push-platform_plural": "धक्का प्लेटफार्मों",
     "host": "host",
     "host_plural": "hosts",
+    "job": "काम",
+    "job_plural": "नौकरियों",
     "library": "shared library",
     "library_plural": "shared libraries",
     "log": "सर्वर लॉग",
@@ -163,6 +167,8 @@
     "store-object_plural": "वस्तुओं",
     "stripe-card": "क्रेडिट कार्ड",
     "stripe-card_plural": "क्रेडिट कार्ड",
+    "timer": "घड़ी",
+    "timer_plural": "टाइमर",
     "plan": "योजना",
     "plan_plural": "योजनाओं"
   },
@@ -290,6 +296,15 @@
     "cc_exp_month": "अंतिम माह",
     "cc_exp_year": "समाप्ति वर्ष",
     "javascript_timeout": "जावास्क्रिप्ट मध्यांतर",
+    "next": "अगला",
+    "once": "एक बार",
+    "time_zone": "समय क्षेत्र",
+    "minute": "मिनट",
+    "hour": "समय",
+    "day_of_month": "महीने का दिन",
+    "month": "महीना",
+    "day_of_week": "सप्ताह के दिन",
+    "parameters": "मानकों को",
     "help": {
       "timeout": "सेकंड की संख्या।",
       "content-type": "किसी और चीज को ढूंढ रहे हैं? अनुरोध हेडर में एक कस्टम सामग्री प्रकार निर्दिष्ट करें।",
@@ -297,6 +312,9 @@
     },
     "api": {
       "name": "एपीआई नाम"
+    },
+    "job": {
+      "name": "कार्य नाम"
     },
     "remote_endpoint": {
       "name": "दूरदराज के समापन बिंदु नाम"
@@ -387,6 +405,7 @@
       "push": "धक्का दें",
       "store": "दुकान",
       "script": "लिपि",
+      "job": "काम",
       "status-types": {
         "success": "सफलता",
         "failed": "अनुत्तीर्ण होना",
