@@ -15,7 +15,7 @@ module 'Acceptance: Notification - Read',
 
   afterEach: -> destroyApp @application
 
-test 'user sees no notifications when none are sent', (assert) ->
+test 'user sees no notifications when none are sent (notifications enabled)', (assert) ->
   done = assert.async()
   new WebSocketMockServer 'ws://localhost:7357/admin/notifications', (server) ->
     server.open()
@@ -29,7 +29,7 @@ test 'user sees no notifications when none are sent', (assert) ->
   authenticateSession @application, email: 'foo@test.com'
   visit '/'
 
-test 'user can see notifications that are sent', (assert) ->
+test 'user can see notifications that are sent (notifications enabled)', (assert) ->
   done = assert.async()
   new WebSocketMockServer 'ws://localhost:7357/admin/notifications', (server) ->
     server.open()
@@ -48,3 +48,41 @@ test 'user can see notifications that are sent', (assert) ->
   # server is open, but no messages are sent
   authenticateSession @application, email: 'foo@test.com'
   visit '/'
+
+test 'user sees no notifications when none are sent (notifications disabled)', (assert) ->
+  done = assert.async()
+  server = new WebSocketMockServer 'ws://localhost:7357/admin/notifications', (server) ->
+    server.open()
+  @application = startApp notifications: false
+  # server is open, but no messages are sent
+  authenticateSession @application, email: 'foo@test.com'
+  visit '/'
+  andThen ->
+    Ember.run.later (->
+      assert.equal currentURL(), '/'
+      assert.equal find('.ember-notify').length, 0
+      server.destroy()
+      done()
+    ), 1000
+
+test 'user sees no notifications that a server is configured to send when notifications are disabled in the frontend', (assert) ->
+  done = assert.async()
+  server = new WebSocketMockServer 'ws://localhost:7357/admin/notifications', (server) ->
+    server.open()
+    server.message JSON.stringify
+      resource: 'proxy_endpoint'
+      resource_id: 1
+      api_id: 1
+      action: 'update'
+      user: 'developer@software.com'
+  @application = startApp notifications: false
+  # server is open, but no messages are sent
+  authenticateSession @application, email: 'foo@test.com'
+  visit '/'
+  andThen ->
+    Ember.run.later (->
+      assert.equal currentURL(), '/'
+      assert.equal find('.ember-notify').length, 0
+      server.destroy()
+      done()
+    ), 1000
