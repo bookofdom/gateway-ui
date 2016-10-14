@@ -86,3 +86,35 @@ test 'user sees no notifications that a server is configured to send when notifi
       wsServer.destroy()
       done()
     ), 1000
+
+test 'user can see update resources after notification', (assert) ->
+  done = assert.async()
+  new WebSocketMockServer 'ws://localhost:7357/admin/notifications', (wsServer) ->
+    Ember.run.later (->
+      apiCount = server.db.apis.length
+      apiOriginalName = server.db.apis[0].name
+      apiNewName = 'api123test'
+      assert.equal currentURL(), '/apis'
+      assert.equal apiCount > 0, true
+      assert.equal find('.ap-table-index tbody tr').length, apiCount
+      assert.equal find('.ap-table-index tbody tr td:eq(0)').text().trim(), apiOriginalName
+      server.db.apis.update 1, name: apiNewName
+      wsServer.open()
+      wsServer.message JSON.stringify
+        resource: 'api'
+        resource_id: 1
+        api_id: 1
+        action: 'update'
+        user: 'developer@software.com'
+      assert.equal find('.ember-notify').length, 1
+      Ember.run.later (->
+        assert.equal find('.ap-table-index tbody tr td:eq(0)').text().trim(), apiNewName
+        wsServer.destroy()
+        done()
+      ), 1000
+    ), 1000
+  @application = startApp notifications: true
+  server.createList 'api', 1
+  # wsServer is open, but no messages are sent
+  authenticateSession @application, email: 'foo@test.com'
+  visit '/apis'
