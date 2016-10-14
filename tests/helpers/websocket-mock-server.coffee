@@ -17,7 +17,7 @@ WebSocketMock.prototype =
 
 
 WebSocketMockServer = (serverUrl, onConnect) ->
-  OriginalWebSocket = window?.WebSocket
+  @originalWebSocket = window?.WebSocket
   # Override the WebSocket constructor:
   # return a mock web socket instance if the URL matches the server URL,
   # otherwise return an original web socket instance
@@ -27,17 +27,18 @@ WebSocketMockServer = (serverUrl, onConnect) ->
       Ember.run.next onConnect, @
       @mock
     else
-      new OriginalWebSocket wsUrl
+      new @originalWebSocket wsUrl
   @
 
 WebSocketMockServer.prototype =
+  originalWebSocket: null
   mock: null
   states: states
   open: ->
     @mock.readyState = @states.open
     @mock.onopen? currentTarget: @mock
   destroy: ->
-    # TODO
+    window?.WebSocket = @originalWebSocket
   message: (msg) ->
     @mock.onmessage?(
       currentTarget: @mock
