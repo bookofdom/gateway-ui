@@ -21,7 +21,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      notifications: false
+      notifications: false,
+      mockNotifications: false,
+      mockNotificationInterval: 20 * 1000 // 20 seconds
     },
 
     contentSecurityPolicy: {
@@ -78,7 +80,8 @@ module.exports = function(environment) {
     ENV.api.swaggerJsonPath = '/swagger';
 
     ENV.go_os = 'darwin';
-    //ENV.APP.notifications = true;
+    ENV.APP.notifications = true;
+    ENV.APP.mockNotifications = true;
 
     // uncomment for stand-alone gateway API
     //ENV.api.host = 'http://localhost:5000';
