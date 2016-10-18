@@ -16,7 +16,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "body-parser": "^1.15.0",
     "broccoli-asset-rev": "^2.4.2",
     "broccoli-funnel": "^0.2.8",
     "broccoli-merge-trees": "^0.2.3",
@@ -52,10 +51,7 @@
     "ember-websockets": "^1.2.3",
     "emberx-select": "^2.0.2",
     "express": "^4.13.4",
-    "glob": "^4.5.3",
     "loader.js": "^4.0.1",
-    "morgan": "^1.7.0",
-    "underscore": "^1.8.3",
-    "ws": "^0.8.0"
+    "underscore": "^1.8.3"
   }
 }
