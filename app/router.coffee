@@ -46,6 +46,18 @@ Router.map ->
             @route 'proxy-endpoint-schema', resetNamespace: true, path: ':proxy_endpoint_schema_id', ->
               @route 'edit'
           @route 'logs-proxy-endpoint', resetNamespace: true, path: 'logs', (->)
+      @route 'jobs', resetNamespace: true, ->
+        @route 'job', resetNamespace: true, path: ':job_id', ->
+          @route 'edit'
+          @route 'job-components', resetNamespace: true, path: 'components', ->
+            @route 'new', ->
+              @route 'type', path: ':job_component_type'
+            @route 'job-component', resetNamespace: true, path: ':job_component_id', ->
+              @route 'edit'
+              @route 'job-component-calls', resetNamespace: true, path: 'calls', ->
+                @route 'job-component-call', resetNamespace: true, path: ':job_component_call_id', ->
+                  @route 'edit'
+          @route 'logs-job', resetNamespace: true, path: 'logs', (->)
       @route 'shared-components', resetNamespace: true, path: 'components', ->
         @route 'new', ->
           @route 'type', path: ':shared_component_type'
@@ -111,5 +123,10 @@ Router.map ->
           @route 'edit'
       @route 'push-channel-messages', resetNamespace: true, path: 'messages', ->
         @route 'push-channel-message', resetNamespace: true, path: ':push_channel_message_id', (->)
+    @route 'timers', resetNamespace: true, path: 'timers', ->
+      @route 'timer', resetNamespace: true, path: ':timer_id', ->
+        @route 'edit'
+        @route 'logs-timer', resetNamespace: true, path: 'logs', (->)
     @route 'keys', resetNamespace: true, (->)
+
 `export default Router`

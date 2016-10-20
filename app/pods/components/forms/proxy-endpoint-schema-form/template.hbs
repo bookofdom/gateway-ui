@@ -1,12 +1,12 @@
 {{partial 'components/forms/base-form'}}
 
 <div class="btn-group">
-  <a class="btn btn-default {{if (eq selectedSchema 'request') 'active'}} {{if model.response_same_as_request 'disabled'}}" {{action 'toggleSchema'}}>Request</a>
-  <a class="btn btn-default {{if (eq selectedSchema 'response') 'active'}} {{if model.response_same_as_request 'disabled'}}" {{action 'toggleSchema'}}>Response</a>
+  <a class="btn btn-default {{if (eq selectedSchema 'request') 'active'}} {{if model.response_same_as_request 'disabled'}}" {{action 'toggleSchema'}}>{{t 'fields.request'}}</a>
+  <a class="btn btn-default {{if (eq selectedSchema 'response') 'active'}} {{if model.response_same_as_request 'disabled'}}" {{action 'toggleSchema'}}>{{t 'fields.response'}}</a>
 </div>
 <div class="btn-group pull-right">
-  <a class="btn btn-info {{if codeEditor 'active'}} {{if model.hasDirtyAttributes 'disabled'}}" {{action 'activateCodeEditor'}}>Code</a>
-  <a class="btn btn-info {{if designEditor 'active'}} {{if model.hasDirtyAttributes 'disabled'}}" {{action 'activateDesignEditor'}}>Design</a>
+  <a class="btn btn-info {{if codeEditor 'active'}} {{if model.hasDirtyAttributes 'disabled'}}" {{action 'activateCodeEditor'}}>{{t 'types.editor.code'}}</a>
+  <a class="btn btn-info {{if designEditor 'active'}} {{if model.hasDirtyAttributes 'disabled'}}" {{action 'activateDesignEditor'}}>{{t 'types.editor.design'}}</a>
 </div>
 
 <br><br>

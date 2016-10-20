@@ -21,6 +21,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      notifications: false
     },
 
     contentSecurityPolicy: {
@@ -39,7 +40,6 @@ module.exports = function(environment) {
     dev_mode: false,
     go_os: null,
     remote_endpoint_types_enabled: null,
-    notifications: false,
 
     docsBaseUrl: 'http://devhub.nanoscale.io',
     supportUrl: 'http://support.nanoscale.io',
@@ -78,7 +78,7 @@ module.exports = function(environment) {
     ENV.api.swaggerJsonPath = '/swagger';
 
     ENV.go_os = 'darwin';
-    //ENV.notifications = true;
+    //ENV.APP.notifications = true;
 
     // uncomment for stand-alone gateway API
     //ENV.api.host = 'http://localhost:5000';
@@ -97,7 +97,6 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
 
     ENV.confirmDelete = false;
-    ENV.notifications = false;
   }
 
   if (environment === 'production') {
@@ -116,7 +115,7 @@ module.exports = function(environment) {
     ENV.locationType = 'hash';
     ENV.api.basePath = ENV.api_base_path_placeholder;
     ENV.api.logs.host = ENV.broker_placeholder;
-    ENV.notifications = true;
+    ENV.APP.notifications = true;
     ENV.googleAnalytics = {
       webPropertyId: ENV.google_analytics_tracking_id
     };

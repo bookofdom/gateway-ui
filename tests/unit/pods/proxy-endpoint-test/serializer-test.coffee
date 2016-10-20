@@ -13,6 +13,7 @@ moduleForModel 'proxy-endpoint-test', 'Unit | Serializer | proxy endpoint test',
     'model:environment'
     'model:environment-variable'
     'model:host'
+    'model:job'
     'model:library'
     'model:proxy-endpoint'
     'model:proxy-endpoint-component'

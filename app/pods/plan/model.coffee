@@ -8,6 +8,7 @@ Plan = Model.extend
   stripe_name: DS.attr 'string'
   max_users: DS.attr 'number'
   javascript_timeout: DS.attr 'string'
+  job_timeout: DS.attr 'string'
   price: DS.attr 'number', defaultValue: 0 # cents
 
   # Computed

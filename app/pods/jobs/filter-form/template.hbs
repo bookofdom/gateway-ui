@@ -1,0 +1,44 @@
+<div class="clearfix">
+  <span class="text-muted pull-left">{{t 'actions.filter'}}:</span>
+
+  <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
+
+  <div class="dropdown pull-left">
+    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+      {{labels.environment}}
+      <span class="caret"></span>
+    </a><!-- /.dropdown-toggle -->
+    <ul class="dropdown-menu">
+      {{#each environments as |environment|}}
+        <li>
+          {{#link-to (query-params environment_id=environment.id)}}{{environment.name}}{{/link-to}}
+        </li>
+      {{/each}}
+    </ul><!-- /.dropdown-menu -->
+  </div><!-- /.dropdown -->
+
+  <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
+
+  <div class="dropdown pull-left">
+    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+      {{labels.endpoint_group}}
+      <span class="caret"></span>
+    </a><!-- /.dropdown-toggle -->
+    <ul class="dropdown-menu">
+      {{#each endpoint_groups as |endpoint_group|}}
+        <li>
+          {{#link-to (query-params endpoint_group_id=endpoint_group.id)}}{{endpoint_group.name}}{{/link-to}}
+        </li>
+      {{/each}}
+    </ul><!-- /.dropdown-menu -->
+  </div><!-- /.dropdown -->
+
+  <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
+  <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
+
+  {{#if (or jobs.environment_id jobs.endpoint_group_id)}}
+    {{#link-to (query-params environment_id='' endpoint_group_id='') class='pull-left'}}{{t 'actions.clear'}}{{/link-to}}
+  {{/if}}
+
+</div><!-- /.clearfix -->
+<br>

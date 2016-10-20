@@ -5,7 +5,6 @@ ProxyEndpointComponentCallsController = Ember.Controller.extend
   breadCrumb: 'resources.proxy-endpoint-component-call_plural'
 
   'api': Ember.inject.controller()
-  'proxy-endpoint-component-calls': Ember.inject.controller()
 
   indexModel: Ember.computed.alias 'model'
   'option-groups': Ember.computed 'api.libraries', 'api.remote_endpoints.@each.isNew', ->
