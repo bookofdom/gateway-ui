@@ -26,7 +26,7 @@ RemoteEndpointPushPlatform = Model.extend
   platformName: Ember.computed.alias 'platform.name'
 
 # Declare available types and their human-readable names
-types = 'osx ios gcm mqtt'.split(' ').map (type) ->
+types = 'osx ios gcm fcm mqtt'.split(' ').map (type) ->
   name: t "types.push-platform.#{type}"
   slug: type
   value: type
