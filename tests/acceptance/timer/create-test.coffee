@@ -24,7 +24,7 @@ module 'Acceptance: Timer - Create',
 
 test 'user can create new timers', (assert) ->
   beforeCreateCount = server.db.timers.length
-  visit '/manage/timers'
+  visit '/manage/job-schedules'
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/manage/timers'
