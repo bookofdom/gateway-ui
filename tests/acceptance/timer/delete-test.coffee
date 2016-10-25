@@ -23,24 +23,24 @@ module 'Acceptance: Timer - Delete',
   afterEach: -> destroyApp @application
 
 test 'user can delete timers from index route', (assert) ->
-  visit '/manage/timers'
+  visit '/manage/job-schedules'
   andThen ->
-    assert.equal currentURL(), '/manage/timers'
+    assert.equal currentURL(), '/manage/job-schedules'
     assert.equal server.db.timers.length, 3
     assert.equal find('.ap-table-model tbody tr').length, 3
   click '.ap-table-model tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
-    assert.equal currentURL(), '/manage/timers'
+    assert.equal currentURL(), '/manage/job-schedules'
     assert.equal server.db.timers.length, 2
     assert.equal find('.ap-table-model tbody tr').length, 2
 
 test 'user can delete timers from edit route', (assert) ->
-  visit '/manage/timers/1/edit'
+  visit '/manage/job-schedules/1/edit'
   andThen ->
-    assert.equal currentURL(), '/manage/timers/1/edit'
+    assert.equal currentURL(), '/manage/job-schedules/1/edit'
     assert.equal server.db.timers.length, 3
   click 'a[data-t="actions.delete"]'
   andThen ->
-    assert.equal currentURL(), '/manage/timers'
+    assert.equal currentURL(), '/manage/job-schedules'
     assert.equal server.db.timers.length, 2
     assert.equal find('.ap-table-model tbody tr').length, 2

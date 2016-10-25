@@ -23,15 +23,15 @@ module 'Acceptance: Timer - Update',
   afterEach: -> destroyApp @application
 
 test 'user can navigate to timers edit route', (assert) ->
-  visit '/manage/timers'
+  visit '/manage/job-schedules'
   click '.ap-table-model tbody tr:eq(0) [data-t="actions.edit"] a'
   andThen ->
-    assert.equal currentURL(), '/manage/timers/1/edit'
+    assert.equal currentURL(), '/manage/job-schedules/1/edit'
 
 test 'user can edit timers', (assert) ->
-  visit '/manage/timers/1/edit'
+  visit '/manage/job-schedules/1/edit'
   fillIn '[name=name]', 'Test'
   click '[type=submit]'
   andThen ->
-    assert.equal currentURL(), '/manage/timers/1/edit'
+    assert.equal currentURL(), '/manage/job-schedules/1/edit'
     assert.equal server.db.timers[0].name, 'Test'
