@@ -413,6 +413,7 @@
       "osx": "OS X",
       "ios": "iOS",
       "gcm": "GCM",
+      "fcm": "FCM",
       "mqtt": "MQTT"
     },
     "editor": {

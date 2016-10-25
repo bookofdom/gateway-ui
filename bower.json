@@ -3,7 +3,7 @@
   "dependencies": {
     "ace-tern": "git+https://github.com/sevin7676/Ace.Tern.git",
     "bootstrap-sass": "bootstrap-sass-official#~3.3.5",
-    "ember": "~2.8.0",
+    "ember": "~2.9.0",
     "ember-cli-shims": "0.1.1",
     "eonasdan-bootstrap-datetimepicker": "~4.17.37",
     "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#4ed9aface0f7b4c890288e029a9e1c706664e986",

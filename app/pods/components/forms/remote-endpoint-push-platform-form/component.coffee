@@ -52,6 +52,10 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
       name: 'api_key'
       required: true
     ]
+    fcm: [
+      name: 'api_key'
+      required: true
+    ]
     mqtt: [
       name: 'password'
       type: 'password'
