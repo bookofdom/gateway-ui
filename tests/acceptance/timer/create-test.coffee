@@ -27,7 +27,7 @@ test 'user can create new timers', (assert) ->
   visit '/manage/job-schedules'
   andThen ->
     assert.equal beforeCreateCount > 0, true
-    assert.equal currentURL(), '/manage/timers'
+    assert.equal currentURL(), '/manage/job-schedules'
     assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New timer'
   andThen ->

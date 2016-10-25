@@ -30,7 +30,7 @@ test 'user can delete timers from index route', (assert) ->
     assert.equal find('.ap-table-model tbody tr').length, 3
   click '.ap-table-model tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
-    assert.equal currentURL(), '/manage/timers'
+    assert.equal currentURL(), '/manage/job-schedules'
     assert.equal server.db.timers.length, 2
     assert.equal find('.ap-table-model tbody tr').length, 2
 
