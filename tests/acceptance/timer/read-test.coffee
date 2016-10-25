@@ -23,9 +23,9 @@ module 'Acceptance: Timer - Read',
   afterEach: -> destroyApp @application
 
 test 'user can view timers', (assert) ->
-  visit '/manage/timers'
+  visit '/manage/job-schedules'
   andThen ->
     count = server.db.timers.length
-    assert.equal currentURL(), '/manage/timers'
+    assert.equal currentURL(), '/manage/job-schedules'
     assert.equal count > 0, true
     assert.equal find('.ap-table-model tbody tr').length, count
