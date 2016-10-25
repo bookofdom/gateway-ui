@@ -1,28 +1,28 @@
-<div class="clearfix">
-  <span class="text-muted pull-left">{{t 'actions.filter'}}:</span>
+{{#if types}}
+  <div class="clearfix">
+    <span class="text-muted pull-left">{{t 'actions.filter'}}:</span>
+    <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
 
-  <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
+    <div class="dropdown pull-left">
+      <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+        {{labels.type}}
+        <span class="caret"></span>
+      </a><!-- /.dropdown-toggle -->
+      <ul class="dropdown-menu">
+        {{#each types as |type|}}
+          <li>
+            {{#link-to (query-params type=type.value)}}{{type.name}}{{/link-to}}
+          </li>
+        {{/each}}
+      </ul><!-- /.dropdown-menu -->
+    </div><!-- /.dropdown -->
+    <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
 
-  <div class="dropdown pull-left">
-    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-      {{labels.type}}
-      <span class="caret"></span>
-    </a><!-- /.dropdown-toggle -->
-    <ul class="dropdown-menu">
-      {{#each types as |type|}}
-        <li>
-          {{#link-to (query-params type=type.value)}}{{type.name}}{{/link-to}}
-        </li>
-      {{/each}}
-    </ul><!-- /.dropdown-menu -->
-  </div><!-- /.dropdown -->
+    {{#if remote-endpoints.type}}
+      <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
+      {{#link-to (query-params type='') class='pull-left'}}{{t 'actions.clear'}}{{/link-to}}
+    {{/if}}
 
-  <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
-  <span class="pull-left">&nbsp;&nbsp;&nbsp;</span>
-
-  {{#if remote-endpoints.type}}
-    {{#link-to (query-params type='') class='pull-left'}}{{t 'actions.clear'}}{{/link-to}}
-  {{/if}}
-
-</div><!-- /.clearfix -->
-<br>
+  </div><!-- /.clearfix -->
+  <br>
+{{/if}}
