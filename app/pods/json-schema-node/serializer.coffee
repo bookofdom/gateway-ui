@@ -29,7 +29,7 @@ JsonSchemaNodeSerializer = DS.JSONSerializer.extend DS.EmbeddedRecordsMixin,
 
   normalize: (typeClass, hash) ->
     hash.id = @getNormalizedId()
-    hash.parent ?= null
+    #hash.parent ?= null
     hash.children ?= []
     hash.requiredAttrs = hash.required
     hash.required = hash.shouldBeRequired
