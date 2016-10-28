@@ -215,8 +215,6 @@ test 'it normalizes a simple JSON schema', (assert) ->
             id: '5'
             type: 'json-schema-node'
           ]
-        parent:
-          data: null
       type: 'json-schema-node'
     included: [
       attributes:
@@ -227,8 +225,6 @@ test 'it normalizes a simple JSON schema', (assert) ->
       relationships:
         children:
           data: []
-        parent:
-          data: null
       type: 'json-schema-node'
     ,
       attributes:
@@ -239,8 +235,6 @@ test 'it normalizes a simple JSON schema', (assert) ->
       relationships:
         children:
           data: []
-        parent:
-          data: null
       type: 'json-schema-node'
     ,
       attributes:
@@ -253,8 +247,6 @@ test 'it normalizes a simple JSON schema', (assert) ->
       relationships:
         children:
           data: []
-        parent:
-          data: null
       type: 'json-schema-node'
     ,
       attributes:
@@ -269,8 +261,6 @@ test 'it normalizes a simple JSON schema', (assert) ->
             id: '6'
             type: 'json-schema-node'
           ]
-        parent:
-          data: null
       type: 'json-schema-node'
     ,
       attributes:
@@ -280,8 +270,6 @@ test 'it normalizes a simple JSON schema', (assert) ->
       relationships:
         children:
           data: []
-        parent:
-          data: null
       type: 'json-schema-node'
     ]
 
@@ -306,8 +294,6 @@ test "it normalizes top level 'string' type JSON schema node", (assert) ->
       relationships:
         children:
           data: []
-        parent:
-          data: null
       type: 'json-schema-node'
 
   assert.deepEqual normalized, expected
@@ -333,8 +319,6 @@ test "it normalizes top level 'integer' type JSON schema node", (assert) ->
       relationships:
         children:
           data: []
-        parent:
-          data: null
       type: 'json-schema-node'
 
   assert.deepEqual normalized, expected
@@ -360,8 +344,6 @@ test "it normalizes top level 'number' type JSON schema node", (assert) ->
       relationships:
         children:
           data: []
-        parent:
-          data: null
       type: 'json-schema-node'
 
   assert.deepEqual normalized, expected
@@ -385,8 +367,6 @@ test "it normalizes top level 'array' type JSON schema node", (assert) ->
       relationships:
         children:
           data: []
-        parent:
-          data: null
       type: 'json-schema-node'
 
   assert.deepEqual normalized, expected
