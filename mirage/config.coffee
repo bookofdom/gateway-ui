@@ -67,10 +67,10 @@ config = ->
   @del '/push_channels/:pushChannelId/push_devices/:id'
 
   @get '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages', makeGetChildrenHandler('push_device', 'push_message')
-  @post '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages', makePostChildHandler('push_device', 'push_message')
+  #@post '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages', makePostChildHandler('push_device', 'push_message')
   @get '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages/:id'
-  @put '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages/:id', makePutHandler 'push_message'
-  @del '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages/:id'
+  #@put '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages/:id', makePutHandler 'push_message'
+  #@del '/push_channels/:pushChannelId/push_devices/:pushDeviceId/push_messages/:id'
 
   @get '/store_collections'
   @post '/store_collections', makePostHandler 'store_collection'
