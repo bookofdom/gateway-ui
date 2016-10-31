@@ -7,6 +7,7 @@ Registration = Model.extend
   password: DS.attr 'string'
   password_confirmation: DS.attr 'string'
   organization: DS.attr 'string'
+  stripe_token: DS.attr 'string'
 
   # Relationships
   card: DS.belongsTo 'stripe-card', async: false
