@@ -13,11 +13,8 @@ PushManualMessageSerializer = ApplicationSerializer.extend
     serialized = @_super arguments...
     body = snapshot.attributes().body
     try
-      body = if body then JSON.parse body else null
-    catch e
-      serialized.dataError = true
-      body = null
-    serialized.payload = body
+      payload = if body then JSON.parse body else null
+    serialized.payload = payload
     delete serialized['body']
     serialized
 

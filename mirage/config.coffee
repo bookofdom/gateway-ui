@@ -49,6 +49,7 @@ config = ->
   @get '/push_channels/:id'
   @put '/push_channels/:id', makePutHandler 'push_channel'
   @del '/push_channels/:id'
+  
   @post '/push_channels/:id/push_manual_messages', -> new Response 200
 
   @get '/push_devices'
