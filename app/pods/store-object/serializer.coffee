@@ -14,10 +14,8 @@ StoreObjectSerializer = ApplicationSerializer.extend
     # the adapter can raise an invalid error.
     body = snapshot.attributes().body
     try
-      body = JSON.parse body if body
-    catch e
-      serialized.dataError = true
-    serialized.data = body
+      json = JSON.parse body if body
+    serialized.data = json
     delete serialized['body']
     serialized
 
