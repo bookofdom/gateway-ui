@@ -51,7 +51,15 @@ ApplicationAdapter = DS.RESTAdapter.extend
     url = @_super arguments...
     url = @cleanURL url
     url
+
+  # TODO: remove ajax method override when ds-improved-ajax becomes available.
   ajax: (url, method, hash={}) ->
+    hash = @_buildJQueryAjaxHash hash
+    @_super url, method, hash
+
+  # TODO: change method signature to `_requestToJQueryAjaxHash` when
+  # ds-improved-ajax becomes available.
+  _buildJQueryAjaxHash: (hash) ->
     hash.cache = false
     hash.crossDomain = true
     hash.xhrFields ?= {}
@@ -59,7 +67,7 @@ ApplicationAdapter = DS.RESTAdapter.extend
     hash.dataFilter = (data, type) ->
       data = data or '{}'
       data
-    @_super url, method, hash
+    hash
 
   # Overrides handleResponse:
   # InvalidError needs a normalized errors array, not the raw payload errors.
