@@ -93,11 +93,15 @@ BaseFormComponent = Ember.Component.extend
 
   delete: ->
     record = @get 'model'
-    record.destroyRecord().catch =>
-      @notifyErrorsForRecord record
-      @cancelDelete record
+    new Ember.RSVP.Promise (resolve, reject) =>
+      record.destroyRecord()
+        .then resolve
+        .catch =>
+          @notifyErrorsForRecord record
+          @cancelDelete record
+          reject()
   cancelDelete: (record) ->
-    record.transitionTo 'loaded.saved' # clear deleted state
+    record.transitionTo 'loaded.updated.uncommitted.invalid' # clear deleted state
     record.cancel().then =>
       @sendAction 'refresh-action'
   notifyErrorsForRecord: (record) ->
@@ -112,7 +116,6 @@ BaseFormComponent = Ember.Component.extend
     delete: ->
       confirmText = t('prompts.confirm-delete').capitalize()
       if @confirm confirmText
-        @delete()
-        @sendAction 'deletedAction'
+        @delete().then => @sendAction 'deletedAction'
 
 `export default BaseFormComponent`
