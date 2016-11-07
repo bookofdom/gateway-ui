@@ -9,4 +9,8 @@ JobTest = Model.extend
   # Relationships
   job: DS.belongsTo 'job', async: true
 
+  executeTest: ->
+    adapter = Ember.getOwner(@).lookup 'adapter:job-test'
+    adapter.executeTest @
+
 `export default JobTest`
