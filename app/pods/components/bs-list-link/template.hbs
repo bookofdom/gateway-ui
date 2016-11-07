@@ -19,7 +19,14 @@
 {{/unless}}
 
 {{#if url}}
-  <a href="{{url}}" target="{{target}}">
-    {{partial 'components/bs-text'}}
-  </a>
+  {{#if download}}
+    <a href="{{url}}" target="{{target}}" download>
+      {{partial 'components/bs-text'}}
+    </a>
+  {{/if}}
+  {{#unless download}}
+    <a href="{{url}}" target="{{target}}">
+      {{partial 'components/bs-text'}}
+    </a>
+  {{/unless}}
 {{/if}}
