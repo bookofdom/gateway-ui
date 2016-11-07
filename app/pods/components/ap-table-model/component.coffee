@@ -21,7 +21,7 @@ ApTableModelComponent = BsBaseComponent.extend
       @notifyErrorsForRecord record
       @cancelDelete record
   cancelDelete: (record) ->
-    record.transitionTo 'loaded.saved' # clear deleted state
+    record.transitionTo 'loaded.updated.uncommitted.invalid' # clear deleted state
     record.cancel().then =>
       @sendAction 'refresh-action'
   notifyErrorsForRecord: (record) ->
