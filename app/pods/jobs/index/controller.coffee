@@ -28,7 +28,6 @@ JobsIndexController = Ember.Controller.extend
       model = model.filterBy 'endpoint_group.id', endpoint_group_id
     model
 
-  # 'name,description,environment:resources.environment:object-name,endpoint_group:resources.endpoint-group:object-name'
   fields: [
     name: 'name'
     label: 'fields.name'

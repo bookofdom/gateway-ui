@@ -29,7 +29,8 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
     push_platforms:
       embedded: 'always'
     arguments:
-      embedded: 'always'
+      serialize: false
+      deserialize: 'records'
     environment_variables:
       serialize: false
       deserialize: 'records'
@@ -91,14 +92,13 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
     serialized = @_super arguments...
     # serialize embedded records
     serialized.data ?= {}
-    Ember.merge serialized.data,
-      headers: @serializeHeaders snapshot
-      query: @serializeQuery snapshot
-      arguments: @serializeArguments snapshot
-      environment: @serializeEnvironmentVariables snapshot
     # serialize attributes
     switch serialized.type
-      when 'http' then HttpRemoteEndpointSerializer.serialize serialized
+      when 'http'
+        HttpRemoteEndpointSerializer.serialize serialized
+        Ember.merge serialized.data,
+          headers: @serializeHeaders snapshot
+          query: @serializeQuery snapshot
       when 'soap' then SoapRemoteEndpointSerializer.serialize serialized
       when 'sqlserver'
         SqlserverRemoteEndpointSerializer.serialize serialized
@@ -113,7 +113,11 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'oracle' then OracleRemoteEndpointSerializer.serialize serialized
       when 'smtp' then SmtpRemoteEndpointSerializer.serialize serialized
       when 'db2' then Db2EndpointSerializer.serialize serialized
-      when 'docker' then DockerEndpointSerializer.serialize serialized
+      when 'docker'
+        DockerEndpointSerializer.serialize serialized
+        Ember.merge serialized.data,
+          arguments: @serializeArguments snapshot
+          environment: @serializeEnvironmentVariables snapshot
     serialized
   serializeHeaders: (snapshot) ->
     headers = {}

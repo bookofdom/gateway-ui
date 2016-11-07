@@ -43,7 +43,7 @@ module.exports = function(environment) {
     go_os: null,
     remote_endpoint_types_enabled: null,
 
-    docsBaseUrl: 'http://devhub.nanoscale.io',
+    docsBaseUrl: 'http://devhub.nanoscale.io/docs',
     supportUrl: 'http://support.nanoscale.io',
     termsUrl: 'http://www.nanoscale.io/terms/',
     brandNames: {
