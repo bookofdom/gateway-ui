@@ -3,7 +3,7 @@
 
 PushManualMessage = Model.extend
   environment: DS.attr 'string'
-  body: DS.attr 'string'
+  body: DS.attr 'string', defaultValue: '{}'
 
   # Relationships
   push_channel: DS.belongsTo 'push-channel', async: true
