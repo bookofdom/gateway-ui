@@ -10,6 +10,7 @@ Router.map ->
   @route 'login'
   @route 'registration', resetNamespace: true, ->
     @route 'confirmation'
+    @route 'activation'
   @route 'password', ->
     @route 'reset', ->
       @route 'confirmation'
