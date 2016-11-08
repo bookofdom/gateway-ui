@@ -19,9 +19,11 @@ test 'user can login with correct credentials', (assert) ->
   server.loadFixtures 'sessions'
   session = currentSession @application
   visit '/login'
+  wait()
   fillIn '[name=identification]', 'test@foo.com'
   fillIn '[name=password]', 'foobar'
   click '[type=submit]'
+  wait()
   andThen ->
     assert.equal session.get('isAuthenticated'), true
     assert.equal currentURL(), '/'
