@@ -49,7 +49,7 @@ config = ->
   @get '/push_channels/:id'
   @put '/push_channels/:id', makePutHandler 'push_channel'
   @del '/push_channels/:id'
-  
+
   @post '/push_channels/:id/push_manual_messages', -> new Response 200
 
   @get '/push_devices'
@@ -198,6 +198,15 @@ config = ->
   @get '/apis/:apiId/jobs/:id'
   @put '/apis/:apiId/jobs/:id', makePutHandler 'job'
   @del '/apis/:apiId/jobs/:id'
+
+  @get '/apis/:apiId/jobs/:jobId/tests', makeGetChildrenHandler('job', 'job_test')
+  @post '/apis/:apiId/jobs/:jobId/tests', makePostChildHandler('job', 'job_test')
+  @get '/apis/:apiId/jobs/:jobId/tests/:id', (schema, request) ->
+    job_test: schema.db.jobTests.find request.params.id
+  @put '/apis/:apiId/jobs/:jobId/tests/:id', makePutHandler 'job_test'
+  @del '/apis/:apiId/jobs/:jobId/tests/:id', (schema, request) ->
+    id = request.params.id
+    schema.db.jobTests.remove id
 
   @get '/jobs'
 
