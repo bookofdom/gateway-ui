@@ -14,7 +14,7 @@ RegistrationActivationRoute = Ember.Route.extend
   afterModel: ->
     model = @modelFor 'registration.activation'
     if model
-      @notifyActivation()
+      model.save().then => @notifyActivation()
     else
       @transitionTo @get('redirectAfterRoute')
 
