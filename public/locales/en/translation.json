@@ -391,7 +391,7 @@
     "password-reset": "password reset confirmation email sent",
     "password-reset-confirmation": "password successfully reset",
     "sign-up": "please check your email for your sign up confirmation",
-    "registration-activation": "account successfully activated"
+    "registration-confirmation": "account successfully activated"
   },
   "headers": {
     "x-workflow": "__x__ workflow"

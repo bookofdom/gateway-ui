@@ -378,7 +378,7 @@
     "password-reset": "correo electrónico de confirmación de restablecimiento de contraseña enviada",
     "password-reset-confirmation": "restablecimiento de contraseñas con éxito",
     "sign-up": "por favor revise su correo electrónico para la confirmación de su inscripción",
-    "registration-activation": "cuenta activa con éxito"
+    "registration-confirmation": "cuenta activa con éxito"
   },
   "headers": {
     "x-workflow": "__x__ flujo de trabajo"

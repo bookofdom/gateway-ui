@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 `import t from 'gateway/helpers/i18n'`
 
-RegistrationActivationRoute = Ember.Route.extend
+RegistrationConfirmationRoute = Ember.Route.extend
   notify: Ember.inject.service()
   redirectAfterRoute: 'login'
   queryParams:
@@ -10,17 +10,17 @@ RegistrationActivationRoute = Ember.Route.extend
 
   model: (params) ->
     if params.token
-      @store.createRecord 'registration-activation', token: params.token
+      @store.createRecord 'registration-confirmation', token: params.token
   afterModel: ->
-    model = @modelFor 'registration.activation'
+    model = @modelFor 'registration.confirmation'
     if model
-      model.save().then => @notifyActivation()
+      model.save().then => @notifyConfirmation()
     else
       @transitionTo @get('redirectAfterRoute')
 
-  notifyActivation: ->
-    successMessage = t 'successes.registration-activation'
+  notifyConfirmation: ->
+    successMessage = t 'successes.registration-confirmation'
     @transitionTo @get('redirectAfterRoute')
     @get('notify').info successMessage
 
-`export default RegistrationActivationRoute`
+`export default RegistrationConfirmationRoute`
