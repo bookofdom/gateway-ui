@@ -378,7 +378,8 @@
     "saved-successfully": "salvo com sucesso",
     "password-reset": "mail de confirmação de redefinição de senha enviada",
     "password-reset-confirmation": "redefinição de senha com sucesso",
-    "sign-up": "por favor, verifique seu e-mail para o seu signo up de confirmação"
+    "sign-up": "por favor, verifique seu e-mail para o seu signo up de confirmação",
+    "registration-confirmation": "conta ativada com sucesso"
   },
   "headers": {
     "x-workflow": "__x__ fluxo de trabalho"
