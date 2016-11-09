@@ -1,4 +1,5 @@
 `import JobRelatedAdapter from 'gateway/pods/job-related/adapter'`
+`import config from  'gateway/config/environment'`
 
 JobTestAdapter = JobRelatedAdapter.extend
   buildTestUrl: (model) ->
