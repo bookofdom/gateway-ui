@@ -48,10 +48,12 @@ module.exports = function(defaults) {
         'swagger.html', // fallback cache is more apprpropriate
         'swagger.json', // fallback cache is more apprpropriate
         'testem.js', // never cache
+        'tests.js', // never cache
         'test-support.css', // never cache
         'test-support.js' // never cache
       ],
       include: [
+        'assets/fonts/gateway.woff',
         'snippets/javascript.js',
         'snippets/json.js',
         'snippets/text.js',
