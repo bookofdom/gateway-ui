@@ -7,6 +7,7 @@ BsListLinkComponent = BsTextComponent.extend
   path: null
   arg1: null
   url: null
+  download: false
   target: '_blank'
   click: (e) ->
     e.preventDefault() if !@get('path') and !@get('url')

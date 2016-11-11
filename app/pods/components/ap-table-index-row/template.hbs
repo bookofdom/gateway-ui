@@ -7,6 +7,13 @@
 
 <td>
   {{#ap-list-nav-simple-icon class='pull-right'}}
+    {{#if custom-primary-url-attr}}
+      {{ap-list-link
+        t=custom-primary-t
+        icon=custom-primary-icon
+        url=(get model custom-primary-url-attr)
+        download=custom-primary-download}}
+    {{/if}}
     {{#if custom-primary-action}}
       {{ap-list-link
         t=custom-primary-t
