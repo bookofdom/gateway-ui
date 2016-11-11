@@ -54,6 +54,7 @@ module.exports = function(defaults) {
       ],
       include: [
         'assets/fonts/gateway.woff',
+        'locales/en/translation.json',
         'snippets/javascript.js',
         'snippets/json.js',
         'snippets/text.js',
