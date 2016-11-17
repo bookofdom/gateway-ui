@@ -19,5 +19,8 @@
     "jquery-ui": "^1.11.4",
     "jjv": "^1.0.2",
     "deep-equal": "^0.0.0"
+  },
+  "resolutions": {
+    "qunit-notifications": "~0.1.0"
   }
 }

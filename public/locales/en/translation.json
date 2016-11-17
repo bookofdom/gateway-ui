@@ -336,7 +336,7 @@
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
       "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`.",
-      "key": "PEM-encoded"
+      "key": "PEM, P12 or PFX"
     },
     "api": {
       "name": "API name"

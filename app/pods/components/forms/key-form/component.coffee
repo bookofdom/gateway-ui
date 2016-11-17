@@ -11,6 +11,9 @@ KeyFormComponent = BaseFormComponent.extend
   ,
     name: 'key'
     type: 'file'
+  ,
+    name: 'password'
+    type: 'password'
   ]
 
 `export default KeyFormComponent`
