@@ -1,13 +1,9 @@
 `import { moduleForModel, test } from 'ember-qunit'`
 
-moduleForModel 'job', 'Unit | Model | job', {
+moduleForModel 'job-test', 'Unit | Model | job test', {
   # Specify the other units that are required for this test.
   needs: [
-    'model:api'
-    'model:endpoint-group'
-    'model:environment'
-    'model:job-component'
-    'model:job-test'
+    'model:job'
   ]
 }
 

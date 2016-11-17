@@ -58,6 +58,9 @@ Router.map ->
               @route 'job-component-calls', resetNamespace: true, path: 'calls', ->
                 @route 'job-component-call', resetNamespace: true, path: ':job_component_call_id', ->
                   @route 'edit'
+          @route 'job-tests', resetNamespace: true, path: 'tests', ->
+            @route 'job-test', resetNamespace: true, path: ':job_test_id', ->
+              @route 'edit'
           @route 'logs-job', resetNamespace: true, path: 'logs', (->)
       @route 'shared-components', resetNamespace: true, path: 'components', ->
         @route 'new', ->

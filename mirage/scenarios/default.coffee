@@ -51,6 +51,8 @@ defaultScenario = (server) ->
     server.createList('job', 50, apiId: id).forEach (job) ->
       server.createList 'job_component', 10,
         jobId: job.id
+      server.createList 'job_test', 5,
+        jobId: job.id
 
   # push
   channels = server.createList 'push_channel', 5
