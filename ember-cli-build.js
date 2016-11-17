@@ -13,9 +13,10 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     fingerprint: {
       exclude: [
+        'locales',
+        'snippets',
         'swagger',
         'theme-slate.js',
-        'snippets',
         'worker-javascript.js',
         'worker-json.js',
         'worker-tern.js'
@@ -33,6 +34,33 @@ module.exports = function(defaults) {
       sourceMap: false,
       includePaths: [
         'bower_components/bootstrap-sass/assets/stylesheets'
+      ]
+    },
+    'asset-cache': {
+      exclude: [
+        'locales', // fallback cache is more apprpropriate
+        'tests', // never cache
+        '.DS_Store', // never cache
+        'index.html', // fallback cache is more apprpropriate
+        'robots.txt', // never cache
+        'sw.js', // fallback cache is more apprpropriate
+        'sw-registration.js', // fallback cache is more apprpropriate
+        'swagger.html', // fallback cache is more apprpropriate
+        'swagger.json', // fallback cache is more apprpropriate
+        'testem.js', // never cache
+        'tests.js', // never cache
+        'test-support.css', // never cache
+        'test-support.js' // never cache
+      ],
+      include: [
+        'assets/fonts/gateway.woff',
+        'locales/en/translation.json',
+        'snippets/javascript.js',
+        'snippets/json.js',
+        'snippets/text.js',
+        'worker-javascript.js',
+        'worker-json.js',
+        'worker-tern.js'
       ]
     }
   });
