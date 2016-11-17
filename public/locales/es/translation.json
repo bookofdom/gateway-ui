@@ -152,6 +152,8 @@
     "host_plural": "servidores",
     "job": "trabajo",
     "job_plural": "trabajos",
+    "job-test": "prueba de trabajo",
+    "job-test_plural": "pruebas de trabajo",
     "library": "librería compartida",
     "library_plural": "librerías compartidas",
     "log": "registro",

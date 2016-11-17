@@ -147,6 +147,8 @@
     "host_plural": "hosts",
     "job": "काम",
     "job_plural": "नौकरियों",
+    "job-test": "नौकरी परीक्षण",
+    "job-test_plural": "नौकरी परीक्षण",
     "library": "shared library",
     "library_plural": "shared libraries",
     "log": "सर्वर लॉग",

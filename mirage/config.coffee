@@ -200,6 +200,21 @@ config = ->
   @put '/apis/:apiId/jobs/:id', makePutHandler 'job'
   @del '/apis/:apiId/jobs/:id'
 
+  @get '/apis/:apiId/jobs/:jobId/tests', makeGetChildrenHandler('job', 'job_test')
+  @post '/apis/:apiId/jobs/:jobId/tests', makePostChildHandler('job', 'job_test')
+  @get '/apis/:apiId/jobs/:jobId/tests/:id', (schema, request) ->
+    job_test: schema.db.jobTests.find request.params.id
+  @put '/apis/:apiId/jobs/:jobId/tests/:id', makePutHandler 'job_test'
+  @del '/apis/:apiId/jobs/:jobId/tests/:id', (schema, request) ->
+    id = request.params.id
+    schema.db.jobTests.remove id
+  @get '/apis/:apiId/jobs/:job_id/tests/:id/test', (->
+    result: {
+      log: "this is a log message for a get request #{Math.random()}",
+      time: 8
+    }
+  ), {timing: 2000}
+
   @get '/jobs'
 
   @get '/timers'
