@@ -9,7 +9,10 @@ states =
 
 WebSocketMock = (url) ->
   @url = url
+  @readyState == states.open
   @
+  close: ->
+    @readyState = states.closed
 
 WebSocketMock.prototype =
   url: null
@@ -40,10 +43,11 @@ WebSocketMockServer.prototype =
   destroy: ->
     window?.WebSocket = @originalWebSocket
   message: (msg) ->
-    @mock.onmessage?(
-      currentTarget: @mock
-      data: msg
-    )
+    if @mock.readyState == states.open
+      @mock.onmessage?(
+        currentTarget: @mock
+        data: msg
+      )
   error: ->
     @mock.readyState = @states.closed
     @mock.onerror? currentTarget: @mock
