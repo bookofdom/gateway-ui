@@ -32,6 +32,9 @@ Router.map ->
           @route 'proxy-endpoint-routes', resetNamespace: true, path: 'routes', ->
             @route 'proxy-endpoint-route', resetNamespace: true, path: ':proxy_endpoint_route_id', ->
               @route 'edit'
+          @route 'proxy-endpoint-channels', resetNamespace: true, path: 'channels', ->
+            @route 'proxy-endpoint-channel', resetNamespace: true, path: ':proxy_endpoint_channel_id', ->
+              @route 'edit'
           @route 'proxy-endpoint-components', resetNamespace: true, path: 'components', ->
             @route 'new', ->
               @route 'type', path: ':proxy_endpoint_component_type'
