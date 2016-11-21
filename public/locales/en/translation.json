@@ -39,7 +39,8 @@
     "reset": "reset",
     "reset-password": "reset password",
     "sign-up": "sign up",
-    "navigate": "navigate"
+    "navigate": "navigate",
+    "retry": "retry"
   },
   "nav": {
     "home": "home",
@@ -385,7 +386,8 @@
     "invalid-json-schema": "invalid JSON schema",
     "invalid-cc-number": "invalid card number",
     "invalid-cc-expiry": "invalid expiry",
-    "invalid-cc-cvc": "invalid CVC"
+    "invalid-cc-cvc": "invalid CVC",
+    "connection-timeout": "connection timeout"
   },
   "successes": {
     "push-manual-message": "message sent successfully",

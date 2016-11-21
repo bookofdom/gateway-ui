@@ -75,7 +75,7 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
 
   timeoutSocket: ->
     @closeSocket()
-    # TODO notify user?
+    socketModel?.set 'streamingTimeout', true
 
   openSocket: (url) ->
     @closeSocket()

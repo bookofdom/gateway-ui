@@ -44,7 +44,7 @@ MockLogsInitializer =
         server.open()
         setInterval (->
           Ember.run.next ->
-            server.message 'heartbeat'
+            #server.message 'heartbeat'
           ), app.logHeartbeatInterval
         setInterval (->
           Ember.run.next ->

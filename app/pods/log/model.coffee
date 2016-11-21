@@ -5,6 +5,7 @@ Log = Model.extend
   body: DS.attr 'string'
   lines: DS.attr 'string', defaultValue: -> ''
   buffer: DS.attr 'array', defaultValue: -> []
+  streamingTimeout: DS.attr 'boolean', defaultValue: -> false
 
   # Relationships
   api: DS.belongsTo 'api', async: false

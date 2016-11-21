@@ -39,7 +39,8 @@
     "reset": "restabelecer",
     "reset-password": "trocar a senha",
     "sign-up": "inscrever-se",
-    "navigate": "navegar"
+    "navigate": "navegar",
+    "retry": "repetir"
   },
   "nav": {
     "home": "início",
@@ -371,7 +372,8 @@
     "invalid-json-schema": "esquema JSON inválido",
     "invalid-cc-number": "número de cartão inválido",
     "invalid-cc-expiry": "expiração inválida",
-    "invalid-cc-cvc": "inválida CVC"
+    "invalid-cc-cvc": "inválida CVC",
+    "connection-timeout": "tempo limite de conexão"
   },
   "successes": {
     "push-manual-message": "mensagem enviada com sucesso",
