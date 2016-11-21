@@ -21,7 +21,7 @@ module.exports = function(environment) {
       mockNotificationInterval: 20 * 1000, // 20 seconds
       mockLogs: false,
       mockLogInterval: 5 * 1000, // 5 seconds
-      logHeartbeatInterval: 3 * 1000 // 10 seconds
+      logHeartbeatInterval: 30 * 1000 // 30 seconds
     },
 
     contentSecurityPolicy: {
