@@ -71,6 +71,7 @@ Router.map ->
             @route 'shared-component-call', resetNamespace: true, path: ':shared_component_call_id', ->
               @route 'edit'
       @route 'environments', resetNamespace: true, ->
+        @route 'new'
         @route 'environment', resetNamespace: true, path: ':environment_id', ->
           @route 'edit'
       @route 'endpoint-groups', resetNamespace: true, path: 'groups', ->
