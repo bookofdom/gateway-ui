@@ -18,6 +18,7 @@ ProxyEndpointFormComponent = BaseFormComponent.extend
     type: 'select-model-name'
     required: true
     prompt: false
+    'new-resource-route': 'environments.new'
   ,
     name: 'endpoint_group'
     label: 'resources.endpoint-group'
@@ -39,6 +40,7 @@ ProxyEndpointFormComponent = BaseFormComponent.extend
     type: 'select-model-name'
     required: true
     prompt: false
+    'new-resource-route': 'environments.new'
   ,
     name: 'endpoint_group'
     label: 'resources.endpoint-group'

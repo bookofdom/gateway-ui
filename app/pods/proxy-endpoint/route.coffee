@@ -8,7 +8,13 @@ ProxyEndpointRoute = Ember.Route.extend
     # routes and components embedded records appear only when
     # loading individual proxy endpoints
     proxyEndpoint = @modelFor 'proxy-endpoint'
-    proxyEndpoint.cancel()
+    # Proxy endpoints as loaded in the index are incomplete.
+    # Cancel (implicitly reload) the proxy endpoint to get all data associated
+    # with the record.
+    # Does not reload if the proxy endpoint is dirty, which could happen if
+    # entering the new record flow and returning.
+    if !proxyEndpoint.get 'hasDirtyAttributes'
+      proxyEndpoint.cancel()
   actions:
     deleted: ->
       @transitionTo 'proxy-endpoints'
