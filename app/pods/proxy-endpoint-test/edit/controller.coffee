@@ -3,7 +3,8 @@
 ProxyEndpointTestEditController = Ember.Controller.extend
   'proxy-endpoint': Ember.inject.controller()
   routes: Ember.computed.alias 'proxy-endpoint.model.routes'
-  
+  channels: Ember.computed.alias 'proxy-endpoint.model.channels'
+
   executing: false # true while test execution request is in progress
   response: null # holds response from test execution
 
