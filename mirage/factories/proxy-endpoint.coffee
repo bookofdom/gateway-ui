@@ -28,26 +28,52 @@ ProxyEndpointFactory = Factory.extend
       methods: ["POST", "PUT"]
     ]
   tests: ->
-    for i in [1..3]
-      id: testId++
-      name: "#{faker.lorem.words()[0].capitalize()} Test"
-      methods: ["GET", "POST", "PUT", "DELETE"]
-      route: "/#{faker.lorem.words()[0]}/#{faker.lorem.words()[0]}.json"
-      pairs: [
-        id: testPairId++
-        type: 'get'
-        key: 'key'
-        value: 'value'
-      ,
-        id: testPairId++
-        type: 'header'
-        key: 'Content-Type'
-        value: 'application/json'
-      ,
-        id: testPairId++
-        type: 'path'
-        key: 'key'
-        value: 'value'
-      ]
+    routes =
+      for i in [1..3]
+        id: testId++
+        name: "#{faker.lorem.words()[0].capitalize()} Test"
+        channels: false
+        methods: ["GET", "POST", "PUT", "DELETE"]
+        route: "/#{faker.lorem.words()[0]}/#{faker.lorem.words()[0]}.json"
+        pairs: [
+          id: testPairId++
+          type: 'get'
+          key: 'key'
+          value: 'value'
+        ,
+          id: testPairId++
+          type: 'header'
+          key: 'Content-Type'
+          value: 'application/json'
+        ,
+          id: testPairId++
+          type: 'path'
+          key: 'key'
+          value: 'value'
+        ]
+    channels =
+      for i in [1..3]
+        id: testId++
+        name: "#{faker.lorem.words()[0].capitalize()} Test"
+        channels: true
+        methods: ["GET", "POST", "PUT", "DELETE"]
+        channel_id: i
+        pairs: [
+          id: testPairId++
+          type: 'get'
+          key: 'key'
+          value: 'value'
+        ,
+          id: testPairId++
+          type: 'header'
+          key: 'Content-Type'
+          value: 'application/json'
+        ,
+          id: testPairId++
+          type: 'path'
+          key: 'key'
+          value: 'value'
+        ]
+    routes.concat channels
 
 `export default ProxyEndpointFactory`

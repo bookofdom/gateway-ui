@@ -10,6 +10,7 @@ moduleForModel 'proxy-endpoint', 'Unit | Model | proxy endpoint', {
     'model:proxy-endpoint-route'
     'model:proxy-endpoint-schema'
     'model:proxy-endpoint-test'
+    'model:proxy-endpoint-channel'
   ]
 }
 

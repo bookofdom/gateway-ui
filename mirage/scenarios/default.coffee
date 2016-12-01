@@ -44,6 +44,8 @@ defaultScenario = (server) ->
           remoteEndpointEnvironmentDatumId: datum.id
     server.createList 'shared_component', 10, apiId: id
     server.createList('proxy_endpoint', 50, apiId: id).forEach (proxyEndpoint) ->
+      server.createList 'proxy_endpoint_channel', 3,
+        proxyEndpointId: proxyEndpoint.id
       server.createList 'proxy_endpoint_component', 10,
         proxyEndpointId: proxyEndpoint.id
       server.createList 'proxy_endpoint_schema', 5,

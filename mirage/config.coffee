@@ -185,6 +185,15 @@ config = ->
     ]
   ), {timing: 2000}
 
+  @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/channels', makeGetChildrenHandler('proxy_endpoint', 'proxy_endpoint_channel')
+  @post '/apis/:apiId/proxy_endpoints/:proxyEndpointId/channels', makePostChildHandler('proxy_endpoint', 'proxy_endpoint_channel')
+  @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/channels/:id', (schema, request) ->
+    proxy_endpoint_channel: schema.db.proxyEndpointChannels.find request.params.id
+  @put '/apis/:apiId/proxy_endpoints/:proxyEndpointId/channels/:id', makePutHandler 'proxy_endpoint_channel'
+  @del '/apis/:apiId/proxy_endpoints/:proxyEndpointId/channels/:id', (schema, request) ->
+    id = request.params.id
+    schema.db.proxyEndpointChannels.remove id
+
   @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makeGetChildrenHandler('proxy_endpoint', 'proxy_endpoint_schema')
   @post '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makePostChildHandler('proxy_endpoint', 'proxy_endpoint_schema')
   @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas/:id', (schema, request) ->
