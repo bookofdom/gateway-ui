@@ -152,6 +152,8 @@
     "host_plural": "servidores",
     "job": "trabajo",
     "job_plural": "trabajos",
+    "job-test": "prueba de trabajo",
+    "job-test_plural": "pruebas de trabajo",
     "library": "librería compartida",
     "library_plural": "librerías compartidas",
     "log": "registro",
@@ -322,7 +324,7 @@
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
       "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`.",
-      "key": "PEM-codificado"
+      "key": "PEM, PFX o P12"
     },
     "api": {
       "name": "nombre del API"

@@ -158,6 +158,8 @@
     "host_plural": "hosts",
     "job": "job",
     "job_plural": "jobs",
+    "job-test": "job test",
+    "job-test_plural": "job tests",
     "library": "shared library",
     "library_plural": "shared libraries",
     "log": "log",
@@ -334,7 +336,7 @@
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
       "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`.",
-      "key": "PEM-encoded"
+      "key": "PEM, P12 or PFX"
     },
     "api": {
       "name": "API name"

@@ -17,6 +17,7 @@ Job = Model.extend
   components: DS.hasMany 'job-component',
     async: false
     embeddedModel: true
+  tests: DS.hasMany 'job-test', async: true
 
   # given a list of component IDs,
   # re-order the underlaying components array and save
