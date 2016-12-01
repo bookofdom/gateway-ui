@@ -4,7 +4,12 @@
 `import config from  'gateway/config/environment'`
 
 BaseRemoteEndpointFormComponent = BaseFormComponent.extend
-  types: null
+  types: Ember.computed ->
+    enabledTypes = config.remote_endpoint_types_enabled?.split ','
+    types = RemoteEndpointLike.types
+    if enabledTypes
+      types = types.filter (type) -> type.value in enabledTypes
+    types
 
   newPushPlatformAction: 'new-remote-endpoint-push-platform'
 

@@ -1,3 +1,13 @@
+{{#if new-resource-route}}
+  {{#ap-list-nav-simple-icon class='pull-right'}}
+    {{ap-list-link
+      t='actions.new'
+      icon='the-essentials-010'
+      action='new-resource'
+      arg1=(query-params next=-1)}}
+  {{/ap-list-nav-simple-icon}}
+{{/if}}
+
 {{#x-select
   name=name
   id=idName

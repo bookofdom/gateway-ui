@@ -13,6 +13,7 @@ ProxyEndpointComponentCallFormComponent = BaseForm.extend
       label: 'resources.remote-endpoint'
       type: 'select-model-name'
       required: true
+      'new-resource-route': 'remote-endpoints.new'
     ,
       name: 'endpoint_name_override'
     ]
@@ -21,6 +22,7 @@ ProxyEndpointComponentCallFormComponent = BaseForm.extend
       label: 'resources.remote-endpoint'
       type: 'select-model-name'
       required: true
+      'new-resource-route': 'remote-endpoints.new'
     ,
       name: 'endpoint_name_override'
     ,

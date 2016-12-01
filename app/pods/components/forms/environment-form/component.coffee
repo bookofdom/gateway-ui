@@ -14,7 +14,7 @@ EnvironmentFormComponent = BaseFormComponent.extend
       value: 'server'
     ]
 
-  savedAction: null
+  #savedAction: null
 
   newFields: [
     name: 'name'
@@ -75,5 +75,7 @@ EnvironmentFormComponent = BaseFormComponent.extend
   actions:
     'delete-environment-variable': (record) -> record.deleteRecord()
     'new-environment-variable': -> @createNewVariableModel()
+    saved: ->
+      @send 'saved'
 
 `export default EnvironmentFormComponent`
