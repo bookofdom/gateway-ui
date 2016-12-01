@@ -39,6 +39,10 @@ ProxyEndpointTestFormComponent = BaseFormComponent.extend
     ]
     if @get 'model.channels'
       fields.pushObjects [
+        name: 'method'
+        required: true
+        type: 'select'
+      ,
         name: 'channel'
         label: 'resources.proxy-endpoint-channel'
         required: true
@@ -63,13 +67,11 @@ ProxyEndpointTestFormComponent = BaseFormComponent.extend
 
   showBodyField: Ember.computed 'model.method', ->
     method = @get 'model.method'
-    channels = @get 'model.channels'
-    ((method is 'POST') or (method is 'PUT') or channels)
+    (method is 'POST') or (method is 'PUT')
 
   showQueryParameters: Ember.computed 'model.method', ->
     method = @get 'model.method'
-    channels = @get 'model.channels'
-    ((method != 'DELETE') or channels)
+    method != 'DELETE'
 
   createNewHeaderModel: ->
     model = @get 'model'
