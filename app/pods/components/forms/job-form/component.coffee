@@ -25,12 +25,6 @@ JobFormComponent = BaseFormComponent.extend
     type: 'select-model-name'
   ]
 
-  createNewModel: ->
-    modelType = @get 'modelType'
-    newModel = @get('store').createRecord modelType
-    @set 'model', newModel
-    newModel
-
   submit: ->
     model = @get 'model'
     if model.get 'isNew'
