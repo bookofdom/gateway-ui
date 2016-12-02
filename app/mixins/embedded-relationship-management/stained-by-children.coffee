@@ -1,12 +1,11 @@
 `import Ember from 'ember'`
 
 StainedByChildrenMixin = Ember.Mixin.create
-  hasDirtyAttributes: Ember.computed 'currentState.isDirty',
+  hasDirtyAttributes: Ember.computed.or 'currentState.isDirty',
     'hasDirtyChildren',
-    'hasChangedBelongsTo',
-    ->
-      @get('currentState.isDirty') or @get('hasDirtyChildren') or
-        @get('hasChangedBelongsTo')
+    'hasChangedBelongsTo'
+
+  isAllowedDirty: Ember.computed.or 'allowedDirty', 'hasAllowedDirtyChildren'
 
   hasDirtyChildren: false
   hasChangedBelongsTo: null
@@ -42,6 +41,26 @@ StainedByChildrenMixin = Ember.Mixin.create
       computedProps.push computedFn
       computed = Ember.computed.apply Ember, computedProps
       Ember.defineProperty @, 'hasDirtyChildren', computed
+
+  # TODO
+  # This is a duplication of above except for the property names.
+  _setupHasAllowedDirtyChildrenProperty: Ember.on 'init', ->
+    dirtyProps = @get '_stainingRelationshipDirtyProperties'
+    if dirtyProps.length
+      reducer = (previousResult, currentValue) =>
+        currentResult = switch currentValue.kind
+          when 'belongsTo'
+            @get currentValue.propertyName
+          when 'hasMany'
+            reduceMany = (previousResult, currentValue) ->
+              previousResult or currentValue.get 'isAllowedDirty'
+            @get(currentValue.relationshipName).reduce reduceMany, false
+        previousResult or currentResult
+      computedFn = -> dirtyProps.reduce reducer, false
+      computedProps = (prop.propertyName for prop in dirtyProps)
+      computedProps.push computedFn
+      computed = Ember.computed.apply Ember, computedProps
+      Ember.defineProperty @, 'hasAllowedDirtyChildren', computed
 
   _setupHasChangedBelongsToProperty: Ember.on 'init', ->
     dirtyProps = @get '_stainingRelationshipDirtyProperties'

@@ -62,7 +62,8 @@ BaseFormComponent = Ember.Component.extend
 
   createNewModel: ->
     modelType = @get 'modelType'
-    newModel = @get('store')?.createRecord modelType
+    newModel = @get('store')?.peekAll(modelType)?.filterBy('isNew', true)?.get 'firstObject'
+    newModel = @get('store')?.createRecord(modelType) if !newModel
     @set 'model', newModel
     newModel
   assignModelClientId: ->

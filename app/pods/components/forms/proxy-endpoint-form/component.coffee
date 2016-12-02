@@ -18,6 +18,7 @@ ProxyEndpointFormComponent = BaseFormComponent.extend
     type: 'select-model-name'
     required: true
     prompt: false
+    'new-resource-route': 'environments.new'
   ,
     name: 'endpoint_group'
     label: 'resources.endpoint-group'
@@ -39,6 +40,7 @@ ProxyEndpointFormComponent = BaseFormComponent.extend
     type: 'select-model-name'
     required: true
     prompt: false
+    'new-resource-route': 'environments.new'
   ,
     name: 'endpoint_group'
     label: 'resources.endpoint-group'
@@ -47,11 +49,6 @@ ProxyEndpointFormComponent = BaseFormComponent.extend
   fields: Ember.computed 'model.isNew', ->
     if @get('model.isNew') then @get('newFields') else @get('editFields')
 
-  createNewModel: ->
-    modelType = @get 'modelType'
-    newModel = @get('store').createRecord modelType
-    @set 'model', newModel
-    newModel
   createNewRouteModel: ->
     model = @get 'model'
     newRouteModel = @get('store').createRecord 'proxy-endpoint-route'

@@ -8,6 +8,7 @@ ApModelFieldComponent = BsBaseComponent.extend
   model: null
   'show-placeholder': false
   'option-groups': null
+  'new-resource-route': null
   fieldName: null
   fieldLabel: null
   fieldType: null
@@ -88,5 +89,17 @@ ApModelFieldComponent = BsBaseComponent.extend
         @set propName, value if value? and (value != currentValue)
         value
     Ember.defineProperty @, 'value', computed
+
+  actions:
+    'new-resource': ->
+      # Marks the model as allowed-dirty and then transitions to the new
+      # resource route.  Upon saving the resource, the user is redirected back
+      # to the current route to continue working on the unsaved changes.
+      router = @get 'router'
+      route = @get 'new-resource-route'
+      model = @get 'model'
+      model.set 'allowedDirty', true
+      router.transitionTo route, queryParams: next: -1
+      model.set 'allowedDirty', false
 
 `export default ApModelFieldComponent`
