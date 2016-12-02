@@ -5,4 +5,9 @@ ProxyEndpointChannelSerializer = ApplicationSerializer.extend
     proxy_endpoint:
       serialize: false
 
+  modelNameFromPayloadKey: (payloadKey) ->
+    'proxy-endpoint-channel'
+  payloadKeyFromModelName: (modelName) ->
+    'channel'
+
 `export default ProxyEndpointChannelSerializer`

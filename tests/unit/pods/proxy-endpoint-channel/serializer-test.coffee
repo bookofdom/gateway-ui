@@ -131,7 +131,7 @@ moduleForModel 'proxy-endpoint-channel', 'Unit | Serializer | proxy endpoint cha
       @get '/apis/1/proxy_endpoints/1/channels', -> [
         200
         {'Content-Type': 'application/json'}
-        JSON.stringify proxy_endpoint_channels: [
+        JSON.stringify channels: [
           name: 'channel-1'
           id: 1
           proxy_endpoint_id: 1

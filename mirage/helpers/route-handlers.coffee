@@ -27,6 +27,20 @@ makePutHandler = (modelName, callback) ->
     callback(schema[modelName.camelize()].find(id), request, response) if callback
     response
 
+makePutHandlerForKey = (modelName, key, callback) ->
+  (schema, request) ->
+    id = request.params.id
+    body = JSON.parse request.requestBody
+    payload = body[key]
+    if body[key]?.name is 'error'
+      response = new Response 422, {},
+        errors:
+          name: ['This field is in error']
+    else
+      response = schema[modelName.camelize()].find(id).update payload
+    callback(schema[modelName.camelize()].find(id), request, response) if callback
+    response
+
 getParent = (schema, request, parentModelName) ->
   parentId = request.params["#{parentModelName.camelize()}Id"]
   schema[parentModelName.camelize()].find(parentId)
@@ -54,4 +68,21 @@ makePostChildHandler = (parentModelName, modelName, callback) ->
     callback(schema[modelName.camelize()], request, response) if callback
     response
 
-`export { makePostHandler, makePutHandler, makeGetChildrenHandler, makePostChildHandler }`
+makePostChildHandlerForKey = (parentModelName, modelName, key, callback) ->
+  (schema, request) ->
+    parent = getParent schema, request, parentModelName
+    body = JSON.parse request.requestBody
+    payload = body[key]
+    if payload?.name is 'error'
+      response = new Response 422, {},
+        errors:
+          name: ['This field is in error']
+    else
+      data = Ember.merge payload,
+        "#{parentModelName.camelize()}Id": parent.id
+      response = schema[modelName.camelize()].create data
+    callback(schema[modelName.camelize()], request, response) if callback
+    response
+
+`export { makePostHandler, makePutHandler, makeGetChildrenHandler, makePostChildHandler,
+  makePostChildHandlerForKey, makePutHandlerForKey }`
