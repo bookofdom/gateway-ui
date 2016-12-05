@@ -75,6 +75,12 @@ ProxyEndpointFormComponent = BaseFormComponent.extend
         channel.save()
     @_super arguments...
 
+  cancel: ->
+    @get('model.channels').forEach (channel) ->
+      if channel.get('hasDirtyAttributes') and !channel.get('isDeleted')
+        channel.cancel()
+    @_super arguments...
+
   actions:
     'delete-proxy-endpoint-route': (record) -> record.deleteRecord()
     'new-proxy-endpoint-route': -> @createNewRouteModel()

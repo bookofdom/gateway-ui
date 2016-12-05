@@ -31,12 +31,6 @@ ProxyEndpoint = Model.extend
     async: true
     stains: true
 
-  cancel: ->
-    @get('channels').forEach (channel) ->
-      if channel.get('hasDirtyAttributes') and !channel.get('isDeleted')
-        channel.cancel()
-    @_super()
-
   # given a list of component IDs,
   # re-order the underlaying components array and save
   moveComponentByIdTo: (id, position) ->
