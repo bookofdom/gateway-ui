@@ -100,6 +100,8 @@
     "api-endpoint_plural": "API endpoints",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
+    "proxy-endpoint-channel": "canal",
+    "proxy-endpoint-channel_plural": "canales",
     "proxy-endpoint-route": "ruta",
     "proxy-endpoint-route_plural": "rutas",
     "proxy-endpoint-component": "componente",
@@ -184,6 +186,7 @@
   "fields": {
     "account_name": "nombre de la cuenta",
     "connect_timeout": "conecte tiempo de espera",
+    "channels": "canales",
     "ack_timeout": "tiempo de espera de ACK",
     "timeout_retries": "reintentos de tiempo de espera",
     "stamp": "sello",

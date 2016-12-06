@@ -100,6 +100,8 @@
     "api-endpoint_plural": "API endpoints",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
+    "proxy-endpoint-channel": "channel",
+    "proxy-endpoint-channel_plural": "channels",
     "proxy-endpoint-route": "route",
     "proxy-endpoint-route_plural": "routes",
     "proxy-endpoint-component": "component",
@@ -190,6 +192,7 @@
   "fields": {
     "account_name": "account name",
     "connect_timeout": "connect timeout",
+    "channels": "channels",
     "ack_timeout": "ack timeout",
     "timeout_retries": "timeout retries",
     "qos": "QOS",

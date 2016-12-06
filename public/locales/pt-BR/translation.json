@@ -100,6 +100,8 @@
     "api-endpoint_plural": "endpoints da API",
     "proxy-endpoint": "endpoint da proxy",
     "proxy-endpoint_plural": "endpoints da proxy",
+    "proxy-endpoint-channel": "canal",
+    "proxy-endpoint-channel_plural": "canales",
     "proxy-endpoint-route": "rota",
     "proxy-endpoint-route_plural": "rotas",
     "proxy-endpoint-component": "componente",
@@ -184,6 +186,7 @@
   "fields": {
     "account_name": "nome da conta",
     "connect_timeout": "connect timeout",
+    "channels": "canais",
     "ack_timeout": "ACK timeout",
     "timeout_retries": "tentativas de tempo limite",
     "stamp": "carimbo",

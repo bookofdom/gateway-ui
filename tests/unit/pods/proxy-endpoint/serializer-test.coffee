@@ -19,6 +19,7 @@ moduleForModel 'proxy-endpoint', 'Unit | Serializer | proxy endpoint',
     'model:proxy-endpoint-route'
     'model:proxy-endpoint-schema'
     'model:proxy-endpoint-test'
+    'model:proxy-endpoint-channel'
     'model:remote-endpoint'
     'model:shared-component'
   ]
