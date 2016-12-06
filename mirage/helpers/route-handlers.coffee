@@ -17,7 +17,7 @@ makePutHandler = (modelName, callback, key) ->
   (schema, request) ->
     id = request.params.id
     body = JSON.parse request.requestBody
-    key = modelName if !key
+    key ?= modelName
     payload = body[key]
     if payload?.name is 'error'
       response = new Response 422, {},
@@ -43,7 +43,7 @@ makePostChildHandler = (parentModelName, modelName, callback, key) ->
   (schema, request) ->
     parent = getParent schema, request, parentModelName
     body = JSON.parse request.requestBody
-    key = modelName if !key
+    key ?= modelName
     payload = body[key]
     if payload?.name is 'error'
       response = new Response 422, {},
