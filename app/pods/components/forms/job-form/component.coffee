@@ -18,17 +18,12 @@ JobFormComponent = BaseFormComponent.extend
     type: 'select-model-name'
     required: true
     prompt: false
+    'new-resource-route': 'environments.new'
   ,
     name: 'endpoint_group'
     label: 'resources.endpoint-group'
     type: 'select-model-name'
   ]
-
-  createNewModel: ->
-    modelType = @get 'modelType'
-    newModel = @get('store').createRecord modelType
-    @set 'model', newModel
-    newModel
 
   submit: ->
     model = @get 'model'

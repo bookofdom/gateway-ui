@@ -4,7 +4,7 @@ RemoteEndpointFormComponent = BaseRemoteEndpointFormComponent.extend
   indexModel: null
   modelType: 'remote-endpoint'
 
-  savedAction: null
+  #savedAction: null
   newDatumAction: 'new-remote-endpoint-environment-datum'
 
   defaultFields: [
@@ -36,5 +36,7 @@ RemoteEndpointFormComponent = BaseRemoteEndpointFormComponent.extend
       model.deleteRecord()
     'new-remote-endpoint-environment-datum': ->
       @sendAction 'newDatumAction'
+    saved: ->
+      @send 'saved'
 
 `export default RemoteEndpointFormComponent`
