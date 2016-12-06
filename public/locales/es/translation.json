@@ -423,6 +423,7 @@
       "store": "almacenar",
       "script": "código",
       "job": "trabajo",
+      "key": "claves criptográficas",
       "status-types": {
         "success": "éxito",
         "failed": "ha fallado",
