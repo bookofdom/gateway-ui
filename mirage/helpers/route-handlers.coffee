@@ -13,26 +13,13 @@ makePostHandler = (modelName, callback) ->
     callback(schema[modelName.camelize()], request, response) if callback
     response
 
-makePutHandler = (modelName, callback) ->
+makePutHandler = (modelName, callback, key) ->
   (schema, request) ->
     id = request.params.id
     body = JSON.parse request.requestBody
-    payload = body[modelName]
-    if body[modelName]?.name is 'error'
-      response = new Response 422, {},
-        errors:
-          name: ['This field is in error']
-    else
-      response = schema[modelName.camelize()].find(id).update payload
-    callback(schema[modelName.camelize()].find(id), request, response) if callback
-    response
-
-makePutHandlerForKey = (modelName, key, callback) ->
-  (schema, request) ->
-    id = request.params.id
-    body = JSON.parse request.requestBody
+    key = modelName if !key
     payload = body[key]
-    if body[key]?.name is 'error'
+    if payload?.name is 'error'
       response = new Response 422, {},
         errors:
           name: ['This field is in error']
@@ -52,26 +39,11 @@ getChildren = (schema, request, parentModelName, modelName) ->
 makeGetChildrenHandler = (parentModelName, modelName) ->
   (schema, request) -> getChildren schema, request, parentModelName, modelName
 
-makePostChildHandler = (parentModelName, modelName, callback) ->
+makePostChildHandler = (parentModelName, modelName, callback, key) ->
   (schema, request) ->
     parent = getParent schema, request, parentModelName
     body = JSON.parse request.requestBody
-    payload = body[modelName]
-    if payload?.name is 'error'
-      response = new Response 422, {},
-        errors:
-          name: ['This field is in error']
-    else
-      data = Ember.merge payload,
-        "#{parentModelName.camelize()}Id": parent.id
-      response = schema[modelName.camelize()].create data
-    callback(schema[modelName.camelize()], request, response) if callback
-    response
-
-makePostChildHandlerForKey = (parentModelName, modelName, key, callback) ->
-  (schema, request) ->
-    parent = getParent schema, request, parentModelName
-    body = JSON.parse request.requestBody
+    key = modelName if !key
     payload = body[key]
     if payload?.name is 'error'
       response = new Response 422, {},
@@ -84,5 +56,4 @@ makePostChildHandlerForKey = (parentModelName, modelName, key, callback) ->
     callback(schema[modelName.camelize()], request, response) if callback
     response
 
-`export { makePostHandler, makePutHandler, makeGetChildrenHandler, makePostChildHandler,
-  makePostChildHandlerForKey, makePutHandlerForKey }`
+`export { makePostHandler, makePutHandler, makeGetChildrenHandler, makePostChildHandler }`

@@ -1,6 +1,6 @@
 `import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
 
-ProxyEndpointRouteFormComponent = BaseFormComponent.extend
+ProxyEndpointChannelFormComponent = BaseFormComponent.extend
   indexModel: null
   modelType: 'proxy-endpoint-channel'
   'option-groups': null
@@ -22,4 +22,4 @@ ProxyEndpointRouteFormComponent = BaseFormComponent.extend
       channels.pushObject model
     @_super arguments...
 
-`export default ProxyEndpointRouteFormComponent`
+`export default ProxyEndpointChannelFormComponent`
