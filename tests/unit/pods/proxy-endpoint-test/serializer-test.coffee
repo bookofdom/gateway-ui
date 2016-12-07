@@ -16,6 +16,7 @@ moduleForModel 'proxy-endpoint-test', 'Unit | Serializer | proxy endpoint test',
     'model:job'
     'model:library'
     'model:proxy-endpoint'
+    'model:proxy-endpoint-channel'
     'model:proxy-endpoint-component'
     'model:proxy-endpoint-route'
     'model:proxy-endpoint-schema'

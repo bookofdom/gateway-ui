@@ -16,30 +16,50 @@
 ProxyEndpointTestFormComponent = BaseFormComponent.extend
   indexModel: null
   routes: null
+  channels: null
   modelType: 'proxy-endpoint-test'
 
   savedAction: null
 
-  'option-groups': Ember.computed 'routes.[]', ->
+  'option-groups': Ember.computed 'routes.[]', 'channels.[]', ->
     method: ProxyEndpointTest.methods
     route: @get('routes').map (route) ->
       name: route.get 'name'
       value: route.get 'path'
+    channel: @get('channels').map (channel) ->
+      name: channel.get 'full_name'
+      value: channel
 
-  defaultFields: Ember.computed 'routes.[]', ->
-    [
+  defaultFields: Ember.computed 'routes.[]', 'model.channels', ->
+    fields = [
       name: 'name'
       required: true
     ,
-      name: 'method'
-      required: true
-      type: 'select'
-    ,
-      name: 'route'
-      label: 'resources.proxy-endpoint-route'
-      required: true
-      type: 'select'
+      name: "channels"
     ]
+    if @get 'model.channels'
+      fields.pushObjects [
+        name: 'method'
+        required: true
+        type: 'select'
+      ,
+        name: 'channel'
+        label: 'resources.proxy-endpoint-channel'
+        required: true
+        type: 'select'
+      ]
+    else
+      fields.pushObjects [
+        name: 'method'
+        required: true
+        type: 'select'
+      ,
+        name: 'route'
+        label: 'resources.proxy-endpoint-route'
+        required: true
+        type: 'select'
+      ]
+    fields
 
   bodyField:
     name: 'body'
@@ -47,7 +67,7 @@ ProxyEndpointTestFormComponent = BaseFormComponent.extend
 
   showBodyField: Ember.computed 'model.method', ->
     method = @get 'model.method'
-    ((method is 'POST') or (method is 'PUT'))
+    (method is 'POST') or (method is 'PUT')
 
   showQueryParameters: Ember.computed 'model.method', ->
     method = @get 'model.method'

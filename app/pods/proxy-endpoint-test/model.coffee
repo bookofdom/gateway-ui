@@ -5,11 +5,13 @@
 ProxyEndpointTest = Model.extend
   name: DS.attr 'string'
   method: DS.attr 'string', defaultValue: 'GET'
+  channels: DS.attr 'boolean', defaultValue: false
   route: DS.attr 'string'
   body: DS.attr 'string'
 
   # Relationships
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
+  channel: DS.belongsTo 'proxy-endpoint-channel', async: false
   headers: DS.hasMany 'proxy-endpoint-test-header',
     async: false
     stains: true

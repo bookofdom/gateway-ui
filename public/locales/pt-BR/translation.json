@@ -39,7 +39,8 @@
     "reset": "restabelecer",
     "reset-password": "trocar a senha",
     "sign-up": "inscrever-se",
-    "navigate": "navegar"
+    "navigate": "navegar",
+    "reload": "recarregar"
   },
   "nav": {
     "home": "início",
@@ -100,6 +101,8 @@
     "api-endpoint_plural": "endpoints da API",
     "proxy-endpoint": "endpoint da proxy",
     "proxy-endpoint_plural": "endpoints da proxy",
+    "proxy-endpoint-channel": "canal",
+    "proxy-endpoint-channel_plural": "canales",
     "proxy-endpoint-route": "rota",
     "proxy-endpoint-route_plural": "rotas",
     "proxy-endpoint-component": "componente",
@@ -184,6 +187,7 @@
   "fields": {
     "account_name": "nome da conta",
     "connect_timeout": "connect timeout",
+    "channels": "canais",
     "ack_timeout": "ACK timeout",
     "timeout_retries": "tentativas de tempo limite",
     "stamp": "carimbo",
@@ -341,7 +345,8 @@
     "confirm-delete": "tem certeza que deseja deletar este registro?",
     "confirm-abandon": "tem certeza que deseja sair sem salvar?",
     "change-language": "troca de idioma",
-    "optional-x": "$t(__x__) (opcional)"
+    "optional-x": "$t(__x__) (opcional)",
+    "app-version-update": "atualizações disponíveis, recarregar?"
   },
   "states": {
     "active": "ativo",
