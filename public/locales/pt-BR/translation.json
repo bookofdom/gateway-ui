@@ -39,7 +39,8 @@
     "reset": "restabelecer",
     "reset-password": "trocar a senha",
     "sign-up": "inscrever-se",
-    "navigate": "navegar"
+    "navigate": "navegar",
+    "reload": "recarregar"
   },
   "nav": {
     "home": "início",
@@ -344,7 +345,8 @@
     "confirm-delete": "tem certeza que deseja deletar este registro?",
     "confirm-abandon": "tem certeza que deseja sair sem salvar?",
     "change-language": "troca de idioma",
-    "optional-x": "$t(__x__) (opcional)"
+    "optional-x": "$t(__x__) (opcional)",
+    "app-version-update": "atualizações disponíveis, recarregar?"
   },
   "states": {
     "active": "ativo",

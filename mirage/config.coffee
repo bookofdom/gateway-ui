@@ -18,6 +18,12 @@ config = ->
       function apRequestJs (name, doc) {};
     '''
 
+  # info
+  @get '/info', (schema, request) ->
+    info: schema.db.infos
+  @get '/info/:id'
+
+  # sessions
   @post '/sessions', (schema, request) ->
     body = JSON.parse request.requestBody
     session = schema.session.all().toArray().find (session) ->

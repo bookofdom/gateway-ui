@@ -1,4 +1,7 @@
 defaultScenario = (server) ->
+  # info
+  server.createList 'info', 1, id: 'app'
+
   # sessions
   server.loadFixtures 'sessions'
 
