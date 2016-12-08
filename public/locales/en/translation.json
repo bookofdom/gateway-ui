@@ -462,6 +462,7 @@
       "db2": "DB2",
       "docker": "Docker",
       "job": "job",
+      "key": "cryptographic keys",
       "status-types": {
         "success": "success",
         "failed": "failed",
