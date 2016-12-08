@@ -32,6 +32,9 @@ Router.map ->
           @route 'proxy-endpoint-routes', resetNamespace: true, path: 'routes', ->
             @route 'proxy-endpoint-route', resetNamespace: true, path: ':proxy_endpoint_route_id', ->
               @route 'edit'
+          @route 'proxy-endpoint-channels', resetNamespace: true, path: 'channels', ->
+            @route 'proxy-endpoint-channel', resetNamespace: true, path: ':proxy_endpoint_channel_id', ->
+              @route 'edit'
           @route 'proxy-endpoint-components', resetNamespace: true, path: 'components', ->
             @route 'new', ->
               @route 'type', path: ':proxy_endpoint_component_type'
@@ -71,12 +74,14 @@ Router.map ->
             @route 'shared-component-call', resetNamespace: true, path: ':shared_component_call_id', ->
               @route 'edit'
       @route 'environments', resetNamespace: true, ->
+        @route 'new'
         @route 'environment', resetNamespace: true, path: ':environment_id', ->
           @route 'edit'
       @route 'endpoint-groups', resetNamespace: true, path: 'groups', ->
         @route 'endpoint-group', resetNamespace: true, path: ':endpoint_group_id', ->
           @route 'edit'
       @route 'remote-endpoints', resetNamespace: true, ->
+        @route 'new'
         @route 'remote-endpoint', resetNamespace: true, path: ':remote_endpoint_id', ->
           @route 'edit'
           @route 'remote-endpoint-push-platforms', resetNamespace: true, path: 'push-platforms', ->

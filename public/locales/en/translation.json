@@ -40,7 +40,8 @@
     "reset-password": "reset password",
     "sign-up": "sign up",
     "navigate": "navigate",
-    "retry": "retry"
+    "retry": "retry",
+    "reload": "reload"
   },
   "nav": {
     "home": "home",
@@ -101,6 +102,8 @@
     "api-endpoint_plural": "API endpoints",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
+    "proxy-endpoint-channel": "channel",
+    "proxy-endpoint-channel_plural": "channels",
     "proxy-endpoint-route": "route",
     "proxy-endpoint-route_plural": "routes",
     "proxy-endpoint-component": "component",
@@ -191,6 +194,7 @@
   "fields": {
     "account_name": "account name",
     "connect_timeout": "connect timeout",
+    "channels": "channels",
     "ack_timeout": "ack timeout",
     "timeout_retries": "timeout retries",
     "qos": "QOS",
@@ -355,7 +359,8 @@
     "confirm-delete": "are you sure you want to delete this record?",
     "confirm-abandon": "are you sure you want to leave this record without saving?",
     "change-language": "change language",
-    "optional-x": "$t(__x__) (optional)"
+    "optional-x": "$t(__x__) (optional)",
+    "app-version-update": "updates available, reload?"
   },
   "states": {
     "active": "active",
@@ -459,6 +464,7 @@
       "db2": "DB2",
       "docker": "Docker",
       "job": "job",
+      "key": "cryptographic keys",
       "status-types": {
         "success": "success",
         "failed": "failed",

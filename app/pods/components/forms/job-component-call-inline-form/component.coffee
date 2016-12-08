@@ -10,6 +10,7 @@ JobComponentCallInlineFormComponent = ProxyEndpointComponentCallFormComponent.ex
       label: 'resources.remote-endpoint'
       type: 'select-model-name'
       required: true
+      'new-resource-route': 'remote-enpoints.new'
     ,
       name: 'endpoint_name_override'
     ]
@@ -25,6 +26,7 @@ JobComponentCallInlineFormComponent = ProxyEndpointComponentCallFormComponent.ex
       label: 'resources.remote-endpoint'
       type: 'select-model-name'
       required: true
+      'new-resource-route': 'remote-enpoints.new'
     ,
       name: 'endpoint_name_override'
     ]

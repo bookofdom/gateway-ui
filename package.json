@@ -14,7 +14,7 @@
   },
   "repository": "",
   "author": "",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
     "broccoli-funnel": "^0.2.8",
