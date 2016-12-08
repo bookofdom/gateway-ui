@@ -42,5 +42,7 @@ LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
     # change, as well as when leaving the route altogether.
     willTransition: ->
       @disableStreaming()
+    'reconnect-streaming': ->
+      @refresh()
 
 `export default LogsRoute`

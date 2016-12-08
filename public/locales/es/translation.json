@@ -40,6 +40,7 @@
     "reset-password": "restablecer la contraseña",
     "sign-up": "registrarse",
     "navigate": "navegar",
+    "retry": "rever",
     "reload": "recargar"
   },
   "nav": {
@@ -377,7 +378,8 @@
     "invalid-json-schema": "esquema JSON no válido",
     "invalid-cc-number": "numero de tarjeta invalido",
     "invalid-cc-expiry": "caducidad no válido",
-    "invalid-cc-cvc": "CVC no válido"
+    "invalid-cc-cvc": "CVC no válido",
+    "connection-timeout": "el tiempo de conexión expiro"
   },
   "successes": {
     "push-manual-message": "mensaje enviado con éxito",

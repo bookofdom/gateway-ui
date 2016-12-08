@@ -12,18 +12,16 @@ module.exports = function(environment) {
       routeAfterAuthentication: 'index',
     },
     EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      }
+      FEATURES: {}
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
       notifications: false,
       mockNotifications: false,
-      mockNotificationInterval: 20 * 1000 // 20 seconds
+      mockNotificationInterval: 20 * 1000, // 20 seconds
+      mockLogs: false,
+      mockLogInterval: 5 * 1000, // 5 seconds
+      logHeartbeatInterval: 60 // (in seconds)
     },
 
     contentSecurityPolicy: {
@@ -82,6 +80,7 @@ module.exports = function(environment) {
     ENV.go_os = 'darwin';
     ENV.APP.notifications = true;
     ENV.APP.mockNotifications = true;
+    ENV.APP.mockLogs = true;
 
     // uncomment for stand-alone gateway API
     //ENV.api.host = 'http://localhost:5000';
@@ -112,6 +111,7 @@ module.exports = function(environment) {
     ENV.remote_endpoint_types_enabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
     ENV.api_base_path_placeholder = 'API_BASE_PATH_PLACEHOLDER';
     ENV.broker_placeholder = 'BROKER_PLACEHOLDER';
+    ENV.logHeartbeatInterval = 'WS_HEARTBEAT_INTERVAL';
     ENV.google_analytics_tracking_id = 'GOOGLE_ANALYTICS_TRACKING_ID';
 
     ENV.rootURL = null;
