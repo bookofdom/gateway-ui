@@ -165,7 +165,6 @@ generateDataForType = (typeSlug, i) ->
       username: faker.internet.userName()
       password: faker.internet.password()
       registry: faker.internet.domainName()
-    when 'key'
   data.headers = generateKeyValues 3
   data.query = generateKeyValues 3
   pushPlatformType = platformCycle i
