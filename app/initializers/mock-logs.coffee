@@ -4,6 +4,10 @@
 MockLogsInitializer =
   name: 'mock-logs'
 
+  getHeartbeatInterval: ->
+    intervalString = config.APP.logHeartbeatInterval?.toString()
+    parseInt(intervalString, 10) * 1000
+
   # TODO
   # buildSocketURL and cleanURL are duplicate methods found in the notification
   # and application adapters.  It's unclear how to lookup an adapter from within
@@ -40,12 +44,13 @@ MockLogsInitializer =
   initialize: (app) ->
     if app.mockLogs and app.mockLogInterval
       url = @buildSocketURL 'apis/1/logs/socket'
+      heartbeatInterval = @getHeartbeatInterval()
       new WebSocketMockServer url, (server) ->
         server.open()
         setInterval (->
           Ember.run.next ->
-            #server.message 'heartbeat'
-          ), app.logHeartbeatInterval
+            server.message 'heartbeat'
+          ), heartbeatInterval
         setInterval (->
           Ember.run.next ->
             server.message 'testing\n'

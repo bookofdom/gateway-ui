@@ -21,7 +21,7 @@ module.exports = function(environment) {
       mockNotificationInterval: 20 * 1000, // 20 seconds
       mockLogs: false,
       mockLogInterval: 5 * 1000, // 5 seconds
-      logHeartbeatInterval: 30 * 1000 // 30 seconds
+      logHeartbeatInterval: 60 // (in seconds)
     },
 
     contentSecurityPolicy: {
@@ -111,6 +111,7 @@ module.exports = function(environment) {
     ENV.remote_endpoint_types_enabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
     ENV.api_base_path_placeholder = 'API_BASE_PATH_PLACEHOLDER';
     ENV.broker_placeholder = 'BROKER_PLACEHOLDER';
+    ENV.logHeartbeatInterval = 'WS_HEARTBEAT_INTERVAL';
     ENV.google_analytics_tracking_id = 'GOOGLE_ANALYTICS_TRACKING_ID';
 
     ENV.rootURL = null;
