@@ -80,6 +80,9 @@ BaseFormComponent = Ember.Component.extend
         @sendAction 'savedAction', model
       ), (->))
     false
+  cancel: ->
+    @get('model').cancel().then =>
+      #@sendAction 'canceledAction'
   keyDown: (e) ->
     if !@get('embedded') and (e.metaKey or e.ctrlKey) and (e.keyCode is 83)
       e.preventDefault()
@@ -112,8 +115,7 @@ BaseFormComponent = Ember.Component.extend
 
   actions:
     cancel: ->
-      @get('model').cancel().then =>
-        #@sendAction 'canceledAction'
+      @cancel()
     delete: ->
       confirmText = t('prompts.confirm-delete').capitalize()
       if @confirm confirmText

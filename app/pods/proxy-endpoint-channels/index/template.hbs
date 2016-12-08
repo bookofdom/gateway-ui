@@ -1,0 +1,13 @@
+{{#ap-page t='resources.proxy-endpoint-channel_plural'}}
+
+  {{ap-table-index
+      models=model
+      fields='name,remote_endpoint.name'
+      path='proxy-endpoint-channel.index'
+      edit-path='proxy-endpoint-channel.edit'}}
+
+  {{#ap-panel-new t='resources.proxy-endpoint-channel' closed=(unbound model.length)}}
+    {{forms/proxy-endpoint-channel-form indexModel=model option-groups=option-groups}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}

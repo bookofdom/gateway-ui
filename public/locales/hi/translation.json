@@ -99,6 +99,8 @@
     "api-endpoint_plural": "API endpoints",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
+    "proxy-endpoint-channel": "चैनल",
+    "proxy-endpoint-channel_plural": "चैनलों",
     "proxy-endpoint-route": "route",
     "proxy-endpoint-route_plural": "routes",
     "proxy-endpoint-component": "component",
@@ -177,6 +179,7 @@
   "fields": {
     "account_name": "खाते का नाम",
     "connect_timeout": "मध्यांतर कनेक्ट",
+    "channels": "चैनलों",
     "ack_timeout": "एसीके मध्यांतर",
     "timeout_retries": "मध्यांतर पुनर्प्रयास",
     "stamp": "डाक टिकट",

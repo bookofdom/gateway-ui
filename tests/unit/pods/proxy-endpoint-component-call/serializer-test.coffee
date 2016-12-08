@@ -19,6 +19,7 @@ moduleForModel 'proxy-endpoint-component-call', 'Unit | Serializer | proxy endpo
     'model:job'
     'model:library'
     'model:proxy-endpoint'
+    'model:proxy-endpoint-channel'
     'model:proxy-endpoint-component'
     'model:proxy-endpoint-component-call'
     'model:proxy-endpoint-component-transformation'
