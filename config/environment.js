@@ -103,6 +103,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // interpolated config
+    ENV.rootURL = 'UI_BASE_PATH_PLACEHOLDER';
     ENV.api.host = 'ADMIN_API_HOST';
     ENV.registration_enabled = 'REGISTRATION_ENABLED';
     ENV.version = 'VERSION';
