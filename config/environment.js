@@ -73,7 +73,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-
+    
     ENV.api.swaggerViewerPath = '/swagger';
     ENV.api.swaggerJsonPath = '/swagger';
 
@@ -103,7 +103,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // interpolated config
-    ENV.rootURL = 'UI_BASE_PATH_PLACEHOLDER';
+    ENV.ui_base_path = 'UI_BASE_PATH_PLACEHOLDER';
     ENV.api.host = 'ADMIN_API_HOST';
     ENV.registration_enabled = 'REGISTRATION_ENABLED';
     ENV.version = 'VERSION';
@@ -115,6 +115,7 @@ module.exports = function(environment) {
     ENV.logHeartbeatInterval = 'WS_HEARTBEAT_INTERVAL';
     ENV.google_analytics_tracking_id = 'GOOGLE_ANALYTICS_TRACKING_ID';
 
+    ENV.rootURL = null;
     ENV.locationType = 'hash';
     ENV.api.basePath = ENV.api_base_path_placeholder;
     ENV.api.logs.host = ENV.broker_placeholder;
