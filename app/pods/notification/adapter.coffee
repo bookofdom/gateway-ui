@@ -3,11 +3,19 @@
 
 # Only one notification socket allowed in app.  That socket is kept here.
 socket = null
+socketUrl = null
 
 NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
   websockets: Ember.inject.service 'websockets'
   autoReconnect: true
   enabled: false
+
+  missedHeartbeats: 0
+  heartbeatEnabled: false
+  maxMissedHeartbeats: 4 # how many heartbeats may be missed before reconnecting?
+  heartbeatInterval: Ember.computed ->
+    intervalString = config.APP.wsHeartbeatInterval?.toString()
+    parseInt(intervalString, 10) * 1000
 
   buildSocketURL: (type) ->
     url = @urlForFindAll type
@@ -33,13 +41,21 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
     oldSocketUrl = socket?.socket?.url
     if oldSocketUrl
       @get('websockets').closeSocketFor oldSocketUrl
+    @stopHeartbeats()
 
   openSocket: (url) ->
     @closeSocket()
+    socketUrl = url
     newSocket = @get('websockets').socketFor url
-    newSocket.on 'message', ((event) -> @trigger 'socketMessage', event.data), @
+    newSocket.on 'message', ((event) ->
+      if !@isHeartbeat event.data
+        @trigger 'socketMessage', event.data
+      else
+        @trigger 'socketHeartbeat'
+    ), @
     newSocket.on 'close', (-> @trigger 'socketClose'), @
     socket = newSocket
+    @startHeartbeats()
 
   onSocketMessage: Ember.on 'socketMessage', (payload) ->
     data = notifications: [JSON.parse payload]
@@ -50,10 +66,45 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
     if @get('enabled') and @get('autoReconnect')
       Ember.run.later (-> socket.reconnect()), 1000
 
+  onSocketHeartbeat: Ember.on 'socketHeartbeat', ->
+    @resetHeartbeats()
+
   triggerNotification: ->
     notifications = @store.peekAll 'notification'
     latestAll = notifications.sortBy 'created'
     latest = latestAll.reverse()[0]
     @trigger 'notification', latest
+
+  timeoutSocket: ->
+    @set 'missedHeartbeats', 0
+    @closeSocket()
+    @openSocket socketUrl
+
+  isHeartbeat: (frame) ->
+    frame == 'heartbeat'
+
+  resetHeartbeats: ->
+    @set 'missedHeartbeats', 0
+
+  startHeartbeats: ->
+    @resetHeartbeats()
+    @set 'heartbeatEnabled', true
+    @doHeartbeat()
+
+  stopHeartbeats: (model) ->
+    @resetHeartbeats()
+    @set 'heartbeatEnabled', false
+
+  doHeartbeat: ->
+    interval = @get 'heartbeatInterval'
+    Ember.run.later (=>
+      if @get 'heartbeatEnabled'
+        missedHeartbeats = @get 'missedHeartbeats'
+        maxMissed = @get 'maxMissedHeartbeats'
+        @set 'missedHeartbeats', ++missedHeartbeats
+        if missedHeartbeats >= maxMissed
+          @timeoutSocket()
+        Ember.run.debounce @, @doHeartbeat, 1000
+    ), interval
 
 `export default NotificationAdapter`
