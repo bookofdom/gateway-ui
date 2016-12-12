@@ -73,7 +73,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-
+    
     ENV.api.swaggerViewerPath = '/swagger';
     ENV.api.swaggerJsonPath = '/swagger';
 
@@ -103,6 +103,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // interpolated config
+    ENV.ui_base_path = 'UI_BASE_PATH_PLACEHOLDER';
     ENV.api.host = 'ADMIN_API_HOST';
     ENV.registration_enabled = 'REGISTRATION_ENABLED';
     ENV.version = 'VERSION';
