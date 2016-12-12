@@ -5,7 +5,7 @@ MockLogsInitializer =
   name: 'mock-logs'
 
   getHeartbeatInterval: ->
-    intervalString = config.APP.logHeartbeatInterval?.toString()
+    intervalString = config.APP.wsHeartbeatInterval?.toString()
     parseInt(intervalString, 10) * 1000
 
   # TODO
