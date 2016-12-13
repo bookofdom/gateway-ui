@@ -98,7 +98,6 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
     @set 'heartbeatStarted', false
 
   doHeartbeat: ->
-    console.log 'do?'
     interval = @get 'heartbeatInterval'
     Ember.run.later (=>
       if @get 'heartbeatStarted'
