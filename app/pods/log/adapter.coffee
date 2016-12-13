@@ -13,7 +13,7 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
   maxMissedHeartbeats: 4 # how many heartbeats may be missed before erroring?
 
   heartbeatInterval: Ember.computed ->
-    intervalString = config.APP.logHeartbeatInterval?.toString()
+    intervalString = config.APP.wsHeartbeatInterval?.toString()
     parseInt(intervalString, 10) * 1000
 
   urlForQuery: (query, modelName) ->

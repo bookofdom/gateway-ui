@@ -21,7 +21,8 @@ module.exports = function(environment) {
       mockNotificationInterval: 20 * 1000, // 20 seconds
       mockLogs: false,
       mockLogInterval: 5 * 1000, // 5 seconds
-      logHeartbeatInterval: 60 // (in seconds)
+      wsHeartbeatInterval: 60, // (in seconds)
+      wsHeartbeatsEnabled: true
     },
 
     contentSecurityPolicy: {
@@ -73,7 +74,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    
+
     ENV.api.swaggerViewerPath = '/swagger';
     ENV.api.swaggerJsonPath = '/swagger';
 
@@ -97,6 +98,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.wsHeartbeatsEnabled = false;
 
     ENV.confirmDelete = false;
   }
@@ -112,7 +114,7 @@ module.exports = function(environment) {
     ENV.remote_endpoint_types_enabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
     ENV.api_base_path_placeholder = 'API_BASE_PATH_PLACEHOLDER';
     ENV.broker_placeholder = 'BROKER_PLACEHOLDER';
-    ENV.logHeartbeatInterval = 'WS_HEARTBEAT_INTERVAL';
+    ENV.wsHeartbeatInterval = 'WS_HEARTBEAT_INTERVAL';
     ENV.google_analytics_tracking_id = 'GOOGLE_ANALYTICS_TRACKING_ID';
 
     ENV.rootURL = null;
