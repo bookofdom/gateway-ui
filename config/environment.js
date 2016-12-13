@@ -21,7 +21,8 @@ module.exports = function(environment) {
       mockNotificationInterval: 20 * 1000, // 20 seconds
       mockLogs: false,
       mockLogInterval: 5 * 1000, // 5 seconds
-      wsHeartbeatInterval: 60 // (in seconds)
+      wsHeartbeatInterval: 60, // (in seconds)
+      wsHeartbeatsEnabled: true
     },
 
     contentSecurityPolicy: {
@@ -97,6 +98,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.wsHeartbeatsEnabled = false;
 
     ENV.confirmDelete = false;
   }

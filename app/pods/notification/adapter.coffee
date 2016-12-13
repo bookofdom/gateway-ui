@@ -11,7 +11,8 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
   enabled: false
 
   missedHeartbeats: 0
-  heartbeatEnabled: false
+  heartbeatEnabled: config.APP.wsHeartbeatsEnabled
+  heartbeatStarted: false
   maxMissedHeartbeats: 4 # how many heartbeats may be missed before reconnecting?
   heartbeatInterval: Ember.computed ->
     intervalString = config.APP.wsHeartbeatInterval?.toString()
@@ -87,18 +88,20 @@ NotificationAdapter = ApplicationAdapter.extend Ember.Evented,
     @set 'missedHeartbeats', 0
 
   startHeartbeats: ->
-    @resetHeartbeats()
-    @set 'heartbeatEnabled', true
-    @doHeartbeat()
+    if @get 'heartbeatEnabled'
+      @resetHeartbeats()
+      @set 'heartbeatStarted', true
+      @doHeartbeat()
 
   stopHeartbeats: (model) ->
     @resetHeartbeats()
-    @set 'heartbeatEnabled', false
+    @set 'heartbeatStarted', false
 
   doHeartbeat: ->
+    console.log 'do?'
     interval = @get 'heartbeatInterval'
     Ember.run.later (=>
-      if @get 'heartbeatEnabled'
+      if @get 'heartbeatStarted'
         missedHeartbeats = @get 'missedHeartbeats'
         maxMissed = @get 'maxMissedHeartbeats'
         @set 'missedHeartbeats', ++missedHeartbeats
