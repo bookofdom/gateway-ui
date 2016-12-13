@@ -39,7 +39,9 @@
     "reset": "reiniciar",
     "reset-password": "restablecer la contraseña",
     "sign-up": "registrarse",
-    "navigate": "navegar"
+    "navigate": "navegar",
+    "retry": "rever",
+    "reload": "recargar"
   },
   "nav": {
     "home": "inicio",
@@ -100,6 +102,8 @@
     "api-endpoint_plural": "API endpoints",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
+    "proxy-endpoint-channel": "canal",
+    "proxy-endpoint-channel_plural": "canales",
     "proxy-endpoint-route": "ruta",
     "proxy-endpoint-route_plural": "rutas",
     "proxy-endpoint-component": "componente",
@@ -184,6 +188,7 @@
   "fields": {
     "account_name": "nombre de la cuenta",
     "connect_timeout": "conecte tiempo de espera",
+    "channels": "canales",
     "ack_timeout": "tiempo de espera de ACK",
     "timeout_retries": "reintentos de tiempo de espera",
     "stamp": "sello",
@@ -342,7 +347,8 @@
     "confirm-delete": "¿esta seguro que desea eliminar éste registro?",
     "confirm-abandon": "¿esta seguro que desea salir sin guardar los cambios de éste registro?",
     "change-language": "elija idioma",
-    "optional-x": "$t(__x__) (opcional)"
+    "optional-x": "$t(__x__) (opcional)",
+    "app-version-update": "actualizaciones disponibles, recargar?"
   },
   "states": {
     "active": "activo",
@@ -372,7 +378,8 @@
     "invalid-json-schema": "esquema JSON no válido",
     "invalid-cc-number": "numero de tarjeta invalido",
     "invalid-cc-expiry": "caducidad no válido",
-    "invalid-cc-cvc": "CVC no válido"
+    "invalid-cc-cvc": "CVC no válido",
+    "connection-timeout": "el tiempo de conexión expiro"
   },
   "successes": {
     "push-manual-message": "mensaje enviado con éxito",
@@ -423,6 +430,7 @@
       "store": "almacenar",
       "script": "código",
       "job": "trabajo",
+      "key": "claves criptográficas",
       "status-types": {
         "success": "éxito",
         "failed": "ha fallado",

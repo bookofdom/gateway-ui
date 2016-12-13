@@ -15,6 +15,7 @@
 `import SmtpRemoteEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/smtp'`
 `import Db2EndpointSerializer from 'gateway/pods/remote-endpoint/serializers/db2'`
 `import DockerEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/docker'`
+`import KeyEndpointSerializer from 'gateway/pods/remote-endpoint/serializers/key'`
 
 RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
@@ -70,6 +71,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'oracle' then OracleRemoteEndpointSerializer.normalize hash
       when 'smtp' then SmtpRemoteEndpointSerializer.normalize hash
       when 'db2' then Db2EndpointSerializer.normalize hash
+      when 'key' then KeyEndpointSerializer.normalize hash
       when 'docker' then DockerEndpointSerializer.normalize hash
     @_super arguments...
   normalizeArguments: (hash) ->
@@ -113,6 +115,7 @@ RemoteEndpointLikeSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMix
       when 'oracle' then OracleRemoteEndpointSerializer.serialize serialized
       when 'smtp' then SmtpRemoteEndpointSerializer.serialize serialized
       when 'db2' then Db2EndpointSerializer.serialize serialized
+      when 'key' then KeyEndpointSerializer.serialize serialized
       when 'docker'
         DockerEndpointSerializer.serialize serialized
         Ember.merge serialized.data,

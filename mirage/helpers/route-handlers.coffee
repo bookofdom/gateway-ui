@@ -13,12 +13,13 @@ makePostHandler = (modelName, callback) ->
     callback(schema[modelName.camelize()], request, response) if callback
     response
 
-makePutHandler = (modelName, callback) ->
+makePutHandler = (modelName, callback, key) ->
   (schema, request) ->
     id = request.params.id
     body = JSON.parse request.requestBody
-    payload = body[modelName]
-    if body[modelName]?.name is 'error'
+    key ?= modelName
+    payload = body[key]
+    if payload?.name is 'error'
       response = new Response 422, {},
         errors:
           name: ['This field is in error']
@@ -38,11 +39,12 @@ getChildren = (schema, request, parentModelName, modelName) ->
 makeGetChildrenHandler = (parentModelName, modelName) ->
   (schema, request) -> getChildren schema, request, parentModelName, modelName
 
-makePostChildHandler = (parentModelName, modelName, callback) ->
+makePostChildHandler = (parentModelName, modelName, callback, key) ->
   (schema, request) ->
     parent = getParent schema, request, parentModelName
     body = JSON.parse request.requestBody
-    payload = body[modelName]
+    key ?= modelName
+    payload = body[key]
     if payload?.name is 'error'
       response = new Response 422, {},
         errors:
