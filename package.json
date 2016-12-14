@@ -12,12 +12,10 @@
     "test": "ember test"
   },
   "author": "nanoscale.io",
-  "contributors": [
-    {
+  "contributors": [{
       "name" : "Randall Morey",
       "email" : "randall@randallmorey.com"
-    }
-  ],
+  }],
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
