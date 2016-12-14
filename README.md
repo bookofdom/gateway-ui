@@ -1,24 +1,16 @@
 # Gateway
-Gateway UI now runs in Docker for local development.  For convenience, command
-line usage remains largely unchanged.  Follow along to get started.
+An Ember.js-based UI frontend for [nanoscale.io Gateway](https://github.com/nanoscaleio/gateway.git).
 
 
 ## Prerequisites
 * [Git](http://git-scm.com/)
-* [Docker](http://docker.com/)
-
-
-## Setup the Docker Virtual Machine (OS X-Only)
-Add these lines to your `.bash_profile` or `.profile` to ensure Docker access
-is available in the terminal:
-
-    docker-machine start default
-    eval "$(docker-machine env default)"
+* [Node](https://nodejs.org/)
+* [Bower](https://bower.io)
 
 
 ## Installation
 * `git clone <repository-url>` this repository
-* `cd` into the new directory
+* `cd` into the repository directory
 * `npm install`
 * `bower install`
 
@@ -26,7 +18,7 @@ is available in the terminal:
 ## Running / Development
 * `ember s`
 * Visit your app at
-[http://<docker-machine ip>:4200](http://localhost:4200).
+[http://localhost:4200](http://localhost:4200).
 
 
 ## Building
