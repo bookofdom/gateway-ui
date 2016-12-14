@@ -2,15 +2,6 @@
   "name": "gateway-ui",
   "version": "2.8.0",
   "description": "UI for nanoscale.io Gateway",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
-  "scripts": {
-    "build": "ember build",
-    "start": "ember server",
-    "test": "ember test"
-  },
   "author": "nanoscale.io",
   "contributors": [{
       "name" : "Randall Morey",
@@ -20,6 +11,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/nanoscaleio/gateway-ui.git"
+  },
+  "scripts": {
+    "build": "ember build",
+    "start": "ember server",
+    "test": "ember test"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
