@@ -3,7 +3,10 @@ language: node_js
 node_js:
   - 6.9.2
 
-sudo: required
+sudo: false
+
+env:
+  - PHANTOMJS2_VERSION="2.0.0"
 
 cache:
   directories:
@@ -11,10 +14,10 @@ cache:
     - node_modules
 
 before_install:
-  - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-  - tar -xjf phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-  - sudo rm -rf /usr/local/phantomjs/bin/phantomjs
-  - sudo mv phantomjs /usr/local/phantomjs/bin/phantomjs
+  - mkdir travis-phantomjs
+  - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
+  - tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
+  - export PATH=$PWD/travis-phantomjs:$PATH
   - npm config set spin false
   - npm install -g npm@^2
 
