@@ -1,12 +1,13 @@
 ---
 language: node_js
 node_js:
-  - "0.12"
+  - "6.9.2"
 
 sudo: false
 
 cache:
   directories:
+    - bower_components
     - node_modules
 
 before_install:
