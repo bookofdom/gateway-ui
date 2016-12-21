@@ -5,8 +5,8 @@ node_js:
 
 sudo: false
 
-env:
-  - PHANTOMJS2_VERSION="2.0.0"
+#env:
+#  - PHANTOMJS2_VERSION="2.1.1"
 
 cache:
   directories:
@@ -15,11 +15,14 @@ cache:
 
 before_install:
   - mkdir travis-phantomjs
-  - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-  - tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
-  - export PATH=$PWD/travis-phantomjs:$PATH
+  #- wget https://s3.amazonaws.com/circle-downloads/phantomjs-2.1.1 -O $PWD/travis-phantomjs
+  #- wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
+  #- tar -xvf $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C $PWD/travis-phantomjs
+  #- export PATH=$PWD/travis-phantomjs:$PATH
   - npm config set spin false
   - npm install -g npm@^2
+  - npm install -g npm install phantomjs@2.1.1
+  - phantomjs -v
 
 install:
   - npm install -g bower
