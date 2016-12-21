@@ -21,7 +21,7 @@ before_install:
   #- export PATH=$PWD/travis-phantomjs:$PATH
   - npm config set spin false
   - npm install -g npm@^2
-  - npm install -g npm install phantomjs-prebuilt@2.1.1
+  - npm install -g npm install phantomjs-prebuilt@2.1.14
   - phantomjs -v
 
 install:
