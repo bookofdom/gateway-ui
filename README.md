@@ -1,4 +1,4 @@
-# Gateway
+# Nanoscale.io Gateway Server Admin UI
 An Ember.js-based UI frontend for [nanoscale.io Gateway](https://github.com/nanoscaleio/gateway.git).
 
 
