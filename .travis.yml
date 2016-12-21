@@ -5,8 +5,8 @@ node_js:
 
 sudo: false
 
-#env:
-#  - PHANTOMJS2_VERSION="2.1.1"
+env:
+  - PHANTOMJS2_VERSION="2.1.1"
 
 cache:
   directories:
@@ -21,7 +21,6 @@ before_install:
   - export PATH=$PWD/travis-phantomjs:$PATH
   - npm config set spin false
   - npm install -g npm@^2
-  - phantomjs -v
 
 install:
   - npm install -g bower
