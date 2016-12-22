@@ -12,6 +12,7 @@ moduleForModel 'proxy-endpoint-test-argument', 'Unit | Serializer | proxy endpoi
     'serializer:proxy-endpoint-test-header'
     'serializer:proxy-endpoint-test-query-parameter'
     'model:api'
+    'model:custom-function'
     'model:endpoint-group'
     'model:environment'
     'model:environment-variable'

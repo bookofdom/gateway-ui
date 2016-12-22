@@ -4,6 +4,7 @@
 moduleForModel 'api', 'Unit | Serializer | api',
   needs: [
     'serializer:api'
+    'model:custom-function'
     'model:endpoint-group'
     'model:environment'
     'model:host'

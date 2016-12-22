@@ -9,6 +9,7 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
     'serializer:remote-endpoint'
     'serializer:remote-endpoint-environment-datum'
     'model:api'
+    'model:custom-function'
     'model:endpoint-group'
     'model:environment'
     'model:environment-variable'

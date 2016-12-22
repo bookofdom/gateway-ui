@@ -7,6 +7,7 @@ moduleForModel 'shared-component-call', 'Unit | Serializer | shared component ca
     'serializer:shared-component'
     'serializer:shared-component-call'
     'model:api'
+    'model:custom-function'
     'model:environment-variable'
     'model:endpoint-group'
     'model:environment'

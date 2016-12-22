@@ -7,6 +7,7 @@ moduleForModel 'shared-component-transformation', 'Unit | Serializer | shared co
     'serializer:shared-component'
     'serializer:shared-component-transformation'
     'model:api'
+    'model:custom-function'
     'model:environment-variable'
     'model:endpoint-group'
     'model:environment'
