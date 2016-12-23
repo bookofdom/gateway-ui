@@ -13,6 +13,10 @@ CustomFunction = Model.extend
   api: DS.belongsTo 'api', async: true
   files: DS.hasMany 'custom-function-file', async: true
 
+  executeBuild: ->
+    adapter = Ember.getOwner(@).lookup 'adapter:custom-function'
+    adapter.executeBuild @
+
 languages = 'java node c# python'.split(' ').map (language) ->
   name: t "custom-function-languages.#{language}"
   slug: language
