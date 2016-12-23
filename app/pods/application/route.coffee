@@ -6,6 +6,8 @@
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   notificationService: Ember.inject.service 'notification'
   notify: Ember.inject.service()
+  session: Ember.inject.service()
+  appVersion: Ember.inject.service 'app-version'
 
   isLoading: false
   isDevMode: config.dev_mode?.toString() is 'true'
@@ -32,8 +34,7 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       # auto-login using dev-mode authenticator if dev mode is active
       @get('session').authenticate 'authenticator:dev-mode', {}
 
-  sessionInvalidated: ->
-    window?.location?.reload() if !Ember.testing
+  sessionInvalidated: -> @reloadApp()
   sessionAuthenticated: ->
     @setupNotifications()
     @_super arguments...
@@ -98,6 +99,23 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     appController = @controller
     appController?.set 'isLoading', isLoading
 
+  setupAppVersionHandler: Ember.on 'init', ->
+    appVersion = @get 'appVersion' # force service startup
+    appVersion.on 'newRelease', => @trigger 'newRelease'
+
+  onNewRelease: Ember.on 'newRelease', ->
+    if @get('session.isAuthenticated') and !Ember.testing
+      appController = @controller
+      appController?.set 'requestAppUpdate', true
+    else
+      # not logged in, so just do the reload
+      @reloadApp()
+
+  reloadApp: ->
+    # reload, but only if not in testing mode
+    # reloading during testing causes all sorts of problems
+    window?.location?.reload() if !Ember.testing
+
   actions:
     invalidateSession: ->
       @get('session').invalidate()
@@ -109,5 +127,10 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     didTransition: ->
       Ember.run.later (=> @set 'isLoading', false), 1000
       true
+    confirmReload: ->
+      @reloadApp()
+    cancelReload: ->
+      appController = @controller
+      appController?.set 'requestAppUpdate', false
 
 `export default ApplicationRoute`

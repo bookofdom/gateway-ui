@@ -10,6 +10,12 @@ socketModel = null
 LogAdapter = ApplicationAdapter.extend Ember.Evented,
   websockets: Ember.inject.service 'websockets'
 
+  maxMissedHeartbeats: 4 # how many heartbeats may be missed before erroring?
+
+  heartbeatInterval: Ember.computed ->
+    intervalString = config.APP.wsHeartbeatInterval?.toString()
+    parseInt(intervalString, 10) * 1000
+
   urlForQuery: (query, modelName) ->
     api = query.api
     proxyEndpoint = query.proxy_endpoint
@@ -65,18 +71,59 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
     socketModel = model
 
   closeSocket: ->
-    oldSocketUrl = socket?.socket?.url
-    if oldSocketUrl
-      @get('websockets').closeSocketFor oldSocketUrl
+    #oldSocketUrl = socket?.socket?.url
+    if socket?
+      #@get('websockets').closeSocketFor oldSocketUrl
+      socket?.socket.close()
+    @stopHeartbeats(socketModel) if socketModel
+
+  timeoutSocket: ->
+    @closeSocket()
+    socketModel?.set 'streamingTimeout', true
 
   openSocket: (url) ->
     @closeSocket()
     newSocket = @get('websockets').socketFor url
-    newSocket.on 'message', ((event) -> @trigger 'socketMessage', event.data), @
+    newSocket.on 'message', ((event) ->
+      if !@isHeartbeat event.data
+        @trigger 'socketMessage', event.data
+      else
+        @trigger 'socketHeartbeat'
+    ), @
     socket = newSocket
+    @startHeartbeats(socketModel)
 
   onSocketMessage: Ember.on 'socketMessage', (data) ->
     model = socketModel
     model.pushLogLine data
+
+  onSocketHeartbeat: Ember.on 'socketHeartbeat', ->
+    @resetHeartbeats socketModel
+
+  isHeartbeat: (frame) ->
+    frame == 'heartbeat'
+
+  resetHeartbeats: (model) ->
+    model.set 'missedHeartbeats', 0
+
+  startHeartbeats: (model) ->
+    @resetHeartbeats model
+    model.set 'doHeatbeat', true
+    @doHeartbeat model
+
+  stopHeartbeats: (model) ->
+    model.set 'doHeatbeat', false
+
+  doHeartbeat: (model) ->
+    interval = @get 'heartbeatInterval'
+    Ember.run.later (=>
+      if model.get 'doHeatbeat'
+        missed = model.get 'missedHeartbeats'
+        maxMissed = @get 'maxMissedHeartbeats'
+        model.set 'missedHeartbeats', ++missed
+        if missed >= maxMissed
+          @timeoutSocket()
+        @doHeartbeat model # queue another heartbeat
+    ), interval
 
 `export default LogAdapter`

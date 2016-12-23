@@ -18,6 +18,12 @@ config = ->
       function apRequestJs (name, doc) {};
     '''
 
+  # info
+  @get '/info', (schema, request) ->
+    info: schema.db.infos
+  @get '/info/:id'
+
+  # sessions
   @post '/sessions', (schema, request) ->
     body = JSON.parse request.requestBody
     session = schema.session.all().toArray().find (session) ->
@@ -184,6 +190,15 @@ config = ->
       }
     ]
   ), {timing: 2000}
+
+  @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/channels', makeGetChildrenHandler('proxy_endpoint', 'proxy_endpoint_channel')
+  @post '/apis/:apiId/proxy_endpoints/:proxyEndpointId/channels', makePostChildHandler('proxy_endpoint', 'proxy_endpoint_channel', null, 'channel')
+  @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/channels/:id', (schema, request) ->
+    channel: schema.db.proxyEndpointChannels.find request.params.id
+  @put '/apis/:apiId/proxy_endpoints/:proxyEndpointId/channels/:id', makePutHandler('proxy_endpoint_channel', null, 'channel')
+  @del '/apis/:apiId/proxy_endpoints/:proxyEndpointId/channels/:id', (schema, request) ->
+    id = request.params.id
+    schema.db.proxyEndpointChannels.remove id
 
   @get '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makeGetChildrenHandler('proxy_endpoint', 'proxy_endpoint_schema')
   @post '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makePostChildHandler('proxy_endpoint', 'proxy_endpoint_schema')

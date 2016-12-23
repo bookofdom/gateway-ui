@@ -1,20 +1,22 @@
 {
   "name": "gateway",
-  "version": "0.0.0",
-  "description": "Small description for gateway goes here",
-  "private": true,
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
+  "version": "2.8.0",
+  "description": "UI for nanoscale.io Gateway",
+  "author": "nanoscale.io",
+  "contributors": [{
+      "name" : "Randall Morey",
+      "email" : "randall@randallmorey.com"
+  }],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nanoscaleio/gateway-ui.git"
   },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
     "test": "ember test"
   },
-  "repository": "",
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
     "broccoli-funnel": "^0.2.8",
@@ -45,7 +47,7 @@
     "ember-load-initializers": "^0.5.1",
     "ember-notify": "aexmachina/ember-notify.git",
     "ember-resolver": "^2.0.3",
-    "ember-service-worker": "0.5.2",
+    "ember-service-worker": "nanoscale-randy/ember-service-worker#feature-remove-root-prefix",
     "ember-service-worker-asset-cache": "nanoscale-randy/ember-service-worker-asset-cache#feature-auto-files",
     "ember-simple-auth": "nanoscale-randy/ember-simple-auth#b7be974e95a52025038d01f6482234c53a35ad46",
     "ember-spin-spinner": "0.2.4",
