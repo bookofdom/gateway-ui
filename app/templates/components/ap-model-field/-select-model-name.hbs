@@ -14,14 +14,15 @@
   value=value
   required=required
   disabled=disabled
-  class='form-control'}}
+  class='form-control'
+  as |xs|}}
 
   {{#if prompt}}
-    {{#x-option}}{{prompt}}{{/x-option}}
+    {{#xs.option}}{{prompt}}{{/xs.option}}
   {{/if}}
 
   {{#each options as |option|}}
-    {{#x-option value=option}}{{option.name}}{{/x-option}}
+    {{#xs.option value=option}}{{option.name}}{{/xs.option}}
   {{/each}}
 
 {{/x-select}}
