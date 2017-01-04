@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import BsPanelComponent from 'gateway/pods/components/bs-panel/component'`
-`import t from 'gateway/helpers/i18n'`
+`import BsPanelComponent from 'gateway-ui/pods/components/bs-panel/component'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 ApPanelNewComponent = BsPanelComponent.extend
   classNames: ['ap-panel-new']

@@ -1,4 +1,4 @@
-`import ProxyEndpointComponentCallFormComponent from 'gateway/pods/components/forms/proxy-endpoint-component-call-form/component'`
+`import ProxyEndpointComponentCallFormComponent from 'gateway-ui/pods/components/forms/proxy-endpoint-component-call-form/component'`
 
 ProxyEndpointComponentCallInlineFormComponent = ProxyEndpointComponentCallFormComponent.extend
   embedded: true

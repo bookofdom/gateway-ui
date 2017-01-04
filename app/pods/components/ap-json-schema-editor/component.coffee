@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import BsBaseComponent from 'gateway/pods/components/bs-base/component'`
+`import BsBaseComponent from 'gateway-ui/pods/components/bs-base/component'`
 
 ApJsonSchemaEditorComponent = BsBaseComponent.extend
   classNames: ['ap-json-schema-node-editor']

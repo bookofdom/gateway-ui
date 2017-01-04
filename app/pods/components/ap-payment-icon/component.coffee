@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import ApIconComponent from 'gateway/pods/components/ap-icon/component'`
+`import ApIconComponent from 'gateway-ui/pods/components/ap-icon/component'`
 
 ApPaymentIconComponent = ApIconComponent.extend
   classNames: ['ap-payment-icon']

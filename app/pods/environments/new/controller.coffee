@@ -1,4 +1,4 @@
-`import NewController from 'gateway/pods/new/controller'`
+`import NewController from 'gateway-ui/pods/new/controller'`
 
 EnvironmentsNewController = NewController.extend()
 

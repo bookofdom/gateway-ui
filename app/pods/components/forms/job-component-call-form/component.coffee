@@ -1,4 +1,4 @@
-`import BaseForm from 'gateway/pods/components/forms/base-form/component'`
+`import BaseForm from 'gateway-ui/pods/components/forms/base-form/component'`
 
 JobComponentCallFormComponent = BaseForm.extend
   indexModel: null

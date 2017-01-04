@@ -1,5 +1,5 @@
-`import ApplicationAdapter from 'gateway/pods/application/adapter'`
-`import config from  'gateway/config/environment'`
+`import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
+`import config from  'gateway-ui/config/environment'`
 
 ProxyEndpointRelatedAdapter = ApplicationAdapter.extend
   pathForType: (type) ->

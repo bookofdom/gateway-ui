@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import ApListNavComponent from 'gateway/pods/components/ap-list-nav/component'`
+`import ApListNavComponent from 'gateway-ui/pods/components/ap-list-nav/component'`
 
 ApListNavCircleIconComponent = ApListNavComponent.extend
   classNames: ['ap-list-nav-circle-icon']

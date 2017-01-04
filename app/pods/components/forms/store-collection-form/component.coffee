@@ -1,4 +1,4 @@
-`import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
+`import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
 
 StoreCollectionFormComponent = BaseFormComponent.extend
   modelType: 'store-collection'

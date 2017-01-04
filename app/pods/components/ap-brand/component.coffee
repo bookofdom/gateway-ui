@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import BsBaseComponent from 'gateway/pods/components/bs-base/component'`
-`import { brandName } from 'gateway/helpers/brand-name'`
+`import BsBaseComponent from 'gateway-ui/pods/components/bs-base/component'`
+`import { brandName } from 'gateway-ui/helpers/brand-name'`
 
 ApBrandComponent = BsBaseComponent.extend
   tagName: 'span'

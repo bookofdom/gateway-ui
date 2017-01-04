@@ -1,5 +1,5 @@
-`import { timezones } from 'gateway/helpers/timezones'`
-`import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
+`import { timezones } from 'gateway-ui/helpers/timezones'`
+`import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
 
 TimerFormComponent = BaseFormComponent.extend
   savedAction: null

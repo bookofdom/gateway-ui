@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import ApTableModelComponent from 'gateway/pods/components/ap-table-model/component'`
+`import ApTableModelComponent from 'gateway-ui/pods/components/ap-table-model/component'`
 
 ApTableIndexComponent = ApTableModelComponent.extend
   classNames: ['ap-table-index']

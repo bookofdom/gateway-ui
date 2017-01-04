@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import Application from '../../app';
-import config from 'gateway/config/environment';
+import config from 'gateway-ui/config/environment';
 
 export default function startApp(attrs) {
   let application;

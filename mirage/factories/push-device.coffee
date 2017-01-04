@@ -1,5 +1,5 @@
 `import { Factory, faker } from 'ember-cli-mirage'`
-`import { platformCycle } from 'gateway/mirage/helpers/remote-endpoint-data'`
+`import { platformCycle } from 'gateway-ui/mirage/helpers/remote-endpoint-data'`
 
 PushDeviceFactory = Factory.extend
   name: (i) -> "push-device-#{i}"
