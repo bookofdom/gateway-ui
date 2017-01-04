@@ -1,7 +1,7 @@
-`import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
-`import RemoteEndpointLike from 'gateway/pods/remote-endpoint-like/model'`
-`import t from 'gateway/helpers/i18n'`
-`import config from  'gateway/config/environment'`
+`import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
+`import RemoteEndpointLike from 'gateway-ui/pods/remote-endpoint-like/model'`
+`import t from 'gateway-ui/helpers/i18n'`
+`import config from  'gateway-ui/config/environment'`
 
 BaseRemoteEndpointFormComponent = BaseFormComponent.extend
   types: Ember.computed ->

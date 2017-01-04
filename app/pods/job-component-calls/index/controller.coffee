@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import t from 'gateway/helpers/i18n'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 JobComponentCallsIndexController = Ember.Controller.extend
   'job-component-calls': Ember.inject.controller()

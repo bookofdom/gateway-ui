@@ -1,4 +1,4 @@
-`import BaseNameValueFormComponent from 'gateway/pods/components/forms/base-name-value-form/component'`
+`import BaseNameValueFormComponent from 'gateway-ui/pods/components/forms/base-name-value-form/component'`
 
 ProxyEndpointTestHeaderFormComponent = BaseNameValueFormComponent.extend()
 

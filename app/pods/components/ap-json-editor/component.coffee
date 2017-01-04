@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import deepEquals from 'gateway/helpers/deep-equals'`
+`import deepEquals from 'gateway-ui/helpers/deep-equals'`
 
 ApJsonEditorComponent = Ember.Component.extend
   store: Ember.inject.service()

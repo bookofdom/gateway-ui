@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import BsBaseComponent from 'gateway/pods/components/bs-base/component'`
-`import t from 'gateway/helpers/i18n'`
+`import BsBaseComponent from 'gateway-ui/pods/components/bs-base/component'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 BsTextComponent = BsBaseComponent.extend
   attributeBindings: [

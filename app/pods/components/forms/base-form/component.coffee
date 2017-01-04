@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import t from 'gateway/helpers/i18n'`
-`import config from 'gateway/config/environment'`
+`import t from 'gateway-ui/helpers/i18n'`
+`import config from 'gateway-ui/config/environment'`
 
 BaseFormComponent = Ember.Component.extend
   notify: Ember.inject.service()

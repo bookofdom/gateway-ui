@@ -1,4 +1,4 @@
-`import config from  'gateway/config/environment'`
+`import config from  'gateway-ui/config/environment'`
 
 StripeInitializer =
   name: 'stripe'

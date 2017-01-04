@@ -2,8 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'gateway',
-    podModulePrefix: 'gateway/pods',
+    modulePrefix: 'gateway-ui',
+    podModulePrefix: 'gateway-ui/pods',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',

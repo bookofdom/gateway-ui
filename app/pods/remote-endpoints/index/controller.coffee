@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import RemoteEndpointLike from 'gateway/pods/remote-endpoint-like/model'`
-`import t from 'gateway/helpers/i18n'`
-`import config from  'gateway/config/environment'`
+`import RemoteEndpointLike from 'gateway-ui/pods/remote-endpoint-like/model'`
+`import t from 'gateway-ui/helpers/i18n'`
+`import config from  'gateway-ui/config/environment'`
 
 RemoteEndpointsIndexController = Ember.Controller.extend
   'remote-endpoints': Ember.inject.controller()

@@ -1,4 +1,4 @@
-`import BaseRemoteEndpointFormComponent from 'gateway/pods/components/forms/base-remote-endpoint-form/component'`
+`import BaseRemoteEndpointFormComponent from 'gateway-ui/pods/components/forms/base-remote-endpoint-form/component'`
 
 RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.extend
   indexModel: null

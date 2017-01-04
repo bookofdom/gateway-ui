@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/pods/model/model'`
+`import Model from 'gateway-ui/pods/model/model'`
 
 ProxyEndpointComponentTransformation = Model.extend
   type: DS.attr 'string', defaultValue: 'js'

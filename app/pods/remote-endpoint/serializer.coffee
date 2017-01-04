@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import RemoteEndpointLikeSerializer from 'gateway/pods/remote-endpoint-like/serializer'`
+`import RemoteEndpointLikeSerializer from 'gateway-ui/pods/remote-endpoint-like/serializer'`
 
 RemoteEndpointSerializer = RemoteEndpointLikeSerializer.extend
   attrs:

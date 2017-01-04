@@ -1,8 +1,8 @@
 `import DS from 'ember-data'`
-`import ProxyEndpointRelatedAdapter from 'gateway/pods/proxy-endpoint-related/adapter'`
-`import config from  'gateway/config/environment'`
-`import t from 'gateway/helpers/i18n'`
-`import jsonSchemaValidatorHelper from 'gateway/helpers/json-schema-validator'`
+`import ProxyEndpointRelatedAdapter from 'gateway-ui/pods/proxy-endpoint-related/adapter'`
+`import config from  'gateway-ui/config/environment'`
+`import t from 'gateway-ui/helpers/i18n'`
+`import jsonSchemaValidatorHelper from 'gateway-ui/helpers/json-schema-validator'`
 
 
 # Takes a nested object and returns an array of dotted root to leaf paths

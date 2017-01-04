@@ -1,4 +1,4 @@
-`import EditController from 'gateway/pods/edit/controller'`
+`import EditController from 'gateway-ui/pods/edit/controller'`
 
 JobComponentCallEditController = EditController.extend
   'job-component-calls': Ember.inject.controller()

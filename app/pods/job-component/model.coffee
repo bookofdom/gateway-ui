@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/pods/model/model'`
-`import t from 'gateway/helpers/i18n'`
+`import Model from 'gateway-ui/pods/model/model'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 JobComponent = Model.extend
   type: DS.attr 'string', defaultValue: 'single'

@@ -1,5 +1,5 @@
 `import { Factory, faker } from 'ember-cli-mirage'`
-`import { generateDataForType } from 'gateway/mirage/helpers/remote-endpoint-data'`
+`import { generateDataForType } from 'gateway-ui/mirage/helpers/remote-endpoint-data'`
 
 environmentsPerApi = 3
 

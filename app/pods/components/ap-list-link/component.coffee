@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import BsListLinkComponent from 'gateway/pods/components/bs-list-link/component'`
+`import BsListLinkComponent from 'gateway-ui/pods/components/bs-list-link/component'`
 
 ApListLinkComponent = BsListLinkComponent.extend
   classNameBindings: [
