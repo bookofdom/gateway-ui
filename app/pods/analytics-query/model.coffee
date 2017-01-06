@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway-ui/models/model'`
+`import Model from 'gateway-ui/pods/model/model'`
 `import t from 'gateway-ui/helpers/i18n'`
 `import config from 'gateway-ui/config/environment'`
 
