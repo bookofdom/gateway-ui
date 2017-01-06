@@ -1,10 +1,12 @@
-`import ApplicationSerializer from 'gateway/serializers/application'`
-`import t from 'gateway/helpers/i18n'`
+`import DS from 'ember-data'`
+`import ApplicationSerializer from 'gateway-ui/pods/application/serializer'`
+`import StripeCardSerializerMixin from 'gateway-ui/mixins/stripe-card-serializer'`
+`import t from 'gateway-ui/helpers/i18n'`
 
-RegistrationSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
+RegistrationSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin, StripeCardSerializerMixin,
   attrs:
     card:
-      serialize: 'records'
+      serialize: false
       deserialize: false
 
 `export default RegistrationSerializer`

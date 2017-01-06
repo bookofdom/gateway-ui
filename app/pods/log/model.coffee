@@ -1,14 +1,17 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
+`import Model from 'gateway-ui/pods/model/model'`
 
 Log = Model.extend
   body: DS.attr 'string'
   lines: DS.attr 'string', defaultValue: -> ''
   buffer: DS.attr 'array', defaultValue: -> []
+  streamingTimeout: DS.attr 'boolean', defaultValue: -> false
 
   # Relationships
   api: DS.belongsTo 'api', async: false
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
+  job: DS.belongsTo 'job', async: false
+  timer: DS.belongsTo 'timer', async: false
 
   bufferTimeout: 1000
 

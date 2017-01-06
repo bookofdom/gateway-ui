@@ -1,4 +1,4 @@
-`import jsonSchemaSchema from 'gateway/schemas/json-schema'`
+`import jsonSchemaSchema from 'gateway-ui/schemas/json-schema'`
 
 env = jjv()
 env.addSchema 'schema', jsonSchemaSchema

@@ -1,4 +1,4 @@
-`import ApplicationAdapter from 'gateway/adapters/application'`
+`import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
 
 PushChannelDeviceAdapter = ApplicationAdapter.extend
   buildURL: (type, id, snapshot) ->

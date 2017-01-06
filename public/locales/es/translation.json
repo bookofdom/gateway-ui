@@ -40,7 +40,9 @@
     "reset-password": "restablecer la contraseña",
     "sign-up": "registrarse",
     "navigate": "navegar",
-    "group-by": "agrupar por"
+    "group-by": "agrupar por",
+    "retry": "rever",
+    "reload": "recargar"
   },
   "nav": {
     "home": "inicio",
@@ -72,11 +74,14 @@
       "endpoint-groups": "los grupos mencionados agrupan proxy endpoints segun conveniencia",
       "remote-endpoints": "define los endpoints remotos que proveen servicios a los proxy endpoints",
       "hosts": "define los servidores asociados con esta API",
+      "jobs": "definir o editar trabajos y la lógica que corresponde",
       "libraries": "define librerías compartidas para utilizar en bloques de código JavaScript",
       "logs": "ver los registros, búsqueda y arroyos",
       "api-documentation": "ver la documentación y prueba las llamadas de la API",
       "shared-components": "crear componentes reutilizables para puntos finales de proxy",
       "terms-and-conditions": "mediante el registro de una cuenta que acepta los términos y condiciones",
+      "timers": "gestionar los horarios para sus puestos de trabajo",
+      "keys": "gestionar certificados y claves privadas",
       "formatted": {
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
         "build-app": "<b>(autenticación requerida)</b><br>Realiza un build de aplicaciones de múltiples canales con la plataforma"
@@ -98,6 +103,8 @@
     "api-endpoint_plural": "API endpoints",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
+    "proxy-endpoint-channel": "canal",
+    "proxy-endpoint-channel_plural": "canales",
     "proxy-endpoint-route": "ruta",
     "proxy-endpoint-route_plural": "rutas",
     "proxy-endpoint-component": "componente",
@@ -118,8 +125,8 @@
     "proxy-endpoint-schema_plural": "validaciones de esquema",
     "push-channel": "canal",
     "push-channel_plural": "canales",
-    "push-channel-device": "dispositivo",
-    "push-channel-device_plural": "dispositivos",
+    "push-device": "dispositivo",
+    "push-device_plural": "dispositivos",
     "push-manual-message": "manual mensaje",
     "push-manual-message_plural": "mensajes manuales",
     "push-message": "mensaje",
@@ -148,6 +155,10 @@
     "remote-endpoint-push-platform_plural": "plataformas de empuje",
     "host": "servidor",
     "host_plural": "servidores",
+    "job": "trabajo",
+    "job_plural": "trabajos",
+    "job-test": "prueba de trabajo",
+    "job-test_plural": "pruebas de trabajo",
     "library": "librería compartida",
     "library_plural": "librerías compartidas",
     "log": "registro",
@@ -170,14 +181,17 @@
     "analytics-query_plural": "analítica",
     "stripe-card": "tarjeta de crédito",
     "stripe-card_plural": "tarjetas de crédito",
+    "timer": "horario de trabajo",
+    "timer_plural": "horarios de trabajo",
     "plan": "plan",
     "plan_plural": "planes",
-    "key": "llave",
-    "key_plural": "llaves"
+    "key": "certificado o clave",
+    "key_plural": "certificados y claves"
   },
   "fields": {
     "account_name": "nombre de la cuenta",
     "connect_timeout": "conecte tiempo de espera",
+    "channels": "canales",
     "ack_timeout": "tiempo de espera de ACK",
     "timeout_retries": "reintentos de tiempo de espera",
     "stamp": "sello",
@@ -305,14 +319,26 @@
     "arguments": "argumentos",
     "registry": "registro",
     "key": "archivo de claves",
+    "next": "siguiente",
+    "once": "una vez",
+    "time_zone": "fuso horário",
+    "minute": "minuto",
+    "hour": "hora",
+    "day_of_month": "dia del mes",
+    "month": "mes",
+    "day_of_week": "día de la semana",
+    "parameters": "parámetros",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
       "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`.",
-      "key": "PEM-codificado"
+      "key": "PEM, PFX o P12"
     },
     "api": {
       "name": "nombre del API"
+    },
+    "job": {
+      "name": "nome do trabalho"
     },
     "remote_endpoint": {
       "name": "nombre del extremo remoto"
@@ -324,7 +350,8 @@
     "confirm-delete": "¿esta seguro que desea eliminar éste registro?",
     "confirm-abandon": "¿esta seguro que desea salir sin guardar los cambios de éste registro?",
     "change-language": "elija idioma",
-    "optional-x": "$t(__x__) (opcional)"
+    "optional-x": "$t(__x__) (opcional)",
+    "app-version-update": "actualizaciones disponibles, recargar?"
   },
   "states": {
     "active": "activo",
@@ -354,14 +381,16 @@
     "invalid-json-schema": "esquema JSON no válido",
     "invalid-cc-number": "numero de tarjeta invalido",
     "invalid-cc-expiry": "caducidad no válido",
-    "invalid-cc-cvc": "CVC no válido"
+    "invalid-cc-cvc": "CVC no válido",
+    "connection-timeout": "el tiempo de conexión expiro"
   },
   "successes": {
     "push-manual-message": "mensaje enviado con éxito",
     "saved-successfully": "grabado satisfactoriamente",
     "password-reset": "correo electrónico de confirmación de restablecimiento de contraseña enviada",
     "password-reset-confirmation": "restablecimiento de contraseñas con éxito",
-    "sign-up": "por favor revise su correo electrónico para la confirmación de su inscripción"
+    "sign-up": "por favor revise su correo electrónico para la confirmación de su inscripción",
+    "registration-confirmation": "cuenta activa con éxito"
   },
   "headers": {
     "x-workflow": "__x__ flujo de trabajo"
@@ -404,6 +433,8 @@
       "push": "empujar",
       "store": "almacenar",
       "script": "código",
+      "job": "trabajo",
+      "key": "claves criptográficas",
       "status-types": {
         "success": "éxito",
         "failed": "ha fallado",

@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import RemoteEndpointLike from 'gateway/models/remote-endpoint-like'`
+`import RemoteEndpointLike from 'gateway-ui/pods/remote-endpoint-like/model'`
 
 RemoteEndpoint = RemoteEndpointLike.extend
   # Relationships

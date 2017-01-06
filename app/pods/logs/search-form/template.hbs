@@ -23,21 +23,38 @@
 
   <form class="navbar-form navbar-right">
     <div class="form-group">
+
       {{#unless logsController.streaming}}
         <a href="#" class="btn btn-default" title={{t '$t(actions.toggle-x, {"x": "states.streaming"})'}} {{action 'toggle-streaming'}}>
           {{t 'states.not-streaming'}}
           <span class="text-muted">{{ap-icon icon='the-essentials-103'}}</span>
         </a>
       {{/unless}}
+
       {{#if logsController.streaming}}
-        <a href="#" class="btn btn-default" title={{t '$t(actions.toggle-x, {"x": "states.streaming"})'}} {{action 'toggle-streaming'}}>
-          <span class="text-success">
-            {{t 'states.streaming'}}
-            {{ap-icon icon='the-essentials-102'}}
-          </span><!-- /.text-success -->
-        </a>
+        {{#unless model.firstObject.streamingTimeout}}
+          <a href="#" class="btn btn-default" title={{t '$t(actions.toggle-x, {"x": "states.streaming"})'}} {{action 'toggle-streaming'}}>
+            <span class="text-success">
+              {{t 'states.streaming'}}
+              {{ap-icon icon='the-essentials-102'}}
+            </span><!-- /.text-success -->
+          </a>
+        {{/unless}}
+        {{#if model.firstObject.streamingTimeout}}
+          <a href="#" class="btn btn-default pull-right" title={{t '$t(actions.toggle-x, {"x": "states.streaming"})'}} {{action 'toggle-streaming'}}>
+            <span class="text-warning">
+              {{t 'states.not-streaming'}}&hellip;
+            </span><!-- /.text-success -->
+          </a>
+          <span class="clearfix"></span>
+          <p class="pull-right">
+            {{t 'errors.connection-timeout'}}.
+            <a class="btn btn-link" href {{action 'reconnect-streaming'}}>{{t 'actions.retry'}}?</a>
+          </p>
+        {{/if}}
       {{/if}}
       &nbsp;
+
     </div>
   </form><!-- /.navbar-form -->
 

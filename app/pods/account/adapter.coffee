@@ -1,7 +1,8 @@
-`import ApplicationAdapter from 'gateway/adapters/application'`
+`import DS from 'ember-data'`
+`import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
+`import StripeCardAdapterMixin from 'gateway-ui/mixins/stripe-card-adapter'`
 
-AccountAdapter = ApplicationAdapter.extend
-  stripeService: Ember.inject.service 'stripe'
+AccountAdapter = ApplicationAdapter.extend StripeCardAdapterMixin,
   pathForType: (type) ->
     path = @_super type
     path = path.singularize()
@@ -11,42 +12,5 @@ AccountAdapter = ApplicationAdapter.extend
     # strip ID portion of URL:  account is always a singular resource
     url = url.replace /\/\d*$/, ''
     url
-  ajax: (url, type, options) ->
-    isPost = type is 'POST'
-    isPut = type is 'PUT'
-    if isPost or isPut
-      outerSuper = @_super
-      outerSelf = @
-      outerArgs = arguments
-      stripeService = @get 'stripeService'
-      card = options?.data?.account?.card
-      cardFilled = card.number
-      delete options?.data?.account?.card
-      if cardFilled and card.validationError
-        Ember.RSVP.reject new DS.InvalidError [
-          detail: card.validationError.message
-          source:
-            pointer: '/data'
-            #pointer: "/relationships/card/data/attributes/#{card.validationError.field}"
-        ]
-      else if cardFilled and !card.validationError
-        new Ember.RSVP.Promise (resolve, reject) ->
-          stripeService.createCardToken card, (status, response) ->
-            if response.error
-              reject new DS.InvalidError [
-                detail: response.error.message
-                source:
-                  pointer: '/data'
-                  #pointer: "/data/relationships/card/data/attributes/#{response.error.param}"
-              ]
-            else
-              options?.data?.account?.stripe_token = response.id
-              outerSuper.apply(outerSelf, outerArgs)
-                .then (response) -> resolve response
-                .catch (response) -> reject response
-      else
-        @_super arguments...
-    else
-      @_super arguments...
 
 `export default AccountAdapter`

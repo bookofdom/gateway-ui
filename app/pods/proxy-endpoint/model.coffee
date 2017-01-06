@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
+`import Model from 'gateway-ui/pods/model/model'`
 
 ProxyEndpoint = Model.extend
   name: DS.attr 'string'
@@ -27,6 +27,9 @@ ProxyEndpoint = Model.extend
     async: false
     embeddedModel: true
   schemas: DS.hasMany 'proxy-endpoint-schema', async: true
+  channels: DS.hasMany 'proxy-endpoint-channel',
+    async: true
+    stains: true
 
   # given a list of component IDs,
   # re-order the underlaying components array and save

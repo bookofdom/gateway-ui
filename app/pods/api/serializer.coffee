@@ -1,10 +1,11 @@
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApplicationSerializer from 'gateway-ui/pods/application/serializer'`
 
 ApiSerializer = ApplicationSerializer.extend
   normalize: (type, hash, property) ->
     hash.export = null # reset export so as not to save it more than once
     hash.links =
       proxy_endpoints: 'proxy_endpoints'
+      jobs: 'jobs'
       environments: 'environments'
       endpoint_groups: 'endpoint_groups'
       remote_endpoints: 'remote_endpoints'

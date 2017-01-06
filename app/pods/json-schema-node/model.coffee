@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
-`import t from 'gateway/helpers/i18n'`
+`import Model from 'gateway-ui/pods/model/model'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 JsonSchemaNode = Model.extend
   type: DS.attr 'string', defaultValue: 'string'

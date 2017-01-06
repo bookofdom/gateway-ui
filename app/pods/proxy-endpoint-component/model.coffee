@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
-`import t from 'gateway/helpers/i18n'`
+`import Model from 'gateway-ui/pods/model/model'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 ProxyEndpointComponent = Model.extend
   type: DS.attr 'string', defaultValue: 'single'
@@ -13,10 +13,10 @@ ProxyEndpointComponent = Model.extend
   pass_through_id: DS.attr 'number'
 
   # Relationships
-  proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
   shared_component: DS.belongsTo 'shared-component',
     async: false
     stains: true
+  proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
   calls: DS.hasMany 'proxy-endpoint-component-call',
     async: false
     stains: true

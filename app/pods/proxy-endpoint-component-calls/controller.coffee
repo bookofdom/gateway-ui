@@ -1,11 +1,10 @@
 `import Ember from 'ember'`
-`import t from 'gateway/helpers/i18n'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 ProxyEndpointComponentCallsController = Ember.Controller.extend
   breadCrumb: 'resources.proxy-endpoint-component-call_plural'
 
   'api': Ember.inject.controller()
-  'proxy-endpoint-component-calls': Ember.inject.controller()
 
   indexModel: Ember.computed.alias 'model'
   'option-groups': Ember.computed 'api.libraries', 'api.remote_endpoints.@each.isNew', ->

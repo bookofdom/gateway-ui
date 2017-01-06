@@ -2,25 +2,27 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'gateway',
-    podModulePrefix: 'gateway/pods',
+    modulePrefix: 'gateway-ui',
+    podModulePrefix: 'gateway-ui/pods',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     'simple-auth': {
       authenticationRoute: 'login',
       routeAfterAuthentication: 'index',
     },
     EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      }
+      FEATURES: {}
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      notifications: false,
+      mockNotifications: false,
+      mockNotificationInterval: 20 * 1000, // 20 seconds
+      mockLogs: false,
+      mockLogInterval: 5 * 1000, // 5 seconds
+      wsHeartbeatInterval: 60, // (in seconds)
+      wsHeartbeatsEnabled: true
     },
 
     contentSecurityPolicy: {
@@ -39,9 +41,8 @@ module.exports = function(environment) {
     dev_mode: false,
     go_os: null,
     remote_endpoint_types_enabled: null,
-    notifications: false,
 
-    docsBaseUrl: 'http://devhub.nanoscale.io',
+    docsBaseUrl: 'http://devhub.nanoscale.io/docs',
     supportUrl: 'http://support.nanoscale.io',
     termsUrl: 'http://www.nanoscale.io/terms/',
     brandNames: {
@@ -80,7 +81,9 @@ module.exports = function(environment) {
     ENV.api.swaggerJsonPath = '/swagger';
 
     ENV.go_os = 'darwin';
-    //ENV.notifications = true;
+    ENV.APP.notifications = true;
+    ENV.APP.mockNotifications = true;
+    ENV.APP.mockLogs = true;
 
     // uncomment for stand-alone gateway API
     //ENV.api.host = 'http://localhost:5000';
@@ -89,7 +92,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
+    ENV.rootURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
@@ -97,13 +100,14 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.wsHeartbeatsEnabled = false;
 
     ENV.confirmDelete = false;
-    ENV.notifications = false;
   }
 
   if (environment === 'production') {
     // interpolated config
+    ENV.ui_base_path = 'UI_BASE_PATH_PLACEHOLDER';
     ENV.api.host = 'ADMIN_API_HOST';
     ENV.registration_enabled = 'REGISTRATION_ENABLED';
     ENV.version = 'VERSION';
@@ -112,14 +116,16 @@ module.exports = function(environment) {
     ENV.remote_endpoint_types_enabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';
     ENV.api_base_path_placeholder = 'API_BASE_PATH_PLACEHOLDER';
     ENV.broker_placeholder = 'BROKER_PLACEHOLDER';
+    ENV.wsHeartbeatInterval = 'WS_HEARTBEAT_INTERVAL';
     ENV.google_analytics_tracking_id = 'GOOGLE_ANALYTICS_TRACKING_ID';
 
-    ENV.baseURL = null;
+    ENV.rootURL = null;
     ENV.locationType = 'hash';
     ENV.api.basePath = ENV.api_base_path_placeholder;
     ENV.api.logs.host = ENV.broker_placeholder;
+
     ENV.notifications = true;
-    
+  
     if (ENV.google_analytics_tracking_id) {
       ENV.googleAnalytics = {
         webPropertyId: ENV.google_analytics_tracking_id

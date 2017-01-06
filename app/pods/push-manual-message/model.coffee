@@ -1,9 +1,9 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
+`import Model from 'gateway-ui/pods/model/model'`
 
 PushManualMessage = Model.extend
   environment: DS.attr 'string'
-  body: DS.attr 'string'
+  body: DS.attr 'string', defaultValue: '{}'
 
   # Relationships
   push_channel: DS.belongsTo 'push-channel', async: true

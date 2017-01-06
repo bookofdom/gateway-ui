@@ -1,5 +1,5 @@
-`import ApplicationAdapter from 'gateway/adapters/application'`
-`import config from  'gateway/config/environment'`
+`import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
+`import config from  'gateway-ui/config/environment'`
 
 RemoteEndpointEnvironmentDatumScratchPadAdapter = ApplicationAdapter.extend
   buildURL: (type, id, snapshot) ->

@@ -1,19 +1,12 @@
 `import Ember from 'ember'`
-`import RemoteEndpointLike from 'gateway/models/remote-endpoint-like'`
-`import t from 'gateway/helpers/i18n'`
-`import config from  'gateway/config/environment'`
+`import RemoteEndpointLike from 'gateway-ui/pods/remote-endpoint-like/model'`
+`import t from 'gateway-ui/helpers/i18n'`
+`import config from  'gateway-ui/config/environment'`
 
 RemoteEndpointsIndexController = Ember.Controller.extend
   'remote-endpoints': Ember.inject.controller()
 
-  types: Ember.computed ->
-    enabledTypes = config.remote_endpoint_types_enabled?.split ','
-    types = RemoteEndpointLike.types
-    if enabledTypes
-      types = types.filter (type) -> type.value in enabledTypes
-    types
-
-  labels: Ember.computed 'types', 'remote-endpoints.type', ->
+  labels: Ember.computed 'remote-endpoints.type', ->
     type = @get 'remote-endpoints.type'
     typeDef = RemoteEndpointLike.types.findBy 'value', type
     type: typeDef?.name or t('prompts.choose-x', x: 'fields.type')

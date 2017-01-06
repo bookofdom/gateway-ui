@@ -1,0 +1,32 @@
+{{#unless url}}
+  {{#if path}}
+    {{#if arg1}}
+      {{#link-to path arg1}}
+        {{partial 'components/bs-text'}}
+      {{/link-to}}
+    {{/if}}
+    {{#unless arg1}}
+      {{#link-to path}}
+        {{partial 'components/bs-text'}}
+      {{/link-to}}
+    {{/unless}}
+  {{/if}}
+  {{#unless path}}
+    <a href="#">
+      {{partial 'components/bs-text'}}
+    </a>
+  {{/unless}}
+{{/unless}}
+
+{{#if url}}
+  {{#if download}}
+    <a href="{{url}}" target="{{target}}" download>
+      {{partial 'components/bs-text'}}
+    </a>
+  {{/if}}
+  {{#unless download}}
+    <a href="{{url}}" target="{{target}}">
+      {{partial 'components/bs-text'}}
+    </a>
+  {{/unless}}
+{{/if}}

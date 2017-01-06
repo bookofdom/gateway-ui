@@ -2,6 +2,10 @@ defaultScenario = (server) ->
   # time data
   server.createList 'stat', 500
 
+  # info
+  server.createList 'info', 1, id: 'app'
+
+
   # sessions
   server.loadFixtures 'sessions'
 
@@ -16,6 +20,9 @@ defaultScenario = (server) ->
 
   # logs
   server.createList 'log', 1
+
+  # timers
+  server.createList 'timer', 5
 
   # users
   server.createList 'user', 5
@@ -34,7 +41,7 @@ defaultScenario = (server) ->
     server.createList 'library', 5, apiId: id
     server.createList 'host', 5, apiId: id
     server.createList 'endpoint_group', 5, apiId: id
-    server.createList('remote_endpoint', 32, apiId: id).forEach (remoteEndpoint) ->
+    server.createList('remote_endpoint', 34, apiId: id).forEach (remoteEndpoint) ->
       options =
         apiId: id
         remoteEndpointId: remoteEndpoint.id
@@ -44,10 +51,17 @@ defaultScenario = (server) ->
           remoteEndpointEnvironmentDatumId: datum.id
     server.createList 'shared_component', 10, apiId: id
     server.createList('proxy_endpoint', 50, apiId: id).forEach (proxyEndpoint) ->
+      server.createList 'proxy_endpoint_channel', 3,
+        proxyEndpointId: proxyEndpoint.id
       server.createList 'proxy_endpoint_component', 10,
         proxyEndpointId: proxyEndpoint.id
       server.createList 'proxy_endpoint_schema', 5,
         proxyEndpointId: proxyEndpoint.id
+    server.createList('job', 50, apiId: id).forEach (job) ->
+      server.createList 'job_component', 10,
+        jobId: job.id
+      server.createList 'job_test', 5,
+        jobId: job.id
 
   # push
   channels = server.createList 'push_channel', 5

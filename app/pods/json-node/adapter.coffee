@@ -1,5 +1,5 @@
-`import ApplicationAdapter from 'gateway/adapters/application'`
-`import config from  'gateway/config/environment'`
+`import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
+`import config from  'gateway-ui/config/environment'`
 
 JsonNodeAdapter = ApplicationAdapter.extend
   # Query is called with the JSON to be parsed directly,

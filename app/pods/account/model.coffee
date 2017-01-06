@@ -1,10 +1,10 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
-`import Registration from 'gateway/pods/registration/model'`
-`import t from 'gateway/helpers/i18n'`
+`import Model from 'gateway-ui/pods/model/model'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 Account = Model.extend
   name: DS.attr 'string'
+  stripe_token: DS.attr 'string'
 
   # Relationships
   card: DS.belongsTo 'stripe-card',

@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApiRelatedSerializer from 'gateway/serializers/api-related'`
+`import ApiRelatedSerializer from 'gateway-ui/pods/api-related/serializer'`
 
 EndpointGroupSerializer = ApiRelatedSerializer.extend
   attrs:

@@ -1,14 +1,12 @@
 {
-  "name": "gateway",
+  "name": "gateway-ui",
   "dependencies": {
-    "ace-tern": "git+https://github.com/sevin7676/Ace.Tern.git",
+    "ace-tern": "git+https://github.com/sevin7676/Ace.Tern.git#79449d82bea111b964ba4ebaeb6c126c076981f9",
     "bootstrap-sass": "bootstrap-sass-official#~3.3.5",
-    "ember": "~2.2.0",
-    "ember-cli-shims": "0.1.0",
-    "ember-cli-test-loader": "0.2.2",
-    "ember-qunit-notifications": "0.1.0",
+    "ember": "~2.10.0",
+    "ember-cli-shims": "0.1.3",
     "eonasdan-bootstrap-datetimepicker": "~4.17.37",
-    "gateway-icons": "git+https://584bd61e7b3dd6af76879cd2772218025a66b2ac:x-oauth-basic@github.com/AnyPresence/gateway-icons.git#4ed9aface0f7b4c890288e029a9e1c706664e986",
+    "gateway-icons": "git+https://github.com/nanoscaleio/gateway-icons.git#cadcd476c85a704d9c9c6b762dd3b68327cc8e46",
     "i18next": "~1.10.2",
     "moment": "~2.10.6",
     "node-uuid": "~1.4.3",
@@ -24,5 +22,8 @@
     "d3": "^3.5.17",
     "nvd3": "~1.8.3",
     "deep-equal": "^0.0.0"
+  },
+  "resolutions": {
+    "qunit-notifications": "~0.1.0"
   }
 }

@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import EditController from 'gateway/controllers/edit'`
+`import EditController from 'gateway-ui/pods/edit/controller'`
 
 # Account index is actually an edit controller.
 AccountIndexController = EditController.extend

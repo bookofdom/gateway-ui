@@ -40,7 +40,9 @@
     "reset-password": "reset password",
     "sign-up": "sign up",
     "navigate": "navigate",
-    "group-by": "group by"
+    "group-by": "group by",
+    "retry": "retry",
+    "reload": "reload"
   },
   "nav": {
     "home": "home",
@@ -72,11 +74,14 @@
       "endpoint-groups": "named groups collect proxy endpoints together for convenience",
       "remote-endpoints": "define the remote API endpoints that provide backing services for proxy endpoints",
       "hosts": "define named hosts associated with this API",
+      "jobs": "define or edit jobs and corresponding logic",
       "libraries": "define shared libraries for use in JavaScript code blocks",
       "logs": "view, search, and stream logs",
       "api-documentation": "view interactive API documentation and test API calls",
       "shared-components": "build reusable components for proxy endpoints",
       "terms-and-conditions": "by registering for an account you accept the terms and conditions",
+      "timers": "manage schedules for your jobs",
+      "keys": "manage certificates and private keys",
       "formatted": {
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
         "build-app": "<b>(login required)</b><br>Build multi-channel apps with the designer platform"
@@ -98,6 +103,8 @@
     "api-endpoint_plural": "API endpoints",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
+    "proxy-endpoint-channel": "channel",
+    "proxy-endpoint-channel_plural": "channels",
     "proxy-endpoint-route": "route",
     "proxy-endpoint-route_plural": "routes",
     "proxy-endpoint-component": "component",
@@ -118,8 +125,8 @@
     "proxy-endpoint-schema_plural": "schema validations",
     "push-channel": "channel",
     "push-channel_plural": "channels",
-    "push-channel-device": "device",
-    "push-channel-device_plural": "devices",
+    "push-channel-device": "$t(resources.push-device)",
+    "push-channel-device_plural": "$t(resources.push-device_plural)",
     "push-channel-device-message": "$t(resources.push-message)",
     "push-channel-device-message_plural": "$t(resources.push-message_plural)",
     "push-channel-message": "$t(resources.push-message)",
@@ -154,6 +161,10 @@
     "remote-endpoint-push-platform_plural": "push platforms",
     "host": "host",
     "host_plural": "hosts",
+    "job": "job",
+    "job_plural": "jobs",
+    "job-test": "job test",
+    "job-test_plural": "job tests",
     "library": "shared library",
     "library_plural": "shared libraries",
     "log": "log",
@@ -176,14 +187,17 @@
     "analytics-query_plural": "analytics",
     "stripe-card": "credit card",
     "stripe-card_plural": "credit cards",
+    "timer": "job schedule",
+    "timer_plural": "job schedules",
     "plan": "plan",
     "plan_plural": "plans",
-    "key": "key",
-    "key_plural": "keys"
+    "key": "certificate or key",
+    "key_plural": "certs and keys"
   },
   "fields": {
     "account_name": "account name",
     "connect_timeout": "connect timeout",
+    "channels": "channels",
     "ack_timeout": "ack timeout",
     "timeout_retries": "timeout retries",
     "qos": "QOS",
@@ -317,14 +331,26 @@
     "command": "command",
     "registry": "registry",
     "key": "key file",
+    "next": "next",
+    "once": "once",
+    "time_zone": "time zone",
+    "minute": "minute",
+    "hour": "hour",
+    "day_of_month": "day of month",
+    "month": "month",
+    "day_of_week": "day of week",
+    "parameters": "parameters",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
       "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`.",
-      "key": "PEM-encoded"
+      "key": "PEM, P12 or PFX"
     },
     "api": {
       "name": "API name"
+    },
+    "job": {
+      "name": "job name"
     },
     "remote_endpoint": {
       "name": "remote endpoint name"
@@ -336,7 +362,8 @@
     "confirm-delete": "are you sure you want to delete this record?",
     "confirm-abandon": "are you sure you want to leave this record without saving?",
     "change-language": "change language",
-    "optional-x": "$t(__x__) (optional)"
+    "optional-x": "$t(__x__) (optional)",
+    "app-version-update": "updates available, reload?"
   },
   "states": {
     "active": "active",
@@ -367,14 +394,16 @@
     "invalid-json-schema": "invalid JSON schema",
     "invalid-cc-number": "invalid card number",
     "invalid-cc-expiry": "invalid expiry",
-    "invalid-cc-cvc": "invalid CVC"
+    "invalid-cc-cvc": "invalid CVC",
+    "connection-timeout": "connection timeout"
   },
   "successes": {
     "push-manual-message": "message sent successfully",
     "saved-successfully": "saved successfully",
     "password-reset": "password reset confirmation email sent",
     "password-reset-confirmation": "password successfully reset",
-    "sign-up": "please check your email for your sign up confirmation"
+    "sign-up": "please check your email for your sign up confirmation",
+    "registration-confirmation": "account successfully activated"
   },
   "headers": {
     "x-workflow": "__x__ workflow"
@@ -395,6 +424,7 @@
       "osx": "OS X",
       "ios": "iOS",
       "gcm": "GCM",
+      "fcm": "FCM",
       "mqtt": "MQTT"
     },
     "editor": {
@@ -431,12 +461,14 @@
       "mongodb": "MongoDB",
       "ldap": "LDAP",
       "script": "Script",
-      "hana": "HANA",
+      "hana": "SAP HANA",
       "redis": "Redis",
       "oracle": "Oracle",
       "smtp": "SMTP",
       "db2": "DB2",
       "docker": "Docker",
+      "job": "job",
+      "key": "cryptographic keys",
       "status-types": {
         "success": "success",
         "failed": "failed",

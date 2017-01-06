@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApplicationSerializer from 'gateway-ui/pods/application/serializer'`
 
 ProxyEndpointRouteSerializer = ApplicationSerializer.extend
   attrs:
@@ -11,10 +11,10 @@ ProxyEndpointRouteSerializer = ApplicationSerializer.extend
   normalizeMethods: (hash) ->
     hash.methods ?= []
     hash.methods = (method.toLowerCase() for method in hash.methods)
-    hash.get_method = hash.methods.contains 'get'
-    hash.post_method = hash.methods.contains 'post'
-    hash.put_method = hash.methods.contains 'put'
-    hash.delete_method = hash.methods.contains 'delete'
+    hash.get_method = hash.methods.includes 'get'
+    hash.post_method = hash.methods.includes 'post'
+    hash.put_method = hash.methods.includes 'put'
+    hash.delete_method = hash.methods.includes 'delete'
     delete hash['methods']
     hash
   serialize: (snapshot) ->

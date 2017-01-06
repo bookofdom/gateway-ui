@@ -1,5 +1,5 @@
-`import EditController from 'gateway/controllers/edit'`
-`import t from 'gateway/helpers/i18n'`
+`import EditController from 'gateway-ui/pods/edit/controller'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 SharedComponentEditController = EditController.extend
   'api': Ember.inject.controller()

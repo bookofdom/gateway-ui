@@ -1,5 +1,5 @@
-`import ApplicationAdapter from 'gateway/adapters/application'`
-`import config from  'gateway/config/environment'`
+`import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
+`import config from  'gateway-ui/config/environment'`
 
 # Only one log socket allowed in app.  That socket is kept here.
 # Record updating is handled by the adapter, so the record is stored here.
@@ -10,15 +10,29 @@ socketModel = null
 LogAdapter = ApplicationAdapter.extend Ember.Evented,
   websockets: Ember.inject.service 'websockets'
 
+  maxMissedHeartbeats: 4 # how many heartbeats may be missed before erroring?
+
+  heartbeatInterval: Ember.computed ->
+    intervalString = config.APP.wsHeartbeatInterval?.toString()
+    parseInt(intervalString, 10) * 1000
+
   urlForQuery: (query, modelName) ->
     api = query.api
     proxyEndpoint = query.proxy_endpoint
-    apiAdapter = @container.lookup 'adapter:application'
-    proxyEndpointAdapter = @container.lookup 'adapter:proxy-endpoint'
+    job = query.job
+    timer = query.timer
+    apiAdapter = Ember.getOwner(@).lookup 'adapter:application'
+    proxyEndpointAdapter = Ember.getOwner(@).lookup 'adapter:proxy-endpoint'
+    jobAdapter = Ember.getOwner(@).lookup 'adapter:job'
+    timerAdapter = Ember.getOwner(@).lookup 'adapter:timer'
     firstPart = apiAdapter.buildURL(api.constructor.modelName, api.id, api._createSnapshot()) if api
     firstPart = proxyEndpointAdapter.buildURL(proxyEndpoint.constructor.modelName, proxyEndpoint.id, proxyEndpoint._createSnapshot()) if proxyEndpoint
+    firstPart = jobAdapter.buildURL(job.constructor.modelName, job.id, job._createSnapshot()) if job
+    firstPart = timerAdapter.buildURL(timer.constructor.modelName, timer.id, timer._createSnapshot()) if timer
     delete query.api
     delete query.proxy_endpoint
+    delete query.job
+    delete query.timer
     if firstPart
       url = "#{firstPart}/logs"
     else
@@ -44,6 +58,8 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
     query =
       api: model.get 'api'
       proxy_endpoint: model.get 'proxy_endpoint'
+      job: model.get 'job'
+      timer: model.get 'timer'
     url = @buildSocketURL 'log', model.id, snapshot, query
     @prepareModelForStreaming model
     @openSocket url
@@ -55,18 +71,59 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
     socketModel = model
 
   closeSocket: ->
-    oldSocketUrl = socket?.socket?.url
-    if oldSocketUrl
-      @get('websockets').closeSocketFor oldSocketUrl
+    #oldSocketUrl = socket?.socket?.url
+    if socket?
+      #@get('websockets').closeSocketFor oldSocketUrl
+      socket?.socket.close()
+    @stopHeartbeats(socketModel) if socketModel
+
+  timeoutSocket: ->
+    @closeSocket()
+    socketModel?.set 'streamingTimeout', true
 
   openSocket: (url) ->
     @closeSocket()
     newSocket = @get('websockets').socketFor url
-    newSocket.on 'message', ((event) -> @trigger 'socketMessage', event.data), @
+    newSocket.on 'message', ((event) ->
+      if !@isHeartbeat event.data
+        @trigger 'socketMessage', event.data
+      else
+        @trigger 'socketHeartbeat'
+    ), @
     socket = newSocket
+    @startHeartbeats(socketModel)
 
   onSocketMessage: Ember.on 'socketMessage', (data) ->
     model = socketModel
     model.pushLogLine data
+
+  onSocketHeartbeat: Ember.on 'socketHeartbeat', ->
+    @resetHeartbeats socketModel
+
+  isHeartbeat: (frame) ->
+    frame == 'heartbeat'
+
+  resetHeartbeats: (model) ->
+    model.set 'missedHeartbeats', 0
+
+  startHeartbeats: (model) ->
+    @resetHeartbeats model
+    model.set 'doHeatbeat', true
+    @doHeartbeat model
+
+  stopHeartbeats: (model) ->
+    model.set 'doHeatbeat', false
+
+  doHeartbeat: (model) ->
+    interval = @get 'heartbeatInterval'
+    Ember.run.later (=>
+      if model.get 'doHeatbeat'
+        missed = model.get 'missedHeartbeats'
+        maxMissed = @get 'maxMissedHeartbeats'
+        model.set 'missedHeartbeats', ++missed
+        if missed >= maxMissed
+          @timeoutSocket()
+        @doHeartbeat model # queue another heartbeat
+    ), interval
 
 `export default LogAdapter`

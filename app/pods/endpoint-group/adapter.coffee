@@ -1,4 +1,4 @@
-`import ApiRelatedAdapter from 'gateway/adapters/api-related'`
+`import ApiRelatedAdapter from 'gateway-ui/pods/api-related/adapter'`
 
 EndpointGroupAdapter = ApiRelatedAdapter.extend()
 

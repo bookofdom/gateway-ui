@@ -14,5 +14,5 @@ test 'it renders', (assert) ->
       icon='test-icon'}}
   """
 
-  assert.equal @$().find('.gateway-test-icon').size(), 1
-  assert.equal @$().find('[data-t="foobar"]').size(), 1
+  assert.equal @$().find('.gateway-test-icon').length, 1
+  assert.equal @$().find('[data-t="foobar"]').length, 1

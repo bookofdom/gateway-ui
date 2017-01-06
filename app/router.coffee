@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import GooglePageviewMixin from 'gateway/mixins/google-pageview'`
-`import config from 'gateway/config/environment'`
+`import GooglePageviewMixin from 'gateway-ui/mixins/google-pageview'`
+`import config from 'gateway-ui/config/environment'`
 
 Router = Ember.Router.extend GooglePageviewMixin,
   location: config.locationType
@@ -9,6 +9,7 @@ Router.map ->
   # auth
   @route 'login'
   @route 'registration', resetNamespace: true, ->
+    @route 'success'
     @route 'confirmation'
   @route 'password', ->
     @route 'reset', ->
@@ -18,9 +19,6 @@ Router.map ->
   # resources
   @route 'admin', path: 'account', ->
     @route 'account', path: 'edit', resetNamespace: true, (->)
-    @route 'keys', resetNamespace: true, ->
-      @route 'key', resetNamespace: true, path: ':key_id', ->
-        @route 'edit'
     @route 'users', resetNamespace: true, ->
       @route 'user', resetNamespace: true, path: ':user_id', ->
         @route 'edit'
@@ -33,6 +31,9 @@ Router.map ->
           @route 'edit'
           @route 'proxy-endpoint-routes', resetNamespace: true, path: 'routes', ->
             @route 'proxy-endpoint-route', resetNamespace: true, path: ':proxy_endpoint_route_id', ->
+              @route 'edit'
+          @route 'proxy-endpoint-channels', resetNamespace: true, path: 'channels', ->
+            @route 'proxy-endpoint-channel', resetNamespace: true, path: ':proxy_endpoint_channel_id', ->
               @route 'edit'
           @route 'proxy-endpoint-components', resetNamespace: true, path: 'components', ->
             @route 'new', ->
@@ -49,6 +50,21 @@ Router.map ->
             @route 'proxy-endpoint-schema', resetNamespace: true, path: ':proxy_endpoint_schema_id', ->
               @route 'edit'
           @route 'logs-proxy-endpoint', resetNamespace: true, path: 'logs', (->)
+      @route 'jobs', resetNamespace: true, ->
+        @route 'job', resetNamespace: true, path: ':job_id', ->
+          @route 'edit'
+          @route 'job-components', resetNamespace: true, path: 'components', ->
+            @route 'new', ->
+              @route 'type', path: ':job_component_type'
+            @route 'job-component', resetNamespace: true, path: ':job_component_id', ->
+              @route 'edit'
+              @route 'job-component-calls', resetNamespace: true, path: 'calls', ->
+                @route 'job-component-call', resetNamespace: true, path: ':job_component_call_id', ->
+                  @route 'edit'
+          @route 'job-tests', resetNamespace: true, path: 'tests', ->
+            @route 'job-test', resetNamespace: true, path: ':job_test_id', ->
+              @route 'edit'
+          @route 'logs-job', resetNamespace: true, path: 'logs', (->)
       @route 'shared-components', resetNamespace: true, path: 'components', ->
         @route 'new', ->
           @route 'type', path: ':shared_component_type'
@@ -58,12 +74,14 @@ Router.map ->
             @route 'shared-component-call', resetNamespace: true, path: ':shared_component_call_id', ->
               @route 'edit'
       @route 'environments', resetNamespace: true, ->
+        @route 'new'
         @route 'environment', resetNamespace: true, path: ':environment_id', ->
           @route 'edit'
       @route 'endpoint-groups', resetNamespace: true, path: 'groups', ->
         @route 'endpoint-group', resetNamespace: true, path: ':endpoint_group_id', ->
           @route 'edit'
       @route 'remote-endpoints', resetNamespace: true, ->
+        @route 'new'
         @route 'remote-endpoint', resetNamespace: true, path: ':remote_endpoint_id', ->
           @route 'edit'
           @route 'remote-endpoint-push-platforms', resetNamespace: true, path: 'push-platforms', ->
@@ -114,7 +132,14 @@ Router.map ->
           @route 'edit'
       @route 'push-channel-messages', resetNamespace: true, path: 'messages', ->
         @route 'push-channel-message', resetNamespace: true, path: ':push_channel_message_id', (->)
+    @route 'timers', resetNamespace: true, path: 'job-schedules', ->
+      @route 'timer', resetNamespace: true, path: ':timer_id', ->
+        @route 'edit'
+        @route 'logs-timer', resetNamespace: true, path: 'logs', (->)
+    @route 'keys', resetNamespace: true, (->)
   @route 'analyze', ->
     @route 'analytics-queries', resetNamespace: true, path: 'queries', ->
       @route 'analytics-query', resetNamespace: true, path: ':analytics_query_id', (->)
+
+
 `export default Router`

@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApiRelatedSerializer from 'gateway/serializers/api-related'`
+`import ApiRelatedSerializer from 'gateway-ui/pods/api-related/serializer'`
 
 ProxyEndpointSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
@@ -13,6 +13,8 @@ ProxyEndpointSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
       embedded: 'always'
     schemas:
       serialize: false
+    channels:
+      serialize: false
   normalize: (type, hash, property) ->
     hash.routes = [] if !hash.routes
     hash.components = [] if !hash.components
@@ -23,6 +25,7 @@ ProxyEndpointSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   normalizeLinks: (hash) ->
     hash.links =
       schemas: "/apis/#{hash.api_id}/proxy_endpoints/#{hash.id}/schemas"
+      channels: "/apis/#{hash.api_id}/proxy_endpoints/#{hash.id}/channels"
     hash
 
 `export default ProxyEndpointSerializer`

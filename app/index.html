@@ -7,17 +7,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
+    <base href="{{rootURL}}">
 
     {{content-for 'head'}}
 
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{rootURL}}assets/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{rootURL}}assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{rootURL}}assets/images/favicons/favicon-16x16.png">
 
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/gateway.css">
+    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link rel="stylesheet" href="{{rootURL}}assets/gateway-ui.css">
 
     {{content-for 'head-footer'}}
   </head>
@@ -25,8 +25,8 @@
     {{content-for 'body'}}
 
     <script src="https://js.stripe.com/v2/"></script>
-    <script src="assets/vendor.js"></script>
-    <script src="assets/gateway.js"></script>
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/gateway-ui.js"></script>
 
     {{content-for 'body-footer'}}
   </body>

@@ -1,15 +1,17 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
-`import t from 'gateway/helpers/i18n'`
+`import Model from 'gateway-ui/pods/model/model'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 ProxyEndpointTest = Model.extend
   name: DS.attr 'string'
   method: DS.attr 'string', defaultValue: 'GET'
+  channels: DS.attr 'boolean', defaultValue: false
   route: DS.attr 'string'
   body: DS.attr 'string'
 
   # Relationships
   proxy_endpoint: DS.belongsTo 'proxy-endpoint', async: false
+  channel: DS.belongsTo 'proxy-endpoint-channel', async: false
   headers: DS.hasMany 'proxy-endpoint-test-header',
     async: false
     stains: true
@@ -29,7 +31,7 @@ ProxyEndpointTest = Model.extend
     ProxyEndpointTest.methods.findBy 'value', method
 
   executeTest: ->
-    adapter = @container.lookup 'adapter:proxy-endpoint-test'
+    adapter = Ember.getOwner(@).lookup 'adapter:proxy-endpoint-test'
     adapter.executeTest @
 
 # Declare available methods and their human-readable names

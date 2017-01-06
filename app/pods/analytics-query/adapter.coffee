@@ -1,5 +1,5 @@
 `import FixtureAdapter from 'ember-data-fixture-adapter'`
-`import config from  'gateway/config/environment'`
+`import config from  'gateway-ui/config/environment'`
 
 AnalyticsQueryAdapter = FixtureAdapter.extend DS.BuildURLMixin,
   host: config.api.url

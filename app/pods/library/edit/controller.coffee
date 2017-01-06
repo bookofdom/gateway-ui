@@ -1,4 +1,4 @@
-`import EditController from 'gateway/controllers/edit'`
+`import EditController from 'gateway-ui/pods/edit/controller'`
 
 LibraryEditController = EditController.extend
   'api': Ember.inject.controller()

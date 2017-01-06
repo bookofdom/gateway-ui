@@ -1,4 +1,4 @@
-`import HostController from 'gateway/pods/host/controller'`
+`import HostController from 'gateway-ui/pods/host/controller'`
 
 ApiDocumentationDetailController = HostController.extend()
 

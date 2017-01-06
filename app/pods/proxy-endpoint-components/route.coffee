@@ -1,7 +1,6 @@
 `import Ember from 'ember'`
 
-
-ProxyEndpointComponentsRoute = Ember.Route.extend 
+ProxyEndpointComponentsRoute = Ember.Route.extend
   model: -> @modelFor('proxy-endpoint').get 'components'
   actions:
     saved: ->

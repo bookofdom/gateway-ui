@@ -1,4 +1,4 @@
-`import EditController from 'gateway/controllers/edit'`
+`import EditController from 'gateway-ui/pods/edit/controller'`
 
 RemoteEndpointEnvironmentDatumEditController = EditController.extend
   'remote-endpoint-environment-data': Ember.inject.controller()

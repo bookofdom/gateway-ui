@@ -1,9 +1,9 @@
 `import Ember from 'ember'`
 `import { module, test } from 'qunit'`
-`import startApp from 'gateway/tests/helpers/start-app'`
-`import destroyApp from 'gateway/tests/helpers/destroy-app'`
-`import { currentSession, authenticateSession, invalidateSession } from 'gateway/tests/helpers/ember-simple-auth'`
-`import { makePostHandler } from 'gateway/mirage/helpers/route-handlers'`
+`import startApp from 'gateway-ui/tests/helpers/start-app'`
+`import destroyApp from 'gateway-ui/tests/helpers/destroy-app'`
+`import { currentSession, authenticateSession, invalidateSession } from 'gateway-ui/tests/helpers/ember-simple-auth'`
+`import { makePostHandler } from 'gateway-ui/mirage/helpers/route-handlers'`
 
 module 'Acceptance: Key - Create',
   beforeEach: ->
@@ -38,10 +38,10 @@ test 'admin can create new keys', (assert) ->
       assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/keys', makePostHandler('key', after)
-  visit '/account/keys'
+  visit '/manage/keys'
   andThen ->
     assert.equal beforeCreateCount > 0, true
-    assert.equal currentURL(), '/account/keys'
+    assert.equal currentURL(), '/manage/keys'
     assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'Foobar'
   addFile()

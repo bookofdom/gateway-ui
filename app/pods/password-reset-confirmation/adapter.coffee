@@ -1,4 +1,4 @@
-`import ApplicationAdapter from 'gateway/adapters/application'`
+`import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
 
 PasswordResetConfirmationAdapter = ApplicationAdapter.extend
   pathForType: (type) ->

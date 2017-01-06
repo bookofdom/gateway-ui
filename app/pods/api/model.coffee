@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
-`import config from  'gateway/config/environment'`
+`import Model from 'gateway-ui/pods/model/model'`
+`import config from  'gateway-ui/config/environment'`
 
 Api = Model.extend
   name: DS.attr 'string'
@@ -16,6 +16,7 @@ Api = Model.extend
 
   # Relationships
   proxy_endpoints: DS.hasMany 'proxy-endpoint', async: true
+  jobs: DS.hasMany 'job', async: true
   environments: DS.hasMany 'environment', async: true
   endpoint_groups: DS.hasMany 'endpoint-group', async: true
   remote_endpoints: DS.hasMany 'remote-endpoint', async: true

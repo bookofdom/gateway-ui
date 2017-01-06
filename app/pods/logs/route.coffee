@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 `import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
-`import removeEmptyProperties from 'gateway/helpers/remove-empty-properties'`
+`import removeEmptyProperties from 'gateway-ui/helpers/remove-empty-properties'`
 
 LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
   queryParams:
@@ -42,5 +42,7 @@ LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
     # change, as well as when leaving the route altogether.
     willTransition: ->
       @disableStreaming()
+    'reconnect-streaming': ->
+      @refresh()
 
 `export default LogsRoute`

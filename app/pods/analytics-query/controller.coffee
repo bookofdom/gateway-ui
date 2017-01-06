@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import t from 'gateway/helpers/i18n'`
-`import { formatDatetime } from 'gateway/helpers/format-datetime'`
-`import { timeHelper } from 'gateway/helpers/time-helper'`
+`import t from 'gateway-ui/helpers/i18n'`
+`import { formatDatetime } from 'gateway-ui/helpers/format-datetime'`
+`import { timeHelper } from 'gateway-ui/helpers/time-helper'`
 
 AnalyticsQueryController = Ember.Controller.extend
   breadCrumb: Ember.computed.alias 'model.name'

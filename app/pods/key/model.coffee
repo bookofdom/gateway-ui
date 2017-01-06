@@ -1,8 +1,9 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
+`import Model from 'gateway-ui/pods/model/model'`
 
 Key = Model.extend
   name: DS.attr 'string'
   key: DS.attr 'string'
+  password: DS.attr 'string'
 
 `export default Key`

@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/models/model'`
-`import t from 'gateway/helpers/i18n'`
-`import config from 'gateway/config/environment'`
+`import Model from 'gateway-ui/models/model'`
+`import t from 'gateway-ui/helpers/i18n'`
+`import config from 'gateway-ui/config/environment'`
 
 AnalyticsQuery = Model.extend
   type: DS.attr 'string', defaultValue: 'response-time'

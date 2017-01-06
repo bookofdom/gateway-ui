@@ -1,4 +1,4 @@
-`import ApplicationSerializer from 'gateway/serializers/application'`
+`import ApplicationSerializer from 'gateway-ui/pods/application/serializer'`
 
 PushManualMessageSerializer = ApplicationSerializer.extend
   attrs:
@@ -13,11 +13,8 @@ PushManualMessageSerializer = ApplicationSerializer.extend
     serialized = @_super arguments...
     body = snapshot.attributes().body
     try
-      body = if body then JSON.parse body else null
-    catch e
-      serialized.dataError = true
-      body = null
-    serialized.payload = body
+      payload = if body then JSON.parse body else null
+    serialized.payload = payload
     delete serialized['body']
     serialized
 
