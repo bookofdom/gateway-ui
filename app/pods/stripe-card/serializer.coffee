@@ -1,5 +1,5 @@
-`import ApplicationSerializer from 'gateway/pods/application/serializer'`
-`import t from 'gateway/helpers/i18n'`
+`import ApplicationSerializer from 'gateway-ui/pods/application/serializer'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 StripeCardSerializer = ApplicationSerializer.extend
   stripeService: Ember.inject.service 'stripe'

@@ -1,4 +1,4 @@
-`import ApiRelatedAdapter from 'gateway/pods/api-related/adapter'`
+`import ApiRelatedAdapter from 'gateway-ui/pods/api-related/adapter'`
 
 JobAdapter = ApiRelatedAdapter.extend()
 

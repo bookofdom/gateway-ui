@@ -2,6 +2,6 @@
 
 ProxyEndpointChannelModel = Model.extend
   proxy_endpoint: belongsTo()
-  remote_endpoint: belongsTo()
+  #remote_endpoint: belongsTo()
 
 `export default ProxyEndpointChannelModel`

@@ -1,23 +1,28 @@
 ---
 language: node_js
 node_js:
-  - "0.12"
+  - 7
+  - 6
 
 sudo: false
 
 cache:
   directories:
+    - bower_components
     - node_modules
 
 before_install:
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-  - "npm config set spin false"
-  - "npm install -g npm@^2"
+  - npm config set spin false
+  - npm install -g npm@^2
 
 install:
+  - npm install -g phantomjs-prebuilt@2.1.14
   - npm install -g bower
   - npm install
   - bower install
 
 script:
   - npm test
+
+after_success:
+  - npm run semantic-release

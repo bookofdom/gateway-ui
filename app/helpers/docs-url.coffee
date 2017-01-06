@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import config from  'gateway/config/environment'`
+`import config from  'gateway-ui/config/environment'`
 
 docsUrl = (params) ->
   docsBaseUrl = config.docsBaseUrl

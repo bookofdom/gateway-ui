@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from 'gateway/pods/application/serializer'`
-`import StripeCardSerializerMixin from 'gateway/mixins/stripe-card-serializer'`
-`import t from 'gateway/helpers/i18n'`
+`import ApplicationSerializer from 'gateway-ui/pods/application/serializer'`
+`import StripeCardSerializerMixin from 'gateway-ui/mixins/stripe-card-serializer'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 RegistrationSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin, StripeCardSerializerMixin,
   attrs:

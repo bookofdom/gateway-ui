@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import LogsRoute from 'gateway/pods/logs/route'`
+`import LogsRoute from 'gateway-ui/pods/logs/route'`
 
 LogsTimerRoute = LogsRoute.extend
   createStreamingModel: ->

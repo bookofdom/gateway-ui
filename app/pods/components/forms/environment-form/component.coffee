@@ -1,5 +1,5 @@
-`import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
-`import t from 'gateway/helpers/i18n'`
+`import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 EnvironmentFormComponent = BaseFormComponent.extend
   indexModel: null

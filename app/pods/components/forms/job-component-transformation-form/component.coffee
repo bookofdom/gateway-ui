@@ -1,4 +1,4 @@
-`import BaseForm from 'gateway/pods/components/forms/base-form/component'`
+`import BaseForm from 'gateway-ui/pods/components/forms/base-form/component'`
 
 JobComponentTransformationFormComponent = BaseForm.extend
   'option-groups': null # passed in by controllers

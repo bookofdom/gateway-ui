@@ -1,5 +1,5 @@
-`import ProxyEndpointRelatedAdapter from 'gateway/pods/proxy-endpoint-related/adapter'`
-`import config from  'gateway/config/environment'`
+`import ProxyEndpointRelatedAdapter from 'gateway-ui/pods/proxy-endpoint-related/adapter'`
+`import config from  'gateway-ui/config/environment'`
 
 ProxyEndpointTestAdapter = ProxyEndpointRelatedAdapter.extend
   buildTestUrl: (model) ->

@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import t from 'gateway/helpers/i18n'`
-`import config from 'gateway/config/environment'`
+`import t from 'gateway-ui/helpers/i18n'`
+`import config from 'gateway-ui/config/environment'`
 
 BaseFormComponent = Ember.Component.extend
   notify: Ember.inject.service()
@@ -64,8 +64,21 @@ BaseFormComponent = Ember.Component.extend
     modelType = @get 'modelType'
     newModel = @get('store')?.peekAll(modelType)?.filterBy('isNew', true)?.get 'firstObject'
     newModel = @get('store')?.createRecord(modelType) if !newModel
+    @setupNewModelBelongsToDefaults newModel
     @set 'model', newModel
     newModel
+  # Automatically assigns defaults for select-model-name fields when
+  # prompt == false.  No prompt means the first value implicitly becomes
+  # default, but emberx-select doesn't hanlde the assignment gracefully.
+  # Thus we must initialize the model with a default before render.
+  setupNewModelBelongsToDefaults: (newModel) ->
+    fields = @get 'fields'
+      .filterBy 'type', 'select-model-name'
+      .filterBy 'prompt', false
+      .forEach (field) =>
+        name = field.name
+        defaultInstance = @get "option-groups.#{name}.firstObject"
+        newModel.set name, defaultInstance if defaultInstance
   assignModelClientId: ->
     model = @get 'model'
     clientId = Math.round(Math.random() * 1000000000)

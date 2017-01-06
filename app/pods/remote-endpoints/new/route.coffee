@@ -1,4 +1,4 @@
-`import NewRoute from 'gateway/pods/new/route'`
+`import NewRoute from 'gateway-ui/pods/new/route'`
 
 RemoteEndpointsNewRoute = NewRoute.extend()
 

@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import PlansRouteMixin from 'gateway/mixins/plans-route'`
+`import PlansRouteMixin from 'gateway-ui/mixins/plans-route'`
 
 AccountRoute = Ember.Route.extend PlansRouteMixin,
   model: ->

@@ -1,5 +1,5 @@
 `import { Factory, faker } from 'ember-cli-mirage'`
-`import { typeCycle, statusCycle, generateDataForType } from 'gateway/mirage/helpers/remote-endpoint-data'`
+`import { typeCycle, statusCycle, generateDataForType } from 'gateway-ui/mirage/helpers/remote-endpoint-data'`
 
 RemoteEndpointFactory = Factory.extend
   name: -> faker.commerce.productName().capitalize()

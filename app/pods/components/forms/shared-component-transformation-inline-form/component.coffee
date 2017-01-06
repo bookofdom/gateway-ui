@@ -1,4 +1,4 @@
-`import SharedComponentTransformationFormComponent from 'gateway/pods/components/forms/shared-component-transformation-form/component'`
+`import SharedComponentTransformationFormComponent from 'gateway-ui/pods/components/forms/shared-component-transformation-form/component'`
 
 SharedComponentTransformationInlineFormComponent = SharedComponentTransformationFormComponent.extend
   embedded: true

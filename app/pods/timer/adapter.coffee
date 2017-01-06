@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import ApplicationAdapter from 'gateway/pods/application/adapter'`
-`import t from 'gateway/helpers/i18n'`
+`import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 
 getJsonValidationError = (snapshot) ->

@@ -1,5 +1,5 @@
-`import ApplicationAdapter from 'gateway/pods/application/adapter'`
-`import config from  'gateway/config/environment'`
+`import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
+`import config from  'gateway-ui/config/environment'`
 
 # Only one log socket allowed in app.  That socket is kept here.
 # Record updating is handled by the adapter, so the record is stored here.

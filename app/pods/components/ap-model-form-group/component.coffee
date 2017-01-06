@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import BsFormGroupComponent from 'gateway/pods/components/bs-form-group/component'`
-`import t from 'gateway/helpers/i18n'`
+`import BsFormGroupComponent from 'gateway-ui/pods/components/bs-form-group/component'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 ApModelFormGroupComponent = BsFormGroupComponent.extend
   classNames: ['ap-model-form-group']

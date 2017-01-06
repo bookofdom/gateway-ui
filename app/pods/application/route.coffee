@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 `import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin'`
-`import { slugify } from 'gateway/helpers/slugify'`
-`import config from  'gateway/config/environment'`
+`import { slugify } from 'gateway-ui/helpers/slugify'`
+`import config from  'gateway-ui/config/environment'`
 
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   notificationService: Ember.inject.service 'notification'

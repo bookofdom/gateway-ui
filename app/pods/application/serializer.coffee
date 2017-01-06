@@ -10,6 +10,14 @@ ApplicationSerializer = DS.RESTSerializer.extend
   normalize: (type, hash, property) ->
     hash.id = @generateId() if !hash.id
     @_super arguments...
+  # Ensure that *something* is present in a save response or else normalize will
+  # not be called and an empty resonse will result in an Ember error.
+  # Since 2.10, responses are required to have an ID.
+  normalizeSaveResponse: (store, primaryModelClass, payload, id, requestType) ->
+    payloadKey = @payloadKeyFromModelName primaryModelClass.modelName
+    if payload? and !payload[payloadKey]
+      payload[payloadKey] = {}
+    @_super.apply @, [store, primaryModelClass, payload, id, requestType]
 
   payloadKeyFromModelName: (modelName) ->
     Ember.String.underscore modelName
