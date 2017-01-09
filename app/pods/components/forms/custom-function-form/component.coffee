@@ -1,5 +1,5 @@
-`import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
-`import CustomFunction from 'gateway/pods/custom-function/model'`
+`import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
+`import CustomFunction from 'gateway-ui/pods/custom-function/model'`
 
 CustomFunctionFormComponent = BaseFormComponent.extend
   indexModel: null

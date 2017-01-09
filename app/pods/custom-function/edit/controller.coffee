@@ -1,4 +1,4 @@
-`import EditController from 'gateway/pods/edit/controller'`
+`import EditController from 'gateway-ui/pods/edit/controller'`
 
 CustomFunctionEditController = EditController.extend
   executing: false # true while build execution request is in progress

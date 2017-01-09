@@ -1,4 +1,4 @@
-`import CustomFunctionRelatedAdapter from 'gateway/pods/custom-function-related/adapter'`
+`import CustomFunctionRelatedAdapter from 'gateway-ui/pods/custom-function-related/adapter'`
 
 CustomFunctionFileAdapter = CustomFunctionRelatedAdapter.extend()
 
