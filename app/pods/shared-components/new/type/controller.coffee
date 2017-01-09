@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import t from 'gateway/helpers/i18n'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 SharedComponentsNewTypeController = Ember.Controller.extend
   'api': Ember.inject.controller()

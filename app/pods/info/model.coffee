@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import Model from 'gateway/pods/model/model'`
-`import config from  'gateway/config/environment'`
+`import Model from 'gateway-ui/pods/model/model'`
+`import config from  'gateway-ui/config/environment'`
 
 Info = Model.extend
   # app

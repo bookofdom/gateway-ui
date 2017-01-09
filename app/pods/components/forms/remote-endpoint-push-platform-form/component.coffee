@@ -1,5 +1,5 @@
-`import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
-`import RemoteEndpointPushPlatform from 'gateway/pods/remote-endpoint-push-platform/model'`
+`import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
+`import RemoteEndpointPushPlatform from 'gateway-ui/pods/remote-endpoint-push-platform/model'`
 
 RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
   parentModel: null

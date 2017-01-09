@@ -1,4 +1,4 @@
-`import ApplicationSerializer from 'gateway/pods/application/serializer'`
+`import ApplicationSerializer from 'gateway-ui/pods/application/serializer'`
 
 ApiSerializer = ApplicationSerializer.extend
   normalize: (type, hash, property) ->

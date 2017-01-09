@@ -1,5 +1,5 @@
 import Resolver from '../../resolver';
-import config from 'gateway/config/environment';
+import config from 'gateway-ui/config/environment';
 
 const resolver = Resolver.create();
 

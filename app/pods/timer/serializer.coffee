@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApplicationSerializer from 'gateway/pods/application/serializer'`
+`import ApplicationSerializer from 'gateway-ui/pods/application/serializer'`
 
 TimerSerializer = ApplicationSerializer.extend
   normalize: (type, hash, property) ->

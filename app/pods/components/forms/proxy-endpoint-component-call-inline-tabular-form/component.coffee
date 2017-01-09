@@ -1,5 +1,5 @@
-`import ProxyEndpointComponentCallInlineFormComponent from 'gateway/pods/components/forms/proxy-endpoint-component-call-inline-form/component'`
-`import InlineFormMixin from 'gateway/mixins/inline-form'`
+`import ProxyEndpointComponentCallInlineFormComponent from 'gateway-ui/pods/components/forms/proxy-endpoint-component-call-inline-form/component'`
+`import InlineFormMixin from 'gateway-ui/mixins/inline-form'`
 
 ProxyEndpointComponentCallInlineTabularFormComponent = ProxyEndpointComponentCallInlineFormComponent.extend InlineFormMixin,
   fields: [

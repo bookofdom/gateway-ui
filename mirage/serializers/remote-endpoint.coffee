@@ -1,4 +1,4 @@
-`import ApplicationSerializer from 'gateway/mirage/serializers/application'`
+`import ApplicationSerializer from 'gateway-ui/mirage/serializers/application'`
 
 RemoteEndpointSerializer = ApplicationSerializer.extend
   serialize: (model) ->

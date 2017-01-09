@@ -1,4 +1,4 @@
-`import ProxyEndpointRelatedAdapter from 'gateway/pods/proxy-endpoint-related/adapter'`
+`import ProxyEndpointRelatedAdapter from 'gateway-ui/pods/proxy-endpoint-related/adapter'`
 
 ProxyEndpointChannelAdapter = ProxyEndpointRelatedAdapter.extend()
 

@@ -1,6 +1,6 @@
-`import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
-`import Registration from 'gateway/pods/registration/model'`
-`import config from 'gateway/config/environment'`
+`import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
+`import Registration from 'gateway-ui/pods/registration/model'`
+`import config from 'gateway-ui/config/environment'`
 
 RegistrationFormComponent = BaseFormComponent.extend
   classNames: ['ap-form-login']

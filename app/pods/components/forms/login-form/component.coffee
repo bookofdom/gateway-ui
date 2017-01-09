@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import t from 'gateway/helpers/i18n'`
-`import config from 'gateway/config/environment'`
+`import t from 'gateway-ui/helpers/i18n'`
+`import config from 'gateway-ui/config/environment'`
 
 LoginFormComponent = Ember.Component.extend
   session: Ember.inject.service()

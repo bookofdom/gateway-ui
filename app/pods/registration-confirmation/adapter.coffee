@@ -1,4 +1,4 @@
-`import ApplicationAdapter from 'gateway/pods/application/adapter'`
+`import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
 
 RegistrationConfirmationAdapter = ApplicationAdapter.extend
   pathForType: (type) ->

@@ -1,5 +1,5 @@
 `import DS from 'ember-data'`
-`import ApiRelatedSerializer from 'gateway/pods/api-related/serializer'`
+`import ApiRelatedSerializer from 'gateway-ui/pods/api-related/serializer'`
 
 ProxyEndpointSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:

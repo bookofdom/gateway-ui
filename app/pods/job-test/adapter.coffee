@@ -1,6 +1,6 @@
-`import JobRelatedAdapter from 'gateway/pods/job-related/adapter'`
-`import config from  'gateway/config/environment'`
-`import t from 'gateway/helpers/i18n'`
+`import JobRelatedAdapter from 'gateway-ui/pods/job-related/adapter'`
+`import config from  'gateway-ui/config/environment'`
+`import t from 'gateway-ui/helpers/i18n'`
 `import DS from 'ember-data'`
 
 getJsonValidationError = (snapshot) ->

@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import BsTextComponent from 'gateway/pods/components/bs-text/component'`
+`import BsTextComponent from 'gateway-ui/pods/components/bs-text/component'`
 
 ApPageComponent = BsTextComponent.extend
   classNames: ['ap-page']

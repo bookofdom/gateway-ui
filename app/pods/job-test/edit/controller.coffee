@@ -1,4 +1,4 @@
-`import EditController from 'gateway/pods/edit/controller'`
+`import EditController from 'gateway-ui/pods/edit/controller'`
 
 JobTestEditController = EditController.extend
   executing: false # true while test execution request is in progress

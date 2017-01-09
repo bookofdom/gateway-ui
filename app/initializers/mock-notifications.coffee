@@ -1,5 +1,5 @@
-`import WebSocketMockServer from 'gateway/helpers/websocket-mock-server'`
-`import config from  'gateway/config/environment'`
+`import WebSocketMockServer from 'gateway-ui/helpers/websocket-mock-server'`
+`import config from  'gateway-ui/config/environment'`
 
 MockNotificationsInitializer =
   name: 'mock-notifications'
