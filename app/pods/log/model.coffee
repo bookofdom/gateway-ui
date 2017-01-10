@@ -4,7 +4,6 @@
 Log = Model.extend
   body: DS.attr 'string'
   lines: DS.attr 'string', defaultValue: -> ''
-  buffer: DS.attr 'array', defaultValue: -> []
   streamingTimeout: DS.attr 'boolean', defaultValue: -> false
 
   # Relationships
@@ -13,7 +12,10 @@ Log = Model.extend
   job: DS.belongsTo 'job', async: false
   timer: DS.belongsTo 'timer', async: false
 
+  buffer: null
   bufferTimeout: 1000
+
+  setupBuffer: Ember.on 'init', -> @set 'buffer', []
 
   # Rate-limits log updates to once per second.
   bufferObserver: Ember.observer 'buffer.length', ->
