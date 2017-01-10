@@ -65,6 +65,7 @@
     "ember-service-worker-asset-cache": "nanoscale-randy/ember-service-worker-asset-cache#feature-auto-files",
     "ember-simple-auth": "nanoscale-randy/ember-simple-auth#b7be974e95a52025038d01f6482234c53a35ad46",
     "ember-spin-spinner": "0.2.4",
+    "ember-truncate-text": "0.0.1",
     "ember-truth-helpers": "1.2.0",
     "ember-websockets": "^1.2.3",
     "emberx-select": "^2.2.2",
