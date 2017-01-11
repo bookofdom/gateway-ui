@@ -39,11 +39,11 @@
       </ul>
     </div><!-- /.col -->
     <div class="col-sm-5">
-      {{#if (and subscription.enabled model.plan.isBillable)}}
-        {{#ap-panel-edit t='resources.stripe-card'}}
-          {{partial 'registration/cc-form'}}
-        {{/ap-panel-edit}}
-      {{/if}}
+      {{#unless changedPlanPaymentRequired}}
+        {{#if isNonZeroPlanAmount}}
+          {{#bs-button t='actions.change-payment' action='changePayment' style='info'}}{{/bs-button}}
+        {{/if}}
+      {{/unless}}
     </div><!-- /.col -->
   {{/if}}
 

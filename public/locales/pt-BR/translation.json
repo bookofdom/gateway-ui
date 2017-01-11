@@ -41,7 +41,8 @@
     "sign-up": "inscrever-se",
     "navigate": "navegar",
     "retry": "repetir",
-    "reload": "recarregar"
+    "reload": "recarregar",
+    "change-payment": "atualizar detalhes de pagamento"
   },
   "nav": {
     "home": "início",
