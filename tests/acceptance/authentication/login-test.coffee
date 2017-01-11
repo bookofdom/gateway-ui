@@ -32,9 +32,11 @@ test 'user cannot login with incorrect credentials', (assert) ->
   server.loadFixtures 'sessions'
   session = currentSession @application
   visit '/login'
+  wait()
   fillIn '[name=identification]', 'imposter@hacker.net'
   fillIn '[name=password]', 'wrong-password'
   click '[type=submit]'
+  wait()
   andThen ->
     assert.equal session.get('isAuthenticated'), false
     assert.equal currentURL(), '/login'
@@ -43,9 +45,11 @@ test 'user can see error message when login fails', (assert) ->
   server.loadFixtures 'sessions'
   session = currentSession @application
   visit '/login'
+  wait()
   fillIn '[name=identification]', 'imposter@hacker.net'
   fillIn '[name=password]', 'wrong-password'
   click '[type=submit]'
+  wait()
   andThen ->
     assert.equal session.get('isAuthenticated'), false
     assert.equal currentURL(), '/login'

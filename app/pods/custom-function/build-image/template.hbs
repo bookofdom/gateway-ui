@@ -1,39 +1,24 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    {{#if response.time}}
-      <span class="label label-default">{{response.time}} ms</span>
+    {{#if custom_function_build.time}}
+      <span class="label label-default">{{custom_function_build.time}} ms</span>
     {{/if}}
   </div>
 
   <div class="panel-body">
-    {{#if response}}
-      {{#unless model.hasDirtyAttributes}}
-        {{#unless executing}}
-          <a class="btn btn-default" {{action 'executeBuild'}}>
-            {{t 'actions.build'}}
-            {{ap-icon icon='arrows-006'}}
-          </a>
-          <br>
-          <br>
-        {{/unless}}
-      {{/unless}}
-      <div class="form-group">
-        <label class="control-label col-sm-2">{{t 'fields.log'}}</label>
-        <div class="col-sm-10">
-          <pre class="form-control form-control-flexible">{{response.log}}</pre>
-        </div><!-- /.col -->
-      </div><!-- /.form-group -->
-    {{/if}}
     {{#unless model.hasDirtyAttributes}}
-      {{#if executing}}
-        <div class="spinner-container">
-          {{spin-spinner lines=13 length=5 width=2 radius=5 color='#000' hwaccel=true}}
-        </div><!-- /.spinner-container -->
-      {{/if}}
-      <a class="btn btn-default" {{action 'executeBuild'}}>
-        {{t 'actions.build'}}
-        {{ap-icon icon='arrows-006'}}
-      </a>
+      {{#unless custom_function_build.executing}}
+        <a class="btn btn-default" {{action 'executeBuild'}}>
+          {{t 'actions.build'}}
+          {{ap-icon icon='arrows-006'}}
+        </a>
+        <br>
+        <br>
+      {{/unless}}
     {{/unless}}
+    <div class="form-group">
+      <label class="control-label col-sm-2">{{t 'fields.log'}}</label>
+      {{ap-log value=custom_function_build.lines reset=resetLog}}
+    </div><!-- /.form-group -->
   </div><!-- /.panel-body -->
 </div>

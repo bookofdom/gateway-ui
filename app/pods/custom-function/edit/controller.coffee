@@ -1,19 +1,21 @@
 `import EditController from 'gateway-ui/pods/edit/controller'`
 
 CustomFunctionEditController = EditController.extend
-  executing: false # true while build execution request is in progress
-  response: null # holds response from build execution
+  resetLog: 0
 
-  reset: -> @set 'response', null
+  reset: ->
+    resetLog = @get 'resetLog'
+    resetLog++
+    @set 'resetLog', resetLog
+    model = @get 'model'
+    customFunctionBuild = @store.createRecord 'custom-function-build'
+    customFunctionBuild.set 'custom_function', model
+    @set 'custom_function_build', customFunctionBuild
 
   actions:
     executeBuild: ->
-      @set 'response', null
-      @set 'executing', true
-      @get('model').executeBuild()
-        .then (response) =>
-          @set 'response', response
-        .finally =>
-          @set 'executing', false
+      @reset()
+      @get('custom_function_build').executeBuild()
+      false
 
 `export default CustomFunctionEditController`

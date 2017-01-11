@@ -1,10 +1,14 @@
 `import Ember from 'ember'`
 `import BsBaseComponent from 'gateway-ui/pods/components/bs-base/component'`
 
+# https://github.com/chalk/ansi-regex
+ansiRegex = /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g
+
 ApLogComponent = BsBaseComponent.extend
   tagName: 'pre'
   classNames: ['ap-log']
   value: null
+  reset: 0
   cursorPosition: 0
   selectionSize: 80 * 50 # conventional line length * number of lines
   speedMs: 250
@@ -14,12 +18,16 @@ ApLogComponent = BsBaseComponent.extend
   idleSpeed: 750
 
   appendOnShow: Ember.on 'didInsertElement', -> @runAppend()
+  resetObserver: Ember.observer 'reset', ->
+    @$().empty()
+    @set 'cursorPosition', 0
 
   runAppend: ->
     speedMs = @get 'speedMs'
     Ember.run.later (=>
       if !@get('isDestroyed') and !@get('isDestroying')
         value = @get 'value'
+        value = value.replace(ansiRegex, '')
         length = value.length
         cursorPosition = @get 'cursorPosition'
         remaining = length - cursorPosition
