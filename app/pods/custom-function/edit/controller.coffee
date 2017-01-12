@@ -1,12 +1,7 @@
 `import EditController from 'gateway-ui/pods/edit/controller'`
 
 CustomFunctionEditController = EditController.extend
-  resetLog: 0
-
   reset: ->
-    resetLog = @get 'resetLog'
-    resetLog++
-    @set 'resetLog', resetLog
     model = @get 'model'
     customFunctionBuild = @store.createRecord 'custom-function-build'
     customFunctionBuild.set 'custom_function', model

@@ -8,6 +8,7 @@ ApLogComponent = BsBaseComponent.extend
   tagName: 'pre'
   classNames: ['ap-log']
   value: null
+  output: ''
   reset: 0
   cursorPosition: 0
   selectionSize: 80 * 50 # conventional line length * number of lines
@@ -18,9 +19,13 @@ ApLogComponent = BsBaseComponent.extend
   idleSpeed: 750
 
   appendOnShow: Ember.on 'didInsertElement', -> @runAppend()
-  resetObserver: Ember.observer 'reset', ->
-    @$().empty()
-    @set 'cursorPosition', 0
+
+  valueObserver: Ember.observer 'value', ->
+    cursorPosition = @get 'cursorPosition'
+    value = @get 'value'
+    if value?.length < cursorPosition
+      @set 'output', ''
+      @set 'cursorPosition', 0
 
   runAppend: ->
     speedMs = @get 'speedMs'
@@ -38,8 +43,9 @@ ApLogComponent = BsBaseComponent.extend
         if remaining > 0
           selection = value.slice x1, x2
           @set 'cursorPosition', x2
-          @$().append selection
-          @scrollToBottom()
+          output = @get 'output'
+          output = output.concat output, selection
+          @set 'output', output
           @set 'speedMs', @get('workingSpeed')
         else
           # if nothing remains, slow things down
@@ -47,7 +53,7 @@ ApLogComponent = BsBaseComponent.extend
         @runAppend() # and repeat
     ), speedMs
 
-  scrollToBottom: ->
+  scrollToBottom: Ember.on 'didUpdate', ->
     scrollHeight = @$()?[0]?.scrollHeight
     @$().scrollTop(scrollHeight + 200) if scrollHeight
 
