@@ -1,11 +1,13 @@
 `import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
 `import Registration from 'gateway-ui/pods/registration/model'`
+`import { brandName } from 'gateway-ui/helpers/brand-name'`
 `import config from 'gateway-ui/config/environment'`
 
 RegistrationFormComponent = BaseFormComponent.extend
   classNames: ['ap-form-login']
   horizontal: false
   subscription: Ember.inject.service()
+  stripeCheckout: Ember.inject.service()
 
   modelType: 'registration'
   plans: null
@@ -13,8 +15,6 @@ RegistrationFormComponent = BaseFormComponent.extend
 
   isNonZeroPlanAmount: Ember.computed 'subscription.enabled', 'model.plan.isBillable', ->
     @get('subscription.enabled') and @get('model.plan.isBillable')
-
-  cc_required: Ember.computed.alias 'isNonZeroPlanAmount'
 
   'base-error': Ember.computed 'model.errors.[]', ->
     @get('model.errors')?.errorsFor('base')?[0]?.message
@@ -27,18 +27,26 @@ RegistrationFormComponent = BaseFormComponent.extend
   'organization-error': Ember.computed 'model.errors.[]', ->
     @get('model.errors')?.errorsFor('organization')?[0]?.message
 
-  createNewModel: ->
-    newModel = @_super arguments...
-    newStripeCard = @get('store')?.createRecord 'stripe-card'
-    newModel.set 'card', newStripeCard
-    newModel
-
   submit: ->
     model = @get 'model'
-    model.save().finally =>
-      if !model.get 'errors.messages.length'
-        @createNewModel()
-        @sendAction 'savedAction'
+    stripeCheckoutService = @get 'stripeCheckout'
+    paymentRequired = @get 'isNonZeroPlanAmount'
+    saveRegistration = (token) =>
+      model.set 'stripe_token', token.id if token
+      model.save().finally =>
+        if !model.get 'errors.messages.length'
+          @createNewModel()
+          @sendAction 'savedAction'
+    if !paymentRequired
+      saveRegistration()
+    else
+      checkout = stripeCheckoutService.getToken
+        name: brandName 'primary'
+        description: model.get 'plan.name'
+        zipCode: true
+        email: model.get 'email'
+        amount: model.get 'plan.price'
+      checkout.then saveRegistration
     false
 
 `export default RegistrationFormComponent`

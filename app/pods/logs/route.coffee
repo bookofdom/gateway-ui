@@ -1,6 +1,5 @@
 `import Ember from 'ember'`
 `import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
-`import removeEmptyProperties from 'gateway-ui/helpers/remove-empty-properties'`
 
 LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
   queryParams:
@@ -17,12 +16,14 @@ LogsRoute = Ember.Route.extend AuthenticatedRouteMixin,
 
   model: (params) ->
     streaming = !!params.streaming
-    delete params.streaming
-    params = removeEmptyProperties params
     if streaming
       @createStreamingModel()
     else
-      @queryStore params
+      delete params.streaming
+      cleanedParams = {}
+      for key, value of params
+        cleanedParams[key] = value if !Ember.isEmpty value
+      @queryStore cleanedParams
 
   disableStreaming: ->
     model = @modelFor 'logs'

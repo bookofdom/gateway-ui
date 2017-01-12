@@ -10,7 +10,6 @@ Registration = Model.extend
   stripe_token: DS.attr 'string'
 
   # Relationships
-  card: DS.belongsTo 'stripe-card', async: false
   plan: DS.belongsTo 'plan', async: false
 
 `export default Registration`

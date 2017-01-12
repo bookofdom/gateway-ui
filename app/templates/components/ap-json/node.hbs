@@ -11,7 +11,7 @@
           arg1=model}}
       {{/ap-list-nav-simple-icon}}
     {{/unless}}
-    <span class="node-display-name">{{truncate model.displayName limit=25}}</span>
+    <span class="node-display-name">{{truncate-text model.displayName limit=25}}</span>
   </div>
 
   {{#if model.canHaveChildren}}
