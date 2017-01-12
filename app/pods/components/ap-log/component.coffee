@@ -44,7 +44,7 @@ ApLogComponent = BsBaseComponent.extend
           selection = value.slice x1, x2
           @set 'cursorPosition', x2
           output = @get 'output'
-          output = output.concat output, selection
+          output = output.concat selection
           @set 'output', output
           @set 'speedMs', @get('workingSpeed')
         else
