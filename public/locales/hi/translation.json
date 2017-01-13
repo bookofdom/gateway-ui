@@ -400,7 +400,8 @@
       "single": "single call",
       "multi": "multi-call",
       "js": "logic",
-      "shared": "साझा"
+      "shared": "साझा",
+      "advanced": "उन्नत"
     },
     "session": {
       "client": "ग्राहक",
