@@ -31,6 +31,14 @@
             t=component.name
             index=component.id}}
         {{/if}}
+        {{#if component.advanced}}
+	  {{ap-list-link
+	    path='job-component.edit'
+            arg1=component
+            icon='file-type-content-055'
+            t=component.name
+            index=component.id}}
+        {{/if}}
       {{/unless}}
       {{#if component.shared}}
       {{ap-list-link

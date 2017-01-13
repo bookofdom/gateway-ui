@@ -18,7 +18,7 @@ ProxyEndpointComponentsNewTypeRoute = Ember.Route.extend
     @modelFor('proxy-endpoint').get('components').filterBy('isNew', true).forEach (component) ->
       component.deleteRecord()
   populateRelationships: (model) ->
-    if !model.get 'shared'
+    if (!model.get 'shared') and (!model.get 'advanced')
       @addNewCall model
       @addNewBefore model
       @addNewAfter model
