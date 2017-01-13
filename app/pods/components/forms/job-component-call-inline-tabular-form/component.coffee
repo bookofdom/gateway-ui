@@ -1,5 +1,5 @@
-`import JobComponentCallInlineFormComponent from 'gateway/pods/components/forms/job-component-call-inline-form/component'`
-`import InlineFormMixin from 'gateway/mixins/inline-form'`
+`import JobComponentCallInlineFormComponent from 'gateway-ui/pods/components/forms/job-component-call-inline-form/component'`
+`import InlineFormMixin from 'gateway-ui/mixins/inline-form'`
 
 JobComponentCallInlineTabularFormComponent = JobComponentCallInlineFormComponent.extend InlineFormMixin,
   fields: [

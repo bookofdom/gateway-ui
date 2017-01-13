@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
-`import config from  'gateway/config/environment'`
-`import t from 'gateway/helpers/i18n'`
+`import config from  'gateway-ui/config/environment'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 ApplicationAdapter = DS.RESTAdapter.extend
   session: Ember.inject.service()

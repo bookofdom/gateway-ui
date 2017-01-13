@@ -1,7 +1,8 @@
 ---
 language: node_js
 node_js:
-  - 6.9.2
+  - 7
+  - 6
 
 sudo: false
 
@@ -22,3 +23,6 @@ install:
 
 script:
   - npm test
+
+after_success:
+  - npm run semantic-release

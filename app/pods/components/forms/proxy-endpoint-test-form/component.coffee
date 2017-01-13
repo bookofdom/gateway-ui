@@ -1,6 +1,6 @@
-`import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
-`import ProxyEndpointTest from 'gateway/pods/proxy-endpoint-test/model'`
-`import t from 'gateway/helpers/i18n'`
+`import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
+`import ProxyEndpointTest from 'gateway-ui/pods/proxy-endpoint-test/model'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 # Field Rules
 #

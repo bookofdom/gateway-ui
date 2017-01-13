@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
-`import Registration from 'gateway/pods/registration/model'`
+`import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
+`import Registration from 'gateway-ui/pods/registration/model'`
 
 AccountFormComponent = BaseFormComponent.extend
   subscription: Ember.inject.service()

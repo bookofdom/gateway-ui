@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import config from 'gateway/config/environment'`
+`import config from 'gateway-ui/config/environment'`
 
 ApplicationController = Ember.Controller.extend Ember.Evented,
   version: config.version

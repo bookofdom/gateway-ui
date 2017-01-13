@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import i18nHelper from 'gateway/helpers/i18n'`
+`import i18nHelper from 'gateway-ui/helpers/i18n'`
 
 t = (args, options) ->
   value = args[0]

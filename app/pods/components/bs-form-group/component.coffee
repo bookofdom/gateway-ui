@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
-`import BsTextComponent from 'gateway/pods/components/bs-text/component'`
-`import t from 'gateway/helpers/i18n'`
+`import BsTextComponent from 'gateway-ui/pods/components/bs-text/component'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 BsFormGroupComponent = BsTextComponent.extend
   classNames: ['form-group']

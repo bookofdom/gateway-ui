@@ -1,5 +1,5 @@
-`import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
-`import InlineFormMixin from 'gateway/mixins/inline-form'`
+`import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
+`import InlineFormMixin from 'gateway-ui/mixins/inline-form'`
 
 StripeCardInlineFormComponent = BaseFormComponent.extend InlineFormMixin,
   modelType: 'stripe-card'

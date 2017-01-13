@@ -1,4 +1,4 @@
-`import SharedComponentCallFormComponent from 'gateway/pods/components/forms/shared-component-call-form/component'`
+`import SharedComponentCallFormComponent from 'gateway-ui/pods/components/forms/shared-component-call-form/component'`
 
 SharedComponentCallInlineFormComponent = SharedComponentCallFormComponent.extend
   embedded: true

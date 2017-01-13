@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
-`import BaseFormComponent from 'gateway/pods/components/forms/base-form/component'`
+`import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
 
 RemoteEndpointEnvironmentDatumScratchPadFormComponent = BaseFormComponent.extend
   indexModel: null

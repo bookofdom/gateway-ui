@@ -1,5 +1,5 @@
-`import SharedComponentCallInlineFormComponent from 'gateway/pods/components/forms/shared-component-call-inline-form/component'`
-`import InlineFormMixin from 'gateway/mixins/inline-form'`
+`import SharedComponentCallInlineFormComponent from 'gateway-ui/pods/components/forms/shared-component-call-inline-form/component'`
+`import InlineFormMixin from 'gateway-ui/mixins/inline-form'`
 
 SharedComponentCallInlineTabularFormComponent = SharedComponentCallInlineFormComponent.extend InlineFormMixin,
   fields: [
