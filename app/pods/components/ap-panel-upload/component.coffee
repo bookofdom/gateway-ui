@@ -3,6 +3,7 @@
 `import t from 'gateway-ui/helpers/i18n'`
 
 ApPanelUploadComponent = BsPanelComponent.extend
+  fileReaderService: Ember.inject.service 'file-reader'
   tagName: 'label'
   classNames: ['ap-panel-upload text-center']
   classNameBindings: ['isSet:active']
