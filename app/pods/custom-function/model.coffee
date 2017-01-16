@@ -12,6 +12,7 @@ CustomFunction = Model.extend
   # Relationships
   api: DS.belongsTo 'api', async: true
   files: DS.hasMany 'custom-function-file', async: true
+  tests: DS.hasMany 'custom-function-test', async: true
 
 languages = 'java node c# python'.split(' ').map (language) ->
   name: t "custom-function-languages.#{language}"

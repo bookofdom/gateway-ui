@@ -71,6 +71,9 @@ Router.map ->
           @route 'custom-function-files', resetNamespace: true, path: 'files', ->
             @route 'custom-function-file', resetNamespace: true, path: ':custom_function_file_id', ->
               @route 'edit'
+          @route 'custom-function-tests', resetNamespace: true, path: 'tests', ->
+            @route 'custom-function-test', resetNamespace: true, path: ':custom_function_test_id', ->
+              @route 'edit'
       @route 'shared-components', resetNamespace: true, path: 'components', ->
         @route 'new', ->
           @route 'type', path: ':shared_component_type'

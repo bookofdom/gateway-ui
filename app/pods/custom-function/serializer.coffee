@@ -5,6 +5,8 @@ CustomFunctionSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   attrs:
     api:
       serialize: false
+    tests:
+      serialize: false
   normalize: (type, hash, property) ->
     @normalizeLinks hash
     @_super arguments...
@@ -12,6 +14,7 @@ CustomFunctionSerializer = ApiRelatedSerializer.extend DS.EmbeddedRecordsMixin,
   normalizeLinks: (hash) ->
     hash.links =
       files: "/apis/#{hash.api_id}/custom_functions/#{hash.id}/files"
+      tests: "/apis/#{hash.api_id}/custom_functions/#{hash.id}/tests"
     hash
 
 `export default CustomFunctionSerializer`
