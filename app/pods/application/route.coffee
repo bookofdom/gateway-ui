@@ -90,8 +90,8 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
           # cancel does two things:  reload and rollback
           resourceRecord.cancel()
         when 'delete'
-          # mark as deleted
-          resourceRecord.deleteRecord()
+          # remove record from local store
+          resourceRecord.unloadRecord()
 
   loadingObserver: Ember.observer 'isLoading', ->
     isLoading = @get 'isLoading'
