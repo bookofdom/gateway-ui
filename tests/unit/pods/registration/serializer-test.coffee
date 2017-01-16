@@ -3,9 +3,9 @@
 moduleForModel 'registration', 'Unit | Serializer | registration', {
   # Specify the other units that are required for this test.
   needs: [
-    'service:stripe'
+    'service:stripeCheckout'
+    'service:subscription'
     'model:plan'
-    'model:stripe-card'
     'serializer:registration'
   ]
 }

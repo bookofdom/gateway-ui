@@ -41,7 +41,8 @@
     "sign-up": "sign up",
     "navigate": "navigate",
     "retry": "retry",
-    "reload": "reload"
+    "reload": "reload",
+    "change-payment": "update payment details"
   },
   "nav": {
     "home": "home",

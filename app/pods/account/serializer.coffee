@@ -1,14 +1,8 @@
 `import DS from 'ember-data'`
 `import ApplicationSerializer from 'gateway-ui/pods/application/serializer'`
-`import StripeCardSerializerMixin from 'gateway-ui/mixins/stripe-card-serializer'`
 
-AccountSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin, StripeCardSerializerMixin,
+AccountSerializer = ApplicationSerializer.extend DS.EmbeddedRecordsMixin,
   subscription: Ember.inject.service()
-
-  attrs:
-    card:
-      serialize: false
-      deserialize: 'records'
 
   normalize: (type, hash, property) ->
     hash.card = {}

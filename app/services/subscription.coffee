@@ -2,13 +2,13 @@
 `import config from 'gateway-ui/config/environment'`
 
 SubscriptionService = Ember.Service.extend Ember.Evented,
-  stripe: Ember.inject.service()
+  stripeCheckout: Ember.inject.service()
   enablePlanSubscriptions: Ember.computed ->
     config.enablePlanSubscriptions?.toString() is 'true'
   devMode: config.dev_mode?.toString() is 'true'
 
-  enabled: Ember.computed 'stripe.enabled', 'enablePlanSubscriptions', 'devMode', ->
-    @get('stripe.enabled') and
+  enabled: Ember.computed 'stripeCheckout.isEnabled', 'enablePlanSubscriptions', 'devMode', ->
+    @get('stripeCheckout.isEnabled') and
       @get('enablePlanSubscriptions') and
       !@get('devMode')
 
