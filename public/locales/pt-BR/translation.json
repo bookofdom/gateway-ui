@@ -15,6 +15,7 @@
     "button_plural": "botões"
   },
   "actions": {
+    "build": "construir",
     "toggle-navivagation": "alterar navegação",
     "login": "entrar",
     "logout": "sair",
@@ -63,6 +64,7 @@
     "descriptions": {
       "define-api": "definir terminais de API e lógica de fluxo de trabalho Microservice",
       "manage-api": "cria as chave e especifica as regras das suas APIs",
+      "custom-functions": "definir imagens do docker",
       "manage-store": "gerenciar dados em um armazenamento de objetos",
       "manage": "gerenciar armazenamento de dados objeto e empurrar serviços de notificação",
       "store-collections": "gerenciar coleções de lojas locais e dados",
@@ -101,6 +103,12 @@
     "api_plural": "APIs",
     "api-endpoint": "endpoint da API",
     "api-endpoint_plural": "endpoints da API",
+    "custom-function": "função personalizada",
+    "custom-function_plural": "funções personalizadas",
+    "custom-function-file": "arquivo",
+    "custom-function-file_plural": "arquivos",
+    "custom-function-test": "teste",
+    "custom-function-test_plural": "testes",
     "proxy-endpoint": "endpoint da proxy",
     "proxy-endpoint_plural": "endpoints da proxy",
     "proxy-endpoint-channel": "canal",
@@ -187,6 +195,8 @@
     "key_plural": "certificados e chaves"
   },
   "fields": {
+    "input": "entrada",
+    "language": "língua",
     "account_name": "nome da conta",
     "connect_timeout": "connect timeout",
     "channels": "canais",
@@ -426,6 +436,7 @@
       "server": "servidor"
     },
     "remote-endpoint": {
+      "custom_function": "função personalizada",
       "push": "empurrar",
       "store": "armazenar",
       "script": "escrita",

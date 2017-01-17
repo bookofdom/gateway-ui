@@ -15,6 +15,7 @@
     "button_plural": "buttons"
   },
   "actions": {
+    "build": "निर्माण",
     "toggle-navivagation": "toggle navigation",
     "login": "login",
     "logout": "logout",
@@ -60,6 +61,7 @@
     "descriptions": {
       "define-api": "एपीआई समापन, दूरदराज के एकीकरण सेवाओं, और कार्यप्रवाह व्यापार तर्क को परिभाषित",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
+      "custom-functions": "गोदी श्रमिक छवियों को परिभाषित करें",
       "manage-store": "एक वस्तु की दुकान में डेटा प्रबंधन",
       "manage": "स्थानीय दुकान डाटा का प्रबंधन और पुश सूचनाएं",
       "store-collections": "स्थानीय दुकान संग्रह और डेटा प्रबंधन",
@@ -97,6 +99,12 @@
     "api_plural": "APIs",
     "api-endpoint": "API endpoint",
     "api-endpoint_plural": "API endpoints",
+    "custom-function": "कस्टम समारोह",
+    "custom-function_plural": "कस्टम कार्य",
+    "custom-function-file": "फ़ाइल",
+    "custom-function-file_plural": "फ़ाइलें",
+    "custom-function-test": "परीक्षण",
+    "custom-function-test_plural": "परीक्षण",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
     "proxy-endpoint-channel": "चैनल",
@@ -177,6 +185,8 @@
     "plan_plural": "योजनाओं"
   },
   "fields": {
+    "input": "इनपुट",
+    "language": "भाषा",
     "account_name": "खाते का नाम",
     "connect_timeout": "मध्यांतर कनेक्ट",
     "channels": "चैनलों",
@@ -407,6 +417,7 @@
       "server": "सर्वर"
     },
     "remote-endpoint": {
+      "custom_function": "कस्टम समारोह",
       "push": "धक्का दें",
       "store": "दुकान",
       "script": "लिपि",

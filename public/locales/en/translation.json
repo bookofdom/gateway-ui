@@ -15,6 +15,7 @@
     "button_plural": "buttons"
   },
   "actions": {
+    "build": "build",
     "toggle-navivagation": "toggle navigation",
     "login": "login",
     "logout": "logout",
@@ -63,6 +64,7 @@
     "descriptions": {
       "define-api": "define API endpoints and microservice workflow logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
+      "custom-functions": "Define docker images",
       "manage-store": "manage data in an object store",
       "manage": "manage object data store and push notification services",
       "store-collections": "manage local store collections and data",
@@ -101,6 +103,12 @@
     "api_plural": "APIs",
     "api-endpoint": "API endpoint",
     "api-endpoint_plural": "API endpoints",
+    "custom-function": "custom function",
+    "custom-function_plural": "custom functions",
+    "custom-function-file": "file",
+    "custom-function-file_plural": "files",
+    "custom-function-test": "test",
+    "custom-function-test_plural": "tests",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
     "proxy-endpoint-channel": "channel",
@@ -193,6 +201,8 @@
     "key_plural": "certs and keys"
   },
   "fields": {
+    "input": "input",
+    "language": "language",
     "account_name": "account name",
     "connect_timeout": "connect timeout",
     "channels": "channels",
@@ -417,6 +427,12 @@
     "import": "__user__ imported one __resource__"
   },
   "types": {
+    "language": {
+      "java": "Java",
+      "node": "Node",
+      "csharp": "C#",
+      "python": "Python"
+    },
     "push-platform": {
       "osx": "OS X",
       "ios": "iOS",
@@ -448,6 +464,7 @@
       "server": "server"
     },
     "remote-endpoint": {
+      "custom_function": "custom function",
       "push": "push",
       "http": "HTTP",
       "soap": "SOAP",
