@@ -1,8 +1,7 @@
 `import DS from 'ember-data'`
 `import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
-`import StripeCardAdapterMixin from 'gateway-ui/mixins/stripe-card-adapter'`
 
-AccountAdapter = ApplicationAdapter.extend StripeCardAdapterMixin,
+AccountAdapter = ApplicationAdapter.extend
   pathForType: (type) ->
     path = @_super type
     path = path.singularize()

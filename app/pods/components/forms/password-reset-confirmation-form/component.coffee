@@ -3,7 +3,7 @@
 PasswordResetConfirmationFormComponent = BaseFormComponent.extend
   classNames: ['ap-form-login']
   horizontal: false
-  
+
   modelType: 'password-reset-confirmation'
   token: null
 
@@ -20,7 +20,9 @@ PasswordResetConfirmationFormComponent = BaseFormComponent.extend
 
   submit: ->
     model = @get 'model'
-    model.save().finally =>
+    saved = model.save()
+    @set 'model.new_password', ''
+    saved.finally =>
       if !model.get 'errors.messages.length'
         @createNewModel()
         @sendAction 'savedAction'
