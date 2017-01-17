@@ -17,15 +17,16 @@ addFetchListener(function (event) {
         .then(function (response) {
           // "no cors" is defined as either literally "no-cors" mode OR as
           // a cors request with same-origin credentials.
-          var isNoCorsGet =
+          var isNoCorsHttpGet =
             event.request &&
             (event.request.method == 'GET') &&
+            (event.request.url.match(/^(http)s?\:\/{2}/)) &&
             (
               (event.request.mode == 'no-cors') ||
               (event.request.credentials == 'same-origin')
             );
           var success = response && (response.status >= 200) && (response.status < 300);
-          if (isNoCorsGet && success) {
+          if (isNoCorsHttpGet && success) {
             cache.put(event.request, response.clone());
           }
           return response;
