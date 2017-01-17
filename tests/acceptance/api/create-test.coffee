@@ -22,12 +22,17 @@ test 'user can create new APIs on index', (assert) ->
   authenticateSession @application
   beforeCreateCount = server.db.apis.length
   after = ->
-    wait()
-    andThen ->
-      afterCreateCount = server.db.apis.length
-      assert.equal afterCreateCount, beforeCreateCount + 1
-      assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
-      done()
+    # navigate back to APIs index since saving an API redirects to
+    # its proxy endpoints index
+    Ember.run.later (->
+      visit '/apis'
+      andThen ->
+        assert.equal currentURL(), '/apis'
+        afterCreateCount = server.db.apis.length
+        assert.equal afterCreateCount, beforeCreateCount + 1
+        assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
+        done()
+      ), 3000
   server.post '/apis', makePostHandler('api', after)
   visit '/apis'
   andThen ->
