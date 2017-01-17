@@ -24,6 +24,10 @@ CustomFunctionFormComponent = BaseFormComponent.extend
   ,
     name: 'active'
   ,
+    name: 'memory'
+  ,
+    name: 'cpu_shares'
+  ,
     name: 'description'
     type: 'textarea'
   ]

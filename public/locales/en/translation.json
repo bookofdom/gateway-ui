@@ -201,6 +201,8 @@
     "key_plural": "certs and keys"
   },
   "fields": {
+    "memory": "memory",
+    "cpu_shares": "CPU shares",
     "input": "input",
     "language": "language",
     "account_name": "account name",

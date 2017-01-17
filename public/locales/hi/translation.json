@@ -185,6 +185,8 @@
     "plan_plural": "योजनाओं"
   },
   "fields": {
+    "memory": "याद",
+    "cpu_shares": "सीपीयू शेयरों",
     "input": "इनपुट",
     "language": "भाषा",
     "account_name": "खाते का नाम",
