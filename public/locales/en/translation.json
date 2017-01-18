@@ -204,6 +204,7 @@
     "memory": "memory",
     "cpu_shares": "CPU shares",
     "input": "input",
+    "output": "output",
     "language": "language",
     "account_name": "account name",
     "connect_timeout": "connect timeout",

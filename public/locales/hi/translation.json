@@ -188,6 +188,7 @@
     "memory": "याद",
     "cpu_shares": "सीपीयू शेयरों",
     "input": "इनपुट",
+    "output": "उत्पादन",
     "language": "भाषा",
     "account_name": "खाते का नाम",
     "connect_timeout": "मध्यांतर कनेक्ट",

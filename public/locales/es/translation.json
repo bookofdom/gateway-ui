@@ -198,6 +198,7 @@
     "memory": "memoria",
     "cpu_shares": "acciones de la CPU",
     "input": "entrada",
+    "output": "salida",
     "language": "idioma",
     "account_name": "nombre de la cuenta",
     "connect_timeout": "conecte tiempo de espera",

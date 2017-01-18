@@ -23,6 +23,12 @@
           <pre class="form-control form-control-flexible">{{response.output}}</pre>
         </div><!-- /.col -->
       </div><!-- /.form-group -->
+      <div class="form-group">
+        <label class="control-label col-sm-2">{{t 'fields.log'}}</label>
+        <div class="col-sm-10">
+          <pre class="form-control form-control-flexible">{{response.log}}</pre>
+        </div><!-- /.col -->
+      </div><!-- /.form-group -->
     {{/if}}
     {{#unless model.hasDirtyAttributes}}
       {{#if executing}}
