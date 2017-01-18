@@ -88,10 +88,19 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       switch action
         when 'create', 'update'
           # cancel does two things:  reload and rollback
-          resourceRecord.cancel()
+          @runOnRecordWhenPossible resourceRecord, 'cancel'
         when 'delete'
-          # mark as deleted
-          resourceRecord.deleteRecord()
+          # remove record from local store
+          @runOnRecordWhenPossible resourceRecord, 'unloadRecord'
+
+  # Runs the specified method on the record as soon as it is safe to do so,
+  # which is when immediately if the record is not currently saving, and on
+  # ready, if it is currently saving.
+  runOnRecordWhenPossible: (record, method) ->
+    if record.get 'isSaving'
+      record.one 'ready', record[method], record
+    else
+      record[method]()
 
   loadingObserver: Ember.observer 'isLoading', ->
     isLoading = @get 'isLoading'
