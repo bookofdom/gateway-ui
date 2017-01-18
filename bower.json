@@ -17,8 +17,8 @@
     "pretender": "~0.12.0",
     "Faker": "~3.0.0",
     "jquery-ui": "^1.11.4",
-    "jjv": "^1.0.2",
-    "deep-equal": "^0.0.0"
+    "deep-equal": "^0.0.0",
+    "jjv": "1.0.2"
   },
   "resolutions": {
     "qunit-notifications": "~0.1.0"
