@@ -108,8 +108,6 @@ module.exports = function(defaults) {
   app.import('bower_components/vkbeautify/vkbeautify.js');
   // uuid
   app.import('bower_components/node-uuid/uuid.js');
-  // deep equals
-  app.import('bower_components/deep-equal/index.js');
 
   // Gateway Icons
   var gatewayIcons = new Funnel('bower_components/gateway-icons/dist/fonts', {
