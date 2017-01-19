@@ -14,7 +14,7 @@ CustomFunctionFileFormComponent = BaseFormComponent.extend
     required: true
   ,
     name: 'body'
-    type: 'editor-text'
+    type: 'file-editor'
   ]
   fields: Ember.computed 'model.isNew', ->
     if @get('model.isNew') then @get('newFields') else @get('editFields')
