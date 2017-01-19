@@ -45,8 +45,8 @@ BaseFormComponent = Ember.Component.extend
   'show-cancel': Ember.computed 'dirty', 'model.isNew', ->
     @get('dirty') and !@get('model.isNew')
   'show-delete': true
-  'deletable': Ember.computed 'show-delete', 'model.isNew', ->
-    @get('show-delete') and !@get('model.isNew')
+  'deletable': Ember.computed 'show-delete', 'model.isNew', 'dirty', ->
+    @get('show-delete') and !@get('model.isNew') and !@get('dirty')
 
   onInit: Ember.on 'init', ->
     if !@get 'model'
