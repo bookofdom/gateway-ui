@@ -62,8 +62,8 @@ ProxyEndpointFormComponent = BaseFormComponent.extend
     model = @get 'model'
     count = model?.get 'routes.length'
     isNew = model?.get 'isNew'
-    # if an existing model has no routes, add one by default
-    @createNewRouteModel() if model and !isNew and !count
+    # if a new model has no routes, add one by default
+    @createNewRouteModel() if model and isNew and !count
 
   submit: ->
     model = @get 'model'
