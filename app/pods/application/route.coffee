@@ -22,8 +22,8 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     window?.i18next
       .use i18nextBrowserLanguageDetector
       .use i18nextLocalStorageCache
-    @get('i18n')
-      .initLibraryAsync()
+    @get('i18n').initLibraryAsync().then ->
+      moment.locale window?.i18next.language
   afterModel: (first, transition) ->
     @checkSessionValidity transition
     @setupNotifications()
