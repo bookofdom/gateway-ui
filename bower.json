@@ -19,7 +19,9 @@
     "jjv": "1.0.2",
     "deep-equal": "0.0.0",
     "i18next-xhr-backend": "^0.6.0",
-    "i18next": "^3.3.1"
+    "i18next": "^3.3.1",
+    "i18next-localstorage-cache": "^0.3.0",
+    "i18next-browser-languagedetector": "^1.0.1"
   },
   "resolutions": {
     "qunit-notifications": "~0.1.0"

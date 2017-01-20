@@ -2,9 +2,6 @@
 `import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin'`
 `import config from  'gateway-ui/config/environment'`
 
-#`import Cache from 'i18next-localstorage-cache'`
-#`import LanguageDetector from 'i18next-browser-languagedetector'`
-
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   i18n: Ember.inject.service()
   notificationService: Ember.inject.service 'notification'
@@ -22,8 +19,6 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   ]
 
   beforeModel: ->
-    #console.log i18nextBrowserLanguageDetector
-    #console.log i18nextLocalStorageCache
     window?.i18next
       .use i18nextBrowserLanguageDetector
       .use i18nextLocalStorageCache
