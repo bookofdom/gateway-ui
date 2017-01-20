@@ -75,7 +75,6 @@
     "express": "^4.13.4",
     "ghooks": "^2.0.0",
     "git-repo-info": "1.2.0",
-    "i18next-localstorage-cache": "0.3.0",
     "loader.js": "^4.0.10",
     "semantic-release": "^6.3.2",
     "underscore": "^1.8.3"
