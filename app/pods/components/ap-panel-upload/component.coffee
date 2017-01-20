@@ -15,7 +15,7 @@ ApPanelUploadComponent = BsPanelComponent.extend
     if translationKey
       rendered = t translationKey
       rendered = "#{rendered}&hellip;" if !@get 'isSet'
-      rendered.htmlSafe()
+      rendered?.htmlSafe()
   isSet: Ember.computed 'value', -> !!@get('value')?.match /^data/
   'icon-after': true
   icon: Ember.computed 'isSet', ->

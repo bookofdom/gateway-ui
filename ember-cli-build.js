@@ -80,8 +80,9 @@ module.exports = function(defaults) {
 
   // Bootstrap
   app.import('bower_components/bootstrap-sass/assets/javascripts/bootstrap.js');
-  // i18next
-  app.import('bower_components/i18next/i18next.js');
+  // i18next extras
+  app.import('bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.js');
+  app.import('bower_components/i18next-localstorage-cache/i18nextLocalStorageCache.js');
   // moment
   app.import('bower_components/moment/moment.js');
   app.import('bower_components/moment/locale/es.js');

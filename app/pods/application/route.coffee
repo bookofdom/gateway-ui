@@ -2,7 +2,11 @@
 `import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin'`
 `import config from  'gateway-ui/config/environment'`
 
+#`import Cache from 'i18next-localstorage-cache'`
+#`import LanguageDetector from 'i18next-browser-languagedetector'`
+
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
+  i18n: Ember.inject.service()
   notificationService: Ember.inject.service 'notification'
   notify: Ember.inject.service()
   session: Ember.inject.service()
@@ -17,6 +21,14 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     'push-channel-message'
   ]
 
+  beforeModel: ->
+    #console.log i18nextBrowserLanguageDetector
+    #console.log i18nextLocalStorageCache
+    window?.i18next
+      .use i18nextBrowserLanguageDetector
+      .use i18nextLocalStorageCache
+    @get('i18n')
+      .initLibraryAsync()
   afterModel: (first, transition) ->
     @checkSessionValidity transition
     @setupNotifications()
@@ -127,8 +139,8 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   actions:
     invalidateSession: ->
       @get('session').invalidate()
-    localChange: (locale) ->
-      window.location.search = "locale=#{locale}"
+    localeChange: (locale) ->
+      window.location.search = "lng=#{locale}"
     loading: ->
       @set 'isLoading', true
       true
