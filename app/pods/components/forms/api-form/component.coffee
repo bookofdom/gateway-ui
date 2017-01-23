@@ -1,7 +1,7 @@
 `import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
 
 ApiFormComponent = BaseFormComponent.extend
-  savedAction: null
+  #savedAction: null
   modelType: 'api'
 
   newFields: [

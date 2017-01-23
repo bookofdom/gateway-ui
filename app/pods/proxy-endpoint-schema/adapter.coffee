@@ -2,8 +2,6 @@
 `import ProxyEndpointRelatedAdapter from 'gateway-ui/pods/proxy-endpoint-related/adapter'`
 `import config from  'gateway-ui/config/environment'`
 `import t from 'gateway-ui/helpers/i18n'`
-`import jsonSchemaValidatorHelper from 'gateway-ui/helpers/json-schema-validator'`
-
 
 # Takes a nested object and returns an array of dotted root to leaf paths
 # through the object.
@@ -46,14 +44,14 @@ getSchemaJsonValidationError = (snapshot) ->
   # Validate that schemas are valid JSON schemas.
   # TODO:  HTML-formatted error messages are not ideal
   if parsedRequestSchema
-    errors = jsonSchemaValidatorHelper parsedRequestSchema
+    errors = @get('jsonSchemaValidator').validate parsedRequestSchema
     if errors
       errorField = 'request_schema'
       errorMessage = t 'errors.invalid-json-schema'
       errorFields = expandKeyPaths(errors.validation).map((path) -> "<li><code>#{path}</code></li>").join('')
       message = "#{errorMessage.capitalize()}: <ul><li>#{t 'fields.request_schema'}:<ul>#{errorFields}</ul></li></ul>".htmlSafe()
   if parsedResponseSchema
-    errors = jsonSchemaValidatorHelper parsedResponseSchema
+    errors = @get('jsonSchemaValidator').validate parsedResponseSchema
     if errors
       errorField = 'response_schema'
       errorMessage = t 'errors.invalid-json-schema'
@@ -69,7 +67,7 @@ getSchemaJsonValidationError = (snapshot) ->
 
 
 createOrUpdateRecord = (store, type, snapshot) ->
-  err = getSchemaJsonValidationError snapshot
+  err = @getSchemaJsonValidationError snapshot
   if err
     Ember.RSVP.reject err
   else
@@ -77,6 +75,8 @@ createOrUpdateRecord = (store, type, snapshot) ->
 
 
 ProxyEndpointSchemaAdapter = ProxyEndpointRelatedAdapter.extend
+  jsonSchemaValidator: Ember.inject.service()
+  getSchemaJsonValidationError: getSchemaJsonValidationError
   createRecord: createOrUpdateRecord
   updateRecord: createOrUpdateRecord
 

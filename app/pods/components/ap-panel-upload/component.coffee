@@ -3,6 +3,7 @@
 `import t from 'gateway-ui/helpers/i18n'`
 
 ApPanelUploadComponent = BsPanelComponent.extend
+  fileReaderService: Ember.inject.service 'file-reader'
   tagName: 'label'
   classNames: ['ap-panel-upload text-center']
   classNameBindings: ['isSet:active']
@@ -14,7 +15,7 @@ ApPanelUploadComponent = BsPanelComponent.extend
     if translationKey
       rendered = t translationKey
       rendered = "#{rendered}&hellip;" if !@get 'isSet'
-      rendered.htmlSafe()
+      rendered?.htmlSafe()
   isSet: Ember.computed 'value', -> !!@get('value')?.match /^data/
   'icon-after': true
   icon: Ember.computed 'isSet', ->

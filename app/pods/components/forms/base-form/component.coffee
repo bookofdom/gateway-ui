@@ -27,7 +27,7 @@ BaseFormComponent = Ember.Component.extend
   editFields: null
   defaultFields: []
   fields: Ember.computed 'defaultFields', 'newFields', 'editFields', 'model.isNew', ->
-    fields = if @get 'model.isNew' then @get 'newFields' else @get 'editFields'
+    fields = if (@get('model.isNew') or @get('newForm')) then @get 'newFields' else @get 'editFields'
     fields ?= []
     fields = Ember.copy(fields).pushObjects @get('defaultFields')
     fields
@@ -45,8 +45,8 @@ BaseFormComponent = Ember.Component.extend
   'show-cancel': Ember.computed 'dirty', 'model.isNew', ->
     @get('dirty') and !@get('model.isNew')
   'show-delete': true
-  'deletable': Ember.computed 'show-delete', 'model.isNew', ->
-    @get('show-delete') and !@get('model.isNew')
+  'deletable': Ember.computed 'show-delete', 'model.isNew', 'dirty', ->
+    @get('show-delete') and !@get('model.isNew') and !@get('dirty')
 
   onInit: Ember.on 'init', ->
     if !@get 'model'
@@ -57,8 +57,9 @@ BaseFormComponent = Ember.Component.extend
     if model? and isNew
       @assignModelClientId()
   newFormObserver: Ember.observer 'model.isNew', 'newForm', ->
-    if @get('newForm') and @get('model') and !@get('model.isNew')
-      @createNewModel()
+      Ember.run.later =>
+        if @get('newForm') and @get('model') and !@get('model.isNew') and !@get 'isDestroyed'
+          @createNewModel()
 
   createNewModel: ->
     modelType = @get 'modelType'

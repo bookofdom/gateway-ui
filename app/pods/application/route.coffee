@@ -3,6 +3,7 @@
 `import config from  'gateway-ui/config/environment'`
 
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
+  i18n: Ember.inject.service()
   notificationService: Ember.inject.service 'notification'
   notify: Ember.inject.service()
   session: Ember.inject.service()
@@ -17,6 +18,12 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     'push-channel-message'
   ]
 
+  beforeModel: ->
+    window?.i18next
+      .use i18nextBrowserLanguageDetector
+      .use i18nextLocalStorageCache
+    @get('i18n').initLibraryAsync().then ->
+      moment.locale window?.i18next.language
   afterModel: (first, transition) ->
     @checkSessionValidity transition
     @setupNotifications()
@@ -88,10 +95,19 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       switch action
         when 'create', 'update'
           # cancel does two things:  reload and rollback
-          resourceRecord.cancel()
+          @runOnRecordWhenPossible resourceRecord, 'cancel'
         when 'delete'
-          # mark as deleted
-          resourceRecord.deleteRecord()
+          # remove record from local store
+          @runOnRecordWhenPossible resourceRecord, 'unloadRecord'
+
+  # Runs the specified method on the record as soon as it is safe to do so,
+  # which is when immediately if the record is not currently saving, and on
+  # ready, if it is currently saving.
+  runOnRecordWhenPossible: (record, method) ->
+    if record.get 'isSaving'
+      record.one 'ready', record[method], record
+    else
+      record[method]()
 
   loadingObserver: Ember.observer 'isLoading', ->
     isLoading = @get 'isLoading'
@@ -118,8 +134,8 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   actions:
     invalidateSession: ->
       @get('session').invalidate()
-    localChange: (locale) ->
-      window.location.search = "locale=#{locale}"
+    localeChange: (locale) ->
+      window.location.search = "lng=#{locale}"
     loading: ->
       @set 'isLoading', true
       true
