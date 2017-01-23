@@ -23,13 +23,13 @@
     "cancel": "cancelar",
     "clear": "limpiar",
     "new": "nuevo",
-    "new-x": "nuevo $t(__x__)",
+    "new-x": "nuevo $t({{x}})",
     "edit": "editar",
-    "edit-x": "editar $t(__x__)",
+    "edit-x": "editar $t({{x}})",
     "import": "importar",
     "export": "exportar",
     "toggle": "alternar",
-    "toggle-x": "alternar $t(__x__)",
+    "toggle-x": "alternar $t({{x}})",
     "execute": "ejecutar",
     "specify-custom": "personalice",
     "drop-or-click-to-upload": "suelta o presiona para subir",
@@ -344,11 +344,11 @@
   },
   "prompts": {
     "generic": "elija uno",
-    "choose-x": "elija $t(__x__)",
+    "choose-x": "elija $t({{x}})",
     "confirm-delete": "¿esta seguro que desea eliminar éste registro?",
     "confirm-abandon": "¿esta seguro que desea salir sin guardar los cambios de éste registro?",
     "change-language": "elija idioma",
-    "optional-x": "$t(__x__) (opcional)",
+    "optional-x": "$t({{x}}) (opcional)",
     "app-version-update": "actualizaciones disponibles, recargar?"
   },
   "states": {
@@ -391,17 +391,17 @@
     "registration-confirmation": "cuenta activa con éxito"
   },
   "headers": {
-    "x-workflow": "__x__ flujo de trabajo"
+    "x-workflow": "{{x}} flujo de trabajo"
   },
   "conditionals": {
     "if": "if",
     "unless": "unless"
   },
   "notifications": {
-    "create": "__user__ creó un __resource__",
-    "update": "__user__ actualizó un __resource__",
-    "delete": "__user__ borró un __resource__",
-    "import": "__user__ importó un __resource__"
+    "create": "{{user}} creó un {{resource}}",
+    "update": "{{user}} actualizó un {{resource}}",
+    "delete": "{{user}} borró un {{resource}}",
+    "import": "{{user}} importó un {{resource}}"
   },
   "types": {
     "editor": {
