@@ -4,7 +4,6 @@ moduleForModel 'plan', 'Unit | Model | plan',
   # Specify the other units that are required for this test.
   needs: [
     'model:plan'
-    'model:stripe-card'
   ]
 
 test 'it exists', (assert) ->

@@ -29,6 +29,7 @@ LoginFormComponent = Ember.Component.extend
     authenticate: ->
       identification = @get 'identification'
       password = @get 'password'
+      @set 'password', ''
       @get 'session'
         .authenticate 'authenticator:gateway', identification, password
         .catch (reason) =>
