@@ -21,6 +21,7 @@ extensions =
   java: 'java'
   js: 'javascript'
   json: 'json'
+  php: 'php'
   py: 'python'
 
 CustomFunctionFile.reopenClass

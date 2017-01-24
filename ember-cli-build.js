@@ -60,6 +60,7 @@ module.exports = function(defaults) {
         'snippets/java.js',
         'snippets/javascript.js',
         'snippets/json.js',
+        'snippets/php.js',
         'snippets/python.js',
         'snippets/text.js',
         'worker-javascript.js',
@@ -102,6 +103,7 @@ module.exports = function(defaults) {
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-java.js');
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-javascript.js');
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-json.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-php.js');
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-python.js');
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-text.js');
 
@@ -145,6 +147,7 @@ module.exports = function(defaults) {
       'snippets/java.js',
       'snippets/javascript.js',
       'snippets/json.js',
+      'snippets/php.js',
       'snippets/python.js',
       'snippets/text.js',
       'worker-javascript.js',
