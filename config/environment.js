@@ -11,6 +11,11 @@ module.exports = function(environment) {
       fallbackLng: 'en',
       whitelist: ['en', 'es', 'pt-BR']
     },
+    moment: {
+      includeLocales: ['en', 'es', 'pt-br'],
+      outputFormat: 'lll',
+      allowEmpty: true
+    },
     'simple-auth': {
       authenticationRoute: 'login',
       routeAfterAuthentication: 'index',
