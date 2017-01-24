@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-2">
-    <p class="text-right">{{t '$t(actions.edit-x, {"x": "resources.account"})'}}</p>
+    <p class="text-right">{{t 'actions.edit-x' x='resources.account'}}</p>
   </div>
   <div class="col-sm-4">
     {{#ap-model-form-group
@@ -23,7 +23,7 @@
 
   {{#if subscription.enabled}}
     <div class="col-sm-2">
-      <p class="text-right">{{t '$t(actions.edit-x, {"x": "resources.plan"})'}}</p>
+      <p class="text-right">{{t 'actions.edit-x' x='resources.plan'}}</p>
     </div>
     <div class="col-sm-5">
       <ul class="list-group">
