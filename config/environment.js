@@ -7,6 +7,10 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+    i18nextOptions: {
+      fallbackLng: 'en',
+      whitelist: ['en', 'es', 'pt-BR']
+    },
     'simple-auth': {
       authenticationRoute: 'login',
       routeAfterAuthentication: 'index',

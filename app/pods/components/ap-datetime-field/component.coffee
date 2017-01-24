@@ -14,7 +14,7 @@ ApDatetimeFieldComponent = Ember.Component.extend
     @$('input').datetimepicker
       keepOpen: true
       format: 'YYYY-MM-DDTHH:mm:ss\\Z'
-      locale: i18n.lng()
+      #locale: i18n.lng()
       icons:
         time: 'gateway-icon gateway-the-essentials-006',
         date: 'gateway-icon gateway-the-essentials-145',
