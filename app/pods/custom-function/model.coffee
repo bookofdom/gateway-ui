@@ -16,7 +16,7 @@ CustomFunction = Model.extend
   files: DS.hasMany 'custom-function-file', async: true
   tests: DS.hasMany 'custom-function-test', async: true
 
-languages = 'java node csharp python php'.split(' ').map (language) ->
+languages = 'other java node csharp python php'.split(' ').map (language) ->
   name: t "types.language.#{language}"
   slug: language
   value: language

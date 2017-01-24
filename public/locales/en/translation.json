@@ -435,7 +435,8 @@
       "node": "Node",
       "csharp": "C#",
       "python": "Python",
-      "php": "PHP"
+      "php": "PHP",
+      "other": "Other"
     },
     "push-platform": {
       "osx": "OS X",
