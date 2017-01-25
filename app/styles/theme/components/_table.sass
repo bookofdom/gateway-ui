@@ -28,6 +28,31 @@
         background-color: desaturate(lighten($ap-accent, 37%), 7%)
         .ap-list-nav-simple-icon
           visibility: visible
+  .sort-indicators
+    visibility: hidden
+  .sort-indicator-asc
+    border-color: transparent
+    border-bottom-color: darken($ap-slate-lighter, 3%)
+  .sort-indicator-desc
+    border-color: transparent
+    border-top-color: darken($ap-slate-lighter, 3%)
+  > thead > tr > th:hover
+    .sort-indicators
+      visibility: visible
+
+.asc,
+.desc
+  .active-sort
+    .sort-indicators
+      visibility: visible
+.asc
+  .active-sort
+    .sort-indicator-asc
+      border-bottom-color: currentColor
+.desc
+  .active-sort
+    .sort-indicator-desc
+      border-top-color: currentColor
 
 .table-edit
   table > tbody > tr > td
@@ -38,6 +63,13 @@
   table > tbody > tr > td
     .ap-list-link-delete
       display: inline-block
+
+.ap-table-auto-index
+  thead
+    user-select: none
+    -ms-user-select: none
+    -webkit-user-select: none
+    cursor: pointer
 
 //form .table
 //  > tbody > tr > td
