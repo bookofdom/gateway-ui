@@ -25,7 +25,7 @@
     <div class="form-group">
 
       {{#unless logsController.streaming}}
-        <a href="#" class="btn btn-default" title={{t '$t(actions.toggle-x, {"x": "states.streaming"})'}} {{action 'toggle-streaming'}}>
+        <a href="#" class="btn btn-default" title={{t 'actions.toggle-x' x='states.streaming'}} {{action 'toggle-streaming'}}>
           {{t 'states.not-streaming'}}
           <span class="text-muted">{{ap-icon icon='the-essentials-103'}}</span>
         </a>
@@ -33,7 +33,7 @@
 
       {{#if logsController.streaming}}
         {{#unless model.firstObject.streamingTimeout}}
-          <a href="#" class="btn btn-default" title={{t '$t(actions.toggle-x, {"x": "states.streaming"})'}} {{action 'toggle-streaming'}}>
+          <a href="#" class="btn btn-default" title={{t 'actions.toggle-x' x='states.streaming'}} {{action 'toggle-streaming'}}>
             <span class="text-success">
               {{t 'states.streaming'}}
               {{ap-icon icon='the-essentials-102'}}
@@ -41,7 +41,7 @@
           </a>
         {{/unless}}
         {{#if model.firstObject.streamingTimeout}}
-          <a href="#" class="btn btn-default pull-right" title={{t '$t(actions.toggle-x, {"x": "states.streaming"})'}} {{action 'toggle-streaming'}}>
+          <a href="#" class="btn btn-default pull-right" title={{t 'actions.toggle-x' x='states.streaming'}} {{action 'toggle-streaming'}}>
             <span class="text-warning">
               {{t 'states.not-streaming'}}&hellip;
             </span><!-- /.text-success -->
