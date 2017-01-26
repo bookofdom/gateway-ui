@@ -185,6 +185,7 @@
     "plan_plural": "योजनाओं"
   },
   "fields": {
+    "status_code": "कोड",
     "memory": "याद",
     "cpu_shares": "सीपीयू शेयरों",
     "input": "इनपुट",

@@ -195,6 +195,7 @@
     "key_plural": "certificados e chaves"
   },
   "fields": {
+    "status_code": "código",
     "memory": "memória",
     "cpu_shares": "ações da CPU",
     "input": "entrada",

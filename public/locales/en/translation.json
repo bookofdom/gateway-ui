@@ -201,6 +201,7 @@
     "key_plural": "certs and keys"
   },
   "fields": {
+    "status_code": "code",
     "memory": "memory",
     "cpu_shares": "CPU shares",
     "input": "input",
