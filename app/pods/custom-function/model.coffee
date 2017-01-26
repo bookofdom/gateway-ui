@@ -8,7 +8,7 @@ CustomFunction = Model.extend
   language: DS.attr 'string'
   description: DS.attr 'string'
   active: DS.attr 'boolean'
-  memory: DS.attr 'number', defaultValue: 4
+  memory: DS.attr 'number', defaultValue: 8
   cpu_shares: DS.attr 'number', defaultValue: 2
 
   # Relationships
