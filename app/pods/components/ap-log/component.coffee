@@ -18,7 +18,9 @@ ApLogComponent = BsBaseComponent.extend
   # iteration delay when no log currently remains (though more could be added)
   idleSpeed: 750
 
-  appendOnShow: Ember.on 'didInsertElement', -> @runAppend()
+  appendOnShow: Ember.on 'didInsertElement', ->
+    return if Ember.testing
+    @runAppend()
 
   valueObserver: Ember.observer 'value', ->
     cursorPosition = @get 'cursorPosition'

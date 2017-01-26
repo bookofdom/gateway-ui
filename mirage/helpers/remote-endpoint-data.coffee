@@ -2,7 +2,7 @@
 
 enviromentDatumId = 1
 
-types = 'http soap sqlserver postgres mysql mongodb ldap redis oracle script hana store push smtp db2 docker'.split ' '
+types = 'http soap sqlserver postgres mysql mongodb ldap redis oracle script hana store push smtp db2 docker custom_function'.split ' '
 typeCycle = faker.list.cycle types...
 
 statuses = 'success failed pending processing'.split ' '
@@ -165,6 +165,8 @@ generateDataForType = (typeSlug, i) ->
       username: faker.internet.userName()
       password: faker.internet.password()
       registry: faker.internet.domainName()
+    when 'custom_function'
+      {}
   data.headers = generateKeyValues 3
   data.query = generateKeyValues 3
   pushPlatformType = platformCycle i

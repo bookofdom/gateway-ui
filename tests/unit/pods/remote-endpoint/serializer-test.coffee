@@ -431,6 +431,29 @@ moduleForModel 'remote-endpoint', 'Unit | Serializer | remote endpoint',
               maxidle: 5
               maxopen: 5
             environment_data: null
+          , # custom function
+            data:
+              headers: {}
+                # deleniti: 'solid state'
+              query: {}
+                # nostrum: 'virtual'
+            type: 'custom_function'
+            environment_data: [
+              type: 'custom_function'
+              data:
+                headers: {}
+                  # deleniti: 'solid state'
+                query: {}
+                  # nostrum: 'virtual'
+              environment_id: 1
+              id: '23'
+            ]
+            status: 'failed'
+            description: 'Consequatur non ullam quidem sed laborum aut.'
+            codename: 'custom_function'
+            name: 'A Custom Function'
+            id: 14
+            api_id: 1
         ]
       ]
 
@@ -442,4 +465,4 @@ test 'it normalizes records', (assert) ->
     api = apis.get('firstObject')
     api.get('environments').then ->
       api.get('remote_endpoints').then (remote_endpoints) ->
-        assert.equal remote_endpoints.get('length'), 12
+        assert.equal remote_endpoints.get('length'), 13
