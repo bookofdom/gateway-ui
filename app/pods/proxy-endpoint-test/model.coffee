@@ -37,6 +37,7 @@ ProxyEndpointTest = Model.extend
 # Declare available methods and their human-readable names
 methods = 'get post put delete'.split(' ').map (method) ->
   name: t "http-methods.#{method}"
+  nameKey: "http-methods.#{method}"
   slug: method
   value: method.toUpperCase()
 

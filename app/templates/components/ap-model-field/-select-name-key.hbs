@@ -1,0 +1,17 @@
+{{#x-select
+  name=name
+  id=idName
+  value=value
+  required=required
+  disabled=disabled
+  class='form-control'}}
+
+  {{#if prompt}}
+    {{#x-option}}{{prompt}}{{/x-option}}
+  {{/if}}
+
+  {{#each options as |option|}}
+    {{#x-option value=option.value}}{{t option.nameKey}}{{/x-option}}
+  {{/each}}
+
+{{/x-select}}

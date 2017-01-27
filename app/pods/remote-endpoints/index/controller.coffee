@@ -22,15 +22,15 @@ RemoteEndpointsIndexController = Ember.Controller.extend
     label: 'fields.name'
     type: 'string'
   ,
-    name: 'platformName'
+    name: 'platform.nameKey'
     label: 'fields.type'
-    type: 'string'
+    type: 't'
   ,
     name: 'location'
     label: 'fields.location'
     type: 'string'
   ,
-    name: 'statusTypeName'
+    name: 'statusType.nameKey'
     label: 'fields.status'
     type: 'status-label'
   ,
