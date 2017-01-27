@@ -35,7 +35,7 @@ JsonNode = Model.extend
     JsonNode.types.findBy 'value', type
   displayName: Ember.computed 'canHaveValue', 'type', 'name', 'value', ->
     canHaveValue = @get 'canHaveValue'
-    type = @get 'nodeType.name'
+    type = t @get('nodeType.nameKey')
     name = @get 'name'
     value = @get 'value' if canHaveValue
     nameAndValue = "#{name}: #{value}" if name and value
@@ -43,6 +43,7 @@ JsonNode = Model.extend
 
 types = 'object array null boolean number string'.split(' ').map (typeName) ->
   name: t("types.json-type.#{typeName}").toLowerCase()
+  nameKey: "types.json-type.#{typeName}"
   slug: typeName
   value: typeName
 

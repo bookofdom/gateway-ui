@@ -21,7 +21,7 @@ RemoteEndpointFormComponent = BaseRemoteEndpointFormComponent.extend
   newFields: [
     name: 'type'
     required: true
-    type: 'select'
+    type: 'select-name-key'
   ]
 
   submit: ->

@@ -28,7 +28,7 @@
   {{input
     name='organization'
     value=model.organization
-    placeholder=(t '$t(prompts.optional-x, {"x": "fields.organization"})')
+    placeholder=(t 'prompts.optional-x' x='fields.organization')
     class='form-control'}}
 {{/bs-form-group}}
 
@@ -40,12 +40,6 @@
       value=model.plan
       required=true
       class='form-control'}}
-
-      {{!--
-      {{#x-option}}
-        {{t '$t(prompts.choose-x, {"x": "fields.plan"})'}}
-      {{/x-option}}
-      --}}
       {{#each plans as |option|}}
         {{#x-option value=option selected=(eq planName option.name)}}
           {{option.name}} - ${{option.dollars}} / mo.

@@ -2,7 +2,7 @@
   {{input
     name='new_password'
     value=model.new_password
-    placeholder=(t '$t(actions.new-x, {"x": "fields.password"})')
+    placeholder=(t 'actions.new-x' x='fields.password')
     class='form-control input-lg'
     type='password'}}
 {{/bs-form-group}}

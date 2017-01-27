@@ -2,47 +2,51 @@
   <thead>
     <tr>
       {{#each fields as |field|}}
-        <th>{{t field.label}}</th>
+        <th {{action 'changeSort' field}} class="{{if (eq sortField field.name) 'active-sort'}}">
+          {{t field.label}}
+          <span class="sort-indicators">
+            <span class="sort-indicator-asc"></span>
+            <span class="sort-indicator-desc"></span>
+          </span>
+        </th>
       {{/each}}
       <th></th>
     </tr>
   </thead>
   <tbody>
-    {{#each model as |model|}}
-      {{#unless model.isNew}}
-        <tr>
-          {{#each fields as |field i|}}
-            <td>
-              {{!-- first cell gets link --}}
-              {{#if (eq i 0)}}
-                {{#link-to route model}}
-                  {{partial (concat 'components/ap-table-auto-index-cell/' field.type)}}
-                {{/link-to}}
-              {{/if}}
-              {{!-- subsequent cells do not get links --}}
-              {{#unless (eq i 0)}}
-                {{partial (concat 'components/ap-table-auto-index-cell/' field.type)}}
-              {{/unless}}
-            </td>
-          {{/each}}
+    {{#each sorted as |model|}}
+      <tr>
+        {{#each fields as |field i|}}
           <td>
-            {{#ap-list-nav-simple-icon class='pull-right'}}
-              {{ap-list-link
-                class='ap-list-link-edit'
-                t='actions.edit'
-                icon='the-essentials-027'
-                path=edit-route
-                arg1=model}}
-              {{ap-list-link
-                class='ap-list-link-delete'
-                t='actions.delete'
-                icon='the-essentials-011'
-                action='delete'
-                arg1=model}}
-            {{/ap-list-nav-simple-icon}}
+            {{!-- first cell gets link --}}
+            {{#if (eq i 0)}}
+              {{#link-to route model}}
+                {{partial (concat 'components/ap-table-auto-index-cell/' field.type)}}
+              {{/link-to}}
+            {{/if}}
+            {{!-- subsequent cells do not get links --}}
+            {{#unless (eq i 0)}}
+              {{partial (concat 'components/ap-table-auto-index-cell/' field.type)}}
+            {{/unless}}
           </td>
-        </tr>
-      {{/unless}}
+        {{/each}}
+        <td>
+          {{#ap-list-nav-simple-icon class='pull-right'}}
+            {{ap-list-link
+              class='ap-list-link-edit'
+              t='actions.edit'
+              icon='the-essentials-027'
+              path=edit-route
+              arg1=model}}
+            {{ap-list-link
+              class='ap-list-link-delete'
+              t='actions.delete'
+              icon='the-essentials-011'
+              action='delete'
+              arg1=model}}
+          {{/ap-list-nav-simple-icon}}
+        </td>
+      </tr>
     {{/each}}
   </tbody>
 </table><!-- /.table -->

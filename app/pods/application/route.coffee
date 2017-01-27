@@ -4,6 +4,7 @@
 
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   i18n: Ember.inject.service()
+  moment: Ember.inject.service()
   notificationService: Ember.inject.service 'notification'
   notify: Ember.inject.service()
   session: Ember.inject.service()
@@ -19,11 +20,12 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   ]
 
   beforeModel: ->
-    window?.i18next
+    @get('i18n.i18next')
       .use i18nextBrowserLanguageDetector
       .use i18nextLocalStorageCache
-    @get('i18n').initLibraryAsync().then ->
-      moment.locale window?.i18next.language
+    @get('i18n').initLibraryAsync().then =>
+      locale = @get 'i18n.locale'
+      @get('moment').setLocale locale
   afterModel: (first, transition) ->
     @checkSessionValidity transition
     @setupNotifications()

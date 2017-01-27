@@ -83,11 +83,6 @@ module.exports = function(defaults) {
   // i18next extras
   app.import('bower_components/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.js');
   app.import('bower_components/i18next-localstorage-cache/i18nextLocalStorageCache.js');
-  // moment
-  app.import('bower_components/moment/moment.js');
-  app.import('bower_components/moment/locale/es.js');
-  app.import('bower_components/moment/locale/hi.js');
-  app.import('bower_components/moment/locale/pt-br.js');
   // ACE
   // TODO:  customized for Ember compatibility
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/ace.js');

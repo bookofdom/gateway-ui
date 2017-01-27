@@ -19,6 +19,9 @@ RemoteEndpointEnvironmentDatumScratchPadAdapter = ApplicationAdapter.extend
         url: url
         type: 'GET'
         dataType: 'json'
+        crossDomain: true
+        xhrFields:
+          withCredentials: true
       .then (response) ->
         resolve response
       , (xhr, status, error) ->

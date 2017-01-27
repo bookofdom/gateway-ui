@@ -56,6 +56,7 @@ SharedComponent = Model.extend
 # Declare available types and their human-readable names
 types = 'single multi js advanced'.split(' ').map (type) ->
   name: t "types.proxy-endpoint-component.#{type}"
+  nameKey: "types.proxy-endpoint-component.#{type}"
   slug: type
   value: type
 
