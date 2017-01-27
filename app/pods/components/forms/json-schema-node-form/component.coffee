@@ -13,7 +13,7 @@ JsonSchemaNodeFormComponent = BaseFormComponent.extend
   defaultFields: Ember.computed 'model.parentIsObject', 'model.isRoot', ->
     fields = [
       name: 'type'
-      type: 'select'
+      type: 'select-name-key'
     ,
       name: 'title'
       required: @get 'model.isRoot'

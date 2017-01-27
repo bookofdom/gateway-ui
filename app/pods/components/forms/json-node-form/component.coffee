@@ -12,7 +12,7 @@ JsonNodeFormComponent = BaseFormComponent.extend
   defaultFields: Ember.computed 'model.type', 'model.mustHaveName', 'model.canHaveValue', 'model.isRoot', ->
     fields = [
       name: 'type'
-      type: 'select'
+      type: 'select-name-key'
       disabled: @get 'model.isRoot'
     ]
     if @get 'model.mustHaveName'

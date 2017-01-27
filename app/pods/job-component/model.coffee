@@ -54,15 +54,18 @@ JobComponent = Model.extend
     set: (key, value) ->
       @set 'type', 'js' if value?
       @get 'js'
-  name: Ember.computed 'type', ->
+  nameKey: Ember.computed 'type', 'shared', ->
     type = @get 'type'
     type = 'shared' if @get 'shared'
-    t("types.proxy-endpoint-component.#{type}").capitalize()
+    "types.proxy-endpoint-component.#{type}"
+  name: Ember.computed 'nameKey', ->
+    t @get('nameKey')
 
 
 # Declare available types and their human-readable names
 types = 'single multi js'.split(' ').map (type) ->
   name: t "types.proxy-endpoint-component.#{type}"
+  nameKey: "types.proxy-endpoint-component.#{type}"
   slug: type
   value: type
 

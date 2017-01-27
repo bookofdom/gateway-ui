@@ -19,7 +19,7 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
     ,
       name: 'type'
       required: true
-      type: 'select'
+      type: 'select-name-key'
     ]
 
   platformFields:
