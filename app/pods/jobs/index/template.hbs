@@ -1,9 +1,7 @@
 {{#ap-page t='resources.job_plural' help-url=(docs-url 'jobs') showNew=true}}
 
-  {{partial 'jobs/filter-form'}}
-
   {{ap-table-auto-index
-      model=filtered
+      model=model
       fields=fields
       route='job.edit'}}
 
