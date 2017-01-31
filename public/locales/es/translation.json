@@ -420,7 +420,8 @@
       "single": "llamada",
       "multi": "multi-llamada",
       "js": "lógica",
-      "shared": "compartido"
+      "shared": "compartido",
+      "advanced": "avanzado"
     },
     "session": {
       "client": "cliente",

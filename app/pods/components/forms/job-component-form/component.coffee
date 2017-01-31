@@ -19,7 +19,7 @@ JobComponentFormComponent = BaseFormComponent.extend
       name: 'conditional'
       type: 'javascript'
     ]
-    if @get 'model.js'
+    if (@get 'model.js') or (@get 'model.advanced')
       fields.push
         name: 'body'
         label: 'fields.logic'

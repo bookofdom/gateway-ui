@@ -419,7 +419,8 @@
       "single": "chamada",
       "multi": "multi-chamada",
       "js": "lógica",
-      "shared": "compartilhado"
+      "shared": "compartilhado",
+      "advanced": "avançado"
     },
     "session": {
       "client": "cliente",

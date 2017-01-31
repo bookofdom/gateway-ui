@@ -13,7 +13,7 @@ SharedComponentFormComponent = BaseFormComponent.extend
   'transformation-option-groups': null
   'option-groups': null
 
-  defaultFields: Ember.computed 'model.js', 'model.single', 'model.multi', ->
+  defaultFields: Ember.computed 'model.js', 'model.single', 'model.multi', 'model.advanced', ->
     fields = [
       name: 'name'
       required: true
@@ -27,7 +27,7 @@ SharedComponentFormComponent = BaseFormComponent.extend
       name: 'conditional'
       type: 'javascript'
     ]
-    if @get 'model.js'
+    if (@get 'model.js') or (@get 'model.advanced')
       fields.push
         name: 'body'
         label: 'fields.logic'
