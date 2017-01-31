@@ -2,7 +2,6 @@
 
 ProxyEndpointsController = Ember.Controller.extend
   breadCrumb: 'resources.proxy-endpoint_plural'
-  queryParams: ['environment_id', 'endpoint_group_id']
 
   api: Ember.inject.controller()
   'option-groups': Ember.computed 'api.environments.@each.isNew', 'api.endpoint_groups.@each.isNew', 'api.remote_endpoints.@each.isNew', ->

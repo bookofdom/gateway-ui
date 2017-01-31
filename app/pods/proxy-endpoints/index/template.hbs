@@ -1,9 +1,7 @@
 {{#ap-page t='resources.proxy-endpoint_plural' help-url=(docs-url 'proxy-endpoints') showNew=true}}
 
-  {{partial 'proxy-endpoints/filter-form'}}
-
   {{ap-table-auto-index
-      model=filtered
+      model=model
       fields=fields
       route='proxy-endpoint.edit'}}
 
