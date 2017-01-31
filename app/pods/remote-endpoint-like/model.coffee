@@ -175,31 +175,37 @@ RemoteEndpointLike = Model.extend
 # Declare available types and their human-readable names
 types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle smtp db2 docker job key custom_function'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
+  nameKey: "types.remote-endpoint.#{type}"
   slug: type
   value: type
 
 statusTypes = 'success failed pending processing'.split(' ').map (type) ->
   name: t "types.remote-endpoint.status-types.#{type}"
+  nameKey: "types.remote-endpoint.status-types.#{type}"
   slug: type
   value: type.underscore()
 
 encryptModes = 'disable true false'.split(' ').map (mode) ->
   name: t "types.remote-endpoint.encrypt-modes.#{mode}"
+  nameKey: "types.remote-endpoint.encrypt-modes.#{mode}"
   slug: mode
   value: mode
 
 sslModes = 'disable allow prefer require'.split(' ').map (mode) ->
   name: t "types.remote-endpoint.ssl-modes.#{mode}"
+  nameKey: "types.remote-endpoint.ssl-modes.#{mode}"
   slug: mode
   value: mode
 
 authSchemes = 'basic wsse'.split(' ').map (scheme) ->
   name: t "types.remote-endpoint.auth-schemes.#{scheme}"
+  nameKey: "types.remote-endpoint.auth-schemes.#{scheme}"
   slug: scheme
   value: scheme
 
 protocols = 'tcpip ssl'.split(' ').map (protocol) ->
   name: t "types.remote-endpoint.protocols.#{protocol}"
+  nameKey: "types.remote-endpoint.protocols.#{protocol}"
   slug: protocol
   value: protocol.toUpperCase()
 

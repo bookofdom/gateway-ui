@@ -5,19 +5,21 @@ ApplicationSerializer = DS.RESTSerializer.extend
   # Generates a unique ID.  Useful for adding temporary client-side IDs to
   # embedded records, many of which may have no ID of their own.
   generateId: -> window.uuid.v4()
-  # If the instance didn't come with an ID, it's critical to add one
-  # for client-side tracking purposes.
   normalize: (type, hash, property) ->
     hash.id = @generateId() if !hash.id
     @_super arguments...
-  # Ensure that *something* is present in a save response or else normalize will
-  # not be called and an empty resonse will result in an Ember error.
+  # Ensure that response has a body if it's not a delete request.
+  # `normalize` is called only for responses with bodies and normalize adds the
+  # Ember-required ID if one is not present.
+  # However, `delete` requests with a body and an ID will fail miserably, so
+  # we check to make sure this is not a delete request.
   # Since 2.10, responses are required to have an ID.
-  normalizeSaveResponse: (store, primaryModelClass, payload, id, requestType) ->
-    payloadKey = @payloadKeyFromModelName primaryModelClass.modelName
-    if payload? and !payload[payloadKey]
-      payload[payloadKey] = {}
-    @_super.apply @, [store, primaryModelClass, payload, id, requestType]
+  normalizeSingleResponse: (store, primaryModelClass, payload, id, requestType) ->
+    if !requestType.match /delete/
+      payloadKey = @payloadKeyFromModelName primaryModelClass.modelName
+      if payload? and !payload[payloadKey]
+        payload[payloadKey] = {}
+    @_normalizeResponse store, primaryModelClass, payload, id, requestType, true
 
   payloadKeyFromModelName: (modelName) ->
     Ember.String.underscore modelName

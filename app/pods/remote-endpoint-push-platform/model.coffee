@@ -28,6 +28,7 @@ RemoteEndpointPushPlatform = Model.extend
 # Declare available types and their human-readable names
 types = 'osx ios gcm fcm mqtt'.split(' ').map (type) ->
   name: t "types.push-platform.#{type}"
+  nameKey: "types.push-platform.#{type}"
   slug: type
   value: type
 

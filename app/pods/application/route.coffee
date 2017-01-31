@@ -3,6 +3,8 @@
 `import config from  'gateway-ui/config/environment'`
 
 ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
+  i18n: Ember.inject.service()
+  moment: Ember.inject.service()
   notificationService: Ember.inject.service 'notification'
   notify: Ember.inject.service()
   session: Ember.inject.service()
@@ -17,6 +19,19 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     'push-channel-message'
   ]
 
+  beforeModel: ->
+    # hack the config to support ui_base_path for translation loading
+    uiBasePath = config.ui_base_path
+    if uiBasePath?.length > 1
+      uiBasePath = uiBasePath.replace(/^\//, '').replace(/\/$/, '')
+      config.i18nextOptions.backend =
+        loadPath: "/#{uiBasePath}/locales/{{lng}}/{{ns}}.json"
+    @get('i18n.i18next')
+      .use i18nextBrowserLanguageDetector
+      .use i18nextLocalStorageCache
+    @get('i18n').initLibraryAsync().then =>
+      locale = @get 'i18n.locale'
+      @get('moment').setLocale locale
   afterModel: (first, transition) ->
     @checkSessionValidity transition
     @setupNotifications()
@@ -127,8 +142,8 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   actions:
     invalidateSession: ->
       @get('session').invalidate()
-    localChange: (locale) ->
-      window.location.search = "locale=#{locale}"
+    localeChange: (locale) ->
+      window.location.search = "lng=#{locale}"
     loading: ->
       @set 'isLoading', true
       true

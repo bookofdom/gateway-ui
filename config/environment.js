@@ -7,6 +7,15 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+    i18nextOptions: {
+      fallbackLng: 'en',
+      whitelist: ['en', 'es', 'pt-BR']
+    },
+    moment: {
+      includeLocales: ['en', 'es', 'pt-br'],
+      outputFormat: 'lll',
+      allowEmpty: true
+    },
     'simple-auth': {
       authenticationRoute: 'login',
       routeAfterAuthentication: 'index',
@@ -38,6 +47,7 @@ module.exports = function(environment) {
     registration_enabled: true, // expose the user registration UI?
 
     version: null,
+    show_version: false,
     dev_mode: false,
     go_os: null,
     remote_endpoint_types_enabled: null,
@@ -78,6 +88,9 @@ module.exports = function(environment) {
     ENV.api.swaggerViewerPath = '/swagger';
     ENV.api.swaggerJsonPath = '/swagger';
 
+    ENV.version = '0.0.0';
+    ENV.show_version = true;
+
     ENV.go_os = 'darwin';
     ENV.APP.notifications = true;
     ENV.APP.mockNotifications = true;
@@ -109,6 +122,7 @@ module.exports = function(environment) {
     ENV.api.host = 'ADMIN_API_HOST';
     ENV.registration_enabled = 'REGISTRATION_ENABLED';
     ENV.version = 'VERSION';
+    ENV.show_version = 'SHOW_VERSION';
     ENV.dev_mode = 'DEV_MODE';
     ENV.go_os = 'GO_OS';
     ENV.remote_endpoint_types_enabled = 'REMOTE_ENDPOINT_TYPES_ENABLED';

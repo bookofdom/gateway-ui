@@ -24,13 +24,13 @@
     "cancel": "cancel",
     "clear": "clear",
     "new": "new",
-    "new-x": "new $t(__x__)",
+    "new-x": "new $t({{x}})",
     "edit": "edit",
-    "edit-x": "edit $t(__x__)",
+    "edit-x": "edit $t({{x}})",
     "import": "import",
     "export": "export",
     "toggle": "toggle",
-    "toggle-x": "toggle $t(__x__)",
+    "toggle-x": "toggle $t({{x}})",
     "execute": "execute",
     "specify-custom": "specify custom",
     "drop-or-click-to-upload": "drop or click to upload",
@@ -370,11 +370,11 @@
   },
   "prompts": {
     "generic": "choose one",
-    "choose-x": "choose $t(__x__)",
+    "choose-x": "choose $t({{x}})",
     "confirm-delete": "are you sure you want to delete this record?",
     "confirm-abandon": "are you sure you want to leave this record without saving?",
     "change-language": "change language",
-    "optional-x": "$t(__x__) (optional)",
+    "optional-x": "$t({{x}}) (optional)",
     "app-version-update": "updates available, reload?"
   },
   "states": {
@@ -418,17 +418,17 @@
     "registration-confirmation": "account successfully activated"
   },
   "headers": {
-    "x-workflow": "__x__ workflow"
+    "x-workflow": "{{x}} workflow"
   },
   "conditionals": {
     "if": "if",
     "unless": "unless"
   },
   "notifications": {
-    "create": "__user__ created one __resource__",
-    "update": "__user__ updated one __resource__",
-    "delete": "__user__ deleted one __resource__",
-    "import": "__user__ imported one __resource__"
+    "create": "{{user}} created one {{resource}}",
+    "update": "{{user}} updated one {{resource}}",
+    "delete": "{{user}} deleted one {{resource}}",
+    "import": "{{user}} imported one {{resource}}"
   },
   "types": {
     "language": {
@@ -463,7 +463,8 @@
       "single": "single call",
       "multi": "multi-call",
       "js": "logic",
-      "shared": "shared"
+      "shared": "shared",
+      "advanced": "advanced"
     },
     "session": {
       "client": "client",

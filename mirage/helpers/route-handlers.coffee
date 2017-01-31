@@ -56,4 +56,4 @@ makePostChildHandler = (parentModelName, modelName, callback, key) ->
     callback(schema[modelName.camelize()], request, response) if callback
     response
 
-`export { makePostHandler, makePutHandler, makeGetChildrenHandler, makePostChildHandler }`
+`export { makePostHandler, makePutHandler, makeGetChildrenHandler, makePostChildHandler, getChildren }`

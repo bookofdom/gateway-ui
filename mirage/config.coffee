@@ -1,5 +1,6 @@
+`import Ember from 'ember'`
 `import { Response } from 'ember-cli-mirage'`
-`import { makePostHandler, makePutHandler, makeGetChildrenHandler, makePostChildHandler } from './helpers/route-handlers'`
+`import { makePostHandler, makePutHandler, makeGetChildrenHandler, makePostChildHandler, getChildren } from './helpers/route-handlers'`
 
 config = ->
   @passthrough()
@@ -169,7 +170,17 @@ config = ->
   @put '/apis/:apiId/shared_components/:id', makePutHandler 'shared_component'
   @del '/apis/:apiId/shared_components/:id'
 
-  @get '/apis/:apiId/proxy_endpoints', makeGetChildrenHandler('api', 'proxy_endpoint')
+  @get '/apis/:apiId/proxy_endpoints', (schema, request) ->
+    records = getChildren schema, request, 'api', 'proxy_endpoint'
+    simpleRecords = records.map (record) ->
+      # remove relationship fields to simulate index payload of actual server
+      attrs = Ember.copy record.attrs
+      delete attrs.components
+      delete attrs.channels
+      delete attrs.tests
+      delete attrs.routes
+      attrs
+    proxy_endpoints: simpleRecords
   @post '/apis/:apiId/proxy_endpoints', makePostChildHandler('api', 'proxy_endpoint')
   @get '/apis/:apiId/proxy_endpoints/:id'
   @put '/apis/:apiId/proxy_endpoints/:id', makePutHandler 'proxy_endpoint'

@@ -3,6 +3,7 @@
 
 ApplicationController = Ember.Controller.extend Ember.Evented,
   version: config.version
+  show_version: config.show_version?.toString() is 'true'
   dev_mode: config.dev_mode?.toString() is 'true'
   session: Ember.inject.service()
 

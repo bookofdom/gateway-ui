@@ -18,16 +18,6 @@ JobsIndexController = Ember.Controller.extend
     environment: if environment? then environment.get 'name' else t 'prompts.choose-x', x: 'resources.environment'
     endpoint_group: if endpoint_group? then endpoint_group.get 'name' else t 'prompts.choose-x', x: 'resources.endpoint-group'
 
-  filtered: Ember.computed 'model.[]', 'jobs.environment_id', 'jobs.endpoint_group_id', ->
-    environment_id = @get 'jobs.environment_id'
-    endpoint_group_id = @get 'jobs.endpoint_group_id'
-    model = @get 'model'
-    if environment_id
-      model = model.filterBy 'environment.id', environment_id
-    if endpoint_group_id
-      model = model.filterBy 'endpoint_group.id', endpoint_group_id
-    model
-
   fields: [
     name: 'name'
     label: 'fields.name'
