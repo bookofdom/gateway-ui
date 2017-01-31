@@ -20,6 +20,12 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
   ]
 
   beforeModel: ->
+    # hack the config to support ui_base_path for translation loading
+    uiBasePath = config.ui_base_path
+    if uiBasePath?.length > 1
+      uiBasePath = uiBasePath.replace(/^\//, '').replace(/\/$/, '')
+      config.i18nextOptions.backend =
+        loadPath: "/#{uiBasePath}/locales/{{lng}}/{{ns}}.json"
     @get('i18n.i18next')
       .use i18nextBrowserLanguageDetector
       .use i18nextLocalStorageCache
