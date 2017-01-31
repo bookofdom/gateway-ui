@@ -11,7 +11,7 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
     type = 'shared' if @get 'model.shared'
     "components/forms/proxy-endpoint-component/#{type}-form"
 
-  fields: Ember.computed 'model.js', 'model.single', 'model.multi', 'model.shared', ->
+  fields: Ember.computed 'model.js', 'model.single', 'model.multi', 'model.shared', 'model.advanced', ->
     fields = [
       name: 'conditional_positive'
       type: 'conditional-positive'
@@ -19,7 +19,7 @@ ProxyEndpointComponentFormComponent = BaseFormComponent.extend
       name: 'conditional'
       type: 'javascript'
     ]
-    if @get 'model.js'
+    if (@get 'model.js') or (@get 'model.advanced')
       fields.push
         name: 'body'
         label: 'fields.logic'
