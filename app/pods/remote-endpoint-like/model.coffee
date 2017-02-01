@@ -11,6 +11,7 @@ RemoteEndpointLike = Model.extend
   status_message: DS.attr 'string'
   # http
   method: DS.attr 'string'
+  skip_ssl_verification: DS.attr 'boolean'
   # soap
   wsdl: DS.attr 'string'
   service_name: DS.attr 'string'

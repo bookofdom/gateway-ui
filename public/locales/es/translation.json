@@ -326,6 +326,7 @@
     "month": "mes",
     "day_of_week": "día de la semana",
     "parameters": "parámetros",
+    "skip_ssl_verification": "omitir la verificación SSL",
     "help": {
       "timeout": "Número de segundos.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
