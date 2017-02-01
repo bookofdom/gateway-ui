@@ -338,6 +338,7 @@
     "month": "month",
     "day_of_week": "day of week",
     "parameters": "parameters",
+    "skip_ssl_verification": "skip SSL verification",
     "help": {
       "timeout": "Number of seconds.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
