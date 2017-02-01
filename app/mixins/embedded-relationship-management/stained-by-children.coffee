@@ -59,7 +59,7 @@ StainedByChildrenMixin = Ember.Mixin.create
       computedFn = -> dirtyProps.reduce reducer, false
       computedProps = (prop.propertyName for prop in dirtyProps)
       computedProps.push computedFn
-      computed = Ember.computed.apply Ember, computedProps
+      computed = Ember.computed computedProps...
       Ember.defineProperty @, 'hasAllowedDirtyChildren', computed
 
   _setupHasChangedBelongsToProperty: Ember.on 'init', ->
@@ -77,7 +77,7 @@ StainedByChildrenMixin = Ember.Mixin.create
         isDirty
       computedProps = ("#{prop.relationshipName}.id" for prop in belongsToProps)
       computedProps.push computedFn
-      computed = Ember.computed.apply Ember, computedProps
+      computed = Ember.computed(computedProps...).volatile()
       Ember.defineProperty @, 'hasChangedBelongsTo', computed
 
   _rollbackChangedBelongsToOn: Ember.on 'didRollbackAttributes', ->
