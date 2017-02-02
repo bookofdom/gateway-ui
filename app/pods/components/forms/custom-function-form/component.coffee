@@ -28,6 +28,8 @@ CustomFunctionFormComponent = BaseFormComponent.extend
   ,
     name: 'cpu_shares'
   ,
+    name: 'timeout'
+  ,
     name: 'description'
     type: 'textarea'
   ]

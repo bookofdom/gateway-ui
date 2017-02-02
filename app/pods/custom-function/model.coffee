@@ -10,6 +10,7 @@ CustomFunction = Model.extend
   active: DS.attr 'boolean'
   memory: DS.attr 'number', defaultValue: 8
   cpu_shares: DS.attr 'number', defaultValue: 2
+  timeout: DS.attr 'number', defaultValue: 60
 
   # Relationships
   api: DS.belongsTo 'api', async: true
