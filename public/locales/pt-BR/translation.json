@@ -341,6 +341,7 @@
     "parameters": "parâmetros",
     "help": {
       "timeout": "O número de segundos.",
+      "memory": "Número de MB.",
       "content-type": "À procura de algo mais? Especifique um costume Content-Type nos cabeçalhos de solicitação.",
       "enable_swagger": "Ativar Swagger para procurar a documentação da API e publicar `swagger.json`.",
       "key": "PEM, PFX ou P12"
