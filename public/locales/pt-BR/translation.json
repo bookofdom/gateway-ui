@@ -339,6 +339,7 @@
     "month": "mês",
     "day_of_week": "dia da semana",
     "parameters": "parâmetros",
+    "skip_ssl_verification": "ignorar a verificação SSL",
     "help": {
       "timeout": "O número de segundos.",
       "memory": "Número de MB.",

@@ -34,6 +34,7 @@ generateDataForType = (typeSlug, i) ->
     when 'http'
       url: "https://#{faker.internet.domainName()}"
       method: methodCycle i
+      skip_ssl_verification: faker.random.boolean()
     when 'soap'
       data =
         serviceName: faker.lorem.words().join('')

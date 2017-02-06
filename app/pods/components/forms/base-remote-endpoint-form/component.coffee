@@ -47,6 +47,8 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ,
         name: 'method'
         type: 'select'
+      ,
+        name: 'skip_ssl_verification'
       ]
       soap: [
         name: 'wsdl'
