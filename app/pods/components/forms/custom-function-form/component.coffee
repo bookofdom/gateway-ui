@@ -16,7 +16,7 @@ CustomFunctionFormComponent = BaseFormComponent.extend
   ,
     name: 'language'
     required: true
-    type: 'select'
+    type: 'select-name-key'
   ]
   editFields: [
     name: 'name'

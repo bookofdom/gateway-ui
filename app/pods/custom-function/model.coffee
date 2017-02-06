@@ -19,6 +19,7 @@ CustomFunction = Model.extend
 
 languages = 'other java node csharp python php'.split(' ').map (language) ->
   name: t "types.language.#{language}"
+  nameKey: "types.language.#{language}"
   slug: language
   value: language
 
