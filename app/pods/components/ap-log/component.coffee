@@ -8,7 +8,6 @@ ApLogComponent = BsBaseComponent.extend
   tagName: 'pre'
   classNames: ['ap-log']
   value: null
-  output: ''
   reset: 0
   cursorPosition: 0
   selectionSize: 80 * 50 # conventional line length * number of lines
@@ -22,13 +21,6 @@ ApLogComponent = BsBaseComponent.extend
     return if Ember.testing
     @runAppend()
 
-  valueObserver: Ember.observer 'value', ->
-    cursorPosition = @get 'cursorPosition'
-    value = @get 'value'
-    if value?.length < cursorPosition
-      @set 'output', ''
-      @set 'cursorPosition', 0
-
   runAppend: ->
     speedMs = @get 'speedMs'
     Ember.run.later (=>
@@ -37,6 +29,10 @@ ApLogComponent = BsBaseComponent.extend
         value = value.replace(ansiRegex, '')
         length = value.length
         cursorPosition = @get 'cursorPosition'
+        if length < cursorPosition
+          @$().empty()
+          @set 'cursorPosition', 0
+          cursorPosition = 0
         remaining = length - cursorPosition
         selectionSize = @get 'selectionSize'
         selectionSize = remaining if remaining < selectionSize
@@ -45,9 +41,8 @@ ApLogComponent = BsBaseComponent.extend
         if remaining > 0
           selection = value.slice x1, x2
           @set 'cursorPosition', x2
-          output = @get 'output'
-          output = output.concat selection
-          @set 'output', output
+          @$().append selection
+          @scrollToBottom()
           @set 'speedMs', @get('workingSpeed')
         else
           # if nothing remains, slow things down
@@ -55,7 +50,7 @@ ApLogComponent = BsBaseComponent.extend
         @runAppend() # and repeat
     ), speedMs
 
-  scrollToBottom: Ember.on 'didUpdate', ->
+  scrollToBottom: ->
     scrollHeight = @$()?[0]?.scrollHeight
     @$().scrollTop(scrollHeight + 200) if scrollHeight
 
