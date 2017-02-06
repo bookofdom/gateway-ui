@@ -64,7 +64,7 @@
     "descriptions": {
       "define-api": "definir los puntos finales de API y la lógica de flujo de trabajo microservice",
       "manage-api": "crea las claves y especifica las reglas de las APIs",
-      "custom-functions": "definir imágenes de acoplador",
+      "custom-functions": "definir funciones de Node, Java, C#, PHP y Python",
       "manage-store": "gestionar los datos en un almacén de objetos",
       "manage": "gestionar el almacén de datos de objetos y empujar los servicios de notificación",
       "store-collections": "administrar colecciones de una tienda local y datos",

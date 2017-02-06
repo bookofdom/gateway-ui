@@ -64,7 +64,7 @@
     "descriptions": {
       "define-api": "define API endpoints and microservice workflow logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
-      "custom-functions": "Define docker images",
+      "custom-functions": "define functions in Node, Java, C#, PHP, and Python",
       "manage-store": "manage data in an object store",
       "manage": "manage object data store and push notification services",
       "store-collections": "manage local store collections and data",

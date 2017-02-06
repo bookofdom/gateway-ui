@@ -64,7 +64,7 @@
     "descriptions": {
       "define-api": "definir terminais de API e lógica de fluxo de trabalho Microservice",
       "manage-api": "cria as chave e especifica as regras das suas APIs",
-      "custom-functions": "definir imagens do docker",
+      "custom-functions": "definir funções em Node, Java, C #, PHP e Python",
       "manage-store": "gerenciar dados em um armazenamento de objetos",
       "manage": "gerenciar armazenamento de dados objeto e empurrar serviços de notificação",
       "store-collections": "gerenciar coleções de lojas locais e dados",
