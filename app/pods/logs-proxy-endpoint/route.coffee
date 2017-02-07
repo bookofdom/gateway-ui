@@ -9,6 +9,11 @@ LogsProxyEndpointRoute = LogsRoute.extend
     model.enableStreaming()
     [model]
 
+  disableStreaming: ->
+    model = @modelFor 'logs-proxy-endpoint'
+    if model
+      instance.disableStreaming() for instance in model
+
   queryStore: (params) ->
     params.proxy_endpoint = @modelFor 'proxy-endpoint'
     @store.query 'log', params

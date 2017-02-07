@@ -4,7 +4,7 @@
 # Encapsulates Stripe Checkout.
 
 StripeCheckoutService = Ember.Service.extend Ember.Evented,
-  _i18n: window.i18n
+  i18n: Ember.inject.service()
   _stripeCheckout: window.StripeCheckout
   isEnabled: Ember.computed '_stripeCheckout', ->
     @get('_stripeCheckout')?
@@ -12,7 +12,7 @@ StripeCheckoutService = Ember.Service.extend Ember.Evented,
     @get('_stripeCheckout')?.configure
       key: config.stripe?.publishableKey
       image: 'https://stripe.com/img/documentation/checkout/marketplace.png'
-      locale: @get('_i18n').lng()
+      locale: @get('i18n.locale')
   getToken: (options) ->
     isEnabled = @get 'isEnabled'
     checkout = @get 'checkout'

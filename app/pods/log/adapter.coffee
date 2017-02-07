@@ -71,10 +71,8 @@ LogAdapter = ApplicationAdapter.extend Ember.Evented,
     socketModel = model
 
   closeSocket: ->
-    #oldSocketUrl = socket?.socket?.url
-    if socket?
-      #@get('websockets').closeSocketFor oldSocketUrl
-      socket?.socket.close()
+    oldSocketUrl = socket?.socket?.url
+    @get('websockets').closeSocketFor oldSocketUrl if oldSocketUrl
     @stopHeartbeats(socketModel) if socketModel
 
   timeoutSocket: ->
