@@ -58,6 +58,11 @@ defaultScenario = (server) ->
         jobId: job.id
       server.createList 'job_test', 5,
         jobId: job.id
+    server.createList('custom_function', 10, apiId: id).forEach (customFunction) ->
+      server.createList 'custom_function_file', 5,
+        customFunctionId: customFunction.id
+      server.createList 'custom_function_test', 5,
+        customFunctionId: customFunction.id
 
   # push
   channels = server.createList 'push_channel', 5

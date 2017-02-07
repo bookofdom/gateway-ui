@@ -8,6 +8,7 @@ moduleForModel 'job', 'Unit | Serializer | job',
     'serializer:environment'
     'serializer:job'
     'model:api'
+    'model:custom-function'
     'model:endpoint-group'
     'model:environment'
     'model:environment-variable'

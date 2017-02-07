@@ -12,6 +12,7 @@ moduleForModel 'proxy-endpoint-component-transformation', 'Unit | Serializer | p
     'serializer:proxy-endpoint-component-call'
     'serializer:proxy-endpoint-component-transformation'
     'model:api'
+    'model:custom-function'
     'model:endpoint-group'
     'model:environment'
     'model:environment-variable'

@@ -15,6 +15,7 @@
     "button_plural": "buttons"
   },
   "actions": {
+    "build": "build",
     "toggle-navivagation": "toggle navigation",
     "login": "login",
     "logout": "logout",
@@ -63,6 +64,7 @@
     "descriptions": {
       "define-api": "define API endpoints and microservice workflow logic",
       "manage-api": "set up keys and specify entitlement rules across your APIs",
+      "custom-functions": "define functions in Node, Java, C#, PHP, and Python",
       "manage-store": "manage data in an object store",
       "manage": "manage object data store and push notification services",
       "store-collections": "manage local store collections and data",
@@ -101,6 +103,12 @@
     "api_plural": "APIs",
     "api-endpoint": "API endpoint",
     "api-endpoint_plural": "API endpoints",
+    "custom-function": "custom function",
+    "custom-function_plural": "custom functions",
+    "custom-function-file": "file",
+    "custom-function-file_plural": "files",
+    "custom-function-test": "test",
+    "custom-function-test_plural": "tests",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
     "proxy-endpoint-channel": "channel",
@@ -193,6 +201,12 @@
     "key_plural": "certs and keys"
   },
   "fields": {
+    "status_code": "code",
+    "memory": "memory",
+    "cpu_shares": "CPU shares",
+    "input": "input",
+    "output": "output",
+    "language": "language",
     "account_name": "account name",
     "connect_timeout": "connect timeout",
     "channels": "channels",
@@ -338,8 +352,10 @@
     "month": "month",
     "day_of_week": "day of week",
     "parameters": "parameters",
+    "skip_ssl_verification": "skip SSL verification",
     "help": {
       "timeout": "Number of seconds.",
+      "memory": "Number of MB.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
       "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`.",
       "key": "PEM, P12 or PFX"
@@ -417,6 +433,14 @@
     "import": "{{user}} imported one {{resource}}"
   },
   "types": {
+    "language": {
+      "java": "Java",
+      "node": "Node",
+      "csharp": "C#",
+      "python": "Python",
+      "php": "PHP",
+      "other": "Other"
+    },
     "push-platform": {
       "osx": "OS X",
       "ios": "iOS",
@@ -449,6 +473,7 @@
       "server": "server"
     },
     "remote-endpoint": {
+      "custom_function": "custom function",
       "push": "push",
       "http": "HTTP",
       "soap": "SOAP",

@@ -11,6 +11,7 @@ RemoteEndpointLike = Model.extend
   status_message: DS.attr 'string'
   # http
   method: DS.attr 'string'
+  skip_ssl_verification: DS.attr 'boolean'
   # soap
   wsdl: DS.attr 'string'
   service_name: DS.attr 'string'
@@ -173,7 +174,7 @@ RemoteEndpointLike = Model.extend
   push_platform_codenames: Ember.computed.mapBy 'push_platforms', 'codename'
 
 # Declare available types and their human-readable names
-types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle smtp db2 docker job key'.split(' ').map (type) ->
+types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle smtp db2 docker job key custom_function'.split(' ').map (type) ->
   name: t "types.remote-endpoint.#{type}"
   nameKey: "types.remote-endpoint.#{type}"
   slug: type

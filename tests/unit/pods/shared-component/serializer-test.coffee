@@ -6,6 +6,7 @@ moduleForModel 'shared-component', 'Unit | Serializer | shared component',
     'serializer:api'
     'serializer:shared-component'
     'model:api'
+    'model:custom-function'
     'model:environment-variable'
     'model:endpoint-group'
     'model:environment'

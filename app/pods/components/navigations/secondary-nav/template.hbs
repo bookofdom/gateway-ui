@@ -6,6 +6,12 @@
   path='jobs'
   t='resources.job_plural'
   secondary='nav.descriptions.jobs'}}
+{{#if showCustomFunctions}}
+  {{ap-list-link
+    path='custom-functions'
+    t='resources.custom-function_plural'
+    secondary='nav.descriptions.custom-functions'}}
+{{/if}}
 {{ap-list-link
   path='shared-components'
   t='resources.shared-component_plural'

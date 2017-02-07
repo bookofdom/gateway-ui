@@ -65,6 +65,15 @@ Router.map ->
             @route 'job-test', resetNamespace: true, path: ':job_test_id', ->
               @route 'edit'
           @route 'logs-job', resetNamespace: true, path: 'logs', (->)
+      @route 'custom-functions', resetNamespace: true, ->
+        @route 'custom-function', resetNamespace: true, path: ':custom_function_id', ->
+          @route 'edit'
+          @route 'custom-function-files', resetNamespace: true, path: 'files', ->
+            @route 'custom-function-file', resetNamespace: true, path: ':custom_function_file_id', ->
+              @route 'edit'
+          @route 'custom-function-tests', resetNamespace: true, path: 'tests', ->
+            @route 'custom-function-test', resetNamespace: true, path: ':custom_function_test_id', ->
+              @route 'edit'
       @route 'shared-components', resetNamespace: true, path: 'components', ->
         @route 'new', ->
           @route 'type', path: ':shared_component_type'

@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{#if custom_function_build.time}}
+      <span class="label label-default">{{custom_function_build.time}} ms</span>
+    {{/if}}
+  </div>
+
+  <div class="panel-body">
+    {{#unless model.hasDirtyAttributes}}
+      {{#unless custom_function_build.executing}}
+        <a class="btn btn-default" {{action 'executeBuild'}}>
+          {{t 'actions.build'}}
+          {{ap-icon icon='arrows-006'}}
+        </a>
+        <br>
+        <br>
+      {{/unless}}
+    {{/unless}}
+    <div class="form-group">
+      <label class="control-label col-sm-2">{{t 'fields.log'}}</label>
+      {{ap-log value=custom_function_build.lines}}
+    </div><!-- /.form-group -->
+  </div><!-- /.panel-body -->
+</div>
