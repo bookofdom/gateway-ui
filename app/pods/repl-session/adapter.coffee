@@ -18,19 +18,23 @@ ReplSessionAdapter = ApplicationAdapter.extend Ember.Evented,
     intervalString = config.APP.wsHeartbeatInterval?.toString()
     parseInt(intervalString, 10) * 1000
 
-  buildSocketURL: (type) ->
-    url = @urlForFindAll type
+  buildSocketURL: (replSession) ->
+    environmentSnapshot = replSession.get('environment.content')._createSnapshot()
+    environmentAdapter = @store.adapterFor 'environment'
+    modelName = environmentSnapshot.record.constructor.modelName
+    id = environmentSnapshot.id
+    url = environmentAdapter.buildURL modelName, id, environmentSnapshot, 'GET'
     isSecure = (location.protocol is 'https:') or (url.match /^https:\/\//)
     url = url.replace /^[a-z]*:\/\//, '' # remove protocol
-    url = "#{location.host}#{url}" if !config.api.host
+    url = "#{location.host}#{url}/repl/socket" if !config.api.host
     protocol = if isSecure then 'wss:' else 'ws:'
     url = "#{protocol}//#{url}"
     # replace double leading slash with single
     url = @cleanURL url
     url
 
-  enableStreaming: ->
-    url = @buildSocketURL 'repl-session'
+  enableStreaming: (replSession) ->
+    url = @buildSocketURL replSession
     @set 'enabled', true
     @openSocket url
 
@@ -49,8 +53,9 @@ ReplSessionAdapter = ApplicationAdapter.extend Ember.Evented,
     socketUrl = url
     newSocket = @get('websockets').socketFor url
     newSocket.on 'message', ((event) ->
-      if !@isHeartbeat event.data
-        @trigger 'socketMessage', event.data
+      frame = JSON.parse event.data
+      if !@isHeartbeat frame
+        @trigger 'socketMessage', frame
       else
         @trigger 'socketHeartbeat'
     ), @
@@ -58,9 +63,8 @@ ReplSessionAdapter = ApplicationAdapter.extend Ember.Evented,
     socket = newSocket
     @startHeartbeats()
 
-  onSocketMessage: Ember.on 'socketMessage', (payload) ->
-    output = JSON.parse payload
-    @printOutput output
+  onSocketMessage: Ember.on 'socketMessage', (frame) ->
+    @print frame
 
   onSocketClose: Ember.on 'socketClose', ->
     if @get('enabled') and @get('autoReconnect')
@@ -69,11 +73,15 @@ ReplSessionAdapter = ApplicationAdapter.extend Ember.Evented,
   onSocketHeartbeat: Ember.on 'socketHeartbeat', ->
     @resetHeartbeats()
 
-  bufferOutput: (output) ->
+  print: (frame) ->
     replSessions = @store.peekAll 'repl-session'
     latestAll = replSessions.sortBy 'created'
     latest = latestAll.reverse()[0]
-    latest.bufferOutput output
+    latest.print frame
+
+  evaluate: (text) ->
+    if @get 'enabled'
+      socket?.send text
 
   timeoutSocket: ->
     @set 'missedHeartbeats', 0
@@ -81,7 +89,7 @@ ReplSessionAdapter = ApplicationAdapter.extend Ember.Evented,
     @openSocket socketUrl
 
   isHeartbeat: (frame) ->
-    frame == 'heartbeat'
+    frame.type == 'heartbeat'
 
   resetHeartbeats: ->
     @set 'missedHeartbeats', 0

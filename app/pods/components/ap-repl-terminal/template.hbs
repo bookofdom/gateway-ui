@@ -1,0 +1,18 @@
+<div class="terminal">
+  <div class="output">
+    <pre>{{value}}</pre>
+    <form {{action 'evaluate' on='submit'}}>
+      <span class="prompt">{{prompt}}</span>
+      {{input value=inputBuffer size=500 autocomplete='off' autocorrect='off' autocapitalize='off'}}
+      <button type="submit" class="hidden"></button>
+    </form>
+  </div>
+</div>
+
+{{bs-button
+  action='fullscreen'
+  t='actions.fullscreen'
+  icon='the-essentials-147'
+  icon-after=true
+  style='link'
+  class='pull-right'}}

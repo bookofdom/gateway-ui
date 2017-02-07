@@ -1,0 +1,22 @@
+<div class="clearfix">
+  <span class="text-muted pull-left">
+    {{t 'prompts.choose-x' x='resources.environment'}}:
+    &nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+
+  <div class="dropdown pull-left">
+    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+      {{environmentName}}
+      <span class="caret"></span>
+    </a><!-- /.dropdown-toggle -->
+    <ul class="dropdown-menu">
+      {{#each environments as |environment|}}
+        <li>
+          {{#link-to (query-params environment=environment.id)}}
+            {{environment.name}}
+          {{/link-to}}
+        </li>
+      {{/each}}
+    </ul><!-- /.dropdown-menu -->
+  </div><!-- /.dropdown -->
+</div><!-- /.filter-form -->

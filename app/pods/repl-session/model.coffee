@@ -5,10 +5,28 @@
 # Represents a REPL session
 ReplSession = DS.Model.extend
   created: DS.attr 'date', defaultValue: -> Date.now()
-  input: DS.attr 'string'
-  output: DS.attr 'string'
+  currentFrame: DS.attr 'string'
 
-  bufferOutput: (output) ->
-    console.log output
+  # Relationships
+  environment: DS.belongsTo 'environment', async: true
+
+  # Computed
+  frameText: Ember.computed.alias 'currentFrame.data'
+  frameError: Ember.computed.equal('currentFrame.type', 'error').volatile()
+
+  enableStreaming: ->
+    adapter = @store.adapterFor 'repl-session'
+    adapter.enableStreaming @
+
+  disableStreaming: ->
+    adapter = @store.adapterFor 'repl-session'
+    adapter.disableStreaming()
+
+  evaluate: (text) ->
+    adapter = @store.adapterFor 'repl-session'
+    adapter.evaluate text
+
+  print: (frame) ->
+    @set 'currentFrame', frame
 
 `export default ReplSession`

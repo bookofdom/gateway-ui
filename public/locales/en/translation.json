@@ -81,6 +81,7 @@
       "terms-and-conditions": "by registering for an account you accept the terms and conditions",
       "timers": "manage schedules for your jobs",
       "keys": "manage certificates and private keys",
+      "repl": "interact with gateway via a web-based REPL",
       "formatted": {
         "analyze": "<b>(coming soon)</b><br>View API usage and performance data",
         "manage-api": "<b>(coming soon)</b><br>Set up keys and specify entitlement rules across your APIs",
@@ -190,7 +191,8 @@
     "plan": "plan",
     "plan_plural": "plans",
     "key": "certificate or key",
-    "key_plural": "certs and keys"
+    "key_plural": "certs and keys",
+    "repl": "REPL"
   },
   "fields": {
     "account_name": "account name",
