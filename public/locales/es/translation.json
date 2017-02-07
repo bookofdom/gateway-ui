@@ -15,6 +15,7 @@
     "button_plural": "botones"
   },
   "actions": {
+    "build": "construir",
     "toggle-navivagation": "alternar navegación",
     "login": "ingresar",
     "logout": "salir",
@@ -63,6 +64,7 @@
     "descriptions": {
       "define-api": "definir los puntos finales de API y la lógica de flujo de trabajo microservice",
       "manage-api": "crea las claves y especifica las reglas de las APIs",
+      "custom-functions": "definir funciones de Node, Java, C#, PHP y Python",
       "manage-store": "gestionar los datos en un almacén de objetos",
       "manage": "gestionar el almacén de datos de objetos y empujar los servicios de notificación",
       "store-collections": "administrar colecciones de una tienda local y datos",
@@ -101,6 +103,12 @@
     "api_plural": "APIs",
     "api-endpoint": "API endpoint",
     "api-endpoint_plural": "API endpoints",
+    "custom-function": "función personalizada",
+    "custom-function_plural": "funciones personalizadas",
+    "custom-function-file": "archivo",
+    "custom-function-file_plural": "archivos",
+    "custom-function-test": "prueba",
+    "custom-function-test_plural": "pruebas",
     "proxy-endpoint": "proxy endpoint",
     "proxy-endpoint_plural": "proxy endpoints",
     "proxy-endpoint-channel": "canal",
@@ -187,6 +195,12 @@
     "key_plural": "certificados y claves"
   },
   "fields": {
+    "status_code": "código",
+    "memory": "memoria",
+    "cpu_shares": "acciones de la CPU",
+    "input": "entrada",
+    "output": "salida",
+    "language": "idioma",
     "account_name": "nombre de la cuenta",
     "connect_timeout": "conecte tiempo de espera",
     "channels": "canales",
@@ -329,6 +343,7 @@
     "skip_ssl_verification": "omitir la verificación SSL",
     "help": {
       "timeout": "Número de segundos.",
+      "memory": "Número de MB.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
       "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`.",
       "key": "PEM, PFX o P12"
@@ -429,6 +444,7 @@
       "server": "servidor"
     },
     "remote-endpoint": {
+      "custom_function": "función personalizada",
       "push": "empujar",
       "store": "almacenar",
       "script": "código",

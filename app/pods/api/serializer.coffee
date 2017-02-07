@@ -6,6 +6,7 @@ ApiSerializer = ApplicationSerializer.extend
     hash.links =
       proxy_endpoints: 'proxy_endpoints'
       jobs: 'jobs'
+      custom_functions: 'custom_functions'
       environments: 'environments'
       endpoint_groups: 'endpoint_groups'
       remote_endpoints: 'remote_endpoints'

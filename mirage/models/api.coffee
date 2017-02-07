@@ -9,5 +9,6 @@ ApiModel = Model.extend
   shared_components: hasMany()
   proxy_endpoints: hasMany()
   jobs: hasMany()
+  custom_functions: hasMany()
 
 `export default ApiModel`

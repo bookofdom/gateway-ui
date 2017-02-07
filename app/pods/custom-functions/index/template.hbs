@@ -1,0 +1,12 @@
+{{#ap-page t='resources.custom-function_plural' help-url=(docs-url 'custom-functions') showNew=true}}
+
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='custom-function.edit'}}
+
+  {{#ap-panel-new t='resources.custom-function' closed=(unbound model.length)}}
+    {{forms/custom-function-form indexModel=model savedAction='saved'}}
+  {{/ap-panel-new}}
+
+{{/ap-page}}
