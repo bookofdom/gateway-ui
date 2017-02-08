@@ -7,7 +7,6 @@ socketUrl = null
 
 ReplSessionAdapter = ApplicationAdapter.extend Ember.Evented,
   websockets: Ember.inject.service 'websockets'
-  autoReconnect: true
   enabled: false
 
   missedHeartbeats: 0
@@ -43,9 +42,11 @@ ReplSessionAdapter = ApplicationAdapter.extend Ember.Evented,
     @closeSocket()
 
   closeSocket: ->
-    oldSocketUrl = socket?.socket?.url
+    oldSocketUrl = socket?.socket?.url or socketUrl
     if oldSocketUrl
-      @get('websockets').closeSocketFor oldSocketUrl
+      @get('websockets').closeSocketFor socketUrl
+      socket = null
+      socketUrl = null
     @stopHeartbeats()
 
   openSocket: (url) ->
@@ -59,16 +60,11 @@ ReplSessionAdapter = ApplicationAdapter.extend Ember.Evented,
       else
         @trigger 'socketHeartbeat'
     ), @
-    newSocket.on 'close', (-> @trigger 'socketClose'), @
     socket = newSocket
     @startHeartbeats()
 
   onSocketMessage: Ember.on 'socketMessage', (frame) ->
     @print frame
-
-  onSocketClose: Ember.on 'socketClose', ->
-    if @get('enabled') and @get('autoReconnect')
-      Ember.run.later (-> socket.reconnect()), 1000
 
   onSocketHeartbeat: Ember.on 'socketHeartbeat', ->
     @resetHeartbeats()
@@ -85,8 +81,7 @@ ReplSessionAdapter = ApplicationAdapter.extend Ember.Evented,
 
   timeoutSocket: ->
     @set 'missedHeartbeats', 0
-    @closeSocket()
-    @openSocket socketUrl
+    @openSocket(socketUrl) if @get 'enabled'
 
   isHeartbeat: (frame) ->
     frame.type == 'heartbeat'
