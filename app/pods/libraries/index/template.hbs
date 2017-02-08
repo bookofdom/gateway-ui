@@ -1,10 +1,11 @@
 {{#ap-page t='resources.library_plural' help-url=(docs-url 'shared-libraries') showNew=true}}
 
-  {{ap-table-index
-      models=filtered
-      fields='name,description'
-      path='library.index'
-      edit-path='library.edit'}}
+  {{ap-table-auto-index
+    model=filtered
+    fields=fields
+    route='library.index'
+    edit-route='library.edit'
+    show-delete=true}}
 
   {{#ap-panel-new t='resources.library' closed=(unbound filtered.length)}}
     {{forms/library-form indexModel=model option-groups=option-groups}}

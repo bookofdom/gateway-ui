@@ -31,13 +31,13 @@ test 'user can create on index', (assert) ->
     andThen ->
       afterCreateCount = server.db.proxyEndpointSchemas.length
       assert.equal afterCreateCount, beforeCreateCount + 1
-      assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
+      assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/apis/:apiId/proxy_endpoints/:proxyEndpointId/schemas', makePostChildHandler('proxy_endpoint', 'proxy_endpoint_schema', after)
   visit '/apis/1/proxy-endpoints/1/schemas'
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/apis/1/proxy-endpoints/1/schemas'
-    assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New schema'
   click '.ap-panel-new [type=submit]'

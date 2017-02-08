@@ -34,4 +34,4 @@ test 'user can view', (assert) ->
     count = server.schema.proxyEndpoint.all()[0].proxy_endpoint_schemas.length
     assert.equal currentURL(), '/apis/1/proxy-endpoints/1/schemas'
     assert.equal count > 0, true
-    assert.equal find('.ap-table-index tbody tr').length, count
+    assert.equal find('.ap-table-auto-index tbody tr').length, count

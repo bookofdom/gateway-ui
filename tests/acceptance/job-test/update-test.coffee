@@ -25,7 +25,7 @@ module 'Acceptance: Job Test - Update',
 
 test 'user can navigate to edit', (assert) ->
   visit '/apis/1/jobs/1/tests'
-  click '.ap-table-index tbody tr:eq(0) a:eq(0)'
+  click '.ap-table-auto-index tbody tr:eq(0) a:eq(0)'
   andThen ->
     assert.equal currentURL(), '/apis/1/jobs/1/tests/1/edit'
 

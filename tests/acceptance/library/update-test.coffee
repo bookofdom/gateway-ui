@@ -21,7 +21,7 @@ module 'Acceptance: Library - Update',
 
 test 'user can navigate to libraries edit route', (assert) ->
   visit '/apis/1/libraries'
-  click '.ap-table-index tbody tr:eq(0) [data-t="actions.edit"] a'
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.edit"] a'
   andThen ->
     assert.equal currentURL(), '/apis/1/libraries/1/edit'
 

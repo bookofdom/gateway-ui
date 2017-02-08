@@ -27,13 +27,13 @@ test 'user can create new environment on index', (assert) ->
     andThen ->
       afterCreateCount = server.db.environments.length
       assert.equal afterCreateCount, beforeCreateCount + 1
-      assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
+      assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/apis/:apiId/environments', makePostChildHandler('api', 'environment', after)
   visit '/apis/1/environments'
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/apis/1/environments'
-    assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New environment'
   click '.ap-panel-new [type=submit]'

@@ -1,10 +1,11 @@
 {{#ap-page t='resources.host_plural' help-url=(docs-url 'hosts') showNew=true}}
 
-  {{ap-table-index
-      models=model
-      fields='name,hostname'
-      path='host.index'
-      edit-path='host.edit'}}
+  {{ap-table-auto-index
+    model=model
+    fields=fields
+    route='host.index'
+    edit-route='host.edit'
+    show-delete=true}}
 
   {{#ap-panel-new t='resources.host' closed=(unbound model.length)}}
     {{forms/host-form indexModel=model}}
