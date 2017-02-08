@@ -83,6 +83,7 @@
       "terms-and-conditions": "registrando-se para uma conta, você aceita os termos e condições",
       "timers": "gerenciar agendas para os seus postos de trabalho",
       "keys": "gerir os certificados e chaves privadas",
+      "repl": "interagir com o gateway através de uma REPL",
       "formatted": {
         "analyze": "<b>(em breve)</b><br>Uso da API vista e dados de desempenho",
         "manage-api": "<b>(em breve)</b><br>Cria as chave e especifica as regras das suas APIs",

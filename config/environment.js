@@ -30,6 +30,7 @@ module.exports = function(environment) {
       mockNotificationInterval: 20 * 1000, // 20 seconds
       mockLogs: false,
       mockLogInterval: 5 * 1000, // 5 seconds
+      mockRepl: false,
       wsHeartbeatInterval: 60, // (in seconds)
       wsHeartbeatsEnabled: true
     },
@@ -95,6 +96,7 @@ module.exports = function(environment) {
     ENV.APP.notifications = true;
     ENV.APP.mockNotifications = true;
     ENV.APP.mockLogs = true;
+    ENV.APP.mockRepl = true;
 
     // uncomment for stand-alone gateway API
     //ENV.api.host = 'http://localhost:5000';

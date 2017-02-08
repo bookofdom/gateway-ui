@@ -25,12 +25,17 @@ WebSocketMockServer = (serverUrl, onConnect) ->
   # return a mock web socket instance if the URL matches the server URL,
   # otherwise return an original web socket instance
   window?.WebSocket = (wsUrl) =>
-    if serverUrl == wsUrl
-      @mock = new WebSocketMock serverUrl
+    isRegExp = serverUrl instanceof RegExp
+    if (isRegExp and wsUrl.match serverUrl) or (serverUrl == wsUrl)
+      @mock = new WebSocketMock wsUrl
       Ember.run.next onConnect, @
       @mock
     else
       new @originalWebSocket wsUrl
+  window?.WebSocket.CONNECTING = @originalWebSocket.CONNECTING
+  window?.WebSocket.OPEN = @originalWebSocket.OPEN
+  window?.WebSocket.CLOSING = @originalWebSocket.CLOSING
+  window?.WebSocket.CLOSED = @originalWebSocket.CLOSED
   @
 
 WebSocketMockServer.prototype =
@@ -40,6 +45,9 @@ WebSocketMockServer.prototype =
   open: ->
     @mock.readyState = @states.open
     @mock.onopen? currentTarget: @mock
+    @mock.send = (data) => @onReceive data
+  onReceive: (data) ->
+    # no op (override for use case)
   destroy: ->
     window?.WebSocket = @originalWebSocket
   message: (msg) ->

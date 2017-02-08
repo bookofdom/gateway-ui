@@ -83,6 +83,7 @@
       "terms-and-conditions": "mediante el registro de una cuenta que acepta los términos y condiciones",
       "timers": "gestionar los horarios para sus puestos de trabajo",
       "keys": "gestionar certificados y claves privadas",
+      "repl": "interactuar con la puerta de enlace a través de un REPL",
       "formatted": {
         "analyze": "<b>(próximamente)</b><br>Vista de uso de la API y los datos de rendimiento",
         "manage-api": "<b>(próximamente)</b><br>Crea las claves y especifica las reglas de las APIs",
