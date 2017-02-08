@@ -6,6 +6,7 @@ moduleForModel 'host', 'Unit | Serializer | host',
     'serializer:api'
     'serializer:host'
     'model:api'
+    'model:custom-function'
     'model:endpoint-group'
     'model:environment'
     'model:host'

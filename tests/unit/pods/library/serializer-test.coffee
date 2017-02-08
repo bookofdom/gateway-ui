@@ -6,6 +6,7 @@ moduleForModel 'library', 'Unit | Serializer | library',
     'serializer:api'
     'serializer:library'
     'model:api'
+    'model:custom-function'
     'model:endpoint-group'
     'model:environment'
     'model:host'

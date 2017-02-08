@@ -244,6 +244,37 @@ config = ->
 
   @get '/jobs'
 
+  @get '/apis/:apiId/custom_functions', makeGetChildrenHandler('api', 'custom_function')
+  @post '/apis/:apiId/custom_functions', makePostChildHandler('api', 'custom_function')
+  @get '/apis/:apiId/custom_functions/:id'
+  @put '/apis/:apiId/custom_functions/:id', makePutHandler 'custom_function'
+  @del '/apis/:apiId/custom_functions/:id'
+
+  @get '/apis/:apiId/custom_functions/:customFunctionId/tests', makeGetChildrenHandler('custom_function', 'custom_function_test')
+  @post '/apis/:apiId/custom_functions/:customFunctionId/tests', makePostChildHandler('custom_function', 'custom_function_test', null, 'test')
+  @get '/apis/:apiId/custom_functions/:customFunctionId/tests/:id', (schema, request) ->
+    test: schema.db.customFunctionTests.find request.params.id
+  @put '/apis/:apiId/custom_functions/:customFunctionId/tests/:id', makePutHandler('custom_function_test', null, 'test')
+  @del '/apis/:apiId/custom_functions/:customFunctionId/tests/:id', (schema, request) ->
+    id = request.params.id
+    schema.db.customFunctionTests.remove id
+  @get '/apis/:apiId/custom_functions/:customFunctionId/tests/:id/test', (->
+    result: {
+      output: '{"test": "message"}'
+      log: "this is a log message for a get request #{Math.random()}",
+      time: 8
+    }
+  ), {timing: 2000}
+
+  @get '/apis/:apiId/custom_functions/:customFunctionId/files', makeGetChildrenHandler('custom_function', 'custom_function_file')
+  @post '/apis/:apiId/custom_functions/:customFunctionId/files', makePostChildHandler('custom_function', 'custom_function_file', null, 'file')
+  @get '/apis/:apiId/custom_functions/:customFunctionId/files/:id', (schema, request) ->
+    test: schema.db.customFunctionFiles.find request.params.id
+  @put '/apis/:apiId/custom_functions/:customFunctionId/files/:id', makePutHandler('custom_function_file', null, 'file')
+  @del '/apis/:apiId/custom_functions/:customFunctionId/files/:id', (schema, request) ->
+    id = request.params.id
+    schema.db.customFunctionFiles.remove id
+
   @get '/timers'
   @post '/timers', makePostHandler 'timer'
   @get '/timers/:id'

@@ -10,6 +10,7 @@ moduleForModel 'job-component', 'Unit | Serializer | job component',
     'serializer:job-test'
     'serializer:job-component'
     'model:api'
+    'model:custom-function'
     'model:endpoint-group'
     'model:environment'
     'model:environment-variable'

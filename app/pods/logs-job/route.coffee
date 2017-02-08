@@ -9,6 +9,11 @@ LogsJobRoute = LogsRoute.extend
     model.enableStreaming()
     [model]
 
+  disableStreaming: ->
+    model = @modelFor 'logs-job'
+    if model
+      instance.disableStreaming() for instance in model
+
   queryStore: (params) ->
     params.job = @modelFor 'job'
     @store.query 'log', params

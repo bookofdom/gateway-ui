@@ -55,8 +55,13 @@ module.exports = function(defaults) {
       include: [
         'assets/fonts/gateway.woff',
         'locales/en/translation.json',
+        'snippets/csharp.js',
+        'snippets/dockerfile.js',
+        'snippets/java.js',
         'snippets/javascript.js',
         'snippets/json.js',
+        'snippets/php.js',
+        'snippets/python.js',
         'snippets/text.js',
         'worker-javascript.js',
         'worker-json.js',
@@ -89,8 +94,13 @@ module.exports = function(defaults) {
   // Standard ACE libraries
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/ext-language_tools.js');
   app.import('vendor/ace-tern/ace-builds/src-noconflict/ext-tern.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-csharp.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-dockerfile.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-java.js');
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-javascript.js');
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-json.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-php.js');
+  app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-python.js');
   app.import('bower_components/ace-tern/ace-builds/src-noconflict/mode-text.js');
 
   // jQuery UI
@@ -124,8 +134,13 @@ module.exports = function(defaults) {
   var aceAssets = new Funnel('bower_components/ace-tern/ace-builds/src-noconflict', {
     srcDir: '/',
     include: [
+      'snippets/csharp.js',
+      'snippets/dockerfile.js',
+      'snippets/java.js',
       'snippets/javascript.js',
       'snippets/json.js',
+      'snippets/php.js',
+      'snippets/python.js',
       'snippets/text.js',
       'worker-javascript.js',
       'worker-json.js',

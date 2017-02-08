@@ -9,6 +9,7 @@ moduleForModel 'proxy-endpoint-test', 'Unit | Serializer | proxy endpoint test',
     'serializer:proxy-endpoint'
     'serializer:proxy-endpoint-test'
     'model:api'
+    'model:custom-function'
     'model:endpoint-group'
     'model:environment'
     'model:environment-variable'

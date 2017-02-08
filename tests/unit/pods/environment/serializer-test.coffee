@@ -6,6 +6,7 @@ moduleForModel 'environment', 'Unit | Serializer | environment',
     'serializer:api'
     'serializer:environment'
     'model:api'
+    'model:custom-function'
     'model:environment-variable'
     'model:endpoint-group'
     'model:environment'

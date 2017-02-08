@@ -8,6 +8,7 @@ moduleForModel 'proxy-endpoint', 'Unit | Serializer | proxy endpoint',
     'serializer:environment'
     'serializer:proxy-endpoint'
     'model:api'
+    'model:custom-function'
     'model:endpoint-group'
     'model:environment'
     'model:environment-variable'

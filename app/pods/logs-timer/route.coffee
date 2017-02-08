@@ -9,6 +9,11 @@ LogsTimerRoute = LogsRoute.extend
     model.enableStreaming()
     [model]
 
+  disableStreaming: ->
+    model = @modelFor 'logs-timer'
+    if model
+      instance.disableStreaming() for instance in model
+
   queryStore: (params) ->
     params.timer = @modelFor 'timer'
     @store.query 'log', params
