@@ -26,6 +26,7 @@ Router.map ->
   @route 'apis', resetNamespace: true, ->
     @route 'api', resetNamespace: true, path: ':api_id', ->
       @route 'edit'
+      @route 'repl', resetNamespace: true, (->)
       @route 'proxy-endpoints', resetNamespace: true, ->
         @route 'proxy-endpoint', resetNamespace: true, path: ':proxy_endpoint_id', ->
           @route 'edit'
