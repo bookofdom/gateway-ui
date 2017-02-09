@@ -3,6 +3,8 @@
 JobTestEditController = EditController.extend
   executing: false # true while test execution request is in progress
   response: null # holds response from test execution
+  message: Ember.computed 'response', ->
+    @get('response.log') or @get('response.error')
 
   reset: -> @set 'response', null
 
