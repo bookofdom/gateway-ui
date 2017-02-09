@@ -15,8 +15,8 @@ ApReplTerminalComponent = Ember.Component.extend
   onInit: Ember.on 'didInsertElement', ->
     @set 'inputHistory', []
     @print '<span class=\"text-info\">REPL started</span>'
-    @print "&nbsp;&nbsp;/clear<span class=\"text-info\"> or </span>(CTL or CMD)+K<span class=\"text-info\"> to clear terminal</span>"
-    @print "&nbsp;&nbsp;/e environment_name<span class=\"text-info\"> to switch environments</span>"
+    @print "&nbsp;&nbsp;.clear<span class=\"text-info\"> or </span>(CTL or CMD)+K<span class=\"text-info\"> to clear terminal</span>"
+    @print "&nbsp;&nbsp;.e environment_name<span class=\"text-info\"> to switch environments</span>"
     @print()
     @printEnvironment()
     @focus()
@@ -89,9 +89,23 @@ ApReplTerminalComponent = Ember.Component.extend
     if position == null
       @set 'inputHistoryPosition', 0
     @scrollInputHistory -1
-  click: ->
+
+  # If mousedown and mouseup occur at the same place, interpret it as a click.
+  # Otherwise it could be a selection and we don't want to interfere.
+  clickX: null
+  clickY: null
+  mouseDown: (e) ->
+    @set 'clickX', e.pageX
+    @set 'clickY', e.pageY
+  mouseUp: (e) ->
+    if (@get('clickX') == e.pageX) and (@get('clickY') == e.pageY)
+      @trigger 'stationaryClick'
+    @set 'clickX', null
+    @set 'clickY', null
+  onStationaryClick: Ember.on 'stationaryClick', ->
     @scrollToBottom()
     @focus()
+
   keyDown: (e) ->
     # CMD+K to clear
     if (e.metaKey or e.ctrlKey) and (e.keyCode is 75)
@@ -112,7 +126,7 @@ ApReplTerminalComponent = Ember.Component.extend
     evaluate: ->
       prompt = @get 'prompt'
       input = @get 'inputBuffer'
-      parsed = input.match /^\/([a-z]*)\s?(.*)?/
+      parsed = input.match /^\.([a-z]*)\s?(.*)?/
       command = parsed?[1]
       commandArgs = parsed?[2]
       @set 'inputBuffer', ''
@@ -129,7 +143,7 @@ ApReplTerminalComponent = Ember.Component.extend
         when 'c', 'clear'
           @clear()
         else
-          @printError "Command not found:  /#{command}"
+          @printError "Command not found:  .#{command}"
     fullscreen: ->
       Ember.run =>
         el = @$('.terminal')[0]
