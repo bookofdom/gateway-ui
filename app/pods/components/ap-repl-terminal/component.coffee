@@ -29,13 +29,15 @@ ApReplTerminalComponent = Ember.Component.extend
     if isError
       @printError text
     else
-      @print text
+      @printJavaScript text
   printError: (text) ->
     @print "<span class=\"text-danger\">#{text}</span>"
   # prints name of selected environment
   printEnvironment: ->
     environmentName = @get 'replSession.environment.name'
     @print "<span class=\"text-info\">Environment:  #{environmentName}</span>"
+  printJavaScript: (text='') ->
+    @print hljs.highlightAuto(text).value
   # prints arbitrary text to the terminal
   print: (text='') ->
     Ember.run =>
