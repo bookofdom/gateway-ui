@@ -87,9 +87,23 @@ ApReplTerminalComponent = Ember.Component.extend
     if position == null
       @set 'inputHistoryPosition', 0
     @scrollInputHistory -1
-  click: ->
+
+  # If mousedown and mouseup occur at the same place, interpret it as a click.
+  # Otherwise it could be a selection and we don't want to interfere.
+  clickX: null
+  clickY: null
+  mouseDown: (e) ->
+    @set 'clickX', e.pageX
+    @set 'clickY', e.pageY
+  mouseUp: (e) ->
+    if (@get('clickX') == e.pageX) and (@get('clickY') == e.pageY)
+      @trigger 'stationaryClick'
+    @set 'clickX', null
+    @set 'clickY', null
+  onStationaryClick: Ember.on 'stationaryClick', ->
     @scrollToBottom()
     @focus()
+
   keyDown: (e) ->
     # CMD+K to clear
     if (e.metaKey or e.ctrlKey) and (e.keyCode is 75)
