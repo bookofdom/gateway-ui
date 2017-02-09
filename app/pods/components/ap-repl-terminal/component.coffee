@@ -15,8 +15,8 @@ ApReplTerminalComponent = Ember.Component.extend
   onInit: Ember.on 'didInsertElement', ->
     @set 'inputHistory', []
     @print '<span class=\"text-info\">REPL started</span>'
-    @print "&nbsp;&nbsp;/clear<span class=\"text-info\"> or </span>(CTL or CMD)+K<span class=\"text-info\"> to clear terminal</span>"
-    @print "&nbsp;&nbsp;/e environment_name<span class=\"text-info\"> to switch environments</span>"
+    @print "&nbsp;&nbsp;.clear<span class=\"text-info\"> or </span>(CTL or CMD)+K<span class=\"text-info\"> to clear terminal</span>"
+    @print "&nbsp;&nbsp;.e environment_name<span class=\"text-info\"> to switch environments</span>"
     @print()
     @printEnvironment()
     @focus()
@@ -124,7 +124,7 @@ ApReplTerminalComponent = Ember.Component.extend
     evaluate: ->
       prompt = @get 'prompt'
       input = @get 'inputBuffer'
-      parsed = input.match /^\/([a-z]*)\s?(.*)?/
+      parsed = input.match /^\.([a-z]*)\s?(.*)?/
       command = parsed?[1]
       commandArgs = parsed?[2]
       @set 'inputBuffer', ''
@@ -141,7 +141,7 @@ ApReplTerminalComponent = Ember.Component.extend
         when 'c', 'clear'
           @clear()
         else
-          @printError "Command not found:  /#{command}"
+          @printError "Command not found:  .#{command}"
     fullscreen: ->
       Ember.run =>
         el = @$('.terminal')[0]

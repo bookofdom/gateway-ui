@@ -78,7 +78,7 @@ test 'user can see output echoed in terminal', (assert) ->
   visit '/apis/1/repl'
 
 
-test 'user can clear terminal with command `/c`', (assert) ->
+test 'user can clear terminal with command `.c`', (assert) ->
   done = assert.async()
   new WebSocketMockServer @wsServerUrl, (wsServer) ->
     wsServer.open()
@@ -86,7 +86,7 @@ test 'user can clear terminal with command `/c`', (assert) ->
       assert.equal currentURL(), '/apis/1/repl'
       output = find('.ap-repl-terminal pre').text()
       assert.ok output.length
-      fillIn '.ap-repl-terminal input', '/c'
+      fillIn '.ap-repl-terminal input', '.c'
       click '.ap-repl-terminal [type="submit"]'
       andThen ->
         output = find('.ap-repl-terminal pre').text()
@@ -100,7 +100,7 @@ test 'user can clear terminal with command `/c`', (assert) ->
   visit '/apis/1/repl'
 
 
-test 'user can clear terminal with command `/clear`', (assert) ->
+test 'user can clear terminal with command `.clear`', (assert) ->
   done = assert.async()
   new WebSocketMockServer @wsServerUrl, (wsServer) ->
     wsServer.open()
@@ -108,7 +108,7 @@ test 'user can clear terminal with command `/clear`', (assert) ->
       assert.equal currentURL(), '/apis/1/repl'
       output = find('.ap-repl-terminal pre').text()
       assert.ok output.length
-      fillIn '.ap-repl-terminal input', '/clear'
+      fillIn '.ap-repl-terminal input', '.clear'
       click '.ap-repl-terminal [type="submit"]'
       andThen ->
         output = find('.ap-repl-terminal pre').text()
@@ -122,7 +122,7 @@ test 'user can clear terminal with command `/clear`', (assert) ->
   visit '/apis/1/repl'
 
 
-test 'user can switch environments with command `/e`', (assert) ->
+test 'user can switch environments with command `.e`', (assert) ->
   done = assert.async()
   wsRunCount = 0
   new WebSocketMockServer @wsServerUrl, (wsServer) ->
@@ -133,7 +133,7 @@ test 'user can switch environments with command `/e`', (assert) ->
         assert.equal currentURL(), '/apis/1/repl'
         output = find('.ap-repl-terminal pre').text()
         assert.ok output.length
-        fillIn '.ap-repl-terminal input', '/e staging'
+        fillIn '.ap-repl-terminal input', '.e staging'
         click '.ap-repl-terminal [type="submit"]'
     else
       andThen ->
@@ -151,7 +151,7 @@ test 'user can switch environments with command `/e`', (assert) ->
   visit '/apis/1/repl'
 
 
-test 'user can switch environments with command `/environment`', (assert) ->
+test 'user can switch environments with command `.environment`', (assert) ->
   done = assert.async()
   wsRunCount = 0
   new WebSocketMockServer @wsServerUrl, (wsServer) ->
@@ -162,7 +162,7 @@ test 'user can switch environments with command `/environment`', (assert) ->
         assert.equal currentURL(), '/apis/1/repl'
         output = find('.ap-repl-terminal pre').text()
         assert.ok output.length
-        fillIn '.ap-repl-terminal input', '/environment staging'
+        fillIn '.ap-repl-terminal input', '.environment staging'
         click '.ap-repl-terminal [type="submit"]'
     else
       andThen ->
