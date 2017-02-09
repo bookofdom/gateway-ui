@@ -114,6 +114,9 @@ module.exports = function(defaults) {
   app.import('bower_components/vkbeautify/vkbeautify.js');
   // uuid
   app.import('bower_components/node-uuid/uuid.js');
+  // highlight.js
+  app.import('bower_components/highlightjs/highlight.pack.js');
+  app.import('bower_components/highlightjs/styles/atom-one-dark.css');
 
   // Gateway Icons
   var gatewayIcons = new Funnel('bower_components/gateway-icons/dist/fonts', {
