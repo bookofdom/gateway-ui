@@ -12,4 +12,14 @@ LibrariesIndexController = Ember.Controller.extend
   'option-groups': Ember.computed 'api.libraries', ->
     body: @get 'api.libraries'
 
+  fields: [
+    name: 'name'
+    type: 'string'
+    label: 'fields.name'
+  ,
+    name: 'description'
+    type: 'string'
+    label: 'fields.description'
+  ]
+
 `export default LibrariesIndexController`

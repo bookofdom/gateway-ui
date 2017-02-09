@@ -27,14 +27,14 @@ test 'user can create new host on index', (assert) ->
     andThen ->
       afterCreateCount = server.db.hosts.length
       assert.equal afterCreateCount, beforeCreateCount + 1
-      assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
+      assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/apis/:apiId/hosts', makePostChildHandler('api', 'host', after)
   visit '/apis/1/hosts'
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/apis/1/hosts'
-    assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New Host'
   fillIn '[name=hostname]', 'Host'
   click '.ap-panel-new [type=submit]'

@@ -28,13 +28,13 @@ test 'user can delete from index', (assert) ->
     count = server.schema.job.all()[0].job_tests.length
     assert.equal currentURL(), '/apis/1/jobs/1/tests'
     assert.equal count, 3
-    assert.equal find('.ap-table-index tbody tr').length, 3
-  click '.ap-table-index tbody tr:eq(0) [data-t="actions.delete"] a'
+    assert.equal find('.ap-table-auto-index tbody tr').length, 3
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
     count = server.schema.job.all()[0].job_tests.length
     assert.equal currentURL(), '/apis/1/jobs/1/tests'
     assert.equal count, 2
-    assert.equal find('.ap-table-index tbody tr').length, 2
+    assert.equal find('.ap-table-auto-index tbody tr').length, 2
 
 test 'user can delete from edit', (assert) ->
   visit '/apis/1/jobs/1/tests/1/edit'
@@ -47,4 +47,4 @@ test 'user can delete from edit', (assert) ->
     count = server.schema.job.all()[0].job_tests.length
     assert.equal currentURL(), '/apis/1/jobs/1/tests'
     assert.equal count, 2
-    assert.equal find('.ap-table-index tbody tr').length, 2
+    assert.equal find('.ap-table-auto-index tbody tr').length, 2

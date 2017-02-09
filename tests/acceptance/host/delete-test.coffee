@@ -23,12 +23,12 @@ test 'user can delete hosts from index route', (assert) ->
   andThen ->
     assert.equal currentURL(), '/apis/1/hosts'
     assert.equal server.db.hosts.length, 3
-    assert.equal find('.ap-table-index tbody tr').length, 3
-  click '.ap-table-index tbody tr:eq(0) [data-t="actions.delete"] a'
+    assert.equal find('.ap-table-auto-index tbody tr').length, 3
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
     assert.equal currentURL(), '/apis/1/hosts'
     assert.equal server.db.hosts.length, 2
-    assert.equal find('.ap-table-index tbody tr').length, 2
+    assert.equal find('.ap-table-auto-index tbody tr').length, 2
 
 test 'user can delete hosts from edit route', (assert) ->
   visit '/apis/1/hosts/1/edit'
@@ -39,4 +39,4 @@ test 'user can delete hosts from edit route', (assert) ->
   andThen ->
     assert.equal currentURL(), '/apis/1/hosts'
     assert.equal server.db.hosts.length, 2
-    assert.equal find('.ap-table-index tbody tr').length, 2
+    assert.equal find('.ap-table-auto-index tbody tr').length, 2

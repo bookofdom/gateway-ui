@@ -22,7 +22,7 @@ module 'Acceptance: User - Update',
 
 test 'user can navigate to user edit route', (assert) ->
   visit '/account/users'
-  click '.ap-table-index tbody tr:eq(0) td:eq(0) a'
+  click '.ap-table-auto-index tbody tr:eq(0) td:eq(0) a'
   andThen ->
     assert.equal currentURL(), '/account/users/1/edit'
 
