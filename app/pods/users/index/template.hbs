@@ -1,10 +1,10 @@
 {{#ap-page t='resources.user_plural'}}
 
-  {{ap-table-index
-      models=model
-      fields='displayName:fields.name,email,isAuthenticated:states.active:boolean,admin,confirmed'
-      path='user.index'
-      edit-path='user.edit'}}
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='user.index'
+      edit-route='user.edit'}}
 
   {{#ap-panel-new t='resources.user' closed=(unbound model.length)}}
     {{forms/user-form indexModel=model}}

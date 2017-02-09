@@ -23,12 +23,12 @@ test 'user can delete libraries from index route', (assert) ->
   andThen ->
     assert.equal currentURL(), '/apis/1/libraries'
     assert.equal server.db.libraries.length, 3
-    assert.equal find('.ap-table-index tbody tr').length, 3
-  click '.ap-table-index tbody tr:eq(0) [data-t="actions.delete"] a'
+    assert.equal find('.ap-table-auto-index tbody tr').length, 3
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
     assert.equal currentURL(), '/apis/1/libraries'
     assert.equal server.db.libraries.length, 2
-    assert.equal find('.ap-table-index tbody tr').length, 2
+    assert.equal find('.ap-table-auto-index tbody tr').length, 2
 
 test 'user can delete libraries from edit route', (assert) ->
   visit '/apis/1/libraries/1/edit'
@@ -39,4 +39,4 @@ test 'user can delete libraries from edit route', (assert) ->
   andThen ->
     assert.equal currentURL(), '/apis/1/libraries'
     assert.equal server.db.libraries.length, 2
-    assert.equal find('.ap-table-index tbody tr').length, 2
+    assert.equal find('.ap-table-auto-index tbody tr').length, 2

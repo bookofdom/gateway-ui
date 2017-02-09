@@ -1,10 +1,11 @@
 {{#ap-page t='resources.environment_plural' help-url=(docs-url 'environments') showNew=true}}
 
-  {{ap-table-index
-      models=model
-      fields='name,description'
-      path='environment.index'
-      edit-path='environment.edit'}}
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='environment.index'
+      edit-route='environment.edit'
+      show-delete=true}}
 
   {{#ap-panel-new t='resources.environment' closed=(unbound model.length)}}
     {{forms/environment-form indexModel=model}}

@@ -35,14 +35,14 @@ test 'admin can create new keys', (assert) ->
     andThen ->
       afterCreateCount = server.db.keys.length
       assert.equal afterCreateCount, beforeCreateCount + 1
-      assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
+      assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/keys', makePostHandler('key', after)
   visit '/manage/keys'
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/manage/keys'
-    assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'Foobar'
   addFile()
   click '.ap-panel-new [type=submit]'

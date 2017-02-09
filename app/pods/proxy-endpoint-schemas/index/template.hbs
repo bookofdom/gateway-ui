@@ -1,10 +1,11 @@
 {{#ap-page t='resources.proxy-endpoint-schema_plural'}}
 
-  {{ap-table-index
-    models=model
-    fields='name'
-    path='proxy-endpoint-schema.index'
-    edit-path='proxy-endpoint-schema.edit'}}
+  {{ap-table-auto-index
+    model=model
+    fields=fields
+    route='proxy-endpoint-schema.index'
+    edit-route='proxy-endpoint-schema.edit'
+    show-delete=true}}
 
   {{#ap-panel-new t='resources.proxy-endpoint-schema' closed=model.length}}
     {{forms/proxy-endpoint-schema-form indexModel=model}}

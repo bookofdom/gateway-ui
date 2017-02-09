@@ -27,13 +27,13 @@ test 'user can create new endpoint group on index', (assert) ->
     andThen ->
       afterCreateCount = server.db.endpointGroups.length
       assert.equal afterCreateCount, beforeCreateCount + 1
-      assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
+      assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/apis/:apiId/endpoint_groups', makePostChildHandler('api', 'endpoint_group', after)
   visit '/apis/1/groups'
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/apis/1/groups'
-    assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New Endpoint Group'
   click '.ap-panel-new [type=submit]'

@@ -21,7 +21,7 @@ module 'Acceptance: Endpoint Group - Update',
 
 test 'user can navigate to endpoint groups edit route', (assert) ->
   visit '/apis/1/groups'
-  click '.ap-table-index tbody tr:eq(0) [data-t="actions.edit"] a'
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.edit"] a'
   andThen ->
     assert.equal currentURL(), '/apis/1/groups/1/edit'
 

@@ -27,13 +27,13 @@ test 'user can create new library on index', (assert) ->
     andThen ->
       afterCreateCount = server.db.libraries.length
       assert.equal afterCreateCount, beforeCreateCount + 1
-      assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
+      assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/apis/:apiId/libraries', makePostChildHandler('api', 'library', after)
   visit '/apis/1/libraries'
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/apis/1/libraries'
-    assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New library'
   click '.ap-panel-new [type=submit]'

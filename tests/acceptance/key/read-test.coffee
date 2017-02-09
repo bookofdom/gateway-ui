@@ -33,4 +33,4 @@ test 'user can view keys', (assert) ->
   andThen ->
     assert.equal currentURL(), '/manage/keys'
     assert.equal count > 0, true
-    assert.equal find('.ap-table-index tbody tr').length, count
+    assert.equal find('.ap-table-auto-index tbody tr').length, count

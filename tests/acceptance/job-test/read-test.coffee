@@ -34,4 +34,4 @@ test 'user can view', (assert) ->
     count = server.schema.job.all()[0].job_tests.length
     assert.equal currentURL(), '/apis/1/jobs/1/tests'
     assert.equal count > 0, true
-    assert.equal find('.ap-table-index tbody tr').length, count
+    assert.equal find('.ap-table-auto-index tbody tr').length, count

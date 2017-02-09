@@ -21,7 +21,7 @@ module 'Acceptance: Host - Update',
 
 test 'user can navigate to hosts edit route', (assert) ->
   visit '/apis/1/hosts'
-  click '.ap-table-index tbody tr:eq(0) [data-t="actions.edit"] a'
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.edit"] a'
   andThen ->
     assert.equal currentURL(), '/apis/1/hosts/1/edit'
 

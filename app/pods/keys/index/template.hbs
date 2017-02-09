@@ -1,8 +1,8 @@
 {{#ap-page t='resources.key_plural'}}
 
-  {{ap-table-index
-    models=model
-    fields='name'}}
+  {{ap-table-auto-index
+    model=model
+    fields=fields}}
 
   {{#ap-panel-new t='resources.key' closed=(unbound model.length)}}
     {{forms/key-form indexModel=model}}
