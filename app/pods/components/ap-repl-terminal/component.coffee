@@ -37,7 +37,7 @@ ApReplTerminalComponent = Ember.Component.extend
     environmentName = @get 'replSession.environment.name'
     @print "<span class=\"text-info\">Environment:  #{environmentName}</span>"
   printJavaScript: (text='') ->
-    @print hljs.highlightAuto(text).value
+    @print @syntaxHighlight text
   # prints arbitrary text to the terminal
   print: (text='') ->
     Ember.run =>
@@ -45,6 +45,8 @@ ApReplTerminalComponent = Ember.Component.extend
       pre.append text
       pre.append '\n'
     @scrollToBottom()
+  syntaxHighlight: (text) ->
+    hljs.highlight('javascript', text).value
   # clear all text from the terminal
   clear: ->
     Ember.run =>
@@ -118,7 +120,7 @@ ApReplTerminalComponent = Ember.Component.extend
       if command
         @send 'command', command, commandArgs
       else if input
-        @print "#{prompt}#{input}"
+        @print "#{prompt}#{@syntaxHighlight input}"
         @sendAction 'evaluateAction', input
     command: (command, args) ->
       switch command
