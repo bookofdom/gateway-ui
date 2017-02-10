@@ -25,11 +25,11 @@ ReplSessionAdapter = ApplicationAdapter.extend Ember.Evented,
     url = environmentAdapter.buildURL modelName, id, environmentSnapshot, 'GET'
     isSecure = (location.protocol is 'https:') or (url.match /^https:\/\//)
     url = url.replace /^[a-z]*:\/\//, '' # remove protocol
-    url = "#{location.host}#{url}/repl/socket" if !config.api.host
+    url = "#{location.host}#{url}" if !config.api.host
     protocol = if isSecure then 'wss:' else 'ws:'
     url = "#{protocol}//#{url}"
     # replace double leading slash with single
-    url = @cleanURL url
+    url = @cleanURL "#{url}/repl/socket"
     url
 
   enableStreaming: (replSession) ->
