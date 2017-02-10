@@ -31,15 +31,23 @@ ApTableAutoIndexComponent = Ember.Component.extend
     fields.map (field) ->
       Ember.Object.create
         field: field
+        isText: (field.name == 'name') or (field.name == 'description')
         translate: (field.type == 't') or (field.type == 'status-label')
         isDatetime: field.type == 'datetime'
         values: models.uniqBy(field.name).mapBy(field.name)
         selection: null
         hasSelection: false
   filtered: Ember.computed 'model.[]', 'filterGroups.@each.selection', ->
-    filterSelections = @get 'filterSelections'
     model = @get 'model'
+    textFilterGroups = @get('filterGroups').filterBy('isText')
     filterGroups = @get('filterGroups').filterBy('hasSelection')
+    for group in textFilterGroups
+      model = model.filter (model) ->
+        value = group.get('selection')?.toLowerCase()
+        if !value
+          true
+        else
+          model.get(group.get('field.name'))?.toLowerCase()?.indexOf(value) >= 0
     for group in filterGroups
       model = model.filterBy group.get('field.name'), group.get('selection')
     model

@@ -9,7 +9,7 @@ CustomFunction = Model.extend
   description: DS.attr 'string'
   active: DS.attr 'boolean'
   memory: DS.attr 'number', defaultValue: 8
-  cpu_shares: DS.attr 'number', defaultValue: 2
+  cpu_shares: DS.attr 'number', defaultValue: 0
   timeout: DS.attr 'number', defaultValue: 60
 
   # Relationships
