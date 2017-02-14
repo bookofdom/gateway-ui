@@ -23,7 +23,7 @@ ApTableModelRowComponent = BsBaseComponent.extend
     'custom-primary': ->
       @sendAction 'custom-primary-action-name', @get('model')
     delete: ->
-      confirmText = t('prompts.confirm-delete').capitalize()
+      confirmText = t 'prompts.confirm-delete'
       if @confirm confirmText
         @sendAction 'delete-action', @get('model')
 

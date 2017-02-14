@@ -1,10 +1,10 @@
-<label for="{{label-for}}" class="{{control-label-classes}}">{{text}}{{#if required}}<b>*</b>{{/if}}</label>
+<label for="{{label-for}}" class="{{control-label-classes}}">{{t t}}{{#if required}}<b>*</b>{{/if}}</label>
 
 {{#if inline}}
   {{#unless is-boolean}}
     {{yield}}
-    {{#if secondary-text}}
-      <span class="help-block">{{secondary-text}}</span>
+    {{#if secondary}}
+      <span class="help-block">{{t secondary}}</span>
     {{/if}}
   {{/unless}}
 
@@ -13,8 +13,8 @@
       <label>
         {{yield}}
       </label>
-      {{#if secondary-text}}
-        <span class="help-block">{{secondary-text}}</span>
+      {{#if secondary}}
+        <span class="help-block">{{t secondary}}</span>
       {{/if}}
     </div>
   {{/if}}
@@ -25,8 +25,8 @@
 
   {{#unless is-boolean}}
     {{yield}}
-    {{#if secondary-text}}
-      <span class="help-block">{{secondary-text}}</span>
+    {{#if secondary}}
+      <span class="help-block">{{t secondary}}</span>
     {{/if}}
   {{/unless}}
 
@@ -35,8 +35,8 @@
       <label>
         {{yield}}
       </label>
-      {{#if secondary-text}}
-        <span class="help-block">{{secondary-text}}</span>
+      {{#if secondary}}
+        <span class="help-block">{{t secondary}}</span>
       {{/if}}
     </div>
   {{/if}}

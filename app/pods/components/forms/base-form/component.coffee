@@ -131,7 +131,7 @@ BaseFormComponent = Ember.Component.extend
     cancel: ->
       @cancel()
     delete: ->
-      confirmText = t('prompts.confirm-delete').capitalize()
+      confirmText = t 'prompts.confirm-delete'
       if @confirm confirmText
         @delete().then => @sendAction 'deletedAction'
 

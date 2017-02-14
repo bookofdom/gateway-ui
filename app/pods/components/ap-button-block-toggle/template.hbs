@@ -1,1 +1,13 @@
-{{partial 'components/bs-button'}}
+{{#if hasIconBefore}}
+  {{ap-icon icon=icon type=icon-type title=(t 'actions.toggle-x' x=t)}}
+{{/if}}
+
+<span class="{{textSrOnlyClass}} text">{{t 'actions.toggle-x' x=t}}&hellip;</span>
+
+{{#if secondary}}
+  <small class="{{textSrOnlyClass}} text-secondary">{{t secondary}}</small>
+{{/if}}
+
+{{#if hasIconAfter}}
+  {{ap-icon icon=icon type=icon-type title=(t 'actions.toggle-x' x=t)}}
+{{/if}}

@@ -1,5 +1,4 @@
 `import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 EnvironmentFormComponent = BaseFormComponent.extend
   indexModel: null
@@ -7,10 +6,10 @@ EnvironmentFormComponent = BaseFormComponent.extend
 
   'option-groups': Ember.computed ->
     session_type: [
-      name: t 'types.session.client'
+      nameKey: 'types.session.client'
       value: 'client'
     ,
-      name: t 'types.session.server'
+      nameKey: 'types.session.server'
       value: 'server'
     ]
 
@@ -34,7 +33,7 @@ EnvironmentFormComponent = BaseFormComponent.extend
     type: 'boolean'
   ,
     name: 'session_type'
-    type: 'select'
+    type: 'select-name-key'
   ,
     name: 'session_name'
   ]

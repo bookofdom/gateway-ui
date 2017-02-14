@@ -1,15 +1,13 @@
 {{#if hasIconBefore}}
-  {{ap-icon icon=icon type=icon-type title=text.string}}
+  {{ap-icon icon=icon type=icon-type title=(t t)}}
 {{/if}}
 
-<span class="{{textSrOnlyClass}} text">
-{{text}}
-</span>
+<span class="{{textSrOnlyClass}} text">{{t t}}</span>
 
-{{#if secondary-text}}
-  <small class="{{textSrOnlyClass}} text-secondary">{{secondary-text}}</small>
+{{#if secondary}}
+  <small class="{{textSrOnlyClass}} text-secondary">{{t secondary}}</small>
 {{/if}}
 
 {{#if hasIconAfter}}
-  {{ap-icon icon=icon type=icon-type title=text.string}}
+  {{ap-icon icon=icon type=icon-type title=(t t)}}
 {{/if}}

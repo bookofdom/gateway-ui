@@ -64,7 +64,7 @@ ApModelFormComponent = Ember.Component.extend
       else
         @sendAction 'cancel-action', @get('model')
     delete: ->
-      confirmText = t('prompts.confirm-delete').capitalize()
+      confirmText = t 'prompts.confirm-delete'
       if @get('auto-delete') and @confirm(confirmText)
         @get('model').destroyRecord().then =>
           @sendAction 'after-delete-action'

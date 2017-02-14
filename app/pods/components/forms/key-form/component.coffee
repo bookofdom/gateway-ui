@@ -11,6 +11,7 @@ KeyFormComponent = BaseFormComponent.extend
   ,
     name: 'key'
     type: 'file'
+    help: 'fields.help.key'
   ,
     name: 'password'
     type: 'password'

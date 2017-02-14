@@ -86,7 +86,7 @@ ApTableAutoIndexComponent = Ember.Component.extend
 
   actions:
     delete: (model) ->
-      confirmText = t('prompts.confirm-delete').capitalize()
+      confirmText = t 'prompts.confirm-delete'
       if @confirm confirmText
         @delete model
 

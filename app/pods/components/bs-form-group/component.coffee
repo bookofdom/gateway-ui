@@ -1,6 +1,5 @@
 `import Ember from 'ember'`
 `import BsTextComponent from 'gateway-ui/pods/components/bs-text/component'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 BsFormGroupComponent = BsTextComponent.extend
   classNames: ['form-group']
@@ -16,7 +15,7 @@ BsFormGroupComponent = BsTextComponent.extend
   'show-label': true
   'label-for': null
   offset: null
-  t: Ember.computed 'label', -> @get 'label'
+  t: Ember.computed.alias 'label'
   secondary: Ember.computed 'help', -> @get 'help'
   'control-label-classes': Ember.computed 'horizontal', 'show-label', ->
     labelClasses = []
