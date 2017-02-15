@@ -15,13 +15,11 @@ AccountFormComponent = BaseFormComponent.extend
   savedAction: null
   'show-delete': false
 
-  isNonZeroPlanAmount: Ember.computed 'subscription.enabled', 'model.plan.isBillable', ->
-    @get('subscription.enabled') and @get('model.plan.isBillable')
+  isNonZeroPlanAmount: Ember.computed.and 'subscription.enabled', 'model.plan.isBillable'
 
   # if plan was changed AND payment is required, we need to hide the change
   # payment button and make payment a required part of checkout
-  changedPlanPaymentRequired: Ember.computed 'model.hasChangedBelongsTo', 'isNonZeroPlanAmount', ->
-    @get('model.hasChangedBelongsTo') and @get('isNonZeroPlanAmount')
+  changedPlanPaymentRequired: Ember.computed.and 'model.hasChangedBelongsTo', 'isNonZeroPlanAmount'
 
   'option-groups': Ember.computed ->
     plan: Registration.plans
@@ -36,13 +34,21 @@ AccountFormComponent = BaseFormComponent.extend
     model = @get 'model'
     model.save().finally =>
       if !model.get 'errors.messages.length'
+        # TODO begin hack
+        # force update of computed properties used to
+        # determine if payment is required or payment
+        # information may be updated
+        plan = model.get 'plan'
+        model.set 'plan', null
+        model.set 'plan', plan
+        # end hack
         @notifySaveSuccess()
         @sendAction 'savedAction', model
 
   submit: ->
     model = @get 'model'
     stripeCheckoutService = @get 'stripeCheckout'
-    changedPlanPaymentRequired = @get 'isNonZeroPlanAmount'
+    changedPlanPaymentRequired = @get 'changedPlanPaymentRequired'
     if !changedPlanPaymentRequired
       @save()
     else
