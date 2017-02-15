@@ -3,6 +3,7 @@
 CustomFunctionTestEditController = EditController.extend
   executing: false # true while test execution request is in progress
   response: null # holds response from test execution
+  message: Ember.computed.or 'response.log', 'response.error'
 
   reset: -> @set 'response', null
 
