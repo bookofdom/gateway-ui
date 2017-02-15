@@ -1,6 +1,5 @@
 `import Ember from 'ember'`
 `import config from 'gateway-ui/config/environment'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 BaseFormComponent = Ember.Component.extend
   confirm: Ember.inject.service()
@@ -86,7 +85,7 @@ BaseFormComponent = Ember.Component.extend
     clientId = Math.round(Math.random() * 1000000000)
     model.set 'clientId', clientId
   notifySaveSuccess: ->
-    @get('notify').success "#{t('successes.saved-successfully')}."
+    @get('notify').success 'successes.saved-successfully'
   submit: ->
     if !@get 'embedded'
       model = @get 'model'
