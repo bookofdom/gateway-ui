@@ -14,8 +14,8 @@ SharedComponentsIndexController = Ember.Controller.extend
     type: 'string'
     label: 'fields.name'
   ,
-    name: 'typeName'
-    type: 'string'
+    name: 'typeKind.nameKey'
+    type: 't'
     label: 'fields.type'
   ]
 

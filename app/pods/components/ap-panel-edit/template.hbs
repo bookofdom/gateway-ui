@@ -1,1 +1,28 @@
-{{partial 'components/bs-panel'}}
+{{#if show-heading}}
+  <div class="panel-heading">
+    {{#if collapse}}
+      <a href="{{collapse-href}}" data-toggle="collapse">
+
+        {{#if hasIconBefore}}
+          {{ap-icon icon=icon type=icon-type title=(t 'actions.edit-x' x=t)}}
+        {{/if}}
+        <span class="{{textSrOnlyClass}} text">{{t 'actions.edit-x' x=t}}</span>
+
+      </a>
+    {{/if}}
+    {{#unless collapse}}
+      {{#if hasIconBefore}}
+        {{ap-icon icon=icon type=icon-type title=(t 'actions.edit-x' x=t)}}
+      {{/if}}
+      <span class="{{textSrOnlyClass}} text">{{t 'actions.edit-x' x=t}}</span>
+    {{/unless}}
+  </div>
+{{/if}}
+{{#if collapse}}
+  <div id="{{panel-collapse-id}}" class="{{if closed '' 'in'}} panel-collapse collapse">
+    {{partial 'components/bs-panel/-panel-body'}}
+  </div>
+{{/if}}
+{{#unless collapse}}
+  {{partial 'components/bs-panel/-panel-body'}}
+{{/unless}}

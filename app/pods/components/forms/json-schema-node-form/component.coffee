@@ -1,6 +1,5 @@
 `import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
 `import JsonSchemaNode from 'gateway-ui/pods/json-schema-node/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 JsonSchemaNodeFormComponent = BaseFormComponent.extend
   indexModel: null

@@ -1,7 +1,6 @@
 `import Ember from 'ember'`
 `import DS from 'ember-data'`
 `import Model from 'gateway-ui/pods/model/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 CustomFunction = Model.extend
   name: DS.attr 'string'
@@ -18,7 +17,6 @@ CustomFunction = Model.extend
   tests: DS.hasMany 'custom-function-test', async: true
 
 languages = 'other java node csharp python php'.split(' ').map (language) ->
-  name: t "types.language.#{language}"
   nameKey: "types.language.#{language}"
   slug: language
   value: language

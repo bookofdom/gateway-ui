@@ -1,7 +1,6 @@
 `import Ember from 'ember'`
 `import DS from 'ember-data'`
 `import Model from 'gateway-ui/pods/model/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 User = Model.extend
   name: DS.attr 'string'
@@ -19,11 +18,5 @@ User = Model.extend
     userEmail = @get 'email'
     sessionEmail = @get 'session.secure.email'
     userEmail == sessionEmail
-  displayName: Ember.computed 'name', 'isAuthenticated', ->
-    name = @get 'name'
-    isAuthenticated = @get 'isAuthenticated'
-    displayName = name
-    displayName = "#{displayName} (#{t('states.active')})" if isAuthenticated
-    displayName
 
 `export default User`

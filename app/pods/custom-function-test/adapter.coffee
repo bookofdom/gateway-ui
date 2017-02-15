@@ -1,6 +1,5 @@
 `import CustomFunctionRelatedAdapter from 'gateway-ui/pods/custom-function-related/adapter'`
 `import config from  'gateway-ui/config/environment'`
-`import t from 'gateway-ui/helpers/i18n'`
 `import DS from 'ember-data'`
 
 getJsonValidationError = (snapshot) ->
@@ -10,7 +9,7 @@ getJsonValidationError = (snapshot) ->
     null
   catch e
     new DS.InvalidError [
-      detail: t 'errors.invalid-json'
+      detail: 'errors.invalid-json'
       source:
         pointer: '/data/attributes/input'
     ]

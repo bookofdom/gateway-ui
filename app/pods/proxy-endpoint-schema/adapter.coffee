@@ -1,7 +1,6 @@
 `import DS from 'ember-data'`
 `import ProxyEndpointRelatedAdapter from 'gateway-ui/pods/proxy-endpoint-related/adapter'`
 `import config from  'gateway-ui/config/environment'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 # Takes a nested object and returns an array of dotted root to leaf paths
 # through the object.
@@ -34,12 +33,12 @@ getSchemaJsonValidationError = (snapshot) ->
     parsedRequestSchema = JSON.parse(request_schema) if request_schema
   catch e
     errorField = 'request_schema'
-    message = t 'errors.invalid-json'
+    message = 'errors.invalid-json'
   try
     parsedResponseSchema = JSON.parse(response_schema) if response_schema
   catch e
     errorField = 'response_schema'
-    message = t 'errors.invalid-json'
+    message = 'errors.invalid-json'
 
   # Validate that schemas are valid JSON schemas.
   # TODO:  HTML-formatted error messages are not ideal
@@ -47,14 +46,14 @@ getSchemaJsonValidationError = (snapshot) ->
     errors = @get('jsonSchemaValidator').validate parsedRequestSchema
     if errors
       errorField = 'request_schema'
-      errorMessage = t 'errors.invalid-json-schema'
+      errorMessage = 'errors.invalid-json-schema'
       errorFields = expandKeyPaths(errors.validation).map((path) -> "<li><code>#{path}</code></li>").join('')
       message = "#{errorMessage.capitalize()}: <ul><li>#{t 'fields.request_schema'}:<ul>#{errorFields}</ul></li></ul>".htmlSafe()
   if parsedResponseSchema
     errors = @get('jsonSchemaValidator').validate parsedResponseSchema
     if errors
       errorField = 'response_schema'
-      errorMessage = t 'errors.invalid-json-schema'
+      errorMessage = 'errors.invalid-json-schema'
       errorFields = expandKeyPaths(errors.validation).map((path) -> "<li><code>#{path}</code></li>").join('')
       message = "#{errorMessage.capitalize()}: <ul><li>#{t 'fields.response_schema'}:<ul>#{errorFields}</ul></li></ul>".htmlSafe()
 

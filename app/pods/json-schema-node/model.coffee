@@ -1,6 +1,5 @@
 `import DS from 'ember-data'`
 `import Model from 'gateway-ui/pods/model/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 JsonSchemaNode = Model.extend
   type: DS.attr 'string', defaultValue: 'string'
@@ -48,13 +47,12 @@ JsonSchemaNode = Model.extend
   canHaveChildren: Ember.computed 'type', ->
     (@get('type') is 'object') or (@get('type') is 'array')
   displayName: Ember.computed 'title', 'name', 'pattern', 'type', ->
-    @get('title') or @get('name') or @get('pattern') or t @get('nodeType.nameKey')
+    @get('title') or @get('name') or @get('pattern') or "$t(#{@get('nodeType.nameKey')})"
   nodeType: Ember.computed 'type', ->
     type = @get 'type'
     JsonSchemaNode.types.findBy 'value', type
 
 types = 'object array null boolean integer number string'.split(' ').map (typeName) ->
-  name: t("types.json-type.#{typeName}").toLowerCase()
   nameKey: "types.json-type.#{typeName}"
   slug: typeName
   value: typeName

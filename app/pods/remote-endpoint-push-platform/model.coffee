@@ -1,6 +1,5 @@
 `import DS from 'ember-data'`
 `import Model from 'gateway-ui/pods/model/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 RemoteEndpointPushPlatform = Model.extend
   name: DS.attr 'string'
@@ -23,11 +22,9 @@ RemoteEndpointPushPlatform = Model.extend
   platform: Ember.computed 'type', ->
     type = @get 'type'
     RemoteEndpointPushPlatform.types.findBy 'value', type
-  platformName: Ember.computed.alias 'platform.name'
 
 # Declare available types and their human-readable names
 types = 'osx ios gcm fcm mqtt'.split(' ').map (type) ->
-  name: t "types.push-platform.#{type}"
   nameKey: "types.push-platform.#{type}"
   slug: type
   value: type

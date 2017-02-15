@@ -3,7 +3,7 @@
       name='identification'
       value=identification
       type='email'
-      placeholder=labels.email
+      placeholder=(t 'fields.email')
       class='form-control input-lg'}}
 {{/bs-form-group}}
 {{#bs-form-group}}
@@ -11,7 +11,7 @@
       name='password'
       value=password
       type='password'
-      placeholder=labels.password
+      placeholder=(t 'fields.password')
       class='form-control input-lg'}}
 {{/bs-form-group}}
 <div class="form-actions">
@@ -24,6 +24,6 @@
     {{link-to (t 'actions.reset-password') 'password.reset' class='btn btn-link'}}
   {{/bs-form-group}}
   {{#if base-error}}
-    <p class="text-danger">{{base-error}}</p>
+    <p class="text-danger">{{t base-error}}</p>
   {{/if}}
 </div>

@@ -10,8 +10,8 @@ ProxyEndpointTestsIndexController = Ember.Controller.extend
     type: 'string'
     label: 'fields.name'
   ,
-    name: 'methodType.name'
-    type: 'string'
+    name: 'methodType.nameKey'
+    type: 't'
     label: 'fields.method'
   ,
     name: 'channel.full_name'

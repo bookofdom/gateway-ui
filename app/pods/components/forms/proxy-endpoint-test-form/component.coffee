@@ -1,6 +1,5 @@
 `import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
 `import ProxyEndpointTest from 'gateway-ui/pods/proxy-endpoint-test/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 # Field Rules
 #
@@ -41,7 +40,7 @@ ProxyEndpointTestFormComponent = BaseFormComponent.extend
       fields.pushObjects [
         name: 'method'
         required: true
-        type: 'select'
+        type: 'select-name-key'
       ,
         name: 'channel'
         label: 'resources.proxy-endpoint-channel'
@@ -52,7 +51,7 @@ ProxyEndpointTestFormComponent = BaseFormComponent.extend
       fields.pushObjects [
         name: 'method'
         required: true
-        type: 'select'
+        type: 'select-name-key'
       ,
         name: 'route'
         label: 'resources.proxy-endpoint-route'

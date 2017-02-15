@@ -1,6 +1,5 @@
 `import DS from 'ember-data'`
 `import Model from 'gateway-ui/pods/model/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 JsonNode = Model.extend
   type: DS.attr 'string', defaultValue: 'string'
@@ -35,14 +34,13 @@ JsonNode = Model.extend
     JsonNode.types.findBy 'value', type
   displayName: Ember.computed 'canHaveValue', 'type', 'name', 'value', ->
     canHaveValue = @get 'canHaveValue'
-    type = t @get('nodeType.nameKey')
+    type = "$t(#{@get 'nodeType.nameKey'})"
     name = @get 'name'
     value = @get 'value' if canHaveValue
     nameAndValue = "#{name}: #{value}" if name and value
     nameAndValue or name or value or type
 
 types = 'object array null boolean number string'.split(' ').map (typeName) ->
-  name: t("types.json-type.#{typeName}").toLowerCase()
   nameKey: "types.json-type.#{typeName}"
   slug: typeName
   value: typeName

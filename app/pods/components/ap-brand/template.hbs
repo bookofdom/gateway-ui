@@ -1,1 +1,5 @@
-{{partial 'components/bs-text'}}
+<span class="{{textSrOnlyClass}} text">{{name}}</span>
+
+{{#if secondary}}
+  <small class="{{textSrOnlyClass}} text-secondary">{{t secondary}}</small>
+{{/if}}

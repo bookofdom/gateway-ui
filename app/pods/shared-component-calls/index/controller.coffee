@@ -1,5 +1,4 @@
 `import Ember from 'ember'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 SharedComponentCallsController = Ember.Controller.extend
   'shared-component': Ember.inject.controller()

@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
-`import t from 'gateway-ui/helpers/i18n'`
 `import config from 'gateway-ui/config/environment'`
 
 ApTableAutoIndexComponent = Ember.Component.extend
+  confirm: Ember.inject.service()
   notify: Ember.inject.service()
   classNames: ['ap-table-auto-index']
 
@@ -78,16 +78,15 @@ ApTableAutoIndexComponent = Ember.Component.extend
       model.cancel()
       model.transitionTo 'loaded.saved'
 
-  confirm: (text) ->
+  confirmDelete: (text) ->
     if config.confirmDelete
-      confirm text
+      @get('confirm').open 'prompts.confirm-delete'
     else
       true
 
   actions:
     delete: (model) ->
-      confirmText = t('prompts.confirm-delete').capitalize()
-      if @confirm confirmText
+      if @confirmDelete()
         @delete model
 
     toggleBoolean: (model, fieldName, autoSave) ->

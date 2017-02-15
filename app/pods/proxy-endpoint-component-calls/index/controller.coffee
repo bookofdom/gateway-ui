@@ -1,5 +1,4 @@
 `import Ember from 'ember'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 ProxyEndpointComponentCallsController = Ember.Controller.extend
   'proxy-endpoint-component-calls': Ember.inject.controller()

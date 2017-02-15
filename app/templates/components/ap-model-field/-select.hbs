@@ -7,7 +7,7 @@
   class='form-control'}}
 
   {{#if prompt}}
-    {{#x-option}}{{prompt}}{{/x-option}}
+    {{#x-option}}{{t prompt x=label}}{{/x-option}}
   {{/if}}
 
   {{#each options as |option|}}

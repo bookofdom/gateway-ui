@@ -1,5 +1,4 @@
 `import Ember from 'ember'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 JobComponentCallsController = Ember.Controller.extend
   breadCrumb: 'resources.proxy-endpoint-component-call_plural'
@@ -14,7 +13,7 @@ JobComponentCallsController = Ember.Controller.extend
   'transformation-option-groups': Ember.computed 'api.libraries', ->
     body: @get 'api.libraries'
     type: [
-      name: t('languages.javascript').capitalize()
+      name: 'languages.javascript'
       value: 'js'
     ]
 

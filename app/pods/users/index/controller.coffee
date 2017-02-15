@@ -2,7 +2,7 @@
 
 UsersIndexController = Ember.Controller.extend
   fields: [
-    name: 'displayName'
+    name: 'name'
     type: 'string'
     label: 'fields.name'
   ,

@@ -1,6 +1,5 @@
 `import Ember from 'ember'`
 `import BsPanelComponent from 'gateway-ui/pods/components/bs-panel/component'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 ApPanelUploadComponent = BsPanelComponent.extend
   fileReaderService: Ember.inject.service 'file-reader'
@@ -10,12 +9,6 @@ ApPanelUploadComponent = BsPanelComponent.extend
   value: null
   style: 'drop'
   t: 'actions.drop-or-click-to-upload'
-  text: Ember.computed 't', 'isSet', ->
-    translationKey = @get 't'
-    if translationKey
-      rendered = t translationKey
-      rendered = "#{rendered}&hellip;" if !@get 'isSet'
-      rendered?.htmlSafe()
   isSet: Ember.computed 'value', -> !!@get('value')?.match /^data/
   'icon-after': true
   icon: Ember.computed 'isSet', ->

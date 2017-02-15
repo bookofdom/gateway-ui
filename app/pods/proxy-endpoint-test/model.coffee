@@ -1,6 +1,5 @@
 `import DS from 'ember-data'`
 `import Model from 'gateway-ui/pods/model/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 ProxyEndpointTest = Model.extend
   name: DS.attr 'string'
@@ -36,7 +35,6 @@ ProxyEndpointTest = Model.extend
 
 # Declare available methods and their human-readable names
 methods = 'get post put delete'.split(' ').map (method) ->
-  name: t "http-methods.#{method}"
   nameKey: "http-methods.#{method}"
   slug: method
   value: method.toUpperCase()

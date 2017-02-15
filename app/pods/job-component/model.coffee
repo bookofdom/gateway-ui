@@ -1,6 +1,5 @@
 `import DS from 'ember-data'`
 `import Model from 'gateway-ui/pods/model/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 JobComponent = Model.extend
   type: DS.attr 'string', defaultValue: 'single'
@@ -35,8 +34,6 @@ JobComponent = Model.extend
     sharedTypeKind = @get 'shared_component.typeKind'
     type = @get 'type'
     sharedTypeKind or JobComponent.types.findBy('value', type)
-  typeName: Ember.computed 'typeKind.name', ->
-    @get 'typeKind.name'
   shared: Ember.computed 'shared_component', ->
     (!!@get 'shared_component') or (@get('type') == 'shared')
   single: Ember.computed 'typeKind.slug',
@@ -63,13 +60,10 @@ JobComponent = Model.extend
     type = @get 'type'
     type = 'shared' if @get 'shared'
     "types.proxy-endpoint-component.#{type}"
-  name: Ember.computed 'nameKey', ->
-    t @get('nameKey')
 
 
 # Declare available types and their human-readable names
 types = 'single multi js advanced'.split(' ').map (type) ->
-  name: t "types.proxy-endpoint-component.#{type}"
   nameKey: "types.proxy-endpoint-component.#{type}"
   slug: type
   value: type
