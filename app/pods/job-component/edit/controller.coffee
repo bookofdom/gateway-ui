@@ -1,5 +1,4 @@
 `import EditController from 'gateway-ui/pods/edit/controller'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 JobComponentEditController = EditController.extend
   'api': Ember.inject.controller()
@@ -11,7 +10,7 @@ JobComponentEditController = EditController.extend
   'transformation-option-groups': Ember.computed 'api.libraries', ->
     body: @get 'api.libraries'
     type: [
-      name: t('languages.javascript').capitalize()
+      name: 'languages.javascript'
       value: 'js'
     ]
   'option-groups': Ember.computed 'api.libraries', ->
