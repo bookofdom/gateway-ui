@@ -390,6 +390,7 @@
     "unknown": "ocorreu um erro inesperado",
     "no-user-with-that-email": "não exite usuário com esse email",
     "invalid-password": "senha inválida",
+    "mismatched-passwords": "as senhas devem corresponder",
     "login": "não fomos capazes de fazer seu login",
     "invalid-json": "inválido JSON",
     "invalid-json-schema": "esquema JSON inválido",
