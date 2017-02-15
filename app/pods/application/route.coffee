@@ -141,6 +141,9 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
 
   actions:
     invalidateSession: ->
+      # Transition away from the current route so that post login doesn't
+      # attempt to redirect to what may be inaccessible to a different user.
+      @transitionTo config['simple-auth'].routeAfterAuthentication
       @get('session').invalidate()
     localeChange: (locale) ->
       window.location.search = "lng=#{locale}"
