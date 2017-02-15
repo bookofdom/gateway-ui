@@ -34,8 +34,6 @@ JobComponent = Model.extend
     sharedTypeKind = @get 'shared_component.typeKind'
     type = @get 'type'
     sharedTypeKind or JobComponent.types.findBy('value', type)
-  typeName: Ember.computed 'typeKind.name', ->
-    @get 'typeKind.name'
   shared: Ember.computed 'shared_component', ->
     (!!@get 'shared_component') or (@get('type') == 'shared')
   single: Ember.computed 'typeKind.slug',
