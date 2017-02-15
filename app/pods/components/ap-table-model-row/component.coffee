@@ -1,9 +1,9 @@
 `import Ember from 'ember'`
 `import BsBaseComponent from 'gateway-ui/pods/components/bs-base/component'`
-`import t from 'gateway-ui/helpers/i18n'`
 `import config from 'gateway-ui/config/environment'`
 
 ApTableModelRowComponent = BsBaseComponent.extend
+  confirm: Ember.inject.service()
   tagName: 'tr'
   classNames: ['ap-table-model-row']
   model: null
@@ -14,17 +14,16 @@ ApTableModelRowComponent = BsBaseComponent.extend
   'custom-primary-action': null
   'custom-primary-icon': null
   'custom-primary-t': null
-  confirm: (text) ->
+  confirmDelete: ->
     if config.confirmDelete
-      confirm text
+      @get('confirm').open 'prompts.confirm-delete'
     else
       true
   actions:
     'custom-primary': ->
       @sendAction 'custom-primary-action-name', @get('model')
     delete: ->
-      confirmText = t 'prompts.confirm-delete'
-      if @confirm confirmText
+      if @confirmDelete()
         @sendAction 'delete-action', @get('model')
 
 `export default ApTableModelRowComponent`

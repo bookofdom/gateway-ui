@@ -1,8 +1,9 @@
 `import Ember from 'ember'`
-`import t from 'gateway-ui/helpers/i18n'`
 `import config from 'gateway-ui/config/environment'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 BaseFormComponent = Ember.Component.extend
+  confirm: Ember.inject.service()
   notify: Ember.inject.service()
   store: Ember.inject.service()
 
@@ -103,9 +104,9 @@ BaseFormComponent = Ember.Component.extend
       # a hacky way to programmatically submit the form, since
       # all direct methods fail to trigger proper validation
       @$().submit()
-  confirm: (text) ->
+  confirmDelete: ->
     if config.confirmDelete
-      confirm text
+      @get('confirm').open 'prompts.confirm-delete'
     else
       true
 
@@ -131,8 +132,7 @@ BaseFormComponent = Ember.Component.extend
     cancel: ->
       @cancel()
     delete: ->
-      confirmText = t 'prompts.confirm-delete'
-      if @confirm confirmText
+      if @confirmDelete()
         @delete().then => @sendAction 'deletedAction'
 
 `export default BaseFormComponent`

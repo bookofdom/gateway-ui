@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
-`import t from 'gateway-ui/helpers/i18n'`
 `import config from 'gateway-ui/config/environment'`
 
 ApModelFormComponent = Ember.Component.extend
+  confirm: Ember.inject.service()
   tagName: 'form'
   classNames: ['ap-model-form']
   classNameBindings: ['inline:form-inline', 'horizontal:form-horizontal']
@@ -51,9 +51,9 @@ ApModelFormComponent = Ember.Component.extend
       # a hacky way to programmatically submit the form, since
       # all direct methods fail to trigger proper validation
       @$('[type=submit]').click()
-  confirm: (text) ->
+  confirmDelete: ->
     if config.confirmDelete
-      confirm text
+      @get('confirm').open 'prompts.confirm-delete'
     else
       true
   actions:
@@ -64,8 +64,7 @@ ApModelFormComponent = Ember.Component.extend
       else
         @sendAction 'cancel-action', @get('model')
     delete: ->
-      confirmText = t 'prompts.confirm-delete'
-      if @get('auto-delete') and @confirm(confirmText)
+      if @get('auto-delete') and @confirmDelete()
         @get('model').destroyRecord().then =>
           @sendAction 'after-delete-action'
 
