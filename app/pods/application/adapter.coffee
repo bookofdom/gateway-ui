@@ -1,6 +1,5 @@
 `import DS from 'ember-data'`
 `import config from  'gateway-ui/config/environment'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 ApplicationAdapter = DS.RESTAdapter.extend
   session: Ember.inject.service()
@@ -96,7 +95,7 @@ ApplicationAdapter = DS.RESTAdapter.extend
   normalizeServerErrorResponse: (status, headers, payload) ->
     [
       status: status
-      detail: "#{t('errors.unknown').capitalize()}."
+      detail: 'errors.unknown'
       source:
         pointer: '/data'
     ]
