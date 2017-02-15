@@ -1,6 +1,5 @@
 `import Ember from 'ember'`
 `import BsFormGroupComponent from 'gateway-ui/pods/components/bs-form-group/component'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 ApModelFormGroupComponent = BsFormGroupComponent.extend
   classNames: ['ap-model-form-group']
@@ -38,11 +37,7 @@ ApModelFormGroupComponent = BsFormGroupComponent.extend
     @get('error-messages').join ' ' if @get 'hasErrors'
 
   secondary: Ember.computed 'help', 'errorHelp', ->
-    helpKey = "fields.help.#{@get 'name'}"
-    help = @get('help') or (t helpKey if @get 'name')
-    # If help was looked-up via a translation key and no translation was found,
-    # do not pass string.
-    help = null if help.toLowerCase() == helpKey
+    help = @get 'help'
     errorHelp = @get 'errorHelp'
     help = errorHelp if errorHelp
     help
