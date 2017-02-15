@@ -1,6 +1,5 @@
 `import DS from 'ember-data'`
 `import Model from 'gateway-ui/pods/model/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 RemoteEndpointLike = Model.extend
   type: DS.attr 'string', defaultValue: 'http'
@@ -127,28 +126,17 @@ RemoteEndpointLike = Model.extend
   platform: Ember.computed 'type', ->
     type = @get 'type'
     RemoteEndpointLike.types.findBy 'value', type
-  platformName: Ember.computed 'platform.name', ->
-    @get 'platform.name'
-  isHttp: Ember.computed 'platform.slug', ->
-    @get('platform.slug') == 'http'
-  isMongo: Ember.computed 'platform.slug', ->
-    @get('platform.slug') == 'mongodb'
-  isDocker: Ember.computed 'platform.slug', ->
-    @get('platform.slug') == 'docker'
-  isPush: Ember.computed 'platform.slug', ->
-    @get('platform.slug') == 'push'
+  isHttp: Ember.computed.equal 'platform.slug', 'http'
+  isMongo: Ember.computed.equal 'platform.slug', 'mongodb'
+  isDocker: Ember.computed.equal 'platform.slug', 'docker'
+  isPush: Ember.computed.equal 'platform.slug', 'push'
   statusType: Ember.computed 'status', ->
     status = @get 'status'
     RemoteEndpointLike.statusTypes.findBy 'value', status?.underscore()
-  statusTypeName: Ember.computed.alias 'statusType.name'
-  statusIsSuccess: Ember.computed 'statusType.slug', ->
-    @get('statusType.slug') is 'success'
-  statusIsError: Ember.computed 'statusType.slug', ->
-    @get('statusType.slug') is 'failed'
-  statusIsPending: Ember.computed 'statusType.slug', ->
-    @get('statusType.slug') is 'pending'
-  statusIsProcessing: Ember.computed 'statusType.slug', ->
-    @get('statusType.slug') is 'processing'
+  statusIsSuccess: Ember.computed.equal 'statusType.slug', 'success'
+  statusIsError: Ember.computed.equal 'statusType.slug', 'failed'
+  statusIsPending: Ember.computed.equal 'statusType.slug', 'pending'
+  statusIsProcessing: Ember.computed.equal 'statusType.slug', 'processing'
   authSchemeType: Ember.computed 'auth_scheme', ->
     scheme = @get 'auth_scheme'
     RemoteEndpointLike.authSchemes.findBy 'value', scheme
@@ -168,44 +156,35 @@ RemoteEndpointLike = Model.extend
   protocolType: Ember.computed 'protocol', ->
     protocol = @get 'protocol'
     RemoteEndpointLike.protocols.findBy 'slug', protocol.toLowerCase()
-  sslModeTypeName: Ember.computed 'sslModeType.name', ->
-    @get 'sslModeType.name'
-  protocolName: Ember.computed.alias 'protocolType.name'
   push_platform_codenames: Ember.computed.mapBy 'push_platforms', 'codename'
 
 # Declare available types and their human-readable names
 types = 'http soap sqlserver postgres mysql mongodb ldap script hana store push redis oracle smtp db2 docker job key custom_function'.split(' ').map (type) ->
-  name: t "types.remote-endpoint.#{type}"
   nameKey: "types.remote-endpoint.#{type}"
   slug: type
   value: type
 
 statusTypes = 'success failed pending processing'.split(' ').map (type) ->
-  name: t "types.remote-endpoint.status-types.#{type}"
   nameKey: "types.remote-endpoint.status-types.#{type}"
   slug: type
   value: type.underscore()
 
 encryptModes = 'disable true false'.split(' ').map (mode) ->
-  name: t "types.remote-endpoint.encrypt-modes.#{mode}"
   nameKey: "types.remote-endpoint.encrypt-modes.#{mode}"
   slug: mode
   value: mode
 
 sslModes = 'disable allow prefer require'.split(' ').map (mode) ->
-  name: t "types.remote-endpoint.ssl-modes.#{mode}"
   nameKey: "types.remote-endpoint.ssl-modes.#{mode}"
   slug: mode
   value: mode
 
 authSchemes = 'basic wsse'.split(' ').map (scheme) ->
-  name: t "types.remote-endpoint.auth-schemes.#{scheme}"
   nameKey: "types.remote-endpoint.auth-schemes.#{scheme}"
   slug: scheme
   value: scheme
 
 protocols = 'tcpip ssl'.split(' ').map (protocol) ->
-  name: t "types.remote-endpoint.protocols.#{protocol}"
   nameKey: "types.remote-endpoint.protocols.#{protocol}"
   slug: protocol
   value: protocol.toUpperCase()
