@@ -44,7 +44,7 @@ test 'user can create proxy endpoint components', (assert) ->
   click '.ap-app-tertiary-sidebar .ap-list-nav:eq(0) [data-t="actions.new"] a'
   andThen ->
     assert.equal currentURL(), '/apis/1/proxy-endpoints/1/components/new'
-  click '[data-t="types.proxy-endpoint-component.js"] a'
+  click '[data-t="actions.select-add-component-type"] [data-t="types.proxy-endpoint-component.js"] a'
   andThen ->
     assert.equal currentURL(), '/apis/1/proxy-endpoints/1/components/new/js'
   click '[type=submit]'
