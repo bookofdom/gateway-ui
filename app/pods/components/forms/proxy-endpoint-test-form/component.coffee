@@ -40,7 +40,7 @@ ProxyEndpointTestFormComponent = BaseFormComponent.extend
       fields.pushObjects [
         name: 'method'
         required: true
-        type: 'select'
+        type: 'select-name-key'
       ,
         name: 'channel'
         label: 'resources.proxy-endpoint-channel'
@@ -51,7 +51,7 @@ ProxyEndpointTestFormComponent = BaseFormComponent.extend
       fields.pushObjects [
         name: 'method'
         required: true
-        type: 'select'
+        type: 'select-name-key'
       ,
         name: 'route'
         label: 'resources.proxy-endpoint-route'
