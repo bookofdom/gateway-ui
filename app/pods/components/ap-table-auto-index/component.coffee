@@ -24,6 +24,10 @@ ApTableAutoIndexComponent = Ember.Component.extend
   'edit-route': null
   'show-delete': false
 
+  'download-link-t': 'actions.download'     # translation key
+  'download-link-icon': 'the-essentials-018'  # optional icon
+  'download-link-attr': null  # model attribute from which to obtain the URL
+
   # Filter fields
   filterGroups: Ember.computed 'model.[]', ->
     models = @get 'model'

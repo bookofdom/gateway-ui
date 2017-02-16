@@ -98,8 +98,8 @@ test 'user can see update resources after notification', (assert) ->
       apiNewName = 'api123test'
       assert.equal currentURL(), '/apis'
       assert.equal apiCount > 0, true
-      assert.equal find('.ap-table-index tbody tr').length, apiCount
-      assert.equal find('.ap-table-index tbody tr td:eq(0)').text().trim(), apiOriginalName
+      assert.equal find('.ap-table-auto-index tbody tr').length, apiCount
+      assert.equal find('.ap-table-auto-index tbody tr td:eq(0)').text().trim(), apiOriginalName
       server.db.apis.update 1, name: apiNewName
       wsServer.open()
       wsServer.message JSON.stringify
@@ -110,7 +110,7 @@ test 'user can see update resources after notification', (assert) ->
         user: 'developer@software.com'
       assert.equal find('.ember-notify').length, 1
       Ember.run.later (->
-        assert.equal find('.ap-table-index tbody tr td:eq(0)').text().trim(), apiNewName
+        assert.equal find('.ap-table-auto-index tbody tr td:eq(0)').text().trim(), apiNewName
         wsServer.destroy()
         done()
       ), 1000

@@ -1,75 +1,5 @@
-{{!-- begin filter form --}}
-<div class="filter-form clearfix">
-  <span class="filter-label text-muted">{{t 'actions.filter'}}:</span>
+{{partial 'components/ap-table-auto-index/filter-form'}}
 
-  {{#each filterGroups as |fg|}}
-    {{#if fg.isText}}
-      {{input class='filter-input' value=fg.selection placeholder=(t fg.field.label)}}
-    {{/if}}
-
-    {{#unless fg.isText}}
-      <div class="filter-dropdown dropdown">
-        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-          {{t fg.field.label}}{{#if fg.hasSelection}}:
-            {{#if fg.translate}}
-              {{t fg.selection}}
-            {{/if}}
-            {{#unless fg.translate}}
-              {{#if fg.isDatetime}}
-                {{moment-format fg.selection}}
-              {{/if}}
-              {{#unless fg.isDatetime}}
-                {{fg.selection}}
-              {{/unless}}
-            {{/unless}}
-          {{/if}}
-          <span class="caret"></span>
-        </a><!-- /.dropdown-toggle -->
-        <ul class="dropdown-menu">
-          {{#if fg.hasSelection}}
-            <li>
-              <a href="#" {{action 'clearFilter' fg.field}}>
-                {{ap-icon icon='the-essentials-103'}}
-                {{t 'actions.clear'}}
-              </a>
-            </li>
-          {{/if}}
-          {{#if fg.translate}}
-            {{#each fg.values as |value|}}
-              <li>
-                <a href="#" {{action 'selectFilter' fg.field value}}>
-                  {{t value}}
-                </a>
-              </li>
-            {{/each}}
-          {{/if}}
-          {{#unless fg.translate}}
-            {{#if fg.isDatetime}}
-              {{#each fg.values as |value|}}
-                <li>
-                  <a href="#" {{action 'selectFilter' fg.field value}}>
-                    {{moment-format value}}
-                  </a>
-                </li>
-              {{/each}}
-            {{/if}}
-            {{#unless fg.isDatetime}}
-              {{#each fg.values as |value|}}
-                <li>
-                  <a href="#" {{action 'selectFilter' fg.field value}}>
-                    {{value}}
-                  </a>
-                </li>
-              {{/each}}
-            {{/unless}}
-          {{/unless}}
-        </ul><!-- /.dropdown-menu -->
-      </div><!-- /.dropdown -->
-    {{/unless}}
-  {{/each}}
-
-</div><!-- /.filter-form -->
-{{!-- end filter form --}}
 <div class="table-responsive">
   <table class="table table-hover">
     <thead>
@@ -105,6 +35,14 @@
           {{/each}}
           <td>
             {{#ap-list-nav-simple-icon class='pull-right'}}
+              {{#if download-link-attr}}
+                {{ap-list-link
+                  class='ap-list-link-download'
+                  t=download-link-t
+                  icon=download-link-icon
+                  url=(get model download-link-attr)
+                  download=true}}
+              {{/if}}
               {{ap-list-link
                 class='ap-list-link-edit'
                 t='actions.edit'

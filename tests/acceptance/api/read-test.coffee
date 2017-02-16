@@ -29,4 +29,4 @@ test 'user can view APIs', (assert) ->
   andThen ->
     assert.equal currentURL(), '/apis'
     assert.equal count > 0, true
-    assert.equal find('.ap-table-index tbody tr').length, count
+    assert.equal find('.ap-table-auto-index tbody tr').length, count
