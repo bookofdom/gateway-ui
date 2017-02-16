@@ -35,6 +35,14 @@
           {{/each}}
           <td>
             {{#ap-list-nav-simple-icon class='pull-right'}}
+              {{#if custom-link-route}}
+                {{ap-list-link
+                  class='ap-list-link-custom-link'
+                  t=custom-link-t
+                  icon=custom-link-icon
+                  path=custom-link-route
+                  arg1=model}}
+              {{/if}}
               {{#if download-link-attr}}
                 {{ap-list-link
                   class='ap-list-link-download'
