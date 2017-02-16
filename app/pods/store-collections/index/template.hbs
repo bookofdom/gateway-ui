@@ -1,10 +1,10 @@
 {{#ap-page t='resources.store-collection_plural' showNew=true}}
 
-  {{ap-table-index
-      models=model
-      fields='name'
-      path='store-objects'
-      edit-path='store-collection.edit'}}
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='store-objects'
+      edit-route='store-collection.edit'}}
 
   {{#ap-panel-new t='resources.store-collection' closed=(unbound model.length)}}
     {{forms/store-collection-form}}
