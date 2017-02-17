@@ -24,7 +24,7 @@ module 'Acceptance: Timer - Update',
 
 test 'user can navigate to timers edit route', (assert) ->
   visit '/manage/job-schedules'
-  click '.ap-table-model tbody tr:eq(0) [data-t="actions.edit"] a'
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.edit"] a'
   andThen ->
     assert.equal currentURL(), '/manage/job-schedules/1/edit'
 

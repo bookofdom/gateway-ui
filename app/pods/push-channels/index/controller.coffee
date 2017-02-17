@@ -4,8 +4,22 @@ PushChannelsIndexController = Ember.Controller.extend
   'push': Ember.inject.controller()
   'apis': Ember.computed.alias 'push.apis'
 
-  actions:
-    'push-manual-message': (channel) ->
-      @transitionToRoute 'push-manual-messages', channel
+  fields: [
+    name: 'name'
+    label: 'fields.name'
+    type: 'string'
+  ,
+    name: 'expires'
+    label: 'fields.expires'
+    type: 'datetime'
+  ,
+    name: 'api.name'
+    label: 'resources.api'
+    type: 'string'
+  ,
+    name: 'remote_endpoint.name'
+    label: 'resources.remote-endpoint'
+    type: 'string'
+  ]
 
 `export default PushChannelsIndexController`

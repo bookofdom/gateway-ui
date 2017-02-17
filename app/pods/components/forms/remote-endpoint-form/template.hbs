@@ -29,11 +29,12 @@
   {{/if}}
   {{#if model.isPush}}
     {{#ap-panel-edit t='resources.remote-endpoint-push-platform_plural'}}
-      {{ap-table-index
-          models=model.push_platforms
-          fields='platformName:fields.type,name'
-          path='remote-endpoint-push-platform.index'
-          edit-path='remote-endpoint-push-platform.edit'}}
+      {{ap-table-auto-index
+          model=model.push_platforms
+          fields=pushPlatformTableFields
+          route='remote-endpoint-push-platform.index'
+          edit-route='remote-endpoint-push-platform.edit'
+          show-delete=true}}
       {{ap-button-block-new
         t='resources.remote-endpoint-push-platform'
         action='new-remote-endpoint-push-platform'}}
@@ -80,12 +81,12 @@
 
 {{#unless model.isNew}}
   {{#ap-panel-edit t='resources.remote-endpoint-environment-datum_plural'}}
-    {{ap-table-index
-      models=model.environment_data
-      fields='environment:resources.environment:object-name'
-      delete-action='delete-remote-endpoint-environment-datum'
-      path='remote-endpoint-environment-datum.edit'
-      edit-path='remote-endpoint-environment-datum.edit'}}
+    {{ap-table-auto-index
+      model=model.environment_data
+      fields=environmentDataTableFields
+      route='remote-endpoint-environment-datum.edit'
+      edit-route='remote-endpoint-environment-datum.edit'
+      show-delete=true}}
     {{ap-button-block-new
       t='resources.remote-endpoint-environment-datum'
       action='new-remote-endpoint-environment-datum'}}

@@ -1,13 +1,13 @@
 {{#ap-page t='resources.push-channel_plural' help-url=(docs-url) showNew=true}}
 
-  {{ap-table-index
-      models=model
-      fields='name,expires:fields.expires:datetime,api.name,remote_endpoint.name'
-      path='push-channel-devices.index'
-      edit-path='push-channel.edit'
-      custom-primary-action='push-manual-message'
-      custom-primary-icon='beaker'
-      custom-primary-t='actions.push-manual-message'}}
+  {{ap-table-auto-index
+    model=model
+    fields=fields
+    route='push-channel-devices.index'
+    edit-route='push-channel.edit'
+    custom-link-route='push-manual-messages'
+    custom-link-t='actions.push-manual-message'
+    custom-link-icon='beaker'}}
 
   {{#ap-panel-new t='resources.push-channel' closed=(unbound model.length)}}
     {{forms/push-channel-form apis=apis}}

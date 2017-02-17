@@ -1,6 +1,5 @@
 `import Ember from 'ember'`
 `import BsBaseComponent from 'gateway-ui/pods/components/bs-base/component'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 ApModelFieldComponent = BsBaseComponent.extend
   tagName: 'span'
@@ -42,13 +41,14 @@ ApModelFieldComponent = BsBaseComponent.extend
       value
   placeholder: Ember.computed 'show-placeholder', 'label', 'required', ->
     if @get 'show-placeholder'
-      label = t(@get 'label').capitalize()
+      label = "$t(#{@get 'label'})"
       label = "#{label}*" if @get 'required'
       label
   prompt: Ember.computed 'label', 'fieldPrompt',
     get: ->
       prompt = @get 'fieldPrompt'
-      prompt = t('prompts.choose-x', x: @get 'label').capitalize() if !prompt?
+      label = @get 'label'
+      prompt = 'prompts.choose-x' if !prompt?
       prompt
     set: (key, value) ->
       currentValue = @get 'fieldPrompt'

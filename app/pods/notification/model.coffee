@@ -1,6 +1,5 @@
 `import DS from 'ember-data'`
 `import Model from 'gateway-ui/pods/model/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 Notification = DS.Model.extend
   resource: DS.attr 'string'
@@ -25,20 +24,14 @@ Notification = DS.Model.extend
     isLoaded = @get 'resourceIsLoaded'
     if isLoaded
       @store.peekRecord resourceType, resourceId
-  message: Ember.computed 'resourceType', 'action', 'user', ->
+  resourceTitleKey: Ember.computed 'resourceType', ->
     resourceType = @get 'resourceType'
-    resourceRecord = @get 'resourceRecord'
-    resourceTitle = t "resources.#{resourceType}"
-    resourceName = resourceRecord?.get 'name'
+    "$t(resources.#{resourceType})"
+  resourceName: Ember.computed.alias 'resourceRecord.name'
+  messageKey: Ember.computed 'action', 'tag', ->
     action = @get 'action'
     action = 'import' if @get('tag') is 'import'
-    user = @get 'user'
-    message = t "notifications.#{action}",
-      user: user
-      resource: resourceTitle
-    message = message.toLowerCase()
-    message = "#{message}:  \"#{resourceName}\"" if resourceName
-    message
+    "notifications.#{action}"
   isCreated: Ember.computed 'action', -> @get('action') is 'create'
   isUpdated: Ember.computed 'action', -> @get('action') is 'update'
   isDeleted: Ember.computed 'action', -> @get('action') is 'delete'

@@ -28,13 +28,13 @@ test 'user can create on index', (assert) ->
     andThen ->
       afterCreateCount = server.db.customFunctionTests.length
       assert.equal afterCreateCount, beforeCreateCount + 1
-      assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
+      assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
       done()
   server.post '/apis/:apiId/custom_functions/:customFunctionId/tests', makePostChildHandler('custom_function', 'custom_function_test', after, 'test')
   visit '/apis/1/custom-functions/1/tests'
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/apis/1/custom-functions/1/tests'
-    assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New file'
   click '.ap-panel-new [type=submit]'

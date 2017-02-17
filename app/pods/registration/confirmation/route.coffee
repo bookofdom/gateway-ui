@@ -1,5 +1,4 @@
 `import Ember from 'ember'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 RegistrationConfirmationRoute = Ember.Route.extend
   notify: Ember.inject.service()
@@ -19,8 +18,7 @@ RegistrationConfirmationRoute = Ember.Route.extend
       @transitionTo @get('redirectAfterRoute')
 
   notifyConfirmation: ->
-    successMessage = t 'successes.registration-confirmation'
     @transitionTo @get('redirectAfterRoute')
-    @get('notify').info successMessage
+    @get('notify').info 'successes.registration-confirmation'
 
 `export default RegistrationConfirmationRoute`

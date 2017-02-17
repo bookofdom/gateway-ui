@@ -23,7 +23,7 @@ test 'user cannot see a deleted resource after delete notification', (assert) ->
       apiCount = server.db.apis.length
       assert.equal currentURL(), '/apis'
       assert.equal apiCount > 0, true
-      assert.equal find('.ap-table-index tbody tr').length, apiCount
+      assert.equal find('.ap-table-auto-index tbody tr').length, apiCount
       wsServer.open()
       wsServer.message JSON.stringify
         resource: 'api'
@@ -33,7 +33,7 @@ test 'user cannot see a deleted resource after delete notification', (assert) ->
         user: 'developer@software.com'
       assert.equal find('.ember-notify').length, 1
       Ember.run.later (->
-        assert.equal find('.ap-table-index tbody tr').length, apiCount - 1
+        assert.equal find('.ap-table-auto-index tbody tr').length, apiCount - 1
         wsServer.destroy()
         done()
       ), 1000

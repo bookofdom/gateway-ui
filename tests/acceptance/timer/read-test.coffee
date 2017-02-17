@@ -28,4 +28,4 @@ test 'user can view timers', (assert) ->
     count = server.db.timers.length
     assert.equal currentURL(), '/manage/job-schedules'
     assert.equal count > 0, true
-    assert.equal find('.ap-table-model tbody tr').length, count
+    assert.equal find('.ap-table-auto-index tbody tr').length, count

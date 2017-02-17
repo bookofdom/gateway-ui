@@ -1,6 +1,5 @@
 `import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
 `import RemoteEndpointLike from 'gateway-ui/pods/remote-endpoint-like/model'`
-`import t from 'gateway-ui/helpers/i18n'`
 `import config from  'gateway-ui/config/environment'`
 
 BaseRemoteEndpointFormComponent = BaseFormComponent.extend
@@ -21,16 +20,16 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
     auth_scheme: RemoteEndpointLike.authSchemes.filter (scheme) ->
       scheme.slug != 'basic'
     method: [
-      name: t 'http-methods.get'
+      nameKey: 'http-methods.get'
       value: 'GET'
     ,
-      name: t 'http-methods.post'
+      nameKey: 'http-methods.post'
       value: 'POST'
     ,
-      name: t 'http-methods.put'
+      nameKey: 'http-methods.put'
       value: 'PUT'
     ,
-      name: t 'http-methods.delete'
+      nameKey: 'http-methods.delete'
       value: 'DELETE'
     ]
     protocol: RemoteEndpointLike.protocols
@@ -46,7 +45,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         name: 'url'
       ,
         name: 'method'
-        type: 'select'
+        type: 'select-name-key'
       ,
         name: 'skip_ssl_verification'
       ]
@@ -95,6 +94,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ,
         name: 'timeout'
         type: 'integer'
+        help: 'fields.help.timeout'
       ,
         name: 'maxidle'
         type: 'integer'
@@ -153,6 +153,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
       ,
         name: 'timeout'
         type: 'integer'
+        help: 'fields.help.timeout'
       ,
         name: 'transactions'
       ,
@@ -215,6 +216,7 @@ BaseRemoteEndpointFormComponent = BaseFormComponent.extend
         name: 'timeout'
         label: 'fields.execution-timeout'
         type: 'integer'
+        help: 'fields.help.timeout'
       ,
         name: 'filepath'
       ,

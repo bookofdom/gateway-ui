@@ -1,5 +1,4 @@
 `import Ember from 'ember'`
-`import t from 'gateway-ui/helpers/i18n'`
 `import config from 'gateway-ui/config/environment'`
 
 LoginFormComponent = Ember.Component.extend
@@ -12,14 +11,10 @@ LoginFormComponent = Ember.Component.extend
   authenticator: 'authenticator:gateway'
   authenticateAction: 'authenticate'
 
-  labels:
-    email: t 'fields.email'
-    password: t 'fields.password'
-
   authenticationError: null
   'base-error': Ember.computed 'authenticationError', ->
     error = @get 'authenticationError'
-    t('errors.login').capitalize() if error
+    'errors.login' if error
 
   submit: ->
     @send 'authenticate'

@@ -1,10 +1,11 @@
 {{#ap-page t='resources.shared-component-call_plural'}}
 
-  {{ap-table-index
-    models=model
-    fields='remote_endpoint:resources.remote-endpoint:object-name,endpoint_name_override'
-    path='shared-component-call.index'
-    edit-path='shared-component-call.edit'}}
+  {{ap-table-auto-index
+    model=model
+    fields=fields
+    route='shared-component-call.index'
+    edit-route='shared-component-call.edit'
+    show-delete=true}}
 
   {{#if shared-component.multi}}
     {{#ap-panel-new t='resources.shared-component-call' closed=(unbound model.length)}}

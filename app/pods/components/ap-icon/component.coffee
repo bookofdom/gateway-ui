@@ -4,7 +4,7 @@
 ApIconComponent = BsBaseComponent.extend
   tagName: 'span'
   classNames: ['ap-icon']
-  attributeBindings: ['titleText:title']
+  attributeBindings: ['title:title']
   icon: null
   type: 'gateway-icon'
   style: 'primary'
@@ -14,7 +14,5 @@ ApIconComponent = BsBaseComponent.extend
     prefix = type.replace '-icon', ''
     icon = @get 'icon'
     "#{type} #{prefix}-#{icon}" if icon
-  titleText: Ember.computed 'title', ->
-    @get('title')?.capitalize() if typeof @get('title') == 'string'
 
 `export default ApIconComponent`

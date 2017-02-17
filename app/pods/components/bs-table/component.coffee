@@ -1,6 +1,5 @@
 `import Ember from 'ember'`
 `import BsBaseComponent from 'gateway-ui/pods/components/bs-base/component'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 BsTableComponent = BsBaseComponent.extend
   tagName: 'div'
@@ -12,7 +11,6 @@ BsTableComponent = BsBaseComponent.extend
   headings: null
   'headings-text': Ember.computed 'headings', ->
     headings = @get('headings')?.split(',') or []
-    for heading in headings
-      t heading.trim()
+    headings.map (heading) -> heading.trim()
 
 `export default BsTableComponent`

@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
-`import t from 'gateway-ui/helpers/i18n'`
 `import config from 'gateway-ui/config/environment'`
 
 ApTableAutoIndexComponent = Ember.Component.extend
+  confirm: Ember.inject.service()
   notify: Ember.inject.service()
   classNames: ['ap-table-auto-index']
 
@@ -23,6 +23,14 @@ ApTableAutoIndexComponent = Ember.Component.extend
 
   'edit-route': null
   'show-delete': false
+
+  'custom-link-route': null
+  'custom-link-t': null
+  'custom-link-icon': null
+
+  'download-link-attr': null  # model attribute from which to obtain the URL
+  'download-link-t': 'actions.download'
+  'download-link-icon': 'the-essentials-018'
 
   # Filter fields
   filterGroups: Ember.computed 'model.[]', ->
@@ -78,16 +86,15 @@ ApTableAutoIndexComponent = Ember.Component.extend
       model.cancel()
       model.transitionTo 'loaded.saved'
 
-  confirm: (text) ->
+  confirmDelete: (text) ->
     if config.confirmDelete
-      confirm text
+      @get('confirm').open 'prompts.confirm-delete'
     else
       true
 
   actions:
     delete: (model) ->
-      confirmText = t('prompts.confirm-delete').capitalize()
-      if @confirm confirmText
+      if @confirmDelete()
         @delete model
 
     toggleBoolean: (model, fieldName, autoSave) ->

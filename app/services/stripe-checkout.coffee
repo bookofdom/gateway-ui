@@ -9,11 +9,11 @@ StripeCheckoutService = Ember.Service.extend Ember.Evented,
   _stripeCheckout: window.StripeCheckout
   isEnabled: Ember.computed '_stripeCheckout', ->
     @get('_stripeCheckout')?
-  checkout: Ember.computed ->
+  checkout: Ember.computed 'i18n.locale', ->
     @get('_stripeCheckout')?.configure
       key: config.stripe?.publishableKey
       image: 'https://stripe.com/img/documentation/checkout/marketplace.png'
-      locale: @get('i18n.locale')
+      locale: @get 'i18n.locale'
       allowRememberMe: false
       email: @get 'session.session.authenticated.email'
   getToken: (options) ->

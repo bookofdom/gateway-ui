@@ -22,12 +22,12 @@ test 'user can delete APIs from index route', (assert) ->
   andThen ->
     assert.equal currentURL(), '/apis'
     assert.equal server.db.apis.length, 2
-    assert.equal find('.ap-table-index tbody tr').length, 2
-  click '.ap-table-index tbody tr:eq(0) [data-t="actions.delete"] a'
+    assert.equal find('.ap-table-auto-index tbody tr').length, 2
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
     assert.equal currentURL(), '/apis'
     assert.equal server.db.apis.length, 1
-    assert.equal find('.ap-table-index tbody tr').length, 1
+    assert.equal find('.ap-table-auto-index tbody tr').length, 1
 
 test 'user can delete APIs from edit route', (assert) ->
   server.createList 'api', 2
@@ -40,4 +40,4 @@ test 'user can delete APIs from edit route', (assert) ->
   andThen ->
     assert.equal currentURL(), '/apis'
     assert.equal server.db.apis.length, 1
-    assert.equal find('.ap-table-index tbody tr').length, 1
+    assert.equal find('.ap-table-auto-index tbody tr').length, 1

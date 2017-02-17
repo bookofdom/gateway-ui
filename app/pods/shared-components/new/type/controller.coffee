@@ -1,5 +1,4 @@
 `import Ember from 'ember'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 SharedComponentsNewTypeController = Ember.Controller.extend
   'api': Ember.inject.controller()
@@ -11,7 +10,7 @@ SharedComponentsNewTypeController = Ember.Controller.extend
   'transformation-option-groups': Ember.computed 'api.libraries', ->
     body: @get 'api.libraries'
     type: [
-      name: t('languages.javascript').capitalize()
+      name: 'languages.javascript'
       value: 'js'
     ]
   'option-groups': Ember.computed 'api.libraries', ->

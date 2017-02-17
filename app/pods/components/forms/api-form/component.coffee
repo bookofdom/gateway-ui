@@ -31,6 +31,7 @@ ApiFormComponent = BaseFormComponent.extend
       type: 'integer'
     ,
       name: 'enable_swagger'
+      help: 'fields.help.enable_swagger'
   ]
 
 `export default ApiFormComponent`

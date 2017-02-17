@@ -3,7 +3,9 @@
   {{ap-table-auto-index
       model=model
       fields=fields
-      route='custom-function.edit'}}
+      route='custom-function.index'
+      edit-route='custom-function.edit'
+      show-delete=true}}
 
   {{#ap-panel-new t='resources.custom-function' closed=(unbound model.length)}}
     {{forms/custom-function-form indexModel=model savedAction='saved'}}

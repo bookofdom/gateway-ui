@@ -1,10 +1,11 @@
 {{#ap-page t='resources.remote-endpoint-environment-datum_plural'}}
 
-  {{ap-table-index
-      models=model
-      fields='environment:resources.environment:object-name,url,method'
-      path='remote-endpoint-environment-datum.index'
-      edit-path='remote-endpoint-environment-datum.edit'}}
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='remote-endpoint-environment-datum.index'
+      edit-route='remote-endpoint-environment-datum.edit'
+      show-delete=true}}
 
   {{#ap-panel-new t='resources.remote-endpoint-environment-datum' closed=(unbound model.length)}}
     {{forms/remote-endpoint-environment-datum-form indexModel=model environments=environments remoteEndpointType=remoteEndpointType}}

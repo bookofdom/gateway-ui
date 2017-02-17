@@ -67,12 +67,16 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
     notificationService.disableNotifications()
   onNotification: Ember.on 'notification', (notification) ->
     # notify user of change
-    message = notification.get('message')
+    messageKey = notification.get 'messageKey'
+    options =
+      user: notification.get 'user'
+      resource: notification.get 'resourceTitleKey'
+      resourceName: notification.get 'resourceName'
     if notification.get 'isDisplayed'
       if notification.get 'isDeleted'
-        @get('notify').error message
+        @get('notify').error messageKey, options
       else
-        @get('notify').info message
+        @get('notify').info messageKey, options
     # refresh resource
     @refreshResourceForNotification notification
   # Handles reloading of model(s) that received notification.
@@ -146,7 +150,8 @@ ApplicationRoute = Ember.Route.extend ApplicationRouteMixin,
       @transitionTo config['simple-auth'].routeAfterAuthentication
       @get('session').invalidate()
     localeChange: (locale) ->
-      window.location.search = "lng=#{locale}"
+      @set 'i18n.locale', locale
+      @get('moment').setLocale locale
     loading: ->
       @set 'isLoading', true
       true

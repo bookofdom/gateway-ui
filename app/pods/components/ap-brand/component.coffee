@@ -6,14 +6,14 @@ ApBrandComponent = BsBaseComponent.extend
   tagName: 'span'
   classNames: ['ap-brand']
   classNameBindings: ['styleClass', 'brandClass']
-  attributeBindings: ['text:title']
+  attributeBindings: ['name:title']
   brand: 'primary'
   style: 'default'
   styleClass: Ember.computed 'style', ->
     "ap-brand-#{@get 'style'}"
   brandClass: Ember.computed 'brand', ->
     "ap-brand-#{@get 'brand'}"
-  text: Ember.computed 'brand', ->
+  name: Ember.computed 'brand', ->
     brand = @get 'brand'
     brandName [brand]
 

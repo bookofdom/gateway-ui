@@ -1,4 +1,5 @@
 `import Ember from 'ember'`
+`import t from 'gateway-ui/helpers/i18n'`
 
 ace = window.ace
 
@@ -63,7 +64,7 @@ ApAceEditorComponent = Ember.Component.extend
     server = @get 'editor.ternServer'
     EditSession = ace.require('ace/edit_session').EditSession
     libraries?.forEach (library) ->
-      name = library.get 'name'
+      name = t library.get 'name'
       value = library.get 'value'
       doc = new EditSession value, mode
       server.addDoc name, doc

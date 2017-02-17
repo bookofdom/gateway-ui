@@ -1,10 +1,11 @@
 {{#ap-page t='resources.proxy-endpoint-route_plural'}}
 
-  {{ap-table-index
-      models=model
-      fields='path,get_method:http-methods.get,post_method:http-methods.post,put_method:http-methods.put,delete_method:http-methods.delete'
-      path='proxy-endpoint-route.index'
-      edit-path='proxy-endpoint-route.edit'}}
+  {{ap-table-auto-index
+    model=model
+    fields=fields
+    route='proxy-endpoint-route.index'
+    edit-route='proxy-endpoint-route.edit'
+    show-delete=true}}
 
   {{#ap-panel-new t='resources.proxy-endpoint-route' closed=(unbound model.length)}}
     {{forms/proxy-endpoint-route-form indexModel=model}}

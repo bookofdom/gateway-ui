@@ -1,6 +1,5 @@
 `import DS from 'ember-data'`
 `import ApplicationAdapter from 'gateway-ui/pods/application/adapter'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 
 getJsonValidationError = (snapshot) ->
@@ -10,7 +9,7 @@ getJsonValidationError = (snapshot) ->
     null
   catch e
     new DS.InvalidError [
-      detail: t 'errors.invalid-json'
+      detail: 'errors.invalid-json'
       source:
         pointer: '/data/attributes/parameters'
     ]

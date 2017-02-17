@@ -11,7 +11,7 @@
           arg1=model}}
       {{/ap-list-nav-simple-icon}}
     {{/unless}}
-    <span class="node-display-name">{{model.displayName}}</span>
+    <span class="node-display-name">{{t (truncate-text model.displayName limit=27)}}</span>
   </div>
 
   {{#if model.canHaveChildren}}

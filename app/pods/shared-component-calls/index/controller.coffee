@@ -1,5 +1,4 @@
 `import Ember from 'ember'`
-`import t from 'gateway-ui/helpers/i18n'`
 
 SharedComponentCallsController = Ember.Controller.extend
   'shared-component': Ember.inject.controller()
@@ -8,5 +7,15 @@ SharedComponentCallsController = Ember.Controller.extend
   indexModel: Ember.computed.alias 'shared-component-calls.indexModel'
   'option-groups': Ember.computed.alias 'shared-component-calls.option-groups'
   'transformation-option-groups': Ember.computed.alias 'shared-component-calls.transformation-option-groups'
+
+  fields: [
+    name: 'remote_endpoint.name'
+    label: 'resources.remote-endpoint'
+    type: 'string'
+  ,
+    name: 'endpoint_name_override'
+    label: 'fields.endpoint_name_override'
+    type: 'string'
+  ]
 
 `export default SharedComponentCallsController`

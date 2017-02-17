@@ -28,7 +28,7 @@ test 'user can create new timers', (assert) ->
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/manage/job-schedules'
-    assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New timer'
   andThen ->
     fillIn '[name=api]', find("[name=api] option:nth-child(2)").val()
@@ -37,4 +37,4 @@ test 'user can create new timers', (assert) ->
   click '.ap-panel-new [type=submit]'
   andThen ->
     assert.equal server.db.timers.length, beforeCreateCount + 1
-    assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount + 1
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1

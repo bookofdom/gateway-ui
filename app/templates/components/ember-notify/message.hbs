@@ -1,0 +1,13 @@
+{{#if hasBlock}}
+  {{yield message (action 'close')}}
+{{else}}
+  <a {{action 'close'}} class='close'>&times;</a>
+  <span class='message'>
+    {{#if message.resource}}
+      {{t message.text user=message.user resource=message.resource}}{{#if message.resourceName}}: {{message.resourceName}}{{/if}}
+    {{/if}}
+    {{#unless message.resource}}
+      {{t message.text}}
+    {{/unless}}
+  </span>
+{{/if}}
