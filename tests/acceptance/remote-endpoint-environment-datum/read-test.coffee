@@ -28,4 +28,4 @@ test 'user can view remote endpoint environment data', (assert) ->
   andThen ->
     assert.equal currentURL(), '/apis/1/remote-endpoints/1/edit'
     assert.equal count > 0, true
-    assert.equal find('.ap-panel-edit[data-t="resources.remote-endpoint-environment-datum_plural"] .ap-table-model tbody tr').length, count
+    assert.equal find('.ap-panel-edit[data-t="resources.remote-endpoint-environment-datum_plural"] .ap-table-auto-index tbody tr').length, count

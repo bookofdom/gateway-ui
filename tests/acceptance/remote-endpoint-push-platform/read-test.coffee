@@ -26,4 +26,4 @@ test 'user can read remote endpoint push platforms', (assert) ->
     assert.equal currentURL(), "/apis/1/remote-endpoints/#{remoteEndpoint.id}/edit"
     count = remoteEndpoint.attrs.data.push_platforms.length
     assert.equal count > 0, true
-    assert.equal find('div[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-model tbody tr').length, count
+    assert.equal find('div[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-auto-index tbody tr').length, count

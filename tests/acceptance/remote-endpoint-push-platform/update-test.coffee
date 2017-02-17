@@ -24,7 +24,7 @@ test 'user can update remote endpoint push platforms', (assert) ->
   visit "/apis/1/remote-endpoints/#{remoteEndpoint.id}/edit"
   andThen ->
     assert.equal currentURL(), "/apis/1/remote-endpoints/#{remoteEndpoint.id}/edit"
-  click '.ap-panel-edit[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-model tbody tr:eq(0) [data-t="actions.edit"] a'
+  click '.ap-panel-edit[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-auto-index tbody tr:eq(0) [data-t="actions.edit"] a'
   fillIn '[name=name]', 'a new name'
   fillIn '[name=codename]', 'a_new_codename'
   click '[type=submit]'

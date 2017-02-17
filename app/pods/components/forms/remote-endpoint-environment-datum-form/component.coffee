@@ -13,11 +13,26 @@ RemoteEndpointEnvironmentDatumFormComponent = BaseRemoteEndpointFormComponent.ex
       environment: @get('environments').filterBy 'isNew', false
 
   defaultFields: [
-      name: 'environment'
-      label: 'resources.environment'
-      type: 'select-model-name'
-      required: true
-    ]
+    name: 'environment'
+    label: 'resources.environment'
+    type: 'select-model-name'
+    required: true
+  ]
+
+  pushPlatformTableFields: [
+    name: 'platform.nameKey'
+    label: 'fields.type'
+    type: 't'
+  ,
+    name: 'name'
+    label: 'fields.name'
+    type: 'string'
+  ]
+  scratchPadTableFields: [
+    name: 'name'
+    label: 'fields.name'
+    type: 'string'
+  ]
 
   createNewModel: ->
     modelType = @get 'modelType'

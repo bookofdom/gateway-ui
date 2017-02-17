@@ -27,7 +27,7 @@ test 'user can delete remote endpoint environment data from edit route', (assert
   visit '/apis/1/remote-endpoints/1/edit'
   andThen ->
     assert.equal currentURL(), '/apis/1/remote-endpoints/1/edit'
-  click '.ap-panel-edit[data-t="resources.remote-endpoint-environment-datum_plural"] .ap-table-model tbody tr:eq(0) [data-t="actions.delete"] a'
+  click '.ap-panel-edit[data-t="resources.remote-endpoint-environment-datum_plural"] .ap-table-auto-index tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
     # Notice the different attribute name for environment data?  That's because
     # for mock purposes, it's easier to have a dumb property for embedded data.
@@ -36,4 +36,4 @@ test 'user can delete remote endpoint environment data from edit route', (assert
     count = server.schema.remoteEndpoint.all()[0].environment_data.length
     assert.equal currentURL(), '/apis/1/remote-endpoints/1/edit'
     assert.equal count, beforeCount - 1
-    assert.equal find('.ap-panel-edit[data-t="resources.remote-endpoint-environment-datum_plural"] .ap-table-model tbody tr').length, beforeCount - 1
+    assert.equal find('.ap-panel-edit[data-t="resources.remote-endpoint-environment-datum_plural"] .ap-table-auto-index tbody tr').length, beforeCount - 1

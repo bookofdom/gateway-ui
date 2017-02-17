@@ -24,6 +24,22 @@ RemoteEndpointFormComponent = BaseRemoteEndpointFormComponent.extend
     type: 'select-name-key'
   ]
 
+  environmentDataTableFields: [
+    name: 'environment.name'
+    label: 'resources.environment'
+    type: 'string'
+  ]
+
+  pushPlatformTableFields: [
+    name: 'platform.nameKey'
+    label: 'fields.type'
+    type: 't'
+  ,
+    name: 'name'
+    label: 'fields.name'
+    type: 'string'
+  ]
+
   submit: ->
     model = @get 'model'
     if model.get 'isNew'
