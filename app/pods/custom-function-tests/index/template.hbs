@@ -1,10 +1,11 @@
 {{#ap-page t='resources.custom-function-test_plural'}}
 
-  {{ap-table-index
-    models=model
-    fields='name'
-    path='custom-function-test.index'
-    edit-path='custom-function-test.edit'}}
+  {{ap-table-auto-index
+    model=model
+    fields=fields
+    route='custom-function-test.index'
+    edit-route='custom-function-test.edit'
+    show-delete=true}}
 
   {{#ap-panel-new t='resources.custom-function-test' closed=model.length}}
     {{forms/custom-function-test-form indexModel=model}}

@@ -1,10 +1,11 @@
 {{#ap-page t='resources.custom-function-file_plural'}}
 
-  {{ap-table-index
-    models=model
-    fields='name'
-    path='custom-function-file.index'
-    edit-path='custom-function-file.edit'}}
+  {{ap-table-auto-index
+    model=model
+    fields=fields
+    route='custom-function-file.index'
+    edit-route='custom-function-file.edit'
+    show-delete=true}}
 
   {{#ap-panel-new t='resources.custom-function-file' closed=model.length}}
     {{forms/custom-function-file-form indexModel=model}}
