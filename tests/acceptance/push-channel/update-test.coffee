@@ -25,7 +25,7 @@ module 'Acceptance: Push Channel - Update',
 
 test 'user can navigate to push channels edit route', (assert) ->
   visit '/manage/push/channels'
-  click '.ap-table-model tbody tr:eq(0) [data-t="actions.edit"] a'
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.edit"] a'
   andThen ->
     assert.equal currentURL(), '/manage/push/channels/1/edit'
 

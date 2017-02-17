@@ -28,7 +28,7 @@ test 'user can create new push channels', (assert) ->
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/manage/push/channels'
-    assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New push channel'
   fillIn '[name=expires]', '2016-05-31T00:00:00Z'
   andThen ->
@@ -38,4 +38,4 @@ test 'user can create new push channels', (assert) ->
   click '.ap-panel-new [type=submit]'
   andThen ->
     assert.equal server.db.pushChannels.length, beforeCreateCount + 1
-    assert.equal find('.ap-table-model tbody tr').length, beforeCreateCount + 1
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
