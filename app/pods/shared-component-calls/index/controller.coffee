@@ -8,4 +8,14 @@ SharedComponentCallsController = Ember.Controller.extend
   'option-groups': Ember.computed.alias 'shared-component-calls.option-groups'
   'transformation-option-groups': Ember.computed.alias 'shared-component-calls.transformation-option-groups'
 
+  fields: [
+    name: 'remote_endpoint.name'
+    label: 'resources.remote-endpoint'
+    type: 'string'
+  ,
+    name: 'endpoint_name_override'
+    label: 'fields.endpoint_name_override'
+    type: 'string'
+  ]
+
 `export default SharedComponentCallsController`
