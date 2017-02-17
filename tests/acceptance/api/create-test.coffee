@@ -30,7 +30,7 @@ test 'user can create new APIs on index', (assert) ->
         assert.equal currentURL(), '/apis'
         afterCreateCount = server.db.apis.length
         assert.equal afterCreateCount, beforeCreateCount + 1
-        assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount + 1
+        assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount + 1
         done()
       ), 3000
   server.post '/apis', makePostHandler('api', after)
@@ -38,6 +38,6 @@ test 'user can create new APIs on index', (assert) ->
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), '/apis'
-    assert.equal find('.ap-table-index tbody tr').length, beforeCreateCount
+    assert.equal find('.ap-table-auto-index tbody tr').length, beforeCreateCount
   fillIn '[name=name]', 'New API'
   click '.ap-panel-new [type=submit]'

@@ -25,9 +25,9 @@ test 'user can delete remote endpoint push platforms', (assert) ->
   visit "/apis/1/remote-endpoints/#{remoteEndpoint.id}/edit"
   andThen ->
     assert.equal currentURL(), "/apis/1/remote-endpoints/#{remoteEndpoint.id}/edit"
-  click '.ap-panel-edit[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-model tbody tr:eq(0) [data-t="actions.delete"] a'
+  click '.ap-panel-edit[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-auto-index tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
     assert.equal currentURL(), "/apis/1/remote-endpoints/#{remoteEndpoint.id}/edit"
     remoteEndpoint = server.schema.remoteEndpoint.where(type: 'push')[0]
     assert.equal remoteEndpoint.attrs.data.push_platforms.length, beforeDeleteCount - 1
-    assert.equal find('div[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-model tbody tr').length, beforeDeleteCount - 1
+    assert.equal find('div[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-auto-index tbody tr').length, beforeDeleteCount - 1

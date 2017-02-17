@@ -3,7 +3,8 @@
   {{ap-table-auto-index
       model=model
       fields=fields
-      route='job.edit'}}
+      route='job.index'
+      edit-route='job.edit'}}
 
   {{#ap-panel-new t='resources.job' closed=(unbound filtered.length)}}
     {{forms/job-form indexModel=model option-groups=option-groups savedAction='saved'}}

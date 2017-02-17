@@ -1,14 +1,12 @@
 {{#ap-page t='resources.api_plural' help-url=(docs-url 'apis') showNew=true}}
 
-  {{ap-table-index
-      models=model
-      fields='name,base_url,description'
-      path='api.index'
-      edit-path='api.edit'
-      custom-primary-url-attr='exportUrl'
-      custom-primary-download=true
-      custom-primary-icon='the-essentials-018'
-      custom-primary-t='actions.export'}}
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='api.index'
+      edit-route='api.edit'
+      download-link-attr='exportUrl'
+      download-link-t='actions.export'}}
 
   {{#ap-panel-new t='resources.api' closed=(unbound model.length)}}
     {{forms/api-form}}

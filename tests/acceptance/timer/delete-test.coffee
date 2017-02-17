@@ -27,12 +27,12 @@ test 'user can delete timers from index route', (assert) ->
   andThen ->
     assert.equal currentURL(), '/manage/job-schedules'
     assert.equal server.db.timers.length, 3
-    assert.equal find('.ap-table-model tbody tr').length, 3
-  click '.ap-table-model tbody tr:eq(0) [data-t="actions.delete"] a'
+    assert.equal find('.ap-table-auto-index tbody tr').length, 3
+  click '.ap-table-auto-index tbody tr:eq(0) [data-t="actions.delete"] a'
   andThen ->
     assert.equal currentURL(), '/manage/job-schedules'
     assert.equal server.db.timers.length, 2
-    assert.equal find('.ap-table-model tbody tr').length, 2
+    assert.equal find('.ap-table-auto-index tbody tr').length, 2
 
 test 'user can delete timers from edit route', (assert) ->
   visit '/manage/job-schedules/1/edit'
@@ -43,4 +43,4 @@ test 'user can delete timers from edit route', (assert) ->
   andThen ->
     assert.equal currentURL(), '/manage/job-schedules'
     assert.equal server.db.timers.length, 2
-    assert.equal find('.ap-table-model tbody tr').length, 2
+    assert.equal find('.ap-table-auto-index tbody tr').length, 2

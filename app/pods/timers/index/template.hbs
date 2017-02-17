@@ -1,13 +1,13 @@
 {{#ap-page t='resources.timer_plural' help-url=(docs-url) showNew=true}}
 
-  {{ap-table-index
-      models=model
-      fields='name,next:fields.next:datetime,api.name,job.name'
-      path='timer.edit'
-      edit-path='timer.edit'
-      custom-primary-action='logs-timer'
-      custom-primary-icon='document-000'
-      custom-primary-t='actions.logs-timer'}}
+  {{ap-table-auto-index
+      model=model
+      fields=fields
+      route='timer.edit'
+      edit-route='timer.edit'
+      custom-link-route='logs-timer'
+      custom-link-t='actions.logs-timer'
+      custom-link-icon='document-000'}}
 
   {{#ap-panel-new t='resources.timer' closed=(unbound model.length)}}
     {{forms/timer-form apis=apis}}

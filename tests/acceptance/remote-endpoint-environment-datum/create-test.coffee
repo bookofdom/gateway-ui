@@ -32,13 +32,13 @@ test 'user can edit remote endpoint environment data', (assert) ->
       count = server.schema.remoteEndpoint.all()[0].environment_data.length
       assert.equal currentURL(), '/apis/1/remote-endpoints/1/edit'
       assert.equal count, beforeCount + 1
-      assert.equal find('.ap-panel-edit[data-t="resources.remote-endpoint-environment-datum_plural"] .ap-table-model tbody tr').length, beforeCount + 1
+      assert.equal find('.ap-panel-edit[data-t="resources.remote-endpoint-environment-datum_plural"] .ap-table-auto-index tbody tr').length, beforeCount + 1
       done()
   server.put '/apis/:apiId/remote_endpoints/:id', makePutHandler('remote_endpoint', after)
   visit '/apis/1/remote-endpoints/1/edit'
   andThen ->
     assert.equal currentURL(), '/apis/1/remote-endpoints/1/edit'
-    assert.equal find('.ap-panel-edit[data-t="resources.remote-endpoint-environment-datum_plural"] .ap-table-model tbody tr').length, beforeCount
+    assert.equal find('.ap-panel-edit[data-t="resources.remote-endpoint-environment-datum_plural"] .ap-table-auto-index tbody tr').length, beforeCount
   click '.ap-panel-edit[data-t="resources.remote-endpoint-environment-datum_plural"] a[data-t="resources.remote-endpoint-environment-datum"]'
   andThen ->
     assert.equal currentURL(), '/apis/1/remote-endpoints/1/environment-data/new'

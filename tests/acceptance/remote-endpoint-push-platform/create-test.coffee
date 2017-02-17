@@ -26,7 +26,7 @@ test 'user can create remote endpoint push platforms', (assert) ->
   andThen ->
     assert.equal beforeCreateCount > 0, true
     assert.equal currentURL(), "/apis/1/remote-endpoints/#{remoteEndpoint.id}/edit"
-    assert.equal find('div[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-model tbody tr').length, beforeCreateCount
+    assert.equal find('div[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-auto-index tbody tr').length, beforeCreateCount
   click '.ap-panel-edit[data-t="resources.remote-endpoint-push-platform_plural"] a[data-t="resources.remote-endpoint-push-platform"]'
   fillIn '[name=name]', 'mqtt'
   fillIn '[name=codename]', 'mqtt'
@@ -37,4 +37,4 @@ test 'user can create remote endpoint push platforms', (assert) ->
     assert.equal currentURL(), "/apis/1/remote-endpoints/#{remoteEndpoint.id}/edit"
     remoteEndpoint = server.schema.remoteEndpoint.where(type: 'push')[0]
     assert.equal remoteEndpoint.attrs.data.push_platforms.length, beforeCreateCount + 1
-    assert.equal find('div[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-model tbody tr').length, beforeCreateCount + 1
+    assert.equal find('div[data-t="resources.remote-endpoint-push-platform_plural"] .ap-table-auto-index tbody tr').length, beforeCreateCount + 1
