@@ -17,11 +17,15 @@
 <div class="form-actions">
   {{#bs-form-group}}
     {{bs-submit t='actions.login' lg=true}}
-    <br class="visible-xs">
-    {{#if registration_enabled}}
-      {{link-to (t 'actions.sign-up') 'registration' class='btn btn-link'}}
-    {{/if}}
     {{link-to (t 'actions.reset-password') 'password.reset' class='btn btn-link'}}
+    {{#if registration_enabled}}
+      <p class="text-center">
+        {{t 'prompts.no-account'}}
+        <span class="hidden-xs">&nbsp;&nbsp;</span>
+        <br class="visible-xs hidden-sm">
+        {{link-to (t 'actions.sign-up') 'registration'}}
+      </p>
+    {{/if}}
   {{/bs-form-group}}
   {{#if base-error}}
     <p class="text-danger">{{t base-error}}</p>
