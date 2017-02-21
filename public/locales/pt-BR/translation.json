@@ -365,7 +365,8 @@
     "confirm-abandon": "tem certeza que deseja sair sem salvar?",
     "change-language": "troca de idioma",
     "optional-x": "$t({{x}}) (opcional)",
-    "app-version-update": "atualizações disponíveis, recarregar?"
+    "app-version-update": "atualizações disponíveis, recarregar?",
+    "no-account": "sem conta?"
   },
   "states": {
     "active": "ativo",
