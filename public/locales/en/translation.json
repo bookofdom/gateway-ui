@@ -379,7 +379,8 @@
     "confirm-abandon": "are you sure you want to leave this record without saving?",
     "change-language": "change language",
     "optional-x": "$t({{x}}) (optional)",
-    "app-version-update": "updates available, reload?"
+    "app-version-update": "updates available, reload?",
+    "no-account": "no account?"
   },
   "states": {
     "active": "active",
