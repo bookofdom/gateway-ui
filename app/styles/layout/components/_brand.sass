@@ -4,7 +4,9 @@
 
 .ap-brand-default
   width: 200px
-  height: 70px
+  height: $ap-app-header-height
+  @media (max-width: $screen-xs-max)
+    height: $ap-app-header-height-xs
 
 .ap-brand-full
   display: block

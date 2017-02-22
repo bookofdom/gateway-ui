@@ -1,0 +1,24 @@
+{{#unless dev_mode}}
+  {{#if session.session.authenticated.admin}}
+    {{ap-list-link
+      path='admin'
+      t='resources.account'}}
+  {{/if}}
+  {{ap-list-link
+    action='invalidateSession'
+    t='actions.logout'}}
+  <li role="presentation" class="divider"></li>
+{{/unless}}
+<li role="presentation" class="dropdown-header">{{t 'prompts.change-language'}}</li>
+{{ap-list-link
+  action='localeChange'
+  arg1='en'
+  t='languages.english'}}
+{{ap-list-link
+  action='localeChange'
+  arg1='es'
+  t='languages.spanish'}}
+{{ap-list-link
+  action='localeChange'
+  arg1='pt-BR'
+  t='languages.brazilian-portuguese'}}

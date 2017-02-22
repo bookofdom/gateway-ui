@@ -9,6 +9,8 @@
       padding-bottom: 0
       border: 0
       line-height: $ap-app-header-height
+      @media (max-width: $screen-xs-max)
+        line-height: 32px
     .navbar-brand
       font-size: 24px
     .ap-brand-version
@@ -20,13 +22,15 @@
       position: relative
       width: $ap-app-header-height
       height: $ap-app-header-height
+      @media (max-width: $screen-xs-max)
+        height: $ap-app-header-height-xs
     .alert
       padding: 0
       margin: 0 1em 0 0
       border: 0
       line-height: $ap-app-header-height
       @media (max-width: $screen-xs-max)
-        line-height: $ap-app-header-height / 2
+        line-height: $ap-app-header-height-xs
 
 .ap-app-toolbar
   .breadcrumb

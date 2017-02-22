@@ -52,36 +52,18 @@
             url=(support-url)}}
           <li class="separator hidden-xs"></li>
           {{#if session.isAuthenticated}}
-            <li class="dropdown">
+            <li class="dropdown hidden-xs">
               <a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
                 <span class="text-lowercase">{{session.session.authenticated.email}}</span>
                 {{ap-icon icon='arrows-007'}}
               </a><!-- .btn -->
               <ul class="dropdown-menu">
-                {{#unless dev_mode}}
-                  {{#if session.session.authenticated.admin}}
-                    {{ap-list-link
-                      path='admin'
-                      t='resources.account'}}
-                  {{/if}}
-                  {{ap-list-link
-                    action='invalidateSession'
-                    t='actions.logout'}}
-                  <li role="presentation" class="divider"></li>
-                {{/unless}}
-                <li role="presentation" class="dropdown-header">{{t 'prompts.change-language'}}</li>
-                {{ap-list-link
-                  action='localeChange'
-                  arg1='en'
-                  t='languages.english'}}
-                {{ap-list-link
-                  action='localeChange'
-                  arg1='es'
-                  t='languages.spanish'}}
-                {{ap-list-link
-                  action='localeChange'
-                  arg1='pt-BR'
-                  t='languages.brazilian-portuguese'}}
+                {{partial 'application/header/authenticated-nav'}}
+              </ul><!-- .dropdown-menu -->
+            </li><!-- .dropdown -->
+            <li class="dropdown open visible-xs">
+              <ul class="dropdown-menu">
+                {{partial 'application/header/authenticated-nav'}}
               </ul><!-- .dropdown-menu -->
             </li><!-- .dropdown -->
           {{/if}}
