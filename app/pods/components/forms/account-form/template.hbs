@@ -47,7 +47,6 @@
     </div><!-- /.col -->
   {{/if}}
 
-
   <div class="col-sm-5 col-sm-offset-2">
     {{#bs-form-group}}
       {{#if model.errors.base}}
@@ -57,3 +56,14 @@
     {{partial 'components/forms/base-form-actions'}}
   </div><!-- /.col -->
 </div><!-- /.row -->
+
+{{#if enableConfirmDelete}}
+  {{#ember-wormhole to="modal"}}
+    {{#confirm-delete-modal isVisible=confirm-delete}}
+      <p>
+        {{t 'prompts.type-x-confirm-delete' resource='resources.account' x=confirmDeleteTarget}}
+      </p>
+      {{input name='confirmDeleteText' value=confirmDeleteText placeholder=confirmDeleteTarget class='form-control'}}
+    {{/confirm-delete-modal}}
+  {{/ember-wormhole}}
+{{/if}}

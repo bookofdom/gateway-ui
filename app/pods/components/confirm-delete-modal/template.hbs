@@ -1,0 +1,18 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">{{t 'actions.confirm-delete'}}</h4>
+    </div>
+    <div class="modal-body">
+      {{yield}}
+    </div>
+    <div class="modal-footer">
+      <div class="pull-left">&nbsp;</div>
+      <div class="btn-group pull-right">
+        <button disabled={{disabled}} type="submit" type="button" class="btn btn-large btn-danger" {{action "submit"}}>{{t 'actions.confirm'}}</button>
+        <button disabled={{disabled}} type="button" class="btn btn-large btn-default" data-dismiss="modal">{{t 'actions.cancel'}}</button>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

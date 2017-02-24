@@ -23,6 +23,7 @@
     "save": "salvar",
     "cancel": "cancelar",
     "clear": "claro",
+    "confirm": "confirme",
     "new": "novo",
     "new-x": "novo $t({{x}})",
     "edit": "editar",
@@ -43,7 +44,8 @@
     "navigate": "navegar",
     "retry": "repetir",
     "reload": "recarregar",
-    "change-payment": "atualizar detalhes de pagamento"
+    "change-payment": "atualizar detalhes de pagamento",
+    "confirm-delete": "confirmar apagar"
   },
   "nav": {
     "home": "início",
@@ -362,6 +364,7 @@
     "generic": "escolha um",
     "choose-x": "escolha $t({{x}})",
     "confirm-delete": "tem certeza que deseja deletar este registro?",
+    "type-x-confirm-delete": "Tem certeza de que deseja excluir este $t({{resource}})? Todos os dados serão perdidos. Essa ação não pode ser desfeita. Digite <span class=\"text-danger\">$t({{x}})</span> para confirmar esta ação.",
     "confirm-abandon": "tem certeza que deseja sair sem salvar?",
     "change-language": "troca de idioma",
     "optional-x": "$t({{x}}) (opcional)",

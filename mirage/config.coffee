@@ -101,6 +101,8 @@ config = ->
     else
       response = schema.account.all()[0].update payload
     response
+  @delete '/account', ->
+    new Response 200
 
   @get '/keys'
   @post '/keys', makePostHandler 'key'

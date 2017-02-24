@@ -23,6 +23,7 @@
     "save": "save",
     "cancel": "cancel",
     "clear": "clear",
+    "confirm": "confirm",
     "new": "new",
     "new-x": "new $t({{x}})",
     "edit": "edit",
@@ -43,7 +44,8 @@
     "navigate": "navigate",
     "retry": "retry",
     "reload": "reload",
-    "change-payment": "update payment details"
+    "change-payment": "update payment details",
+    "confirm-delete": "confirm delete"
   },
   "nav": {
     "home": "home",
@@ -376,6 +378,7 @@
     "generic": "choose one",
     "choose-x": "choose $t({{x}})",
     "confirm-delete": "are you sure you want to delete this record?",
+    "type-x-confirm-delete": "Are you sure you want to delete this $t({{resource}})?  All data will be lost.  This action cannot be undone.  Type <span class=\"text-danger\">$t({{x}})</span> to confirm this action.",
     "confirm-abandon": "are you sure you want to leave this record without saving?",
     "change-language": "change language",
     "optional-x": "$t({{x}}) (optional)",

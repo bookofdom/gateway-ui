@@ -1,0 +1,19 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button disabled={{disabled}} type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4 class="modal-title">{{title}}</h4>
+    </div>
+    <div class="modal-body">
+      {{yield}}
+    </div>
+    <div class="modal-footer">
+      <div class="pull-left">&nbsp;</div>
+      <div class="btn-group pull-right">
+        <button disabled={{disabled}} type="submit" type="button" class="btn btn-large btn-primary" {{action "submit"}}>Save</button>
+        <button disabled={{disabled}} type="button" class="btn btn-large btn-default" data-dismiss="modal">Close</button>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

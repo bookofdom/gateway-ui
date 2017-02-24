@@ -2,6 +2,7 @@
 `import BaseFormComponent from 'gateway-ui/pods/components/forms/base-form/component'`
 `import Registration from 'gateway-ui/pods/registration/model'`
 `import { brandName } from 'gateway-ui/helpers/brand-name'`
+`import config from 'gateway-ui/config/environment'`
 `import t from 'gateway-ui/helpers/i18n'`
 
 AccountFormComponent = BaseFormComponent.extend
@@ -13,7 +14,14 @@ AccountFormComponent = BaseFormComponent.extend
 
   horizontal: false
   savedAction: null
-  'show-delete': false
+  'show-delete': Ember.computed.not 'confirm-delete'
+  'confirm-delete': false
+
+  enableConfirmDelete: config.confirmDelete
+  confirmDeleteText: ''
+  confirmDeleteTarget: Ember.computed 'model.name', ->
+    @get('model.name')?.trim().toUpperCase() or 'DELETE'
+  deleteConfirmedAction: 'invalidateSession'
 
   isNonZeroPlanAmount: Ember.computed.and 'subscription.enabled', 'model.plan.isBillable'
 
@@ -63,6 +71,10 @@ AccountFormComponent = BaseFormComponent.extend
         @save()
     false
 
+  reallyDelete: ->
+    @delete().then =>
+      @sendAction 'deleteConfirmedAction'
+
   actions:
     changePayment: ->
       model = @get 'model'
@@ -75,5 +87,24 @@ AccountFormComponent = BaseFormComponent.extend
       checkout.then (token) =>
         model.set 'stripe_token', token.id if token
         @save()
+
+    delete: ->
+      if @get 'enableConfirmDelete'
+        @set 'confirm-delete', true
+      else
+        @reallyDelete()
+
+    # modal actions
+    doSave: (d, meta) ->
+      if @get('confirmDeleteText') == @get('confirmDeleteTarget')
+        d.resolve()
+        @reallyDelete()
+      else
+        d.reject()
+    doClose: (d) ->
+      d.resolve()
+    doAfterClose: ->
+      @set 'confirm-delete', false
+      @set 'confirmDeleteText', ''
 
 `export default AccountFormComponent`

@@ -76,6 +76,7 @@
     "ember-truncate-text": "0.0.1",
     "ember-truth-helpers": "1.2.0",
     "ember-websockets": "^1.2.3",
+    "ember-wormhole": "0.5.1",
     "emberx-select": "^2.2.2",
     "express": "^4.13.4",
     "ghooks": "^2.0.0",
