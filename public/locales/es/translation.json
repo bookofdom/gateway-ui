@@ -257,6 +257,7 @@
     "session_encryption_key_rotate": "clave de encriptación rotativa",
     "codename": "nombre clave",
     "hostname": "nombre de host",
+    "force_ssl": "Forzar SSL",
     "value": "valor",
     "server": "servidor",
     "port": "puerto",
@@ -332,6 +333,8 @@
     "arguments": "argumentos",
     "registry": "registro",
     "key": "archivo de claves",
+    "private_key": "archivo de clave privada",
+    "cert": "Certificado",
     "next": "siguiente",
     "once": "una vez",
     "time_zone": "fuso horário",
@@ -347,7 +350,9 @@
       "memory": "Número de MB.",
       "content-type": "Buscando algo más? Especifique un Content-type personalizado en las cabeceras de petición.",
       "enable_swagger": "Habilitar Swagger para buscar documentación de la API y publicar `swagger.json`.",
-      "key": "PEM, PFX o P12"
+      "key": "PEM, PFX o P12",
+      "private_key": "PEM",
+      "cert": "PEM"
     },
     "api": {
       "name": "nombre del API"

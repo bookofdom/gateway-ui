@@ -266,6 +266,7 @@
     "session_encryption_key_rotate": "session encryption key rotate",
     "codename": "codename",
     "hostname": "hostname",
+    "force_ssl": "Force SSL",
     "value": "value",
     "server": "server",
     "port": "port",
@@ -345,6 +346,8 @@
     "command": "command",
     "registry": "registry",
     "key": "key file",
+    "private_key": "private key",
+    "cert": "certificate",
     "next": "next",
     "once": "once",
     "time_zone": "time zone",
@@ -360,7 +363,9 @@
       "memory": "Number of MB.",
       "content-type": "Looking for something else? Specify a custom Content-Type in the request headers.",
       "enable_swagger": "Enable Swagger to browse API documentation and publish `swagger.json`.",
-      "key": "PEM, P12 or PFX"
+      "key": "PEM, P12 or PFX",
+      "private_key": "PEM",
+      "cert": "PEM"
     },
     "api": {
       "name": "API name"

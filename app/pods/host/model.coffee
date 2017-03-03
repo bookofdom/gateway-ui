@@ -4,6 +4,9 @@
 Host = Model.extend
   name: DS.attr 'string'
   hostname: DS.attr 'string'
+  private_key: DS.attr 'string'
+  cert: DS.attr 'string'
+  force_ssl: DS.attr 'boolean'
 
   # Computed
   swaggerViewerUrl: Ember.computed 'hostname', ->

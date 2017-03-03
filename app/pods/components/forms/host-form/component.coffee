@@ -13,6 +13,16 @@ HostFormComponent = BaseFormComponent.extend
     ,
       name: 'hostname'
       required: true
+    ,
+      name: 'force_ssl'
+    ,
+      name: 'private_key'
+      type: 'file'
+      help: 'fields.help.private_key'
+    ,
+      name: 'cert'
+      type: 'file'
+      help: 'fields.help.cert'
     ]
 
   submit: ->
