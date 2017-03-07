@@ -26,7 +26,7 @@ ApAceEditorComponent = Ember.Component.extend
           fullDocs: true
     enableSnippets: true
     enableBasicAutocompletion: true
-    enableLiveAutocompletion: true
+    #enableLiveAutocompletion: true
     readOnly: @get 'readOnly'
   sizeClass: Ember.computed 'size', ->
     size = @get 'size'
@@ -38,7 +38,7 @@ ApAceEditorComponent = Ember.Component.extend
   didInsertElement: ->
     Ember.run =>
       @initializeEditor()
-      #@initializeTern()
+      @initializeTern()
   initializeEditor: ->
     options = @get 'options'
     el = @$('.form-control').get 0
