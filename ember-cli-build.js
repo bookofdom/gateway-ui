@@ -93,7 +93,7 @@ module.exports = function(defaults) {
   app.import('bower_components/ace-builds/src-noconflict/ace.js');
   // Standard ACE libraries
   app.import('bower_components/ace-builds/src-noconflict/ext-language_tools.js');
-  //app.import('vendor/ace-tern/ace-builds/src-noconflict/ext-tern.js');
+  app.import('vendor/ext-tern.js');
   app.import('bower_components/ace-builds/src-noconflict/mode-csharp.js');
   app.import('bower_components/ace-builds/src-noconflict/mode-dockerfile.js');
   app.import('bower_components/ace-builds/src-noconflict/mode-java.js');
@@ -151,15 +151,13 @@ module.exports = function(defaults) {
     destDir: '/'
   });
 
-  /*
-  var aceTernAssets = new Funnel('bower_components/ace-tern/ace-builds/src-noconflict', {
+  var aceTernAssets = new Funnel('vendor', {
     srcDir: '/',
     include: [
       'worker-tern.js'
     ],
     destDir: '/'
   });
-  */
 
-  return mergeTrees([app.toTree(), gatewayIcons, swaggerAssets, aceAssets/*, aceTernAssets*/]);
+  return mergeTrees([app.toTree(), gatewayIcons, swaggerAssets, aceAssets, aceTernAssets]);
 };
