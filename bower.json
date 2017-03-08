@@ -1,7 +1,6 @@
 {
   "name": "gateway-ui",
   "dependencies": {
-    "ace-tern": "git+https://github.com/sevin7676/Ace.Tern.git#79449d82bea111b964ba4ebaeb6c126c076981f9",
     "bootstrap-sass": "bootstrap-sass-official#~3.3.5",
     "ember": "~2.10.0",
     "ember-cli-shims": "0.1.3",

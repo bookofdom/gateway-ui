@@ -1,7 +1,6 @@
 `import Ember from 'ember'`
 `import t from 'gateway-ui/helpers/i18n'`
 
-ace = window.ace
 
 ApAceEditorComponent = Ember.Component.extend
   classNames: ['ap-ace-editor']
@@ -26,7 +25,7 @@ ApAceEditorComponent = Ember.Component.extend
           fullDocs: true
     enableSnippets: true
     enableBasicAutocompletion: true
-    enableLiveAutocompletion: true
+    #enableLiveAutocompletion: true
     readOnly: @get 'readOnly'
   sizeClass: Ember.computed 'size', ->
     size = @get 'size'
@@ -38,11 +37,10 @@ ApAceEditorComponent = Ember.Component.extend
   didInsertElement: ->
     Ember.run =>
       @initializeEditor()
-      #@initializeTern()
+      @initializeTern()
   initializeEditor: ->
     options = @get 'options'
-    el = @$('.form-control').get 0
-    editor = ace.edit el
+    editor = window.ace.edit @$('.form-control').get(0)
     @$().get(0).aceEditor = editor
     editor.getSession().setMode @get('aceMode')
     editor.setTheme @get('aceTheme')
@@ -50,25 +48,26 @@ ApAceEditorComponent = Ember.Component.extend
     editor.setOptions options
     editor.$blockScrolling = Infinity # prevents ace from logging warnings
     editor.on 'change', =>
-      value = editor.getSession().getValue()
+      value = @get('editor')?.getSession().getValue()
       @trigger 'editorChange', value
     @set 'editor', editor
+    editor = null
   initializeTern: ->
     @restartTern()
     @addTernLibraries()
   restartTern: ->
-    server = @get 'editor.ternServer'
-    server.restart()
+    @get('editor.ternServer').restart()
   addTernLibraries: ->
     mode = @get 'aceMode'
     libraries = @get 'libraries'
-    server = @get 'editor.ternServer'
-    EditSession = ace.require('ace/edit_session').EditSession
-    libraries?.forEach (library) ->
+    libraries?.forEach (library) =>
       name = t library.get 'name'
       value = library.get 'value'
+      EditSession = window.ace.require('ace/edit_session').EditSession
       doc = new EditSession value, mode
-      server.addDoc name, doc
+      @get('editor.ternServer').addDoc name, doc
+      EditSession = null
+      doc = null
   onEditorChange: Ember.on 'editorChange', (value) ->
     @set 'value', value
   onValueChange: Ember.observer 'value', ->
@@ -77,16 +76,30 @@ ApAceEditorComponent = Ember.Component.extend
     editorValue = editor.getSession().getValue()
     if editorValue != value
       editor.getSession().setValue value
+    editor = null
+  # TODO this is just awful.  tern doesn't clean up after itself
   willDestroy: ->
-    @get('editor').destroy()
+    editor = @get 'editor'
+    @$()?.get(0)?.aceEditor = null
+    editor.destroy()
+    editor.container = null
+    editor.session = null
+    editor.ternServer.server.terminate()
+    editor.ternServer.server = null
+    for name, doc of editor.ternServer.docs
+      doc.doc.destroy()
+    editor.ternServer.docs = null
+    editor.ternServer = null
+    editor = null
+    @set 'editor', null
     @_super arguments...
   actions:
     fullscreen: ->
       editor = @get 'editor'
-      el = editor.container
-      el.requestFullscreen?()
-      el.msRequestFullscreen?()
-      el.mozRequestFullScreen?()
-      el.webkitRequestFullscreen?()
+      editor.container.requestFullscreen?()
+      editor.container.msRequestFullscreen?()
+      editor.container.mozRequestFullScreen?()
+      editor.container.webkitRequestFullscreen?()
+      editor = null
 
 `export default ApAceEditorComponent`
