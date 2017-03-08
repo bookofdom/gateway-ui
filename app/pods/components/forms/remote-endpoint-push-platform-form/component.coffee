@@ -23,7 +23,9 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
     ]
 
   platformFields:
-    osx: [
+    osx_certificate: [
+      name: 'token_authentication'
+    ,
       name: 'certificate'
       type: 'file'
       required: true
@@ -32,16 +34,55 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
       type: 'password'
     ,
       name: 'topic'
+      required: true
     ,
       name: 'development'
     ]
-    ios: [
+    ios_certificate: [
+      name: 'token_authentication'
+    ,
       name: 'certificate'
       type: 'file'
       required: true
     ,
       name: 'password'
       type: 'password'
+    ,
+      name: 'topic'
+      required: true
+    ,
+      name: 'development'
+    ]
+    osx_token: [
+      name: 'token_authentication'
+    ,
+      name: 'authentication_key'
+      type: 'file'
+      required: true
+    ,
+      name: 'key_id'
+      required: true
+    ,
+      name: 'team_id'
+      required: true
+    ,
+      name: 'topic'
+      required: true
+    ,
+      name: 'development'
+    ]
+    ios_token: [
+      name: 'token_authentication'
+    ,
+      name: 'authentication_key'
+      type: 'file'
+      required: true
+    ,
+      name: 'key_id'
+      required: true
+    ,
+      name: 'team_id'
+      required: true
     ,
       name: 'topic'
       required: true
@@ -97,10 +138,14 @@ RemoteEndpointPushPlatformFormComponent = BaseFormComponent.extend
   isMQTT: Ember.computed 'model.type', ->
     @get('model.type') == 'mqtt'
 
-  fields: Ember.computed 'model.type', ->
+  fields: Ember.computed 'model.type', 'model.token_authentication', ->
     fields = @_super arguments...
     type = @get 'model.type'
-    platformFields = @get "platformFields.#{type}"
+    sub = ''
+    if type in ['osx', 'ios']
+      token = @get 'model.token_authentication'
+      sub = if token then '_token' else '_certificate'
+    platformFields = @get "platformFields.#{type}#{sub}"
     fields = Ember.copy(fields).pushObjects platformFields if platformFields
     fields
 

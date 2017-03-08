@@ -13,6 +13,10 @@ RemoteEndpointPushPlatform = Model.extend
   connect_timeout: DS.attr 'number', defaultValue: 2
   ack_timeout: DS.attr 'number', defaultValue: 20
   timeout_retries: DS.attr 'number', defaultValue: 3
+  token_authentication: DS.attr 'boolean', defaultValue: false
+  authentication_key: DS.attr 'string'
+  key_id: DS.attr 'string'
+  team_id: DS.attr 'string'
 
   # Relationships
   remote_endpoint: DS.belongsTo 'remote-endpoint', async: false

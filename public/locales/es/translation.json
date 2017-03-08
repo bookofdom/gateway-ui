@@ -196,6 +196,10 @@
     "key_plural": "certificados y claves"
   },
   "fields": {
+    "token_authentication": "autenticación de token",
+    "authentication_key": "clave de autenticación",
+    "key_id": "id clave",
+    "team_id": "identificación del equipo",
     "status_code": "código",
     "memory": "memoria",
     "cpu_shares": "acciones de la CPU",

@@ -203,6 +203,10 @@
     "repl": "REPL"
   },
   "fields": {
+    "token_authentication": "token authentication",
+    "authentication_key": "authentication key",
+    "key_id": "key id",
+    "team_id": "team id",
     "status_code": "code",
     "memory": "memory",
     "cpu_shares": "CPU shares",
